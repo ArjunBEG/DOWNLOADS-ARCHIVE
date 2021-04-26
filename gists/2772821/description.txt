@@ -1,0 +1,1 @@
+Amazon S3 Bucket Policy : Restrict Access to Specific Referer

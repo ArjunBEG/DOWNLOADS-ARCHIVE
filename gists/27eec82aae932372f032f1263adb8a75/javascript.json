@@ -1,0 +1,9 @@
+{
+  "JS Comments Regex": {
+			"prefix": "regex",
+			"body": [
+					"/(\\/\\*[\\w\\'\\s\\r\\n\\*]*\\*\\/)|(\\/\\/[\\w\\s\\']*)|(\\<![\\-\\-\\s\\w\\>\\/]*\\>)/.test(${0:string})"
+			],
+			"description": "regex that matches all js comments"
+		}
+}

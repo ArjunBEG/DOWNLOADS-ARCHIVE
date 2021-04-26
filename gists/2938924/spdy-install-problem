@@ -1,0 +1,45 @@
+ryan@ryan-ThinkPad-X201:~/src/example% node -v
+v0.7.12-pre
+ryan@ryan-ThinkPad-X201:~/src/example% npm -v
+1.1.26
+ryan@ryan-ThinkPad-X201:~/src/example% pwd         
+/home/ryan/src/example
+ryan@ryan-ThinkPad-X201:~/src/example% npm install spdy
+spdy@1.2.0 node_modules/spdy
+ryan@ryan-ThinkPad-X201:~/src/example% ls
+node_modules
+ryan@ryan-ThinkPad-X201:~/src/example% cd node_modules/spdy/examples/twitlog 
+ryan@ryan-ThinkPad-X201:.../spdy/examples/twitlog% ls
+app.js  autorestart.js  keys  package.json  public  realtime  routes  views
+ryan@ryan-ThinkPad-X201:.../spdy/examples/twitlog% npm install
+npm ERR! Error: No compatible version found: express@'>=2.5.0- <2.6.0-'
+npm ERR! Valid install targets:
+npm ERR! ["0.14.0","0.14.1","1.0.0beta","1.0.0beta2","1.0.0rc","1.0.0rc2","1.0.0rc3","1.0.0rc4","1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7","3.0.0alpha3","3.0.0alpha4","3.0.0alpha5","3.0.0beta1","3.0.0beta2","3.0.0beta3"]
+npm ERR!     at installTargetsError (/home/ryan/local/node/lib/node_modules/npm/lib/cache.js:506:10)
+npm ERR!     at next_ (/home/ryan/local/node/lib/node_modules/npm/lib/cache.js:452:17)
+npm ERR!     at next (/home/ryan/local/node/lib/node_modules/npm/lib/cache.js:427:44)
+npm ERR!     at /home/ryan/local/node/lib/node_modules/npm/lib/cache.js:419:5
+npm ERR!     at saved (/home/ryan/local/node/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:136:7)
+npm ERR!     at /home/ryan/local/node/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:230:7
+npm ERR!     at Object.oncomplete (fs.js:297:15)
+npm ERR!  [Error: No compatible version found: express@'>=2.5.0- <2.6.0-'
+npm ERR! Valid install targets:
+npm ERR! ["0.14.0","0.14.1","1.0.0beta","1.0.0beta2","1.0.0rc","1.0.0rc2","1.0.0rc3","1.0.0rc4","1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7","3.0.0alpha3","3.0.0alpha4","3.0.0alpha5","3.0.0beta1","3.0.0beta2","3.0.0beta3"]]
+npm ERR! You may report this log at:
+npm ERR!     <http://github.com/isaacs/npm/issues>
+npm ERR! or email it to:
+npm ERR!     <npm-@googlegroups.com>
+
+npm ERR! System Linux 3.2.0-24-generic
+npm ERR! command "/home/ryan/local/node/bin/node" "/home/ryan/local/node/bin/npm" "install"
+npm ERR! cwd /home/ryan/src/example/node_modules/spdy/examples/twitlog
+npm ERR! node -v v0.7.12-pre
+npm ERR! npm -v 1.1.26
+npm ERR! message No compatible version found: express@'>=2.5.0- <2.6.0-'
+npm ERR! message Valid install targets:
+npm ERR! message ["0.14.0","0.14.1","1.0.0beta","1.0.0beta2","1.0.0rc","1.0.0rc2","1.0.0rc3","1.0.0rc4","1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7","3.0.0alpha3","3.0.0alpha4","3.0.0alpha5","3.0.0beta1","3.0.0beta2","3.0.0beta3"]
+npm ERR! 
+npm ERR! Additional logging details can be found in:
+npm ERR!     /home/ryan/src/example/node_modules/spdy/examples/twitlog/npm-debug.log
+npm ERR! not ok code 0
+-1- ryan@ryan-ThinkPad-X201:.../spdy/examples/twitlog%

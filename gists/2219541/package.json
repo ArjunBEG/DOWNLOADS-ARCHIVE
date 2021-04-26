@@ -1,0 +1,13 @@
+{
+  "name": "theNameOfYourLibWhichMustBeAValidCamelCasedJavaScriptIdentifier",
+
+  "description": "This should be a short description of your entry.",
+
+  "keywords": [
+    "five",
+    "descriptive",
+    "keywords",
+    "or",
+    "fewer"
+  ]
+}

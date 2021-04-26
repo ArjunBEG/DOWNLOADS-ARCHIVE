@@ -1,0 +1,1 @@
+Working phantomjs-jsb.js for use with ExtJS4 & (experimentally) Sencha Touch 2

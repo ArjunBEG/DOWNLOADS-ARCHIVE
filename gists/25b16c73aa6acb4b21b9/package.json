@@ -1,0 +1,7 @@
+{
+  "name": "requirebin-sketch",
+  "version": "1.0.0",
+  "dependencies": {
+    "cheatcode": "1.4.0"
+  }
+}

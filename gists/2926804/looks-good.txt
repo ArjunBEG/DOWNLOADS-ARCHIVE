@@ -1,0 +1,14 @@
+## master with v8 3.11.10
+
+% ab -t 30 -c 100 http://localhost:8000/bytes/123 | grep Req
+Requests per second:    7394.90 [#/sec] (mean)
+Requests per second:    7446.95 [#/sec] (mean)
+Requests per second:    7570.16 [#/sec] (mean)
+
+
+## Node v0.6.18
+
+% ab -t 30 -c 100 http://localhost:8000/bytes/123 | grep Req
+Requests per second:    7497.54 [#/sec] (mean)
+Requests per second:    7328.90 [#/sec] (mean)
+Requests per second:    7488.99 [#/sec] (mean)

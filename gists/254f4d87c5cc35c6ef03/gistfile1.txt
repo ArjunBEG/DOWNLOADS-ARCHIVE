@@ -1,0 +1,44 @@
+class MyValueObject
+{
+	
+	/**
+     * @Assert\Length(min = 3)
+     * @Assert\NotBlank
+     */
+	private $propertyOne;
+	
+	
+	/**
+     * @Assert\Length(min = 5)
+     * @Assert\NotBlank
+     */
+	private $propertyTwo;
+	
+	
+	private function __construct(array $params)
+	{
+		foreach($params as $key => $value)
+		{
+			if (property_exists($this, $key))
+			{
+				$this->$key = $value;
+			}
+		}
+	}
+
+
+	public static function create(array $params)
+	{
+		$object = new self(array $params);
+		
+		$validator = Validation::createValidatorBuilder()
+			           ->enableAnnotationMapping()
+			           ->getValidator();
+		
+		if ($validator->validate($object))
+			throw new \InvalidArgumentException();
+		
+		return $object;
+	}
+
+}

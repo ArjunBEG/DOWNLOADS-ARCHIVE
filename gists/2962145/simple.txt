@@ -1,0 +1,35 @@
+# ab -t 30 -c 100 http://localhost:8000/bytes/123 | grep Req
+
+## v0.7.12-9-gc10e412
+
+Requests per second:    7404.23 [#/sec] (mean)
+Requests per second:    7419.61 [#/sec] (mean)
+Requests per second:    7421.72 [#/sec] (mean)
+
+
+## v0.6.19-7-gdd1c3d7
+
+Requests per second:    7538.35 [#/sec] (mean)
+Requests per second:    7627.76 [#/sec] (mean)
+Requests per second:    7538.97 [#/sec] (mean)
+
+
+-------
+
+
+# ab -t 30 -c 100 http://localhost:8000/bytes/12345 | grep Req
+
+
+## v0.7.12-9-gc10e412
+
+Requests per second:    4607.07 [#/sec] (mean)
+Requests per second:    4534.29 [#/sec] (mean)
+Requests per second:    4586.20 [#/sec] (mean)
+
+## v0.6.19-7-gdd1c3d7
+
+Requests per second:    2951.16 [#/sec] (mean)
+Requests per second:    2998.20 [#/sec] (mean)
+Requests per second:    2960.05 [#/sec] (mean)
+
+

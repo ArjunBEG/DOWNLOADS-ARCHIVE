@@ -1,0 +1,91 @@
+XTerm*utf8:              1
+XTerm*faceName:          DejaVu Sans Mono
+XTerm*faceSize:          13
+XTerm*background:        #000000
+XTerm*foreground:        #aaaaaa
+XTerm*metaSendsEscape:   true
+XTerm*colorBD:           #ffffff
+XTerm*colorBDMode:       true
+XTerm*cursorBlink:       false
+XTerm*cursorColor:       #bbbbcc
+XTerm*veryBoldColors:    14
+
+
+
+!black
+XTerm*color0:  #222222
+XTerm*color8:  #554444
+
+!red
+XTerm*color1:  #cc8866
+XTerm*color9:  #ee7755
+
+!green
+XTerm*color2:  #99aa22
+XTerm*color10: #aacc44
+
+!yellow
+XTerm*color3:  #aa9955
+XTerm*color11: #ccbb77
+
+!blue
+XTerm*color4:  #aa88ee
+XTerm*color12: #bb99ff
+
+!magenta
+XTerm*color5:  #bb8833
+XTerm*color13: #cc9933
+
+!cyan
+XTerm*color6:  #7777aa
+XTerm*color14: #9999aa
+
+!white
+XTerm*color7:  #ddccbb
+XTerm*color15: #ffeecc
+
+URxvt*background:        #000000
+URxvt*foreground:        #aaaaaa
+URxvt*metaSendsEscape:   true
+URxvt*colorBD:           #ffffff
+URxvt*colorBDMode:       true
+URxvt*cursorBlink:       false
+URxvt*cursorColor:       #bbbbcc
+URxvt*veryBoldColors:    14
+URxvt*scrollBar:         false
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=18
+!URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=16
+!URxvt*italicFont: xft:DejaVu Sans Mono:pixelsize=16
+
+
+!black
+URxvt*color0:  #222222
+URxvt*color8:  #554444
+
+!red
+URxvt*color1:  #cc8866
+URxvt*color9:  #ee7755
+
+!green
+URxvt*color2:  #99aa22
+URxvt*color10: #aacc44
+
+!yellow
+URxvt*color3:  #aa9955
+URxvt*color11: #ccbb77
+
+!blue
+URxvt*color4:  #aa88ee
+URxvt*color12: #bb99ff
+
+!magenta
+URxvt*color5:  #bb8833
+URxvt*color13: #cc9933
+
+!cyan
+URxvt*color6:  #7777aa
+URxvt*color14: #9999aa
+
+!white
+URxvt*color7:  #ddccbb
+URxvt*color15: #ffeecc

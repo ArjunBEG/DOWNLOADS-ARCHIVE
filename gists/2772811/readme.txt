@@ -1,0 +1,3 @@
+This statement grants permissions to any user to perform any S3 action on objects in the specified bucket. However, the request must originate from the range of IP addresses specified in the condition. The condition in this statement identifies 192.168.143.* range of allowed IP addresses with one exception, 192.168.143.188.
+
+Note that the IPAddress and NotIpAddress values specified in the condition uses CIDR notation described in RFC 2632. For more information, go to http://www.rfc-editor.org/rfc/rfc4632.txt.

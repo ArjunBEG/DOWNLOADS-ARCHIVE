@@ -1,0 +1,30 @@
+% strace -f opa hello.opa -- >& opa.strace &
+[1] 18421
+% curl localhost:8080                       
+curl: (7) couldn't connect to host
+% curl localhost:8080
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<title>Hello, world</title><script type="text/javascript">var page_server = 4442334146068480; var page_lang = "en";</script></head><body id="Body"><h1>Hello, world</h1><div style="position:absolute;text-align:center;left:0px;top:0px;width:100%;
+  background:#EEEEEE;text-color:black;border:ridge 2pt">
+<div id="EA">
+The browser you use is not supported by this application, probably
+because it lacks some critical features.
+</div>
+<div id="EB">For a better experience, please consider using this application with a <a style="text-decoration:none;color:green" href="http://opalang.org/supported_browsers.xmlt">supported
+browser</a>.
+</div>
+</div>
+<script type="text/javascript">//<![CDATA[
+
+$('#EA')
+.css({  'margin-top': '2.0pt', 'margin-bottom': '2.0pt', 'margin-left': '2.0pt', 'margin-right': '2.0pt'})
+
+$('#EB')
+.css({  'margin-top': '2.0pt', 'margin-bottom': '2.0pt', 'margin-left': '2.0pt', 'margin-right': '2.0pt'})
+
+//]]>
+</script>
+<script src="/_internal_/cfa9e89f44324cdefec9e108f3789488/code/all.js" type="text/javascript"></script></body></html>%
+%

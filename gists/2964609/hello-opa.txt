@@ -1,0 +1,15 @@
+% mkdir test-opa
+% cd test-opa 
+% cat > hello.opa
+Server.start(
+   Server.http,
+   { page: function() { <h1>Hello, world</h1> }
+   , title: "Hello, world"
+   }
+)
+% opa hello.opa     
+% ls
+_build  hello.js  hello.opa
+% wc -l hello.js
+27381 hello.js
+%

@@ -1,0 +1,1 @@
+Inspect hooks in WP by adding &debug=true&hook=my_hook_name to the request URl

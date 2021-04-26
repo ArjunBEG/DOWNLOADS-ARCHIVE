@@ -1,0 +1,21 @@
+{
+  "Version":"2008-10-17",
+  "Id":"http referer policy example",
+  "Statement":[
+    {
+      "Sid":"Allow get requests referred by www.mysite.com and mysite.com",
+      "Effect":"Allow",
+      "Principal":"*",
+      "Action":"s3:GetObject",
+      "Resource":"arn:aws:s3:::YOUR_S3_BUCKET_NAME/*",
+      "Condition":{
+        "StringLike":{
+          "aws:Referer":[
+            " http://www.mysite.com/*",
+            " http://mysite.com/*"
+          ]
+        }
+      }
+    }
+  ]
+}

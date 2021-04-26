@@ -1,0 +1,1 @@
+Simple PhantomJS file that dumps the contents of Ext.Loader
