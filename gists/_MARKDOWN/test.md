@@ -1,0 +1,3 @@
+[![](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/foo)](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/foo/vote)
+[![](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/bar)](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/bar/vote)
+[![](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/baz)](https://m131jyck4m.execute-api.us-west-2.amazonaws.com/prod/poll/01BM89BJF6E85R36ZEE0PK14CG/baz/vote)
