@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/adobe_air/adobe_air_and_html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Adobe AIR and HTML - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/adobe_air/adobe_air_and_html">
+	<meta property="og:url" content="https://snook.ca/archives/adobe_air/adobe_air_and_html">
+	<meta property="og:title" content="Adobe AIR and HTML">
+	<meta property="og:description" name="description" content="Adobe AIR is currently in beta (with a second beta version rumoured to be released in October) and I thought it a good time to take a deeper look into things and see how easy it would be to develop an...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Adobe AIR and HTML</h1>
+		<p><a href="http://labs.adobe.com/technologies/air/">Adobe AIR</a> is currently in beta (with a second beta version rumoured to be released in October) and I thought it a good time to take a deeper look into things and see how easy it would be to develop an application with it. To do so, I decided to build <a href="https://snook.ca/snitter/">Snitter</a>. </p>
+<h2>Building for the web and desktop </h2>
+<p>My original goal was to build an application that could work well on the web and as a desktop application. I wondered how much overlap in functionality could exist between an AIR app and a web app and surprisingly, quite a bit. Much of the initial interface, in fact, was built as a web app first before moving to AIR. Once I got into the AIR environment, I found that some features weren't needed anymore, like the sound engine.</p>
+<p>While I think I could have pulled it off, it turned out it wasn't as simple as that. The design approach is different and what is usable on the web becomes awkward in a desktop application (and vice versa), at least for this type of application. </p>
+<p>In the end, I ended up dropping the web application side of things to focus on just the AIR application. From the limited people I surveyed, nobody said they'd use the web app version anyway (since, you know, Twitter is already a web site...do you need to go to a web site to use another web site?) </p>
+<h2>HTML by Webkit </h2>
+<p>Adobe AIR is essentially a Flash-based runtime that can load in different types of controls including PDF and HTML documents. HTML documents are powered by Webkit, the same engine that powers Safari. This means that you have a respectable rendering engine at hand. From what I can tell, it's a little better than Safari 2 but not as good as Safari 3, whether this will change by the time Adobe AIR hits 1.0 remains to be seen.</p>
+<p>On top of that is an additional layer of operability that can be manipulated via JavaScript such as opening new windows, working with the local filesystem, sound and local database access. </p>
+<p>From web app to AIR app, you can be pretty confident that the HTML will render as expected on both Windows and OSX...and one would assume Linux as well. (The Linux version of AIR is expected to launch a little while after the Windows and OSX versions.) </p>
+<h3>CSS Support </h3>
+<p>The CSS support, being Webkit, is good but being within a strict environment like this, I think they need to make it easier for developers to style elements and controls, much like Apple did with the version of Safari on the iPhone. Being able to easily render rounded corners and gradients would avoid having to load up the UI with multiple graphic files and would make applications more difficult to style. </p>
+<p>The other interesting thing I ran into was creating a UI that automatically took up 100% of the application canvas. This goes back to my whole app vs. the web issue. On the web, you start from the top and work your way down. If the page is done half way down, it's done. But in a desktop application, elements (like the custom chrome)  have to stretch the full height of the window. I stumbled with this until I remembered something I read recently (which, for some reason I can't find now): use <code>position:fixed</code> but set the top and bottom to 0. And just like that, everything started coming together. </p>
+<p>All-in-all, the CSS support is what you'd expect and not having to deal with cross-browser rendering issues has been a real plesure! </p>
+<h2>UI Concerns</h2>
+<p>Adobe offers up lots of flexibility including the ability to wire up your own resize, maximize, minimize and close buttons while at the same time, choosing to turn the default application chrome off. </p>
+<p>By turning off the default browser chrome, you instantly run up into a cross-OS dilemma: where do you place the controls? When I build Snitter, I used my Windows bias  and placed the close button on the right. I may add in OS detection and place the controls accordingly. But it's just one more UI hurdle to handle.</p>
+<p>Some are concerned that AIR this design flexibility opens the door for inconsistent UI with other desktop applications. While I think that most applications built in AIR will have a custom UI, the popular applications will be those that do it well.</p>
+<p>I do think the widget movement has already moved people away from the default OS interface. AIR-based apps will do well to fit a niche between widget and full-blown desktop application. </p>
+<p>My largest concern and probably the most common complaints about Snitter have been about how the UI currently behaves. The scrollbar doesn't interact with the mouse wheel, text selection is difficult, and speak nothing of how hideous some of the controls look. At this point, I feel like much of the focus has been on getting the API nailed down and Adobe has indicated that this will be addressed in the next beta release due out in October.</p>
+<h2>Development Environment</h2>
+<p>Adobe currently provides a few tools. The SDK comes with a debug application that can launch the application, allowing you to play with your application before having to package it. There's also an AIR extension for Dreamweaver, although I haven't tried it so I have no opinion on how well it works. </p>
+<p>What I did do, is give <a href="http://www.aptana.com/">Aptana</a> a try. It has support for AIR and made developing my application a pretty painless process. I wanted to try Aptana to see if it might be a good solution for my day-to-day PHP and JavaScript development and while I haven't decided if that's the case, I'll continue to use it while developing AIR applications. </p>
+<p>There's currently a lack of quality debugging tools, leaving you with trace and alert calls to access information. I anticipate new tools will be made available, making development for Adobe AIR an easier proposition. </p>
+<h2>Is it worth it?</h2>
+<p>Considering that October is just around the corner, the current UI shortcomings &mdash; the unattractive scrollbars, lack of proper text selection, and lack of wheel scroll &mdash; should be resolved.  Once those issues are fixed, building AIR applications using HTML may be an easy way for many web developers to build desktop applications. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published September 06, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/adobe_air/">Adobe AIR</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/842</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">17 Comments &middot; <a href="https://snook.ca/archives/adobe_air/adobe_air_and_html.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55150">1</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on September 06, 2007		</div>
+		<div class="quote"><p>Thanks for writing this, Jonathan. Hopefully it will help to educate many Web Standards-oriented developers and designers. Most of the people in our community I've mentiioned AIR to seem to be under the impression that it is somehow only for Flash developers -- and this couldn't be farther from the truth. As you've said, it actually has a very decent HTML/CSS/JS rendering engine built right in.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55162">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55162">2</a></div>
+			<span class="authorname">Tom Sieron</span> said on September 06, 2007		</div>
+		<div class="quote"><p>I wonder if you'll switch to developing everything in Eclipse (Aptana) after fiddling with AIR. I used to write all my code - JS, HTML, CSS, .. for about 6 years using Notepad++(win) or Textmate/Coda (osx) but after two months of developing a Flex app in the Eclipse IDE I couldn't go back to a plain text environment and I'm stuck with Aptana (it has it's  pitfalls :/)</p>
+<p>Have you tried GoogleGears or WPF or Laszlo? If you would in future, could you write up a short comparison? Seems like there are more RIA dev enviroments nowadays than there are decent RIA's ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55163">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55163">3</a></div>
+			<span class="authorname">Zachary Biles</span> said on September 06, 2007		</div>
+		<div class="quote"><p>I think the web development community is still trying to figure out just what exactly to use AIR for. The concept is easy to understand, but when does it become more than just an alternate to launching your browser? </p>
+<p>Right now, it seems as though it's more noise than signal. I suppose we're all waiting for that killer app to open the flood gates. =P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55164">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55164">4</a></div>
+			<span class="authorname">Chris Harrison</span> said on September 06, 2007		</div>
+		<div class="quote"><p>The more I read about AIR and see what people are building with it, the more interested I am in fiddling with it myself.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55166">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55166">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 06, 2007		</div>
+		<div class="quote"><p>@Jeff Croft: currently, Adobe AIR currently heavily favours Flash/Flex developers but there is definitely potential here to do some cool stuff. </p>
+<p>@Tom Sieron: Aptana definitely has some pitfalls and I already feel lost without things like column selection. However, I can set up Ultraedit as an external tool and easily switch between the two if I need to. We'll see if it sticks.</p>
+<p>@Zachary Biles: I think there will be a few key apps that will have some popularity but the general public is likely to wait until the 1.0 release of AIR before really putting it through its paces.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55168">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55168">6</a></div>
+			<span class="authorname"><a href="http://www.polysign.lu/">Georges</a></span> said on September 06, 2007		</div>
+		<div class="quote"><p>Nice overview Jonathan.<br />
+I read the free AIR Book from O'Reilly a few weeks ago and was quite impressed about the functionality the Runtime provides. It sure ain't much compared to a real desktop app, but still enough to develop rich applications for intranets or small tools like Snitter :)</p>
+<p>I believe that currently most developers are still waiting for a final release of the runtime to start developing real applications. Even though I believe that the current beta is almost sufficent for full grown apps.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55171">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55171">7</a></div>
+			<span class="authorname">Lewis</span> said on September 07, 2007		</div>
+		<div class="quote"><p>Thanks for the review, told me exactly what I wanted to know :) I think I'll wait until the next release until I start playing around with it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55175">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55175">8</a></div>
+			<span class="authorname">James Constable</span> said on September 07, 2007		</div>
+		<div class="quote"><p>I've used the HTML/CSS capabilities of Air, teamed up with jQuery to build some small data collection apps for clients who often attend exhibitions where they have no network connection.</p>
+<p>The built in database means that data can be collected offline and synced with an online system when an internet connection is detected.</p>
+<p>I'm really liking toying with it at the moment and hope i get the opportunity to implement some other stuff in the near future.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55187">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55187">9</a></div>
+			<span class="authorname"><a href="http://blog.userland.fr/">Goulven</a></span> said on September 08, 2007		</div>
+		<div class="quote"><blockquote><p>use position:fixed but set the top and bottom to 0.</p>
+</blockquote>
+<p>You've probably read that in <a href="http://www.alistapart.com/articles/conflictingabsolutepositions">Conflicting absolute positions</a> on A List Apart.<br />I've tested the same kind of magic using negative margins, which quite incredibly seems to work reliably cross-browser.</p>
+</div>
+	</div>
+		<div class="comment" id="c55202">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55202">10</a></div>
+			<span class="authorname"><a href="http://mcville.net/">Marko Mihelcic</a></span> said on September 10, 2007		</div>
+		<div class="quote"><p>I'm looking forward to the new UI of snitter,<br />
+I did play around a bit and I hope it'll turn out something like this http://flickr.com/photos/markomihelcic/1351609360/ </p>
+<p>Cheers!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55206">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55206">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 10, 2007		</div>
+		<div class="quote"><p>@Gouven: Thank you! Yes, that is the article I was thinking of.</p>
+<p>@Marko: thanks Marko for chipping in. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55294">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55294">12</a></div>
+			<span class="authorname">reza</span> said on September 18, 2007		</div>
+		<div class="quote"><p>rrrrrrr
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55419">13</a></div>
+			<span class="authorname"><a href="http://www.m3nt0r.de/">Kjell Bublitz</a></span> said on September 22, 2007		</div>
+		<div class="quote"><p>Thanks - This article finally made me surf over to the Adobe website. Like it was mentioned before, i was always like: What the hell is AIR, what's Apollo,.. Adobe?? Framework? Ajax? Can't be any good :D</p>
+<p>I just installed it and checked out some videos. If it really turns out to be as "cool" as it looks, i think i gonna stick with it this fall and join the band :).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55431">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55431">14</a></div>
+			<span class="authorname"><a href="http://www.m3nt0r.de/">Kjell Bublitz</a></span> said on September 22, 2007		</div>
+		<div class="quote"><p>Okay.. couple hours later - i checked out the AIR update for Flash CS3: No code-hinting yet! Installed Aptana then: No debugging, but easier editing (top notch JS support)</p>
+<p>Can't have both for now, so it seems. If the update would be more complete (hinting for newbs included) i would start right away and definetly recommend the beta.</p>
+<p>Conclusion so far: HTML sounds tempting but at the longe range just makes no sense (its just a standalone html window after all). Flash/AS3 sounds much more like it! Hope they release a new update soon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56326">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56326">15</a></div>
+			<span class="authorname">stef</span> said on October 18, 2007		</div>
+		<div class="quote"><p>thanks for the article jonathan! all the best - stef
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61171">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61171">16</a></div>
+			<span class="authorname">Ajai</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Thanks</p>
+<p>Could you please let me know wether which is good to use in adobe air development flex or html?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61191">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61191">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Ajai: I think you can go either way and really depends on what you're comfortable with. With Flex, there are more resources out there simply because more people are developing with it.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/adobe_air/adobe_air_and_html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

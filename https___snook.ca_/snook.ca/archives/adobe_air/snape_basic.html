@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/adobe_air/snape_basic by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Snape Basic - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/adobe_air/snape_basic">
+	<meta property="og:url" content="https://snook.ca/archives/adobe_air/snape_basic">
+	<meta property="og:title" content="Snape Basic">
+	<meta property="og:description" name="description" content="Sometimes inspiration strikes when you don't even expect it. While at the @media conference, I was discussing the benefits of Adobe AIR and when it might be advantageous to use it. Certainly not every...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Snape Basic</h1>
+		<p>Sometimes inspiration strikes when you don't even expect it. While at the @media conference, I was discussing the benefits of Adobe AIR and when it might be advantageous to use it. Certainly not every site or web application requires a desktop component. Sites that have a level of stickiness &mdash; sites that you never close the window for...like Muxtape. </p>
+<p>*bing* goes the light bulb.</p>
+<p>Why not make an AIR application for Muxtape? So <a href="https://snook.ca/files/snape/snapebasic.air">here it is</a>. This is a really basic prototype that simply allows you to type in a name of a muxtape and it'll load it in an <code>iframe</code>. The name of a muxtape is the part before the muxtape.com domain. For example,  with <a href="http://notasausage.muxtape.com/">http://notasausage.muxtape.com/</a>, you'd just type <kbd>notasausage</kbd> and then click load.</p>
+<p>Don't click on the links in the header as they'll load in the main window. (This is a really rough prototype!)</p>
+<p>Feel free to take the idea and build something truly cool &mdash; like grab the RSS feed and build a custom player. </p>
+<p>And why Snape? It's Snook's Muxtape, of course!</p>
+<p><a href="https://snook.ca/files/snape/snapebasic.air">Download Snape Basic AIR file</a>.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 30, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/adobe_air/">Adobe AIR</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/893</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">11 Comments &middot; <a href="https://snook.ca/archives/adobe_air/snape_basic.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58744">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58744">1</a></div>
+			<span class="authorname"><a href="http://superfluousbanter.org/">Dan Rubin</a></span> said on May 30, 2008		</div>
+		<div class="quote"><p>Damn Jon, you mentioned this to me at dinner, and by the time I get back to my hotel you've not only built a prototype but blogged it and released it :)</p>
+<p>I think the ability to switch between a list of muxtapes and even auto-switch consecutively (or randomly) while playing would rock. Maybe someone will add that in?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58745">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58745">2</a></div>
+			<span class="authorname">Josh Lee</span> said on May 30, 2008		</div>
+		<div class="quote"><p>way to go, harness mux and turn it into something badace.<br />
+Gonna be using this for awhile now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58746">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58746">3</a></div>
+			<span class="authorname">Geoff</span> said on May 30, 2008		</div>
+		<div class="quote"><p>Basic it might be, but I like it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58747">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58747">4</a></div>
+			<span class="authorname">Peter Butler</span> said on May 31, 2008		</div>
+		<div class="quote"><p>Brilliant, I've been a fan of your site for a long while now and following with interest the work you have been doing with Adobe Air. I think it's still one of those technologies waiting for its first <strong>Killer App</strong> to come along and make it take off big time, and at the rate you are going, it could well be you that finds its.</p>
+<p>Loved this app, basic or not it does the job and keep up the good work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58748">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58748">5</a></div>
+			<span class="authorname">Andrew Kumar</span> said on May 31, 2008		</div>
+		<div class="quote"><p>this is awesome!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58750">6</a></div>
+			<span class="authorname">Noel Jackson</span> said on May 31, 2008		</div>
+		<div class="quote"><p>Awesome! I really wish muxtape had an API so I could actually upload stuff, more than one file at a time (through an air app like yours). I sent Justin an email, but he didn't seem to respond. Hopefully this app will show him how much interest there is in getting some real use out of the app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58752">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58752">7</a></div>
+			<span class="authorname">Mika</span> said on May 31, 2008		</div>
+		<div class="quote"><p>Big respect for having Émilie Simon and Mandalay on your tape!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58753">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58753">8</a></div>
+			<span class="authorname">Andrew Kumar</span> said on May 31, 2008		</div>
+		<div class="quote"><p>Another alternative (for mac users) would be: http://internetjogging.com/2008/04/17/23/
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58757">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58757">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 02, 2008		</div>
+		<div class="quote"><p>Just came across this via @<a href="http://twitter.com/kneath">kneath</a>: another AIR-based app done using Flex called <a href="http://dougmccune.com/blog/2008/04/25/muxmaster-update-download-functionality-removed-and-a-new-icon/">Muxmaster</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58763">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58763">10</a></div>
+			<span class="authorname">Claudia</span> said on June 04, 2008		</div>
+		<div class="quote"><p>Hi, first of all, congrats for the blog, really nice! (This live preview is genious! I'm writing and looking at it! kkkk)</p>
+<p>About this post: I believe Adobe AIR is the future. It's not the Web. It's not the OS. It's all of them together =)</p>
+<p>Bye and sorry about the english!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58769">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58769">11</a></div>
+			<span class="authorname">Jonic</span> said on June 07, 2008		</div>
+		<div class="quote"><p>Nice work... The biggest reason I haven't gotten into Muxtape is because I don't want to keep a tab open for it the whole time. This is just what I've been looking for :)</p>
+<p>Is there anywhere to report bugs/weirdness yet? I'm getting completely garbled text in the app... You want I should mail a screenshot?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/adobe_air/snape_basic by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

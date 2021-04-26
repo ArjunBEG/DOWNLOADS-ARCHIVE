@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+snook.ca	TRUE	/	FALSE	1999999999	CAKEPHP	f4knhv3k17jvc4tmnsdmn7ji35
+
