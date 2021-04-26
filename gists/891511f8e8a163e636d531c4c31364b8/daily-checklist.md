@@ -1,0 +1,6 @@
+- [ ] Begin with the user in mind
+- [ ] Check bug reports, and resolve any critical issues
+- [ ] Review yesterday's todo list
+- [ ] Create today's todo list
+- [ ] Announce todo list to team
+- [ ] Identify and discuss blockers
