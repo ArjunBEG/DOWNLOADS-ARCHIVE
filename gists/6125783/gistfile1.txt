@@ -1,0 +1,5 @@
+searching for changes
+new remote heads on branch '0.7-split'
+new remote head cbf3626ac582
+abort: push creates new remote head cbf3626ac582 on branch '0.7-split'!
+(did you forget to merge? use push -f to force)

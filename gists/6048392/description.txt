@@ -1,0 +1,1 @@
+My personal zsh theme for oh my zsh

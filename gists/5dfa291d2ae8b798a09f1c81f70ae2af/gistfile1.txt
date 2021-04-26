@@ -1,0 +1,27 @@
+using System;
+
+interface IFoo
+{
+    void DoWork()
+    {
+        Console.WriteLine("Default implementation");
+    }
+}
+
+class Foo : IFoo
+{
+    public virtual void DoWork()
+    {
+        ((IFoo) this).DoWork();
+    }
+}
+
+class Test
+{
+    public static void Main()
+    {
+        IFoo x = new Foo();
+        x.DoWork();
+    }
+}
+

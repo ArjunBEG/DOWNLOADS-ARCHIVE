@@ -1,0 +1,420 @@
+node index.js
+GET /babel-cli 200 844.186 ms - 73446
+GET /slash 200 46.300 ms - 5862
+GET /babel-register 200 62.878 ms - 26509
+GET /path-exists 200 53.385 ms - 7086
+GET /path-is-absolute 200 54.255 ms - 3205
+GET /convert-source-map 200 68.457 ms - 37589
+GET /chalk 200 71.704 ms - 32324
+GET /commander 200 78.752 ms - 63543
+GET /fs-readdir-recursive 200 76.043 ms - 11449
+GET /bin-version-check 200 91.758 ms - 8812
+GET /lodash 200 91.488 ms - 151424
+GET /babel-runtime 200 96.446 ms - 144933
+GET /glob 200 93.977 ms - 124565
+GET /request 200 96.425 ms - 202300
+GET /babel-core 200 119.043 ms - 451786
+GET /source-map 200 115.062 ms - 152049
+GET /chokidar 200 114.924 ms - 111283
+GET /babel-polyfill 200 158.074 ms - 24496
+GET /output-file-sync 200 166.587 ms - 11601
+GET /v8flags 200 160.985 ms - 29225
+GET /log-symbols 200 475.008 ms - 5697
+GET /shebang-regex 200 43.962 ms - 3698
+GET /private 200 55.436 ms - 20042
+GET /json5 200 56.837 ms - 16336
+GET /babel-messages 200 64.837 ms - 29484
+GET /babel-template 200 64.647 ms - 26109
+GET /babel-helpers 200 67.430 ms - 30960
+GET /debug 200 58.761 ms - 38546
+GET /babel-code-frame 200 70.158 ms - 40399
+GET /babel-traverse 200 73.698 ms - 60127
+GET /minimatch 200 70.158 ms - 51947
+GET /babel-generator 200 79.639 ms - 83338
+GET /babel-types 200 75.344 ms - 57273
+GET /babylon 200 85.464 ms - 127702
+GET /js-tokens 200 54.585 ms - 19531
+GET /esutils 200 56.276 ms - 23139
+GET /regenerator-runtime 200 41.546 ms - 7013
+GET /core-js 200 94.192 ms - 231246
+GET /escape-string-regexp 200 45.256 ms - 9177
+GET /has-ansi 200 43.728 ms - 9963
+GET /strip-ansi 200 56.087 ms - 15838
+GET /ansi-styles 200 57.971 ms - 14781
+GET /supports-color 200 56.419 ms - 20348
+GET /ansi-regex 200 46.075 ms - 10585
+GET /detect-indent 200 54.284 ms - 18422
+GET /to-fast-properties 200 41.705 ms - 5464
+GET /get-stdin 200 42.666 ms - 13325
+GET /minimist 200 59.233 ms - 28639
+GET /repeating 200 147.281 ms - 13376
+GET /is-finite 200 41.795 ms - 3734
+GET /number-is-nan 200 41.022 ms - 2641
+GET /invariant 200 42.091 ms - 13569
+GET /globals 200 68.355 ms - 62236
+GET /ms 200 43.266 ms - 8955
+GET /loose-envify 200 41.191 ms - 5669
+GET /home-or-tmp 200 43.701 ms - 4117
+GET /mkdirp 200 54.329 ms - 24365
+GET /source-map-support 200 55.835 ms - 34268
+GET /os-tmpdir 200 41.741 ms - 4078
+GET /user-home 200 41.583 ms - 6498
+GET /amdefine 200 55.723 ms - 17421
+GET /brace-expansion 200 61.337 ms - 19361
+GET /balanced-match 200 56.287 ms - 16655
+GET /concat-map 200 144.707 ms - 3898
+GET /semver 200 68.636 ms - 72101
+GET /bin-version 200 148.545 ms - 9924
+GET /semver-truncate 200 448.472 ms - 6738
+GET /find-versions 200 249.155 ms - 15057
+GET /array-uniq 200 42.856 ms - 8486
+GET /meow 200 54.146 ms - 20644
+GET /semver-regex 200 444.305 ms - 5163
+GET /camelcase-keys 200 43.925 ms - 7533
+GET /decamelize 200 43.731 ms - 8168
+GET /map-obj 200 42.401 ms - 3648
+GET /redent 200 42.376 ms - 4259
+GET /read-pkg-up 200 43.615 ms - 4150
+GET /trim-newlines 200 42.866 ms - 3093
+GET /loud-rejection 200 54.720 ms - 17511
+GET /object-assign 200 56.570 ms - 21918
+GET /normalize-package-data 200 69.549 ms - 60791
+GET /camelcase 200 53.886 ms - 15964
+GET /signal-exit 200 81.049 ms - 18001
+GET /currently-unhandled 200 442.965 ms - 8020
+GET /array-find-index 200 40.992 ms - 3967
+GET /is-builtin-module 200 43.309 ms - 2855
+GET /validate-npm-package-license 200 45.410 ms - 13331
+GET /hosted-git-info 200 57.440 ms - 26413
+GET /builtin-modules 200 41.154 ms - 6852
+GET /spdx-expression-parse 200 41.798 ms - 8690
+GET /spdx-correct 200 43.420 ms - 10375
+GET /spdx-license-ids 200 54.440 ms - 17126
+GET /find-up 200 42.360 ms - 7619
+GET /read-pkg 200 143.276 ms - 5020
+GET /pinkie-promise 200 41.619 ms - 5174
+GET /pinkie 200 42.301 ms - 14261
+GET /path-type 200 40.784 ms - 4197
+GET /load-json-file 200 42.837 ms - 6999
+GET /strip-bom 200 41.662 ms - 11585
+GET /pify 200 43.947 ms - 12285
+GET /graceful-fs 200 72.490 ms - 58626
+GET /parse-json 200 141.123 ms - 8881
+GET /error-ex 200 54.050 ms - 21478
+GET /is-arrayish 200 41.030 ms - 7493
+GET /is-utf8 200 41.458 ms - 3346
+GET /strip-indent 200 41.691 ms - 10536
+GET /indent-string 200 53.841 ms - 16410
+GET /inherits 200 45.556 ms - 8656
+GET /async-each 200 50.324 ms - 11765
+GET /is-binary-path 200 46.550 ms - 4195
+GET /glob-parent 200 50.215 ms - 9293
+GET /readdirp 200 57.279 ms - 40866
+GET /is-glob 200 58.356 ms - 21203
+GET /fsevents 200 68.768 ms - 46055
+GET /anymatch 200 320.582 ms - 14585
+GET /arrify 200 42.102 ms - 3548
+GET /micromatch 200 80.119 ms - 110278
+GET /extglob 200 43.069 ms - 11019
+GET /array-unique 200 46.991 ms - 10254
+GET /expand-brackets 200 45.258 ms - 13112
+GET /is-extglob 200 43.576 ms - 7324
+GET /filename-regex 200 45.540 ms - 6880
+GET /object.omit 200 43.968 ms - 9287
+GET /arr-diff 200 57.278 ms - 18155
+GET /braces 200 58.705 ms - 39522
+GET /kind-of 200 54.585 ms - 28130
+GET /normalize-path 200 56.893 ms - 15764
+GET /parse-glob 200 54.372 ms - 24021
+GET /regex-cache 200 53.921 ms - 18569
+GET /arr-flatten 200 41.576 ms - 9784
+GET /preserve 200 53.714 ms - 9856
+GET /repeat-element 200 51.453 ms - 7431
+GET /expand-range 200 68.646 ms - 29663
+GET /fill-range 200 54.699 ms - 37715
+GET /isobject 200 42.543 ms - 14357
+GET /is-number 200 54.111 ms - 17590
+GET /randomatic 200 54.158 ms - 24066
+GET /repeat-string 200 54.453 ms - 23897
+GET /is-buffer 200 42.385 ms - 13734
+GET /isarray 200 41.683 ms - 5851
+GET /is-posix-bracket 200 42.140 ms - 7254
+GET /for-own 200 41.067 ms - 9417
+GET /is-extendable 200 42.556 ms - 6342
+GET /for-in 200 41.692 ms - 11402
+GET /glob-base 200 43.039 ms - 11227
+GET /is-dotfile 200 42.822 ms - 9255
+GET /is-equal-shallow 200 42.699 ms - 9478
+GET /is-primitive 200 43.059 ms - 5851
+GET /nan 200 83.285 ms - 118230
+GET /binary-extensions 200 277.670 ms - 18189
+GET /readable-stream 200 68.897 ms - 68267
+GET /set-immediate-shim 200 68.713 ms - 3842
+GET /core-util-is 200 45.341 ms - 3750
+GET /util-deprecate 200 41.895 ms - 5802
+GET /string_decoder 200 43.037 ms - 8822
+GET /buffer-shims 200 48.148 ms - 2099
+GET /process-nextick-args 200 47.101 ms - 9325
+GET /graceful-readlink 200 42.437 ms - 3067
+GET /inflight 200 42.378 ms - 8300
+GET /once 200 42.098 ms - 9524
+GET /wrappy 200 41.008 ms - 4500
+GET /caseless 200 45.614 ms - 13029
+GET /aws-sign2 200 47.676 ms - 3752
+GET /extend 200 46.382 ms - 14268
+GET /forever-agent 200 46.296 ms - 8024
+GET /is-typedarray 200 47.191 ms - 3433
+GET /oauth-sign 200 45.914 ms - 10584
+GET /stringstream 200 45.118 ms - 6497
+GET /isstream 200 50.048 ms - 7973
+GET /json-stringify-safe 200 49.797 ms - 7095
+GET /bl 200 61.888 ms - 42115
+GET /form-data 200 56.332 ms - 39232
+GET /combined-stream 200 59.273 ms - 20065
+GET /tunnel-agent 200 49.400 ms - 7580
+GET /http-signature 200 55.808 ms - 25607
+GET /node-uuid 200 57.772 ms - 24185
+GET /aws4 200 73.056 ms - 66457
+GET /har-validator 200 74.954 ms - 52714
+GET /tough-cookie 200 67.619 ms - 66270
+GET /qs 200 71.084 ms - 76241
+GET /hawk 200 81.040 ms - 106342
+GET /mime-types 200 78.435 ms - 53532
+GET /delayed-stream 200 41.052 ms - 13308
+GET /async 200 80.242 ms - 107249
+GET /mime-db 200 68.649 ms - 61628
+GET /is-my-json-valid 200 67.163 ms - 63304
+GET /generate-function 200 42.391 ms - 9960
+GET /generate-object-property 200 42.352 ms - 5440
+GET /jsonpointer 200 42.130 ms - 9813
+GET /xtend 200 54.283 ms - 20911
+GET /is-property 200 42.550 ms - 5563
+GET /sntp 200 53.135 ms - 26083
+GET /cryptiles 200 54.853 ms - 25691
+GET /boom 200 71.314 ms - 79689
+GET /hoek 200 82.733 ms - 109154
+GET /assert-plus 200 45.569 ms - 13396
+GET /jsprim 200 60.854 ms - 26007
+GET /sshpk 200 71.772 ms - 75805
+GET /json-schema 200 55.146 ms - 3538
+GET /extsprintf 200 55.158 ms - 8739
+GET /verror 200 66.847 ms - 35439
+GET /getpass 200 41.878 ms - 9679
+GET /bcrypt-pbkdf 200 43.828 ms - 2846
+GET /jodid25519 200 43.568 ms - 7333
+GET /jsbn 200 46.462 ms - 4608
+GET /ecc-jsbn 200 44.105 ms - 3091
+GET /asn1 200 59.131 ms - 18898
+GET /dashdash 200 69.693 ms - 51203
+GET /tweetnacl 200 68.105 ms - 52490
+
+// sorted
+
+40.784 ms - 4197 - GET /path-type 200 
+40.992 ms - 3967 - GET /array-find-index 200 
+41.008 ms - 4500 - GET /wrappy 200 
+41.022 ms - 2641 - GET /number-is-nan 200 
+41.030 ms - 7493 - GET /is-arrayish 200 
+41.052 ms - 13308 - GET /delayed-stream 200 
+41.067 ms - 9417 - GET /for-own 200 
+41.154 ms - 6852 - GET /builtin-modules 200 
+41.191 ms - 5669 - GET /loose-envify 200 
+41.458 ms - 3346 - GET /is-utf8 200 
+41.546 ms - 7013 - GET /regenerator-runtime 200 
+41.576 ms - 9784 - GET /arr-flatten 200 
+41.583 ms - 6498 - GET /user-home 200 
+41.619 ms - 5174 - GET /pinkie-promise 200 
+41.662 ms - 11585 - GET /strip-bom 200 
+41.683 ms - 5851 - GET /isarray 200 
+41.691 ms - 10536 - GET /strip-indent 200 
+41.692 ms - 11402 - GET /for-in 200 
+41.705 ms - 5464 - GET /to-fast-properties 200 
+41.741 ms - 4078 - GET /os-tmpdir 200 
+41.795 ms - 3734 - GET /is-finite 200 
+41.798 ms - 8690 - GET /spdx-expression-parse 200 
+41.878 ms - 9679 - GET /getpass 200 
+41.895 ms - 5802 - GET /util-deprecate 200 
+42.091 ms - 13569 - GET /invariant 200 
+42.098 ms - 9524 - GET /once 200 
+42.102 ms - 3548 - GET /arrify 200 
+42.130 ms - 9813 - GET /jsonpointer 200 
+42.140 ms - 7254 - GET /is-posix-bracket 200 
+42.301 ms - 14261 - GET /pinkie 200 
+42.352 ms - 5440 - GET /generate-object-property 200 
+42.360 ms - 7619 - GET /find-up 200 
+42.376 ms - 4259 - GET /redent 200 
+42.378 ms - 8300 - GET /inflight 200 
+42.385 ms - 13734 - GET /is-buffer 200 
+42.391 ms - 9960 - GET /generate-function 200 
+42.401 ms - 3648 - GET /map-obj 200 
+42.437 ms - 3067 - GET /graceful-readlink 200 
+42.543 ms - 14357 - GET /isobject 200 
+42.550 ms - 5563 - GET /is-property 200 
+42.556 ms - 6342 - GET /is-extendable 200 
+42.666 ms - 13325 - GET /get-stdin 200 
+42.699 ms - 9478 - GET /is-equal-shallow 200 
+42.822 ms - 9255 - GET /is-dotfile 200 
+42.837 ms - 6999 - GET /load-json-file 200 
+42.856 ms - 8486 - GET /array-uniq 200 
+42.866 ms - 3093 - GET /trim-newlines 200 
+43.037 ms - 8822 - GET /string_decoder 200 
+43.039 ms - 11227 - GET /glob-base 200 
+43.059 ms - 5851 - GET /is-primitive 200 
+43.069 ms - 11019 - GET /extglob 200 
+43.266 ms - 8955 - GET /ms 200 
+43.309 ms - 2855 - GET /is-builtin-module 200 
+43.420 ms - 10375 - GET /spdx-correct 200 
+43.568 ms - 7333 - GET /jodid25519 200 
+43.576 ms - 7324 - GET /is-extglob 200 
+43.615 ms - 4150 - GET /read-pkg-up 200 
+43.701 ms - 4117 - GET /home-or-tmp 200 
+43.728 ms - 9963 - GET /has-ansi 200 
+43.731 ms - 8168 - GET /decamelize 200 
+43.828 ms - 2846 - GET /bcrypt-pbkdf 200 
+43.925 ms - 7533 - GET /camelcase-keys 200 
+43.947 ms - 12285 - GET /pify 200 
+43.962 ms - 3698 - GET /shebang-regex 200 
+43.968 ms - 9287 - GET /object.omit 200 
+44.105 ms - 3091 - GET /ecc-jsbn 200 
+45.118 ms - 6497 - GET /stringstream 200 
+45.256 ms - 9177 - GET /escape-string-regexp 200 
+45.258 ms - 13112 - GET /expand-brackets 200 
+45.341 ms - 3750 - GET /core-util-is 200 
+45.410 ms - 13331 - GET /validate-npm-package-license 200 
+45.540 ms - 6880 - GET /filename-regex 200 
+45.556 ms - 8656 - GET /inherits 200 
+45.569 ms - 13396 - GET /assert-plus 200 
+45.614 ms - 13029 - GET /caseless 200 
+45.914 ms - 10584 - GET /oauth-sign 200 
+46.075 ms - 10585 - GET /ansi-regex 200 
+46.296 ms - 8024 - GET /forever-agent 200 
+46.300 ms - 5862 - GET /slash 200 
+46.382 ms - 14268 - GET /extend 200 
+46.462 ms - 4608 - GET /jsbn 200 
+46.550 ms - 4195 - GET /is-binary-path 200 
+46.991 ms - 10254 - GET /array-unique 200 
+47.101 ms - 9325 - GET /process-nextick-args 200 
+47.191 ms - 3433 - GET /is-typedarray 200 
+47.676 ms - 3752 - GET /aws-sign2 200 
+48.148 ms - 2099 - GET /buffer-shims 200 
+49.400 ms - 7580 - GET /tunnel-agent 200 
+49.797 ms - 7095 - GET /json-stringify-safe 200 
+50.048 ms - 7973 - GET /isstream 200 
+50.215 ms - 9293 - GET /glob-parent 200 
+50.324 ms - 11765 - GET /async-each 200 
+51.453 ms - 7431 - GET /repeat-element 200 
+53.135 ms - 26083 - GET /sntp 200 
+53.385 ms - 7086 - GET /path-exists 200 
+53.714 ms - 9856 - GET /preserve 200 
+53.841 ms - 16410 - GET /indent-string 200 
+53.886 ms - 15964 - GET /camelcase 200 
+53.921 ms - 18569 - GET /regex-cache 200 
+54.050 ms - 21478 - GET /error-ex 200 
+54.111 ms - 17590 - GET /is-number 200 
+54.146 ms - 20644 - GET /meow 200 
+54.158 ms - 24066 - GET /randomatic 200 
+54.255 ms - 3205 - GET /path-is-absolute 200 
+54.283 ms - 20911 - GET /xtend 200 
+54.284 ms - 18422 - GET /detect-indent 200 
+54.329 ms - 24365 - GET /mkdirp 200 
+54.372 ms - 24021 - GET /parse-glob 200 
+54.440 ms - 17126 - GET /spdx-license-ids 200 
+54.453 ms - 23897 - GET /repeat-string 200 
+54.585 ms - 19531 - GET /js-tokens 200 
+54.585 ms - 28130 - GET /kind-of 200 
+54.699 ms - 37715 - GET /fill-range 200 
+54.720 ms - 17511 - GET /loud-rejection 200 
+54.853 ms - 25691 - GET /cryptiles 200 
+55.146 ms - 3538 - GET /json-schema 200 
+55.158 ms - 8739 - GET /extsprintf 200 
+55.436 ms - 20042 - GET /private 200 
+55.723 ms - 17421 - GET /amdefine 200 
+55.808 ms - 25607 - GET /http-signature 200 
+55.835 ms - 34268 - GET /source-map-support 200 
+56.087 ms - 15838 - GET /strip-ansi 200 
+56.276 ms - 23139 - GET /esutils 200 
+56.287 ms - 16655 - GET /balanced-match 200 
+56.332 ms - 39232 - GET /form-data 200 
+56.419 ms - 20348 - GET /supports-color 200 
+56.570 ms - 21918 - GET /object-assign 200 
+56.837 ms - 16336 - GET /json5 200 
+56.893 ms - 15764 - GET /normalize-path 200 
+57.278 ms - 18155 - GET /arr-diff 200 
+57.279 ms - 40866 - GET /readdirp 200 
+57.440 ms - 26413 - GET /hosted-git-info 200 
+57.772 ms - 24185 - GET /node-uuid 200 
+57.971 ms - 14781 - GET /ansi-styles 200 
+58.356 ms - 21203 - GET /is-glob 200 
+58.705 ms - 39522 - GET /braces 200 
+58.761 ms - 38546 - GET /debug 200 
+59.131 ms - 18898 - GET /asn1 200 
+59.233 ms - 28639 - GET /minimist 200 
+59.273 ms - 20065 - GET /combined-stream 200 
+60.854 ms - 26007 - GET /jsprim 200 
+61.337 ms - 19361 - GET /brace-expansion 200 
+61.888 ms - 42115 - GET /bl 200 
+62.878 ms - 26509 - GET /babel-register 200 
+64.647 ms - 26109 - GET /babel-template 200 
+64.837 ms - 29484 - GET /babel-messages 200 
+66.847 ms - 35439 - GET /verror 200 
+67.163 ms - 63304 - GET /is-my-json-valid 200 
+67.430 ms - 30960 - GET /babel-helpers 200 
+67.619 ms - 66270 - GET /tough-cookie 200 
+68.105 ms - 52490 - GET /tweetnacl 200 
+68.355 ms - 62236 - GET /globals 200 
+68.457 ms - 37589 - GET /convert-source-map 200 
+68.636 ms - 72101 - GET /semver 200 
+68.646 ms - 29663 - GET /expand-range 200 
+68.649 ms - 61628 - GET /mime-db 200 
+68.713 ms - 3842 - GET /set-immediate-shim 200 
+68.768 ms - 46055 - GET /fsevents 200 
+68.897 ms - 68267 - GET /readable-stream 200 
+69.549 ms - 60791 - GET /normalize-package-data 200 
+69.693 ms - 51203 - GET /dashdash 200 
+70.158 ms - 40399 - GET /babel-code-frame 200 
+70.158 ms - 51947 - GET /minimatch 200 
+71.084 ms - 76241 - GET /qs 200 
+71.314 ms - 79689 - GET /boom 200 
+71.704 ms - 32324 - GET /chalk 200 
+71.772 ms - 75805 - GET /sshpk 200 
+72.490 ms - 58626 - GET /graceful-fs 200 
+73.056 ms - 66457 - GET /aws4 200 
+73.698 ms - 60127 - GET /babel-traverse 200 
+74.954 ms - 52714 - GET /har-validator 200 
+75.344 ms - 57273 - GET /babel-types 200 
+76.043 ms - 11449 - GET /fs-readdir-recursive 200 
+78.435 ms - 53532 - GET /mime-types 200 
+78.752 ms - 63543 - GET /commander 200 
+79.639 ms - 83338 - GET /babel-generator 200 
+80.119 ms - 110278 - GET /micromatch 200 
+80.242 ms - 107249 - GET /async 200 
+81.040 ms - 106342 - GET /hawk 200 
+81.049 ms - 18001 - GET /signal-exit 200 
+82.733 ms - 109154 - GET /hoek 200 
+83.285 ms - 118230 - GET /nan 200 
+85.464 ms - 127702 - GET /babylon 200 
+91.488 ms - 151424 - GET /lodash 200 
+91.758 ms - 8812 - GET /bin-version-check 200 
+93.977 ms - 124565 - GET /glob 200 
+94.192 ms - 231246 - GET /core-js 200 
+96.425 ms - 202300 - GET /request 200 
+96.446 ms - 144933 - GET /babel-runtime 200 
+114.924 ms - 111283 - GET /chokidar 200 
+115.062 ms - 152049 - GET /source-map 200 
+119.043 ms - 451786 - GET /babel-core 200 
+141.123 ms - 8881 - GET /parse-json 200 
+143.276 ms - 5020 - GET /read-pkg 200 
+144.707 ms - 3898 - GET /concat-map 200 
+147.281 ms - 13376 - GET /repeating 200 
+148.545 ms - 9924 - GET /bin-version 200 
+158.074 ms - 24496 - GET /babel-polyfill 200 
+160.985 ms - 29225 - GET /v8flags 200 
+166.587 ms - 11601 - GET /output-file-sync 200 
+249.155 ms - 15057 - GET /find-versions 200 
+277.670 ms - 18189 - GET /binary-extensions 200 
+320.582 ms - 14585 - GET /anymatch 200 
+442.965 ms - 8020 - GET /currently-unhandled 200 
+444.305 ms - 5163 - GET /semver-regex 200 
+448.472 ms - 6738 - GET /semver-truncate 200 
+475.008 ms - 5697 - GET /log-symbols 200 
+844.186 ms - 73446 - GET /babel-cli 200 

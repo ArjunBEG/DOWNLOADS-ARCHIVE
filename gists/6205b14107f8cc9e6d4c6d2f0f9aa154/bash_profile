@@ -1,0 +1,1 @@
+alias mysql=/Applications/MAMP/Library/bin/mysql

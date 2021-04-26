@@ -1,0 +1,19 @@
+diff --git a/lib/exec.js b/lib/exec.js
+index d36dd87cf..d748c2ab1 100644
+--- a/lib/exec.js
++++ b/lib/exec.js
+@@ -195,7 +195,13 @@ const exec = async args => {
+ 
+     // any that don't match the manifest we have, install them
+     // add installDir/node_modules/.bin to pathArr
+-    const add = manis.filter(mani => manifestMissing(tree, mani))
++    // at this point, we have to ensure that we get the exact same
++    // version, because it's something that has only ever been installed
++    // by npm exec in the cache install directory
++    const add = manis.filter(mani => manifestMissing(tree, {
++      ...mani,
++      _from: `${mani.name}@${mani.version}`,
++    }))
+       .map(mani => mani._from)
+       .sort((a, b) => a.localeCompare(b))
+ 
