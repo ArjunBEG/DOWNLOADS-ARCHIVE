@@ -1,0 +1,1 @@
+VSCode override language-specific settings of a plugin, e.g. use tab size of 2 spaces

@@ -1,0 +1,1 @@
+VS Code - Open Keyboard Shortcuts (JSON) - Add the following key binding configuration to your `keybindings.json` file to automatically wrap angle brackets around selected text by typing "<".

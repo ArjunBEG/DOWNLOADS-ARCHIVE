@@ -1,0 +1,61 @@
+
+3dd2222c-c7ea-ebf2-c4fb-86c36ffbe4ed
+
+"*":
+  "exception-reporting":
+    userId: "3dd2222c-c7ea-ebf2-c4fb-86c36ffbe4ed"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    fontSize: 15
+  react: {}
+  "atom-material-ui":
+    useRoboto: true
+    useRobotoInUI: true
+    compactTreeView: true
+    depth: true
+    slimScrollbar: true
+    showTabIcons: "Show on all tabs"
+    tabSize: "Big"
+    fontSize: "Big"
+    rippleAccentColor: true
+    
+"*":
+  "exception-reporting":
+    userId: "3dd2222c-c7ea-ebf2-c4fb-86c36ffbe4ed"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-material-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    fontSize: 16
+  react: {}
+  "atom-material-ui":
+    compactTreeView: true
+    depth: true
+    slimScrollbar: true
+    showTabIcons: "Show on all tabs"
+    tabSize: "Big"
+    fontSize: "Big"
+    rippleAccentColor: true
+    accentColor: "Blue"
+    useRobotoInUI: true
+  "browser-refresh-on-save":
+    scripts: {}
+    safari: false
+  "color-picker":
+    abbreviateValues: true
+    preferredFormat: "HEX"
+  "git-plus": {}

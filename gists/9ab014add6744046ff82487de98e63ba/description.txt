@@ -1,0 +1,1 @@
+Setup relative tsconfig references in Lerna monorepo leaf nodes

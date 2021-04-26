@@ -1,0 +1,1 @@
+A fix for https://github.com/webpack/webpack/issues/4659

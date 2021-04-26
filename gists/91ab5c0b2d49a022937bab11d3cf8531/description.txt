@@ -1,0 +1,1 @@
+Setting up WordPress and MySQL on Windows 10 Home (Docker Toolbox)

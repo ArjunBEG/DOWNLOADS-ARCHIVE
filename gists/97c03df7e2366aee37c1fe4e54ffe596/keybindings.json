@@ -1,0 +1,11 @@
+[
+  {
+    // wrap a selection with angle brackets (<)
+    "key": "shift+,",
+    "command": "editor.action.insertSnippet",
+    "when": "editorHasSelection && editorTextFocus",
+    "args": {
+      "snippet": "<${0:${TM_SELECTED_TEXT}}$0>"
+    }
+  }
+]

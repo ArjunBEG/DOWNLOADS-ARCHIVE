@@ -1,0 +1,19 @@
+{
+    "name"       : "demo-app",
+    "description": "Demo App that uses express-yui and locator to generate YUI metas",
+    "version"    : "0.1.0",
+    "author"     : "Caridy Patino <caridy@gmail.com> (http://github.com/caridy)",
+    "private"    : true,
+
+    "engines": {
+        "node": ">=0.8.0",
+        "npm" : ">=1.2.0"
+    },
+
+    "devDependencies": {
+        "express"            : "3.3.x",
+        "express-yui"        : "latest",
+        "locator"            : "latest",
+        "yui"                : "3.10.x"
+    }
+}

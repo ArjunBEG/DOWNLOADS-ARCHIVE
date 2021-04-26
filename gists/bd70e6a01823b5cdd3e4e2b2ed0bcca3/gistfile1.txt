@@ -1,0 +1,12 @@
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var dict = new OrderedDictionary();
+        var hashSet = new HashSet<string>(dict.Keys.Cast<string>());
+    }
+}

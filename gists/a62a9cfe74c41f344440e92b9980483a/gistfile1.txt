@@ -1,0 +1,11 @@
+using System;
+using System.Windows.Forms;
+
+class Program
+{
+    static void Main()
+    {
+        var picker = new DateTimePicker();
+        picker.Text = "foo";
+    }
+}

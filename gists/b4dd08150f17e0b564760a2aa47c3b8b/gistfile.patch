@@ -1,0 +1,29 @@
+diff --git a/settings.js b/settings.js
+index f144fce6..eef39167 100644
+--- a/settings.js
++++ b/settings.js
+@@ -7,10 +7,13 @@ const StackUtils = require('stack-utils')
+ let rmdirRecursiveSync
+ let rmdirRecursive
+ 
++let hasFsRm = false
++
+ module.exports = {
+   atTap: false,
+   get rimrafNeeded() {
+     const [nodeMajor, nodeMinor] = process.versions.node.split('.').map(Number)
++    hasFsRm = nodeMajor >= 14 && nodeMinor >= 14 || nodeMajor >= 15
+     /* istanbul ignore next: version specific */
+     return !rmdirRecursiveSync && (nodeMajor < 12 || (nodeMajor === 12 && nodeMinor < 10))
+   },
+@@ -60,6 +63,8 @@ module.exports = {
+ /* istanbul ignore next: version specific */
+ if (!module.exports.rimrafNeeded) {
+   const fs = require('fs')
+-  rmdirRecursiveSync = dir => fs.rmSync(dir, {recursive: true, force: true})
+-  rmdirRecursive = (dir, cb) => fs.rm(dir, {recursive: true, force: true}, cb)
++  const rm = hasFsRm ? 'rm' : 'rmdir'
++  const rmSync = `${rm}Sync`
++  rmdirRecursiveSync = dir => fs[rmSync](dir, {recursive: true, force: true})
++  rmdirRecursive = (dir, cb) => fs[rm](dir, {recursive: true, force: true}, cb)
+ }

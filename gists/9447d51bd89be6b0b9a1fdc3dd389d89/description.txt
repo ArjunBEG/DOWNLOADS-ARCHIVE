@@ -1,0 +1,1 @@
+Simple Makefile to build, run, tag and publish a docker containier to AWS-ECR

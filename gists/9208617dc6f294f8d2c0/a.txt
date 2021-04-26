@@ -1,0 +1,64 @@
+# 5to6
+
+// object method shorthand
+{
+  a: function() {}
+}
+
+{
+  a() {}
+}
+
+// object name shorthand
+{
+  a: a
+}
+
+{
+  a
+}
+
+// array/object destructuring
+var foo = pony.foo
+
+var { foo } = pony
+
+var baz = pony.foo
+
+var { foo: baz } = pony
+
+// template strings
+a + '1'P
+
+`{a}1`
+
+// default params
+function a(b) {
+  b = b || '1';
+}
+
+function a(b = '1') {
+  
+}
+
+// rest params
+arguments -> ...a
+
+// spread params
+.apply -> ...a
+
+// arrow functions
+callback -> () => a
+
+// computed properties
+
+// prototype to classes
+
+// var to let
+// var to const
+
+// promises -> generators/yield -> async/await
+
+// numeric literals for binary, octal, hex
+
+// requirejs -> es6 modules

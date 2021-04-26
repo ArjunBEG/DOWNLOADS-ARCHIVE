@@ -1,0 +1,4 @@
+>>> import subprocess
+>>> proc = subprocess.Popen(['git', 'clone', 'git@github.com:getsentry/sentry.git', '/tmp/ds-repo-1'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+>>> print(proc.communicate())
+("Cloning into '/tmp/ds-repo-1'...\n", None)

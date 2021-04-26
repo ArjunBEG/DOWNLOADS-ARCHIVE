@@ -1,0 +1,1 @@
+List the visual studio code installed extensions (https://git.io/installed-vscode-extenstions)

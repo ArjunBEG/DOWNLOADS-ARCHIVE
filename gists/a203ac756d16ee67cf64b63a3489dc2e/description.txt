@@ -1,0 +1,1 @@
+How to manage Sass colors, in a "map" object

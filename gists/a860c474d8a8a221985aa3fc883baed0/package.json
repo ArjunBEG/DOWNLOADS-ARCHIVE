@@ -1,0 +1,13 @@
+{
+  "name": "typedoc-tuple-error",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "typedoc index.ts"
+  },
+  "author": "Eemeli Aro <eemeli@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "typedoc": "^0.20.10",
+    "typescript": "^4.1.3"
+  }
+}

@@ -1,0 +1,13 @@
+function run () {
+
+  const updateButton = document.querySelector('.branch-action-btn button')
+  const mergeButton = document.querySelector('.merge-message button')
+
+  if (mergeButton.disabled && !updatebutton.disabled) {
+    updateButton.click()
+  } else if (!mergeButton.disabled) {
+    mergeButton.click()
+  }
+}
+
+setInterval(run(), 5000)

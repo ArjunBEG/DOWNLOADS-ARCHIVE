@@ -1,0 +1,1 @@
+A script to build and deploy your Sphinx (http://sphinx-doc.org) documentation. Use it if you have your reStructuredText files in one repo, and your published HTML docs in a separate GitHub pages repo.

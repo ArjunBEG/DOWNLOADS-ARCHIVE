@@ -1,0 +1,1 @@
+Most popular web repositories with at least 10.000 stars. Compiled in May 2017 with https://github.com/jhnns/popular-javascript-projects. The list of repo types can be found at https://gist.github.com/jhnns/d233e88b40f5a2993c240847ccef4ee3.

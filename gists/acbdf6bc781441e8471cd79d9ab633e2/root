@@ -1,0 +1,4 @@
+public static double root(double num, double root)
+{
+    return Math.pow(Math.E, Math.log(num)/root);
+}

@@ -1,0 +1,27 @@
+mongodb:
+	@$(MONGOD) \
+		--replSet=lbdevset \
+		--port=28017 \
+		--logappend \
+		--logpath="$(PWD)/logs/mongodb.node1.log" \
+		--dbpath="$(PWD)/data/db/node1" \
+		--pidfilepath $(PWD)/pids \
+		--fork \
+		--rest
+	@$(MONGOD) \
+		--replSet=lbdevset \
+		--port=28018 \
+		--logappend \
+		--logpath="$(PWD)/logs/mongodb.node2.log" \
+		--dbpath="$(PWD)/data/db/node2" \
+		--pidfilepath $(PWD)/pids \
+		--fork
+	@$(MONGOD) \
+		--replSet=lbdevset \
+		--port=28019 \
+		--logappend \
+		--logpath="$(PWD)/logs/mongodb.arbiter.log" \
+		--dbpath="$(PWD)/data/db/arbiter" \
+		--pidfilepath $(PWD)/pids \
+		--fork \
+		--rest

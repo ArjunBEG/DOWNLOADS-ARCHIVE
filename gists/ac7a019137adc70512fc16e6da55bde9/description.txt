@@ -1,0 +1,1 @@
+Speculation: Cancellable promise implementation. Maintained production version here: https://github.com/ericelliott/speculation

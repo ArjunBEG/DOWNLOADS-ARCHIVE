@@ -1,0 +1,1 @@
+Never try to use this somewhere in production. Ever. I had to put this somewhere as I wrote this server without having access to any online docs, only an offline dump of the Node.js docs. Also no linter nor proper editor. For that I think, it turned out to be rather okay. 

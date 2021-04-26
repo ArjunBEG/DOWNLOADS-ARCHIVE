@@ -1,0 +1,1 @@
+Video stabilization using VidStab and FFMPEG (Mac OS X)

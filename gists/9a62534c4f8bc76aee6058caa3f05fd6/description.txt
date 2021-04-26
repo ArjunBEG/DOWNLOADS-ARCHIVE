@@ -1,0 +1,1 @@
+The very brief guide to getting rid of NPM's annoying "vulnerability" messages for packages that have been patched.

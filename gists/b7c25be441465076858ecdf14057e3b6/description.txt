@@ -1,0 +1,1 @@
+https://scriptable.app script for your own mite.yo.lk widget. Fill in API key and account as necessary.

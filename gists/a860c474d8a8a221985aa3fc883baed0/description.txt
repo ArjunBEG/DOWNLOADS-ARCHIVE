@@ -1,0 +1,1 @@
+Minimal repro for TypeStrong/typedoc#1449

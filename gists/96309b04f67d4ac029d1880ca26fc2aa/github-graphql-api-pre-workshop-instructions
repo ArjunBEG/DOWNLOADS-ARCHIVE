@@ -1,0 +1,38 @@
+Install Instructions for the MLH Prime GitHub GraphQL API Workshop
+
+1. GraphiQL desktop app (you don't strictly needs this, but it makes tihngs easier)
+
+If you're on a Mac
+- If you don't have Brew, install it from here: https://brew.sh/
+- if you already have brew run: brew cask install graphiql
+
+If you're on Windows or Linux
+- Make sure you have npm installed. (Get node and npm here: https://nodejs.org/en/)
+- go to https://github.com/skevy/graphiql-app/releases and download the latest release (Source Code (zip))
+- unzip it and cd into the folder
+- run npm install
+- run npm build
+- run npm start
+
+If this doesn't work, you can also use the web version: https://developer.github.com/early-access/graphql/explorer/
+Although in my opinion the web version is slightly worse for understanding the whole process because it's more magical.
+
+2. Github API
+- If you don't already have a github account, create one: https://github.com
+- Join the Early Access programme: https://developer.github.com/early-access/graphql/
+
+3. Get a token
+- Go to https://github.com/settings/tokens
+- Click "Generate New Token"
+- Give your token a name like "Prime API Workshop"
+- Select the "repo" and "user" scopes
+- Click the green "Generate Token" button
+- Keep that token in a safe place for later, we'll need it in the workshop
+
+
+Open this link in a new tab for later: https://github.com/xoneco/github-graphql-workshop/
+
+GraphQL Documentation (useful for challenges): https://developer.github.com/early-access/graphql/
+
+You made it! 🎉
+All good to go for the workshop. :)

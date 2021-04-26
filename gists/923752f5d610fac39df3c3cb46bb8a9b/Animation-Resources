@@ -1,0 +1,27 @@
+#Here are the resources I have made for people:
+
+##Overview
+[A Comparison of Web Animation Technologies](https://css-tricks.com/comparison-animation-technologies/)
+
+##For Designers
+[Practical Techniques for Designing Animations](http://www.smashingmagazine.com/2015/06/08/practical-techniques-on-designing-animation/)
+[High Performance SVGs](https://css-tricks.com/high-performance-svgs/)
+[Designing Complex SVG Animations](http://slides.com/sdrasner/cssdevconf#/)
+
+##Responsive SVGs
+[Complex Responsive Animations Talk](https://www.youtube.com/watch?v=09_8edPAsR8)
+[How to Create Animations that Scaler](http://www.creativebloq.com/web-design/how-create-animations-scale-all-devices-31619478)
+
+##UI/UX Animations
+[The Importance of Context-Shifting in UX Patterns](https://css-tricks.com/the-importance-of-context-shifting-in-ux-patterns/)
+[Functional Animation Talk](https://www.youtube.com/watch?v=QiAALzieu0g)
+
+##Debugging
+[Debugging CSS Keyframe Animations](https://css-tricks.com/debugging-css-keyframe-animations/)
+
+##Benchmarking
+[Weighing SVG Animation Techniques with Benchmarks](https://css-tricks.com/weighing-svg-animation-techniques-benchmarks/)
+(this is a bit old now)
+
+##SVG + GSAP
+[Series on the David Walsh Blog, starts here](http://davidwalsh.name/gsap-svg)

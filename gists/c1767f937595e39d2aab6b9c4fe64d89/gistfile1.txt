@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        M("foo");
+        M(new object());
+    }
+
+    static void M(object arg)
+    {
+        if (!(arg is string text))
+        {
+            throw new ArgumentException("Bang");
+        }
+        Console.WriteLine(text.Length);
+    }
+}

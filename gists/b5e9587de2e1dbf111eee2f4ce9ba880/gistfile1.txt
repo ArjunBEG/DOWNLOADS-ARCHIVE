@@ -1,0 +1,6 @@
+class Test
+{
+    // Implementations don't matter.
+    static int AddOrSubtract(int a, int b, bool add = true) => 0;
+    static int AddOrSubtract(int a, int b) => 0;
+}

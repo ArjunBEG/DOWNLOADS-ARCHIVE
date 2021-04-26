@@ -1,0 +1,1 @@
+Demo of server timing values. visualized in chrome devtools

@@ -1,0 +1,5 @@
+public boolean setVal(int v) {
+    int oldVal = val;
+    val = v;
+    return oldVal != v;
+}

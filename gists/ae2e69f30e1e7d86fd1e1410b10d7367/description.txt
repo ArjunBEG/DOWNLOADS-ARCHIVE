@@ -1,0 +1,1 @@
+Best of Jenkinsfile, a collection of useful workflow scripts ready to be copied into your Jenkinsfile on a per use basis.

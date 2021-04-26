@@ -1,0 +1,46 @@
+# get some languages
+brew 'go'
+brew 'node'
+brew 'python'
+brew 'ruby'
+
+# and common dlls
+brew 'geoip'
+brew 'libxmlsec1'
+brew 'openssl'
+brew 'pkgconfig'
+
+# workflow
+brew 'direnv'
+brew 'git'
+brew 'hub'
+brew 'mackup'
+brew 'pre-commit'
+brew 'rsync'
+brew 'wget'
+
+# even though we rely on Docker, we need the client
+brew 'postgresql'
+brew 'redis'
+
+tap 'homebrew/cask'
+cask '1password'
+cask 'chromedriver'
+cask 'docker'
+cask 'dropbox'
+cask 'google-cloud-sdk'
+cask 'iterm2'
+cask 'keepingyouawake'
+cask 'slack'
+cask 'spotify'
+
+# fonts
+tap 'homebrew/cask-fonts'
+cask 'font-powerline-symbols'
+cask 'font-fira-code'
+
+# zsh
+brew 'fzf'
+brew 'getantibody/tap/antibody'
+brew 'zsh'
+brew 'zsh-completions'

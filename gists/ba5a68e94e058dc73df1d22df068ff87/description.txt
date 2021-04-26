@@ -1,0 +1,1 @@
+Github stars history of Backbone. Compiled with https://github.com/jhnns/popular-javascript-projects

@@ -1,0 +1,17 @@
+using System;
+
+enum Foo
+{
+    Bar = 1
+}
+
+class Program
+{
+    static void Main()
+    {
+        int x = 1;
+        object o = x;
+        Foo f = (Foo) o;
+        Console.WriteLine(f);
+    }
+}

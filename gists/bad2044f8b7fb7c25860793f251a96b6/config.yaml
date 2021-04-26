@@ -1,0 +1,23 @@
+services:
+    app.twig_extension:
+        class: App\TwigExtension
+        public: false
+        tags: [twig.extension]
+
+    app.command.doc_update:
+        class: App\Command\DocUpdateCommand
+        tags:
+            - { name: console.command }
+
+    app.command.contributors_update:
+        class: App\Command\ContributorsUpdateCommand
+        tags:
+            - { name: console.command }
+
+    app.doc:
+        class: App\Doc
+        tags:
+            - { name: twig.runtime, id: "app.twig_extension" }
+
+    App\Controllers:
+        arguments: [@twig, @router, @@app.doc]

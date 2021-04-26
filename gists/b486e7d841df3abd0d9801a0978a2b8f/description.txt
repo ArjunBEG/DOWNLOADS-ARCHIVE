@@ -1,0 +1,1 @@
+Forces `useEffect` to be called in Jest tests

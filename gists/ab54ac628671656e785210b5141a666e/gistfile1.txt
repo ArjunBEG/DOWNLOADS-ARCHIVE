@@ -1,0 +1,33 @@
+using Google.Cloud.Firestore;
+using System;
+using System.Dynamic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        if (args.Length != 2)
+        {
+            Console.WriteLine($"Required arguments: <project-id> <document-name>");
+            return;
+        }
+
+        string projectId = args[0];
+        string documentName = args[1];
+        var db = FirestoreDb.Create(projectId);
+        var dataReference = db.Document(documentName); 
+        TimeZoneInfo zone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+
+        DateTime localDate = new DateTime(2020, 12, 01);
+        DateTime utcDate = TimeZoneInfo.ConvertTimeToUtc(localDate, zone);
+
+        Console.WriteLine("TimeZone: " + zone);
+        Console.WriteLine("localDate : " + localDate.ToString() + " " + localDate.Kind);
+        Console.WriteLine("utcDate: " + utcDate.ToString() + " " + utcDate.Kind);
+
+        WriteBatch batch = db.StartBatch();
+        dynamic dataObject = new ExpandoObject();
+        dataObject.startDate = utcDate;
+        batch.Set(dataReference, (object) dataObject, SetOptions.MergeAll);
+    }
+}

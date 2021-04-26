@@ -1,0 +1,10 @@
+using System;
+public class Test
+{
+    static void Main()
+    {
+        float f = 0.9f;
+        int i = (int) f;
+        Console.WriteLine(i); // 0
+    }
+}
