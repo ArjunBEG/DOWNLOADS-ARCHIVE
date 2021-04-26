@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>   <html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>      <html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>      <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if gte IE 9]>  <html class="ie" lang="en"> <![endif]-->
+<!--[if !IE]><!-->  <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>z-aliased-attr Test Suite</title>
+</head>
+<body id="test" class="yui3-skin-sam">
+    <script src="http://yui.yahooapis.com/3.7.3/build/yui/yui-debug.js"></script>
+    <script src="./z-aliased-attr-test.js"></script>
+    <script>
+    YUI({
+        filter: (window.location.search.match(/[?&]filter=([^&]+)/) || [])[1] || 'raw'
+    }).use("z-aliased-attr-test", function (Y) {
+        new Y.Test.Console().render();
+        Y.Test.Runner.add(Y.Z["z-aliased-attr-test-suite"]);
+        Y.Test.Runner.run();
+    });
+    </script>
+</body>
+</html>
