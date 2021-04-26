@@ -1,0 +1,11 @@
+<!DOCTYPE html> 
+<title>Tiny xhr</title>
+<div>Expected value: <b>pass</b></div>
+<div>Actual value: <b id="ret">loading...</b></div>
+<script>
+  var tiny_ajax = function(m,u,c,d){with(new XMLHttpRequest)onreadystatechange=function(){readyState^4||c(this)},open(m,u),send(d)};
+
+  tiny_ajax('get', '.', function (xhr){
+     document.getElementById( "ret" ).innerHTML = "pass";
+  });
+</script>

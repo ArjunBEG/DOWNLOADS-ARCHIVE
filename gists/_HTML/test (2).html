@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<title>Lmd</title>
+<div>Expected value: <b>Hello World, %username%!</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+var mods = {
+    "i18n": {"hello": "Hello", "world": "World"},
+    "lazy_module_render": "(function (require) {var i18n = require('i18n');return {'hw': function(name){return i18n.hello + ' ' + i18n.world + ', ' + name + '!'}}})",      
+    "module_printer": function printer(require) {
+        return function (text) {
+            document.getElementById("ret").innerHTML = text;
+        }
+    }
+};
+
+var main = function (require) {
+    var render = require("lazy_module_render"),
+        print = require("module_printer");
+
+    print(render.hw('%username%'));
+};
+
+(function(a,b,c,d){d={},b(function e(b){c=a[b];if(!d[b])try{c[0]=="("&&(c=(0,eval)(c)),c=c(e)}catch(f){}return d[b]=1,a[b]=c})})
+(mods, main);
+</script>

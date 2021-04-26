@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<title>Ugly forEach</title>
+<div>Expected value: <b>246NaN</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+
+  var myFunction = function(){ 
+
+    var result = "";
+    return (function(a, i){''.replace.call(a,/[^,]+/g,i)})
+           ([1,2,3,,,"pewpew"], function (item) {
+               result += item * 2;
+           }), result; // "246NaN"
+ }
+
+  document.getElementById( "ret" ).innerHTML = myFunction();
+</script>

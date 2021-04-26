@@ -1,0 +1,15 @@
+<div on:click="set({ count: count + 1 })">
+  {count} {double}
+</div>
+
+<script>
+  export default {
+    data() {
+      return { count: 0 };
+    },
+    
+    computed: {
+      double: ({ count }) => count * 2
+    }
+  };
+</script>

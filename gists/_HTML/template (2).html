@@ -1,0 +1,19 @@
+<body>
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+  
+  <main>
+    {{#await promise}}
+      <p>loading...</p>
+    {{then value}}
+      <p>the value is {{value}}</p>
+    {{catch error}}
+      <p>oh no! {{error.message}}</p>
+    {{/await}}
+  </main>
+  
+  <footer>
+    copyright 2017 this guy
+  </footer>
+</body>

@@ -1,0 +1,8 @@
+<!DOCTYPE html> 
+<title>Audio player</title>
+<div>Expected value: <b>Music should be played</b></div>
+<script>
+  var audio = function(s){return(s=new Audio(s)).play(),s}
+
+  audio('http://people.mozilla.org/~roc/stream-demos/music2.webm');
+</script>

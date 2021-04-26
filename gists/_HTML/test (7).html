@@ -1,0 +1,11 @@
+<!DOCTYPE html> 
+<title>Tiny image loader</title>
+<div>Expected value: <b>width 16px</b></div>
+<div>Actual value: <b id="ret">loading...</b></div>
+<script>
+  var image = function(s,l){with(new Image)onload=onerror=function(){l(this)},src=s};
+
+  image('http://yandex.ru/favicon.ico', function (img) {
+    document.getElementById( "ret" ).innerHTML = 'width ' + img.width  + 'px'
+  })
+</script>
