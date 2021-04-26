@@ -1,0 +1,11 @@
+{
+  "name": "audio",
+
+  "description": "Tiny HTML5 Audio player",
+
+  "keywords": [
+    "audio",
+    "player",
+    "html5"
+  ]
+}

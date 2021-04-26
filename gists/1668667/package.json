@@ -1,0 +1,11 @@
+{
+  "name": "decimal2roman",
+
+  "description": "Decimal to roman converter",
+
+  "keywords": [
+    "decimal",
+    "number",
+    "roman"
+  ]
+}

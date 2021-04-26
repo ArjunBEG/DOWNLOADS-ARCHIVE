@@ -1,0 +1,37 @@
+using System;
+using System.Threading;
+
+struct Foo
+{
+    private readonly int value;
+    
+    public Foo(int value)
+    {
+        this.value = value;
+    }
+    
+    public void Display()
+    {
+        Console.WriteLine($"Value: {value}");
+    }
+}
+
+class Test
+{
+    [ThreadStatic]
+    static Foo threadStatic;
+
+    static void Main()
+    {
+        threadStatic = new Foo(1);        
+        RunInThread(threadStatic.Display);
+        RunInThread(() => threadStatic.Display());
+    }
+
+    static void RunInThread(ThreadStart threadStart)
+    {
+        var thread = new Thread(threadStart);
+        thread.Start();
+        thread.Join();
+    }
+}

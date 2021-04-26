@@ -1,0 +1,1 @@
+Example Application class for HockeyApp and ACRA

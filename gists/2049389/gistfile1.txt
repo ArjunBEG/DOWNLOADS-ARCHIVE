@@ -1,0 +1,17 @@
+#import <Foundation/Foundation.h>
+
+int main(int argc, char *argv[]) {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	NSDictionary *one = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"pubDate", nil];
+	NSDictionary *two = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:2], @"pubDate", nil];
+	NSDictionary *three = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:3], @"pubDate", nil];
+	
+	NSArray *array = [NSArray arrayWithObjects:three, one, two, nil];
+	
+	NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"pubDate" ascending:YES] autorelease];
+	
+	NSLog(@"%@", [array sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]);
+	
+	[pool drain];
+}

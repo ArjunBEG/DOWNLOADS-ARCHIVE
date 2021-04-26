@@ -1,0 +1,11 @@
+{
+  "name": "bokeh_calculator",
+
+  "description": "A bokeh number (background blur value) calculator",
+
+  "keywords": [
+    "bokeh",
+    "photo",
+    "calculator"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tiny_ajax",
+
+  "description": "Tiny ajax: xhr get, post, whatever... for modern browsers",
+
+  "keywords": [
+    "xhr",
+    "get",
+    "post",
+    "tiny",
+    "ajax"
+  ]
+}

@@ -1,0 +1,1 @@
+Service worker to cache pages

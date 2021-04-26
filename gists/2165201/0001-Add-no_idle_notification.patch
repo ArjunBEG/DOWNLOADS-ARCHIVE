@@ -1,0 +1,68 @@
+From c4b230876f7e3e5cfc2015342af77a5960b001c3 Mon Sep 17 00:00:00 2001
+From: Ryan Dahl <ry@tinyclouds.org>
+Date: Thu, 22 Mar 2012 15:41:11 -0700
+Subject: [PATCH] Add --no_idle_notification
+
+Will result in less aggressive GC - but probably less CPU.
+---
+ src/node.cc |   22 +++++++++++++++-------
+ 1 files changed, 15 insertions(+), 7 deletions(-)
+
+diff --git a/src/node.cc b/src/node.cc
+index d7c26ff..63ff49a 100644
+--- a/src/node.cc
++++ b/src/node.cc
+@@ -157,6 +157,7 @@ static uv_check_t gc_check;
+ static uv_idle_t gc_idle;
+ static uv_timer_t gc_timer;
+ bool need_gc;
++static bool no_idle_notification; // command line flag
+ 
+ 
+ #define FAST_TICK 700.
+@@ -2199,6 +2200,7 @@ static void PrintHelp() {
+          "  --v8-options         print v8 command line options\n"
+          "  --vars               print various compiled-in variables\n"
+          "  --max-stack-size=val set max v8 stack size (bytes)\n"
++         "  --no_idle_notification do not try to notify v8 about being idle\n"
+          "\n"
+          "Environment variables:\n"
+ #ifdef _WIN32
+@@ -2224,6 +2226,9 @@ static void ParseArgs(int argc, char **argv) {
+     if (strstr(arg, "--debug") == arg) {
+       ParseDebugOpt(arg);
+       argv[i] = const_cast<char*>("");
++    } else if (strstr(arg, "--no_idle_notification") == arg) {
++      no_idle_notification = true;
++      argv[i] = const_cast<char*>("");
+     } else if (strcmp(arg, "--version") == 0 || strcmp(arg, "-v") == 0) {
+       printf("%s\n", NODE_VERSION);
+       exit(0);
+@@ -2556,15 +2561,18 @@ char** Init(int argc, char *argv[]) {
+   uv_idle_init(uv_default_loop(), &tick_spinner);
+   uv_unref(uv_default_loop());
+ 
+-  uv_check_init(uv_default_loop(), &gc_check);
+-  uv_check_start(&gc_check, node::Check);
+-  uv_unref(uv_default_loop());
++  if (!no_idle_notification) {
+ 
+-  uv_idle_init(uv_default_loop(), &gc_idle);
+-  uv_unref(uv_default_loop());
++    uv_check_init(uv_default_loop(), &gc_check);
++    uv_check_start(&gc_check, node::Check);
++    uv_unref(uv_default_loop());
+ 
+-  uv_timer_init(uv_default_loop(), &gc_timer);
+-  uv_unref(uv_default_loop());
++    uv_idle_init(uv_default_loop(), &gc_idle);
++    uv_unref(uv_default_loop());
++
++    uv_timer_init(uv_default_loop(), &gc_timer);
++    uv_unref(uv_default_loop());
++  }
+ 
+   V8::SetFatalErrorHandler(node::OnFatalError);
+ 
+-- 
+1.7.2

@@ -1,0 +1,1 @@
+Deploy to `gh-pages` from a `dist` folder on the master branch. Useful for use with [yeoman](http://yeoman.io).

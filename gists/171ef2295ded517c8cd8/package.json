@@ -1,0 +1,9 @@
+{
+  "name": "myapp",
+  "devDependencies": {
+    "bower": "x",
+    "autoprefixer": "x",
+    "node-sass": "x",
+    "wach": "x"
+  }
+}

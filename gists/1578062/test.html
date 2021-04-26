@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<title>Photo Frame</title>
+<div>Expected value: <b>55.0600902713579</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+var CIRCLES_OF_CONFUSION = {
+    "Canon 5D (Mark II)": 0.03
+    /* ... */
+};
+
+var SENSOR_SIZES = {
+    "Canon 5D (Mark II)": [36, 24]
+    /* ... */
+};
+
+var CAMERA_NAME = "Canon 5D (Mark II)",
+    DISTANCE = 3, // m
+    COC = CIRCLES_OF_CONFUSION[CAMERA_NAME], // mm
+    APERTURE = 2.8,
+    FOCAL = 135, // mm
+    DISTANCE_FROM_TARGET_TO_BACKGROUND = 10, // m 
+    SENSOR_HEIGHT = SENSOR_SIZES[CAMERA_NAME][1]; // mm
+
+  var bokeh = function(a,b,c,d,e,f,g){return f=f||1e6,f/((g=(a*e/d/e+1)*d)+f)*d*d/c/(g-d)/b};
+  var result = bokeh(DISTANCE, COC / 1e3, APERTURE, FOCAL / 1e3, SENSOR_HEIGHT / 1e3, DISTANCE_FROM_TARGET_TO_BACKGROUND);
+  document.getElementById("ret").innerHTML = result;
+</script>

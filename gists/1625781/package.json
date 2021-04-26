@@ -1,0 +1,11 @@
+{
+  "name": "image",
+
+  "description": "Tiny image loader",
+
+  "keywords": [
+    "image",
+    "preloader",
+    "loader"
+  ]
+}

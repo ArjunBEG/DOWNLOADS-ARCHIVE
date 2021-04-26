@@ -1,0 +1,12 @@
+<!DOCTYPE html> 
+<title>Decimal to roman</title>
+<div>Expected value: <b>MCMLIV</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+  var decimal2roman = function(a,b,c,d,e,f,g){for(a=(a+"").split(f="").reverse(d=-1);a[++d];)for(e=0;g=b[a[d]][e++];)f=c[+g+d*2]+f;return f};
+
+  var MAP_RULES = "90900900091091901900190001920".split(9); // default rule: up to 3 same digits in row
+  var LANGUAGE = "IVXLCDM" || "IVXLCDMↁↂ"; // default or extended language
+
+  document.getElementById("ret").innerHTML = decimal2roman(1954, MAP_RULES, LANGUAGE);
+</script>

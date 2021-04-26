@@ -1,0 +1,54 @@
+Let's say you have this:
+
+class SomeClass
+{
+  // users are encouraged to extend and set to true to enable magical powers...
+  protected $someQuality = false;
+  
+  public function isSomeQuality()
+  {
+     return $this->someQuality;
+  }
+}
+
+and want to use this:
+
+trait SomeTrait
+{
+  protected $someQuality = true;
+  
+  // useful stuff based upon that difference...
+}
+
+like this:
+
+class SomeExtendedCLass extends SomeClass
+{
+  use SomeTrait;
+}
+
+You can't, you'll get a Fatal Error for redeclaring the member variable with a different initialized value.
+
+Instead, you're forced to do this:
+
+trait SomeTrait
+{
+  public function isSomeQuality()
+  {
+    return true; // eww! Especially considering that $someQuality == false.
+  }
+  
+  // useful stuff based upon that difference...
+}
+
+when had the original class author done this:
+
+class SomeClass
+{
+  public function isSomeQuality()
+  {
+     return $this->someQuality ?? false;
+  }
+}
+
+leaving $someQuality undeclared, everyone would be better off.

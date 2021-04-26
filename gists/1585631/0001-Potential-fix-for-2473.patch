@@ -1,0 +1,60 @@
+From 86047eb702c7be207a4bd35e044b8d83621ce448 Mon Sep 17 00:00:00 2001
+From: Ryan Dahl <ry@tinyclouds.org>
+Date: Mon, 9 Jan 2012 15:29:15 -0800
+Subject: [PATCH] Potential fix for #2473
+
+---
+ src/node_buffer.h  |    3 +--
+ src/stream_wrap.cc |   14 +++++++++-----
+ 2 files changed, 10 insertions(+), 7 deletions(-)
+
+diff --git a/src/node_buffer.h b/src/node_buffer.h
+index ea33112..ef7cf4f 100644
+--- a/src/node_buffer.h
++++ b/src/node_buffer.h
+@@ -65,6 +65,7 @@ namespace node {
+ 
+ class NODE_EXTERN Buffer: public ObjectWrap {
+  public:
++  static v8::Persistent<v8::FunctionTemplate> constructor_template;
+ 
+   static bool HasInstance(v8::Handle<v8::Value> val);
+ 
+@@ -99,8 +100,6 @@ class NODE_EXTERN Buffer: public ObjectWrap {
+                      free_callback callback, void *hint); // public constructor
+ 
+   private:
+-  static v8::Persistent<v8::FunctionTemplate> constructor_template;
+-
+   static v8::Handle<v8::Value> New(const v8::Arguments &args);
+   static v8::Handle<v8::Value> BinarySlice(const v8::Arguments &args);
+   static v8::Handle<v8::Value> AsciiSlice(const v8::Arguments &args);
+diff --git a/src/stream_wrap.cc b/src/stream_wrap.cc
+index 95a19c7..b363049 100644
+--- a/src/stream_wrap.cc
++++ b/src/stream_wrap.cc
+@@ -149,13 +149,17 @@ Handle<Value> StreamWrap::ReadStop(const Arguments& args) {
+ }
+ 
+ 
+-inline char* StreamWrap::NewSlab(Handle<Object> global,
+-                                        Handle<Object> wrap_obj) {
+-  Buffer* b = Buffer::New(SLAB_SIZE);
+-  global->SetHiddenValue(slab_sym, b->handle_);
++char* StreamWrap::NewSlab(Handle<Object> global,
++                          Handle<Object> wrap_obj) {
++  HandleScope scope;
++  Local<Value> arg = Integer::NewFromUnsigned(SLAB_SIZE);
++  Local<Object> b = Buffer::constructor_template->GetFunction()->
++    NewInstance(1, &arg);
++  if (b.IsEmpty()) return NULL;
++  global->SetHiddenValue(slab_sym, b);
+   assert(Buffer::Length(b) == SLAB_SIZE);
+   slab_used = 0;
+-  wrap_obj->SetHiddenValue(slab_sym, b->handle_);
++  wrap_obj->SetHiddenValue(slab_sym, b);
+   return Buffer::Data(b);
+ }
+ 
+-- 
+1.7.2

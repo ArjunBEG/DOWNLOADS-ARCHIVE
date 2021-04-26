@@ -1,0 +1,248 @@
+From 9588ed5c11d60cb94cbce776bc2f2d6c14caa098 Mon Sep 17 00:00:00 2001
+From: Ryan Dahl <ry@tinyclouds.org>
+Date: Thu, 29 Dec 2011 16:06:14 -0800
+Subject: [PATCH] Potential fix for #2438
+
+- Save StringPtr if the header hasn't been completely received yet after one
+  packet.
+- Add one to num_fields and num_values. They were actually one less than the
+  number of fields and values.
+- Remove always_inline makes debugging difficult, and has negligible
+  performance benefits.
+---
+ src/node_http_parser.cc         |   92 ++++++++++++++++++++++++++-------------
+ test/simple/test-http-parser.js |    6 ++-
+ 2 files changed, 65 insertions(+), 33 deletions(-)
+
+diff --git a/src/node_http_parser.cc b/src/node_http_parser.cc
+index 38251a1..0e893ed 100644
+--- a/src/node_http_parser.cc
++++ b/src/node_http_parser.cc
+@@ -103,27 +103,12 @@ static char* current_buffer_data;
+ static size_t current_buffer_len;
+ 
+ 
+-// gcc 3.x knows the always_inline attribute but fails at build time with a
+-// "sorry, unimplemented: inlining failed" error when compiling at -O0
+-#if defined(__GNUC__)
+-# if __GNUC__ >= 4
+-#  define always_inline __attribute__((always_inline))
+-# else
+-#  define always_inline inline
+-# endif
+-#elif defined(_MSC_VER)
+-# define always_inline __forceinline
+-#else
+-# define always_inline
+-#endif
+-
+-
+ #define HTTP_CB(name)                                               \
+ 	  static int name(http_parser* p_) {                              \
+ 	    Parser* self = container_of(p_, Parser, parser_);             \
+ 	    return self->name##_();                                       \
+ 	  }                                                               \
+-	  int always_inline name##_()
++	  int name##_()
+ 
+ 
+ #define HTTP_DATA_CB(name)                                          \
+@@ -131,7 +116,7 @@ static size_t current_buffer_len;
+     Parser* self = container_of(p_, Parser, parser_);               \
+     return self->name##_(at, length);                               \
+   }                                                                 \
+-  int always_inline name##_(const char* at, size_t length)
++  int name##_(const char* at, size_t length)
+ 
+ 
+ static inline Persistent<String>
+@@ -179,6 +164,19 @@ struct StringPtr {
+   }
+ 
+ 
++  // If str_ does not point to a heap string yet, this function makes it do
++  // so. This is called at the end of each http_parser_execute() so as not
++  // to leak references. See issue #2438 and test-http-parser-bad-ref.js.
++  void Save() {
++    if (!on_heap_ && size_ > 0) {
++      char* s = new char[size_];
++      memcpy(s, str_, size_);
++      str_ = s;
++      on_heap_ = true;
++    }
++  }
++
++
+   void Reset() {
+     if (on_heap_) {
+       delete[] str_;
+@@ -237,7 +235,7 @@ public:
+ 
+ 
+   HTTP_CB(on_message_begin) {
+-    num_fields_ = num_values_ = -1;
++    num_fields_ = num_values_ = 0;
+     url_.Reset();
+     return 0;
+   }
+@@ -252,18 +250,28 @@ public:
+   HTTP_DATA_CB(on_header_field) {
+     if (num_fields_ == num_values_) {
+       // start of new field name
+-      if (++num_fields_ == ARRAY_SIZE(fields_)) {
++      num_fields_++;
++      if (num_fields_ == ARRAY_SIZE(fields_)) {
++        // ran out of space - flush to javascript land
+         Flush();
+-        num_fields_ = 0;
+-        num_values_ = -1;
++        num_fields_ = 1;
++        num_values_ = 0;
++      }
++      fields_[num_fields_ - 1].Reset();
++    } else {
++      // Old field name. This was in a previous packet because we know that
++      // http_parser_execute will not emit more than one on_header_field
++      // callback per packet. Therefore we must have called Save on it.
++      // Therefore on_heap_ must be true.
++      if (num_fields_ > 0) {
++        assert(fields_[num_fields_ - 1].on_heap_);
+       }
+-      fields_[num_fields_].Reset();
+     }
+ 
+     assert(num_fields_ < (int)ARRAY_SIZE(fields_));
+     assert(num_fields_ == num_values_ + 1);
+ 
+-    fields_[num_fields_].Update(at, length);
++    fields_[num_fields_ - 1].Update(at, length);
+ 
+     return 0;
+   }
+@@ -272,13 +280,20 @@ public:
+   HTTP_DATA_CB(on_header_value) {
+     if (num_values_ != num_fields_) {
+       // start of new header value
+-      values_[++num_values_].Reset();
++      num_values_++;
++      values_[num_values_ - 1].Reset();
++    } else {
++      // Old value name. This was in a previous packet because we know that
++      // http_parser_execute will not emit more than one on_header_value
++      // callback per packet. Therefore we must have called Save on it.
++      // Therefore on_heap_ must be true.
++      assert(values_[num_values_ - 1].on_heap_);
+     }
+ 
+     assert(num_values_ < (int)ARRAY_SIZE(values_));
+     assert(num_values_ == num_fields_);
+ 
+-    values_[num_values_].Update(at, length);
++    values_[num_values_ - 1].Update(at, length);
+ 
+     return 0;
+   }
+@@ -302,7 +317,7 @@ public:
+       if (parser_.type == HTTP_REQUEST)
+         message_info->Set(url_sym, url_.ToString());
+     }
+-    num_fields_ = num_values_ = -1;
++    num_fields_ = num_values_ = 0;
+ 
+     // METHOD
+     if (parser_.type == HTTP_REQUEST) {
+@@ -364,7 +379,7 @@ public:
+   HTTP_CB(on_message_complete) {
+     HandleScope scope;
+ 
+-    if (num_fields_ != -1)
++    if (num_fields_)
+       Flush(); // Flush trailing HTTP headers.
+ 
+     Local<Value> cb = handle_->Get(on_message_complete_sym);
+@@ -401,6 +416,19 @@ public:
+   }
+ 
+ 
++  void Save() {
++    url_.Save();
++
++    for (int i = 0; i < num_fields_; i++) {
++      fields_[i].Save();
++    }
++
++    for (int i = 0; i < num_values_; i++) {
++      values_[i].Save();
++    }
++  }
++
++
+   // var bytesParsed = parser->execute(buffer, off, len);
+   static Handle<Value> Execute(const Arguments& args) {
+     HandleScope scope;
+@@ -447,6 +475,8 @@ public:
+     size_t nparsed =
+       http_parser_execute(&parser->parser_, &settings, buffer_data + off, len);
+ 
++    parser->Save();
++
+     // Unassign the 'buffer_' variable
+     assert(current_buffer);
+     current_buffer = NULL;
+@@ -515,9 +545,9 @@ private:
+   Local<Array> CreateHeaders() {
+     // num_values_ is either -1 or the entry # of the last header
+     // so num_values_ == 0 means there's a single header
+-    Local<Array> headers = Array::New(2 * (num_values_ + 1));
++    Local<Array> headers = Array::New(2 * num_values_);
+ 
+-    for (int i = 0; i < num_values_ + 1; ++i) {
++    for (int i = 0; i < num_values_; ++i) {
+       headers->Set(2 * i, fields_[i].ToString());
+       headers->Set(2 * i + 1, values_[i].ToString());
+     }
+@@ -553,8 +583,8 @@ private:
+   void Init(enum http_parser_type type) {
+     http_parser_init(&parser_, type);
+     url_.Reset();
+-    num_fields_ = -1;
+-    num_values_ = -1;
++    num_fields_ = 0;
++    num_values_ = 0;
+     have_flushed_ = false;
+     got_exception_ = false;
+   }
+diff --git a/test/simple/test-http-parser.js b/test/simple/test-http-parser.js
+index 086d53b..7dc1504 100644
+--- a/test/simple/test-http-parser.js
++++ b/test/simple/test-http-parser.js
+@@ -381,7 +381,7 @@ function expectBody(expected) {
+ //
+ (function() {
+   var request = Buffer(
+-    'POST /it HTTP/1.1' + CRLF +
++    'POST /helpme HTTP/1.1' + CRLF +
+     'Content-Type: text/plain' + CRLF +
+     'Transfer-Encoding: chunked' + CRLF +
+     CRLF +
+@@ -403,7 +403,7 @@ function expectBody(expected) {
+ 
+     parser.onHeadersComplete = mustCall(function(info) {
+       assert.equal(info.method, 'POST');
+-      assert.equal(info.url || parser.url, '/it');
++      assert.equal(info.url || parser.url, '/helpme');
+       assert.equal(info.versionMajor, 1);
+       assert.equal(info.versionMinor, 1);
+     });
+@@ -424,7 +424,9 @@ function expectBody(expected) {
+ 
+   for (var i = 1; i < request.length - 1; ++i) {
+     var a = request.slice(0, i);
++    console.error("request.slice(0, " + i + ") = ", JSON.stringify(a.toString()));
+     var b = request.slice(i);
++    console.error("request.slice(" + i + ") = ", JSON.stringify(b.toString()));
+     test(a, b);
+   }
+ })();
+-- 
+1.7.2

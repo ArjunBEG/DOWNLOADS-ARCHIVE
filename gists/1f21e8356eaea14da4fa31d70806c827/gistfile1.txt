@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+class Test
+{
+    static void Main()
+    {
+        HashSet<string> generated = new HashSet<string>();
+        Random x = new Random();
+        
+        int duplicates = 0;
+        for (int i = 0; i <= 9_999_999; i++)
+        {
+            string value = Guid.NewGuid().ToString()
+                .Replace("-", "")
+                .Substring(x.Next(1, 27), 5);
+            if (!generated.Add(value))
+            {
+                duplicates++;
+            }
+        }
+        Console.WriteLine($"Duplicates generated: {duplicates}");
+    }
+}

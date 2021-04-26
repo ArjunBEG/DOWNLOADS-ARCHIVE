@@ -1,0 +1,13 @@
+# .git/hooks/post-merge
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+composer_install_on_changed_lockfile() {
+    echo "$changed_files" | grep --quiet "composer.lock" && 
+    echo "Changes to 'composer.lock' detected; running 'composer install'." && 
+    composer install
+}
+
+composer_install_on_changed_lockfile
+
+exit 0;
