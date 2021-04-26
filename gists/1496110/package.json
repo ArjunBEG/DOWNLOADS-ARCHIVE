@@ -1,0 +1,9 @@
+{
+  "name": "fs_tree",
+
+  "description": "File system tree builder",
+
+  "keywords": [
+    "fs"
+  ]
+}

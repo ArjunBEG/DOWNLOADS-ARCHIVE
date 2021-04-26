@@ -1,0 +1,13 @@
+diff --git a/src/node_http_parser.cc b/src/node_http_parser.cc
+index 38251a1..3493552 100644
+--- a/src/node_http_parser.cc
++++ b/src/node_http_parser.cc
+@@ -447,6 +447,8 @@ public:
+     size_t nparsed =
+       http_parser_execute(&parser->parser_, &settings, buffer_data + off, len);
+ 
++    parser->Flush();
++
+     // Unassign the 'buffer_' variable
+     assert(current_buffer);
+     current_buffer = NULL;

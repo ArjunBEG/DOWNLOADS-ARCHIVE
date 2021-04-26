@@ -1,0 +1,1 @@
+Lazy (and synchronous) Module Declaration in 126 bytes

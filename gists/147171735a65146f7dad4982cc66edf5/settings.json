@@ -1,0 +1,60 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "window.zoomLevel": 0,
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx",
+        "xml": {
+            "attr_quotes": "single"
+        }
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html",
+        "plaintext": "jade"
+    },
+    "prettier.jsxBracketSameLine": true,
+    "prettier.useTabs": true,
+    "eslint.autoFixOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false,
+    "editor.fontSize": 14.5,
+    "sync.gist": "147171735a65146f7dad4982cc66edf5",
+    "sync.lastUpload": "2018-04-23T13:27:07.627Z",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "2018-04-03T15:30:21.748Z",
+    "sync.forceDownload": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "eslint.packageManager": "yarn",
+    "workbench.colorTheme": "Cobalt2",
+    "editor.fontFamily": "OperatorMono Nerd Font",
+    "workbench.startupEditor": "newUntitledFile",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "LineCount.excludes": [
+        "**/.vscode/**",
+        "**/node_modules/**",
+        "**/out/**",
+        "**/build/**",
+        "yarn.lock",
+        "yarn-error.log"
+    ],
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.defaultDateStyle": "absolute",
+    "gitlens.historyExplorer.enabled": false,
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers",
+        "blocks"
+    ],
+    "gitlens.heatmap.toggleMode": "window",
+    "editor.fontLigatures": true,
+    "editor.cursorStyle": "underline",
+}

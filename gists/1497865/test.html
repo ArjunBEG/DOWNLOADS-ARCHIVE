@@ -1,0 +1,10 @@
+<!DOCTYPE html> 
+<title>argv_parser</title>
+<div>Expected value: <b>{"h":"0.0.0.0","p":"80","s":true,"a":true,"vvvv":true,"r-x":true,"v":"123","x":true,"debug-enabled":"yes"}</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+  var argv = 'node server.js -h 0.0.0.0 -p 80 -s -a --vvvv --r-x /v 123 /x --debug-enabled=yes',
+      argv_parser = function(a,b,c,d){c={};for(a=a.split(/\s*\B[\/-]+([\w-]+)[\s=]*/),d=1;b=a[d++];c[b]=a[d++]||!0);return c};
+
+  document.getElementById("ret").innerHTML = JSON.stringify(argv_parser(argv));
+</script>

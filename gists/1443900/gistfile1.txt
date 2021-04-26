@@ -1,0 +1,43 @@
+#wrap .chrome-frame-message-box
+  background #eee
+  color #000
+  text-align center
+  height 140px
+  padding-top 16px
+  border-bottom solid 1px #bdbdbd
+.chrome-frame-message
+  position relative
+  width 980px
+  height 100%
+  margin auto
+  font-weight lighter
+  text-align left
+.chrome-frame-message .header
+  font-family Times New Roman
+  font-size 34px
+.chrome-frame-message .body
+  margin-top 20px
+  font-family Helvetica
+  font-size 15px
+  line-height 1.3em
+  position relative
+  width 590px
+  height 70px
+.chrome-frame-message .button
+  cursor pointer
+  position absolute
+  bottom 30px
+  right 20px
+  width 319px
+  height 92px
+  // 'unquote' because IE7 doesn't support inlined CSS images
+  unquote('background: url("/images/install-chrome-frame.png")')
+.chrome-frame-message .x
+  cursor pointer
+  position absolute
+  top -15px
+  right 0px
+  width 24px
+  height 24px
+  // 'unquote' because IE7 doesn't support inlined CSS images
+  unquote('background: url("/images/task-remove.png") no-repeat scroll 0 0 transparent')

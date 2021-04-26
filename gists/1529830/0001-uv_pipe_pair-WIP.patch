@@ -1,0 +1,223 @@
+From 4964a90d7d91288a2ae83f76a33b05740bd83041 Mon Sep 17 00:00:00 2001
+From: Ryan Dahl <ry@tinyclouds.org>
+Date: Wed, 28 Dec 2011 13:26:57 -0800
+Subject: [PATCH] uv_pipe_pair WIP
+
+---
+ include/uv.h          |    7 +++
+ src/unix/pipe.c       |   36 ++++++++++++++++
+ test/test-list.h      |    3 +
+ test/test-pipe-pair.c |  109 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 155 insertions(+), 0 deletions(-)
+ create mode 100644 test/test-pipe-pair.c
+
+diff --git a/include/uv.h b/include/uv.h
+index 9ff318f..a2beed3 100644
+--- a/include/uv.h
++++ b/include/uv.h
+@@ -785,6 +785,13 @@ struct uv_pipe_s {
+ UV_EXTERN int uv_pipe_init(uv_loop_t*, uv_pipe_t* handle, int ipc);
+ 
+ /*
++ * Connects two initialized pipes on different loops.
++ * Data written to one pipe will appear on the other side.
++ * This function is thread-safe.
++ */
++UV_EXTERN uv_err_t uv_pipe_pair(uv_pipe_t* a, uv_pipe_t* b);
++
++/*
+  * Opens an existing file descriptor or HANDLE as a pipe.
+  */
+ UV_EXTERN void uv_pipe_open(uv_pipe_t*, uv_file file);
+diff --git a/src/unix/pipe.c b/src/unix/pipe.c
+index de89961..6d4959c 100644
+--- a/src/unix/pipe.c
++++ b/src/unix/pipe.c
+@@ -30,6 +30,10 @@
+ #include <stdlib.h>
+ 
+ 
++static uv_once_t uv__pipe_pair_lock_guard = UV_ONCE_INIT;
++static uv_mutex_t uv__pipe_pair_lock;
++
++
+ int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc) {
+   uv__stream_init(loop, (uv_stream_t*)handle, UV_NAMED_PIPE);
+   loop->counters.pipe_init++;
+@@ -39,6 +43,38 @@ int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc) {
+ }
+ 
+ 
++void uv__pipe_pair_lock_init() {
++  uv_mutex_init(&uv__pipe_pair_lock);
++}
++
++
++uv_err_t uv_pipe_pair(uv_pipe_t* a, uv_pipe_t* b) {
++  int fds[2];
++  int r; 
++  uv_err_t err;
++
++  /* Make sure that the mutex is only initialized once. */
++  uv_once(&uv__pipe_pair_lock_guard, uv__pipe_pair_lock_init);
++
++  uv_mutex_lock(&uv__pipe_pair_lock);
++
++  r = uv__make_socketpair(fds, UV__F_NONBLOCK | UV__F_IPC);
++
++  if (!r) {
++    err = uv__new_sys_error(errno);
++  } else {
++    uv_pipe_open(a, fds[0]);
++    uv_pipe_open(b, fds[1]);
++    err = uv_ok_;
++  }
++
++  uv_mutex_unlock(&uv__pipe_pair_lock);
++
++  return err;
++}
++
++
++
+ int uv_pipe_bind(uv_pipe_t* handle, const char* name) {
+   struct sockaddr_un saddr;
+   const char* pipe_fname;
+diff --git a/test/test-list.h b/test/test-list.h
+index f5f0541..2f5f224 100644
+--- a/test/test-list.h
++++ b/test/test-list.h
+@@ -29,6 +29,7 @@ TEST_DECLARE   (tcp_ping_pong_v6)
+ TEST_DECLARE   (tcp_ref)
+ TEST_DECLARE   (tcp_ref2)
+ TEST_DECLARE   (pipe_ping_pong)
++TEST_DECLARE   (pipe_pair)
+ TEST_DECLARE   (delayed_accept)
+ TEST_DECLARE   (multiple_listen)
+ TEST_DECLARE   (tcp_writealot)
+@@ -163,6 +164,8 @@ TASK_LIST_START
+   TEST_ENTRY  (pipe_ping_pong)
+   TEST_HELPER (pipe_ping_pong, pipe_echo_server)
+ 
++  TEST_ENTRY  (pipe_pair)
++
+   TEST_ENTRY  (delayed_accept)
+   TEST_ENTRY  (multiple_listen)
+ 
+diff --git a/test/test-pipe-pair.c b/test/test-pipe-pair.c
+new file mode 100644
+index 0000000..60ec75e
+--- /dev/null
++++ b/test/test-pipe-pair.c
+@@ -0,0 +1,109 @@
++/* Copyright Joyent, Inc. and other Node contributors. All rights reserved.
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to
++ * deal in the Software without restriction, including without limitation the
++ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
++ * sell copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in
++ * all copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
++ * IN THE SOFTWARE.
++ */
++
++#include "uv.h"
++
++#define PING "PING"
++
++static uv_pipe_t a;
++static uv_pipe_t b;
++static uv_write_t req;
++static uv_buf_t buf;
++
++
++static void pinger_read_cb(uv_stream_t* stream, ssize_t nread, uv_buf_t buf) {
++  ASSERT((uv_pipe_t*)stream == &b);
++
++  ASSERT(nread == 0);
++  ASSERT(uv_last_error(stream->loop).code == UV_EOF);
++}
++
++
++static void ponger_read_cb(uv_stream_t* stream, ssize_t nread, uv_buf_t buf) {
++  ASSERT((uv_pipe_t*)stream == &a);
++
++  if (nread > 0) {
++    ASSERT(strcmp(buf.base, PING) == 0);
++
++  } else {
++    ASSERT(uv_last_error(stream->loop).code == UV_EOF);
++  }
++}
++
++
++static uv_buf_t alloc_cb(uv_handle_t* handle, size_t size) {
++  uv_buf_t buf;
++  buf.base = (char*)malloc(size);
++  buf.len = size;
++  return buf;
++}
++
++
++void start(void* data) {
++  uv_err_t err;
++  uv_loop_t* loop;
++  int r;
++
++  ASSERT(data == NULL);
++  
++  uv_loop_t* loop = uv_loop_new();
++  ASSERT(loop);
++
++  r = uv_pipe_init(loop, &b, 1);
++  ASSERT(r == 0);
++
++  err = uv_pipe_pair(&a, &b);
++  ASSERT(err.code == UV_OK);
++
++  buf = uv_buf_init(PING, strlen(PING))
++
++  if (uv_write(&req, (uv_stream_t*)&b, &buf, 1, after_write)) {
++    FATAL("uv_write failed");
++  }
++  puts("PING");
++
++  uv_read_start((uv_stream_t*)&b, alloc_cb, pinger_read_cb);
++
++  uv_run(loop);
++
++  ASSERT(written);
++}
++
++
++TEST_IMPL(pipe_pair) {
++  int r;
++  uv_thread_t tid;
++
++  r = uv_pipe_init(uv_default_loop(), &a, 1);
++  ASSERT(r == 0);
++
++  r = uv_thread_create(&tid, start, NULL);
++  ASSERT(r == 0);
++
++  uv_read_start((uv_stream_t*)&a, alloc_cb, ponger_read_cb);
++
++  uv_run(uv_default_loop());
++  uv_thread_join(tid);
++
++  ASSERT(written);
++
++  return 0;
++}
+-- 
+1.7.2

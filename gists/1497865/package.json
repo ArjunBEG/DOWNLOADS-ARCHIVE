@@ -1,0 +1,12 @@
+{
+  "name": "argv_parser",
+
+  "description": "Simple argv parser: both unix and dos style",
+
+  "keywords": [
+    "argv",
+    "parser",
+    "unix",
+    "dos"
+  ]
+}

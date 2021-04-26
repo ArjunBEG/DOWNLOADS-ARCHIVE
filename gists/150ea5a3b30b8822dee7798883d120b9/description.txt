@@ -1,0 +1,1 @@
+Ever noticed how vw/vh units in CSS seem to be a bit unreliable on various devices (especially mobile)? Here's my solution.

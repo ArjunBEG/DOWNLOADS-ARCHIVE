@@ -1,0 +1,1 @@
+Download crashes of a crash group from HockeyApp

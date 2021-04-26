@@ -1,0 +1,1 @@
+How to get the type of operating system in a ruby script.

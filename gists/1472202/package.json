@@ -1,0 +1,12 @@
+{
+  "name": "lmd",
+
+  "description": "Lazy (and synchronous) Module Declaration",
+
+  "keywords": [
+    "lmd",
+    "amd",
+    "module",
+    "synchronous"
+  ]
+}
