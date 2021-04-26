@@ -1,0 +1,1 @@
+AutoHotKeys (AHK) script for cycling active focus between a selected ("recorded") set of open windows

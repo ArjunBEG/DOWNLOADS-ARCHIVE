@@ -1,0 +1,1 @@
+Svelte with/without `customElement: true`

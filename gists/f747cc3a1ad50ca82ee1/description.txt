@@ -1,0 +1,1 @@
+Material UI Color Palette, for use with Less Preprocessor

@@ -1,0 +1,1 @@
+Custom git command to append an issue number to the last commit message.

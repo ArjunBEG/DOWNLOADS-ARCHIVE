@@ -1,0 +1,77 @@
+/* HTML */
+
+<div class="container">
+  <div class="child"></div>
+<div>
+
+/* Basic Style  */
+
+.container {
+  width: 500px;
+  height: 500px;
+  background: #ccc;
+}
+
+.child {
+  background: red;
+  width: 100px;
+  height: 100px;
+}
+
+/* Different ways to make an element horizontal & vertical center */
+
+/* Way 1 - Using position: absolute;  */
+
+.container {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+/* Way 2 - Using Flexbox */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Way 3 - Using CSS Grid */
+
+.container {
+  display: grid;
+  place-items: center;
+}
+
+/* Way 4 - Using position: absolute; transform  */
+
+.container {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+/* Way 5 - Using display: table & table-cell  */
+
+.container {
+  display: table;
+}
+
+.child {
+  background: red;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

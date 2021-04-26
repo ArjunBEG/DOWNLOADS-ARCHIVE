@@ -1,0 +1,1 @@
+Recursively freeze an object.

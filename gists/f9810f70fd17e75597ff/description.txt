@@ -1,0 +1,1 @@
+convert up 1000 pngs named from "frame000.png" to "frame999.png" into a 16fps video.  Note the -i flag for file names. 

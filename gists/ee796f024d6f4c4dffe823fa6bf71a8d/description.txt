@@ -1,0 +1,1 @@
+Check Flow types without @flow pragma comment

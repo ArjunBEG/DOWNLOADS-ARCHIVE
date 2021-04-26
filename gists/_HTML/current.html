@@ -1,0 +1,47 @@
+<svelte:window on:resize={handleResize}/>
+
+<script>
+  import * as yootils from 'yootils';
+  import { onMount } from 'svelte';
+
+  export let points;
+  export let margins;
+
+  let container;
+  let width;
+  let height;
+
+  const min_x = () => Math.min(...points.map(p => p.x));
+  const max_x = () => Math.max(...points.map(p => p.x));
+  const min_y = () => Math.min(...points.map(p => p.y));
+  const max_y = () => Math.max(...points.map(p => p.y));
+
+  function x_scale() {
+    return yootils.linearScale(
+      [min_x(), max_x()],
+      [margins.left, width - margins.right]
+    );
+  }
+
+  function y_scale() {
+    return yootils.linearScale(
+      [min_y(), max_y()],
+      [height - margins.bottom, margins.top]
+    );
+  }
+
+  function handleResize() {
+    const { left, right, top, bottom } = container.getBoundingClientRect();
+    width = right - left;
+    height = bottom - top;
+  }
+  
+  onMount(handleResize);
+</script>
+
+<svg ref:container>
+  {#each points as point}
+    <circle cx={x_scale()(point.x)} cy={y_scale()(point.y)} r=5/>
+    <text x={x_scale()(point.x)} cy={y_scale()(point.y)}>{point.label}</text>
+  {/each}
+</svg>

@@ -1,0 +1,1 @@
+Paste this into the console of any WordPress site, to see posts via Ajax.

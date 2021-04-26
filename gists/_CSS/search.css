@@ -1,0 +1,15 @@
+input[type="search"]::-webkit-search-cancel-button {
+  --size: 11px;
+  --background: #7F7F7F;
+  --icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci14Ij48cGF0aCBkPSJNMTggNkw2IDE4TTYgNmwxMiAxMiIvPjwvc3ZnPgo=");
+  -webkit-appearance: none;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  background: var(--background) var(--icon) 50% 50% no-repeat;
+}
+
+input[type="search"]::-webkit-search-cancel-button:hover {
+  opacity: 0.9;
+}
+

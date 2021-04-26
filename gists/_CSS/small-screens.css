@@ -1,0 +1,114 @@
+
+@media (max-width: 425px) {
+
+	body {
+		min-width: 0; /* get rid of hardcoded width */
+	}
+
+	/* Top navigation bar */
+
+	#monobar .toptabs {
+		display: none; /* hide most of the options to save some space */
+	}
+
+	#userbar {
+		padding: 5px;
+	}
+
+	#userbar > span {
+		display: inline-flex;
+		flex-wrap: wrap;
+	}
+
+	/* Search toolbar */
+
+	.subt {
+		padding: 5px;
+	}
+
+	.subt .inIssueEntry, .subt .inIssueList {
+		display: block;
+		margin: 10px 0 !important;
+	}
+
+	.subt label[for="searchq"], .subt label[for="can"], #can {
+		display: none; /* hide some labels and search scope helper field to save some space */
+	}
+
+	/* Main content */
+
+	#maincol > div > form > table > tbody > tr {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#maincol > div > form > table > tbody > tr > td {
+		display: block;
+	}
+
+	#maincol table.rowmajor {
+		display: flex;
+		flex-direction: column;
+		width: auto; /* get rid of hardcoded width */
+		max-width: 100%;
+	}
+
+	#maincol table.rowmajor tbody {
+		flex-grow: 1;
+	}
+
+	#maincol table.rowmajor tr {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#maincol table.rowmajor tr > th {
+		text-align: left;
+	}
+
+	#maincol table.rowmajor tr > td {
+		display: block;
+		width: 90%;
+	}
+
+	#maincol input, #maincol select, #maincol textarea {
+		font-size: 100%;
+		max-width: 75%;
+	}
+
+	#maincol .labelediting input {
+		max-width: 19%;
+	}
+
+	/* Others */
+
+	#maincol div.tip {
+		width: auto;
+	}
+
+	#footer {
+		display: flex;
+		margin: 0 5px 5px 5px ;
+		text-align: left;
+	}
+
+	#attachprompt {
+		display: block;
+		padding: 10px 0;
+	}
+
+	input[type="button"], input[type="submit"], a.buttonify { /* make all types of buttons easier to click */
+		padding: 5px;
+	}
+
+
+	table#meta-container, 
+	table#meta-container > tbody > tr, 
+	table#meta-container > tbody > tr> td {
+		display: block;
+		width: 100%;
+	}
+
+
+}
+

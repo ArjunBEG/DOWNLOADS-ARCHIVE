@@ -1,0 +1,11 @@
+{
+  "name": "requirebin-sketch",
+  "version": "1.0.0",
+  "dependencies": {
+    "baboon-image": "1.0.0",
+    "lena": "1.0.0",
+    "save-pixels": "2.2.0",
+    "cwise": "1.0.5",
+    "ndarray-ops": "1.2.2"
+  }
+}

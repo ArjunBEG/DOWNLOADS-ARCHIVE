@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Next level UX</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <p>
+      <label>
+        Please enter your phone number:<br />
+        <input
+          id="I"
+          type="range"
+          min="1000000000"
+          value="4151234567"
+          max="9999999999"
+          oninput="str = this.value; L.innerText = `(${str.substr(0,3)})-${str.substr(3,3)}-${str.substr(6)}`"
+        />
+        <span id="L" />
+        <script>
+          I.oninput();
+        </script>
+      </label>
+    </p>
+  </body>
+</html>

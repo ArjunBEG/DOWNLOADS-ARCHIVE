@@ -1,0 +1,1 @@
+Flow: Omit utility function to remove keys of an object type by using $Diff

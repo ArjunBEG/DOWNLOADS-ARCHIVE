@@ -1,0 +1,34 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/* hide icons for bookmark folders */
+#personal-bookmarks .bookmark-item[container="true"] .toolbarbutton-icon {
+  display: none !important;
+}
+
+/* hide icons for bookmark folders next to a properly marked bookmark */
+#personal-bookmarks .bookmark-item[scheme="javascript"] .toolbarbutton-icon {
+  display: none !important;
+}
+#personal-bookmarks .bookmark-item {
+  /* padding-left: 1px !important; */
+  /* padding-right: 1px !important; */
+}
+#personal-bookmarks .bookmark-item[label^='<<'] .toolbarbutton-text {
+  display: none !important;
+}
+#personal-bookmarks .bookmark-item[label^='<<'] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+#personal-bookmarks .bookmark-item[label^='<<'] + .bookmark-item {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+#personal-bookmarks .bookmark-item[label^='<<']:hover + .bookmark-item {
+  background-color: var(--lwt-toolbarbutton-hover-background, hsla(0,0%,70%,.2)) !important;
+}
+

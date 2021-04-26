@@ -1,0 +1,27 @@
+api.assign() =>
+    AssignAction(...)
+    this.request('...')
+        .success(() => AssignSuccessAction())
+        .error(() => AssignErrorAction())
+
+
+ThingStore =>
+    onAssign:
+        // we want to emulate a Set() for this
+        item.state.assignInProgress = true;
+
+    onAssignSuccess:
+        item.state.assignInProgress = false;
+
+    onAssignError:
+        item.state.assignInProgress = false;
+        AddAlertAction('there was an error and theres no good way for us to tell the component about it')
+
+
+AssignComponent =>
+    render() {
+        if item.state.assignInProgress
+            return 'in progress'
+        else
+            return '<a ...>'
+    }

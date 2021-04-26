@@ -1,0 +1,9 @@
+{
+  "scripts": [
+    "react",
+    "react-dom"
+  ],
+  "styles": [
+    "font-awesome"
+  ]
+}

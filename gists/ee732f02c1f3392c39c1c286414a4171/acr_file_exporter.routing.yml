@@ -1,0 +1,7 @@
+acr_file_exporter.exportform:
+  path: '/node/{node}/export'
+  defaults:
+    _form: '\Drupal\acr_file_exporter\Form\ACRExporterForm'
+    _title: 'Export'
+  requirements:
+    _role: 'content admin'

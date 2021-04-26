@@ -1,0 +1,1 @@
+Simple function for "recording" events and persisting them to the file system. Useful for debugging.

@@ -1,0 +1,63 @@
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../core-animated-pages/transitions/hero-transition.html">
+<link rel="import" href="../core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../core-animated-pages/transitions/slide-down.html">
+<link rel="import" href="../core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../core-animated-pages/transitions/tile-cascade.html">
+
+<polymer-element name="my-element">
+
+  <template>
+    <style>    
+      :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      #core_animated_pages {
+        width: 420px;
+        height: 582px;
+        overflow: hidden;
+        left: 20px;
+        top: 30px;
+        position: absolute;
+        background-color: rgb(238, 238, 238);
+      }
+      #core_animated_pages1 {
+        width: 420px;
+        height: 582px;
+        overflow: hidden;
+        left: 460px;
+        top: 30px;
+        position: absolute;
+        background-color: rgb(238, 238, 238);
+      }
+    </style>
+    <core-animated-pages selectedindex="0" notap id="core_animated_pages">
+      <section id="section" layout horizontal center center-justified active>
+      </section>
+      <section id="section1">
+      </section>
+      <section id="section2">
+      </section>
+    </core-animated-pages>
+    <core-animated-pages selectedindex="0" notap id="core_animated_pages1">
+      <section id="section3" layout horizontal center center-justified active>
+      </section>
+      <section id="section4">
+      </section>
+      <section id="section5">
+      </section>
+    </core-animated-pages>
+  </template>
+
+  <script>
+
+    Polymer('my-element', {
+      
+    });
+
+  </script>
+
+</polymer-element>

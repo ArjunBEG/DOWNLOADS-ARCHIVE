@@ -1,0 +1,1 @@
+Multiple React components on a single HTML page

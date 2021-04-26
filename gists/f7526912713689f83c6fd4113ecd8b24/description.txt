@@ -1,0 +1,1 @@
+Get method names, from object or class instance.

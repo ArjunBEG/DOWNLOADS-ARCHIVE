@@ -1,0 +1,33 @@
+{
+  "scripts": {
+    "format": "prettier --write \"./**/*.{css,html,js,json,scss}\"",
+    "lint": "eslint .src/**/*.js --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && prett-quick --staged"
+    }
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "strict",
+    "jsxBracketSameLine": false,
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": true
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": true
+    }
+  },
+  "browserslist": [
+    "defaults",
+    "IE 10",
+    "IE 11"
+  ]
+}

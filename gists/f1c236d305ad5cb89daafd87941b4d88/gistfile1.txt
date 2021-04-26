@@ -1,0 +1,17 @@
+using System;
+using System.Linq;
+using NodaTime;
+using NodaTime.Extensions;
+
+public class Program
+{
+    public static void Main()
+    {
+        var latest = (from zone in DateTimeZoneProviders.Tzdb.GetAllZones()
+                      from interval in zone.GetZoneIntervals(NodaConstants.BclEpoch, Instant.FromUtc(2100, 1, 1, 0, 0))
+                      where interval.WallOffset.Seconds % 60 != 0
+                      orderby interval.End descending
+                      select (zone, interval)).First();
+        Console.WriteLine($"{latest.zone.Id}: {latest.interval.End} ({latest.interval.WallOffset})");
+    }
+}

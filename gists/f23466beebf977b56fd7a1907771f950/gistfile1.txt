@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+namespace LoopingEnumerable
+{
+    public class Translation
+    {
+        public string TranslatedText { get; set; }
+    }
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            var collection = new ObservableCollection<Translation>();
+            for (int i = 0; i < 10; i++)
+            {
+                collection.Add(new Translation());
+            }
+            var source = collection.Where(x => string.IsNullOrEmpty(x.TranslatedText));
+            var count = source.Count();
+
+            Console.WriteLine($"Count : {count}");
+
+            var action = new Action<int>(i => Console.WriteLine(i));
+
+            Console.WriteLine("Starting Loop");
+
+            //Loop_For(source, action);
+
+            Loop_ForEach(source, action);
+            Console.WriteLine("Finished Loop");
+        }
+
+        public static void Loop_For(IEnumerable<Translation> items, Action<int> action)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                var obj = items.ElementAt(i);
+                obj.TranslatedText = "something";
+                action(i + 1);
+            }
+        }
+
+        public static void Loop_ForEach(IEnumerable<Translation> items, Action<int> action)
+        {
+            int count = 0;
+            foreach (var item in items)
+            {
+                item.TranslatedText = "something";
+                action(++count);
+            }
+        }
+    }
+}

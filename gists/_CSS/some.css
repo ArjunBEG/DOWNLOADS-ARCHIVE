@@ -1,0 +1,10 @@
+
+.normal {
+  padding: 5px 25px;
+  border: 1px solid #eee;
+}
+
+.large {
+  padding: 25px 50px;
+  composes: normal;
+}

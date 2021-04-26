@@ -1,0 +1,1 @@
+A jscodeshift codemod for replacing import & export paths with their full paths, including extensions. Effectively fixes imports for use as ES modules in Node.js.

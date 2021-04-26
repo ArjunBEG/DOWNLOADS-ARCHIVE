@@ -1,0 +1,1 @@
+Calculate the average color of the edges of an UIImage
