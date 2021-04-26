@@ -1,0 +1,57 @@
+{'code': '&lt;nav&gt;\r\n'
+         '  &lt;a href="#"&gt;Home&lt;/a&gt;\r\n'
+         '  &lt;span&gt;News&lt;/span&gt;\r\n'
+         '  &lt;a href="#" class="sublink-1"&gt;New Courses&lt;/a&gt;\r\n'
+         '  &lt;a href="#" class="sublink-1"&gt;Certifications&lt;/a&gt;\r\n'
+         '  &lt;span class="sublink-1"&gt;Events&lt;/span&gt;\r\n'
+         '  &lt;a href="#" class="sublink-2"&gt;Course Showcase - 12th, '
+         'Dec&lt;/a&gt;\r\n'
+         '  &lt;a href="#" class="sublink-2"&gt;Staff AMA - 16th, '
+         'Dec&lt;/a&gt;\r\n'
+         '  &lt;a href="#" class="sublink-1"&gt;Policy Update&lt;/a&gt;\r\n'
+         '  &lt;a href="#"&gt;About&lt;/a&gt;\r\n'
+         '  &lt;a href="#"&gt;Contact&lt;/a&gt;\r\n'
+         '&lt;/nav&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal col-lg-8 col-lg-normal">
+<p style="text-align: justify;">To add vertical navigation to your websites, use the <code>&lt;nav&gt;</code> HTML element. Adding links is pretty simple, just use <code>&lt;a&gt;</code> elements, no lists or anything else required. In order to add subcategories to your vertical navigation, use any normal textual element as the title of the subcategory and follow it with its links as normal, adding the <code>.sublink-1</code> class to them. Similarly, you can create a subcategory with a depth of 2, using a similar structure and the <code>.sublink-2</code> class.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12">\n'
+         '<pre>&lt;div class="col-sm-12 col-sm-last col-md-3 '
+         'col-md-first"&gt;\r\n'
+         '  &lt;nav&gt;\r\n'
+         '    <span class="fore-tertiary">&lt;!-- navigation content '
+         '--&gt;</span>\r\n'
+         '  &lt;/nav&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0We strongly recommend using the '
+         '<code>&lt;nav&gt;</code> element in combination with the <a '
+         'href="grid"><strong>grid</strong></a> module to make your layouts '
+         'more responsive. For example, you could make your sidebar appear on '
+         'the left side of your content in medium-sized and larger screens, '
+         'but move to the very bottom of your content on smaller screens.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal col-lg-4 col-lg-normal">
+<div><br/>
+<nav>
+<a href="#">Home</a> <span>News</span>
+<a class="sublink-1" href="#">New Courses</a> <a class="sublink-1" href="#">Certifications</a>
+<span class="sublink-1">Events</span> <a class="sublink-2" href="#">Course Showcase - 12th, Dec</a>
+<a class="sublink-2" href="#">Staff AMA - 16th, Dec</a> <a class="sublink-1" href="#">Policy Update</a>
+<a href="#">About</a> <a href="#">Contact</a>
+</nav><br/>
+</div>
+</div>,
+ 'id': 'navigation-bar',
+ 'module': 'navigation',
+ 'name': 'Navigation bar',
+ 'notes': ['<li>Subcategories and their links support a depth of 2 by default. '
+           'If, however, you need more than that, we recommend you check the '
+           '<a href="customization">customization page</a> for instructions on '
+           'how to add more depth to the vertical navigation.</li>',
+           '<li>We strongly suggest you do not add irrelevant things inside '
+           'your <code>&lt;nav&gt;</code> element, like images or text that '
+           'are not part of the navigation menu.</li>']}

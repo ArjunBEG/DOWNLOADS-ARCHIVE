@@ -1,0 +1,1 @@
+bookmarklet to update links to open vscode 

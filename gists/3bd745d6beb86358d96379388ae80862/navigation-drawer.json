@@ -1,0 +1,112 @@
+{'code': '&lt;header&gt;\r\n'
+         '  &lt;label for="drawer-checkbox" class="button '
+         'drawer-toggle"&gt;&lt;/label&gt;\r\n'
+         '&lt;/header&gt;\r\n'
+         '\r\n'
+         '&lt;input type="checkbox" id="drawer-checkbox"&gt;\r\n'
+         '&lt;div class="drawer"&gt;\r\n'
+         '  &lt;label for="drawer-checkbox" class="close"&gt;&lt;/label&gt;\r\n'
+         '  &lt;a href="#"&gt;Home&lt;/a&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">The drawer component is used to create responsive and collapsible navigation menus. To create the drawer system, follow the steps presented below:</p>
+<ul style="text-align: justify;">
+<li>Inside your <code>&lt;header&gt;</code> element, add a <code>&lt;label&gt;</code> element with the <code>.drawer-toggle</code> class (remember to add the <code>.button</code> class to apply the necessary styles).</li>
+<li>Create an <code>&lt;input <span class="fore-secondary">type</span>="<span class="fore-primary">checkbox</span>"&gt;</code> element. Give it an <code class="fore-secondary">id</code> to be able to link it to the necessary interactive elements.</li>
+<li>Immediately after the previous <code>&lt;input <span class="fore-secondary">type</span>="<span class="fore-primary">checkbox</span>"&gt;</code>, create a <code>&lt;div&gt;</code> element with the <code>.drawer</code> class. This is where you will put your menu's contents.</li>
+<li>Add an empty <code>&lt;label&gt;</code> element inside your <code>.drawer</code>, adding the <code>.close</code> class to it.</li>
+<li>Finally, link the <code>.drawer-toggle</code> and <code>.close</code> elements to the <code class="fore-secondary">id</code> of your <code>&lt;input <span class="fore-secondary">type</span>="<span class="fore-primary">checkbox</span>"&gt;</code>.</li>
+</ul>
+<p style="text-align: justify;">Drawers are responsive and will expand into normal containers on larger screens. If you want to avoid this, add the <code>.persistent</code> class to both your <code>.drawer-toggle</code> and <code>.drawer</code> elements. You can also change the position of the drawer from the left side of the screen to the right by applying the <code>.right</code> class to your <code>.drawer</code> element.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;input type="checkbox" id="drawer-checkbox"&gt;\r\n'
+           '<span class="fore-secondary">&lt;!-- Other stuff here '
+           '--&gt;</span>\r\n'
+           '&lt;div class="drawer"&gt;\r\n'
+           '  &lt;h3&gt;Bad drawer&lt;/h3&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0The syntax and structure of '
+           'the drawer container is very strict. Try to follow it exactly as '
+           'described in this section.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last">\n'
+           '<pre>&lt;header&gt;\r\n'
+           '  &lt;label for="drawer-checkbox" class="button drawer-toggle '
+           'persistent"&gt;&lt;/label&gt;\r\n'
+           '&lt;/header&gt;\r\n'
+           '&lt;input type="checkbox" id="drawer-checkbox"&gt;\r\n'
+           '&lt;div class="drawer"&gt;...&lt;/div&gt;\r\n'
+           '&lt;!-- or --&gt;\r\n'
+           '&lt;header&gt;\r\n'
+           '  &lt;label for="drawer-checkbox" class="button '
+           'drawer-toggle"&gt;&lt;/label&gt;\r\n'
+           '&lt;/header&gt;\r\n'
+           '&lt;input type="checkbox" id="drawer-checkbox"&gt;\r\n'
+           '&lt;div class="drawer peristent"&gt;...&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Remember to apply the '
+           '<code>.persistent</code> class to the <code>.drawer-toggle</code> '
+           'and <code>.drawer</code> elements to avoid unexpected '
+           'behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6 col-sm-first">\n'
+         '<pre>&lt;nav class="drawer"&gt;\r\n'
+         '  &lt;label for="drawer-checkbox" class="close"&gt;&lt;/label&gt;\r\n'
+         '  &lt;a href="#"&gt;Home&lt;/a&gt;\r\n'
+         '&lt;/nav&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can apply the '
+         '<code>.drawer</code> class to a <code>&lt;nav&gt;</code> element, '
+         "effectively making your page's navigation menu collapse on smaller "
+         'screen sizes.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6 col-sm-first col-md-normal">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;input type="checkbox" id="drawer-checkbox"&gt;\r\n'
+         '  &lt;div class="drawer col-md-4"&gt;\r\n'
+         '    &lt;label for="drawer-checkbox" '
+         'class="close"&gt;&lt;/label&gt;\r\n'
+         '    &lt;a href="#"&gt;Home&lt;/a&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '\r\n'
+         '  &lt;div class="col-sm-12 col-md-8"&gt;\r\n'
+         '    &lt;p&gt;Page content&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can combine the '
+         '<code>.drawer</code> component with the grid system, similarly to '
+         'any other element or component. The <code>.drawer</code> will be '
+         "displayed as a slide-in menu on smaller screens, but it's part of "
+         'the layout on medium-sized and larger screens.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div style="height: 15rem;"><br/>
+<style>.drawer.demo { position: absolute; height: 15rem; z-index: 0; top: 6.625rem; height: 12.5rem;} [type="checkbox"]:checked + .drawer.demo { z-index: 1001; margin-left: 0.75rem;}</style>
+<header><label class="button drawer-toggle persistent" for="demo-toggle"></label></header> <br/>
+<input id="demo-toggle" type="checkbox"/> <nav class="drawer demo persistent">
+<label class="close" for="demo-toggle"></label><a href="#">Home</a> <span>News</span>
+<a class="sublink-1" href="#">New Courses</a> <a class="sublink-1" href="#">Certifications</a>
+<span class="sublink-1">Events</span> <a class="sublink-2" href="#">Course Showcase - 12th, Dec</a>
+<a class="sublink-2" href="#">Staff AMA - 16th, Dec</a> <a class="sublink-1" href="#">Policy Update</a>
+<a href="#">About</a> <a href="#">Contact</a><br/></nav>
+</div>
+</div>,
+ 'id': 'drawer',
+ 'module': 'navigation',
+ 'name': 'Drawer',
+ 'notes': ['<li>The <code>.drawer</code> component can be easily and '
+           'effectively combined with the <a '
+           'href="grid"><strong>grid</strong></a> module\'s system and '
+           'classes, as well as the <a '
+           'href="utility"><strong>utility</strong></a> module\'s responsive '
+           'visibility helper classes to create fully responsive navigation '
+           'menus.</li>',
+           "<li>It's best to use the <code>.drawer</code> component in "
+           'combination with a <code>&lt;header&gt;</code> element that has '
+           'the <code>.sticky</code> class (check the last section of this '
+           'page).</li>']}

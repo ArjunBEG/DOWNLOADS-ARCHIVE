@@ -1,0 +1,7 @@
+<div class="outer" >Fun Stuff</div>
+
+// get the entire html for the <div class="outer" > tag
+var x = $('.outer').outerHtml();
+
+// replace all div tags with <div class="outer" >Fun Stuff</div>
+$('div').outerHtml(x);

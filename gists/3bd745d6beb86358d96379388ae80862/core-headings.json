@@ -1,0 +1,28 @@
+{'code': '&lt;h1&gt;Heading '
+         '1&lt;small&gt;Subheading&lt;/small&gt;&lt;/h1&gt;\r\n'
+         '&lt;h2&gt;Heading '
+         '2&lt;small&gt;Subheading&lt;/small&gt;&lt;/h2&gt;\r\n'
+         '&lt;h3&gt;Heading '
+         '3&lt;small&gt;Subheading&lt;/small&gt;&lt;/h3&gt;\r\n'
+         '&lt;h4&gt;Heading '
+         '4&lt;small&gt;Subheading&lt;/small&gt;&lt;/h4&gt;\r\n'
+         '&lt;h5&gt;Heading '
+         '5&lt;small&gt;Subheading&lt;/small&gt;&lt;/h5&gt;\r\n'
+         '&lt;h6&gt;Heading 6&lt;small&gt;Subheading&lt;/small&gt;&lt;/h6&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align: justify;">All six of the HTML headings (<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>) are styled with simple rules, providing a clean base for your pages' headings. Apart from the headings themselves, complementary rules are provided for <code>&lt;small&gt;</code> elements inside headings, allowing you to define subheadings or explanatory text for those headings. These subheadings are stylized to display below the headings in smaller, lighter type.</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal row">
+<div class="col-sm-12 col-lg-6 col-lg-first"><h1>Heading 1<small>Subheading</small></h1></div>
+<div class="col-sm-12 col-lg-6"><h2>Heading 2<small>Subheading</small></h2></div>
+<div class="col-sm-12 col-lg-6 col-lg-last"><h3>Heading 3<small>Subheading</small></h3></div>
+<div class="col-sm-12 col-lg-6 col-lg-first"><h4>Heading 4<small>Subheading</small></h4></div>
+<div class="col-sm-12 col-lg-6"><h5>Heading 5<small>Subheading</small></h5></div>
+<div class="col-sm-12 col-lg-6 col-lg-last"><h6>Heading 6<small>Subheading</small></h6></div>
+</div>,
+ 'id': 'headings',
+ 'module': 'core',
+ 'name': 'Headings',
+ 'notes': []}

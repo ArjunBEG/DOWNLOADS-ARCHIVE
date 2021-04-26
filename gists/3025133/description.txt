@@ -1,0 +1,1 @@
+A few useful files for running a nodejs server. I keep update-project.js in /root so when I ssh in I can just run it. my-project.conf runs the project as the user 'www-data', and so fixperms.sh makes sure the project folder is readable/writable.

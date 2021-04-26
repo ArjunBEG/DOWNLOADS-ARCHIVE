@@ -1,0 +1,233 @@
+{'code': '&lt;form&gt;\r\n'
+         '  &lt;fieldset&gt;\r\n'
+         '    &lt;legend&gt;Simple form&lt;/legend&gt;\r\n'
+         '    &lt;div class="input-group fluid"&gt;\r\n'
+         '      &lt;label for="username"&gt;Username&lt;/label&gt;\r\n'
+         '      &lt;input type="email" value="" id="username" '
+         'placeholder="username"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="input-group fluid"&gt;\r\n'
+         '      &lt;label for="pwd"&gt;Password&lt;/label&gt;\r\n'
+         '      &lt;input type="password" value="" id="pwd" '
+         'placeholder="password"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="input-group vertical"&gt;\r\n'
+         '      &lt;label for="nmbr"&gt;Number&lt;/label&gt;\r\n'
+         '      &lt;input type="number" id="nmbr" value="5"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/fieldset&gt;\r\n'
+         '&lt;/form&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-normal">
+<p style="text-align: justify;">Forms are structured the same way you would structure a normal form in HTML5. Simply create a root <code>&lt;form&gt;</code> element and add your <code>&lt;input&gt;</code> elements inside. Link them to <code>&lt;label&gt;</code> elements for ease of access and you are pretty much set. We highly recommend using the <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements to annotate your forms as well, but you can skip them if you wish.</p>
+<p style="text-align: justify;">Forms are inline by default. Use the <code>.input-group</code> class on a <code>&lt;div&gt;</code> wrapping inside it an <code>&lt;input&gt;</code> and <code>&lt;label&gt;</code> pair to make sure they always display together in one line. You can make your <code>.input-group</code>s respond to viewport changes, by adding the <code>.fluid</code> class to them or you can align them vertically by adding the <code>.vertical</code> class. Finally, if you want to create aligned forms with a preset layout, you can utilize the <a href="grid"><strong>grid</strong></a> module's rows and columns.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;form&gt;\r\n'
+           '  &lt;fieldset&gt;\r\n'
+           '    &lt;legend&gt;Responsive form&lt;/legend&gt;\r\n'
+           '    &lt;div class="row input-group"&gt;\r\n'
+           '      &lt;div class="col-sm-12 col-md-4"&gt;\r\n'
+           '        &lt;label for="username"&gt;username&lt;/label&gt;\r\n'
+           '      &lt;/div&gt;\r\n'
+           '      &lt;div class="col-sm-12 col-md"&gt;\r\n'
+           '        &lt;input type="email" value="" id="username" '
+           'placeholder="username"&gt;\r\n'
+           '      &lt;/div&gt;\r\n'
+           '    &lt;/div&gt;\r\n'
+           '  &lt;/fieldset&gt;\r\n'
+           '&lt;/form&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using the '
+           '<code>.input-group</code> class when creating aligned forms. This '
+           'might cause unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;form&gt;\r\n'
+         '  &lt;fieldset&gt;\r\n'
+         '    &lt;legend&gt;Responsive form&lt;/legend&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-4"&gt;\r\n'
+         '        &lt;label for="username"&gt;username&lt;/label&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md"&gt;\r\n'
+         '        &lt;input type="email" value="" id="username" '
+         'placeholder="username"&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-4"&gt;\r\n'
+         '        &lt;label for="pwd"&gt;password&lt;/label&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-4"&gt;\r\n'
+         '        &lt;input type="password" value="" id="pwd" '
+         'placeholder="password"&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/fieldset&gt;\r\n'
+         '&lt;/form&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use <code>.row</code> and '
+         '<code>.col-<span class="fore-primary">SCR_SZ</span></code> or '
+         '<code>.col-<span class="fore-primary">SCR_SZ</span>-<span '
+         'class="fore-secondary">COL_WD</span></code> (replacing <code><span '
+         'class="fore-primary">SCR_SZ</span></code> with one of the available '
+         'screen size names (<code><span '
+         'class="fore-tertiary">sm</span></code> for smaller screens, '
+         '<code><span class="fore-tertiary">md</span></code> for medium-sized '
+         'screens or <code><span class="fore-tertiary">lg</span></code> for '
+         'larger screens and <code><span '
+         'class="fore-secondary">COL_WD</span></code> with a number from '
+         '<code>1</code> to <code>12</code> specifying the width of the '
+         'column) to set specific layouts for your aligned forms. You can also '
+         'use the same column classes to make them responsive for different '
+         'screen sizes.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;form&gt;\r\n'
+         '  &lt;fieldset&gt;\r\n'
+         '    &lt;legend&gt;Responsive form&lt;/legend&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-10 col-md-offset-1"&gt;\r\n'
+         '        &lt;label for="username"&gt;username&lt;/label&gt;\r\n'
+         '        &lt;input type="email" value="" id="username" '
+         'placeholder="username"&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-10 col-md-offset-1"&gt;\r\n'
+         '        &lt;label for="pwd"&gt;password&lt;/label&gt;\r\n'
+         '        &lt;input type="password" value="" id="pwd" '
+         'placeholder="password"&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/fieldset&gt;\r\n'
+         '&lt;/form&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0Apart from using <code>.row</code> '
+         'and <code>.col-<span class="fore-primary">SCR_SZ</span></code> or '
+         '<code>.col-<span class="fore-primary">SCR_SZ</span>-<span '
+         'class="fore-secondary">COL_WD</span></code> for responsiveness, you '
+         'can also use other classes from the <strong>grid</strong> module '
+         'such as the offset classes to make your form layouts more '
+         'interesting.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;style&gt;\r\n'
+         '  .label-aligned {\r\n'
+         '    align-items: center;\r\n'
+         '  }\r\n'
+         '&lt;/style&gt;\r\n'
+         '&lt;form&gt;\r\n'
+         '  &lt;fieldset&gt;\r\n'
+         '    &lt;legend&gt;Responsive form&lt;/legend&gt;\r\n'
+         '    &lt;div class="row label-aligned"&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md-4"&gt;\r\n'
+         '        &lt;label for="username"&gt;username&lt;/label&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '      &lt;div class="col-sm-12 col-md"&gt;\r\n'
+         '        &lt;input type="email" value="" id="username" '
+         'placeholder="username"&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/fieldset&gt;\r\n'
+         '&lt;/form&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0When creating aligned forms using the '
+         "<strong>grid</strong> module's classes, labels might be off-center "
+         'vertically compared to their inline counterparts. Use a simple '
+         'styling for their parent <code>.row</code> element, if you want to '
+         'adjust their vertical alignment.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-normal col-lg-8 col-lg-offset-2">
+<form>
+<fieldset>
+<legend>Inline form (default style)</legend>
+<div class="input-group"><label for="username">Username</label> <input id="username" placeholder="username" type="email" value=""/>�</div>
+<div class="input-group"><label for="pwd">Password</label> <input id="pwd" placeholder="password" type="password" value=""/></div>
+</fieldset>
+</form>
+<form>
+<fieldset>
+<legend>Fluid form</legend>
+<div class="input-group fluid"><label for="username2">Username</label> <input id="username2" placeholder="username" type="email" value=""/></div>
+<div class="input-group fluid"><label for="pwd2">Password</label> <input id="pwd2" placeholder="password" type="password" value=""/></div>
+</fieldset>
+</form>
+<form>
+<fieldset>
+<legend>Vertical form</legend>
+<div class="input-group vertical"><label for="username2">Username</label> <input id="username2" placeholder="username" type="email" value=""/></div>
+<div class="input-group vertical"><label for="pwd2">Password</label> <input id="pwd2" placeholder="password" type="password" value=""/></div>
+</fieldset>
+</form>
+<form>
+<fieldset>
+<legend>Aligned form (using grid)</legend>
+<div class="row responsive-label">
+<div class="col-sm-12 col-md-3">
+<label for="number">Number</label>
+</div>
+<div class="col-sm-12 col-md">
+<input id="number" style="width:85%;" type="number" value="42"/>
+</div>
+</div>
+<div class="row responsive-label">
+<div class="col-sm-12 col-md-3">
+<label for="invalid">Invalid</label>
+</div>
+<div class="col-sm-12 col-md">
+<input id="invalid" style="width:85%;" value="invalid"/>
+</div>
+<script>document.getElementById("invalid").setCustomValidity("This field is invalid");</script>
+</div>
+<div class="row responsive-label">
+<div class="col-sm-12 col-md-3">
+<label for="disabled">Disabled</label>
+</div>
+<div class="col-sm-12 col-md">
+<input disabled="" id="disabled" style="width:85%;" value="disabled"/>
+</div>
+</div>
+<div class="row responsive-label">
+<div class="col-sm-12 col-md-3">
+<label for="readonly">Readonly</label>
+</div>
+<div class="col-sm-12 col-md">
+<input id="readonly" readonly="" style="width:85%;" value="readonly"/>
+</div>
+</div>
+<div class="row responsive-label">
+<div class="col-sm-12 col-md-3">
+<label for="select">Select</label>
+</div>
+<div class="col-sm-12 col-md">
+<select id="select"> <option>Apples</option> <option>Oranges</option> </select>
+</div>
+</div>
+</fieldset>
+</form>
+</div>,
+ 'id': 'forms-input',
+ 'module': 'input_control',
+ 'name': 'Forms & input',
+ 'notes': ['<li>Using the <code>&lt;fieldset&gt;</code> and '
+           '<code>&lt;legend&gt;</code> elements is highly recommended for a '
+           'better presentational effect. Using these elements is a matter of '
+           'personal preference, however try to keep your forms consistent '
+           '(i.e. either use them in all forms or no forms as to not confuse '
+           'users).</li>',
+           '<li>Some <code>&lt;input&gt;</code> elements, such as date &amp; '
+           'time, color and range types, are not supported and, as a result, '
+           'do not have a default style defined for them. You can define said '
+           'styles manually if you need to use them in your website or '
+           'app.</li>',
+           '<li>Checkboxes and radio buttons are not stylized the same way as '
+           'most of the other elements, nor do they follow the exact same '
+           'stucture for layout. Please refer to the next section for '
+           'information on how to use those.</li>',
+           "<li>Try not to combine the <strong>grid</strong> module's classes "
+           'with <code>.fluid</code> or <code>.vertical</code> '
+           '<code>.input-group</code>s, as this might cause certain styles to '
+           'overlap and not display exactly like you want them to.</li>']}

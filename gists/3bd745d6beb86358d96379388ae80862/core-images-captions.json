@@ -1,0 +1,16 @@
+{'code': '&lt;figure&gt;\r\n'
+         '  &lt;img src="..."&gt;\r\n'
+         '  &lt;figcaption&gt;Image caption&lt;/figcaption&gt;\r\n'
+         '&lt;/figure&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align: justify;">Image elements (<code>&lt;img&gt;</code>) are responsive by default, without the need for any special classes or anything else. We made sure they will scale down as necessary to display properly on smaller devices, while keeping their original aspect ratio, but they will never scale up above their original size.</p> <p>On a side note, if you want to add captions to images, you can use a <code>&lt;figcaption&gt;</code> element, while wrapping both the image and it inside a <code>&lt;figure&gt;</code>.</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div><figure><img alt="image" src="https://placehold.it/800x600"/><figcaption>Image caption</figcaption></figure></div>
+</div>,
+ 'id': 'images-captions',
+ 'module': 'core',
+ 'name': 'Image responsiveness & captions',
+ 'notes': []}

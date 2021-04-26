@@ -1,0 +1,791 @@
+34 failing
+
+  1) ConfigTestCases extract-text issue-14 should compile:
+     Error: global leak detected: addresses
+      at Runner.checkGlobals (/Users/hzhu/dev/webpack/node_modules/mocha/lib/runner.js:213:21)
+      at Runner.<anonymous> (/Users/hzhu/dev/webpack/node_modules/mocha/lib/runner.js:76:10)
+      at emitOne (events.js:101:20)
+      at Runner.emit (events.js:188:7)
+      at /Users/hzhu/dev/webpack/node_modules/mocha/lib/runner.js:579:14
+      at done (/Users/hzhu/dev/webpack/node_modules/mocha/lib/runnable.js:295:5)
+      at /Users/hzhu/dev/webpack/node_modules/mocha/lib/runnable.js:383:7
+      at _combinedTickCallback (internal/process/next_tick.js:67:7)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+
+  2) ConfigTestCases hash-length output-filename should compile:
+     Uncaught Error: Module parse failed: /Users/hzhu/dev/webpack/test/configCases/hash-length/output-filename/index.js Cannot read property '0' of undefined
+You may need an appropriate loader to handle this file type.
+TypeError: Cannot read property '0' of undefined
+    at Parser.<anonymous> (/Users/hzhu/dev/webpack/lib/UseStrictPlugin.js:17:24)
+    at Parser.applyPluginsBailResult (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:52:27)
+    at Parser.parse (/Users/hzhu/dev/webpack/lib/Parser.js:1081:10)
+    at /Users/hzhu/dev/webpack/lib/NormalModule.js:199:17
+    at /Users/hzhu/dev/webpack/lib/NormalModule.js:164:10
+    at /Users/hzhu/dev/webpack/node_modules/loader-runner/lib/LoaderRunner.js:365:3
+    at iterateNormalLoaders (/Users/hzhu/dev/webpack/node_modules/loader-runner/lib/LoaderRunner.js:206:10)
+    at /Users/hzhu/dev/webpack/node_modules/loader-runner/lib/LoaderRunner.js:197:4
+    at Storage.finished (/Users/hzhu/dev/webpack/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:39:16)
+    at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:78:16
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:445:3)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/config/hash-length/output-filename/bundle0.003cdd.js:76:7)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/config/hash-length/output-filename/bundle0.003cdd.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/config/hash-length/output-filename/bundle0.003cdd.js:64:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/config/hash-length/output-filename/bundle0.003cdd.js:67:10)
+      at _require (/Users/hzhu/dev/webpack/test/ConfigTestCases.test.js:100:12)
+      at e (/Users/hzhu/dev/webpack/test/ConfigTestCases.test.js:124:9)
+      at /Users/hzhu/dev/webpack/lib/MultiCompiler.js:168:3
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:1013:9
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:1010:13
+      at runCompilers (/Users/hzhu/dev/webpack/lib/MultiCompiler.js:102:46)
+      at /Users/hzhu/dev/webpack/lib/MultiCompiler.js:107:5
+      at /Users/hzhu/dev/webpack/lib/MultiCompiler.js:164:4
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  3) TestCases normal parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/normal/parsing/issue-2570/bundle.js:79
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  4) TestCases normal parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/normal/parsing/strict-mode/bundle.js:80
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  5) TestCases hot parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/hot/parsing/issue-2570/bundle.js:698
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  6) TestCases hot parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/hot/parsing/strict-mode/bundle.js:699
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  7) TestCases hot-multi-step parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/hot-multi-step/parsing/issue-2570/bundle.js:698
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  8) TestCases hot-multi-step parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/hot-multi-step/parsing/strict-mode/bundle.js:699
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  9) TestCases devtool-eval parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:20:30)
+      at eval (webpack:///./parsing/issue-2570/index.js?:2:62)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/issue-2570/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  10) TestCases devtool-eval parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:20:30)
+      at eval (webpack:///./parsing/strict-mode/index.js?:2:35)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval/parsing/strict-mode/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  11) TestCases devtool-eval-named-modules parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object../parsing/issue-2570/fn.js (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:80:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:20:30)
+      at eval (webpack:///./parsing/issue-2570/index.js?:2:62)
+      at Object../parsing/issue-2570/index.js (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:93:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/issue-2570/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  12) TestCases devtool-eval-named-modules parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object../parsing/strict-mode/abc.js (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:80:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:20:30)
+      at eval (webpack:///./parsing/strict-mode/index.js?:2:35)
+      at Object../parsing/strict-mode/index.js (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:93:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-named-modules/parsing/strict-mode/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  13) TestCases devtool-eval-source-map parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:91:1), <anonymous>:2:62)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/issue-2570/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  14) TestCases devtool-eval-source-map parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:91:1), <anonymous>:2:35)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-eval-source-map/parsing/strict-mode/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  15) TestCases devtool-inline-source-map parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-inline-source-map/parsing/issue-2570/bundle.js:79
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  16) TestCases devtool-inline-source-map parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-inline-source-map/parsing/strict-mode/bundle.js:80
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  17) TestCases devtool-source-map parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-source-map/parsing/issue-2570/bundle.js:79
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  18) TestCases devtool-source-map parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-source-map/parsing/strict-mode/bundle.js:80
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  19) TestCases devtool-cheap-inline-source-map parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-cheap-inline-source-map/parsing/issue-2570/bundle.js:79
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  20) TestCases devtool-cheap-inline-source-map parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-cheap-inline-source-map/parsing/strict-mode/bundle.js:80
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  21) TestCases devtool-cheap-eval-source-map parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:91:1), <anonymous>:2:62)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/issue-2570/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  22) TestCases devtool-cheap-eval-source-map parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:91:1), <anonymous>:2:35)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-source-map/parsing/strict-mode/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  23) TestCases devtool-cheap-eval-module-source-map parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:91:1), <anonymous>:2:62)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/issue-2570/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  24) TestCases devtool-cheap-eval-module-source-map parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:79:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:20:30)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:91:1), <anonymous>:2:35)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:91:1)
+      at __webpack_require__ (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:20:30)
+      at /Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:66:18
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/devtool-cheap-eval-module-source-map/parsing/strict-mode/bundle.js:69:10)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  25) TestCases devtool-cheap-source-map parsing issue-2570 should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-cheap-source-map/parsing/issue-2570/bundle.js:79
+function() { return [].slice.call(arguments); }
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  26) TestCases devtool-cheap-source-map parsing strict-mode should compile:
+     Uncaught /Users/hzhu/dev/webpack/test/js/devtool-cheap-source-map/parsing/strict-mode/bundle.js:80
+function() {
+        ^
+SyntaxError: Unexpected token (
+      at Object.exports.runInThisContext (vm.js:76:16)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:175:25)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  27) TestCases minimized parsing issue-2570 should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:79,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  28) TestCases minimized parsing strict-mode should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:80,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  29) TestCases minimized-source-map parsing issue-2570 should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:4:71)
+      at _ (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:1:153)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:7:71), <anonymous>:2:62)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:7:71)
+      at _ (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:1:153)
+      at /Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:1:536
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/issue-2570/bundle.js:1:545)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  30) TestCases minimized-source-map parsing strict-mode should compile:
+     Uncaught SyntaxError: Unexpected token (
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:4:71)
+      at e (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:1:153)
+      at eval (eval at <anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:7:59), <anonymous>:2:35)
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:7:59)
+      at e (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:1:153)
+      at /Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:1:536
+      at Object.<anonymous> (/Users/hzhu/dev/webpack/test/js/minimized-source-map/parsing/strict-mode/bundle.js:1:545)
+      at _require (/Users/hzhu/dev/webpack/test/TestCases.test.js:179:14)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:183:9)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  31) TestCases minimized-hashed-modules parsing issue-2570 should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:108,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  32) TestCases minimized-hashed-modules parsing strict-mode should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:81,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  33) TestCases all-combined parsing issue-2570 should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:699,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10
+
+  34) TestCases all-combined parsing strict-mode should compile:
+     Error: Errors while compiling:
+
+bundle.js from UglifyJs
+SyntaxError: Unexpected token: punc (() [bundle.js:700,8]
+      at checkArrayExpectation (/Users/hzhu/dev/webpack/test/checkArrayExpectation.js:31:15)
+      at webpack (/Users/hzhu/dev/webpack/test/TestCases.test.js:161:12)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:256:15
+      at Compiler.emitRecords (/Users/hzhu/dev/webpack/lib/Compiler.js:351:37)
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:249:12
+      at /Users/hzhu/dev/webpack/lib/Compiler.js:344:11
+      at next (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:154:11)
+      at Compiler.compiler.plugin (/Users/hzhu/dev/webpack/lib/performance/SizeLimitsPlugin.js:99:4)
+      at Compiler.applyPluginsAsyncSeries1 (/Users/hzhu/dev/webpack/node_modules/tapable/lib/Tapable.js:158:13)
+      at Compiler.afterEmit (/Users/hzhu/dev/webpack/lib/Compiler.js:341:8)
+      at Compiler.<anonymous> (/Users/hzhu/dev/webpack/lib/Compiler.js:336:14)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:356:16
+      at iteratorCallback (/Users/hzhu/dev/webpack/node_modules/async/dist/async.js:936:13)
+      at /Users/hzhu/dev/webpack/node_modules/async/dist/async.js:840:16
+      at /Users/hzhu/dev/webpack/node_modules/graceful-fs/graceful-fs.js:43:10

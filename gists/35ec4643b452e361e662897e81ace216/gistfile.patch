@@ -1,0 +1,53 @@
+diff --git a/lib/arborist/load-virtual.js b/lib/arborist/load-virtual.js
+index f03bd80..6bb07af 100644
+--- a/lib/arborist/load-virtual.js
++++ b/lib/arborist/load-virtual.js
+@@ -24,6 +24,7 @@ const loadWorkspacesVirtual = Symbol.for('loadWorkspacesVirtual')
+ const flagsSuspect = Symbol.for('flagsSuspect')
+ const reCalcDepFlags = Symbol('reCalcDepFlags')
+ const checkRootEdges = Symbol('checkRootEdges')
++const rootOptionProvided = Symbol('rootOptionProvided')
+ 
+ const depsToEdges = (type, deps) =>
+   Object.entries(deps).map(d => [type, ...d])
+@@ -63,6 +64,8 @@ module.exports = cls => class VirtualLoader extends cls {
+       root = await this[loadRoot](s),
+     } = options
+ 
++    this[rootOptionProvided] = !!options.root
++
+     await this[loadFromShrinkwrap](s, root)
+     return treeCheck(this.virtualTree)
+   }
+@@ -74,13 +77,15 @@ module.exports = cls => class VirtualLoader extends cls {
+   }
+ 
+   async [loadFromShrinkwrap] (s, root) {
+-    // root is never any of these things, but might be a brand new
+-    // baby Node object that never had its dep flags calculated.
+-    root.extraneous = false
+-    root.dev = false
+-    root.optional = false
+-    root.devOptional = false
+-    root.peer = false
++    if (!this[rootOptionProvided]) {
++      // root is never any of these things, but might be a brand new
++      // baby Node object that never had its dep flags calculated.
++      root.extraneous = false
++      root.dev = false
++      root.optional = false
++      root.devOptional = false
++      root.peer = false
++    }
+     this[checkRootEdges](s, root)
+     root.meta = s
+     this.virtualTree = root
+@@ -101,7 +106,7 @@ module.exports = cls => class VirtualLoader extends cls {
+       node.devOptional = true
+       node.peer = true
+     }
+-    calcDepFlags(this.virtualTree, true)
++    calcDepFlags(this.virtualTree, !this[rootOptionProvided])
+   }
+ 
+   // check the lockfile deps, and see if they match.  if they do not

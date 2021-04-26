@@ -1,0 +1,42 @@
+{'code': '&lt;progress value="0" max="1000"&gt;&lt;/progress&gt;\r\n'
+         '&lt;progress value="450" max="1000"&gt;&lt;/progress&gt;\r\n'
+         '&lt;progress value="1000" max="1000"&gt;&lt;/progress&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">To create a progress bar, use the <code>&lt;progress&gt;</code> HTML element, specify the preset maximum of <code><span class="fore-secondary">max</span>=<span class="fore-primary">"1000"</span></code> and set a <code>value</code> between <code>0</code> and <code>1000</code>. Update your <code>&lt;progress&gt;</code> element using some Javascript code, by changing its <code>value</code> to any integer in the same range.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;progress value="80" max="100"&gt;&lt;/progress&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using different values '
+           "for the <code>&lt;progress&gt;</code> element's <code>max</code>, "
+           'except for the preset one (<code>1000</code>).</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;progress value="450.5" '
+           'max="1000.0"&gt;&lt;/progress&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Try not to use floating point '
+           "values for either the <code>&lt;progress&gt;</code> element's "
+           '<code>value</code> or <code>max</code>. During testing of the '
+           'module, we found that floating point values could cause unexpected '
+           'behavior.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<p>Process is 0% complete!</p> <progress max="1000" value="0"></progress>
+<p>Process is 45% complete!</p> <progress max="1000" value="450"></progress>
+<p>Process is 100% complete!</p> <progress max="1000" value="1000"></progress>
+</div>,
+ 'id': 'basic-progress-bar',
+ 'module': 'progress',
+ 'name': 'Basic progress bar',
+ 'notes': ['<li>We made sure that the <code>&lt;progress&gt;</code> element '
+           'displays properly on all modern browsers, using browser-specific '
+           'rules. However, there might be some irregularities with older '
+           'browsers, especially legacy versions of Internet Explorer.</li>',
+           '<li>If the preset <code>max="1000"</code> does not suit your '
+           'needs, you should check the <a href="customization">customization '
+           'page</a> for instructions on how to set your own maximum value for '
+           'the <code>&lt;progress&gt;</code> element.</li>']}

@@ -1,0 +1,130 @@
+{'code': '&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="card"&gt;\r\n'
+         '    &lt;div class="section"&gt;\r\n'
+         '      &lt;h3&gt;Card Title&lt;/h3&gt;\r\n'
+         '      &lt;p&gt;Card content...&lt;/p&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="card"&gt;\r\n'
+         '    &lt;div class="section"&gt;\r\n'
+         '      &lt;h3&gt;Card Title&lt;/h3&gt;\r\n'
+         '      &lt;p&gt;Card content...&lt;/p&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">To start using cards in your layout, you need to be somewhat familiar with the <a href="grid"><strong>grid</strong></a> module, so if you aren't, take a minute to read how its basic layout works. The basic syntax for cards is composed of three components, presented below in the order they should be added to the DOM tree:</p>
+<ol style="text-align: justify;">
+<li>At the outermost level of the card layout syntax is a <code>.row</code>, which serves as a wrapper for all the cards inside it.</li>
+<li>Inside the <code>.row</code>, cards are defined as <code>&lt;div&gt;</code> elements of the <code>.card</code> class.</li>
+<li>Finally, inside the <code>.card</code>s, you can define sections using the <code>.section</code> class to wrap your content.</li>
+</ol>
+<p style="text-align: justify;">Note that cards will respond to screen changes, realigning themselves as necessary to fit on the page.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="card"&gt;\r\n'
+           '  &lt;div class="section"&gt;\r\n'
+           '    &lt;h3&gt;Card Title&lt;/h3&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '  &lt;p&gt;Content not in a section!&lt;/p&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using cards with content '
+           'inside them that is not wrapped in sections. Try to use a single '
+           '<code>.section</code> to wrap the content inside these to avoid '
+           'unexpected behavior.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="row"&gt;\r\n'
+           '  &lt;div class="card"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;\r\n'
+           '&lt;div class="row"&gt;\r\n'
+           '  &lt;div class="card"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0If you want to place multiple '
+           'cards side by side, add them all inside the same '
+           '<code>.row</code>. Placing cards inside different rows or not '
+           'inside rows at all can result in unexpected behavior. </p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="card row"&gt;\r\n'
+           '&lt;/div&gt;\r\n'
+           '<span class="fore-secondary">&lt;!-- or --&gt;</span>\r\n'
+           '&lt;div class="card col-sm"&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0You should not have elements '
+           'that are both cards and rows or columns at the same time.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6 col-lg-4">\n'
+         '<pre>&lt;div class="card"&gt;\r\n'
+         '  &lt;div class="section"&gt;\r\n'
+         '    &lt;h3&gt;Card Title&lt;/h3&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="section"&gt;\r\n'
+         '    &lt;p&gt;Card content...&lt;/p&gt;\r\n'
+         '    &lt;p&gt;More card content...&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can add as many '
+         '<code>.section</code>s as you like to a card.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6 col-lg-4">\n'
+         '<pre>&lt;div class="card"&gt;\r\n'
+         '  &lt;h3 class="section"&gt;Card Title&lt;/h3&gt;\r\n'
+         '  &lt;p class="section"&gt;Card content...&lt;/p&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use the <code>.section</code> '
+         'class for things other than <code>&lt;div&gt;</code> elements (e.g. '
+         '<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>, '
+         '<code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>).</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6 col-lg-4">\n'
+         '<pre>&lt;div class="card"&gt;\r\n'
+         '    &lt;div class="section row"&gt;\r\n'
+         '        &lt;div class="card"&gt;\r\n'
+         '        &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '<span class="fore-tertiary">&lt;!-- or --&gt;</span>\r\n'
+         '&lt;div class="card"&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '        &lt;div class="card"&gt;\r\n'
+         '        &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can place <code>.row</code> '
+         'elements inside <code>.card</code> elements, if you want. you should '
+         'normally also make those rows into card <code>.section</code>s, but '
+         'for this specific case you might want to make an exception '
+         'sometimes.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container">
+<br/>
+<div class="row">
+<div class="card"><div class="section"><h3>Card 1</h3><p>This is a basic card with some sample content.</p></div></div>
+<div class="card"><div class="section"><h3>Card 2</h3><p>This is another card with some sample content.</p></div></div>
+<div class="card"><div class="section"><h3>Card 3</h3><p>This is one more card with some sample content.</p></div></div>
+</div>
+<br/>
+</div>
+</div>,
+ 'id': 'basic-syntax',
+ 'module': 'card',
+ 'name': ' Basic syntax',
+ 'notes': ['<li>The <strong>card</strong> module is compatible with modern '
+           'browsers, but might not display properly in older browsers.</li>',
+           '<li>If you want to further customize your <code>.section</code>s, '
+           'check the section below.</li>']}

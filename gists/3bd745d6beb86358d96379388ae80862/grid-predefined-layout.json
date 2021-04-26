@@ -1,0 +1,56 @@
+{'code': '&lt;div class="row cols-sm-6"&gt;\r\n'
+         '  &lt;div&gt;\r\n'
+         '    &lt;p&gt;col-sm-6&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div&gt;\r\n'
+         '    &lt;p&gt;col-sm-6&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">Some simple grid layout problems can be solved using predefined layouts. To use a predefined layout, simply add a predefined layout class to a <code>.row</code> element. Predefined classes can be written using one of two syntaxes, similar to normal column classes:</p>
+<ul style="text-align: justify;">
+<li>fluid column layouts can be specified using <code>.cols-<span class="fore-primary">SCR_SZ</span></code>, replacing <code><span class="fore-primary">SCR_SZ</span></code> with one of the available screen size names.</li>
+<li>fixed width columns layouts can be specified using <code>.col-<span class="fore-primary">SCR_SZ</span>-<span class="fore-secondary">COL_WD</span></code>, replacing <code><span class="fore-primary">SCR_SZ</span></code> with one of the available screen size names and <code><span class="fore-secondary">COL_WD</span></code> with a number from <code>1</code> to <code>12</code> specifying the width of the columns.</li>
+</ul>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;div class="row cols-sm-6"&gt;\r\n'
+           '  &lt;div class="row cols-sm-7"&gt;\r\n'
+           '    &lt;p&gt;col-sm-6&lt;/p&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '  &lt;div class="row cols-sm-5"&gt;\r\n'
+           '    &lt;p&gt;col-sm-6&lt;/p&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using the normal column '
+           'classes in conjunction with predefined layouts, as they will most '
+           'likely not apply and can sometimes cause unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row cols-sm-12 cols-md-6"&gt;\r\n'
+         '  &lt;div&gt;\r\n'
+         '    &lt;p&gt;col-sm-12, col-md-6&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div&gt;\r\n'
+         '    &lt;p&gt;col-sm-12, col-md-6&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can add multiple predefined '
+         'layout classes for different screen sizes, allowing you to build '
+         'responsive predefined layouts.</p>\n'
+         '</div>'],
+ 'example': '',
+ 'id': 'predefined-layout',
+ 'module': 'grid',
+ 'name': 'Predefined layouts',
+ 'notes': ['<li>Predefined layouts can be combined with most of the features '
+           'of the grid system, such as offsets and reordering.</li>',
+           '<li>If you use a fluid predefined layout, its columns will always '
+           'be placed in one row.</li>',
+           '<li>Not specifying a predefined layout for a resolution will use '
+           'the style applied for the previous largest resolution '
+           'recursively.</li>']}

@@ -1,0 +1,20 @@
+Octal	Text	Binary	Description
+=============================================================
+0       ---     000     All types of access are denied
+1       --x     001     Execute access is allowed only
+2       -w-     010     Write access is allowed only
+3       -wx     011     Write and execute access are allowed
+4       r--     100     Read access is allowed only
+5       r-x     101     Read and execute access are allowed
+6       rw-     110     Read and write access are allowed
+7       rwx     111     Everything is allowed
+
+Examples
+=============================================================
+644		owner	Read and write permissions
+		group	Only read permissions
+		others  Only read permissions
+		
+755		owner	Read, write, and execute permissions
+		group	Read and execute permissions
+		others  Read and execute permissions

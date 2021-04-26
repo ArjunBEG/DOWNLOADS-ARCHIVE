@@ -1,0 +1,1 @@
+WordPress Page Template to build a feed of your Google+ stream

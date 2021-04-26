@@ -1,0 +1,30 @@
+{'code': '&lt;span class="tooltip" aria-label="This is a tooltip"&gt;Hover '
+         'over this text to see a tooltip!&lt;/span&gt;\r\n'
+         '&lt;span class="tooltip bottom" aria-label="This is a '
+         'tooltip"&gt;Hover over this text to see a reverse '
+         'tooltip!&lt;/span&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">Tooltips can be used to convey context-sensitive information when the user hovers over some text. To create a tooltip, simply wrap the text you want users to hover over in an element with the <code>.tooltip</code> class (our choice is usually a <code>&lt;span&gt;</code> element, but your needs may differ) and add an <code><span class="fore-secondary">aria-label</span></code> in that element, setting its value to the content of your tooltip. Tooltips display at the top of the hovered text by default, so if you want to show them below the text, add the <code>.bottom</code> class to them.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div>
+<br><p aria-label="This is a tooltip" class="tooltip">Hover over this text to see a tooltip!</p><br>
+<p aria-label="This is a tooltip" class="tooltip bottom">Hover over this text to see a reverse tooltip!</p><br>
+</br></br></br></div>
+</div>,
+ 'id': 'tooltips',
+ 'module': 'contextual',
+ 'name': 'Tooltips',
+ 'notes': ['<li>Tooltips are built to be accessible and should display '
+           'properly on screenreaders.</li>',
+           '<li>If you are not satisfied with the default tooltip colors, '
+           'please check out the <a href="customization">customization '
+           'page</a> for instuctions on how to create your own tooltip '
+           'variants.</li>',
+           '<li>Remember to always add the <code><span '
+           'class="fore-secondary">aria-label</span></code> attribute, '
+           'otherwise your tooltip will not have any text to show.</li>']}

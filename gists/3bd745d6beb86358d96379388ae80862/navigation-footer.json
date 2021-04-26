@@ -1,0 +1,19 @@
+{'code': '&lt;footer&gt;\r\n'
+         '  &lt;p&gt;&amp;copy; 2001-2016 Web Corporation | &lt;a '
+         'href="#"&gt;About&lt;/a&gt; | &lt;a href="#"&gt;Terms of '
+         'use&lt;/a&gt;&lt;/p&gt;\r\n'
+         '&lt;/footer&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-lg-8 col-md-normal">
+<p style="text-align: justify;">The <code>&lt;footer&gt;</code> element is used to create your page's footer. As normal, add the <code>&lt;footer&gt;</code> at or near the end of your <code>&lt;body&gt;</code> element and add content to it like you would otherwise.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'example': <div class="col-sm-12 col-sm-last col-lg-4 col-md-normal">
+<div><br/>
+<footer> <p>� 2001-2016 Web Corporation | <a href="#">About</a> | <a href="#">Terms of use</a></p> </footer> <br/>
+</div>
+</div>,
+ 'id': 'footer',
+ 'module': 'navigation',
+ 'name': 'Footer',
+ 'notes': []}

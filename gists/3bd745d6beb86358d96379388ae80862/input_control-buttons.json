@@ -1,0 +1,94 @@
+{'code': '&lt;button&gt;Default button&lt;/button&gt;\r\n'
+         '&lt;input type="button" class="primary" value="Primary '
+         'button"&gt;\r\n'
+         '&lt;input type="reset" class="secondary" value="Secondary '
+         'button"&gt;\r\n'
+         '&lt;input type="submit" class="tertiary" value="Tertiary '
+         'button"&gt;\r\n'
+         '&lt;button class="inverse"&gt;Inverse button&lt;/button&gt;\r\n'
+         '&lt;button class="small"&gt;Small button&lt;/button&gt;\r\n'
+         '&lt;button class="large"&gt;Large button&lt;/button&gt;\r\n'
+         '&lt;button disabled&gt;Disabled button&lt;/button&gt;\r\n'
+         '&lt;a href="#" class="button"&gt;Link button&lt;/a&gt;\r\n'
+         '&lt;a href="#" role="button"&gt;Link button&lt;/a&gt;\r\n'
+         '&lt;label class="button"&gt;Label button&lt;/label&gt;\r\n'
+         '&lt;label role="button"&gt;Label button&lt;/label&gt;\r\n'
+         '\r\n'
+         '&lt;div class="button-group"&gt;\r\n'
+         '  &lt;button&gt;Button&lt;/button&gt;\r\n'
+         '  &lt;button&gt;Button&lt;/button&gt;\r\n'
+         '  &lt;button&gt;Button&lt;/button&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-lg-8 col-md-normal">
+<p style="text-align: justify;">All button types have been stylized by default, while maintaining accessiblity. Simply add any <code>&lt;button&gt;</code> or an <code>&lt;input&gt;</code> with a button <code><span class="secondary">type</span></code> (i.e. <code><span class="fore-primary">"button"</span></code>, <code><span class="fore-primary">"submit"</span></code> or <code><span class="fore-primary">"reset"</span></code>) and they will be styled accordingly. You can also use the <code>.button</code> class or the <code><span class="fore-secondary">role</span>=<span class="fore-primary">"<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role">button</a>"</span></code> attribute for links, labels and other elements of your choice to make them look like buttons.</p>
+<p style="text-align: justify;">Color variants are available in the form of the <code>.primary</code>, <code>.secondary</code>, <code>.tertiary</code> and <code>.inverse</code> classes. Size variants are available as well in the form of <code>.small</code> and <code>.large</code> classes.</p>
+<p style="text-align: justify;">Finally, you can create responsive groups of buttons by wrapping them inside a <code>&lt;div&gt;</code> with the <code>.button-group</code> class.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;button class="secondary inverse"&gt;Problematic '
+           'button&lt;/button&gt;\r\n'
+           '<span class="fore-secondary">&lt;!-- or --&gt;</span>\r\n'
+           '&lt;button class="small large"&gt;Problematic '
+           'button&lt;/button&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid mixing two or more '
+           'button color or size variants, as these combinations might result '
+           'in unexpected behavior.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;div class="button-group"&gt;\r\n'
+           '  &lt;button class="large"&gt;Button&lt;/button&gt;\r\n'
+           '  &lt;button&gt;Button&lt;/button&gt;\r\n'
+           '  &lt;button class="small"&gt;Button&lt;/button&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using button size '
+           'variants inside a <code>.button-group</code>, as this might result '
+           'in unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;button class="inverse small"&gt;Small inverse '
+         'button&lt;/button&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can mix and match button color '
+         'and size variants to achieve the desired effect.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="button-group"&gt;\r\n'
+         '  &lt;button&gt;Button&lt;/button&gt;\r\n'
+         '  &lt;input type="reset" class="secondary" value="Secondary '
+         'button"&gt;\r\n'
+         '  &lt;label class="button inverse"&gt;Label button&lt;/label&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use button color variants '
+         'inside the same <code>.button-group</code>. You can also use any '
+         'component styled like a button inside a '
+         '<code>.button-group</code>.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-lg-4 col-md-normal">
+<button>Default button</button>
+<button class="primary">Primary button</button>
+<button class="secondary">Secondary button</button>
+<button class="tertiary">Tertiary button</button>
+<button class="inverse">Inverse button</button>
+<button class="small">Small button</button>
+<button class="large">Large button</button>
+<button disabled="">Disabled button</button>
+<h4>Button group</h4>
+<div class="button-group"> <button>Button</button> <button>Button</button> <button>Button</button> </div>
+</div>,
+ 'id': 'buttons',
+ 'module': 'input_control',
+ 'name': 'Buttons & button groups',
+ 'notes': ['<li>If you want more color or size variants for your buttons, '
+           'check out the <a href="customization">customization</a> page.</li>',
+           '<li>The <code>.button-group</code> component is compatible with '
+           'modern browsers, but might not display properly in older '
+           'browsers.</li>',
+           '<li><code>.button-group</code>s will display as a horizontal '
+           'container with all their buttons in one row on medium-sized and '
+           'larger displays, however they will collapse into a column view for '
+           'smaller displays.</li>']}

@@ -1,0 +1,68 @@
+{'code': '&lt;header&gt;\r\n'
+         '  &lt;a href="#" class="logo"&gt;Logo&lt;/a&gt;\r\n'
+         '  &lt;button&gt;Home&lt;/button&gt;\r\n'
+         '  &lt;a href="#" class="button"&gt;News&lt;/a&gt;\r\n'
+         '  &lt;span&gt;|&lt;/span&gt;\r\n'
+         '  &lt;button&gt;About&lt;/button&gt;\r\n'
+         '  &lt;a href="#" role="button"&gt;Contact&lt;/a&gt;\r\n'
+         '&lt;/header&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">The <code>&lt;header&gt;</code> HTML element is used for a page's top horizontal navigation menu. It can contain a unique <code>.logo</code> element as its first child (this structure is not mandatory, but still recommended as a best practice), which can be either text (with or without a link) or an image. The rest of the elements inside the <code>&lt;header&gt;</code> must be button elements (i.e. <code>&lt;button&gt;</code>, <code>&lt;input <span class="fore-secondary">type</span>=<span class="fore-primary">"button"</span>&gt;</code>, <code><span class="fore-secondary">role</span>=<span class="fore-primary">"<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role">button</a>"</span></code> or <code>.button</code>) in order to be styled properly. Textual separators between those can be added using <code>&lt;span&gt;</code> elements.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;header&gt;\r\n'
+           '  &lt;a href="#" class="button logo"&gt;Logo&lt;/a&gt;\r\n'
+           '&lt;/header&gt;\r\n'
+           '<span class="fore-secondary">&lt;!-- or --&gt;</span>\r\n'
+           '&lt;header&gt;\r\n'
+           '  &lt;a href="#" class="logo"&gt;Logo&lt;/a&gt;\r\n'
+           '  &lt;a href="#"&gt;Link&lt;/a&gt;\r\n'
+           '&lt;/header&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0The <code>.logo</code> element '
+           'should not be a <code>&lt;button&gt;</code> element, have the '
+           '<code>.button</code> class or the <code><span '
+           'class="fore-secondary">role</span>=<span class="fore-primary">"<a '
+           'href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role">button</a>"</span></code> '
+           'attribute. On the other hand, links and labels in the '
+           '<code>&lt;header&gt;</code> should not be without a '
+           '<code>.button</code> class or a <code><span '
+           'class="fore-secondary">role</span>=<span class="fore-primary">"<a '
+           'href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role">button</a>"</span></code> '
+           'attribute. Ignoring this rule might cause unexpected '
+           'behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;header&gt;\r\n'
+         '  &lt;a href="#" class="logo"&gt;Logo&lt;/a&gt;\r\n'
+         '  &lt;button&gt;Action 1&lt;/button&gt;\r\n'
+         '  &lt;a href="#" class="button"&gt;Action 2&lt;/a&gt;\r\n'
+         '  &lt;label class="button"&gt;Action 3&lt;/label&gt;\r\n'
+         '&lt;/header&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can mix different elements styled '
+         'like buttons inside a <code>&lt;header&gt;</code> element. In fact, '
+         'we strongly recommend doing so, if you need to.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div><br/>
+<header>
+<a class="logo" href="#">Logo</a> <button>Home</button>
+<a class="button" href="#">News</a> <span>|</span>
+<button>About</button> <button>Contact</button>
+</header> <br/>
+</div>
+</div>,
+ 'id': 'header',
+ 'module': 'navigation',
+ 'name': 'Header',
+ 'notes': ['<li>The <code>&lt;header&gt;</code> element is partially '
+           'responsive on smaller screen devices. More specifically, when the '
+           'content inside it exceeds the width of the viewport (ie. overflows '
+           'to the right), users will be able to scroll horizontally in order '
+           'to see the rest of the menu.</li>',
+           '<li>The <code>&lt;header&gt;</code> element does not display as '
+           '<code class="fore-tertiary">fixed</code> by default. You can, '
+           'however, alter this CSS property manually, if you so desire.</li>']}

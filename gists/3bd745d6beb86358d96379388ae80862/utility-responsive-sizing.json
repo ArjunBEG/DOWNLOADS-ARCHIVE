@@ -1,0 +1,28 @@
+{'code': '&lt;div class="responsive-padding"&gt;Responsive '
+         'padding&lt;/div&gt;\r\n'
+         '&lt;div class="responsive-margin"&gt;Responsive margin&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first">
+<p style="text-align:justify">Helper classes for the <code>padding</code> and <code>margin</code> attributes are provided in the form of <code>.responsive-margin</code> and <code>.responsive-padding</code> classes. Both of these classes are responsive, allowing you to collapse the spacing and size of elements on different displays to make better use of the device's viewport.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12">\n'
+         '<pre>&lt;div class="responsive-padding '
+         'responsive-margin"&gt;Responsive padding and '
+         'margin&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align:justify"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use both of these classes to '
+         'make certain element adapt to changes. This could be especially '
+         'useful for certain grid layouts.</p>\n'
+         '</div>'],
+ 'example': '',
+ 'id': 'responsive-sizing',
+ 'module': 'utility',
+ 'name': 'Responsive sizing & spacing classes',
+ 'notes': ['<li>If the default values of these classes are not suited to your '
+           'needs, check out the <a href="customization">customization</a> '
+           'page.</li>',
+           '<li>Both classes utilize <code><span '
+           'class="fore-secondary">!important</span></code> declarations, so '
+           'be careful when and how to use them.</li>']}

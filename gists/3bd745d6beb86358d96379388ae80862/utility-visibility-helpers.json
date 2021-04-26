@@ -1,0 +1,28 @@
+{'code': '&lt;span class="hidden"&gt;Hidden text&lt;/span&gt;\r\n'
+         '&lt;span class="visually-hidden"&gt;Screen-reader-only '
+         'text&lt;/span&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first">
+<p style="text-align:justify">You can hide content for all your users, using the default <code><span class="fore-secondary">hidden</span></code> attribute. However, we provide you with the <code>.hidden</code> class for the same purpose, as well as the <code>.visually-hidden</code> class which will make your content hidden, except for screen readers.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12">\n'
+           '<pre>&lt;span class="hidden visually-hidden"&gt;Not a good '
+           'idea&lt;/span&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using both classes at '
+           'the same time. Instead, use <code>.hidden</code> to hide content '
+           'for all users, <code>.visually-hidden</code> to hide it for '
+           'non-screen-reader users or <code><span '
+           'class="fore-secondary">aria-hidden</span>=<span '
+           'class="fore-primary">"true"</span></code> to hide it for '
+           'screen-reader-only users.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': '',
+ 'id': 'visibility-helpers',
+ 'module': 'utility',
+ 'name': 'Visibility helpers',
+ 'notes': ['<li>Both classes utilize <code><span '
+           'class="fore-secondary">!important</span></code> declarations, so '
+           'be careful when and how to use them.</li>']}

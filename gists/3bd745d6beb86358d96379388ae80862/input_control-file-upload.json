@@ -1,0 +1,42 @@
+{'code': '&lt;input type="file" id="file-input"&gt;\r\n'
+         '&lt;label for="file-input" class="button"&gt;Upload '
+         'file...&lt;/label&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-lg-8 col-md-normal">
+<p style="text-align: justify;">File upload buttons are commonly a sore spot in CSS frameworks. We try to remedy this problem by hiding the <code>&lt;input <span class="fore-secondary">type</span>=<span class="fore-primary">"file"</span>&gt;</code>, while maintaining accessibility and using a linked <code>&lt;label&gt;</code> of the <code>.button</code> class to display it in a modern way.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12">\n'
+         '<pre>&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="file" id="file-input"&gt;\r\n'
+         '  &lt;label for="file-input" class="button"&gt;Upload '
+         'file...&lt;/label&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use an '
+         '<code>.input-group</code> to wrap the file upload '
+         '<code>&lt;input&gt;</code> and its linked '
+         '<code>&lt;label&gt;</code>, if you wish.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-lg-4 col-md-normal">
+<div class="input-group">
+<br/>
+<input id="file-input-demo" type="file"/>
+<label class="button" for="file-input-demo"><i aria-hidden="true" class="fa fa-upload"></i>�Upload file</label>
+<br/>
+</div>
+</div>,
+ 'id': 'file-upload',
+ 'module': 'input_control',
+ 'name': 'File upload buttons',
+ 'notes': ['<li>The icon displayed in the example above is not part of the '
+           'button styling.</li>',
+           '<li>File upload buttons do not change their text to the name of '
+           'the file after the user has selected a file to upload. You can, '
+           'however, add this functionality using a few lines of '
+           'Javascript.</li>',
+           '<li>File upload buttons cannot be focused (i.e. have a '
+           '<code>:focus</code> state) using the keyboard and this applies to '
+           'linked labels, too. You can use Javascript to add this '
+           'functionality, if you wish.</li>']}

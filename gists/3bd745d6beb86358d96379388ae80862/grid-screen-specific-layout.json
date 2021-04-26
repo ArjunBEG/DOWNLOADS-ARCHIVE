@@ -1,0 +1,113 @@
+{'code': '&lt;div class="container"&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm-12 col-md-3 col-lg-2"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="col-sm-12 col-md-5 col-lg-7"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="col-sm-12 col-md-4 col-lg-3"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">You can specify different layouts for your pages and web apps, using the grid system's columns. To do this add classes to your columns for different screen sizes, using either the fluid column syntax (<code>.col-<span class="fore-primary">SCR_SZ</span></code>) or the fixed width column syntax (<code>.col-<span class="fore-primary">SCR_SZ</span>-<span class="fore-secondary">COL_WD</span></code>) or even both.</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;div class="row"&gt;\r\n'
+           '  &lt;div class="col-sm-12 col-md-6"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;\r\n'
+           '&lt;div class="row"&gt;\r\n'
+           '  &lt;div class="col-sm-12 col-md-6"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0If you want to place two '
+           'columns side by side on some displays, but not on others (e.g. '
+           'placing them vertically on smaller displays, then next to each '
+           'other on medium-sized or larger displays), place them in one row, '
+           'not multiple, otherwise you will not achieve the desired '
+           'effect.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;div class="row"&gt;\r\n'
+           '  &lt;div class="col-md"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '  &lt;div class="col-lg"&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Never omit the class needed '
+           'for the smallest screen size you have (<code>.col-sm</code> or '
+           '<code>.col-sm-<span class="fore-secondary">COL_WD</span></code>), '
+           "otherwise the column's layout on smaller displays might behave "
+           'unexpectedly. You can, however, omit layout for the other two '
+           'screen sizes if you want.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-12 col-md-6"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm-12 col-md-6"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can radically change the layout '
+         'of your content for different displays. Laying out your content '
+         'vertically in <code>.col-sm-12</code>s for small devices and then '
+         'compacting it to <code>.col-md-6</code>s for medium displays is '
+         'pretty common. If your columns exceed a total size of '
+         '<code>12</code> on some displays, they will wrap accordingly, so do '
+         'not worry.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm col-lg-3"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm-6 col-md-8"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0Specify only the screen-specific '
+         "column sizes that you need. You can omit the medium-sized screens' "
+         'size from a column if its layout on smaller screens is fluid or '
+         'should be the same as in medium-sized displays. Or, if your larger '
+         'screen layout is the same as your medium-sized screen layout, you '
+         'can omit the class for the larger screen.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md">
+<div class="row"><div class="col-sm"><h4 style="text-align:center">Small screen layout</h4><hr/></div></div>
+<div class="row"><div class="col-sm"><div class="box-colored"></div></div></div>
+<div class="row"><div class="col-sm-12"><div class="box-colored red" style="height: 45px;"></div></div><div class="col-sm-12"><div class="box-colored green" style="height: 120px;"></div></div><div class="col-sm-12"><div class="box-colored red" style="height: 45px;"></div></div></div>
+<div class="row"><div class="col-sm"><div class="box-colored"></div></div></div>
+</div>
+<div class="col-sm-12 col-md">
+<div class="row"><div class="col-sm"><h4 style="text-align:center">Medium/Large screen layout</h4><hr/></div></div>
+<div class="row"><div class="col-sm"><div class="box-colored"></div></div></div>
+<div class="row"><div class="col-sm-3"><div class="box-colored red" style="height: 282px;"></div></div><div class="col-sm-5"><div class="box-colored green" style="height: 282px;"></div></div><div class="col-sm-4"><div class="box-colored red" style="height: 282px;"></div></div></div>
+<div class="row"><div class="col-sm"><div class="box-colored"></div></div></div>
+</div>
+</div>
+</div>
+</div>,
+ 'id': 'screen-specific-layout',
+ 'module': 'grid',
+ 'name': 'Screen-specific layouts',
+ 'notes': ["<li>Leaving a column's size unspecified for a resolution will use "
+           'the style applied for the previous largest resolution '
+           'recursively.</li>',
+           '<li>Changing the layout for different screen sizes can sometimes '
+           'require complex content realignment, offsetting and reordering. '
+           'For these features, check the sections below.</li>']}

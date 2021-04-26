@@ -1,0 +1,1 @@
+babel formatter example - `add-curly`

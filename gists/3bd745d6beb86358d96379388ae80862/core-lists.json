@@ -1,0 +1,34 @@
+{'code': '&lt;ul&gt;\r\n'
+         '  &lt;li&gt;Apple&lt;/li&gt;\r\n'
+         '  &lt;li&gt;Orange&lt;/li&gt;\r\n'
+         '  &lt;li&gt;Strawberry&lt;/li&gt;\r\n'
+         '&lt;/ul&gt;\r\n'
+         '\r\n'
+         '&lt;ol&gt;\r\n'
+         '  &lt;li&gt;Wake up&lt;/li&gt;\r\n'
+         '  &lt;li&gt;Eat breakfast&lt;/li&gt;\r\n'
+         '  &lt;li&gt;Go to work&lt;/li&gt;\r\n'
+         '&lt;/ol&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align: justify;">Lists are also very commonly used in websites and apps. We tweaked a few margins and paddings to save some space and make them align properly with the rest of the common HTML elements that we use, but both unordered lists (<code>&lt;ul&gt;</code>) and ordered lists (<code>&lt;ol&gt;</code>) are minimally pre-styled to make things a little bit easier for you.</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div><br/>
+<ul>
+<li>Apple</li>
+<li>Orange</li>
+<li>Strawberry</li>
+</ul><br/>
+<ol>
+<li>Wake up</li>
+<li>Eat breakfast</li>
+<li>Go to work</li>
+</ol><br/>
+</div>
+</div>,
+ 'id': 'lists',
+ 'module': 'core',
+ 'name': 'Lists',
+ 'notes': []}

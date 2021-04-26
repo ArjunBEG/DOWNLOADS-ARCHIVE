@@ -1,0 +1,1 @@
+Command line snippet to lock icons at "48" size.

@@ -1,0 +1,46 @@
+{'code': '&lt;div class="card"&gt;\r\n'
+         '  &lt;img src="..." class="section media"&gt;\r\n'
+         '  &lt;div class="section '
+         'double-padded"&gt;&lt;p&gt;Content&lt;/p&gt;&lt;/div&gt;\r\n'
+         '  &lt;div class="section '
+         'dark"&gt;&lt;p&gt;Content&lt;/p&gt;&lt;/div&gt;\r\n'
+         '  &lt;div class="section '
+         'darker"&gt;&lt;p&gt;Content&lt;/p&gt;&lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">You can do a lot more with card sections apart from filling them with textual content. First off, you can add media sections to your cards, applying the styles of <code>.section</code> and <code>.media</code> to an <code>&lt;img&gt;</code> element or a video element of your choice (e.g. using a <code>&lt;iframe&gt;</code> element in the same manner). If you want a section to have more space around it, use the <code>.double-padded</code> class. There are also two section color variations: <code>.dark</code> and <code>.darker</code>.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container"><br/>
+<div class="row">
+<div class="card"><div class="section"><h3>Card with image</h3></div><img alt="image" class="section media" src="https://placehold.it/800x600"/><div class="section"><p>Content</p></div></div>
+<div class="card"><iframe class="section media" height="720" src="https://www.youtube.com/embed/ScMzIvxBSi4" width="1280"></iframe><div class="section"><h3>Card with video</h3></div></div>
+<div class="card"><div class="section"><h3>Normal section</h3></div><div class="section double-padded"><h3>Double-padded section</h3></div></div>
+<div class="card"><div class="section"><h3>Normal section</h3></div><div class="section dark"><h3>Dark section</h3></div><div class="section darker"><h3>Darker section</h3></div></div>
+</div><br/>
+</div>
+</div>,
+ 'id': 'sections-media',
+ 'module': 'card',
+ 'name': 'Sections & media',
+ 'notes': ['<li>The <code>.media</code> class might not be well supported in '
+           'older browsers, especially legacy versions of Internet '
+           'Explorer.</li>',
+           '<li>Due to the <code>.media</code> class using <a '
+           'href="https://caniuse.com/#feat=object-fit"><code>object-fit</code></a>, '
+           'you might want to use a polyfill for better browser support, '
+           'especially if you are targeting Microsoft browsers. We recommend '
+           '<a href="https://github.com/bfred-it/object-fit-images">this '
+           'one</a> for images and <a '
+           'href="https://github.com/jonathantneal/fitie">this one</a> for '
+           'videos.</li>',
+           '<li>Depending on the source website, some embedded videos might '
+           'not display properly inside a <code>.media</code> section.</li>',
+           '<li>The <code>.media</code> class has a preset size of '
+           '<code>height: 200px</code>. If you want to customize this, you '
+           'should check the <a href="customization">customization page</a> '
+           'for instructions.</li>']}

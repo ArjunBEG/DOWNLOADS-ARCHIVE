@@ -1,0 +1,115 @@
+{'code': '&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-1"&gt;\r\n'
+         '    &lt;img src="..."&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm"&gt;\r\n'
+         '    &lt;h2&gt;Media object heading&lt;/h2&gt;\r\n'
+         '    &lt;p&gt;Media object content...&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">Last, but not least, you can use the grid system's classes to create a <a href="https://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">media object</a> in one of many ways, based on your needs. The simplest way to implement a media object is using two columns, one for the media (i.e. <code>&lt;img&gt;</code>) and one for the textual content next to the media.</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;div class="row"&gt;\r\n'
+           '  &lt;img src="..." class="col-sm-1"&gt;\r\n'
+           '  &lt;div class="col-sm"&gt;\r\n'
+           '    &lt;h2&gt;Media object heading&lt;/h2&gt;\r\n'
+           '    &lt;p&gt;Media object content...&lt;/p&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Do not apply a column class '
+           'directly to the media element (e.g.<code>&lt;img&gt;</code>) or '
+           'the content of the media object, as this can cause problems with '
+           'certain elements. Wrap your media objects columns in '
+           '<code>&lt;div&gt;</code> elements and apply the grid classes to '
+           'them, instead.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-1 col-md-2 col-lg-3"&gt;\r\n'
+         '    &lt;img src="..."&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm-11 col-md-10 col-lg-9"&gt;\r\n'
+         '    &lt;h2&gt;Media object heading&lt;/h2&gt;\r\n'
+         '    &lt;p&gt;Media object content...&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can make your media object '
+         'responsive, by adding screen-specific layout classes to its '
+         'columns.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-1 col-sm-last"&gt;\r\n'
+         '    &lt;img src="..."&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm"&gt;\r\n'
+         '    &lt;h2&gt;Media object heading&lt;/h2&gt;\r\n'
+         '    &lt;p&gt;Media object content...&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can align the media object\'s '
+         'content to the left of the image (instead of the other way round), '
+         'using the <code>.col-<span '
+         'class="fore-primary">SCR_SZ</span>-normal</code> class, replacing '
+         '<code><span class="fore-primary">SCR_SZ</span></code> with the '
+         'desired screen size.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-2"&gt;\r\n'
+         '    &lt;img src="..."&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm"&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm"&gt;\r\n'
+         '        &lt;h2&gt;Parent media object&lt;/h2&gt;\r\n'
+         '        &lt;p&gt;Parent media object content...&lt;/p&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="row"&gt;\r\n'
+         '      &lt;div class="col-sm-2"&gt;\r\n'
+         '        &lt;img src="..."&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '      &lt;div class="col-sm"&gt;\r\n'
+         '        &lt;h2&gt;Child media object&lt;/h2&gt;\r\n'
+         '        &lt;p&gt;Child media object content...&lt;/p&gt;\r\n'
+         '      &lt;/div&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0Media objects can be easily nested. '
+         'You can use <code>.row</code> elements in the content column of the '
+         'media object to make everything align perfectly.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container">
+<div class="row"><div class="col-sm"><br/></div></div>
+<div class="row">
+<div class="col-sm col-sm-2"><img alt="image" src="https://placehold.it/800x600"/></div>
+<div class="col-sm col-sm row">
+<div class="col-sm">
+<h3>Media object heading</h3>
+<p>This is an example implementation of the popular media object pattern, using simple grid rules.</p>
+</div>
+</div>
+</div>
+</div>
+</div>,
+ 'id': 'media-object',
+ 'module': 'grid',
+ 'name': 'Media object pattern',
+ 'notes': ['<li>The media object is not a different component, but rather a '
+           'popular pattern that can be implemented using the standard grid '
+           'system classes.</li>',
+           '<li>You can use many different elements for your media object. For '
+           'example, you can make the right side of the media object contain a '
+           'form or an input field.</li>']}

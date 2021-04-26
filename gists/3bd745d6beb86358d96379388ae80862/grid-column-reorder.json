@@ -1,0 +1,85 @@
+{'code': '&lt;div class="container"&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm col-md-last col-lg-normal"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="col-sm-first col-md-normal"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="col-sm col-md-first col-lg-normal"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">Additionally, if you want to reorder your columns, you can do that to some extent using the <code>.col-<span class="fore-primary">SCR_SZ</span>-first</code>, <code>.col-<span class="fore-primary">SCR_SZ</span>-last</code> and <code>.col-<span class="fore-primary">SCR_SZ</span>-normal</code> classes to your columns, replacing <code><span class="fore-primary">SCR_SZ</span></code> with one of the available screen size names (<code><span class="fore-tertiary">sm</span></code>, <code><span class="fore-tertiary">md</span></code> or <code><span class="fore-tertiary">lg</span></code>). These classes will change the ordering of your columns appropriately to allow you to move content around any way you want (e.g. moving a navigation sidebar from the left of the content on larger displays to the end of the content on smaller displays).</p>
+<h3>Sample code</h3>
+<br/>
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm col-md-last"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm col-md-last"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use multiple <code>.col-<span '
+         'class="fore-primary">SCR_SZ</span>-first</code>s and '
+         '<code>.col-<span class="fore-primary">SCR_SZ</span>-last</code>s, '
+         'replacing <code><span class="fore-primary">SCR_SZ</span></code> with '
+         'the desired screen size, in the same row for the same screen size. '
+         'If you specify more than one column to be first or last, the columns '
+         'with the same order will be placed at the beggining or end of the '
+         'row and the order between them will be determined based on their '
+         'order of appearance in the DOM tree afterwards.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm-last col-md-normal"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0To remove a previously applied '
+         'reorder from a column (i.e. one applied from the layout from a '
+         'smaller screen size) or to make sure no reordering is active on a '
+         'column, you can use the <code>.col-<span '
+         'class="fore-primary">SCR_SZ</span>-normal</code> class, replacing '
+         '<code><span class="fore-primary">SCR_SZ</span></code> with the '
+         'desired screen size, effectively resetting all reorders. You do not, '
+         'however, need to add this class to all other columns or use it when '
+         'there are no reorders applied.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container">
+<div class="row"><div class="col-sm"><br/><br/></div></div>
+<div class="row">
+<div class="col-sm col-sm"><div class="box-colored red">first</div></div>
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+</div><div class="row"><div class="col-sm"><br/><br/></div></div>
+<div class="row">
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+<div class="col-sm col-sm"><div class="box-colored red">normal</div></div>
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+</div>
+<div class="row"><div class="col-sm"><br/><br/></div></div>
+<div class="row">
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+<div class="col-sm col-sm"><div class="box-colored">�</div></div>
+<div class="col-sm col-sm"><div class="box-colored red">last</div></div>
+</div>
+</div>
+</div>,
+ 'id': 'column-reorder',
+ 'module': 'grid',
+ 'name': 'Column reordering',
+ 'notes': ['<li>Columns are ordered by default in order of appearance. You '
+           'should only apply column reordering classes to the columns you '
+           'want to reorder on the screen-specific layouts you need them.</li>',
+           '<li>Remember to specify a basic layout and/or screen specific '
+           'layouts in addition to the column reordering classes.</li>',
+           '<li>Column reordering is applied from smaller to larger screens, '
+           'similar to how column layout and offsetting work.</li>']}

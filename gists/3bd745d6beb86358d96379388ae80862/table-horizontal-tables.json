@@ -1,0 +1,80 @@
+{'code': '&lt;table class="horizontal"&gt;\r\n'
+         '  &lt;caption&gt;People&lt;/caption&gt;\r\n'
+         '  &lt;thead&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;th&gt;Name&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Surname&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Alias&lt;/th&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/thead&gt;\r\n'
+         '  &lt;tbody&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Chad&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Wilberts&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;MrOne&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Adam&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Smith&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;TheSmith&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Sophia&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Canderson&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;Candee&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/tbody&gt;\r\n'
+         '&lt;/table&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">Scrollable tables are very similar to horizontal ones and can be created by simply adding the <code>.scrollable</code> class to the root element of your table (i.e. the <code>&lt;table&gt;</code> element). Similarly to horizontal ones, they can accommodate as many data rows as you like, making their overflow scrollable, while they do not support the <code>&lt;tfoot&gt;</code> element. As usual, remember to add the <code>data-label</code> attribute, as shown in the previous section, to allow your tables to be responsive without any errors.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12">\n'
+           '<pre>&lt;table class="horizontal scrollable"&gt;\r\n'
+           '  <span class="fore-secondary">&lt;!-- Bad table --&gt;</span>\r\n'
+           '  &lt;thead&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;/thead&gt;\r\n'
+           '  &lt;tbody&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;/tbody&gt;\r\n'
+           '&lt;/table&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid comibing the '
+           '<code>.horizontal</code> and <code>.scrollable</code> classes on '
+           'the same element, as this can cause unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div>
+<br/><table class="horizontal preset">
+<caption>People</caption>
+<thead>
+<tr><th>Name</th><th>Surname</th><th>Alias</th></tr>
+</thead>
+<tbody>
+<tr><td data-label="Name">Chad</td><td data-label="Surname">Wilberts</td><td data-label="Alias">MrOne</td></tr>
+<tr><td data-label="Name">Adam</td><td data-label="Surname">Smith</td><td data-label="Alias">TheSmith</td></tr>
+<tr><td data-label="Name">Sophia</td><td data-label="Surname">Canderson</td><td data-label="Alias">Candee</td></tr>
+<tr><td data-label="Name">Nick</td><td data-label="Surname">Thomson</td><td data-label="Alias">NickThom</td></tr>
+</tbody>
+</table><br/>
+</div>
+</div>,
+ 'id': 'horizontal-tables',
+ 'module': 'table',
+ 'name': '\nHorizontal tables\n',
+ 'notes': ['<li>Due to <code>.horizontal</code> tables utilizing the <a '
+           'href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox '
+           'Layout</a>, some older browsers may not properly display these '
+           'tables. This is especially true with legacy versions of Internet '
+           'Explorer.</li>',
+           '<li>Mixing the Flexible Layout Module with '
+           '<code>&lt;table&gt;</code> elements seems to upset some browsers. '
+           'We noticed this on an older mobile version of Firefox, where our '
+           'implementation should work in theory, given the fact that both '
+           'features are properly supported. If you notice any problems with '
+           '<code>.horizontal</code> tables, feel free to <a '
+           'href="https://github.com/Chalarangelo/mini.css/issues/new">submit '
+           'a new issue on Github</a>.</li>']}

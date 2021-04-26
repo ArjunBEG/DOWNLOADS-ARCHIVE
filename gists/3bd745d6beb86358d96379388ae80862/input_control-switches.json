@@ -1,0 +1,52 @@
+{'code': '&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="checkbox" id="switch1" tabindex="0"&gt;\r\n'
+         '  &lt;label for="switch1" class="switch"&gt;Checkbox '
+         'switch&lt;/label&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '\r\n'
+         '&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="radio" id="radswitch1" tabindex="0" '
+         'name="radio-group-1"&gt;\r\n'
+         '  &lt;label for="radswitch1" class="switch"&gt;Radio '
+         'switch&lt;/label&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal col-lg-8 col-lg-normal">
+<p style="text-align: justify;">Switches are almost identical in structure to checkboxes and radio buttons (an <code>.input-group</code> containing an <code>&lt;input&gt;</code> of the proper <code><span class="secondary">type</span></code> inside it (<code><span class="fore-primary">"checkbox"</span></code> or <code><span class="fore-primary">"radio"</span></code>), followed immediately by a <code>&lt;label&gt;</code> linking to it), their only difference being that you need to add the <code>.switch</code> class to <code>&lt;label&gt;</code> element to turn your input into a switch. Remember to apply <code><span class="fore-secondary">tabindex</span>=<span class="fore-primary">"0"</span></code> to your <code>&lt;input&gt;</code> to make it accessible.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12">\n'
+         '<pre>&lt;div class="input-group"&gt;\r\n'
+         '  &lt;label for="switch1"&gt;Switch with text on its '
+         'left&lt;/label&gt;\r\n'
+         '  &lt;input type="checkbox" id="switch1" tabindex="0"&gt;\r\n'
+         '  &lt;label for="switch1" class="switch"&gt;&lt;/label&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0By using two '
+         '<code>&lt;label&gt;</code> elements, you can move the actual '
+         "<code>.switch</code> to the right of the label's text, effectively "
+         'allowing you to change the layout. Remember to not add any text to '
+         'your second <code>&lt;label&gt;</code> that implements the '
+         '<code>.switch</code> class. You might want, however, to add a few '
+         'trailing spaces to the first <code>&lt;label&gt;</code> element to '
+         'make sure the text does not get covered by the component.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal col-lg-4 col-lg-normal">
+<div class="box-centered">
+<br>
+<div class="input-group">
+<input id="switch-box" tabindex="0" type="checkbox"/>
+<label class="switch" for="switch-box">Switch</label>
+</div>
+<br>
+<br/>
+</br></br></div>
+</div>,
+ 'id': 'switches',
+ 'module': 'input_control',
+ 'name': 'Switches',
+ 'notes': ['<li>You can create your own color variants for the '
+           '<code>.switch</code> component. For more information, check out '
+           'the <a href="customization">customization page</a>.</li>']}

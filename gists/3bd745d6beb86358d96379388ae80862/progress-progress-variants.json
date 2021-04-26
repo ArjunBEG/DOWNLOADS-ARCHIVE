@@ -1,0 +1,40 @@
+{'code': '&lt;progress class="secondary" value="600" '
+         'max="1000"&gt;&lt;/progress&gt;\r\n'
+         '&lt;progress class="tertiary" value="300" '
+         'max="1000"&gt;&lt;/progress&gt;\r\n'
+         '&lt;progress class="inline" value="150" '
+         'max="1000"&gt;&lt;/progress&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">Apart from the default style for the <code>&lt;progress&gt;</code> element, we have also included a couple of variants for it. As with many other elements, you can change the color of your progress bars, based on the context, using the <code>.secondary</code> or <code>.tertiary</code> class. You can also make a <code>&lt;progress&gt;</code> element display inline, using the <code>.inline</code> class.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;progress class="secondary teriary" value="450" '
+           'max="1000"&gt;&lt;/progress&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid mixing two classes of '
+           'the same type (i.e. two color classes or two size classes).</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;progress class="inline secondary" value="800" '
+         'max="1000"&gt;&lt;/progress&gt;\r\n'
+         '<span class="fore-tertiary">&lt;!-- or --&gt;</span>\r\n'
+         '&lt;progress class="inline tertiary" value="650" '
+         'max="1000"&gt;&lt;/progress&gt;</pre>\n'
+         '<p class="do" style="text-align:justify"><mark '
+         'class="tertiary">Do:</mark>\xa0You can mix size and color classes '
+         'for <code>&lt;progress&gt;</code> elements as needed.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<p>Secondary process is 60% complete!</p> <progress class="secondary" max="1000" value="600"></progress>
+<p>Tertiary process is 30% complete!</p> <progress class="tertiary" max="1000" value="300"></progress>
+<p>Inline progress bar:<progress class="inline" max="1000" value="150"></progress></p>
+</div>,
+ 'id': 'progress-variants',
+ 'module': 'progress',
+ 'name': 'Progress bar variants',
+ 'notes': ['<li>If you want to add your own custom size classes for '
+           '<code>&lt;progress&gt;</code> elements, check the <a '
+           'href="customization">customization page</a> for '
+           'instructions.</li>']}

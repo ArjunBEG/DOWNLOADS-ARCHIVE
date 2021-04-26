@@ -1,0 +1,48 @@
+{'code': '&lt;span class="bordered"&gt;Bordered&lt;/span&gt;\r\n'
+         '&lt;span class="rounded"&gt;Rounded&lt;/span&gt;\r\n'
+         '&lt;span class="circular"&gt;Circular&lt;/span&gt;\r\n'
+         '&lt;span class="shadowed"&gt;Casts shadow&lt;/span&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">Use the <code>.bordered</code> class to apply a generic black border with 25% opacity to any element. Apart from that you can use the <code>.rounded</code> and <code>.circular</code> classes to create generic border radiuses. Finally, you can use the <code>.shadowed</code> class to add a generic <code><span class="fore-secondary">box-shadow</span></code> to any element.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;span class="rounded circular"&gt;Bad '
+           'radius&lt;/span&gt;\r\n'
+           '<span class="fore-secondary">&lt;!-- or --&gt;</span>\r\n'
+           '&lt;span class="shadow-small shadow-large"&gt;Bad '
+           'shadow&lt;/span&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid combining two classes of '
+           'the same type (i.e. two radii or two shadow styles), as they might '
+           'overwrite each other and cause unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;span class="bordered rounded shadow-small"&gt;Stylized '
+         'element&lt;/span&gt;</pre>\n'
+         '<p class="do" style="text-align:justify"><mark '
+         'class="tertiary">Do:</mark>\xa0You can combine a generic border with '
+         'any border radius or shadow or even both.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div>
+<br/>
+<p>This is a paragraph with a piece of <span class="bordered">bordered text</span>.</p>
+<button class="bordered">Bordered button</button><button class="bordered primary">Bordered button</button><br/>
+<p><img alt="image" class="rounded" src="https://placehold.it/200x200?text=rounded"/>��<img alt="image" class="circular" src="https://placehold.it/200x200?text=circular"/></p><br/>
+<p><span class="shadowed">This is an element that casts a shadow.</span></p><br/>
+</div>
+</div>,
+ 'id': 'borders-shadows',
+ 'module': 'utility',
+ 'name': 'Generic borders & shadows',
+ 'notes': ['<li>All of these classes utilize <code><span '
+           'class="fore-secondary">!important</span></code> declarations, so '
+           'be careful when and how to use them.</li>',
+           '<li>The <code>.bordered</code> class was originally created with '
+           'elements such as buttons in mind, to allow users highlighting '
+           'certain elements in their designs, without having to change any '
+           'default styles.</li>',
+           '<li>All of the above classes can be used with most modern HTML '
+           'elements.</li>']}

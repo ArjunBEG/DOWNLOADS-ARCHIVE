@@ -1,0 +1,57 @@
+{'code': '&lt;ul class="breadcrumbs"&gt;\r\n'
+         '  &lt;li&gt;&lt;a href="#"&gt;Root&lt;/a&gt;&lt;/li&gt;\r\n'
+         '  &lt;li&gt;&lt;a href="#"&gt;Folder&lt;/a&gt;&lt;/li&gt;\r\n'
+         '  &lt;li&gt;File&lt;/li&gt;\r\n'
+         '&lt;/ul&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align:justify">Breadcrumbs are usually used to show the navigational hierarchy of pages or folders. To use them, simply create a <code>&lt;ul&gt;</code> element that implements the <code>.breadcrumbs</code> class. Inside this unordered list, add as many <code>&lt;li&gt;</code> elements as needed to show your hierarchy. You can add links to the list elements, as necessary.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;ol class="breadcrumbs"&gt;\r\n'
+           '  &lt;li&gt;&lt;a href="#"&gt;Does&lt;/a&gt;&lt;/li&gt;\r\n'
+           '  &lt;li&gt;&lt;a href="#"&gt;Not&lt;/a&gt;&lt;/li&gt;\r\n'
+           '  &lt;li&gt;Work&lt;/li&gt;\r\n'
+           '&lt;/ol&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0The structure of the '
+           'breadcrumb component prohibits the use of <code>&lt;ol&gt;</code> '
+           'in place of the <code>&lt;ul&gt;</code> element.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;ul class="breadcrumbs"&gt;\r\n'
+           '  &lt;li&gt;&lt;a href="#"&gt;Root&lt;/a&gt;\r\n'
+           '    &lt;ul class="breadcrumbs"&gt;\r\n'
+           '      &lt;li&gt;&lt;a href="#"&gt;Folder&lt;/a&gt;&lt;/li&gt;\r\n'
+           '    &lt;/ul&gt;\r\n'
+           '  &lt;/li&gt;\r\n'
+           '  &lt;li&gt;File&lt;/li&gt;\r\n'
+           '&lt;/ul&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid nesting lists, '
+           'breadcrumbs or a combination of the two inside the '
+           '<code>.breadcrumbs</code> list, as this might cause unexpected '
+           'behavior.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div><br/>
+<ul class="breadcrumbs"> <li><a href="#">Root</a></li> <li><a href="#">Folder</a></li> <li>File</li> </ul><br/>
+</div>
+</div>,
+ 'id': 'breadcrumbs',
+ 'module': 'utility',
+ 'name': 'Breadcrumbs',
+ 'notes': ['<li>The separators between breadcrumbs are added using some tricky '
+           'CSS rules. Due to that, there might be a few browser versions or '
+           'devices where you can see part of the seams between the element '
+           'separators.</li>',
+           '<li>Breadcrumbs show a hierarchy, an ordered list. However, we do '
+           'not use the <code>&lt;ol&gt;</code> element, as it might conflict '
+           "with some custom styles we've seen people use.</li>",
+           '<li>If you want to add some accesibility to your breadcrumbs, you '
+           'can add the <code><span class="fore-secondary">role</span>=<span '
+           'class="fore-primary">"<a '
+           'href="https://www.w3.org/TR/wai-aria/roles#navigation">navigation</a>"</span></code> '
+           'attribute, although it is not required.</li>']}

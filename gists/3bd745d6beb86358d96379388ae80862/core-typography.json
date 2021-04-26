@@ -1,0 +1,19 @@
+{'code': '',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">For the basic typography rules we did the following, along with other things presented below:</p>
+<ul>
+<li>We use a <a href="https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/">native font stack</a> to figure out the best font for your device.</li>
+<li>We set the colors to <code>background: #f8f8f8;</code> and <code>color: #212121;</code>.</li>
+<li>We use a <code>font-size</code> of <code>16px</code> for the root element.</li>
+<li>We set <code>line-height</code> to <code>1.5</code>.</li>
+</ul>
+</div>,
+ 'donts': [],
+ 'dos': [],
+ 'example': '',
+ 'id': 'typography',
+ 'module': 'core',
+ 'name': 'Typography',
+ 'notes': ['<li>Fluid typography is also included, but not enabled by default. '
+           'If you want to try it out, check out the out the <a '
+           'href="customization">customization</a> page.</li>']}

@@ -1,0 +1,1 @@
+AutoHotKeys (AHK) script for toggling my mic's muting    Demo: https://gyazo.com/07ac569f5e5225f7cd32c34701ca00db    Icons: https://jumpshare.com/b/5xatZXpaIdIV1BaP9aET

@@ -1,0 +1,37 @@
+{'code': '&lt;span class="close"&gt;&lt;/span&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">To create a close icon, simply add an element implementing the <code>.close</code> class.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="close"&gt;&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align:justify"><mark '
+         'class="tertiary">Do:</mark>\xa0You can use a handful of other HTML '
+         'elements instead of the <code>&lt;span&gt;</code> element showcased '
+         'in the example above, most commonly <code>&lt;div&gt;</code> '
+         'elements.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;button class="close"&gt;&lt;/button&gt;</pre>\n'
+         '<p class="do" style="text-align:justify"><mark '
+         'class="tertiary">Do:</mark>\xa0If you want your close icon to behave '
+         'like a button (i.e. register as a button on screen readers and have '
+         'the required logic attached to it), you can apply the '
+         '<code>.close</code> class to a <code>&lt;button&gt;</code> element '
+         'instead. You can even apply any of the button color variant '
+         'classes.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div>
+<br/>
+<p style="text-align:center;">��<span class="close"></span>��</p>
+<br/>
+</div>
+</div>,
+ 'id': 'close-icon',
+ 'module': 'utility',
+ 'name': 'Close icon',
+ 'notes': ['<li>The close icon behaves similar to a button when hovering over '
+           'it or otherwise focusing or selecting it.</li>']}

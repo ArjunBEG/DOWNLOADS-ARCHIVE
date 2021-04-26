@@ -1,0 +1,1 @@
+curl -v -H "Content-Type: application/json" -X POST -d '{"title":"Hello World"}' http://localhost:3000/notes

@@ -1,0 +1,27 @@
+{'code': '&lt;header class="sticky"&gt;\r\n'
+         '  &lt;a href="#" class="logo"&gt;Logo&lt;/a&gt; '
+         '&lt;button&gt;Home&lt;/button&gt; '
+         '&lt;button&gt;About&lt;/button&gt;\r\n'
+         '&lt;/header&gt;\r\n'
+         '\r\n'
+         '&lt;footer class="sticky"&gt;\r\n'
+         '  &lt;p&gt;&amp;copy; 2001-2016 Web Corporation | &lt;a '
+         'href="#"&gt;About&lt;/a&gt; | &lt;a href="#"&gt;Terms of '
+         'use&lt;/a&gt;&lt;/p&gt;\r\n'
+         '&lt;/footer&gt;',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">You can create sticky headers and footers, using the <code>.sticky</code> class on either of these elements.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': [],
+ 'example': '',
+ 'id': 'sticky',
+ 'module': 'navigation',
+ 'name': 'Sticky headers and footers',
+ 'notes': ['<li>Sticky headers and footers are compatible with modern '
+           'browsers, but might not display properly in older browsers. '
+           'Support is being added over time, so be sure to check out if your '
+           'target platforms support <a '
+           'href="https://caniuse.com/#feat=css-sticky"><code>position:sticky</code></a>.</li>']}

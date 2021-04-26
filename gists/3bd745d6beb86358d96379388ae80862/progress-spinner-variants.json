@@ -1,0 +1,21 @@
+{'code': '&lt;div class="spinner-donut secondary"&gt;&lt;/div&gt;\r\n'
+         '&lt;div class="spinner-donut tertiary"&gt;&lt;/div&gt;\r\n'
+         '&lt;div class="spinner-donut large"&gt;&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-8 col-md-normal">
+<p style="text-align:justify">Apart from the default donut spinner style, there are also two more contextual color classes: <code>.secondary</code> and <code>.tertiary</code>. If your donut spinners are too small, you can also use the <code>.large</code> class to make it pop out a little bit more.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': [],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+<div class="box-centered"><br/>
+<div class="spinner-donut secondary"></div><br/> <div class="spinner-donut tertiary"></div><br/> <div class="spinner-donut large"></div><br/>
+</div>
+</div>,
+ 'id': 'spinner-variants',
+ 'module': 'progress',
+ 'name': 'Donut spinner variants',
+ 'notes': ['<li>You can mix one of the contextual color classes and the '
+           '<code>.large</code> class, if you want, similarly to what you can '
+           'do with progress bars.</li>']}

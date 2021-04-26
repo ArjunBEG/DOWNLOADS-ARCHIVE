@@ -1,0 +1,35 @@
+{'code': '&lt;span class="toast"&gt;This is a normal toast '
+         'message!&lt;/span&gt;\r\n'
+         '&lt;span class="toast small"&gt;This is a large toast '
+         'message!&lt;/span&gt;\r\n'
+         '&lt;span class="toast large"&gt;This is a small toast '
+         'message!&lt;/span&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align:justify">Toasts aim to help bridge the gap between web and native applications on mobile devices, by displaying native-looking toast messages. To create a toast, wrap some text inside a <code>&lt;span&gt;</code> element with the <code>.toast</code> class. Toasts appear at the bottom of the screen on top of everything else. If you want to create smaller or larger toast messasges, you can add the <code>.small</code> or <code>.large</code> classes respectively.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12">\n'
+           '<pre>&lt;span class="toast small large"&gt;Not a good '
+           'toast&lt;/span&gt;</pre>\n'
+           '<p class="dont" style="text-align:justify"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid combining two toast size '
+           'variants, as this might cause unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div style="height: 15rem;">
+<span class="toast demo">I'm a toast message!</span><br>
+<span class="toast small demo">I'm a small toast message!</span><br>
+<span class="toast large demo">I'm a large toast message!</span>
+</br></br></div>
+</div>,
+ 'id': 'toasts',
+ 'module': 'contextual',
+ 'name': 'Toasts',
+ 'notes': ['<li>Toast elements do not have any pre-defined behavior. You '
+           'should use your own Javascript code and interactive HTML elements '
+           'to deal with showing and hiding them as necessary.</li>',
+           '<li>If you want to create your own color or size variants for '
+           'toast messages, check out the <a '
+           'href="customization">customization</a> page.</li>']}

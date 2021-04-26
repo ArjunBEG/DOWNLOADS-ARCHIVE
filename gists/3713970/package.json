@@ -1,0 +1,9 @@
+{
+  "name": "Ugly forEach",
+
+  "description": "Ugly forEach polyfill for primitives",
+
+  "keywords": [
+    "polyfill"
+  ]
+}

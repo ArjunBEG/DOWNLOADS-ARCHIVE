@@ -1,0 +1,144 @@
+{'code': '&lt;table&gt;\r\n'
+         '  &lt;caption&gt;People&lt;/caption&gt;\r\n'
+         '  &lt;thead&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;th&gt;Name&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Surname&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Alias&lt;/th&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/thead&gt;\r\n'
+         '  &lt;tbody&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Chad&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Wilberts&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;MrOne&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Adam&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Smith&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;TheSmith&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Sophia&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Canderson&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;Candee&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/tbody&gt;\r\n'
+         '&lt;/table&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">Table layout utilizes the <code>&lt;table&gt;</code> HTML element with the following structure (usual tabular structure):</p>
+<ol style="text-align: justify;">
+<li>On the outermost level, there is the <code>&lt;table&gt;</code> element.</li>
+<li>If you want to include a <code>&lt;caption&gt;</code> element, it must by the first element inside the <code>&lt;table&gt;</code> element.</li>
+<li>Following the above, you need to add a <code>&lt;thead&gt;</code> element. Inside it, you should usually add one <code>&lt;tr&gt;</code> element, which contains one or more <code>&lt;th&gt;</code> elements.</li>
+<li>Immediately after the <code>&lt;thead&gt;</code> element, you can add a <code>&lt;tfoot&gt;</code> element, if you want to. Inside it, you should usually add one or more <code>&lt;tr&gt;</code> elements, which contain one or more <code>&lt;td&gt;</code> elements. </li>
+<li>Finally, add your <code>&lt;tbody&gt;</code> element. Inside it, you should usually add one or more <code>&lt;tr&gt;</code> elements, which contain one or more <code>&lt;td&gt;</code> elements. For each <code>&lt;td&gt;</code> element, specify a <code>data-label</code> attribute equal to the heading of the column. This enables responsibility for your table, so that the values in the columns will be properly labeled on mobile devices.</li>
+</ol>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;tr&gt;\r\n'
+           '  &lt;td&gt;Chad&lt;/td&gt;\r\n'
+           '  &lt;td&gt;Wilberts&lt;/td&gt;\r\n'
+           '  &lt;td&gt;MrOne&lt;/td&gt;\r\n'
+           '&lt;/tr&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Remember to always add a '
+           '<code>data-label</code> attribute to your <code>&lt;td&gt;</code> '
+           "elements, as the table's card view is very dependent on them to "
+           'display properly. <code>&lt;th&gt;</code> elements, however, do '
+           'not require or utilize this attribute.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;table&gt;\r\n'
+           '  &lt;caption&gt;People&lt;/caption&gt;\r\n'
+           '  &lt;thead&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;/thead&gt;\r\n'
+           '  &lt;tbody&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;/tbody&gt;\r\n'
+           '  &lt;tfoot&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;/tfoot&gt;\r\n'
+           '&lt;/table&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0The <code>&lt;tfoot&gt;</code> '
+           'element must always be immediately after the '
+           '<code>&lt;thead&gt;</code> element, if included.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6">\n'
+           '<pre>&lt;tbody&gt;\r\n'
+           '  &lt;tr&gt;\r\n'
+           '    &lt;th&gt;Name&lt;/th&gt;\r\n'
+           '    &lt;td data-label="Name"&gt;Chad&lt;/td&gt;\r\n'
+           '  &lt;/tr&gt;\r\n'
+           '&lt;/tbody&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid inserting '
+           '<code>&lt;th&gt;</code> elements inside your '
+           '<code>&lt;tbody&gt;</code> element. If you want to make your '
+           'tables horizontal or preset their styling in a manner different '
+           'from the one shown in the previous examples, check the below '
+           'sections.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal">\n'
+           '<pre>&lt;thead&gt;\r\n'
+           '  &lt;tr&gt;\r\n'
+           '    &lt;td data-label="Name"&gt;Chad&lt;/td&gt;\r\n'
+           '  &lt;/tr&gt;\r\n'
+           '&lt;/thead&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid using '
+           '<code>&lt;td&gt;</code> elements inside your '
+           '<code>&lt;thead&gt;</code>. You should use a '
+           '<code>&lt;tbody&gt;</code> element instead.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div>
+<h4>Medium/Large screen layout</h4><hr/>
+<table class="preset">
+<caption>People</caption>
+<thead>
+<tr><th>Name</th><th>Surname</th><th>Alias</th></tr>
+</thead>
+<tbody>
+<tr><td data-label="Name">Chad</td><td data-label="Surname">Wilberts</td><td data-label="Alias">MrOne</td></tr>
+<tr><td data-label="Name">Adam</td><td data-label="Surname">Smith</td><td data-label="Alias">TheSmith</td></tr>
+<tr><td data-label="Name">Sophia</td><td data-label="Surname">Canderson</td><td data-label="Alias">Candee</td></tr>
+</tbody>
+</table>
+<br/>
+<h4>Small screen layout</h4><hr/>
+<table id="carded">
+<caption>People</caption>
+<thead>
+<tr><th>Name</th><th>Surname</th><th>Alias</th></tr>
+</thead>
+<tbody>
+<tr><td data-label="Name">Chad</td><td data-label="Surname">Wilberts</td><td data-label="Alias">MrOne</td></tr>
+<tr><td data-label="Name">Adam</td><td data-label="Surname">Smith</td><td data-label="Alias">TheSmith</td></tr>
+<tr><td data-label="Name">Sophia</td><td data-label="Surname">Canderson</td><td data-label="Alias">Candee</td></tr>
+</tbody>
+</table>
+<br/>
+</div>
+</div>,
+ 'id': 'syntax-responsiveness',
+ 'module': 'table',
+ 'name': 'Basic syntax & responsiveness',
+ 'notes': ['<li>Tables are responsive by default and will change to a '
+           "card-like view below a certain screen width. If you'd rather not "
+           'make them responsive, check the last section on this page.</li>',
+           '<li>Specifying the <code>data-label</code> attribute is essential '
+           'for the responsive version of a table to display properly. You '
+           "can, however, use a value different from the column's name. Make "
+           'sure it does not confuse your users, though.</li>',
+           '<li>We strongly suggest you avoid adding multiple rows in your '
+           '<code>&lt;thead&gt;</code> element, as it could cause problems '
+           'with accessibility. However, if you absolutely must, you might '
+           'want to check <a '
+           'href="https://codepen.io/chalarangelo/pen/VPqWQE">this codepen</a> '
+           'for an idea on how to deal with irregular border styling.</li>']}

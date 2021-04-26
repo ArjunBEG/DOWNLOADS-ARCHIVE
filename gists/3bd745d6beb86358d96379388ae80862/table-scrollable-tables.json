@@ -1,0 +1,90 @@
+{'code': '&lt;table class="scrollable"&gt;\r\n'
+         '  &lt;caption&gt;People&lt;/caption&gt;\r\n'
+         '  &lt;thead&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;th&gt;Name&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Surname&lt;/th&gt;\r\n'
+         '      &lt;th&gt;Alias&lt;/th&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/thead&gt;\r\n'
+         '  &lt;tbody&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Chad&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Wilberts&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;MrOne&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Adam&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Smith&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;TheSmith&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '    &lt;tr&gt;\r\n'
+         '      &lt;td data-label="Name"&gt;Sophia&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Surname"&gt;Canderson&lt;/td&gt;\r\n'
+         '      &lt;td data-label="Alias"&gt;Candee&lt;/td&gt;\r\n'
+         '    &lt;/tr&gt;\r\n'
+         '  &lt;/tbody&gt;\r\n'
+         '&lt;/table&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">Scrollable tables can be created by simply adding the <code>.scrollable</code> class to the root element of your table (i.e. the <code>&lt;table&gt;</code> element). Scrollable tables are flexible, so they can accommodate any amount of data rows and, if there is a lot of data, they will make their overflow scrollable. Remember to add the <code>data-label</code> attribute, as shown in the previous section, to allow your tables to be responsive without any errors. Keep in mind, however, that <code>.horizontal</code> tables do not support the <code>&lt;tfoot&gt;</code> element.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12">\n'
+           '<pre>&lt;table class="scrollable"&gt;\r\n'
+           '  <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '  &lt;tfoot&gt;\r\n'
+           '    <span class="fore-secondary">&lt;!-- Do not do this! '
+           '--&gt;</span>\r\n'
+           '  &lt;/tfoot&gt;\r\n'
+           '  <span class="fore-secondary">&lt;!-- ... --&gt;</span>\r\n'
+           '&lt;/table&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0We already explicitly stated '
+           'that, due to the way <code>.scrollable</code> tables are styled, '
+           'the <code>&lt;tfoot&gt;</code> element is not supported. Please '
+           'refer to the last section of this page if you need to use this '
+           'element and you want to have a scrollable table layout.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div>
+<br/><table class="scrollable preset">
+<caption>People</caption>
+<thead>
+<tr><th>Name</th><th>Surname</th><th>Alias</th></tr>
+</thead>
+<tbody>
+<tr><td data-label="Name">Chad</td><td data-label="Surname">Wilberts</td><td data-label="Alias">MrOne</td></tr>
+<tr><td data-label="Name">Adam</td><td data-label="Surname">Smith</td><td data-label="Alias">TheSmith</td></tr>
+<tr><td data-label="Name">Sophia</td><td data-label="Surname">Canderson</td><td data-label="Alias">Candee</td></tr>
+<tr><td data-label="Name">Nick</td><td data-label="Surname">Thomson</td><td data-label="Alias">NickThom</td></tr>
+<tr><td data-label="Name">Mark</td><td data-label="Surname">Gerkis</td><td data-label="Alias">Markie</td></tr>
+<tr><td data-label="Name">John</td><td data-label="Surname">Fergusson</td><td data-label="Alias">Fergujohn</td></tr>
+<tr><td data-label="Name">Sylvia</td><td data-label="Surname">Pouleau</td><td data-label="Alias">Sylver</td></tr>
+<tr><td data-label="Name">Norman</td><td data-label="Surname">Jones</td><td data-label="Alias">NormalJones</td></tr>
+<tr><td data-label="Name">Trevor</td><td data-label="Surname">Heidel</td><td data-label="Alias">Heidi</td></tr>
+</tbody>
+</table><br/>
+</div>
+</div>,
+ 'id': 'scrollable-tables',
+ 'module': 'table',
+ 'name': '\nScrollable tables\n',
+ 'notes': ['<li>Due to <code>.scrollable</code> tables utilizing the <a '
+           'href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox '
+           'Layout</a>, some older browsers may not properly display these '
+           'tables. This is especially true with legacy versions of Internet '
+           'Explorer.</li>',
+           '<li>Mixing the Flexible Layout Module with '
+           '<code>&lt;table&gt;</code> elements seems to upset some browsers. '
+           'We noticed this on an older mobile version of Firefox, where our '
+           'implementation should work in theory, given the fact that both '
+           'features are properly supported. If you notice any problems with '
+           '<code>.scrollable</code> tables, feel free to <a '
+           'href="https://github.com/Chalarangelo/mini.css/issues/new">submit '
+           'a new issue on Github</a>.</li>',
+           '<li><code>.scrollable</code> tables have a default maximum height '
+           'of <code>400px</code>. If you want to change this, you should '
+           'check out the <a href="customization">customization</a> '
+           'page.</li>']}

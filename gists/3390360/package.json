@@ -1,0 +1,43 @@
+{
+  "name": "photopipe",
+  "description": "Pipe yer photos all over the web and stuff.",
+  "version": "0.0.1-11",
+  "author": {
+    "name": "Joe McCann",
+    "email": "joe@subprint.com"
+  },
+  "contributors": [
+    {
+      "name": "Joe McCann",
+      "email": "joe@subprint.com"
+    }
+  ],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "photo",
+    "pipe",
+    "photopipe",
+    "image",
+    "stream",
+    "restful",
+    "images",
+    "upload",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joemccann/photopipe"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "express": "3.0.0rc3",
+    "ejs": "*",
+    "stylus": "*",
+    "request": ">=2.9.203"
+  },
+  "subdomain": "photopipe"
+}

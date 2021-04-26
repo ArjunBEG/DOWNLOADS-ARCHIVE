@@ -1,0 +1,116 @@
+{'code': '&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="checkbox" id="check1" tabindex="0"&gt;\r\n'
+         '  &lt;label for="check1"&gt;Checkbox&lt;/label&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '\r\n'
+         '&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="radio" id="rad1" tabindex="0" '
+         'name="radio-group-1"&gt;\r\n'
+         '  &lt;label for="rad1"&gt;Radio&lt;/label&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-lg-8 col-md-normal">
+<p style="text-align: justify;">Checkboxes and radio buttons come pre-styled, using the <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>, while remaining fully accessible. To create a checkbox or radio button, start using a <code>&lt;div&gt;</code> that implements the <code>.input-group</code> class, and then add an <code>&lt;input&gt;</code> of the proper <code><span class="secondary">type</span></code> inside it (<code><span class="fore-primary">"checkbox"</span></code> or <code><span class="fore-primary">"radio"</span></code>), followed immediately by a <code>&lt;label&gt;</code> linking to it. Remember to add <code><span class="fore-secondary">tabindex</span>=<span class="fore-primary">"0"</span></code> to your <code>&lt;input&gt;</code>, so that it will register properly for screen readers.</p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;input type="checkbox" id="check1" tabindex="0"&gt;\r\n'
+           '&lt;label for="check1"&gt;Checkbox&lt;/label&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Always use an '
+           '<code>.input-group</code> for your checkboxes and radio buttons. '
+           'Not doing so will cause the checkbox or radio button to not '
+           'display properly.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="input-group"&gt;\r\n'
+           '  &lt;input type="checkbox" id="check1"\r\n'
+           '  &lt;label for="check1"&gt;Checkbox&lt;/label&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Remember to add <code><span '
+           'class="fore-secondary">tabindex</span>=<span '
+           'class="fore-primary">"0"</span></code> to all your checkboxes and '
+           'radio buttons to make them accessible.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="input-group"&gt;\r\n'
+           '  &lt;label for="check1"&gt;Checkbox&lt;/label&gt;\r\n'
+           '  &lt;input type="checkbox" id="check1" tabindex="0"&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0The structure of checkboxes '
+           'and radio buttons is very strict, meaning that the '
+           '<code>&lt;label&gt;</code> should always be after the '
+           '<code>&lt;input&gt;</code> and never before, otherwise the '
+           'checkbox or radio button will not display properly.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="input-group"&gt;\r\n'
+           '  &lt;input type="radio" id="rad1" tabindex="0" '
+           'name="radio-group-1"&gt;\r\n'
+           '  &lt;input type="radio" id="rad2" tabindex="0" '
+           'name="radio-group-1"&gt;\r\n'
+           '  &lt;label for="rad2"&gt;Value 2&lt;/label&gt;\r\n'
+           '  &lt;label for="rad1"&gt;Value 1&lt;/label&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0When using multiple radio '
+           'buttons inside an <code>.input-group</code>, remember to use the '
+           'usual structure of the radio button component for each radio '
+           'button (i.e. the <code>&lt;input&gt;</code> and '
+           '<code>&lt;label&gt;</code>). Not doing so will cause the radio '
+           'buttons to not display properly.</p>\n'
+           '</div>',
+           '<div class="col-sm-12 col-md-6 col-sm-last col-md-normal col-lg-4 '
+           'col-lg-last">\n'
+           '<pre>&lt;div class="input-group"&gt;\r\n'
+           '  &lt;input type="checkbox" id="check1" tabindex="0"&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Never leave a checkbox or '
+           'radio button without a <code>&lt;label&gt;</code>. The '
+           '<code>&lt;label&gt;</code> is essential to properly display the '
+           'checkbox or radio button.</p>\n'
+           '</div>'],
+ 'dos': ['<div class="col-sm-12 col-md-6 col-lg-4">\n'
+         '<pre>&lt;div class="input-group"&gt;\r\n'
+         '  &lt;input type="radio" id="rad1" tabindex="0" '
+         'name="radio-group-1"&gt;\r\n'
+         '  &lt;label for="rad1"&gt;Value 1&lt;/label&gt;\r\n'
+         '  &lt;input type="radio" id="rad2" tabindex="0" '
+         'name="radio-group-1"&gt;\r\n'
+         '  &lt;label for="rad2"&gt;Value 2&lt;/label&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can add multiple '
+         '<code>radio</code> buttons inside one <code>.input-group</code>, as '
+         'long as they follow the syntax shown above. In fact, we strongly '
+         'recommend grouping controls that are relevant to each other in this '
+         'manner.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-lg-4 col-md-normal">
+<div class="box-centered">
+<br/>
+<div class="input-group">
+<input id="chk1" tabindex="0" type="checkbox"/> <label for="chk1">�Checkbox</label>
+</div>
+<br/><br/>
+<div class="input-group">
+<input checked="" id="r1" name="radios" tabindex="0" type="radio" value="r1"/> <label for="r1">�Value 1</label>��<br/>
+<input id="r2" name="radios" tabindex="0" type="radio" value="r2"/> <label for="r2">�Value 2</label>��<br/>
+<input id="r3" name="radios" tabindex="0" type="radio" value="r3"/> <label for="r3">�Value 3</label>��<br/>
+</div>
+<br/><br/>
+</div>
+</div>,
+ 'id': 'checkbox-radio',
+ 'module': 'input_control',
+ 'name': 'Checkboxes & radio buttons',
+ 'notes': ['<li>Checkboxes and radio buttons are fully accessible. However, if '
+           'not provided with a label, they are not visible to users, but only '
+           'to screen readers.</li>']}

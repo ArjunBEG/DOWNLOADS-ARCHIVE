@@ -1,0 +1,84 @@
+{
+  "customizeUI.font.monospace": "Fantasque Sans Mono",
+  // "customizeUI.font.regular": "Input Sans Compressed",
+  "customizeUI.font.regular": "SF Pro Display",
+  "customizeUI.fontSizeMap": {
+    "13px": "12px"
+    // "monospace": "12px"
+  },
+  "customizeUI.stylesheet": {
+    // ".monaco-icon-label.italic>.monaco-icon-label-container>.monaco-icon-name-container>.label-name": "font-weight: lighter",
+    ".explorer-folders-view .monaco-list-row": "padding-left: 0",
+    ".mac, .windows, .linux": "letter-spacing: -0.02rem",
+    ".minimap": "opacity: 0.5",
+    ".minimap:hover": "opacity: 0.9",
+    ".editor-scrollable .decorationsOverviewRuler": "opacity: 0.75",
+    // // ".monaco-icon-label:before": "height: 20px; padding-right: 2px;opacity: 0.9",
+    // ".monaco-icon-label:before": "height: 18px; padding-right: 2px;opacity: 0.9",
+    // // ":root": "--activity-bar-action-width: 28px",
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions .action-label, .monaco-workbench .part.editor>.content .editor-group-container>.title .title-actions .action-label": "height: 28px",
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab": "height: 28px",
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container": "height: 28px",
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions": "height: 28px",
+    // // This isn't in the original CSS, but there's a pesky `style="height: 35px"` in a child element
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-and-actions-container": "height: 28px; overflow-y: hidden",
+    // // side bar actions
+    // ".monaco-workbench .part>.title": "height: 28px",
+    // ".monaco-workbench .part>.title>.title-label": "line-height: 28px",
+    // ".monaco-workbench .part>.title>.title-actions": "height: 28px",
+    // ".monaco-workbench .part>.title>.title-actions .action-label": "height: 28px; line-height: 28px",
+    // ".monaco-workbench .part.panel>.title>.panel-switcher-container>.monaco-action-bar": "height: 28px",
+    // // Default for this is 7px. The height of this element is 20px + 2px border (22px), so,
+    // // with the default 35px, this would give a 6px margin on the bottom. Here, we have a 3px bottom margin.
+    // ".monaco-workbench .part>.title>.title-actions .start-debug-action-item": "margin-top: 3px",
+    // // The padding for this is top: 3px; bottom: 4px, which is exactly the offset we need.
+    // ".monaco-workbench .part.panel>.title>.panel-switcher-container>.monaco-action-bar .action-item": "padding-top: 0; padding-bottom: 0",
+    // ".monaco-workbench .part.panel .title": "height: 28px",
+
+    ".explorer-viewlet .monaco-icon-label:before": "height: 16px; padding-right: 2px;opacity: 0.9",
+    // ":root": "--activity-bar-action-width: 28px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions .action-label, .monaco-workbench .part.editor>.content .editor-group-container>.title .title-actions .action-label": "height: 24px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab": "height: 24px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container": "height: 24px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab .tab-label": "line-height: 24px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions": "height: 24px; padding-right: 4px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .monaco-icon-label:before": "height: 24px",
+    // This isn't in the original CSS, but there's a pesky `style="height: 35px"` in a child element
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-and-actions-container": "height: 24px; overflow-y: hidden",
+    // side bar actions
+    ".monaco-workbench .part>.title": "height: 24px",
+    ".monaco-workbench .part>.title>.title-label": "line-height: 24px",
+    ".monaco-workbench .part>.title>.title-actions": "height: 24px",
+    ".monaco-workbench .part>.title>.title-actions .action-label": "height: 24px; line-height: 24px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions .action-label:not(span), .monaco-workbench .part.editor>.content .editor-group-container>.title .title-actions .action-label": "height: 24px; min-width: 20px",
+    // ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions .action-label.codicon.codicon-split-horizontal": "padding-top: 1px",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions .action-label.codicon.codicon-go-to-file": "margin-top: -1px",
+    ".monaco-action-bar .action-label": "margin-right: 2px",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item[id=\"Gruntfuggly.activitusbar\"]>:first-child": "margin-right: 1px; margin-left: 0px",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item[id=\"grimmer.vscode-back-forward-button\"]>:first-child": "margin-right: 1px",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item[id=\"grimmer.vscode-back-forward-button\"] + .statusbar-item[id=\"grimmer.vscode-back-forward-button\"]>:first-child": "margin-right: 3px; margin-left: 0px",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.has-background-color>:first-child": "padding-left: 5px; padding-right: 5px",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.right.last-visible-item": "padding-right: 0",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item[id=\"status.notifications\"].right.last-visible-item>:first-child": "margin-right: 0",
+    ".monaco-workbench .part.panel>.title>.panel-switcher-container>.monaco-action-bar": "height: 24px; line-height: 22px",
+    // Default for this is 7px. The height of this element is 20px + 2px border (22px), so,
+    // with the default 35px, this would give a 6px margin on the bottom. Here, we have a 3px bottom margin.
+    ".monaco-workbench .part>.title>.title-actions .start-debug-action-item": "margin-top: 1px",
+    // The padding for this is top: 3px; bottom: 4px, which is exactly the offset we need.
+    ".monaco-workbench .part.panel .title>.panel-switcher-container>.monaco-action-bar .action-item": "padding-top: 0; padding-bottom: 0",
+    ".monaco-workbench .part.panel .title .monaco-action-bar .markers-panel-action-filter .monaco-inputbox": "height: 22px",
+    ".monaco-workbench .part.panel .title": "height: 16px",
+    ".monaco-pane-view .pane.vertical>.pane-header h3.title": "margin-top: 1px",
+    ".search-view .query-details": "display: flex; justify-content: space-between",
+    ".search-view .query-details.more .file-types": "flex-direction: column; width: 49.5%",
+    ".search-view .search-widget": "display: flex; justify-content: space-between",
+    ".search-view .search-widget .search-container": "flex: 1 1 49.5%",
+    ".search-view .search-widget .replace-container": "margin-top: 0; margin-left: 1%;width: 49.5%",
+    ".search-view .search-widget .replace-container .replace-input": "width: 100%!important",
+    ".search-view .search-widget .replace-container .replace-input>[style]": "width: 100%!important",
+    ".search-view .search-widget .replace-container .replace-input .ibwrapper>[style]": "width: 100%!important"
+  },
+  "customizeUI.activityBar": "regular",
+  // "customizeUI.listRowHeight": 20,
+  "customizeUI.listRowHeight": 18,
+}

@@ -1,0 +1,41 @@
+{'code': '&lt;div class="card warning"&gt;\r\n'
+         '  &lt;div class="section"&gt;\r\n'
+         '    &lt;p&gt;Warning&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '\r\n'
+         '&lt;div class="card error"&gt;\r\n'
+         '  &lt;div class="section"&gt;\r\n'
+         '    &lt;p&gt;Error&lt;/p&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12 col-sm-first col-md-12 col-md-normal">
+<p style="text-align: justify;">Cards can also be used to display important information or error messages to users. You can use the <code>.warning</code> class to display a yellow warning card or, if you need to display an error message to your users, you can use the <code>.error</code> class to display a red error card. </p>
+<h3>Sample code</h3>
+
+</div>,
+ 'donts': ['<div class="col-sm-12"><pre>&lt;div class="card warning '
+           'errors"&gt;\r\n'
+           '  &lt;div class="section"&gt;\r\n'
+           '    &lt;p&gt;Bad card&lt;/p&gt;\r\n'
+           '  &lt;/div&gt;\r\n'
+           '&lt;/div&gt;</pre>\n'
+           '<p class="dont" style="text-align: justify;"><mark '
+           'class="secondary">Don\'t:</mark>\xa0Avoid combining two card color '
+           'variants, as this might cause some unexpected behavior.</p>\n'
+           '</div>'],
+ 'dos': [],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container"><br/>
+<div class="row">
+<div class="card warning"><div class="section"><h3>Warning Card</h3><p>Warning cards are used to display important information to users.</p></div></div>
+<div class="card error"><div class="section"><h3>Error Card</h3><p>Error cards are used to display error messages to users.</p></div></div>
+</div>
+<br/>
+</div>
+</div>,
+ 'id': 'color-variants',
+ 'module': 'card',
+ 'name': 'Card color variants',
+ 'notes': ['<li>If you want more color variants for your cards, check out the '
+           '<a href="customization">customization</a> page.</li>']}

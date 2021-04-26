@@ -1,0 +1,80 @@
+{'code': '&lt;div class="container"&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm-8 col-sm-offset-2"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm-6 col-sm-offset-3"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm-4 col-sm-offset-4"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '&lt;/div&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm col-sm-offset-1"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;div class="row"&gt;\r\n'
+         '    &lt;div class="col-sm-4 col-sm-offset-1"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '    &lt;div class="col-sm-4 col-sm-offset-2"&gt;\r\n'
+         '    &lt;/div&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;',
+ 'desc': <div class="col-sm-12">
+<p style="text-align: justify;">If you want to move columns to the right, you can use the offset classes on your columns. Offset classes use the <code>.col-<span class="fore-primary">SCR_SZ</span>-offset-<span class="fore-secondary">COL_WD</span></code> syntax, where <code><span class="fore-primary">SCR_SZ</span></code> is one of the available screen size names (<code><span class="fore-tertiary">sm</span></code>, <code><span class="fore-tertiary">md</span></code> or <code><span class="fore-tertiary">lg</span></code>) and <code><span class="fore-secondary">COL_WD</span></code> a number from <code>0</code> to <code>11</code> specifying the width of the column's offset. Offsets can also be used in combination with screen-specific layouts and column sizes, providing you with greater flexibility when spacing out your content.</p>
+<h3>Sample code</h3>
+<p style="text-align: justify;">The example presented below showcases the grid system's offsetting syntax for smaller screens, but you can do the same thing for any screen size.</p>
+<br/>
+</div>,
+ 'donts': [],
+ 'dos': ['<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm col-md-offset-1 col-md-5 col-lg-4"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '  &lt;div class="col-sm col-md-5 col-lg-4 col-lg-offset-2"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0You can specify offset classes when '
+         'you need them and omit them otherwise. This means that, if you want '
+         'to offset a column only on a medium-sized or a larger screen, you '
+         'can just specify the offset for that specific screen. Specifying an '
+         'offset for a smaller screen, however, will apply it to medium-sized '
+         'and larger screens as well, medium-sized screen offsets will apply '
+         'to larger screens etc. similar to how the layout system works.</p>\n'
+         '</div>',
+         '<div class="col-sm-12 col-md-6">\n'
+         '<pre>&lt;div class="row"&gt;\r\n'
+         '  &lt;div class="col-sm col-md-10 col-offset-1 col-lg '
+         'col-lg-offset-0"&gt;\r\n'
+         '  &lt;/div&gt;\r\n'
+         '&lt;/div&gt;</pre>\n'
+         '<p class="do" style="text-align: justify;"><mark '
+         'class="tertiary">Do:</mark>\xa0To remove a previously applied offset '
+         'from a column (i.e. one applied from the layout from a smaller '
+         'screen size) or to make sure no offsets are active on a column, you '
+         'can use the <code>.col-<span '
+         'class="fore-primary">SCR_SZ</span>-offset-0</code> class, replacing '
+         '<code><span class="fore-primary">SCR_SZ</span></code> with the '
+         'desired screen size, effectively resetting all offsets.</p>\n'
+         '</div>'],
+ 'example': <div class="col-sm-12 col-sm-last col-md-12 col-md-normal">
+<div class="container"><br/>
+<div class="row"><div class="col-sm-8 col-sm-offset-2"><div class="box-colored">size = 8, offset = 2</div></div></div>
+<div class="row"><div class="col-sm-6 col-sm-offset-3"><div class="box-colored">size = 6, offset = 3</div></div></div>
+<div class="row"><div class="col-sm-4 col-sm-offset-4"><div class="box-colored">size = 4, offset = 4</div></div></div>
+<div class="row">
+<div class="col-sm-4 col-sm-offset-1"><div class="box-colored">size = 4, offset = 1</div></div>
+<div class="col-sm-4 col-sm-offset-2"><div class="box-colored">size = 4, offset = 2</div></div>
+</div>
+</div>
+</div>,
+ 'id': 'column-offset',
+ 'module': 'grid',
+ 'name': 'Column offsets',
+ 'notes': ['<li>Columns with offsets and columns without offsets can be mixed '
+           'for better results. In fact, we strongly suggest you try '
+           'that.</li>',
+           '<li>Remember to specify a basic layout and/or screen specific '
+           'layouts in addition to the offset classes.</li>']}
