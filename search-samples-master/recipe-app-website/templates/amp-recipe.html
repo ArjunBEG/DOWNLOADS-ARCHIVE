@@ -1,0 +1,65 @@
+    {# NOTE: Indenting here may look odd, but it is because this template is optimized
+      for the user viewing HTML source on the page #}
+    {% extends 'amp-searchable.html' %}
+    {% block meta %}
+    <link rel="canonical" href="/recipe/{{recipe.id}}" />
+
+    {% endblock %}
+    {% block content %}
+    <section>
+      <amp-img src="{{recipe.photo}}" layout="responsive" width="620px" height="360px"></amp-img>
+      <h2 class="overlay">
+        <span>{{recipe.title}}</span>
+        <div id="time">{{recipe.prep_time}}</div>
+      </h2>
+      <div class="inner">
+        <table>
+          <tr>
+            <td id="description">{{recipe.description|safe}}</td>
+          </tr>
+          <tr>
+            <td id="ingredients">
+              <h3>Ingredients</h3>
+              {% for section in ingredient_sections %}
+              {% if section|length > 0 %}
+              <h4>For the {{section}}</h4>
+              {% endif %}
+              {% if ingredients[section]|length > 0 %}
+              <table>
+                {% for ingredient in ingredients[section] %}
+                <tr>
+                  <td class="amount">{{ingredient.amount}} </td>
+                  <td>{{ingredient.name}}{% if ingredient.preparation %}, {{ingredient.preparation}}{% endif %}</td>
+                </tr>
+                {% endfor %}
+              </table>
+              {% endif %}
+              {% endfor %}
+            </td>
+          </tr>
+        </table>
+        <div id="steps">
+          <h3>Instructions</h3>
+          <ol>
+            {% for instruction in recipe.instructions %}
+            <li>{{ instruction['description'] }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </section>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Recipe",
+        "name": "{{recipe.title}}",
+        "image": "{{recipe.photo}}",
+        "description": "{{recipe.description|safe}}",
+        "prepTime": "{{recipe.prep_time_code}}",
+        {% if recipe.total_time_code %} "totalTime": "{{recipe.total_time_code}}", {% endif %}
+        {% if recipe.recipe_yield %} "recipeYield": "{{recipe.recipe_yield}}", {% endif %}
+        "recipeInstructions": "{{recipe.instructions|join(' ', attribute='description')}}",
+        "recipeIngredient": [{% for ingredient in recipe.ingredients %}"{{ingredient.amount}} {{ingredient.name}}"{% if not loop.last %}, {% endif %}{% endfor %}]
+      }
+    </script>
+    {% endblock %}
