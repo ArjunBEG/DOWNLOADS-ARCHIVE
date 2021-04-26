@@ -1,0 +1,116 @@
+  λ up (master): make size
+2.2M	net/http.a
+1.7M	runtime.a
+1.1M	net.a
+972K	reflect.a
+648K	crypto/tls.a
+496K	math/big.a
+476K	text/template.a
+388K	html/template.a
+380K	text/template/parse.a
+380K	syscall.a
+380K	crypto/x509.a
+376K	encoding/json.a
+320K	vendor/golang_org/x/text/unicode/norm.a
+268K	time.a
+256K	fmt.a
+252K	regexp.a
+244K	regexp/syntax.a
+228K	compress/flate.a
+200K	unicode.a
+196K	os.a
+196K	crypto/elliptic.a
+176K	os/exec.a
+176K	html.a
+168K	vendor/golang_org/x/text/unicode/bidi.a
+164K	encoding/asn1.a
+152K	strconv.a
+140K	vendor/golang_org/x/net/idna.a
+132K	strings.a
+124K	vendor/golang_org/x/net/http2/hpack.a
+120K	net/textproto.a
+120K	bufio.a
+116K	vendor/golang_org/x/net/route.a
+116K	mime/multipart.a
+116K	math.a
+116K	encoding/binary.a
+112K	github.com/apex/up/vendor/github.com/apex/log.a
+112K	bytes.a
+104K	internal/poll.a
+100K	mime.a
+ 96K	crypto/rsa.a
+ 96K	context.a
+ 92K	os/user.a
+ 92K	net/url.a
+ 92K	crypto/cipher.a
+ 84K	sync.a
+ 84K	io.a
+ 80K	vendor/golang_org/x/crypto/chacha20poly1305.a
+ 80K	github.com/apex/up/vendor/github.com/aybabtme/rgbterm.a
+ 80K	github.com/apex/up.a
+ 76K	sort.a
+ 76K	crypto/aes.a
+ 72K	math/rand.a
+ 72K	github.com/apex/up/vendor/github.com/tj/go-progress.a
+ 68K	vendor/golang_org/x/net/proxy.a
+ 68K	crypto/ecdsa.a
+ 64K	vendor/golang_org/x/text/transform.a
+ 56K	path/filepath.a
+ 52K	net/http/internal.a
+ 52K	github.com/apex/up/vendor/github.com/pkg/errors.a
+ 52K	github.com/apex/up/config.a
+ 52K	encoding/base64.a
+ 52K	crypto/sha512.a
+ 52K	compress/gzip.a
+ 48K	github.com/apex/up/internal/util.a
+ 44K	net/http/httptrace.a
+ 44K	log.a
+ 44K	io/ioutil.a
+ 44K	github.com/apex/up/vendor/github.com/fanyang01/radix.a
+ 44K	github.com/apex/up/internal/redirect.a
+ 44K	github.com/apex/up/internal/inject.a
+ 44K	crypto/x509/pkix.a
+ 40K	crypto/sha256.a
+ 40K	crypto/sha1.a
+ 36K	hash/crc32.a
+ 36K	encoding/pem.a
+ 36K	crypto/rand.a
+ 36K	container/list.a
+ 32K	github.com/apex/up/platform/event.a
+ 32K	crypto/des.a
+ 28K	vendor/golang_org/x/text/secure/bidirule.a
+ 28K	vendor/golang_org/x/crypto/curve25519.a
+ 28K	mime/quotedprintable.a
+ 24K	internal/singleflight.a
+ 24K	encoding/hex.a
+ 24K	crypto/md5.a
+ 24K	crypto/dsa.a
+ 20K	sync/atomic.a
+ 20K	path.a
+ 20K	math/bits.a
+ 20K	crypto.a
+ 16K	unicode/utf8.a
+ 16K	runtime/cgo.a
+ 16K	github.com/apex/up/platform.a
+ 16K	github.com/apex/up/internal/header.a
+ 16K	crypto/rc4.a
+ 16K	crypto/hmac.a
+ 12K	vendor/golang_org/x/net/lex/httplex.a
+ 12K	runtime/internal/atomic.a
+ 12K	hash.a
+ 12K	github.com/apex/up/vendor/github.com/jpillora/backoff.a
+ 12K	github.com/apex/up/internal/validate.a
+8.0K	vendor/golang_org/x/crypto/poly1305.a
+8.0K	vendor/golang_org/x/crypto/chacha20poly1305/internal/chacha20.a
+8.0K	unicode/utf16.a
+8.0K	runtime/internal/sys.a
+8.0K	internal/nettrace.a
+8.0K	internal/cpu.a
+8.0K	github.com/apex/up/vendor/github.com/pascaldekloe/name.a
+8.0K	github.com/apex/up/platform/lambda/regions.a
+8.0K	encoding.a
+8.0K	crypto/subtle.a
+4.0K	internal/race.a
+4.0K	github.com/apex/up/internal/colors.a
+4.0K	errors.a
+4.0K	crypto/internal/cipherhw.a

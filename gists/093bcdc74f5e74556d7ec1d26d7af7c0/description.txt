@@ -1,0 +1,1 @@
+Clone all repos for the given user/org. Just replace <USERNAME> and run this in the command line.

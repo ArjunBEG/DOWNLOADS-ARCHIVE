@@ -1,0 +1,1 @@
+slack block kit snippets for vscode

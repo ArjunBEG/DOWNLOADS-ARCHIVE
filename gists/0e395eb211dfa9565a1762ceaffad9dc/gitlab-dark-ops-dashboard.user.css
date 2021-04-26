@@ -1,0 +1,95 @@
+/* ==UserStyle==
+@name           Gitlab Dark Operations Dashboard Improvements
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Show more cards in the dashboard! Fix some styling!
+@author         Emily Marigold Klassen <github.com/forivall>
+==/UserStyle== */
+
+@-moz-document domain('custom.domain'),
+domain('invent.kde.org'),
+domain('git.pleroma.social'),
+domain('gitgud.io'),
+domain('salsa.debian.org'),
+domain('framagit.org'),
+domain('repo.getmonero.org'),
+domain('0xacab.org'),
+domain('dev.gajim.org'),
+domain('devel.trisquel.info'),
+domain('git.cit.bcit.ca'),
+domain('git.coop'),
+domain('git.dev.ctu.univ-fcomte.fr'),
+domain('git.drk.sc'),
+domain('git.empiresmod.com'),
+domain('git.fosscommunity.in'),
+domain('git.immc.ucl.ac.be'),
+domain('git.jami.net'),
+domain('git.linux-kernel.at'),
+domain('git.nzoss.org.nz'),
+domain('git.silence.dev'),
+domain('lab.libreho.st'),
+domain('opencode.net'),
+domain('skylab.vc.h-brs.de'),
+domain('vbscan.fisica.unimib.it'),
+regexp('^https?://(www\.)?git\.(gnu|synz)\.io(/.*)?$'),
+regexp('^https?://(www\.)?code\.(videolan|briarproject)\.org(/.*)?$'),
+regexp('^https?://(www\.)?source\.(small-tech|joinmastodon)\.org(/.*)?$'),
+regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.org(/.*)?$'),
+regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
+regexp('^https?://((next|www)\.)?(gitlab\.(?!(io|biterg)).*)(/.*)?$') {
+  .dashboard-card-body .ci-table {
+    margin-top: 0;
+    border: none;
+    background-color: transparent !important;
+    border-radius: initial;
+  }
+  .dashboard-card-body .ci-table .branch-commit {
+    /*
+    border: 1px solid var(--darker);
+    padding: 0 0 0.2rem 0.2rem;
+    background-color: var(--dark) !important;
+
+    border-radius: 4px;
+    */
+  }
+  .dashboard-card-body .text-secondary {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dashboard-card-header-failed, .dashboard-card-footer-failed {
+    background-color: #3C2C29;
+    box-shadow: inset 0 0 0 1px #5A423E;
+  }
+}/* ==UserStyle==
+@name           Gitlab Dark tweaks
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document regexp('^https?://(www\.)?git\.(drupalcode|feneas|ouru|pwmt|regardscitoyens)\.org(/.*)?$'),
+regexp('^https?://(www\.)?(joonpc\.skku\.edu/gitlab|mpegx\.int-evry\.fr/software)(/.*)?$'),
+regexp('^https?://((next|www)\\.)?(gitlab\\.(?!(io|biterg)).*)/-/operations.*$') {
+  .container-limited {
+    max-width: none !important;
+  }
+  @media (min-width: 1540px) {
+    .col-xl-4 {
+      flex:0 0 25%;
+      max-width:25%
+    }
+  }
+  @media (min-width: 1920px) {
+    .col-xl-4 {
+      flex:0 0 20%;
+      max-width:20%
+    }
+  }
+  @media (min-width: 2300px) {
+    .col-xl-4 {
+      flex:0 0 16.666%;
+      max-width: 16.666%
+    }
+  }
+}

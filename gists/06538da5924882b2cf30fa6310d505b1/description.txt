@@ -1,0 +1,1 @@
+Commands for Django 2.x Crash Course

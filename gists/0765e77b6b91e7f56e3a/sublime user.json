@@ -1,0 +1,36 @@
+{
+	"auto_complete": true,
+	"bold_folder_labels": true,
+	"caret_extra_width": 2,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules",
+		"scss",
+		"zip",
+		"bower_components"
+	],
+	"font_size": 15,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"indent_guides_enabled": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"rulers":
+	[
+		90
+	],
+	"tab_size": 2
+}

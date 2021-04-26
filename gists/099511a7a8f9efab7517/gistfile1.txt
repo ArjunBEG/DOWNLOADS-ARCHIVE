@@ -1,0 +1,54 @@
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.contrib.django.handlers.SentryHandler',
+        }
+    },
+    'formatters': {
+        'simple': {
+            'format': '[%(levelname)s] %(message)s',
+        },
+        'client_info': {
+            'format': '[%(levelname)s] %(project_slug)s/%(team_slug)s %(message)s',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'sentry'],
+    },
+    'loggers': {
+        'sentry': {
+            'level': 'ERROR',
+        },
+        'sentry.coreapi': {
+            'formatter': 'client_info',
+        },
+        'sentry.errors': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.rules': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'static_compiler': {
+            'level': 'INFO',
+        },
+        'django.request': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'toronado.cssutils': {
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    }
+}

@@ -1,0 +1,14 @@
+using System;
+
+static class Test
+{
+    private static void Foo(this string text)
+    {
+        Console.WriteLine(text);
+    }
+    
+    static void Main()
+    {
+        "Some text".Foo();
+    }
+}

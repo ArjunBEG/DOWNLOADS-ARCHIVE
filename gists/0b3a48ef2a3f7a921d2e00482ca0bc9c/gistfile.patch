@@ -1,0 +1,53 @@
+commit f762c746c0e13d84db68af5b0d4e711aaa5bee74
+Author: Romain Marcadier <romain.muller@telecomnancy.net>
+Date:   Mon Feb 8 11:28:53 2021 +0100
+
+    fix: TypeError when loading graceful-fs from worker threads
+    
+    Fixes #204
+    
+    PR-URL: https://github.com/isaacs/node-graceful-fs/pull/205
+    Credit: @RomainMuller
+    Close: #205
+    Reviewed-by: @coreyfarrell
+    
+    EDIT(@isaacs): changed chdir from `!= null` to a function `typeof` test,
+    in case it's set, but still not a function.
+    
+    EDIT(@isaacs): added test
+
+diff --git a/polyfills.js b/polyfills.js
+index 56d08d1..1287da1 100644
+--- a/polyfills.js
++++ b/polyfills.js
+@@ -14,12 +14,15 @@ try {
+   process.cwd()
+ } catch (er) {}
+ 
+-var chdir = process.chdir
+-process.chdir = function(d) {
+-  cwd = null
+-  chdir.call(process, d)
++// This check is needed until node.js 12 is required
++if (typeof process.chdir === 'function') {
++  var chdir = process.chdir
++  process.chdir = function (d) {
++    cwd = null
++    chdir.call(process, d)
++  }
++  if (Object.setPrototypeOf) Object.setPrototypeOf(process.chdir, chdir)
+ }
+-if (Object.setPrototypeOf) Object.setPrototypeOf(process.chdir, chdir)
+ 
+ module.exports = patch
+ 
+diff --git a/test/do-not-break-if-chdir-is-missing.js b/test/do-not-break-if-chdir-is-missing.js
+new file mode 100644
+index 0000000..90d2510
+--- /dev/null
++++ b/test/do-not-break-if-chdir-is-missing.js
+@@ -0,0 +1,4 @@
++process.chdir = 'i am not a function so dont call me maybe'
++const t = require('tap')
++require('../')
++t.equal(process.chdir, 'i am not a function so dont call me maybe')

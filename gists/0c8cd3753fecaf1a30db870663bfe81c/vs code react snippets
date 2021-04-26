@@ -1,0 +1,34 @@
+{
+  "Create a stateless React component": {
+    "prefix": "scomp",
+    "description": "A stateless component",
+    "body": [
+	  "import React from 'react'",
+	  "import PropTypes from 'prop-types'",
+      "\nconst $1 = props => {",
+      "\treturn (",
+      "\t\t$0",
+      "\t)",
+	  "}",
+	  "\n$1.propTypes = {}",
+      "\nexport default $1"
+    ]
+  },
+  "Create a React component": {
+    "prefix": "comp",
+    "description": "A React component",
+    "body": [
+	  "import React from 'react'",
+	  "import PropTypes from 'prop-types'",
+      "\nclass $1 extends React.Component {",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t$0",
+      "\t\t)",
+      "\t}",
+	  "}",
+	  "\n$1.propTypes = {}",
+	  "\nexport default $1"
+    ]
+  }
+}

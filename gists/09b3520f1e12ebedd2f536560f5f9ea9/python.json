@@ -1,0 +1,37 @@
+{
+    "Section block": {
+        "prefix": "section block",
+        "body": [
+            "{",
+            "\t\"type\": \"section\",",
+            "\t\"text\": {",
+            "\t\t\"type\": \"mrkdwn\",",
+            "\t\t\"text\": \"$TM_SELECTED_TEXT$0\"",
+            "\t}",
+            "}"
+        ]
+    },
+    "Section block with accessory button": {
+        "prefix": "section block with accessory button",
+        "body": [
+            "{",
+            "\t\"type\": \"section\",",
+            "\t\"block_id\": \"$1\",",
+            "\t\"text\": {",
+            "\t\t\"type\": \"mrkdwn\",",
+            "\t\t\"text\": \"$TM_SELECTED_TEXT$0\"",
+            "\t},",
+            "\t\"accessory\": {",
+            "\t\t\"action_id\": \"$2\",",
+            "\t\t\"type\": \"button\",",
+            "\t\t\"text\": {",
+            "\t\t\t\"type\": \"plain_text\",",
+            "\t\t\t\"text\": \"$3\",",
+            "\t\t\t\"emoji\": True,",
+            "\t\t},",
+            "\t\t\"value\": \"\",",
+            "\t}",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,646 @@
+[
+    {
+        "name": "jQuery",
+        "count": 394157,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "jquery/jquery"
+    },
+    {
+        "name": "jQuery UI",
+        "count": 103125,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Modernizr",
+        "count": 75651,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "Modernizr/Modernizr"
+    },
+    {
+        "name": "Bootstrap",
+        "count": 62691,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": "twbs/bootstrap"
+    },
+    {
+        "name": "yepnope",
+        "count": 53807,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "FlexSlider",
+        "count": 39120,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "SWFObject",
+        "count": 22482,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Underscore",
+        "count": 19311,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": "jashkenas/underscore"
+    },
+    {
+        "name": "Google Maps",
+        "count": 15986,
+        "type": "component-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Moment.js",
+        "count": 14981,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": "moment/moment"
+    },
+    {
+        "name": "Isotope",
+        "count": 14585,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "jQuery Tools",
+        "count": 12828,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "WebFont Loader",
+        "count": 10861,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Greensock JS",
+        "count": 10787,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Lo-Dash",
+        "count": 9808,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": "lodash/lodash"
+    },
+    {
+        "name": "AngularJS",
+        "count": 9391,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "angular/angular.js"
+    },
+    {
+        "name": "Prototype",
+        "count": 9164,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "jQuery Mobile",
+        "count": 9053,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "jquery/jquery-mobile"
+    },
+    {
+        "name": "MooTools",
+        "count": 8827,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Backbone",
+        "count": 8681,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "jashkenas/backbone"
+    },
+    {
+        "name": "YUI 2",
+        "count": 7955,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "RequireJS",
+        "count": 7485,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": "requirejs/requirejs"
+    },
+    {
+        "name": "Zurb",
+        "count": 7457,
+        "type": "css-library",
+        "onGitHub": true,
+        "popularId": "zurb/foundation-sites"
+    },
+    {
+        "name": "FastClick",
+        "count": 6528,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "ftlabs/fastclick"
+    },
+    {
+        "name": "Hammer.js",
+        "count": 5755,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "hammerjs/hammer.js"
+    },
+    {
+        "name": "Handlebars",
+        "count": 5642,
+        "type": "templating-library",
+        "onGitHub": true,
+        "popularId": "wycats/handlebars.js"
+    },
+    {
+        "name": "Mustache",
+        "count": 4171,
+        "type": "templating-library",
+        "onGitHub": true,
+        "popularId": "janl/mustache.js"
+    },
+    {
+        "name": "YUI 3",
+        "count": 2568,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Knockout",
+        "count": 2362,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "CreateJS",
+        "count": 2094,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Highcharts",
+        "count": 2057,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Moment Timezone",
+        "count": 2024,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "React",
+        "count": 1936,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "facebook/react"
+    },
+    {
+        "name": "Head JS",
+        "count": 1911,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Scriptaculous",
+        "count": 1829,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Socket.IO",
+        "count": 1788,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": "socketio/socket.io"
+    },
+    {
+        "name": "LABjs",
+        "count": 1496,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Zepto.js",
+        "count": 1376,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "madrobby/zepto"
+    },
+    {
+        "name": "Leaflet",
+        "count": 1351,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": "Leaflet/Leaflet"
+    },
+    {
+        "name": "Dojo",
+        "count": 1324,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "D3",
+        "count": 1266,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "d3/d3"
+    },
+    {
+        "name": "ScrollMagic",
+        "count": 1219,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Velocity.js",
+        "count": 1135,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": "julianshapiro/velocity"
+    },
+    {
+        "name": "FlotCharts",
+        "count": 1037,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Vue",
+        "count": 864,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "vuejs/vue"
+    },
+    {
+        "name": "GWT",
+        "count": 838,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Pusher",
+        "count": 782,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Marionette",
+        "count": 555,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Ext JS",
+        "count": 521,
+        "type": "web-framework",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Sea.js",
+        "count": 501,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Kendo UI",
+        "count": 475,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Material Design Lite",
+        "count": 374,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": "google/material-design-lite"
+    },
+    {
+        "name": "Ember.js",
+        "count": 290,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "emberjs/ember.js"
+    },
+    {
+        "name": "AmplifyJS",
+        "count": 280,
+        "type": "data-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "three.js",
+        "count": 268,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": "mrdoob/three.js"
+    },
+    {
+        "name": "Blackbird",
+        "count": 263,
+        "type": "other-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Tween.js",
+        "count": 256,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Swiffy",
+        "count": 220,
+        "type": "dom-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Mapbox",
+        "count": 220,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Closure Library",
+        "count": 219,
+        "type": "other-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Angular",
+        "count": 193,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "angular/angular"
+    },
+    {
+        "name": "base2",
+        "count": 166,
+        "type": "dom-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Visibility.js",
+        "count": 165,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "IfVisible.js",
+        "count": 132,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Riot",
+        "count": 118,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "riot/riot"
+    },
+    {
+        "name": "Polymer",
+        "count": 116,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": "Polymer/polymer"
+    },
+    {
+        "name": "Pixi.js",
+        "count": 113,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": "pixijs/pixi.js"
+    },
+    {
+        "name": "Fabric.js",
+        "count": 109,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Can",
+        "count": 79,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "SproutCore",
+        "count": 65,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Spine",
+        "count": 36,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "SPF",
+        "count": 28,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "CamanJS",
+        "count": 28,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Paper.js",
+        "count": 27,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Spry",
+        "count": 24,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Popcorn.js",
+        "count": 23,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Ink",
+        "count": 21,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "ControlJS",
+        "count": 17,
+        "type": "dom-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Glow",
+        "count": 16,
+        "type": "dom-library",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "FuseJS",
+        "count": 16,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Qooxdoo",
+        "count": 13,
+        "type": "web-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "InfoVis",
+        "count": 10,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Rico",
+        "count": 8,
+        "type": "web-framework",
+        "onGitHub": false,
+        "popularId": null
+    },
+    {
+        "name": "Vaadin",
+        "count": 5,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "RightJS",
+        "count": 4,
+        "type": "component-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "gRapha&euml;l",
+        "count": 3,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Two",
+        "count": 3,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Matter.js",
+        "count": 3,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "DC.js",
+        "count": 3,
+        "type": "other-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Sammy",
+        "count": 2,
+        "type": "other-framework",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "MochiKit",
+        "count": 1,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    },
+    {
+        "name": "Brewser",
+        "count": 1,
+        "type": "dom-library",
+        "onGitHub": true,
+        "popularId": null
+    }
+]

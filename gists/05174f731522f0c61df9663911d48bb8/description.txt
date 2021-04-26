@@ -1,0 +1,1 @@
+The most used JavaScript libraries according to the HTTP archive based on the 2017-5-15 crawl (https://bigquery.cloud.google.com/table/httparchive:scratchspace.2017_05_15_js_libs). The `popularId` property relates to [this list](https://gist.github.com/jhnns/94188ba0904a82bbd0491bb21b041ce8)

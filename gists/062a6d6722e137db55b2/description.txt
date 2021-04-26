@@ -1,0 +1,1 @@
+Show unused VCR cassettes. Use with vcr gem: https://github.com/vcr/vcr

@@ -1,0 +1,1 @@
+Class inheritance demo (not recommended)
