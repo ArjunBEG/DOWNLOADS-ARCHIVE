@@ -1,1 +1,0 @@
-els.slice(begin, end);

@@ -1,1 +1,0 @@
-$(el).removeAttr('tabindex');
