@@ -1,0 +1,11 @@
+{
+  "name": "requirebin-sketch",
+  "version": "1.0.0",
+  "dependencies": {
+    "jsynth": "2.8.0",
+    "jmod": "0.4.0",
+    "jsynth-sync": "0.14.0",
+    "oscillators": "1.0.0",
+    "jdelay": "9.1.0"
+  }
+}

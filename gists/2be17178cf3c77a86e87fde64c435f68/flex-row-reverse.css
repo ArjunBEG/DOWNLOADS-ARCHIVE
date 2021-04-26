@@ -1,0 +1,16 @@
+.flex-parent {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.flex-item {
+  flex-basis: 50%;
+  flex-grow: 1;
+  min-width: 300px;
+}

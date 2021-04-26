@@ -1,0 +1,22 @@
+# Build arguments for the gn build
+# You can set these with `gn args out/Default`
+#   ( and they're stored in src/out/Default/args.gn )
+# See "gn args out/Default --list" for available build arguments
+
+# component build, because people love it
+is_component_build = true
+
+# release build, because its faster
+is_debug = false
+
+# hardlink'ed devtools frontend. oh yes
+debug_devtools = true
+
+# no thx
+enable_nacl = false
+
+# This is default for Release builds, but forced regardless
+dcheck_always_on = false
+
+# goma only if you're a googler
+use_goma = true

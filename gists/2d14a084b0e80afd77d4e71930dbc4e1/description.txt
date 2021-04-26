@@ -1,0 +1,1 @@
+Multiple components and store variables ($)
