@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/floated-label-pattern-css by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Floated Label Pattern with CSS Only - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/floated-label-pattern-css">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/floated-label-pattern-css">
+	<meta property="og:title" content="Floated Label Pattern with CSS Only">
+	<meta property="og:description" name="description" content="
+I came across Brad Frost's post about the Floated Label Pattern and instantly thought, "I think you can do this in CSS" and set out to prove it.
+
+It turned out to be a little trickier than expecte...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Floated Label Pattern with CSS Only</h1>
+		
+<p>I came across Brad Frost's post about the <a href="http://bradfrostweb.com/blog/post/float-label-pattern/">Floated Label Pattern</a> and instantly thought, "I think you can do this in CSS" and set out to prove it.</p>
+
+<p>It turned out to be a little trickier than expected but I created a quick proof of concept:</p>
+<h2>The Example</h2>
+
+<form>
+  <div class="field">
+    <input type="text" pattern=".+" required placeholder="First Name"><label>First Name</label>
+  </div>  <div class="field">
+    <input type="text" pattern=".+" required placeholder="Last Name"><label>Last Name</label>
+  </div>
+</form>
+<h2>How it works</h2>
+<p>I use the <code>:valid</code> pseudo class along with the <code>pattern</code> attribute on the input to style the associated label accordingly.</p>
+
+<pre><code>.field { position:relative; font-family: Arial; text-transform:uppercase; font-weight:bold; display:inline-block; }
+label { position:absolute; left:0; top:0; transition: all .2s linear; color:#999; font-size:10px; }
+input { margin-top:15px; border:1px solid #999; padding:3px 2px; }
+input:invalid + label { top:3px; opacity:0; }
+input:valid + label { opacity:1; top:0; }
+input:focus { outline:none; }
+input:focus + label { color:#33A; }</code></pre>
+<h2>Problems with this</h2>
+<ul>
+  <li>The label has to appear <em>after</em> the input. I'm using CSS trickery to get it into place. I'd love to be able to put the label first in the content but there's no way to style an element based on the content that comes after it.</li>
+  <li>It relies on the pattern attribute and the :valid pseudo class, which means that they can't be used for other things like validating email addresses. It'd be nice if there were a different pseudo class that I could use that detected presence of content.</li>
+</ul>
+  <style>
+    .field { position:relative; font-family: Arial; text-transform:uppercase; font-weight:bold; display:inline-block; }
+    .field > label { position:absolute; left:0; top:0; transition: all .2s linear; color:#999; font-size:10px; }
+    .field > input { margin-top:15px; border:1px solid #999; padding:3px 2px; }
+.field > input:invalid + label { top:3px; opacity:0; }
+.field > input:valid + label { opacity:1; top:0; }
+.field > input:focus { outline:none; }
+.field > input:focus + label { color:#33A; }
+
+</style>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 11, 2014 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1029</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">10 Comments &middot; <a href="https://snook.ca/archives/html_and_css/floated-label-pattern-css.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70282">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70282">1</a></div>
+			<span class="authorname">Scott Gilbertson</span> said on February 11, 2014		</div>
+		<div class="quote"><p>Very cool. Problem one will be solved by the subject select in CSS level 4. At least I think that's what this is talking about:</p>
+<p><a href="http://www.w3.org/TR/selectors4/#subject">CSS Selectors4 Subject</a></p>
+<p>As I understand that, it would let you put the label first and then write: </p>
+<pre><code>!label + input:invalid { }</code></pre>
+<p>Which, would be much nicer, though of course there's no browser support and it appear the <code>!</code> syntax is still up for debate.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70283">2</a></div>
+			<span class="authorname">Gregor</span> said on February 11, 2014		</div>
+		<div class="quote"><p>why not using input:empty / input:not(:empty) instead?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70284">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70284">3</a></div>
+			<span class="authorname">Patrick H. Lauke</span> said on February 11, 2014		</div>
+		<div class="quote"><p>I like the general hacky approach. Of course, a few caveats on top of your own:</p>
+<p>- from an accessibility point of view, you should explicitly associate your label with the relevant input. Although screenreaders may be able to use heuristics (by looking for adjacent text and announcing the placeholder attribute, although the spec clearly states that it's not a substitute for a more explicit label) to error-correct and try and announce the fields anyway.<br />
+- screenreaders will also generally announce that a field is "required" when the attribute is present. this may be confusing when the field is not, in fact, required. Additionally, some screenreaders will also announce that an input with validation constraints (such as "required") is currently "invalid".</p>
+<p>So, with the above two points in mind, JAWS/Firefox for instance announces your first input as "First name edit invalid required entry...type in text"</p>
+<p>- in actual use, this will also require the novalidate attribute on the form to suppress the browser's built-in validation if those required fields are actually optional.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70285">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70285">4</a></div>
+			<span class="authorname">Adam</span> said on February 11, 2014		</div>
+		<div class="quote"><p>@GREGOR: CSS only recognizes the initial value of the input and doesn't update when the value changes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70286">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70286">5</a></div>
+			<span class="authorname">Lu Nelson</span> said on February 11, 2014		</div>
+		<div class="quote"><p>Couldn't you use the sibling selector '~' instead of '+', and thus be able to put the label before the input? You'd have to wrap each label and input in a span or div. Browser support is less good for sibling selector I think though
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70287">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70287">6</a></div>
+			<span class="authorname">Gregor</span> said on February 11, 2014		</div>
+		<div class="quote"><p>sorry, my fault, :empty is to select empty HTML nodes, not to select empty input tags. They way Jonathan did it seems the only way to do it in CSS-only
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70288">7</a></div>
+			<span class="authorname">Daniel</span> said on February 11, 2014		</div>
+		<div class="quote"><p>Hey Lu, the ~ selector is siblings after the element, not before it - would have been great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70289">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70289">8</a></div>
+			<span class="authorname">Lu Nelson</span> said on February 12, 2014		</div>
+		<div class="quote"><p>Ach. Bummer
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70290">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70290">9</a></div>
+			<span class="authorname">xulai</span> said on February 13, 2014		</div>
+		<div class="quote"><p>good！you NB！
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70291">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70291">10</a></div>
+			<span class="authorname">Web Axe</span> said on February 14, 2014		</div>
+		<div class="quote"><p>If designers weren't so silly we wouldn't have this problem to start with...
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/floated-label-pattern-css by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+</html>

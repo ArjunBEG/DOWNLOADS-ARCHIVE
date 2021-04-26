@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/home_automation/smart-home by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Smart Home - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/home_automation/smart-home">
+	<meta property="og:url" content="https://snook.ca/archives/home_automation/smart-home">
+	<meta property="og:title" content="Smart Home">
+	<meta property="og:description" name="description" content="
+
+A couple months ago, I bought a new car. However, I realized after the purchase that the car didn’t have a built-in garage door opener like my old car had. The new car has Apple CarPlay. I tried...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Smart Home</h1>
+		
+
+<p>A couple months ago, I bought a new car. However, I realized after the purchase that the car didn’t have a built-in garage door opener like my old car had. The new car has Apple CarPlay. I tried to use Siri in the car to open the garage door but to no avail. To which, I thought, maybe I should by a HomeKit powered garage door opener!</p>
+
+<p>This idea opened the floodgates of research into the world of having a “smart home”. I started buying smart switches and smart lights and smart thermostats and, wow, is this stuff complicated.</p>
+
+<h2>Constraints</h2>
+
+<p>I’m a fan of being able to easily move between ecosystems. I have Windows and macOS. I have Android and iOS. There’s voice control on the desktop, on mobile, and as a standalone device. </p>
+
+<p>Can I build a system that works across all of these? The short answer is: no. </p>
+
+<p>Long answer: we can come pretty damn close and maybe that’s okay.</p>
+
+<p>The other requirement I had was that anybody in the house shouldn’t necessarily need something complex to work the lights. I shouldn’t have to get them to install an app to be able to interact with the house. Not a terribly difficult requirement, per se, but there are some considerations here.</p>
+
+<h2>How does it work?</h2>
+
+<p>In the most vaguest terms, you have a device (light bulb, light switch, outlet, or whatever) that can communicate and be controlled by another device (hub, phone, voice device, or whatever). The trick is to get all the devices talking together. </p>
+
+<h3>Communication</h3>
+
+<p>The first thing to consider is how everything will communicate with each other. Here are just a few of the more popular ways:</p>
+
+<ul>
+<li>Z-wave</li>
+<li>Zigbee</li>
+<li>TCP/IP</li>
+<li>Bluetooth</li>
+<li>HomeKit</li>
+<li>Insteon</li>
+</ul>
+
+<p>Pick the wrong one and you might find yourself limited. </p>
+
+<p>I bought some Hue lights at first. They worked with HomeKit but I could also hook them up to Google Home. And as it turns out, a bunch of other stuff, too. </p>
+
+<p>Then I bought a switch that was HomeKit-enabled. Sadly, it only worked with HomeKit and nothing else. I had to pull it out and put something else in its place.</p>
+
+<p>Z-wave is probably the most popular with multiple hubs and devices that work on it. I decided to go that route since it had the best support. Again, with some caveats. </p>
+
+<p>Z-wave hubs like Wink and SmartThings don't work with HomeKit. They work with Alexa and Google Home, though. To fix the HomeKit integration, there’s an open source project called Homebridge that acts like an accessory that will sync all your devices to Homekit. You can run it on a Raspberry Pi, too, which is fantastic. </p>
+
+<h2>Hubs</h2>
+
+<p>Once you've figured out what protocol things will communicate with, you may need a hub. I say &quot;may&quot; because if you pick HomeKit, for example, then there's no hub. For pretty much everything else, there is. </p>
+
+<p>If you go the Hue lights route, there's a Hue hub. If you go Z-wave or Zigbee or Insteon, there's a hub that'll work for each of those. </p>
+
+<p>Since I went Z-wave, the two most popular hubs are Wink and SmartThings. I've heard good things about SmartThings, including how good the API is (if you're interested in programming). I went with Wink out of convenience; my local HomeDepot had them in stock. The Wink hub has an API, too. </p>
+
+<p>Hubs don't have a user interface. You'll need your phone or tablet to connect to the hub to make any changes to your configuration, such as adding or removing devices.</p>
+
+<p>The Wink app is pretty good for adding new devices from many different manufacturers with step-by-step instructions. </p>
+
+<p>Wink and SmartThings also support devices that use Zigbee or TCP/IP. With either of those hubs, you're pretty much golden. </p>
+
+<h2>Devices</h2>
+
+<p>Once you have a hub, now you need devices! Having decided on a hub, picking devices might seem like the easy part. Does it communicate with the hub? Yes? Great! But not so fast. </p>
+
+<p>Devices are a big part of the user experience. When somebody wants to turn on a light, how do they do it? How does it feel? </p>
+
+<h3>Hue</h3>
+
+<p>Hue lights, for example, sound fantastic. Great integration with pretty much everything. Ability to change colour to fit mood, sound, or time of day. With one huge flaw: the light switch. Turn off the light switch and suddenly the Hue light is useless. With power cut off, there's no way to communicate with the light to turn it back on. </p>
+
+<p>Hue sells light switches that are really just remotes that you stick to the wall. The actual light switch still remains. Which means removing the actual switch or taping it in the on position or telling people never to touch the switch. Which is kind of silly. I have Hue lights in a few select places where I don't have a light switch: bedside lamps and corner lamps. </p>
+
+<h3>LED lights and dimmers</h3>
+
+<p>I picked up some Lutron dimmer switches, because I liked the look of them. Sadly, they didn’t work with my LED fixtures. Lots of blinking and flickering. Depending on your lighting and wiring, pick only one up to make sure it works before you buy a dozen of them. </p>
+
+<p>I switched to Leviton (again, because HomeDepot had them in stock) and they worked well with my LED lights. On the downside, they make a rather annoying clunk sound when they turn on or off. It feels okay when you hit the switch but when you do it via the app or voice control, the noise is surprisingly loud. I’ve ordered some GE switches to compare. </p>
+
+<h2>Controlling the Devices</h2>
+
+<p>With wall switches, there’s not much that changes. People can still turn the lights on or off without needing to use an app. However, what’s the fun in that? </p>
+
+<h3>App Control</h3>
+
+<p>Every device that gets added needs to go through a process of being linked to the hub so that it can be controlled by the app. This linking process is generally done through the app along with some unique incantation that needs to performed on the device. </p>
+
+<p>After this is done, pretty much all apps allow you to put a device into a group or room. Surprisingly, Lutron, Leviton, HomeKit, and Wink all seem to do this poorly. They all try to spit you into your accessories list, which isn’t organized in any useful way. Rooms (especially if it could tell what room I’m actually in) is the most useful default view but even then, a combination of rooms and accessories would be even better.</p>
+
+<h3>Voice Control</h3>
+
+<p>I like using voice control. I’ve got Siri on the iPhone, Google Assistant on the Pixel, and Google Home. It’s handy to be able to say “turn off all the lights” or “turn on the bedroom lights” before I head upstairs. I feel like the voice interface is currently the best interface (beyond the actual switches) for interacting with devices.</p>
+
+<p>In my research, Cortana for Windows was supposed to be able to be able to control my devices but I couldn’t find a way to do this. It looks like it might be limited to the phone. Which, as it turns out, is the case for Siri, as well. Siri control only works from the phone. It won’t work from the desktop.</p>
+
+<p>Also of note, Google Assistant on iOS doesn’t pass the request onto Google Home, which is unfortunate. (That’s why Homebridge is important to link up non-HomeKit devices.)</p>
+
+<h3>Family</h3>
+
+<p>Having a house device like Google Home means that anybody in the house can control lights in the house without needing to download an app. (Thankfully, my kids haven’t abused this by turning lights off on each other.) </p>
+
+<p>However, being able to invite family or guests to use the app can be useful. If you go all in on a particular ecosystem like HomeKit, everybody else will need to be on the same ecosystem, too. With something like Wink, it’s on iOS and Android, so there is some cross-platform support. </p>
+
+<p>Most platforms don’t have desktop apps, although there are often third-party solutions that can interact with your devices. </p>
+
+<h3>Automation</h3>
+
+<p>Part of the fun of having a smart home is being able to automate how devices interact. </p>
+
+<p>Wink has a thing called “Robots” that lets you create various triggers. You can make triggers based on time, device, or location. For example, you can tell it to turn off a bathroom light if left on for longer than an hour. Or send an email notification when a motion sensor is triggered.</p>
+
+<p>HomeKit can do some of that automation but requires an “always on” device in the home. This has to be an Apple TV or an iPad that never leaves the house. </p>
+
+<h2>Random Notes</h2>
+
+<p>As I went through this process, I came across random stuff that I thought worthy to mention.</p>
+
+<h3>Google Auth</h3>
+
+<p>Some services make it easy for you to register by allowing sign-in using Google OAuth. That’s fine when you’re initially signing up for the service. But afterwards, when you go into the Google Home and try to add that service, it loads up in an embedded web view that Google doesn’t allow. Thus, you won’t be able to add the service into Google Home. (I’m honestly a bit surprised at how Google screwed this up on both iOS and Android.)</p>
+
+<p>When signing up for a service (like Hue, Wink, etc), always specify an email address and password instead of using the Google authentication. </p>
+
+<h3>HomeKit Codes</h3>
+
+<p>You add a HomeKit device using a code. For something like a light switch, this is on a piece of paper provided with the switch. Now I have to hang onto all these pieces of paper and store them somewhere in case I ever need to re-add them to HomeKit. Whoever thought this was a good idea?</p>
+
+<h3>Google Home</h3>
+
+<p>It would be nice to be able to control things within the app. Instead, you only get voice control, or you go into the device app. In which case, it makes sense to pull these into a single app, if you can. Wink, as mentioned, supports Hue and Nest, so you can control these from within the Wink app. Otherwise, you’re going to the Nest app to control the Nest, the Phillips app to control the Hue lights, and the Wink app for everything else.</p>
+
+<h3>Sync issues</h3>
+
+<p>I haven’t figured out why or when this happens, but the Wink app, or the Hue app, or HomeKit will show me a device is on when it’s really off. I haven’t figured out if it’s a case of turning it on or off in one app making it out of sync in the other apps. Or maybe it just gets confused from time to time. </p>
+
+<p>Also, another fun issue with Hue lights in particular: when the power goes out and comes back on, it turns the lights on. My bedroom lamps came on in the middle of the night unexpectedly and I had some disorientation trying to figure out why the lights magically turned themselves on. (I swear there’s a horror movie plot point here.)</p>
+
+<h2>Next Steps</h2>
+
+<p>I’ve only just begun this journey. <a href="https://twitter.com/davglass">Dav Glass</a>, for example, has over 200 devices in his home. I have a ways to go to catch up.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published August 30, 2017 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/home_automation/">Home Automation</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1105</span></div>
+</div>
+
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/home_automation/smart-home by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:49 GMT -->
+</html>

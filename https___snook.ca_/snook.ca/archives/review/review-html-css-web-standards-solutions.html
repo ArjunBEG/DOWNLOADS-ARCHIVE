@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/review/review-html-css-web-standards-solutions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Review: HTML and CSS Web Standards Solutions - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/review/review-html-css-web-standards-solutions">
+	<meta property="og:url" content="https://snook.ca/archives/review/review-html-css-web-standards-solutions">
+	<meta property="og:title" content="Review: HTML and CSS Web Standards Solutions">
+	<meta property="og:description" name="description" content=" This book, HTML and CSS Web Standards Solutions, by Christopher Murphy and Nicklas Persson is subtitled, &quot;A Web Standardistas' Approach.&quot; As you might imagine, the book takes a purist appro...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Review: HTML and CSS Web Standards Solutions</h1>
+		<p><a href="http://www.amazon.com/gp/product/1430216069?ie=UTF8&amp;tag=snookca0f-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1430216069"><img src="https://snook.ca/files/book-htmlcsswebstandards.jpg" alt="HTML and CSS Web Standards Solutions." align="right" style="margin:0 0 10px 10px;"></a> This book, <a href="http://www.amazon.com/gp/product/1430216069?ie=UTF8&amp;tag=snookca0f-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1430216069">HTML and CSS Web Standards Solutions</a>, by Christopher Murphy and Nicklas Persson is subtitled, &quot;A Web Standardistas' Approach.&quot; As you might imagine, the book takes a purist approach to teaching the basics of HTML and CSS to the reader. </p>
+<p>Jumping into this book, I wasn't sure what to expect. By the end, though, I felt that this is more than just another book: it's a textbook. And that should come as no surprise as the authors are lecturers at the University of Ulster in Belfast. Each chapter builds appropriately on the previous and each chapter ends with an exercise for the reader. The exercise enforces what has been learned up to that point and sets the stage for the chapter to come. </p>
+<p>In this sense, the book isn't a recipe book like others within the <i>Solutions</i> series at Friends of Ed, such as <i><a href="https://snook.ca/archives/snooks_book_nook/review_web_development_solutions">Web Development Solutions</a></i>. One might expect each chapter to talk about a specific problem and focus on a solution for that. No, instead, <i>HTML and CSS Web Standards Solutions</i> is really a cohesive piece from beginning to end.</p>
+<h2>Break it down</h2>
+<p>The book is split into two parts. The first part covers HTML (specifically XHTML) and the second part covers CSS. </p>
+<p>In the first part, the book takes a look at the basic structure of XHTML and a detailed look at semantic markup. From there, it looks at embedding images, linking pages together and finally, how to get your site online.</p>
+<p>In the second part, the book teaches the basic CSS syntax and how to style text. From there, it looks at layout basics with one and two column layouts before jumping into lists. Finally, it looks at using external style sheets and troubleshooting.</p>
+<p>The book ends by giving the reader plenty of direction and resources that can allow them to continue their journey.</p>
+<h2>Recommended</h2>
+<p>Remembering that this book takes a purist approach, there is no coverage of all the various hacks that may be involved to achieve cross-browser compatibility (namely, Internet Explorer). For the audience this book is targetted at, I think this could be a good thing. Let them understand how it could be or how it should be and then build on that knowledge from there.</p>
+<p>I'd recommend this book to somebody who's just jumping into HTML and CSS development, or who needs to restart their skills using &quot;a web standardista's approach&quot;.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 27, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/review/">Review</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/959</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">19 Comments &middot; <a href="https://snook.ca/archives/review/review-html-css-web-standards-solutions.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64115">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64115">1</a></div>
+			<span class="authorname">Dan</span> said on October 27, 2009		</div>
+		<div class="quote"><p>This looks great. I really could use a textbook like this and it may be added to the Christmas list.</p>
+<p>Thanks for reviewing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64116">2</a></div>
+			<span class="authorname">Christopher Murphy</span> said on October 27, 2009		</div>
+		<div class="quote"><p>Thanks for the review Jonathan, it's very much appreciated.</p>
+<p>It's great to see your comments, "more than just another book," and, "a cohesive piece from beginning to end." That hits the nail on the head of what we were trying to achieve so it's great to see your review highlighting this.</p>
+<p>There are so many books aimed at beginner web designers which often miss fundamentals and adopt a pick and mix, recipe book approach. The result of these books are often designers and developers who know a little about lots of different aspects, but often don't see how everything interrelates and fits together.</p>
+<p>Drawing on our experience as lecturers (with a tried and tested understanding of how to teach this), we wanted to create a solid, web standards based book that a beginner can start with zero knowledge and, by the end, be heading in the right direction, equipped to learn more.</p>
+<p>The feedback we're getting so far, and reviews like yours and Jon Tan's <a href="http://jontangerine.com/log/2009/08/review-html-and-css-web-standards-solutions">recent review</a>, are very encouraging and inspiring to see. Thanks again.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64117">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64117">3</a></div>
+			<span class="authorname">Andrew Mager</span> said on October 27, 2009		</div>
+		<div class="quote"><p>Every front-end coder should have to read this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64119">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64119">4</a></div>
+			<span class="authorname">Philip Barron</span> said on October 27, 2009		</div>
+		<div class="quote"><p>Ordered. Thanks for the review!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64121">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64121">5</a></div>
+			<span class="authorname"><a href="http://www.crearedesign.co.uk/">Jamie Web</a></span> said on October 28, 2009		</div>
+		<div class="quote"><p>This book looks really good and will be useful to those who are new to HTML and CSS as well as those who want to improve on their coding.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64122">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64122">6</a></div>
+			<span class="authorname">Andreas</span> said on October 28, 2009		</div>
+		<div class="quote"><p>Thats really interesting. Html everybody thinks its easy and you can learn it in 4 hours, but working with Html that is compliant to standards is not so easy, that you can do it in 4 hours. Standards really adds value to the markup.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64124">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64124">7</a></div>
+			<span class="authorname">Csscoffee</span> said on October 28, 2009		</div>
+		<div class="quote"><p>Your reviews are worth to us<br />
+Thank you
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64126">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64126">8</a></div>
+			<span class="authorname">Dedicated Minders</span> said on October 29, 2009		</div>
+		<div class="quote"><p>Your site have very useful links and contents. thanks for sharing..</p>
+<p>http://www.dedicatedminders.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64128">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64128">9</a></div>
+			<span class="authorname"><a href="http://www.bengacreative.com/">Bengacreative</a></span> said on October 29, 2009		</div>
+		<div class="quote"><p>Very insightful review, i'll have to check this book out based on your recommendation. Most of the books out there are almost identical in their approach to teaching HTML and CSS. Perhaps the best way to learn is through trials and errors, cause the more mistake you make at the initial beginning while learning something new, the more you will learn as you progress. </p>
+<p>Thanks,<br />
+Benga creative
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64135">10</a></div>
+			<span class="authorname">Thorpe Obazee</span> said on October 31, 2009		</div>
+		<div class="quote"><p>I'm aware that you mentioned that it doesn't discuss topics on browser compatibility. I'm really into web accessibility right now. Does the book provide the basics for accessibility via adding the <em>needed</em> attributes for a, img, etc.?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64136">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64136">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 31, 2009		</div>
+		<div class="quote"><p>@Thorpe: Depends on what you consider "needed". For IMG, there's coverage of alt and title attributes, for example. Anything else that you'd expect to see?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64138">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64138">12</a></div>
+			<span class="authorname">Thorpe Obazee</span> said on October 31, 2009		</div>
+		<div class="quote"><p>I was thinking about tabindex, accesskeys - in line with keyboard navigation.</p>
+<p>Anyway, I think this is good enough. I intend to buy something for a nephew of mine. I might just have found it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64141">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64141">13</a></div>
+			<span class="authorname">Johan</span> said on November 01, 2009		</div>
+		<div class="quote"><p>Mastering CSS is more a 'do thing', than a 'learn from text books thing'. I got my skills from years reading bug reports, trying out stuff, and IE6-IE7, Firefox 2 and below, Safari at times give me extra work.But as usual I keep that for last.</p>
+<p>Also documenting your CSS, structuring, naming your classes using the right names does make a world of difference, it should be understandable for when others need to work on it, re-use code, etcetera
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64142">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64142">14</a></div>
+			<span class="authorname">Goran AniÄiÄ‡</span> said on November 01, 2009		</div>
+		<div class="quote"><p>Book Content seems very tempting
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64150">15</a></div>
+			<span class="authorname">Anonymous</span> said on November 04, 2009		</div>
+		<div class="quote"><p>Nice stuff, but still reading such books is a very little part in the whole process of creating inthe Web.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64160">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64160">16</a></div>
+			<span class="authorname">Jonas</span> said on November 08, 2009		</div>
+		<div class="quote"><p>Hmmm,...whenever I try to read an actual book (paper) when it comes to development, I fail.</p>
+<p>Is there an ebook version available?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64211">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64211">17</a></div>
+			<span class="authorname">NK</span> said on November 09, 2009		</div>
+		<div class="quote"><p>Thanks for the review, good sir. Let's say, though, that I already have "Web Standards Solutions - 2nd edition;" would this still be a worthwhile &amp; meaty addition to the library, do you think?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64243">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64243">18</a></div>
+			<span class="authorname">Christopher Murphy</span> said on November 12, 2009		</div>
+		<div class="quote"><p>@NK, First up, I'm on of the authors so I'm just a little biased. ;-)</p>
+<p>I teach interactive design at the University of Ulster with Nicklas Persson, my co-author. Dan's 'Web Standards Solutions' has been required reading on our course since it was published (and it's still on the list at the second edition).</p>
+<p>We wrote our book primarily to cover a great deal of material that Dan's book <strong>doesn't</strong> cover. In order to get the most out of his book you need to have a solid understanding of the importance of markup. Dan covers this to a point, but we're covering it much more thoroughly and systematically.</p>
+<p>We've been teaching the importance of plain old semantic HTML (POSH) for many years and of the benefits of thinking of HTML as a design element. This is covered extensively throughout our book. Only once that's fully covered do we then run through the fundamentals of CSS.</p>
+<p>As an owner of bazillions of web design books, I'd say the two sit well side by side, complementing each other well. But then, as I said at the start, I'm one of the authors so just a tiny bit biased!</p>
+</div>
+	</div>
+		<div class="comment" id="c66781">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66781">19</a></div>
+			<span class="authorname">Adam Booth</span> said on March 23, 2011		</div>
+		<div class="quote"><p>This seems like it could be a very useful companion to anyone who is new or just starting out with HTML and CSS.</p>
+<p>The breakdown as you described it seems good in its progress and structure and the way it teaches the fundamentals and not just picking out random points.</p>
+<p>I will be looking into this book.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/review/review-html-css-web-standards-solutions by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

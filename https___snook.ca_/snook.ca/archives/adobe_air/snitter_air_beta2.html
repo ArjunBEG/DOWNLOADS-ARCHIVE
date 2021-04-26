@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/adobe_air/snitter_air_beta2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Snitter on AIR Beta 2 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/adobe_air/snitter_air_beta2">
+	<meta property="og:url" content="https://snook.ca/archives/adobe_air/snitter_air_beta2">
+	<meta property="og:title" content="Snitter on AIR Beta 2">
+	<meta property="og:description" name="description" content="A week ago, Adobe released a new version of the AIR runtime. Shortly thereafter, I released a new version of Snitter, my Twitter client that I built on top of the runtime. Since then, I've been adding...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Snitter on AIR Beta 2</h1>
+		<p>A week ago, Adobe released a new version of the <a href="http://labs.adobe.com/technologies/air/">AIR</a> runtime. Shortly thereafter, I released a new version of <a href="https://snook.ca/snitter/">Snitter</a>, my <a href="http://twitter.com/">Twitter</a> client that I built on top of the runtime. Since then, I've been adding in a bunch of new features, bug fixes and tweaks. </p>
+<p><a href="http://superfluousbanter.org/">Dan Rubin</a> did the design on the new Snitter version and it's been very well received. That, along with themes, has proven to be very welcome additions. When you can't please everybody, create themes! (Truly, I've had people complain about the green and refuse to use the application because of it &mdash; to others who, despite the new features, have said that the green is still the best. Go figure.) </p>
+<h2>What's new in the runtime</h2>
+<p>Many of the complaints with the original release of Snitter were unfortunately limitations of the AIR platform. Input controls and scroll widgets were hideous, keyboard text selection was  non-existant, among other deficiencies. </p>
+<p>Beta 2 luckily fixed most of the major issues (with US keyboard layout being the remaining one on my list). The new version of Webkit also offered up the ability to make use of border radius which allowed for a very flexible UI. </p>
+<h3>New security sandbox </h3>
+<p>From a development perspective, there's also a new security sandbox which offers up limitations that can be difficult to work around at times. The application sandbox prevents you from using eval or new Function. With AIR's ability to access the file system, the ability to run arbitrary code from an external source does pose a risk. </p>
+<p>To get around this, you place the functionality within a child sandbox via an <code>IFRAME</code>. Within the child sandbox, you no longer have access to the AIR interface except through a <code>parentSanboxBridge</code> object. Methods are added to this object from within the application sandbox and allows you to isolate functionality exposed to the child sandbox.</p>
+<p>While there was an initial hassle to rearrange the application, it's been fairly easy to work with since. It does mean that design decisions should be settled on early on as to how code and UI should be split between the two sandboxes. </p>
+<h2>Difficulties in Development</h2>
+<p>One of the biggest headaches in development has been dealing with two moving targets: the AIR runtime and the Twitter site.</p>
+<p>Having functionality shift within AIR did mean a rewrite of a chunk of functionality but the more troublesome has been the Twitter site. Between the site going down and shifts in the API, it's difficult to put together functionality for an app and be confident that it'll continue to work weeks out. </p>
+<p>My personal words of wisdom: if offering an API, build it and then extend it. Changing it afterwards should not be an option. Likewise, error messaging should always be returned in the format specified. As it stands, when Twitter goes down or does an upgrade, the response back is HTML, not XML or JSON. </p>
+<p>One thing I've definitely noticed is that when Twitter goes down, the application gets blamed. Some early converts jumped ship because of error alerts that occurred in other apps. In the end though, we all connect to the same service and all suffer the same consequences. The bigger lesson here is how one should handle an error. Sometimes, it's important to be in a person's face but sometimes, as it is in this case, not forcing a user to respond to an error message makes the application appear to work better. </p>
+<h2>Following feedback</h2>
+<p>One of the joys of releasing an application like this is building something that you know people are using every day and enjoy using. I've been using   <a href="http://twittermap.com/search">twittersearch</a> to search for mentions of Snitter and respond to feedback both positive and negative. Many people will be vocal about what they like or don't like but never provide that feedback directly to the source (ie: me). </p>
+<p>All-in-all, I'm really pleased with where Snitter is right now. I set out originally to build something that simply had the features that I wanted but has since turned into something that I want to be considered the best desktop Twitter client out there, OSX or Windows. Feature wise, I think I've done just that (with more features to come). </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 09, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/adobe_air/">Adobe AIR</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/849</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">18 Comments &middot; <a href="https://snook.ca/archives/adobe_air/snitter_air_beta2.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55967">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55967">1</a></div>
+			<span class="authorname">Lewis</span> said on October 09, 2007		</div>
+		<div class="quote"><p>Any chance of a screenshot? I don't use Twitter but interested in seeing what it looks like.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55969">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55969">2</a></div>
+			<span class="authorname">Uriel Katz</span> said on October 09, 2007		</div>
+		<div class="quote"><p>me too!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55970">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55970">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 09, 2007		</div>
+		<div class="quote"><p>Yeah, head on over to the <a href="http://snook.ca/snitter/">Snitter page</a> and there's a screenshot there. I also have <a href="http://flickr.com/photos/jonathansnook/1501686493/">a shot up on Flickr</a> of a couple of the themes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55971">4</a></div>
+			<span class="authorname"><a href="http://cdharrison.com/">Chris Harrison</a></span> said on October 09, 2007		</div>
+		<div class="quote"><p>Seeing Snitter grow over the past couple of weeks has been awesome. You've done an amazing job with it. I will continue to give you feedback as I use the app. I'm committed to doing whatever I can to help you make this application better!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55973">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55973">5</a></div>
+			<span class="authorname"><a href="http://superfluousbanter.org/">Dan Rubin</a></span> said on October 09, 2007		</div>
+		<div class="quote"><p>Nice job, Jon! Themes are going to be popular, and as the UI continues to improve and become more polished, people will flock to the cult of Snitter :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55984">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55984">6</a></div>
+			<span class="authorname">Steve Fleischer</span> said on October 09, 2007		</div>
+		<div class="quote"><p>Chris Harrison said everything I wanted to say! :-)</p>
+<p>I'd be lost without Snitter - it's a great app. which just gets better and better. keep up the excellent work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56251">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56251">7</a></div>
+			<span class="authorname">Ben Schwarz</span> said on October 17, 2007		</div>
+		<div class="quote"><p>How did you find using HTML along with the same CSS rendering issues that previously exist in IE or Webkit?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56252">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56252">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 17, 2007		</div>
+		<div class="quote"><p>@Ben Only having to deal with one rendering engine (Webkit, in this case) is extremely liberating. They're using a fairly recent version of the Webkit build so there's support for things like border radius, border image, and multiple backgrounds. Fun stuff!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56325">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56325">9</a></div>
+			<span class="authorname">stef</span> said on October 18, 2007		</div>
+		<div class="quote"><p>hey jon - great work!! have you summarized your thoughts on AIR anywhere - i like in an article or something? i'm always curious to get your view on things. cheers! stef
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56359">10</a></div>
+			<span class="authorname">MaXeR</span> said on October 18, 2007		</div>
+		<div class="quote"><p>still not accept Arabic Letter..!<br />
+hope you add some support for other languages soon :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56515">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56515">11</a></div>
+			<span class="authorname">Evan Sims</span> said on October 24, 2007		</div>
+		<div class="quote"><p>Dude, this thing is <strong>awesome</strong>! So glad to finally see a beautifully designed, cross platform Twitter client with decent functionality. Twitterific is nice, but I've hated not having something suitable for the times I'm using Windows.</p>
+<p>Keep up the good work, man. Brilliant stuff.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56517">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56517">12</a></div>
+			<span class="authorname">Manda</span> said on October 24, 2007		</div>
+		<div class="quote"><p>Snitter is amazing. I must say. You've done an excellent job with it. I love the look. :) My question is, would you ever consider doing a messenger based application for adobe air, with the same look/feel as Snitter. I mean something simple like triallian and the others to use aim, yahoo, msn, gtalk, etc through? I've only been able to find two for Adobe Air, and frankly they're very ugly, and odd to use. </p>
+<p>So basically I was just wondering if it might be in your future to do something like that? :) I hope it is!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56523">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56523">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 25, 2007		</div>
+		<div class="quote"><p>@Manda yes, I've thought about doing an IM app. The only problem is that communicating with an IM service is a lot more complicated than communicating with Twitter. Maybe one day. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56610">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56610">14</a></div>
+			<span class="authorname">Shane</span> said on November 02, 2007		</div>
+		<div class="quote"><p>This application is amazing.  It would be even "amazingr" if it also updated Tumblr, Jaiku, and (insert the other few dozen micro-blogging tools here).  I am, of course, biased with Tumblr, Jaiku, and Twitter.  Wow, am I demanding on a Friday...  :)</p>
+<p>Well done!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56622">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56622">15</a></div>
+			<span class="authorname">David Blumenstein</span> said on November 04, 2007		</div>
+		<div class="quote"><p>Snitter is a truly a breath of fresh air (no pun intended). I have been singing its praises and then my peers have been bombarding me with avisos to look at the new version of Twitterrific, and I would recommend, implementing a number of the new features into Twitter: colour coding, keyboard shortcuts to input replies and direct messages, as well as cursor navigation.</p>
+<p>Thanks so much for all of your work
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56623">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56623">16</a></div>
+			<span class="authorname">Pat Teglia</span> said on November 04, 2007		</div>
+		<div class="quote"><p>Pretty Sweet Jonathan!  I just wish I could figure out how to get Air to use Flock instead of IE as default browser, then I would be a totally blissed out Snitter-bug.</p>
+<p>Btw, I think your use of icons in this is perfect, they look great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56804">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56804">17</a></div>
+			<span class="authorname">Alisha</span> said on November 20, 2007		</div>
+		<div class="quote"><p>I just found out about Snitter today and love it (even the default Snitter Green theme). I'm just wishing it showed everything I track like it does in GTalk.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57067">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57067">18</a></div>
+			<span class="authorname">ctevjbywbe</span> said on December 07, 2007		</div>
+		<div class="quote"><p>Hello! Good Site! Thanks you! qdsngngaoz
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/adobe_air/snitter_air_beta2 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/cakephp/multiple_validatable_behavior by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Multiple Validation as Behavior in CakePHP 1.2 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/cakephp/multiple_validatable_behavior">
+	<meta property="og:url" content="https://snook.ca/archives/cakephp/multiple_validatable_behavior">
+	<meta property="og:title" content="Multiple Validation as Behavior in CakePHP 1.2">
+	<meta property="og:description" name="description" content="After some inspiration from a recently published Bakery article, I decided to convert my multiple validation function into a Behavior. Even better, I've thrown it into my plugin collection to make it ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Multiple Validation as Behavior in CakePHP 1.2</h1>
+		<p>After some inspiration from a <a href="http://bakery.cakephp.org/articles/view/multivalidatablebehavior-using-many-validation-rulesets-per-model">recently published Bakery article</a>, I decided to convert my <a href="https://snook.ca/archives/cakephp/multiple_validation_sets_cakephp/">multiple validation function</a> into a Behavior. Even better, I've thrown it into my plugin collection to make it super easy to drop into any project.</p>
+<p>Using the new behavior is much like using the script as it was before. You can name the validation properties to include the action name and it'll automatically set that validation set as the default. </p>
+<p>You can also define a specific validation set to be used with <code>$this-&gt;ModelName-&gt;useValidationRules('ExampleSet')</code> which will look for a validation property called <code>validationExampleSet</code>. If the property doesn't exist, you'll get an error, so be careful to match the name.</p>
+<p>Things are a little different in that the custom validation rules aren't automatically reset after a validation is performed. This is more a limitation of CakePHP since behaviors have beforeValidate callbacks (which is used to alter the validation set) but don't have afterValidate callbacks (which would be used to alter them back). Instead, you have to run <code>$this-&gt;ModelName-&gt;resetValidationRules()</code> to set the validate property back to the default.</p>
+<p>To set a model to make use of the behavior, just add it to the actsAs property.</p>
+<pre><code>class ExampleModel extends AppModel {
+	var $actsAs = array('Snook.MultipleValidatable');
+}</code></pre>
+<p>That's all you need to do! The following chunk of code is the behavior itself. It should be saved to the <code>/app/plugins/snook/models/behaviors/</code> folder. You could save it in a plugin of a different name (you'd need to change the Snook prefix to the proper plugin name) or save it as a standard behavior (in which case, you'd need to remove the Snook prefix altogether).</p>
+<pre><code>&lt;?php
+class MultipleValidatableBehavior extends ModelBehavior {
+	var $__default = array();
+	var $__useRules = array();
+
+	function setup(&$model, $settings = array()) {
+		$this-&gt;__default[$model-&gt;alias] = $model-&gt;validate;
+	}
+
+	function beforeValidate(&$model) {
+
+	 	$actionSet = 'validate' . Inflector::camelize(Router::getParam('action'));
+
+		if (isset($this-&gt;__useRules[$model-&gt;alias])) {
+			$param = 'validate' . $this-&gt;__useRules[$model-&gt;alias];
+			$model-&gt;validate = $model-&gt;{$param};
+		} elseif (isset($model-&gt;{$actionSet})) {
+			$param = $actionSet;
+			$model-&gt;validate = $model-&gt;{$param};
+		}
+	}
+
+	function useValidationRules(&$model, $param) {
+		$this-&gt;__useRules[$model-&gt;alias] = $param;
+	}
+
+	function resetValidationRules(&$model) {
+		$model-&gt;validate = $this-&gt;__default[$model-&gt;alias];
+	}
+
+}
+?&gt;</code></pre>
+<p>I hope you enjoy it. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 30, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/cakephp/">CakePHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/903</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">16 Comments &middot; <a href="https://snook.ca/archives/cakephp/multiple_validatable_behavior.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment snook" id="c59086">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59086">1</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 30, 2008		</div>
+		<div class="quote"><p>I didn't expect another CakePHP article so soon. but there you have it. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59089">2</a></div>
+			<span class="authorname">Dardo Sordi</span> said on July 31, 2008		</div>
+		<div class="quote"><p>Hi Jonathan,</p>
+<p>nice article.</p>
+<p>But let me disagree about something:</p>
+<p>$actionSet = 'validate' . Inflector::camelize(Router::getParam('action'));</p>
+<p>I've read something like that in the first article (and maybe this comment belongs to it), but I don't like it because you are coupling the model to the controller.</p>
+<p>It's a good practice to keep lower layers as general as possible and loose coupled, and make the upper layers more specific to the application (and you can let them couple to lower layers).</p>
+<p>So, making the model to know about controller actions makes it difficult to change that later and to use the same model in other controllers/components (as Ad7Six MiniControllers).</p>
+<p>Just my 2 cents.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59090">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59090">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 31, 2008		</div>
+		<div class="quote"><p>Dardo, if you don't like the tighter coupling, you can use <code>$this-&gt;ModelName-&gt;useValidationRules('Example')</code>. The fact is, Cake couples the model to the controller automatically. All I'm doing is taking the automation to the validation stage. </p>
+<p>I understand the concern about having a model tied to an action and then trying to push it over to another controller. However, this was written more for edge cases. 99% of the time, you're only going to need one set of validation and it'll apply for inserts and updates and whatever else you need to do. Where the multiple validation comes in is mainly in unique situations and the user model is probably the most common situation. Things like forgotten passwords and profile edits are unique to the user object so there's less concern of portability issues.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59091">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59091">4</a></div>
+			<span class="authorname">Alexey Kruchinin</span> said on July 31, 2008		</div>
+		<div class="quote"><p>I like this flexibility.</p>
+<p>I just added these lines into the behavior in order to make more verbal.</p>
+<p>if (isset($model-&gt;{$param})) {<br />
+    $model-&gt;validate = $model-&gt;{$param};<br />
+} else {<br />
+    e('MultipleValidatableBehavior: Please define ' . $param .' in your model ' . $model-&gt;alias . '. Be sure useValidationRules call in the controller "' . Router::getParam('action') . '" is correct.');<br />
+}
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59092">5</a></div>
+			<span class="authorname">Dardo Sordi</span> said on July 31, 2008		</div>
+		<div class="quote"><p>Jonathan, I'm using it in many models, if that weren't the case it would be overkill to make a behavior, I'll just put the methods in the user model as in your first post.</p>
+<p>For example it's useful for me in form wizards.</p>
+<p>Anyway I like your methods names (api?) and having every rule set in a separate variable improves readability. I'm going to change my behavior (not the one in the article) as I see your approach cleaner.</p>
+<p>And for the action coupling thing, I don't see me using it so I'll leave that out.</p>
+<p>Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59098">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59098">6</a></div>
+			<span class="authorname">keymaster</span> said on August 03, 2008		</div>
+		<div class="quote"><p>Without trying it out (so I apologize in advance if this is nonsense) but, is it not possible, at least in php5, to eliminate the need for calling resetValidationRules()?</p>
+<p>Could one not override the model Save() in appModel something like:</p>
+<p>function Save(...){<br />
+      - your before validate stuff.<br />
+      parent::Save(...);<br />
+      - your reset validate stuff.<br />
+}
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59100">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59100">7</a></div>
+			<span class="authorname">Dardo Sordi</span> said on August 03, 2008		</div>
+		<div class="quote"><p>It should be implemented as unbindModel() with two modes: persistent mode and a non-persistent mode.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59101">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59101">8</a></div>
+			<span class="authorname">Sean</span> said on August 03, 2008		</div>
+		<div class="quote"><p>I'm seemingly forever comparing Code Igniter and CakePHP.  I use a custom framework at my day job, but for personal projects, I'm still researching.  You showed something that I find the 2 frameworks doing differently.  In CakePHP, the validation is taken care in the Model.  In CodeIgniter, validation is done in the controller before being given to the Model.  Which do you think is more proper, or could you justify the logic belonging in either class?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59107">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59107">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 03, 2008		</div>
+		<div class="quote"><p>@keymaster: yes, it'd be possible but I don't love that approach. </p>
+<p>@Sean: I think it makes more sense in the Model. With CI, they have a validation class, which I actually like. With CakePHP, I think the Model should use a Validation object to determine how data should be validated. This would allow the validation object to be subclassed, instead of defining custom function names. But maybe for CakePHP 2.0. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59108">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59108">10</a></div>
+			<span class="authorname">Sean</span> said on August 03, 2008		</div>
+		<div class="quote"><p>As I was thinking about it, I agree.  Putting it in the model means you don't have to remake validation rules if you make another function to insert data into the database.</p>
+<p>I really like CI's Validation class.  I admit, I ripped it off and threw it into my framework at work.  What would it take to make the same thing in Cake?  It seems Cake is pretty mod-able.  I'd be interested in throwing that together, as I get more and more sold on Cake.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59116">11</a></div>
+			<span class="authorname">insic</span> said on August 07, 2008		</div>
+		<div class="quote"><p>wow! its been a while im not visiting your site and now you got a series of article for cake php which is the framework i am using aside from zend and code igniter. I take some time reading all your articles about cake. thanks for the nice article snook.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59127">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59127">12</a></div>
+			<span class="authorname">Heather</span> said on August 09, 2008		</div>
+		<div class="quote"><p>Thank you so much!  This is *exactly* what I needed.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59131">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59131">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 09, 2008		</div>
+		<div class="quote"><p>Sean, turns out upon further inspection that CakePHP does have its own Validation object. It just uses the validation rules defined in the Model to validate against the functions defined in the validation object. There could be some additional separation but with that said, I'm not sure much would be gained.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59260">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59260">14</a></div>
+			<span class="authorname">Erick wilder</span> said on August 30, 2008		</div>
+		<div class="quote"><p>Just a note..</p>
+<p>[quote]<br />
+You can also define a specific validation set to be used with $this-&gt;ModelName-&gt;useValidationRules('ExampleSet') which will look for a validation property called validationExampleSet. If the property doesn't exist, you'll get an error, so be careful to match the name.<br />
+[/quote]</p>
+<p>I think that the Behavior will look for properties prefixed with 'validate' and not 'validation'. On the example the correct property to be set on the Model object is "$validateExampleSet".</p>
+<p>Great work!</p>
+</div>
+	</div>
+		<div class="comment" id="c59287">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59287">15</a></div>
+			<span class="authorname">Erick Wilder</span> said on September 01, 2008		</div>
+		<div class="quote"><p>After trying to run the acl command line utility I got some errors, because the class Router is not loaded. I did some modifications to fix up the shell commands:</p>
+<p>if(class_exists('Router'))<br />
+	 	{<br />
+		 	$actionSet = 'validate' . Inflector::camelize(Router::getParam('action'));<br />
+	 	}<br />
+	 	else<br />
+	 	{<br />
+	 		$actionSet = 'validate';<br />
+	 	}
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60090">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60090">16</a></div>
+			<span class="authorname">Chris Yates</span> said on November 10, 2008		</div>
+		<div class="quote"><p>Continuing the discussion on coupling between the controller and model, here's my idea for loosely coupling them.</p>
+<p>The default rules are placed in the model. Action specific rules are specified in the controller meaning the model doesn't need to know about controller actions, but it gets the appropriate rules to validate against.</p>
+<p>Action specific validation rules go in the $validate array in the controller:</p>
+<pre><code>
+var $validate = array(
+  'first_action' =&gt; array(validation rules for first_action),
+  'second_action' =&gt; array(validation rules for second_action),
+...
+);
+</code></pre>
+<p>I needed to change the Behavior slightly. In the beforeValidate function the code for the <b>if</b> statement becomes:</p>
+<pre><code>
+    if (isset($this-&gt;__useRules[$model-&gt;alias])) {
+      $model-&gt;validate = $this-&gt;__useRules[$model-&gt;alias];
+    }
+</code></pre>
+<p>because as you'll see below the Behavior now stores the actual rules.</p>
+<p>I then put the following in the beforeFilter callback of my app_controller:</p>
+<pre><code>
+    if (isset($this-&gt;validate[$this-&gt;action])) {
+      $this-&gt;{$this-&gt;modelClass}-&gt;useValidationRules($this-&gt;validate[$this-&gt;action]);
+    }
+</code></pre>
+<p>This checks for a set of validation rules for the action. If they are set they are passed to the Behavior which then passes them to the model when it validates.</p>
+<p>This way the model doesn't know anything about the controller or it's actions and is given the appropriate set of validation rules as needed.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/cakephp/multiple_validatable_behavior by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

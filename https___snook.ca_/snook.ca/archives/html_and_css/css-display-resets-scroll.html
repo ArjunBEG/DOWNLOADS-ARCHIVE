@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-display-resets-scroll by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Changing Display Resets Scroll Offset - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/css-display-resets-scroll">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/css-display-resets-scroll">
+	<meta property="og:title" content="Changing Display Resets Scroll Offset">
+	<meta property="og:description" name="description" content="		In Chrome 5, Safari 4, Opera 10.53 and sometimes Firefox (although I was unable to reproduce it in this test case), changing the visibility of the
+			element by toggling display:none will cause the...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Changing Display Resets Scroll Offset</h1>
+				<p>In Chrome 5, Safari 4, Opera 10.53 and sometimes Firefox (although I was unable to reproduce it in this test case), changing the visibility of the
+			element by toggling <code>display:none</code> will cause the scroll offset to reset to zero. Toggling <code>visibility:hidden</code> does 
+			<em>not</em> seem to trigger the same problem. </p>
+		<p>Scroll the container and then toggle the classes applied.</p>
+	<style>
+		#a { position:relative; width:300px; height:100px; border:1px solid #333; overflow:auto; }
+		.display { display:none; }
+		.visibility { visibility:hidden; }
+	</style>
+
+		<input type="button" id="btnA" value="Toggle display:none">
+		<input type="button" id="btnB" value="Toggle visibility:hidden"> <div>Class applied: <span id="classApplied"></span></div>
+		<div id="a"> 
+			<div id="b">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+		</div>
+        
+	<script>
+			var el = document.getElementById('a');
+			var status = document.getElementById('classApplied');
+			document.getElementById('btnA').onclick = function(){
+				el.className = (el.className == 'display') ? '' : 'display';
+				status.innerHTML = el.className;
+			}
+			document.getElementById('btnB').onclick = function(){
+				el.className = (el.className == 'visibility') ? '' : 'visibility';
+				status.innerHTML = el.className;
+			}
+	</script>
+    <p>I haven't tested this in Internet Explorer, yet. Feel free to report in the comments.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published June 10, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/981</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">22 Comments &middot; <a href="https://snook.ca/archives/html_and_css/css-display-resets-scroll.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64991">1</a></div>
+			<span class="authorname">Ryan Tenney</span> said on June 10, 2010		</div>
+		<div class="quote"><p>Just tested it in IE 8, and the behavior is the same.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64992">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64992">2</a></div>
+			<span class="authorname">Gregory Papangeles</span> said on June 10, 2010		</div>
+		<div class="quote"><p>IE testing results:</p>
+<p>IE8: display:none resets the scroll offset, visibility:hidden does not<br />
+IE7: scroll offset is not reset in any case<br />
+IE6: scroll offset is not reset in any case
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64993">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64993">3</a></div>
+			<span class="authorname"><a href="http://blog.niccai.com/">NICCAI</a></span> said on June 10, 2010		</div>
+		<div class="quote"><p>Think this is a logged issue for Chromium (maybe a webkit issue?).  As a work around, you could probably set the height to 0 or push it off stage.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64995">4</a></div>
+			<span class="authorname"><a href="http://arapehlivanian.com/">Ara Pehlivanian</a></span> said on June 10, 2010		</div>
+		<div class="quote"><p>Makes sense though, if you think about it. Playing with visibility just turns off the element's appearance whereas setting display to none seems to cause the object in memory to destroy and then re-render it when its display value is reset.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64996">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64996">5</a></div>
+			<span class="authorname">jen</span> said on June 10, 2010		</div>
+		<div class="quote"><p>Same results as Gregory for IE.</p>
+<p>Windows Firefox scrolls were not reset.</p>
+<p>Windows Safari displays the same behavior as Mac.</p>
+<p>Windows Chrome reset the scroll for display:none, but didn't for visibility.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64997">6</a></div>
+			<span class="authorname"><a href="http://riddle.pl/">riddle</a></span> said on June 10, 2010		</div>
+		<div class="quote"><p>I made a quick test that caches element.scrollTop if anyoneâ€™s interested in a workaround:</p>
+<p>http://riddle.pl/public/tests/display-scrolltop/index.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64998">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64998">7</a></div>
+			<span class="authorname"><a href="http://blog.niccai.com/">NICCAI</a></span> said on June 10, 2010		</div>
+		<div class="quote"><p>Just tested the CSS fix for this - add height: 0 to your .visibility class and use this in conjunction with visibility hidden (just make sure you work out the specificity, #a has a height set in your example that needs to be over-written).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64999">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64999">8</a></div>
+			<span class="authorname">Iffy</span> said on June 10, 2010		</div>
+		<div class="quote"><p>The latest FF - scroll position remains.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65000">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65000">9</a></div>
+			<span class="authorname">Sebastian Werner</span> said on June 10, 2010		</div>
+		<div class="quote"><p>In the qooxdoo framework we have a special handling for automatically restoring the position of scroll containers when showing them again. This is indeed a bug (or missing feature) in most browsers. That visibility don't shows the issue is quite logical as the element is still being computed and rendered - just not shown.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65001">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65001">10</a></div>
+			<span class="authorname">Sebastian Werner</span> said on June 10, 2010		</div>
+		<div class="quote"><p>One thing to add: Even more complicated is, when the scroll-able area is not the thing which has the scroll bars but a children inside of it. Think about dragable windows using JavaScript with a scroll-area inside.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65002">11</a></div>
+			<span class="authorname">Simon Sigurdhsson</span> said on June 10, 2010		</div>
+		<div class="quote"><p>This does make sense; setting display to <em>none</em> has pretty much the same effect as removing it, and thus also removing its properties. I don't think this should be classified as a bug, even if it seems counter-intuitive or wrong to some people.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65003">12</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on June 10, 2010		</div>
+		<div class="quote"><p>Firefox 3.5.9 on Ubuntu Linux 9.10 64-bit: Scroll offset preserved both ways.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65004">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65004">13</a></div>
+			<span class="authorname">Olivier Cuenot</span> said on June 10, 2010		</div>
+		<div class="quote"><p>Pressing F5 resets scroll offset in Chromium, not in Firefox.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65005">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65005">14</a></div>
+			<span class="authorname">Lea Verou</span> said on June 10, 2010		</div>
+		<div class="quote"><p>Good one!</p>
+<p>Did you report the bug to the Webkit and Opera teams?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65006">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65006">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 10, 2010		</div>
+		<div class="quote"><p>@Lea Verou: I did not. The behaviour seemed reasonable consistent across multiple products that it was unclear whether this was by design or a bug.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65009">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65009">16</a></div>
+			<span class="authorname">Lykope</span> said on June 11, 2010		</div>
+		<div class="quote"><p>Safari 5 (Mac): display:none reset the scroll offset, visibility:hidden does not.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65010">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65010">17</a></div>
+			<span class="authorname"><a href="http://www.buyog.com/code">Ryan Corradini</a></span> said on June 11, 2010		</div>
+		<div class="quote"><p>FF 3.0 on WinXP behaves correctly (scroll position preserved)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65011">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65011">18</a></div>
+			<span class="authorname"><a href="http://nimbu.in/">Divya</a></span> said on June 11, 2010		</div>
+		<div class="quote"><p>The <a href="http://www.w3.org/TR/CSS2/visuren.html#display-prop">spec</a> says "the element and its content are removed from the formatting structure entirely" which is consistent with what you see. The visibility property does not remove the element, but merely makes it invisible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65018">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65018">19</a></div>
+			<span class="authorname">Richard Fink</span> said on June 16, 2010		</div>
+		<div class="quote"><p>+1 on the "makes sense" aspect. Changing the offsetHeight of the page to, essentially, zero, *should* act as a kind of soft refresh.<br />
+Interesting observation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65027">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65027">20</a></div>
+			<span class="authorname"><a href="http://www.denatasarim.com/">TasarÄ±m</a></span> said on June 21, 2010		</div>
+		<div class="quote"><p>I confirm Jonathan that in IE8, display:none resets offset while visibility does not.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65038">21</a></div>
+			<span class="authorname">Sean FousheÃ©</span> said on June 27, 2010		</div>
+		<div class="quote"><p>Considering <a href="http://www.w3.org/TR/CSS21/visuren.html#display-prop">the W3C spec states</a>, as <a href="http://snook.ca/archives/html_and_css/css-display-resets-scroll?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+snookca+%28Snook.ca%3A+Tips%2C+Tricks+and+Bookmarks+on+Web+Development%29#c65011">Divya</a> pointed out:</p>
+<blockquote><p>"... the element and its content are removed from the formatting structure entirely."</p>
+</blockquote>
+<p> would certainly explains why this behavior is considered normal. However, the spec does not state that the element is destroyed or removed from memory as <a href="http://snook.ca/archives/html_and_css/css-display-resets-scroll?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+snookca+%28Snook.ca%3A+Tips%2C+Tricks+and+Bookmarks+on+Web+Development%29#c64995">Ara</a> suggested. I would suggest crafting a workaround using JavaScript to remember the scroll position upon removing it from the structure, then setting the position when the element is called again.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65047">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65047">22</a></div>
+			<span class="authorname">Douglas</span> said on July 05, 2010		</div>
+		<div class="quote"><p>This seems odd. But couldn't you record the scroll offset in a javascript variable in an onkeydown event and reapply it to the area when it's subsequently displayed?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-display-resets-scroll by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/screencast/firebug-breakpoints by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Screencast: Firebug Breakpoints - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/firebug-breakpoints">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/firebug-breakpoints">
+	<meta property="og:title" content="Screencast: Firebug Breakpoints">
+	<meta property="og:description" name="description" content="That's right folks. It's time for another screencast! This time, I thought it'd be nice to cover a little bit of Firebug. I've actually been meaning to put together a few screencasts on Firebug. If yo...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Screencast: Firebug Breakpoints</h1>
+		<p>That's right folks. It's time for another screencast! This time, I thought it'd be nice to cover a little bit of Firebug. I've actually been meaning to put together a few screencasts on Firebug. If you like this one, definitely let me know and I'll be sure to put some more together.</p>
+<p>In this screencast, I take a quick look at how to use breakpoints in Firebug to help in your debugging endeavours. It's a feature that I don't use nearly as often as I should and by putting this screencast together, I've hopefully pushed myself to use it more. </p>
+<p>This screencast is just over 5 minutes long and, like last time, is available for the iPhone, as well.</p>
+<p><a href="https://snook.ca/video/breakpoints.m4v"><img src="https://snook.ca/img/viewon-quicktime.jpg" alt="View with Quicktime"></a>
+	<a href="https://snook.ca/video/breakpoints-iphone.m4v"><img src="https://snook.ca/img/viewon-iphone.jpg" alt="View on iPod or iPhone"></a></p>
+<p>Breakpoints may seem all &quot;programmery&quot; but at a very basic level can be easy to use. With the script and console tabs enabled for your test domain, use the script tab to view a particular script. With a script in view, you can click to the left of the line number to add a breakpoint. A red dot should appear. Refresh the page and the red dot will not have a triangle play button to let you know that execution has stopped there.</p>
+<p>With execution stopped, you can use the console tab to run arbitrary code in the context of that function. If you're debugging private methods, this will be an invaluable way to inspect things without having to go back and edit the original code and doing a page refresh.</p>
+<p>I didn't cover the Step Into, Over, Out features. Just knowing that you can create breakpoints and know what they do will help improve your ability to debug a particular function.</p>
+<p>With regards to the screencast itself, I've been doing production a little differently each time. This time, I captured the video using Screenium and then pulled it into iMovie. iMovie doesn't have the most intuitive interface but once I figured it out, it was pretty powerful. I did a quick overlay for the intro and managed to splice two videos together. I exported the standard video and iPhone versions right from iMovie instead of using Handbrake like I did last time.</p>
+<p>The audio was just using the internal mic. I have a more professional mic but no convenient place to set it up. I used it on a previous screencast and it makes a difference. It's just harder to work with.</p>
+<p>Anyways, here's hoping you enjoyed yet another screencast!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 28, 2009 &middot; Updated February 28, 2009</div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/931</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">20 Comments &middot; <a href="https://snook.ca/archives/javascript/firebug-breakpoints.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c62953">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62953">1</a></div>
+			<span class="authorname">frebro</span> said on February 28, 2009		</div>
+		<div class="quote"><p>Very interesting to see! I've done some JS and worked with jQuery from time to time, and this will surely help me with that. I knew of breakpoints before, but not how to actually use them.</p>
+<p>It was also very interesting to see your work with Canvas. Would be nice with a screencast intro of that too if you feel up to it. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62954">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62954">2</a></div>
+			<span class="authorname">Rhys</span> said on February 28, 2009		</div>
+		<div class="quote"><p>Thanks for posting this great tutorial. I really need to learn to use more of firebug's features. It's great for CSS, I know already, but I don't think I have any appreciation of what it can do with js yet.</p>
+<p>Keep the screncasts coming.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62955">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62955">3</a></div>
+			<span class="authorname">lolguy</span> said on February 28, 2009		</div>
+		<div class="quote"><p>Moar!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62956">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62956">4</a></div>
+			<span class="authorname">Antoine Leclair</span> said on February 28, 2009		</div>
+		<div class="quote"><p>Nice screencast!</p>
+<p>Firebug is full of great surprises.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62957">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62957">5</a></div>
+			<span class="authorname"><a href="http://mark-story.com/">Mark Story</a></span> said on February 28, 2009		</div>
+		<div class="quote"><p>Great screencast jon, I didn't know that console worked in the current function scope, that's a great trick thanks :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62959">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62959">6</a></div>
+			<span class="authorname">Ibrahim</span> said on March 01, 2009		</div>
+		<div class="quote"><p>Thank you Jonathan, please more on Firebug.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62961">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62961">7</a></div>
+			<span class="authorname">Lars Gunther</span> said on March 02, 2009		</div>
+		<div class="quote"><p>A tip!</p>
+<p>How about adding a free format for your videos? </p>
+<p>Why I won't install QT again? I do not like iTunes, having Quicktime starting on system boot and taking up valuable RAM, nor do I appreciate Apple's efforts to sneak bonjour onto my systems.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62962">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62962">8</a></div>
+			<span class="authorname">Lars Gunther</span> said on March 02, 2009		</div>
+		<div class="quote"><p>Oops!</p>
+<p>I forgot. Yes. I have VLC and can play your file, just in case anyone wanted to call me a dumbnut. That's not really my point. I just thought a free format would be a nice addition - and make the screencast playable inside Opera or Firefox directly.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c62963">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62963">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 02, 2009		</div>
+		<div class="quote"><p>@Lars: thanks for the suggestion. I've been mostly waiting to see if anybody would request another format. It shouldn't be a big deal to export in another format... I just wasn't sure if it'd be necessary (and after doing 3 of them, I'm still not sure that it is). Maybe if more people request it. But I certainly understand your concerns and will consider it for future screencasts. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62965">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62965">10</a></div>
+			<span class="authorname">Chris Gunther</span> said on March 02, 2009		</div>
+		<div class="quote"><p>Great screencast.</p>
+<p>Firebug is an amazingly powerful tool and I feel like I'm barely scratching the surface when using it. Nice to see another use from it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62966">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62966">11</a></div>
+			<span class="authorname">Erin Cummings</span> said on March 02, 2009		</div>
+		<div class="quote"><p>I mostly use firebug for css. This really helped explain how to use it for js. </p>
+<p>Thanks for the great screencast.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62967">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62967">12</a></div>
+			<span class="authorname">Brian Hart</span> said on March 02, 2009		</div>
+		<div class="quote"><p>Thanks for the great tutorial... I've been using Firebug for a long time for CSS, but just getting into the javascript aspects. Your tutorial was quick and to the point â€” very informative. I like the short format and looking forward to more. </p>
+<p>I'll pass along... thanks very much.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62968">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62968">13</a></div>
+			<span class="authorname">pab</span> said on March 03, 2009		</div>
+		<div class="quote"><p>Been looking for tutorials on this subject, this was great.</p>
+<p>Would love to see a more extensive one.</p>
+</div>
+	</div>
+		<div class="comment" id="c62971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62971">14</a></div>
+			<span class="authorname">Frank</span> said on March 03, 2009		</div>
+		<div class="quote"><p>Keep up the good work, I am always finding something new about Firebug that makes my work easier to debug. </p>
+<p>Thanks Snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62972">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62972">15</a></div>
+			<span class="authorname"><a href="http://www.pseudocoder.com/">Matt Curry</a></span> said on March 03, 2009		</div>
+		<div class="quote"><p>Hey Jonathan, </p>
+<p>Nice screencast.  Even though I use FireBug all the time and I know about it's JS debugging, I hardly ever use it.  It's something I really should try to do more.</p>
+<p>Any reason you don't include an embeded version?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62973">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62973">16</a></div>
+			<span class="authorname">Ben Carlson</span> said on March 03, 2009		</div>
+		<div class="quote"><p>Thanks for the screencast. Have always used Firebug to live-edit HTML, but was never really sure how to get into the JS part of it. This explains quite a few things. I would certainly welcome more screen casts as well!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62974">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62974">17</a></div>
+			<span class="authorname"><a href="http://www.scottnelle.com/">Scott</a></span> said on March 03, 2009		</div>
+		<div class="quote"><p>Great screencast, Jonathan. I'd like to see some more screencasts on the advanced functionality available in Firebug. Up to now I pretty much only use it to check applied CSS rules and catch javascript errors. I know it's capable of a whole lot more and I'd love to learn all about it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62975">18</a></div>
+			<span class="authorname">Shira</span> said on March 04, 2009		</div>
+		<div class="quote"><p>Thanks for this, Jonathan!<br />
+Can we have some more, sir? Please, sir?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62979">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62979">19</a></div>
+			<span class="authorname">John Faulds</span> said on March 05, 2009		</div>
+		<div class="quote"><p>Another vote for being able to view screencasts in-browser rather than launching a separate app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62980">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62980">20</a></div>
+			<span class="authorname">Erico</span> said on March 05, 2009		</div>
+		<div class="quote"><p>Hi, sorry to bother you but as this is related to Firebug debugging, I thought it would be a good place to ask for help.</p>
+<p>It seems that Firefox doesn't detect errors in code that was fetched using an AJAX call, and would like to know if there's a way to debug those (Incredible enough, I've resorted to use IE with a debugger attached!!!). You can find more details in this Stack Overflow question:<br />
+http://stackoverflow.com/questions/606794/debugging-ajax-code-with-firebug</p>
+<p>And I apologize in advance if you think this is not the right place to ask for this.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/screencast/firebug-breakpoints by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

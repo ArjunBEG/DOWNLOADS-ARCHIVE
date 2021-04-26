@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/writing/ebook-notes by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>My Notes on Writing an E-book - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/writing/ebook-notes">
+	<meta property="og:url" content="https://snook.ca/archives/writing/ebook-notes">
+	<meta property="og:title" content="My Notes on Writing an E-book">
+	<meta property="og:description" name="description" content="So, yeah. I wrote an e-book. It has been an interesting experience and I thought I'd share a few random thoughts on how things have gone so far.
+
+Backwards
+
+When I first started down the path of w...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>My Notes on Writing an E-book</h1>
+		<p>So, yeah. <a href="http://smacss.com/">I wrote an e-book</a>. It has been an interesting experience and I thought I'd share a few random thoughts on how things have gone so far.</p>
+
+<h2>Backwards</h2>
+
+<p>When I first started down the path of writing the SMACSS e-book, I had intended it to be either an e-book or a printed book. After months of writing and not getting enough written, I released what I wrote as a web site. A free web site at that. However, I also released it with the intention of continually adding new content to it until I had reached a point where I had a "finished product". </p>
+
+<p>Right away, though, many people asked for the site in an e-book and even a printed format. With my intention to add more content, a printed format just wasn't (and still isn't) a practical option. However, an e-book could be created and updated over time. And so I started down the path of converting the HTML content into other formats. </p>
+
+<p>Knowing my preference, I decided to try and put together the e-book in different formats, since each format has its own pros and cons. I did PDF, ePub, and mobi.</p>
+
+<p>Mobi is the format used on the Kindle and other e-ink readers. It lacks a lot of control over formatting and was the lowest common denominator. ePub is the format that Apple uses and was a format that I wanted to push the limits on&mdash;even if maybe just a little bit. Lastly, I also went with PDF, which has great support across most platforms.</p>
+
+<p>Once I stop writing new content, I may very well do a print version, too. This feels rather backwards from how a publisher would normally do it: print to e-book to free. I went from free to e-book to (maybe one day) print. </p>
+
+<h2>Working in ePub</h2>
+
+<p>Trying to find accurate and up-to-date information on creating an ePub file targetted for iOS proved to be surprisingly difficult. Searches revealed information that was often a few years old and targetting older versions of the spec. Apple also supports non-standard features like embedded audio and video. The problem was trying to figure out what some things wouldn't work.</p>
+
+<p>The ePub format, if you're not familiar, is just a zip file with a bunch of XML and HTML content. The XML defines the assets and table of contents and the content itself is in an HTML format. I ended up using <a href="http://code.google.com/p/sigil/">Sigil</a> to expediate the conversion but discovered that Sigil sticks heavily to the spec. Embedding HTML5 video, for example, will get stripped out automatically without any clear messaging telling you that the application has done so. That was frustrating.</p>
+
+<p>I was able to use font-face embedding, which I liked. It allowed me to maintain elements of the brand from the web site and bring them into the e-book. I was able to buy an extended license to embed <a href="http://cargocollective.com/pstype#205190/Quatro-Ultra-Slab">Quatro Slab</a> in the e-book. </p>
+
+<p>Hand coding the files turned out to be a better solution, although I still find updating the table of contents XML a hassle. </p>
+
+<p>Testing the ePub on my iPhone or iPad was somewhat straightforward. Just drop the ePub file into iTunes and sync it to the device. The problem is that the device caches information about the book so dropping in an updated file doesn't automatically update the book on the device with the latest version. Deleting from the device and deleting from iTunes and dragging the file back over may work. Sometimes. But not all the time. I never did find a reliable way to easy push new book updates to the device.</p>
+
+<h2>Working in Mobi</h2>
+
+<p>Short and sweet: with such limited functionality, I used <a href="http://calibre-ebook.com/">Calibre</a> to convert from the ePub version to the mobi version. I had a friend try it on the device and went with it as is. I didn't make any other changes to get the e-book prepared for the Kindle. It was this version that I ended up uploading to Amazon (which I'll talk about in a bit).</p>
+
+<h2>Working in PDF</h2>
+
+<p>I used Pages and manually copied all the content into it, setting up styles and managed the layout of the book manually. I think I used A4, which is unusually large. The next version of the PDF will likely use half-letter size. This turns out to be the same size as the <a href="http://www.abookapart.com/">A Book Apart</a> series of books. If and when I go to print, the half-letter size should hopefully be easier to print. </p>
+
+<p>Manually laying out the content is a chore and means that minor edits to the book have to be done in multiple places. I'm looking at some HTML to PDF options to make this step easier but so far, I haven't found anything that's perfect.</p>
+
+<h2>Working in DocBook</h2>
+
+<p>Wait, what? What is DocBook? Working in multiple formats, I longed for a way to build in a single format and then export into all of the other formats I needed quickly and easily. I chatted with folks at a couple different publishers and they said they used DocBook. It seemed like the way to go.</p>
+
+<p>Unfortunately, I didn't like the HTML that was getting created. This would ultimately be the HTML code that would appear on SMACSS.com and in the ePub version (although I suspect nobody would have seen it there). Just having it on the web site meant that I was more particular about the output.</p>
+
+<p>DocBook is an XML format and getting my content into the format was easy enough. Getting it out, however, was mired in DIV tags 4 or 5 levels deep. Not an example I wanted on my web site. The XML to HTML conversion happens with a set of premade XSL files. You can tailor your own XSL files to get the output that you wanted. However, after finding myself working for hours over the output of each element of code, I gave up. </p>
+
+<p>If you didn't care about the HTML or were okay with the HTML the DocBook XSL generates for you then DocBook might be a good fit for you. For me? It definitely wasn't.</p>
+
+
+<h2>Publishing with Amazon</h2>
+
+<p>I decided to publish to Amazon as a way of possibly having people randomly come across the book who might not otherwise do so. The sales of the book on Amazon have done quite well, exceeding the number of $15 ebook sales through my own site. The reporting from Amazon's site isn't really the easiest for tallying up total sales on a daily basis. However, I'd estimate that I've sold almost 200 copies of the ebook through Amazon alone. </p>
+
+<p>Amazon has different royalty points. If the book price is over $10 then you only get 35% from each sale. If the book price is under $10 then you have the option of 35% or 70%. What's confusing is that even though I chose the 70% option (and priced the book below the $10 threshold to ensure that I could), not every sale automatically results in 70% royalties. I must've missed some fine print somewhere because a third of e-books sold via Amazon US only got the 35% royalty. </p>
+
+<p>One of the other downfalls with using Amazon is that you don't get access to any customer information. You don't know how they found your book or have any way of contacting them. This is okay if you're just doing the book and nothing else. But I have the workshop and potentially other things down the road that people may be interested in. I'll never know.</p>
+
+<h3>Why not Apple iBookstore or Nook?</h3>
+
+<p>Both Apple and Barnes and Noble require tax information to be supplied up front, which I didn't have. As a Canadian, this usually means filing for a special tax number that is filed with a W8BEN form. As an American-Canadian, I should actually be applying for a SSN and filing US taxes. Way more effort than I really wanted to put into it.</p>
+
+<p>As I learned afterwards, Amazon has the same requirements. If you don't provide the information, it deducts a hefty portion off of the cheque it sends you. That I'm already selling it for less than money than I sell it on my web site and that I already lose 30-65% off the top for royalties makes this less than ideal.</p>
+
+<p>Both Apple and Barnes and Noble also suffer the same problem that Amazon does: they take a considerable share of each sale and provide you no customer information in return. </p>
+
+<h2>Customer Contact</h2>
+
+<p>Before I launched the site, I set up a form to subscribe to a mailing list. I had approximately 500 people sign up. When I launched the HTML-only site, I sent a campaign to the list and then shuttered the list.</p>
+
+<p>That was stupid.</p>
+
+<p>As I began work on the e-book, I set up a new list and hoped that everybody who had subscribed before would resubscribe again. Thankfully, the subscriber count has climbed its way back up. Don't let people fool you: <strong>e-mail isn't dead</strong>. E-mail sent to people who want to receive it are very attentive. They'll click through. They'll read what you have to say. You have their attention.</p>
+
+<h3>Social Networks</h3>
+
+<p>I relied heavily on my Twitter stream to get the word out but people often miss a tweet. I have friends who still don't realize that I've written the e-book. Go figure.</p>
+
+<p>But I also realized that I didn't take advantage of Facebook or Google+. I'm getting better. I'm trying to use the avenues that I have available to me. As I work on the workshops in addition to the extra content, I need to remember that not everybody hangs on my every word on Twitter.</p>
+
+<h2>Advertising</h2>
+
+<p>To put it bluntly: it has been a waste of time. If someone is successful with advertising, it's definitely not me. I spent nearly $1000 on advertising between Google AdWords and Fusion Ads (the very ads on this site) and while I got click throughs, few resulted in actual sales. Would a sustained ad have provided better results? Would someone who understands ad word targetting have done a better job? Maybe.</p>
+
+<p>Are there other advertising avenues that I could try? Yes. I didn't try Facebook and I'd be really curious to see how it performs versus everything else. I wasted time (and money) on the other approaches and therefore I'm reluctant to invest the time in anything else.</p> 
+
+
+<h2>Tiered Pricing</h2>
+
+<p>With the intent of producing more content, I wanted to reward people who were willing to pay up front for content that might be weeks or months in the making. I created the site membership and tried to make it as enticing as possible. For those that weren't as patient, I offered up just the e-books and the Kindle version as options.</p>
+
+<h2>Success?</h2>
+
+<p>First of all, I set my sights low. I expected most people would buy just the e-book with a few people going for the site membership. I expected to sell maybe 50 e-books within the first couple months. As of this writing, which is 2 1/2 months from when I launched the e-book, I've sold 569 site memberships and 106 e-books (and then close to 200 Kindle copies on Amazon). (A small caveat that many of the site memberships sold during the one-day sale I held on Christmas Day. That response also blew me away. I figured y'all would be eating dinner or opening presents!)</p>
+
+<p>Clearly I set my expectations too low.</p>
+
+
+<h2>Should you self-publish?</h2>
+<p>I have made more from self-publishing than I have from writing for traditional publishers. I took more risks, paying for an illustrator, font rights, designing all the collateral material, paying for advertising, building the payment gateway, and investing my time in writing the book itself. Having learned as much as I have in the process has been a huge reward in itself. Having the book do as well as it has has been a fantastic bonus.</p>
+
+<p>I recognize that I've built up an audience over the years and that I've been able to take advantage of that audience to get the word out. I believe that self-publishing offers up the greatest of flexibility and the greatest of rewards. I've seen lesser known individuals launch their own self-published efforts and have done similarly well.</p>
+
+<p>It's clich&eacute; but if I can do it, so can you!</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published February 09, 2012 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/writing/">Writing</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1012</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">19 Comments &middot; <a href="https://snook.ca/archives/writing/ebook-notes.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68837">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68837">1</a></div>
+			<span class="authorname">Jens Grochtdreis</span> said on February 08, 2012		</div>
+		<div class="quote"><p>Thanks for the detailed insight in the production process of your ebook and site. Isn't it strange that it always boils down tho formats? In the end it is just content. And as we use computers a conversion should be simple. But it isn't. In this case, print is superior :-) </p>
+<p>I guess it wouldn't be easy to find a publisher for such a small book. So publishing an ebook seems to me superior for this special case.</p>
+<p>Did you test LaTex? You can publish PDF and epub from LaTex, HTML should be possible, too. <a href="http://tex.stackexchange.com/questions/1551/use-latex-to-produce-epub">LaTex to epub</a>, <a href="http://tex.stackexchange.com/questions/16569/latex-document-to-epub-or-mobi-ebook-formats-with-mathematical-formulas">LaTex to epub and mobi</a>.</p>
+<p>I think, publishing an ebook is the right way for many topics in this industrie. These topics change too often or get old too fast. The production process for a book will be too long. Most jQuery-books are outdated when they are printed, because there are two new versions more in the meantime.</p>
+<p>But it is a little bit frustrating to see, that even someone with an international reputation doesn't sell enough copies to make a decent profit. Did you track the time you invested in writing? And did you track the time you invested in playing with the formats? Your hourly rate should then be very small, I guess.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68838">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68838">2</a></div>
+			<span class="authorname">Sell note</span> said on February 09, 2012		</div>
+		<div class="quote"><p>This is the perfect blog for anyone who wants to know about this topic. You know You definitely put a new spin on a subject thats been written about for years. Great stuff, just great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68840">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68840">3</a></div>
+			<span class="authorname">Andrew</span> said on February 09, 2012		</div>
+		<div class="quote"><p>Don't forget ePub isn't just iPad and iPhone! It's also the preferred format of most not-the-Kindle e-ink readers and the majority of installed ebook apps.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68841">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68841">4</a></div>
+			<span class="authorname">Tim Wright</span> said on February 09, 2012		</div>
+		<div class="quote"><p>This is a little weird but have you ever thought of making it an iOS/Android app through a Web Window (think that's what it's called)? You could use the app store as a way to alert folks that the book content had been updated and still host it online.</p>
+<p>A slight misuse of the app store, but might work... sort of like RSS.</p>
+<p>I don't know how the normal eBook version works but it feels like it would be problematic to push updates.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68842">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68842">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 09, 2012		</div>
+		<div class="quote"><p>@Tim: I suspect that the problem with pushing it to the App store is that it's not as discoverable as the iBookstore. People in search of a book on CSS would be looking amongst the other books. And while I can push book updates out (as I can on Kindle), I can't push notifications out to let people know about related things (except to possibly have a "news" section in the book, which seems...unusual).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68843">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68843">6</a></div>
+			<span class="authorname">Tim Kadlec</span> said on February 09, 2012		</div>
+		<div class="quote"><p>Thanks for writing this up!</p>
+<p>I recently worked on pulling existing content from a CMS to generate both ePub and Kindle formats and much of my process was similar to your own. Since the books were compilations of articles, the formatting was very basic. I found as long as you kept the styling pretty basic, you didn't really have to tweak much of anything to get the ePub and Kindle versions to generate from the same set of files. As it turned out, writing the script to generate the ebooks was the easy part. Removing the cruft left over by the WYSIWYG was much more challenging.</p>
+<p>Once the files were generated, I used an Applescript application to create the ePub (in order to ensure the mimetype file came first), and <a href="http://www.amazon.com/gp/feature.html?ie=UTF8&amp;docId=1000234621">Kindlegen</a> to create the .mobi file. </p>
+<p>I'll probably expand on the process in a post on my site eventually, but I did want to share one way that made the ePub testing a little less painful. If you place the ePub file on your server and navigate to that address in Safari on your iPad or iPhone, you can download and open the file directly in iBooks. While still not perfect, this eliminates the need to sync your device each time you want to test.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68844">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68844">7</a></div>
+			<span class="authorname">Peter Gasston</span> said on February 10, 2012		</div>
+		<div class="quote"><p>Have you considered selling through the Kobo store too? ePub format, and it's Canadian to boot!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68847">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68847">8</a></div>
+			<span class="authorname">shadaik</span> said on February 10, 2012		</div>
+		<div class="quote"><p>About the fine print on amazon.com sales: Yeah, you get only 35% for books sold by amazon.com outside US/Canada.<br />
+Meaning, you "only" get 70% on books sold in US/Canada (via amazon.com), UK/Ireland (amazon.co.uk), Germany, Austria, Switzerland (amazon.de), Italy (amazon.it), Spain (amazon.es), France, and Belgium (amazon.fr). That is, all countries that have a native Kindle shop. Left out a couple of really tiny European countries, but you get the idea.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68848">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68848">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 10, 2012		</div>
+		<div class="quote"><p>@Peter Gasston: there's no information on the Kobo site about royalty costs or other rights handling or how they handle payouts. I'd prefer they had this info up front instead of requiring me to contact someone to do so.</p>
+<p>@Shadaik: Thanks for clarifying that!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68849">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68849">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 10, 2012		</div>
+		<div class="quote"><p>@Jens: I glanced at LaTeX and felt that I was in the same boat as DocBook: It's going to require a lot of effort to get the final product closer to what I wanted. However, I didn't look at it as closely as I did DocBook. With DocBook, I actually tried to see what it could do. I didn't do the same with LaTeX.</p>
+<p>As for how it computes with my hourly rate? I didn't track my writing time. Or the time to build the site or all the other things that went into it. With book revenue having been around $15k, at an hourly rate of $100/hour, that works out to 150 hours. I spent about 40 hours working on the site itself and probably another 80 hours spent on writing. I wasted about 10 hours on DocBook that I'd like to get back. It's probably quite close to the $100/hr rate.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68850">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68850">11</a></div>
+			<span class="authorname">Tim McCormack</span> said on February 10, 2012		</div>
+		<div class="quote"><p>Huh, I wasn't aware that any e-ink reader other than the Kindle could read .mobi files.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68865">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68865">12</a></div>
+			<span class="authorname">SÃ©rgio Jardim</span> said on February 16, 2012		</div>
+		<div class="quote"><p>I think you must try both Sphinx (http://sphinx.pocoo.org/) and Scrivener (literatureandlatte.com). They are great to export to html and epub. The later also export to mobi as well.</p>
+<p>I've used Sphinx to create the documentation of a web project (not for the code, but for the UX) and exported as HTML with great results. </p>
+<p>Scrivener it's to me the most perfect tool to write a book, and it exports to various formats with great control.</p>
+<p>Regarding the publishing to iBook Store, we've used the services of Libre Digital (http://www.libredigital.com/) and they intermediate the process very nicely. The downside is that they will charge for a % to each book sold too, but it was the only possibly way to publish the books as we are in Brazil. </p>
+<p>Cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68869">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68869">13</a></div>
+			<span class="authorname">martin</span> said on February 18, 2012		</div>
+		<div class="quote"><p>I was playing with the idea of writing an ebook for children's education. I thought about it for years but now with the technology of e-readers its much easier to publish your book. I have just finished my ebook with the help of my design company www.cyberwizdesign.co.uk but im not sure where i should upload it to? anyone got any good ideas for children's books?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68870">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68870">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 18, 2012		</div>
+		<div class="quote"><p>@Martin: congrats. I would think for a children's book, you'd want to get it to where people are looking for them. Amazon, iBooks, and Barnes and Noble are good places to start. Personally, I've yet to really look at e-books for children's books. I'll either go app or go print. Best of luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68873">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68873">15</a></div>
+			<span class="authorname">Durban </span> said on February 20, 2012		</div>
+		<div class="quote"><p>This a brilliant article. I have been thinking also about writing eBook version of series of tutorials for my blog at www.goldtree.co.za but my biggest obstacle is mass of content... Maybe one year from now I will re-visit this excellent blog!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68878">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68878">16</a></div>
+			<span class="authorname">Rajeev</span> said on February 25, 2012		</div>
+		<div class="quote"><p>I have found that Lulu pcreis are about double those at CreateSpace. But since both are in the US I am still looking for a way forward (I am in UK). Lightning had no pcreis so i eliminated it. Any other ideas ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68924">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68924">17</a></div>
+			<span class="authorname">Richard Metzler</span> said on March 13, 2012		</div>
+		<div class="quote"><p>Jonathan,</p>
+<p>your advertising should start on your own page. If you want to sell more books, do the following:<br />
+1. go on the top of this page, hit CMD+F and search for 'book'. All instances of the word 'book' will be highlighted.<br />
+2. you will recognize, that your author bio doesn't say anything about your book and the axe guy doesn't say anything about a book either.</p>
+<p>I've been on your site from time to time and lately I look for more content for my kindle, so I might be the perfect customer, but I've never read anything about the book until now.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68926">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68926">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 14, 2012		</div>
+		<div class="quote"><p>@Richard Metzler: Thanks for the feedback. I think that's valuable insight. Will do what I can to better indicate that I have a book for sale.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69125">19</a></div>
+			<span class="authorname">compueer repair</span> said on June 28, 2012		</div>
+		<div class="quote"><p>This actually answered my downside, thank you!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/writing/ebook-notes by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+</html>

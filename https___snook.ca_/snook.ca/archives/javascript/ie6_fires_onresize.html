@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/ie6_fires_onresize by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>IE Fires Onresize When Body Resizes - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/ie6_fires_onresize">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/ie6_fires_onresize">
+	<meta property="og:title" content="IE Fires Onresize When Body Resizes">
+	<meta property="og:description" name="description" content=" When a user resizes the browser window, I wanted to resize some elements on the page. So, I attached an onresize event handler to the window. I noticed it rather peculiar when Internet Explorer 6 kep...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>IE Fires Onresize When Body Resizes</h1>
+		<p> When a user resizes the browser window, I wanted to resize some elements on the page. So, I attached an onresize event handler to the window. I noticed it rather peculiar when Internet Explorer 6 kept locking up on me.</p>
+<p>Turns out, IE6 fires the event even when the document body changes in size. Here's a quick example to demonstrate:</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+var currheight = '';
+window.onresize = function(){
+		alert('resized');	
+}
+
+function expand()
+{
+	var el = document.getElementById('test');
+	var div = document.createElement('div');
+	div.innerHTML = &quot;a&quot;;
+	el.appendChild(div);
+}
+&lt;/script&gt;
+
+&lt;input type=&quot;button&quot; onclick=&quot;expand()&quot; value=&quot;Expand&quot;&gt;	
+&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</code></pre>
+<p>Every time you hit the expand button, it fires the event.  Ick. So, here is my IE6 fix:</p>
+<pre><code>var currheight;
+window.onresize = function(){
+	if(currheight != document.documentElement.clientHeight)
+	{
+		alert('resized');	
+	}
+	currheight = document.documentElement.clientHeight;
+}</code></pre>
+<p>I just perform a check to determine the height of the viewport and if it changes, do the resize. </p>
+<p><strong>Update:</strong> Looks like I didn't test properly in IE7. It, too, suffers the same problem, firing the resize event when the body changes.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 15, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/819</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">12 Comments &middot; <a href="https://snook.ca/archives/javascript/ie6_fires_onresize.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c49359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49359">1</a></div>
+			<span class="authorname">steve</span> said on June 15, 2007		</div>
+		<div class="quote"><p>yeah, found this one out myself... in an even more annoying way...</p>
+<p>Double click the title bar... this maximizes/restores the window size...</p>
+<p>which in IE7, fires 2 events, and in IE6, fires 3 events!!!!!</p>
+<p>I can accept 2 events... (1 for horizontal, and 1 for vertical)... even though that would still be goofy, but 3 events?</p>
+<p>When I last tested this, the size reported back by IE6, was the same for all 3 events... which caused weird issues...  I'll try your code though, to see if I can filter out some of the extra events.</p>
+<p>Cheers,<br />
+Steve
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49364">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49364">2</a></div>
+			<span class="authorname">Matt Turner</span> said on June 15, 2007		</div>
+		<div class="quote"><p>I was on a project a while back where this cropped up, I never found the solution.  I'll know for next time, thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49365">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49365">3</a></div>
+			<span class="authorname">Daniel Lemire</span> said on June 15, 2007		</div>
+		<div class="quote"><p>If I'm not mistaken, this happens with IE7 also.  I've been playing around with mootools animation and I came across the very same problem.  I didn't realize it was a syptom of the body size changing, but after reading this it makes perfect sense.  I have been fighting with this problem for about a week (only about an hours time, because it's my own site and I can only handle so much frustration on my own behalf).</p>
+<p>Your timing is pretty good for me on this.  Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49367">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49367">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 15, 2007		</div>
+		<div class="quote"><p>@Daniel: so it does. I was pretty sure I tested this in IE7 but I apparently didn't test well enough. Indeed, IE7 suffers the same problem. The solution described above will work in IE7 as well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49392">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49392">5</a></div>
+			<span class="authorname">RStankov</span> said on June 16, 2007		</div>
+		<div class="quote"><p>yesterday I read about object.watch ( http://devguru.com/technologies/javascript/10770.asp )</p>
+<p>may be you could watch document.documentElement.clientHeight ( or clientWidth).  I haven't see any where to use watch, but I don't know the reason.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49400">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49400">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 16, 2007		</div>
+		<div class="quote"><p>@RStankov: while theoretically that sounds like a great idea, Object.watch only works in Mozilla/Firefox.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49413">7</a></div>
+			<span class="authorname">Charlie</span> said on June 16, 2007		</div>
+		<div class="quote"><p>You should read this:<br />
+http://ecmascript.stchur.com/2006/08/20/beating-the-ie-resize-bug/#more-23</p>
+<p>I was driven insane by this problem when working with a resolution dependent layout.  IE was flickering and running really slow everytime I toggled a container that would span over the fold as it fired IE into action due to the body resize.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49489">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49489">8</a></div>
+			<span class="authorname">Adam J. McIntyre</span> said on June 18, 2007		</div>
+		<div class="quote"><p>@Charlie - Nice find.</p>
+<p>I've also found that JavaScript expressions wrapped in a conditional comment can also work. (With the caveat that they're not that extra pretty and they have a little "bounce" after the resize occurs.)</p>
+<p>A quick Google search turned up this example, which kind of illustrates the point:<br />
+<a href="http://blog.richnetapps.com/index.php?p=49&amp;more=1&amp;c=1&amp;tb=1&amp;pb=1">http://blog.richnetapps.com/index.php?p=49&amp;more=1&amp;c=1&amp;tb=1&amp;pb=1</a></p>
+<p>It's much more roundabout than simply pinging an element's width attribute, though. (But it still remains a nice standby for emulating min-width/max-width in IE6 and below).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55824">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55824">9</a></div>
+			<span class="authorname">Jim</span> said on October 04, 2007		</div>
+		<div class="quote"><p>What happens if you want Firefox to emulate IE? Not often this happens granted, but I was looking to resize an image to 100/100% of the body - using JS to keep the image ratio, so it doesnt start to look odd.</p>
+<p>If you do this in Firefox you get a resize event after you have resized rather than during as in IE. resize v resized...Otherwise I'm just going to scale the image to the greatest extent that the browser can be in order to overcome the problem...</p>
+</div>
+	</div>
+		<div class="comment" id="c56590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56590">10</a></div>
+			<span class="authorname">John McKerrell</span> said on November 01, 2007		</div>
+		<div class="quote"><p>Thought I'd mention, I was having a similar problem and made my own test page. On my test page though I wasn't seeing the resize event being called for document body changes. Then I compared my test page and my problem page and it turns out this doesn't happen if you have a strict DTD. If you have a transitional DTD though it doesn't occur. The strict DTD page also had the XML declaration so it might be related to that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59752">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59752">11</a></div>
+			<span class="authorname">Zack Katz</span> said on October 08, 2008		</div>
+		<div class="quote"><p>@steve - Maybe it fires three events because of width, height, and zoom...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65568">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65568">12</a></div>
+			<span class="authorname">xyz</span> said on January 31, 2011		</div>
+		<div class="quote"><p>I had similar problem. I was adjusting the buttons width during onload, but that triggers on resize event in IE. My fix was:</p>
+<pre><code>/**
+* onload handler
+*/
+handleOnLoad = function(evt)
+{
+	var docResizeHandler = null;
+	if (myVars.browser.name == "MSIE")
+	{
+		docResizeHandler = (document.body.onresize) ? document.body.onresize : null;
+		document.body.onresize = null;
+	}
+
+	// Fix buttons width code
+	... ... ...
+
+	if (myVars.browser.name == "MSIE")
+	{
+		document.body.onresize = docResizeHandler;
+	}
+}
+
+/**
+* onresize handler
+*/
+handleResize = function(evt)
+{
+	var ieEvt = window.event;
+
+	if (myVars.browser.name != "MSIE" || ieEvt.type == "resize")
+	{
+		// Handle resizing
+		... ... ...
+	}
+};</code></pre>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/ie6_fires_onresize by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:58 GMT -->
+</html>

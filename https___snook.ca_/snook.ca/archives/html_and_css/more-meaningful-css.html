@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/more-meaningful-css by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>More Meaningful CSS - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/more-meaningful-css">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/more-meaningful-css">
+	<meta property="og:title" content="More Meaningful CSS">
+	<meta property="og:description" name="description" content="
+Tim Baxter wrote an article for A List Apart discussing the possibly dogmatic, and maybe unnecessary, use of classes for styling HTML elements. 
+
+Why do ‘.button’ when you can do ‘button’?...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>More Meaningful CSS</h1>
+		
+<p><a href="http://alistapart.com/article/meaningful-css-style-like-you-mean-it">Tim Baxter wrote an article for A List Apart</a> discussing the possibly dogmatic, and maybe unnecessary, use of classes for styling HTML elements. </p>
+
+<p>Why do ‘.button’ when you can do ‘button’? Why do ‘.form’ when you can do ‘form’?</p>
+
+<p>I think it’s important to understand the context of which class-based systems like OOCSS, SMACSS, and BEM have made their way into being. </p>
+
+<p>With large, oft-changing web applications, there are certain problems that arise that don’t occur on simpler, less dynamic web sites.</p>
+
+<p>My blog, for example, is a relatively straightforward site. I’ve made only minor revisions to the design over the last 7 years and my entire CSS weighs in an easily manageable 6 KB uncompressed. </p>
+
+<p>There’s not a lot of complexity to the site design. I could use element selectors liberally. I could and have returned to that code after years of neglect and understand the code relatively quickly. </p>
+
+<p>So then, why the need for classes on everything as advocated by myself and others?</p>
+
+<p>These systems address the complexity of not only large projects and large teams but also of changing designs and changing code.</p>
+
+<p>Back when I was at Shopify, we had inputs. Every project has inputs. They were styled using <code>input</code> selectors. </p>
+
+<p>One of the problems we ran into was a redesigned input style that needed us to update the HTML structure around our input elements. Where this was especially problematic was trying to update the style and HTML across the entire application in stages. </p>
+
+<p>Using input selectors meant that we needed to write extra CSS to undo the input styles to then be able to apply the CSS that we wanted via a class. We did this using a mixin to make it clear that this code was unwanted and that we could remove this mixin once the transition to the new style was complete. </p>
+
+<p>When you have multiple teams working away on multiple branches, you can’t stop the presses so that you can apply site wide changes. Using element selectors inhibits the ability to make incremental changes to a project because you can’t be judicious with their use. Element selectors apply to all occurrences.</p>
+
+<p>Another problem is that HTML5, while it introduces a number of new elements, does not go far enough to describe all of the unique components of a design. Nor do I think HTML ever will or ever should. (See Web Components.)</p>
+
+<p>An element may also look different under different contexts. Not all <code>nav</code>s look the same. Not all <code>button</code>s look the same. Which requires you to concoct a selector for a specific context.</p>
+
+<p>You can always come up with element selectors for a specific scenario, a specific combination of HTML. But large projects change and with those changes, requires the ability to decipher what the CSS is doing and under what conditions, in order to be able to change it at will. Otherwise, you end up with code you don’t understand and a reluctance to delete it or change it for fear something might break.</p>
+
+<p>This is where class-based CSS systems like SMACSS excel. You can give something meaning with a name—a name that you and your team can decide together what it means. </p>
+
+<p>With that class name comes a simplicity to your CSS. With a succinct grouping of classes, we begin to develop boundaries between objects on the page, like borders around a country. Each object has its own design and rules. </p>
+
+<p>It’s no longer a single page, static in time. It’s a collection of pages, built with an array of components that change from page to page and change in design and composition over time. </p>
+
+<p>A rigid system will break under the heavy winds of an ever-changing project. A flexible system will bend to your will, allowing your project to grow with greater ease. </p>
+
+<p>Meaningful CSS is important. It’s also important to ask where and how we give it that meaning. </p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published May 17, 2016 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1083</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">9 Comments &middot; <a href="https://snook.ca/archives/html_and_css/more-meaningful-css.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c71092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71092">1</a></div>
+			<span class="authorname">Nathan Smith</span> said on May 17, 2016		</div>
+		<div class="quote"><p>YES, x1000 this. Reading that ALA article, I had two thoughts…</p>
+<p>1. ALA used to have good content.</p>
+<p>2. What year is it? Did we go *back*?</p>
+<p>:)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71093">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71093">2</a></div>
+			<span class="authorname">Josh Northcott</span> said on May 17, 2016		</div>
+		<div class="quote"><p>Exactly. I can't help but think about Micah Godbolt's book about "Front End Architecture" and being a Frontend Architect. As devs, we need to architect a design system in a way to be component driven to provide that flexibility over time. </p>
+<p>Is it just me or does it seem like many of us out there have been doing this for a while but now maybe it's taking on more of a larger adoption? Kinda of along the lines of what my good friend Nathan Smith just said above. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71094">3</a></div>
+			<span class="authorname">Benjamin Listwon</span> said on May 17, 2016		</div>
+		<div class="quote"><p>As always, a well-considered response.</p>
+<p>It got me to thinking though, at least as a mental exercise, if in fact a class-based system is absolutely "required" for a large-scale project/product. </p>
+<p>Your examples from Shopify (et al) show a range of scenarios that make use of classified CSS quite fittingly. </p>
+<p>But a part of me also wonders: if an organization truly has honest-to-goodness semantic markup and properly isolated, modular styles, then wouldn't a custom scenario (or migration) be relatively simple by utilizing the <code>class</code> attribute as it was (sort of) originally intended? </p>
+<p>That is to say, should not a "class" of something simply be a subtype of the usual thing it is. Ergo, a signup form is still a type of form.</p>
+<p>I'm sort of thinking out loud here, so please forgive me where I'm covering already covered ground. Just want to keep the conversation going, if I can.</p>
+<p>---</p>
+<p>Let's consider some styles for a hypothetical site navbar for a second.</p>
+<p><strong>HTML</strong></p>
+<pre><code>
+&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/issues"&gt;Issues&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/reports"&gt;Reports&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<p><strong>CSS</strong></p>
+<pre><code>
+nav {
+  background: #369;
+}
+
+nav a {
+  color: #fff;
+}
+</code></pre>
+<p>Now, if a new feature came along, where we wanted a specialized scheme for the pages in that section, we could do something like:</p>
+<pre><code>
+body.special-feature nav {
+  background: #333;
+}
+
+-- or --
+
+nav.special-feature {
+  background: #333;
+}
+</code></pre>
+<p>If we used a preprocessor (for me that's LESS, hence the LESS examples), then our job gets a little easier because we could have variables for this kind of thing. That way, we can reuse those color references throughout the CSS (which would likely be far larger than this example :)</p>
+<pre><code>
+@brand-primary-color: #369;
+@brand-highlight-color: #fff;
+
+@special-feature-primary-color: #333;
+
+nav {
+  background: @brand-primary-color;
+}
+a {
+  color: @brand-highlight-color;
+}
+
+body.special-feature {
+  nav {
+    background: @special-feature-primary-color;
+  }
+}
+</code></pre>
+<p>Now, quite often, this is what gets out of hand. As you rightly point out, folks concoct selectors for each new feature, or whenever something needs to adapt to a new scenario. Tracking that down in a tangled web of CSS can get tough, and comprehending the cascade that leads to its effect on the output can be nightmarish.</p>
+<p>Knowing what I do about SMACSS, OOCSS and other systems though, I still think the best solution lies not in the intricacies of naming the classes, but in separating the major scenarios that have an effect on the rendering. In the above scenario, that means something like:</p>
+<p><strong>Files</strong></p>
+<pre><code>
+less
+|- styles.less
+|- variables
+|   |- main.less
+|   |- special-feature.less
+|- modules
+|   |- navbar.less
+</code></pre>
+<p><strong>styles.less</strong></p>
+<pre><code>
+@import "variables/main.less";
+@import "variables/special-feature.less";
+@import "modules/navbar.less";
+</code></pre>
+<p><strong>navbar.less</strong></p>
+<pre><code>
+nav {
+  background: @navbar-background-color;
+}
+
+a {
+  color: @navbar-highlight-color;
+}
+</code></pre>
+<p>Where, of course, you can still set your newly minted <code>@navbar-background-color</code> to <code>@brand-primary-color</code> by default and provide its override in <code>special-feature.less</code>. </p>
+<p>It could be argued this just kicks the can further up the chain, <em>but</em> it does utilize the principles of containment SMACSS (or many other modular CSS systems) advocate, without littering the class namespace in the CSS or the HTML.</p>
+<p>---</p>
+<p>Also, as you correctly point out, several HTML5 elements still lack a lot of clarity in practice. <code>section</code> springs immediately to mind. </p>
+<p>This may not have been where Tim was going with it, but I think the use of ARIA roles is a decent suggestion for adding clarity in those situations, both in the markup and styles.</p>
+<pre><code>
+&lt;nav&gt;
+  &lt;ul role="menubar"&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="/"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="/issues"&gt;Issues&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="menuitem"&gt;&lt;a href="/reports"&gt;Reports&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<p>Now, if you wanted all <code>menuitem</code> elements to be purple, regardless of their location, you have a candidate selector to do so.</p>
+<p>Again, it can be argued that this is nothing more than shifting the role of a classname to a <code>role</code> attribute. However ARIA provides a standardized definition we can all follow, rather than relying on classnames that are meaningful only to an individual or team. </p>
+<p>Consider a new hire coming across the above markup. If it is known that we follow ARIA guidelines, those items can be immediately conceptualized, versus the potential time wasted on poorly chosen or less descriptive classnames.</p>
+<p>---</p>
+<p>While I do not, in any way, doubt or question the examples you wrote about (how can one judge what one has not experienced), it is hard for me, having worked on small and (very) large scale systems alike, to imagine a scenario that cannot be tackled with semantic HTML, modular CSS strategies and a carefully considered approach to reusable structures.</p>
+<p>Even after utilizing Angular, Polymer and Vue for a few different projects now, I find that templated modules built primarily from core HTML5 elements are easier to manage, style and reuse.</p>
+<p>I think that most organizations' troubles do not stem from semantic HTML and semantic CSS being too restrictive or not expressive enough, but rather from years of legacy spaghetti CSS piling up due to a myopic focus on feature creation and not on addressing the underlying system. </p>
+<p>But once again, every case is different and I don't want to be prescriptive. Thanks again for a great post, and pointing me to a couple great articles today.</p>
+</div>
+	</div>
+		<div class="comment" id="c71095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71095">4</a></div>
+			<span class="authorname">Thierry Koblentz</span> said on May 17, 2016		</div>
+		<div class="quote"><p>I agree with Nathan, ALA is not what it used to be but unfortunately people still look at those articles as best practices...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71098">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71098">5</a></div>
+			<span class="authorname">Benxamin</span> said on May 18, 2016		</div>
+		<div class="quote"><p>I agree with a "tags only" minimal, semantic approach to start. Frameworks do this in a reset and/or normalize anyway. But I also see that we still need classes to represent the various states of different components. These can be added as needed.<br />
+It is like the "functional first" programming style where you don't add/implement side effects until the very end.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71104">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71104">6</a></div>
+			<span class="authorname">Ajay</span> said on May 20, 2016		</div>
+		<div class="quote"><p>The ALA article seemed a bit like a personal F.U. at Bootstrap, without which we probably wouldn't have ever ended up with <i>&lt;form class=&quot;form&quot;&gt;</i> - but I do think their article does hold some merit.</p>
+<p>That's not to say that Bootstrap is complete BS. It's a solid framework if that's what you need and their excessive use of classes is also needed to make the framework so robust (if used properly as ALA said).</p>
+<p>But if you don't need that, there's nothing wrong with some <b>meaningful</b> classes; and they should be meaningful.</p>
+<p>Classes make it easier to apply styling because you can visualise where the code is being used. e.g. It's much harder to decipher
+<pre><code>main article p:first-of-type a{} </code></pre>
+<p> than it is to decipher
+<pre><code>article a.link-as-button{} </code></pre>
+<p>As everything on the interweb; there is no right answer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71105">7</a></div>
+			<span class="authorname">Chuck Neely</span> said on May 20, 2016		</div>
+		<div class="quote"><p>@BenjaminListwon you may already know this, but you could slightly simplify your LESS example by using '&amp;' as a qualifying selector.  So this:</p>
+<pre><code>
+nav {
+  background: @brand-primary-color;
+}
+a {
+  color: @brand-highlight-color;
+}
+
+body.special-feature {
+  nav {
+    background: @special-feature-primary-color;
+  }
+}
+</code>
+</pre>
+<p>Can become:</p>
+<pre><code>
+nav {
+  background: @brand-primary-color;
+  body.special-feature &amp; {
+    background: @special-feature-primary-color;
+  }
+}
+a {
+  color: @brand-highlight-color;
+}
+</code>
+</pre>
+<p>...and the output is the same. Sure it only saves a coupe of lines of code, but I've fallen in love with this method recently as it allows you to keep related code blocks in the same nest, keeping things contextual. Anyway, just thought it was worth mentioning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71114">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71114">8</a></div>
+			<span class="authorname">Ronny Karam</span> said on May 24, 2016		</div>
+		<div class="quote"><p>Well written.</p>
+<p>Unfortunately every developer, designer and coder have a different opinion about what is and isn't a best practice.<br />
+I prefer to go with whatever gives me flexibility and maintainability; again, those 2 words differ from person to person.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c71124">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c71124">9</a></div>
+			<span class="authorname">Sacha Greif</span> said on May 25, 2016		</div>
+		<div class="quote"><p>Honestly at this point we've gone from styling using inline HTML attributes, to using external CSS, to now using inline CSS styles with React; and from completely banning presentational classes to saying that actually no, presentational classes are fine too. </p>
+<p>I'm pretty sure that for every "best practice" CSS article you can find another, more recent one that says the opposite. </p>
+<p>At this point when it comes to CSS I've only kept two rules throughout the years: </p>
+<p>1) Be consistent.<br />
+2) Don't be dogmatic. </p>
+<p>In other words if you come up with a system stick to it, but don't be afraid to change it if a better system comes along. </p>
+<p>/rant
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/more-meaningful-css by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:49 GMT -->
+</html>

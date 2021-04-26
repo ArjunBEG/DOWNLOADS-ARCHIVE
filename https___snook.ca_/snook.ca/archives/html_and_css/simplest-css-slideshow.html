@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/simplest-css-slideshow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Simplest CSS Slideshow - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/simplest-css-slideshow">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/simplest-css-slideshow">
+	<meta property="og:title" content="Simplest CSS Slideshow">
+	<meta property="og:description" name="description" content="In continuing my exercise of tackling a simple slideshow in different ways, this challenge attempts to make a slideshow without using any JavaScript. 
+
+Thankfully, I didn’t research this first and...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Simplest CSS Slideshow</h1>
+		<p>In continuing my exercise of tackling a simple slideshow in different ways, this challenge attempts to make a slideshow without using any JavaScript. </p>
+
+<p><em>Thankfully, I didn’t research this first and just went with it. Yes, this has been done before by other people. Whatevs. Enjoy</em>…</p>
+
+<p>To do so, I’ll attempt to do this with CSS animations. This was trickier than expected because, well, math is hard. I knew I was dealing with certain multiples but kept screwing up the timing. </p>
+
+<p>The basic premise is to have an image fade in and then fade out. I use an animation-delay to offset the animations for each subsequent image in the slideshow. </p>
+
+<p>This graph visualizes how the animation duration and animation delay work.</p>
+
+
+<img src="https://snook.ca/files/animation.png" alt="Offset image animations">
+
+
+<p>There are 3 sets of numbers that you need to determine: </p>
+
+<ol>
+<li>The total <code>animation-duration</code>.</li>
+<li>The <code>animation-delay</code> for each image.</li>
+<li>The keyframe timings.</li>
+</ol>
+
+<h2>Animation Duration</h2>
+
+<p>To determine the animation duration, take the fade in time that you want plus the time you want the image to be visible before beginning to fade out. If you want the image to take 1 second to fade in and be visible for 1 second and you have 3 images then your animation duration is 6 seconds. </p>
+
+<p>Math: (fade-in + visible) × images = duration.</p>
+
+<h2>Animation Delay</h2>
+
+<p>The animation delay is pretty straightforward. The key thing is that you want to start the animation for the next image when the image before that is starting its fade-out. Therefore, you want the animation delay to be the fade-in time plus the visible time for the previous image. If it’s the second image and the animation should fade in for 1 second and be visible for 2 seconds before fading out then the animation delay should be 3 seconds. If it’s the third image, the delay is 6 seconds. If it’s the fourth image, the delay is 9 seconds, and so on.</p>
+
+<p>Math: (fade-in + visible) × (ordinal position − 1) = delay.</p>
+
+<h2>Keyframes</h2>
+
+<p>Keyframes can be a simple <code>from</code> or <code>to</code> but for more complicated animations, we have to use percentages. Therefore, the last piece of the puzzle is figuring out how to get the animation percentages correct. To do so, we need to break up 100% into the number of seconds of our animation. If the animation is 10 seconds long then each second is 10%. If the animation is 6 seconds then each second is 16.66%. The timing then becomes a multiple of that.</p>
+
+<p>Math: 100 ÷ animation duration = percentage for 1 second.</p>
+
+<h2>All Together</h2>
+
+<p>Here’s how it all comes together. In this case, I’m doing a 1 second fade-in plus 2 seconds of visibility before fading out. First, I define the CSS keyframes for a fade animation.</p>
+
+<pre><code>@keyframes fade {
+  0%   { opacity: 0; }
+  11.11%   { opacity: 1; }
+  33.33%  { opacity: 1; }
+  44.44%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+</code></pre>
+
+<p>Next, I set the animation for all images.</p>
+
+<pre><code>.fadein img { 
+    opacity:0; 
+    animation-name: fade; 
+    animation-duration: 9s; 
+    animation-iteration-count: infinite; 
+    position:absolute; 
+    left:0; 
+    right:0; 
+}
+</code></pre>
+
+<p>Lastly, I set the animation delay for each of the images.</p>
+
+<pre><code>.fadein img:nth-child(1) { animation-delay: 0s; }
+.fadein img:nth-child(2) { animation-delay: 3s; }
+.fadein img:nth-child(3) { animation-delay: 6s; }
+</code></pre>
+
+<p>And voila! <a href="https://snook.ca/technical/fade/fade-css.html">We’re done</a>! </p>
+
+<p>The sucky thing about this is that any changes to the number of images you have require you to change the CSS to fix all three factors: duration, delay, and keyframes.</p>
+
+<p>Of course, some crafty person could probably whip up a Sass function or mixin to handle this. </p>
+
+<p><a href="https://snook.ca/technical/fade/fade-css.html">View the demo</a>.</p>
+
+<p>CSS-only Slideshows aren’t anything new and that’s okay. Check out <a href="http://www.smashingmagazine.com/2012/04/pure-css3-cycling-slideshow/">Pure CSS3 Cycling Slideshow</a> for an in-depth look at how to build a more complex CSS-only slideshow. </p>
+
+<h2>Sass Mixin</h2>
+
+<p>Okay, okay. Let’s do the Sass mixin! </p>
+
+<p>We know that we need three things to determine all the values for the CSS animation: </p>
+
+<ol>
+<li>The number of images.</li>
+<li>The length of the fade.</li>
+<li>The length of time it’s visible.</li>
+</ol>
+
+<pre><code>@mixin fade($num:1, $fade:1, $visible:2) { }
+</code></pre>
+
+<p>The mixin itself has three parts:</p>
+
+<ol>
+<li>Define the keyframes</li>
+<li>Set the animation properties</li>
+<li>Create all the <code>:nth-child</code> definitions</li>
+</ol>
+
+<pre><code>@mixin fade($num:1, $fade:1, $visible:2) {
+   $a: 100 / (($fade + $visible) * $num);
+   @keyframes fade {
+    0%   { opacity: 0; }
+    #{$a * $fade}%   { opacity: 1; }
+    #{$a * ($fade + $visible)}%  { opacity: 1; }
+    #{$a * ($fade + $visible + $fade)}%  { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  animation-name: fade; 
+  animation-duration: (($fade + $visible) * $num) + s; 
+  animation-iteration-count: infinite; 
+  
+  @for $i from 1 through $num {
+    &amp;:nth-child(#{$i}) {
+      animation-delay: (#{($fade + $visible) * ($i - 1)}) + s;
+    }
+  }
+}
+</code></pre>
+
+<p>Now, all we have to do is include the mixin on our images.</p>
+
+<pre><code>.fadein img {
+  position:absolute; left:0; right:0; opacity:0;
+  @include fade($num:3, $fade:5, $visible:0);
+}
+</code></pre>
+
+<p>And like that, we’re done! </p>
+
+<p>For more Snook.ca slideshows:</p>
+
+<ul>
+<li><a href="https://snook.ca/archives/javascript/simplest-jquery-slideshow">Simplest jQuery Slideshow</a></li>
+<li><a href="https://snook.ca/archives/javascript/more-simple-slideshow">More Simple jQuery Slideshows</a></li>
+<li><a href="https://snook.ca/archives/javascript/simplest-javascript-slideshow">Simplest JavaScript Slideshow</a></li>
+</ul>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published January 05, 2016 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1062</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">2 Comments &middot; <a href="https://snook.ca/archives/html_and_css/simplest-css-slideshow.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70851">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70851">1</a></div>
+			<span class="authorname">Abdullah Magdy</span> said on February 01, 2016		</div>
+		<div class="quote"><p>Beautiful sir!<br />
+Sending regards from Egypt!</p>
+<p>- Google Student Ambassador in MENA
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70857">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70857">2</a></div>
+			<span class="authorname">amine benhamida</span> said on February 07, 2016		</div>
+		<div class="quote"><p>this is working RTL also<br />
+regards from tunisia TOO ;-)</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/simplest-css-slideshow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+</html>

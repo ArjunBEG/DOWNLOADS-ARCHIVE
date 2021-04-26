@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/font-size-with-rem by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Font sizing with rem - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/font-size-with-rem">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/font-size-with-rem">
+	<meta property="og:title" content="Font sizing with rem">
+	<meta property="og:description" name="description" content="Determining a unit of measurement to size our text can be a topic of heated debate, even in this day and age. Unfortunately, there are still various pros and cons that make the various techniques less...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Font sizing with rem</h1>
+		<p>Determining a unit of measurement to size our text can be a topic of heated debate, even in this day and age. Unfortunately, there are still various pros and cons that make the various techniques less desirable. It's just a matter of which less-desirable is most desirable. </p>
+
+<p>There are two main techniques that are extolled:</p>
+
+<ol>
+<li>Size with px</li>
+<li>Size with em</li>
+</ol>
+
+<p>Let's review these two approaches before I reveal the magical third.</p>
+
+<h2>Sizing with px</h2>
+
+<p>In the early days of the web, we used pixels to size our text. It's reliable and consistent. Unfortunately, users of Internet Explorer&mdash;even in IE9&mdash;do not have the ability to change the size of the text using the browser function of increasing or decreasing font size. For those concerned about the usability of their site, this may be a big deal. Recent versions of IE include zooming, which increases the size of <em>everything</em> on the page&mdash;a feature that is also available in most other mainstream browsers, too. This has helped mitigate the issue to a degree.</p>
+
+<p>I, personally, have been of the camp that px-based layouts provide the consistency I prefer and users have enough tools available to adjust their view that accessibility is less of a concern. But I digress. What else can we do?</p>
+
+<h2>Sizing with em</h2>
+
+<p>That whole inability to resize text in IE has been a continuing frustration. To get around that, we can use em units. Richard Rutter's article, <a href="http://clagnut.com/blog/348/"><i>How to size text using ems</i></a>, was probably the first I read of this approach, way back in 2004. (Wow, it has been almost seven years.)</p>
+
+<p>The technique modifies the base font-size on the body using a percentage. This adjusts things so that 1em equals 10px, instead of the default 16px. To set the font-size to the equivalent of 14px, set it to 1.4em.</p>
+
+<pre><code>body { font-size:62.5%; }
+h1 { font-size: 2.4em; } /* =24px */
+p  { font-size: 1.4em; } /* =14px */
+li { font-size: 1.4em; } /* =14px? */
+</code></pre>
+
+<p>The problem with em-based font sizing is that the font size compounds. A list within a list isn't 14px, it's 20px. Go another level deeper and it's 27px! These issues can be worked around by declaring any child elements to use 1em, avoiding the compounding effect.</p>
+
+<pre><code>body { font-size:62.5%; }
+h1 { font-size: 2.4em; } /* =24px */
+p  { font-size: 1.4em; } /* =14px */
+li { font-size: 1.4em; } /* =14px? */
+li li, li p /* etc */ { font-size: 1em; }
+</code></pre>
+
+<p>The compounding nature of em-based font-sizing can be frustrating so what else can we do?</p>
+
+<h2>Sizing with rem</h2>
+
+<p>CSS3 introduces a few new units, including the rem unit, which stands for "root em". If this hasn't put you to sleep yet, then let's look at how rem works.</p>
+
+<p>The em unit is relative to the font-size of the parent, which causes the compounding issue. The rem unit is relative to the root&mdash;or the <code>html</code>&mdash;element. That means that we can define a single font size on the <code>html</code> element and define all rem units to be a percentage of that.</p>
+
+<pre><code>html { font-size: 62.5%; } 
+body { font-size: 1.4rem; } /* =14px */
+h1   { font-size: 2.4rem; } /* =24px */
+</code></pre>
+
+<p>I'm defining a base font-size of 62.5% to have the convenience of sizing rems in a way that is similar to using px.</p>
+<p>But what pitiful browser support do we have to worry about?</p>
+<p>You might be surprised to find that browser support is surprisingly decent: Safari 5, Chrome, Firefox 3.6+, and even Internet Explorer 9 have support for this. The nice part is that IE9 supports resizing text when defined using rems. (Alas, poor Opera (up to 11.10, at least) hasn't implemented rem units yet.)</p>
+<p>What do we do for browsers that don't support rem units? We can specify the fall-back using px, if you don't mind users of older versions of Internet Explorer still being unable to resize the text (well, there's still page zoom in IE7 and IE8). To do so, we specify the font-size using px units first and then define it again using rem units. </p>
+
+<pre><code>html { font-size: 62.5%; } 
+body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+</code></pre>
+
+<p>And voila, we now have consistent and predictable sizing in all browsers, and resizable text in the current versions of all major browsers.</p>
+
+<p class="update">Dec 13, 2011: Opera 11.60 now supports the rem unit.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 01, 2011 &middot; Updated December 13, 2011</div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/997</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">59 Comments &middot; <a href="https://snook.ca/archives/html_and_css/font-size-with-rem.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c67725">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67725">1</a></div>
+			<span class="authorname">Andrew Brinker</span> said on May 01, 2011		</div>
+		<div class="quote"><p>This is a great method for handling font sizing, the answer to my prayers, it seems.</p>
+<p>Thank you for posting this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67726">2</a></div>
+			<span class="authorname">AurÃ©lien Foutoyet</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Waoh ! Thanks for this article, I didn't know a new "magical" unit already existed.</p>
+<p>I have to test the "rem" unit as soon as possible.<br />
+The browser support doesn't seem so poor and the fallback follows the same logic than what I already do for rgb / rgba colors, that's cool.</p>
+<p>Thanks for sharing !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67727">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67727">3</a></div>
+			<span class="authorname">Pez Pengelly</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Fantastic!<br />
+I've been using Rutter's 62.5% font sizing technique for years and, while I love using it, the compounding em problem has been a thorn in my side ever since. The introduction of rems to css3 is a great solution and it's nice to see that most modern browsers support the feature. Definitely will implementing rem in my work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67728">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67728">4</a></div>
+			<span class="authorname">Graham Conzett</span> said on May 01, 2011		</div>
+		<div class="quote"><p>This is great, I knew it existed but never bothered to look into it further thinking that the support would be abysmal.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67730">5</a></div>
+			<span class="authorname">Jonathan D'Mello</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Thanks for the explanation!<br />
+This is great because it matches the way I work already. In most cases I set a base font size for body text and use multiples of that for the rest of the visual hierarchy. This is going to make all those calculations easier.</p>
+</div>
+	</div>
+		<div class="comment" id="c67731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67731">6</a></div>
+			<span class="authorname">Pete</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Don't know how I missed out on the rem unit, thanks for enlightening me!</p>
+<p>A recent solution I've used to counter the 'compound' effect leverages CSS variables available in pre-processors like less and sass:</p>
+<p>https://github.com/peteboere/preset/raw/master/library/variables/font-sizes.css</p>
+<p>Basically you set up a library file of CSS variables that map absolute pixel sizes to em values. For example a variable 'f16-12' would equate to 12px absolute size over 16px base font size.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67732">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67732">7</a></div>
+			<span class="authorname">Andrew Hedges</span> said on May 01, 2011		</div>
+		<div class="quote"><p>I was interested how well this is supported on mobile devices, so I set up this page to capture support: <a href="http://ahedg.es/w/rem.html">http://ahedg.es/w/rem.html</a></p>
+<p>Visit it (especially with mobile devices) please. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67734">8</a></div>
+			<span class="authorname">Florent Verschelde</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Great article. Itâ€™s a nice overview of the techniques we can use when we want to target specific amounts of pixels for font sizes. I may start to use the technique you highlight (`html {font-size:62.5%}`, pixel sizes + corresponding font-size with rem).</p>
+<p>But with all this focus on getting a precise pixel font-size in the end, it feels like weâ€™re missing the point of proportional font sizes (%, em and rem). Isnâ€™t the point of using those units to let the user agent and/or the user decide on a default font size (not always 16px)? Then we would just focus on whether the websiteâ€™s design requires text that is slightly larger or smaller than usual, and on the difference between body copy (base font size) and headings, UI text, etc.</p>
+<p>My take on this is that if we want pixels, we should use px and be done with it. The way IE handles px font sizes means that the px+rem technique can be useful, but weâ€™re still thinking in pixels. In a time where screen resolution ranges from roughly 60 to 320 dpi (60 to 200 if you donâ€™t count the iPhone 4â€™s display), SVG gets widely implemented and CSS decoration properties allows us to reduce or eliminate decorative background images, we may need to change or mindset and work on or px addiction. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67735">9</a></div>
+			<span class="authorname">Stepher</span> said on May 01, 2011		</div>
+		<div class="quote"><p>I always thought it was something I was doing wrong whenever I noticed the compounding font issue with ems.  Thanks - this made my day.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67738">10</a></div>
+			<span class="authorname">Chris Marsh</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Excellent post - it's a great new feature! Good to see it already has decent support, and I'm surprised it isn't better known.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67739">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67739">11</a></div>
+			<span class="authorname">Chris Jacob</span> said on May 01, 2011		</div>
+		<div class="quote"><p>WOAH.</p>
+<p>REM's look like a brilliant "future web development" browser feature. The fact that you can fall back to PX and start using this RIGHT NOW is beyond awesome.</p>
+<p>I'm going to investigate using it in an Adaptive Web Design / Template I'm working on...</p>
+<p>How exciting! Thanks for the tip!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67742">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67742">12</a></div>
+			<span class="authorname">Waldir Pimenta</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Thanks a lot! This might just allow me to neatly solve (as opposed to hack a workaround for) an issue I had a few days ago that led me to discover a bug in Firefox/Linux in that the input element doesn't actually inherit the parent's font-size: https://bugzilla.mozilla.org/show_bug.cgi?id=650584
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67743">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67743">13</a></div>
+			<span class="authorname">Waldir Pimenta</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Oops, forgot the markup. Clickable link: <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=650584">https://bugzilla.mozilla.org/show_bug.cgi?id=650584</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67744">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67744">14</a></div>
+			<span class="authorname">Michael Whalen</span> said on May 01, 2011		</div>
+		<div class="quote"><p>I love your joke about "if this hasn't put you to sleep yet" when dealing with REM. Hah.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67746">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67746">15</a></div>
+			<span class="authorname">Josh Triplett</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Please don't set the top-level font size using percentage; effectively, that says "take whatever the user wanted and make it smaller".  Instead, if you really want to set a base top-level font size, set it in pt.</p>
+<p>Even better, don't set the base font size at all; respect the user's settings.  Just size elements such as headings proportionally larger.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67747">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67747">16</a></div>
+			<span class="authorname">Kien N</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Awesome. I remember hearing about rem a few years back (2007? - Firefox 1.5?) but then it had zero browser support and was only something to be considered in the really far future. And sadly, it still won't be safe to implement rem in at less a couple of years, I think. IE8 and below still have a too large piece of the market share.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67748">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67748">17</a></div>
+			<span class="authorname">Brajeshwar</span> said on May 01, 2011		</div>
+		<div class="quote"><p>Ah! Have been a fanatic user of em. Time to graduate to rem.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67750">18</a></div>
+			<span class="authorname">Keith</span> said on May 02, 2011		</div>
+		<div class="quote"><p>This is SUPERB. I was ranting about this on twitter about 2 weeks ago, although in my opinion you should be able to set the root point...</p>
+<p>To Josh Triplett above:</p>
+<p>The percentage top-level in the 62.5% "hack" is almost always used with an em value greater than 1 for base text; so really you're not saying that at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67753">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67753">19</a></div>
+			<span class="authorname">Linda</span> said on May 02, 2011		</div>
+		<div class="quote"><p>In my opinion em should've worked like rem does in the first place. Thanks for this great article, very useful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67754">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67754">20</a></div>
+			<span class="authorname">Martijn</span> said on May 02, 2011		</div>
+		<div class="quote"><p>This means that we can't use it until, say, 2015, because almost all website still need to support IE8 and to a degree IE7.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67758">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67758">21</a></div>
+			<span class="authorname">Thomas Scholz</span> said on May 02, 2011		</div>
+		<div class="quote"><p>Never size the base font down to 62.5%. If the desired result is below the userâ€™s minimum font size, the real results are unpredictable and the rendering becomes slow. This technique has never worked really good. Itâ€™s history like Netscape 4.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67762">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67762">22</a></div>
+			<span class="authorname">Ryan Cannon</span> said on May 02, 2011		</div>
+		<div class="quote"><p>Regarding Josh Triplett's:</p>
+<blockquote><p>Please don't set the top-level font size using percentage; effectively, that says "take whatever the user wanted and make it smaller".</p>
+</blockquote>
+<p>Default font size isn't a function of user preferences; it's a function of history. Browsers started using 16px as the default size years ago, and every browser since has had to use this garishly-large size for compatibility, and probably will for the foreseeable future. There's nothing wrong with managing the size for body appropriately for modern browsers. Don't forget, the Web looked a lot different when 16px was chosen as the default.</p>
+</div>
+	</div>
+		<div class="comment" id="c67764">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67764">23</a></div>
+			<span class="authorname">Thierry Koblentz</span> said on May 02, 2011		</div>
+		<div class="quote"><p>Hi Jonathan,</p>
+<p>fwiw, I never liked that "font-size:62.5%;" technique on body. Imho, it leads to too many issues depending on user settings. </p>
+<p>I wonder if rem solves this problem though.</p>
+<p>Thanks for writing about this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67766">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67766">24</a></div>
+			<span class="authorname">Gerald Fullam</span> said on May 02, 2011		</div>
+		<div class="quote"><p>Why use the 62.5% rule at all? Why not declare 10px on the body or html element and use ems everywhere else? The 62.5% rule relies on a user's browser default being set to 16px â€” most are â€” but some users modify this setting.</p>
+<p>If your goal is to eliminate font sizing problems, then why implement a technique that causes font sizing problems for a different set of users?</p>
+<p>Will declaring a fixed font-size of 10px in the body or html element prevent IE/Win users from resizing other elements based on ems?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67767">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67767">25</a></div>
+			<span class="authorname">Lucian</span> said on May 02, 2011		</div>
+		<div class="quote"><p>I always used 62.5% on body combined with em method, however I don't see too many benefits in using the rem. </p>
+<p>First of all, if you want to support IE7/8 you need to always add the fall-back size in px. From my experience, when using ems, the only reset you need to is for nested lists.<br />
+Trust me, it is easier to add few lines of code than adding both px and rem sizes for all elements.</p>
+<p>For websites that need only IE9+ support I think is a great new function but it is not ready for deployment yet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67769">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67769">26</a></div>
+			<span class="authorname">Robert Visser</span> said on May 02, 2011		</div>
+		<div class="quote"><p>@segdeha The mobile browser CSS 'rem' Unit Support is a great list: http://ahedg.es/w/rem.html . Thanks for putting that resource together.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67770">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67770">27</a></div>
+			<span class="authorname">Oliver</span> said on May 02, 2011		</div>
+		<div class="quote"><p>Yes, BUT it brings back the "not resizing" problem in IE6, so at this moment it is not the holy grail. It only makes it easier for the designer but brings no improvement for the user.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67778">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67778">28</a></div>
+			<span class="authorname">tom</span> said on May 02, 2011		</div>
+		<div class="quote"><p>This is really cool I think I am going to implement this on my site when I finally get around to creating it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67781">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67781">29</a></div>
+			<span class="authorname">seutje</span> said on May 03, 2011		</div>
+		<div class="quote"><p>I'm with mister Triplett on this one. Setting the root Font size in % only works the way u want if the user hasn't touched his browser settings,  if his font size is set to 14, ur effectively making things a lot smaller than u expected. So this assumption isn't only bold, but sorta rude as well. Like if someone would order a large sub and he'd get a small one instead...<br />
+I Usually define my root size in px and add controls if the project requires font scaling. Agreed, it's equally rude, but more accurate.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67783">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67783">30</a></div>
+			<span class="authorname">Aankhen</span> said on May 03, 2011		</div>
+		<div class="quote"><blockquote>
+<p>Browsers started using 16px as the default size years ago, and every browser since has had to use this <strong>garishly-large</strong> size for compatibility, and probably will for the foreseeable future.
+</p></blockquote>
+<p>As opposed to the â€œsquintishly smallâ€ taking over the Web of late? :-P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67787">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67787">31</a></div>
+			<span class="authorname">Pedro Duarte</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Yeah I like the idea a lot actually, just a shame it's not supported by all browers.<br />
+I don't like the thoguht of having to specify the font size in px too for older browsers, so I'd stick with em until all browsers support rem, which is in probably 20 years time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67797">32</a></div>
+			<span class="authorname">Nathan B</span> said on May 03, 2011		</div>
+		<div class="quote"><p>didn't know this. very helpful. thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67799">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67799">33</a></div>
+			<span class="authorname">Corey Innis</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Very nice suggestion.</p>
+<p>Another technique to avoid unwanted em-based cascade:</p>
+<pre>
+  /* use child combinators (supported from IE 7) */
+  div#context_element &gt; ul &gt; li {
+    font-size : 1.25em; /* will not compound on nested
+<li /> */
+  }
+</pre>
+<p>Note that I also tend to use px (12 is a nice baseline and the em math is still pretty simple... round at the 1000th place) and "reset" at various key points (e.g., forms)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67801">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67801">34</a></div>
+			<span class="authorname">doug_eike</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Great explanation!  I'm using WordPress and am learning css.  Right now, I'm overriding the default for the &lt;h2&gt; tag with a 1.2em.  The compounding issue is intriguing.  Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67802">35</a></div>
+			<span class="authorname">Ede Kowalski</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Servus, from Munich!<br />
+Doe's this solution also work in IE6-9.<br />
+Thank You<br />
+EdeK.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67814">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67814">36</a></div>
+			<span class="authorname">Chris Jacob</span> said on May 03, 2011		</div>
+		<div class="quote"><p>I would love to know what people think of this demo I've whipped up... </p>
+<p>------------------------------------------<br />
+ROOT EM! Using CSS3 "rem" Units for "Elastic Pixels"<br />
+------------------------------------------<br />
+JSBin Preview: <a href="http://jsbin.com/acide4/8">http://jsbin.com/acide4/8</a><br />
+JSBin Code: <a href="http://jsbin.com/acide4/8/edit">http://jsbin.com/acide4/8/edit</a></p>
+<p>@_chrisjacob if you want to discuss on twitter.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67815">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67815">37</a></div>
+			<span class="authorname">Kinescive</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Hey, tell me please, I am now in Greece, and my parents are in Moscow how to to pay them anything so we could talk cheap? I found just such a story, maybe someone has used a similar service, or heard of him? Tell me please  whether this actually real?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67816">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67816">38</a></div>
+			<span class="authorname">Gaurav Mishra</span> said on May 03, 2011		</div>
+		<div class="quote"><p>Hello J. Snook<br />
+REM seems very a logical visual unit. And If not put to sleep... may help a designer to distinguishably add the pixel diet to font, based on a hierarchy.<br />
+Thanks for sharing!</p>
+<p>Namaste from India<br />
+Gaurav M
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67823">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67823">39</a></div>
+			<span class="authorname">Peter Gasston</span> said on May 04, 2011		</div>
+		<div class="quote"><p>I set a base size of 10px on the body, then use percentages. Works everywhere.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67843">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67843">40</a></div>
+			<span class="authorname">Amy Hendrix</span> said on May 04, 2011		</div>
+		<div class="quote"><p>Forget gradients and transforms and bling - this is the most exciting CSS3 trick I've heard of.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67844">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67844">41</a></div>
+			<span class="authorname">Michael Fields</span> said on May 04, 2011		</div>
+		<div class="quote"><p>This is amazing! Thanks for writing it up. Definitely need to start using rem over em for my layouts. Everytime I think about using them, I hear "It's the end of the world as we know it ..." in my head. Added bonus :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67845">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67845">42</a></div>
+			<span class="authorname">Montana Flynn</span> said on May 04, 2011		</div>
+		<div class="quote"><p>Just like when I first learned of RGBA and then Chris from css-tricks showed me HSLa! Thanks Jon!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67848">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67848">43</a></div>
+			<span class="authorname">Bryan Paterson</span> said on May 04, 2011		</div>
+		<div class="quote"><p>I'm curious as to why this is useful.  The reason that people started using em based font-size was to provide IE with the ability to zoom in and out correctly.  By falling back to px for IE 7/8, this goes right back to the same issues people had with px based font-size.</p>
+<p>That being said, you could use em font-sizes in a pre-IE9 only stylesheet (included using IE conditional comments) to have the best of all worlds.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67849">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67849">44</a></div>
+			<span class="authorname">Blake Embrey</span> said on May 04, 2011		</div>
+		<div class="quote"><p>Wow, this is brilliant. I am going to be implementing this ASAP on all my sites. Thanks for the head up ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67851">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67851">45</a></div>
+			<span class="authorname">Bruno De Barros</span> said on May 04, 2011		</div>
+		<div class="quote"><p>Hold on a minute. You said the con of px was that most IE users couldn't resize it properly. ThenÂ you talk about rem, which can't even be understood by most IE users. Isn't that even worse? The point of em was to fix sizing in older IE versions. rem doesn't solve that, so how is it any better than px?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67852">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67852">46</a></div>
+			<span class="authorname">Rhys</span> said on May 04, 2011		</div>
+		<div class="quote"><p>Ive been a big fan of em for years but have to say Ive been thinking of using px instead these days perhaps because Im more interested with mobile devices and figgured most modern browsers default to zoom rather than Text Zoom. I had assumed IE9 would be cool with px by now :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67856">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67856">47</a></div>
+			<span class="authorname">Paul</span> said on May 05, 2011		</div>
+		<div class="quote"><p>Hi Snook</p>
+<p>Great post here, though, i got on question, i hope u ( or somebody else who knows the subject ) don't mind answering this one simple question.</p>
+<p>Concerning the font size aspect of the web.</p>
+<p>Right now it seems to me that em has no benefit at all, since all the modern browsers now support full page zoom ( Ctrl + - 0  )</p>
+<p>So what exactly is the point of using em or rem instead of px ?</p>
+</div>
+	</div>
+		<div class="comment" id="c67857">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67857">48</a></div>
+			<span class="authorname">Matt Hinchliffe</span> said on May 05, 2011		</div>
+		<div class="quote"><p>I can certainly see the uses in new rem unit for code maintainability; for instance when using separate stylesheets or if the font sizes are all bumped up or down at a later date. However I hate finding the body set to 10px, it's lazy and at some point you will end up with content without any styles affecting it, thus being unreadable.</p>
+<p>Em calculations take just a second (value is pixels you have / 100 * value you want) or use a service such as <a href="http://riddle.pl/emcalc/">Em Calculator</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67862">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67862">49</a></div>
+			<span class="authorname">Richard</span> said on May 05, 2011		</div>
+		<div class="quote"><p>Think I'll stick with px.</p>
+<p>The one partially sighted person who also happens to be on IE so can't resize is just going to have to lump it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67893">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67893">50</a></div>
+			<span class="authorname">Nate Johnson</span> said on May 06, 2011		</div>
+		<div class="quote"><p>Love this post. I really haven't understood em completely, but I now understand that AND rem. This was to the point, and extremely informative. Well done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67905">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67905">51</a></div>
+			<span class="authorname">dougwig</span> said on May 06, 2011		</div>
+		<div class="quote"><p>Thanks for the post, didn't know about rem sizing.</p>
+<p>If the same browsers that support rem resizing also support px resizing, I have to ask...  why not just use px? </p>
+</div>
+	</div>
+		<div class="comment" id="c67952">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67952">52</a></div>
+			<span class="authorname">Andrew</span> said on May 08, 2011		</div>
+		<div class="quote"><p>Thanks for posting this. I had previously "given up" and just used px for everything, but now I can use rem and fall back on px! I will be using this immediately.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67966">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67966">53</a></div>
+			<span class="authorname">Sudip</span> said on May 09, 2011		</div>
+		<div class="quote"><p>It depends upon the author what he would as an unit for font size. Many prefer using %, some use px, and em too. I think with proper structure as well as usage, all of those work fine.But since rem is being introduced in CSS3, we have another option in our bag now. That is significant. More option brings more flexibility, for sure. As far as CSS2.1 is concerned, <a href="http://www.w3resource.com/css/CSS-values.php">CSS Values</a> is a good tutorial to know about units used.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68014">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68014">54</a></div>
+			<span class="authorname">Stuart W.</span> said on May 11, 2011		</div>
+		<div class="quote"><p>I use ems because I want IE users to be able to resize, otherwise I'd use pixels and not have to do all the inheritance calculations, rems sound great but aren't supported in the browsers I'm solving for so I don't see a reason to use.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68015">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68015">55</a></div>
+			<span class="authorname">phobia</span> said on May 11, 2011		</div>
+		<div class="quote"><p>I definitely look forward to using rem as font unit one day, it's exactly what we need.</p>
+<p>However, isn't it a bad idea to have px as fallback? One of the reasons to use relative units in the first place is that older IE can't scale text defined in px.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68026">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68026">56</a></div>
+			<span class="authorname">Marcello</span> said on May 12, 2011		</div>
+		<div class="quote"><p>Absolutely amazing! The difficulties in controlling dependencies is the main reason I've never been a fan of ems. This should solve my problem! :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68097">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68097">57</a></div>
+			<span class="authorname">Ian Hallworth</span> said on May 17, 2011		</div>
+		<div class="quote"><p>Thanks for posting - I always thought it was my crap CSS that was the cause of the em-compunding
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68209">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68209">58</a></div>
+			<span class="authorname">Jo</span> said on May 21, 2011		</div>
+		<div class="quote"><p>I rather set the font-size for the body to 100%
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68375">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68375">59</a></div>
+			<span class="authorname">Nikita</span> said on May 26, 2011		</div>
+		<div class="quote"><p>Jonathan, thank you so much for this article and this delicious site! You site's design elevates my mood, and I don't know really why...
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/font-size-with-rem by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

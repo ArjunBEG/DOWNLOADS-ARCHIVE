@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/browsers/importance_of_being_html5 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>The Importance of Being HTML5 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/browsers/importance_of_being_html5">
+	<meta property="og:url" content="https://snook.ca/archives/browsers/importance_of_being_html5">
+	<meta property="og:title" content="The Importance of Being HTML5">
+	<meta property="og:description" name="description" content="You'll have to excuse my reference to Oscar Wilde but I just learned something very interesting. But before I get into that, some background on HTML5.
+HTML5 reached Working Draft status at the W3C ye...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>The Importance of Being HTML5</h1>
+		<p>You'll have to excuse my reference to Oscar Wilde but I just learned something very interesting. But before I get into that, some background on HTML5.</p>
+<p><a href="http://www.w3.org/TR/2008/WD-html5-20080122/">HTML5</a> reached Working Draft status at the W3C yesterday (although is dated today). Originally spec'd by the <a href="http://www.whatwg.org/">WHATWG</a>, HTML5 is intended to replace HTML4, XHTML1 and DOM2 HTML specifications. There's plenty of new functionality being offered up, from new HTML elements, new form controls and form error handling, to canvas and local storage. For those of us who build web applications, HTML5 is a huge step forward and browsers out there (Safari, Firefox and Opera) have already begun implementing these features.</p>
+<p>After yesterday's concerns about the version switching within Internet Explorer 8, <a href="http://ejohn.org/blog/html5-doctype/">John Resig points out a comment</a> by Chris Wilson indicating that an HTML5 DOCTYPE will not need the meta tag. </p>
+<p>That's right: any document created using the HTML5 DOCTYPE will use the most up to date rendering engine in all browsers with no additional code required.</p>
+<p>My thoughts on the version switching have changed slightly. I understand where certain issues might exist but I feel they are relatively minor in the grand scheme of things and that it won't really change the way I develop. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 23, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/browsers/">Browsers</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/868</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">25 Comments &middot; <a href="https://snook.ca/archives/browsers/importance_of_being_html5.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57303">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57303">1</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 23, 2008		</div>
+		<div class="quote"><p>I still don't understand how HTML5 will become viable within the next three to five years, and so I find it really hard to care about it at the moment.</p>
+<p>It is not backward compatible. An agent not understanding HTML5 will find a &lt;section&gt; element and have a fit, for example. Therefore in order to use any of the new HTML5 features we will have to wait until the number of browsers that <em>don't</em> do HTML5 is extremely low. No corporation on earth is going to throw away even a couple of percent of people when those people are potential profit, and it isn't personal blogs that will be the decider on whether HTML5 is successful or not. It's corporate land that decide that.</p>
+<p>So we have to wait for IE6, IE7, Safari 3, Firefox 2 &amp;3, all to die off before HTML5 is viable on the corporate web. We're going to have to wait for browsers that aren't even out yet to become statistically irrelevant before we can use HTML5 <em>without</em> either duplicating the site in XHTML or throwing away customers/visitors/revenue.</p>
+<p>And that's one reason for my giant 'meh' feeling over the entire topic. Not to mention the more pedantic/picky issues of questionable accessibility regressions, weird choices for 'semantic' tags, and any of the other HTML5 issues that have been argued back and forth on the mailing lists.</p>
+<p>It's an interesting thing to see that HTML5 will skip the meta-tag mode. I don't see how that's viable, surely it will end up creating the same position we are in now, all over again?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57305">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57305">2</a></div>
+			<span class="authorname">Phil</span> said on January 23, 2008		</div>
+		<div class="quote"><p>That is good news... it puts some things into perspective, given thoughts and opinions of the last couple of days. More investigation is now required into HTML 5 on my part.</p>
+<p>Thanks Snook
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57306">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57306">3</a></div>
+			<span class="authorname">Will</span> said on January 23, 2008		</div>
+		<div class="quote"><p>As excited I am about it, Matt has a pretty good point, we'll still be twiddling our thumbs till the browsers catch up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57307">4</a></div>
+			<span class="authorname"><a href="http://www.alexanderradsby.com/">Alexander Radsby</a></span> said on January 23, 2008		</div>
+		<div class="quote"><p>I'm with the others here. I can't understand how they are supposed to do this, it will take forever for HTML5 to come without it being backwards compatible.</p>
+<p>What are we developers supposed to do? Make one site with HTML5 and one site with XHTML?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57308">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57308">5</a></div>
+			<span class="authorname">John Resig</span> said on January 23, 2008		</div>
+		<div class="quote"><p>An important point is being missed by the fellow commenters, here. You don't have to use any new aspect of HTML 5 in order to get the standards-mode benefits of using the HTML5 DOCTYPE. This DOCTYPE is able to push Firefox, Safari, Opera, IE6, IE7, and IE8 into standards mode and allow us to (as best as we can) develop web applications in a standards-based way (CSS, HTML, JavaScript, DOM). You don't have to use a single one of the new features in order to make this happen and can begin doing so today.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57309">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57309">6</a></div>
+			<span class="authorname">Olly</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@Matt Wilcox -- HTML5 is backward compatible. You don't have to use the new constructs if you don't want to. Most of the existing HTML4 bits and bobs are still there. See <a href="http://www.w3.org/TR/html5-diff/">http://www.w3.org/TR/html5-diff/</a></p>
+<p>What's more, Ian Hickson has some interesting ideas about <a href="http://ln.hixie.ch/?start=1201080691&amp;count=1">creating an HTML5 compatibility layer for IE7</a> (see the last paragraph).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57310">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57310">7</a></div>
+			<span class="authorname">Anne van Kesteren</span> said on January 23, 2008		</div>
+		<div class="quote"><p>Hey, http://www.w3.org/TR/2008/WD-html5-20080122/ is the actual Working Draft the W3C published (also has the right date and all). You're pointing to the latest editor's draft. Ian has made some changes since yesterday already which is why the date changed there ;-)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57311">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57311">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@John: You beat me to the punch. Thanks for mentioning that people don't have to use the features of the spec that aren't currently supported. </p>
+<p>@Anne: Ha! Thank you very much. Link updated.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57312">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57312">9</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on January 23, 2008		</div>
+		<div class="quote"><p>...actually, that sounds like a pretty sensible idea and even sounds a bit forward thinking. It's still backwards using the html5 doctype for page coded in html 4 or xhtml 1 just to get a browser to display a website the way it's supposed to be displayed [and is displayed correctly in all other browsers]. </p>
+<p>Gecko doesn't break the web, Webkit doesn't, so I'm certain the smart folks at Microsoft <em>could</em> make a browsers that does all the new stuff and doesn't break the web, either. (yep, I'm still on that side)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57313">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57313">10</a></div>
+			<span class="authorname">Edward O'Connor</span> said on January 23, 2008		</div>
+		<div class="quote"><p>Not quite. We know that documents with the HTML5 DOCTYPE will render in IE8's least-quirky mode, but what about IE9?</p>
+<p>It's entirely possible that an HTML5 DOCTYPE will lock you into IE8 behavior.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57314">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57314">11</a></div>
+			<span class="authorname">Neal G</span> said on January 23, 2008		</div>
+		<div class="quote"><p>John you make a good point, just simply throwing this (!DOCTYPE html) above the html element will be enough regardless if it is coded for html 4. Has anybody heard what versions of browsers plan to support HTML5?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57315">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57315">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/temp/importance_of_being_html5#c57313">Edward</a>: Let's not jump the gun. They haven't begun development on IE9 and they won't make a decision on what it'll support until they see some signs of what happens after IE8 comes out. (It's the "slippery slope" argument which I don't buy into.)</p>
+</div>
+	</div>
+		<div class="comment" id="c57316">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57316">13</a></div>
+			<span class="authorname">Ben Ward</span> said on January 23, 2008		</div>
+		<div class="quote"><p>As someone who actively believes HTML5 to be the very best thing since sliced bread, I'm rather delighted at the news. The corrections regarding backwards compatibility are one of the reasons why I love it. In fact, HTML5 is the very antithesis of what Microsoft have created with their meta nonsense; HTML5 reflects the evolving web where the new features will become usable in evolutionary steps, rather than all at once. It is a spec very much in tune with the progressive enhancement techniques we've used since the turn of the millennium, techniques that Microsoft appear to be suggesting we just disregard for their browser.</p>
+<p>I see both sides of the IE9 issue. This does solve the problem in the short term whilst pushing the web in the direction of HTML5 which which I'm in favour of. That said, we still need to fight Microsoft on the principal on this. Their implementation is very clearly designed to be used again and again in future versions of IE. As such, sitting back starting a fresh riot in 2010 is perhaps not the wisest idea.</p>
+<p>Better to protest Microsoft to see the problems with their suggestion now and resolve it at the source, than have to re-energise everyone on the same issue in two years time. And of course, any site out there now which is progressively enhanced with CSS features that IE7 doesn't support, will still never be rendered properly by IE8. Gotta fight for pages now, not just in the future.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57317">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57317">14</a></div>
+			<span class="authorname"><a href="http://www.unintentionallyblank.co.uk/">Phil</a></span> said on January 23, 2008		</div>
+		<div class="quote"><p>@John: Thanks! That's part of the 'more investigation' I was going to do. I thought HTML5 retained the HTML4 elements and could be used.</p>
+<p>HTML5 it is then!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57318">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57318">15</a></div>
+			<span class="authorname">Rasmus</span> said on January 23, 2008		</div>
+		<div class="quote"><p>As for the twiddling-our-thumbs part I'm crossing my fingers for browser vendors implementing autoupdate features like Firefox. Opera is planning on having it in upcoming versions (it's on their most wanted lists at least) and MS could force a windows update with IE7 (I never thought I'd be rooting for MS to do this!?).</p>
+<p>Of course autoupdating has it's drawbacks:<br />
+1. it can be turned off (in most instances)<br />
+2. bugs could be pushed (as was the case with the Firefox 2.0.0.10 canvas drawImage bug - and version 2.0.0.11 has massive memory leaks in drawImage).<br />
+3. browser platforms become moving targets.</p>
+<p>Big corporate environments that rely on poorly coded applications that only run in a specific browser version of yesteryear may of course pass on the updates. That's a big problem.</p>
+<p>But these things considered I still think autoupdates will benefit the spreading of HTML5 (and what other standards may come) greatly.</p>
+</div>
+	</div>
+		<div class="comment" id="c57321">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57321">16</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>I'm sorry, but 'backwards compatible' while technically true, is also utter rubbish in terms of practicality.</p>
+<p>If you use HTML5 in a manner that a HTML4 parser won't stumble over, then <em>you can't use any of the features that differentiate HTML5 from HTML4</em>. So, why would you do that? What's the benefit?</p>
+<p>What I say still holds true - while you can use HTML5 <em>in name</em> now, there are absolutely no benefits to doing to, and nor will there be for many years to come. Because in fact you are merely using a sub-set of HTML5 - HTML4 itself. And what's the point of shoving a different DOCTYPE on the top of what is otherwise an HTML4 document?</p>
+<p>Please, if I am missing something that's advantagous about that idea someone let me know - I'd love to get excited about it. But from my understanding, HTML5 for the next 4-5 years is nothing more than HTML4 with a new doctype.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57325">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57325">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 24, 2008		</div>
+		<div class="quote"><p>@Matt, like every new spec, it will take time for browsers to jump on board but we're already seeing parts of the spec appear in browsers such as CANVAS and VIDEO support.  Likewise, there's plenty of CSS3 stuff that we have to wait on. You can't wait until the entire spec gets implemented before you decide to use it or you'll be waiting forever.</p>
+<p>HTML5 is designed for progressive enhancement just like CSS is. The idea being that new features will slowly get added over time without having to sacrifice what's already there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57326">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57326">18</a></div>
+			<span class="authorname">incontridamore</span> said on January 24, 2008		</div>
+		<div class="quote"><p>Nice article, im now going to search info for html 5 coding :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57327">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57327">19</a></div>
+			<span class="authorname">Alistair</span> said on January 24, 2008		</div>
+		<div class="quote"><p>One of the advantages to coding in some standards-based way is that your code doesn't have to be updated as often.  By removing the presentation from the content, you can live on existing code for a lot longer, as design changes can be done through CSS.  </p>
+<p>Investing in HTML5 today goes against this principle and forces you to do your work twice.  Once for the features that are available today, and again when a sufficient percentage of browsers support this new spec, allowing you to utilize the new elements. That might be fine for those of us that have a few blog templates to tweak or a small site with 10 or so pages in it, but for those developers that support hundreds or thousands of pages, this could be a costly and time-consuming change.  "Progressive enhancement" also means "continuous upgrades" which generally equates to "major hassle" for any site with more than a few pages in it.</p>
+<p>For this reason, I am likely to wait until there is greater support for HTML5 before embarking on a site-wide change to the code - something I would rather do as little as possible given the number of pages that need to be updated.</p>
+<p>Also, saying that HTML5 is 'backwards-compatible' because you don't have to use the new HTML5 elements is a ridiculous statement.  That's like saying that my new iMac is backwards compatible because I don't have to run the software that was designed for my Mac Plus in 1987.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57330">20</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>@Snook </p>
+<p>I understand the concept, but the trouble is that HTML is not like CSS. I am struggling to see how HTML5 can be used in a Progressive Enhancement way.</p>
+<p>When the user agent doesn't understand CSS3 you are sacrificing a little visual flair, and nothing more. Instead of seeing rounded corners you get straight ones, for example. We use CSS3 elements in a way that is not detrimental to users with an agent that can't render CSS3 elements. But how is that possible with HTML? HTML <em>is</em> semantics, and if the user agent doesn't understand the semantics of new elements then meaning is lost. It's just not the same as losing a presentational effect. The user experience is harmed. The HTML4 agent can't recover or fall-back from meeting a &lt;section&gt; - so what does it do? Throw out the content, not rendering it? Render it as a block element? Render it in-line? What do screen readers do with that? Can a user agent that doesn't support a HTML5 element apply styling or behaviour to it? HTML5 elements in a HTML4 parser = <em>fail</em>.</p>
+<p>I have been trying to figure out in what ways you could practically use HTML5 <em>today</em>, and I can't think of any. Unless you can afford to throw away the content of whatever unsupported element you're trying to use, HTML5 isn't viable because that new element is encapsulating <em>semantic data</em>, and we have no idea what will happen to that data in a user agent that doesn't support that particular HTML5 element.</p>
+<p>I stand by my opinion that despite the claim of the people involved, HTML5 is not backward compatible in any <em>useful</em> way. Yes, you can use it now <em>but only</em> at the expense of using <em>any</em> of the new HTML5 elements. That being the case, what's the point of using a HTML5 DOCTYPE in an otherwise HTML4 page?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57331">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57331">21</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>Sorry, I don't want to get too far off topic so I've posted the above comment on my blog as I think the conversation has drifted a bit. If anyone would like to tell me their thoughts on the issue of HTML5 backward compatibility it may be better doing so on my blog rather than hijacking this post any further.</p>
+<p>http://mattwilcox.net/archive/entry/id/957/</p>
+<p>Cheers Jonathan :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57333">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57333">22</a></div>
+			<span class="authorname"><a href="http://www.scarfoo.com/">Damjan MozetiÄ</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>I am always excited when I hear of new standards on the horizon. Now all we have to do, is wait for the "old" browsers to die off, and get to enjoy the greater flexibility the new wave of browsers bring.</p>
+<p>I don't really care about backwards compatibility, because this is the way new features were always implemented - you just have to wait for them to be widely accessible and then go for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57335">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57335">23</a></div>
+			<span class="authorname">mattur</span> said on January 25, 2008		</div>
+		<div class="quote"><blockquote><p>When the user agent doesn't understand CSS3 you are sacrificing a little visual flair..</p></blockquote>
+<p>You're potentially sacrificing the entire layout if you're using the Advanced Layout module. Adding new features means older browsers won't understand them (otherwise they wouldn't be new, would they?). Does this mean we should never add new features ever? <em>11 years</em> waiting for new HTML functionality is more than long enough. If you're frustrated with the long wait blame the W3C.</p>
+<p>As Olly points out, the idea is to use javascript/CSS shims for backwards compatibility for some if not all HTML5 features so potentially we'll be able to use these features without having to wait for old IE's to completely die out. See AVK's <a href="http://annevankesteren.nl/2008/01/firefox-html5">post</a>. Compare and contrast with the XHTML2 path.</p>
+<blockquote><p>I have been trying to figure out in what ways you could practically use HTML5 today</p></blockquote>
+<p>There isn't any support in IE or Firefox at the moment, so it's like trying to deploy any other future feature that isn't supported: mostly pointless. The spec has only just reached first published working <em>draft</em> status. Things may change. Wait for browser support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57345">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57345">24</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 27, 2008		</div>
+		<div class="quote"><p>@mattur - I took it as read that the advanced CSS was being applied in a progressive enhancement way. So that means not relying on it for layout, because we expect it to not work. And that is the crux of my argument - that parts of CSS can be used in a progressively enhanced way, but no new HTML5 element can be used in that way. (I do not consider using JS as a fix for hooking in backward compatibility with new features, as with any page I design - it has to work on all benchmark browsers with JS and CSS off)</p>
+<p>Thanks for the link :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57360">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57360">25</a></div>
+			<span class="authorname">Thomas</span> said on January 30, 2008		</div>
+		<div class="quote"><p>More and more Standards. Why must it be so? Now IÂ´ve learning html 5 :-(<br />
+Thanks for your information.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/browsers/importance_of_being_html5 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/opinion/shelf-life by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>The Shelf Life of a Web Site - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/shelf-life">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/shelf-life">
+	<meta property="og:title" content="The Shelf Life of a Web Site">
+	<meta property="og:description" name="description" content="In relation to some of the conversation surrounding the still prevalent Internet Explorer 6 and why it's still around, I am reminded of some of my past work. 
+There is a CMS that I developed for a fo...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>The Shelf Life of a Web Site</h1>
+		<p>In relation to some of the conversation surrounding the still prevalent Internet Explorer 6 and why it's still around, I am reminded of some of my past work. </p>
+<p>There is a CMS that I developed for a former employer back in 2002. It's been six years since then. It was sold to a handful of organizations of which I know at least one, and I suspect more, who still use it. </p>
+<p>Six years? That's a long time. Back then, IE had a commanding lead of the market and at the time, I had no qualms about making it IE-only. Six years on and Microsoft's decision to allow web developers to force rendering to a specific engine isn't lost on me.</p>
+<p>But what is a practical length of time that an organization can expect to hang on to a particular design or a particular technology?</p>
+<h2>To redesign?</h2>
+<p>There are certainly many factors that go into whether to redesign or how far a redesign should go. Cameron Moll's A List Apart article, <a href="http://www.alistapart.com/articles/redesignrealign"><em>Good Designers Redesign, Great Designers Realign</em></a> is a good piece on the subject. It's interesting to note that <a href="http://www.cameronmoll.com/">Cameron's own site design</a> isn't much different from <a href="http://web.archive.org/web/20040322052704/http://www.cameronmoll.com/">its launch back in March of 2004</a>. </p>
+<p>When an agency goes through the redesign process, how effective will it be at meeting those goals, that it can avoid the cost of going through that process every few years? Indi Young's book <a href="http://www.amazon.com/dp/1933820063/?tag=snookca0f-20"><em>Mental Models</em></a> touches on this very subject, indicating that mental models can be developed, helping to provide direction over the course of 5 years, 10 years, or even more. </p>
+<p>I remember that organization, the one that bought that CMS (and site design, to boot) back in 2002 had gone through a similar information architecture (IA) process. That process is still reflected in their new design launched recently. It's a testament to a great process. </p>
+<p>From a design perspective, two to four years seems to be a reasonable and average amount of time between larger efforts. Smaller efforts should still be taken to ensure that specific goals are continually met.</p>
+<h2>To re-technologomogrify?</h2>
+<p>However, to what end should the technology end of things, in most cases, the venerable CMS, be given the heave-ho? Can a CMS receive the same &quot;realign&quot; treatment and still be effective?</p>
+<p>The needs that a CMS serves, for the most part, don't really change over time. Publishing content to the web has remained a consistent process for the last decade, if not more. Could an application built now continue to be used 5, 10 or 15 years from now? </p>
+<p>CMS trends don't shift as dramatically but are often forced to shift due to technology trends. A site built in PHP4 may need to be updated to work in PHP5. A site built in ASP may need to be updated to work in .NET. However, a particular CMS can continue to be realigned from version to version. There are people who continue to use <a href="http://www.movabletype.com/">Movable Type</a> today, just as they were back in 2002 or 2003. The product itself may have evolved but the need to expand beyond its simple publishing hasn't.</p>
+<p>So how long should a company expect to continue using a product? I'd say it's more proportional to the shifting direction of a company and the features it may need to get there. You may have publishing down pat but do you suddenly need community features? </p>
+<h2>How about you?</h2>
+<p>How often do you or your organization redesign? How often do they change the platform on which that design rests? I'd be interested to find out.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 06, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/909</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">20 Comments &middot; <a href="https://snook.ca/archives/opinion/shelf-life.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59348">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59348">1</a></div>
+			<span class="authorname">Damien</span> said on September 06, 2008		</div>
+		<div class="quote"><p>Computers: 3 years.<br />
+Programming Language: 1 to 2 years.<br />
+Browsers: 2 to 8 years (IE being the outlier).</p>
+<p>Assumming the basic needs of a website or CMS don't change, I'd assume that a redesign would be absolutely nessicery once either the hardware, software, or browsers become obsolete for whatever reason (popular use, security vulnrabilities, or whatever reason you can think of).</p>
+<p>Off the top of my head, I'd say the shelf life of a website would be 2 or 3 years&mdash;assuming more than one of the aforementioned factors apply. After that point, I'd say usability would start becoming a serious issue. Can you imagine working on an intranet that made ample use of Netscape Layers or IE Filters with a standards compliant browser? What about trying to run a <acronym title="Ruby on Rails">RoR</abbr> app on an old <abbr title="Internet Information Services">IIS</abbr> server?</p>
+<p>In the end, I think it comes down to expectations. If a client thinks a site or app should be better, then whatever they have isn't meeting their percieved need.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59350">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59350">2</a></div>
+			<span class="authorname">icaaq</span> said on September 07, 2008		</div>
+		<div class="quote"><blockquote><p>Could an application built now continue to be used 5, 10 or 15 years from now?</p></blockquote>
+<p>If it delivers accessible, clean up-todate-standard HTML then, YES.</p>
+<p>That's another factor of when a site should be re-worked in my opinion, if the accessibility demands or html-standard changes. Especially some of thoose 2002-ie6-only sites have very low accessibility-standard. But so do many of the 2008 sites....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59351">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59351">3</a></div>
+			<span class="authorname">Lewis Walsh</span> said on September 07, 2008		</div>
+		<div class="quote"><p>I agree that 2-3 years is about right for a 'refresh' of a website. I don't think you can be so binary as to say redesign OR realign, sometimes a little of both works wonders.</p>
+<p>As for the CMS I've written some in my distant past that now make me cringe at the thought. My programming and system design abilities have improved exponentially since some of my earliest work was deployed. So I guess the refresh process should apply to the CMS if the developer thinks significant improvements can be made over the original code.</p>
+<p>Maybe less database calls can be made by re-writing portions of the CMS lessening server load. Maybe the security is a little weak, poorly handled persistent logins for example. I don't think this decision can be made by a management or creative team.</p>
+<p>Of course if the CMS is any good a site redesign should be as simple as some new HTML and a bit of CSS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59355">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59355">4</a></div>
+			<span class="authorname">Joseph Thornley</span> said on September 07, 2008		</div>
+		<div class="quote"><p>Jonathan, your post strikes a chord with me. </p>
+<p>My company's Website (and my own blog) are coming up on the second anniversary since their redesign. And the questions I'm asking myself now are "what do I want it to do?" and "how is the best way to communicate about the things that matter to me and the people who share this interest?" </p>
+<p>I try to answer these questions from the visitors perspective. And that is all about the experience. An experience that provides me with what I want in the most direct way. And as I'm on the site, I know that I'll be forming impressions of the site owner. Do they share my interests and values. Do I feel comfortable with them? Do I trust them? Do I want to subscribe to them and make them part of my daily routine. The answer to these comes from a combination of function, design and content.</p>
+<p>So, in deciding in how to update my site, I look for my developers/designers to provide me with just the right functionality (code) and design changes that will be necessary to achieve a user experience that will prompt the emotions of interest, like and trust that I want to prompt.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59356">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59356">5</a></div>
+			<span class="authorname">Murphy</span> said on September 07, 2008		</div>
+		<div class="quote"><p>I think Cameron's site is an exception to the rule - it's so beautiful in the first place, and so practical besides, that I don't think it's anywhere close to needing a redesign. He's a master craftsman of the trade. Likewise, I was surprised to hear you're redesigning this site yourself Snook. This is a remarkable design.</p>
+<p>In related news, Dictionary.com was redesigned and it's horrible! A perfect example of fixing what ain't broken, and I'm thoroughly disappointed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59358">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59358">6</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name/">Neal G</a></span> said on September 07, 2008		</div>
+		<div class="quote"><p>I've redesigned my personal website once a year since I originally created it. Mainly the reason for redesigning was that my design and coding skills have improved since the previous design.</p>
+<p>At work though, there are only so many hours in a day and we have sites that haven't been redesigned in 8 years. These website show their age and I think that a website has a shelf life of 3-4 years before it needs to be looked at again. It really depends on how well the site was done in the first place. The better the website the longer it's shelf life.</p>
+<p>Snook, interesting to hear the rumor you are redesigning snook.ca.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59359">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 07, 2008		</div>
+		<div class="quote"><p>This has always been my playground and as such, it's easy to get bored of it and revamp it into something new. The goals for my own site are certainly different than those that I attempt to design for clients. The new design is almost done but it will probably be a couple weeks out before seeing the light of day. A few things need tweaking and I need to move servers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59366">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59366">8</a></div>
+			<span class="authorname">Web librarian</span> said on September 08, 2008		</div>
+		<div class="quote"><p>I design for a public library. I came into the job last year and inherited an existing site that needs a redesign. However, I have to take into account people who aren't computer-proficient. Constant, drastic change in site design can frustrate (although, frankly, we get complaints when we have to shift physical collections: patrons want a consistent library experience, in both physical and online environments).</p>
+<p>I have to upgrade our Drupal system, which will force a redesign. My approach will be gradual: after the upgrade, I will choose a layout that reflects what we currently have, and then gradually make changes. I don't want anyone logging on and feeling lost. We lose customers that way.</p>
+<p>I am adding new Web 2.0 functions, and if I hope to get patrons to give them a try I need to make sure they feel at home.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59367">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59367">9</a></div>
+			<span class="authorname">Howard</span> said on September 08, 2008		</div>
+		<div class="quote"><p>Seeing that (as of today) IE6 is 2570 (Two Thousand, Five Hundred and Seventy) days old (Thats 7 years!),<br />
+Source (all major browsers ages):<br />
+&lt;a&gt; href="http://webbugtrack.blogspot.com/2008/08/browser-life-statuses.html"&gt;Browser statuses&lt;/a&gt;</p>
+<p>I can't see how maintaining support for it any longer is deemed necessary.</p>
+<p>Those stuck on Win2k, have Firefox available, those on XP should be on IE7 already.</p>
+<p>As far as I'm concerned, if your browser is over 2 years old, you should be fully aware that it is time to upgrade, and if it is more than 3 years old, you are already falling way behind.</p>
+<p>As a developer, I will provide a downgraded version to IE6 users, but for new content ZERO effort is extended to IE6 and very little to IE7.  When IE8 ships next year IE7 will fall into the ZERO effort category.  I don't have enough hair left to pull at.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59369">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59369">10</a></div>
+			<span class="authorname">Justin Thomas</span> said on September 08, 2008		</div>
+		<div class="quote"><p>I'm in the process of designing a CMS and setting up new processes to manage content through out the company I work for now.  It's a difficult task and it's taking a lot of time, but it's something that hasn't been done in years and the companies needs are growing and changing.</p>
+<p>The main reason we're doing this now is because things like our Intranet was designed almost 9 years ago and the functionality and design hasn't changed at all.  At the time it's all our company really needed, but that's not the case anymore.  I suspect that once this is launched and we tackle a few individual department needs, we'll be able to grow and scale quite nicely.  All that will be required is realigning when necessary.  Right now it's practically impossible for us to realign anything because everything is so out of date (and hasn't really been kept up real well either) and unmanageable that we need a complete redesign from the ground up, so that's what we're doing.</p>
+<p>I'll be able to answer the question better in 2 or 3 years when I actually see if our efforts have been successful.  There's no doubt in my mind that well be able to make small/large realignments in design and our CMS to accommodate the companies needs from here on out.  If we didn't do this redesign thing from the ground up and we wanted to just realign the website a little, we have hundreds, if not thousands, of pages to deal with.  That's where the CMS is going to make realignments a lot easier on us.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59381">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59381">11</a></div>
+			<span class="authorname">Malcolm Bastien</span> said on September 08, 2008		</div>
+		<div class="quote"><p>I think that a common sense approach as far as timing makes the most sense.  Firstly, a company's website should reflect the organizations' values, goals, and culture.  And in 2008 if a company hasn't changed all 3 of those in a period of 6 years, the website might only be a reflection of the out-datedness of the actual company.</p>
+<p>As a technology guy, I think to that the technology used by organizations, especially to other tech guys, definitely has an effect on how the organization is perceived.  Knowing that say a political party like the Greens run their party's site on Drupal, to me signals to an alignment between the organization's message and software's message that increases my trust in them.  On the flip side if they (or any in this case) instead run a broken ASP website, that's a very noticeable difference.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59387">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59387">12</a></div>
+			<span class="authorname">Craig S</span> said on September 08, 2008		</div>
+		<div class="quote"><p>From a practical point of view - it completely depends on the purpose and use of the site. If the site still serves its purpose (e.g. a brochure-ware site), then why would it need to change? Conversely, of course you're going to need to update a site where a company is growing, and their publishing demands and needs change - i.e. adding new features to allow easier access to older content, facilities for user feedback (e.g. blogs, forums), etc.</p>
+<p>Then there's the design (look and feel) POV - online design trends change pretty quickly and if you're selling something online, you want to look like you're up to date. So in that case, perhaps a graphical overhaul is required, but again, if the functionality is already there and doing its job, why change?</p>
+</div>
+	</div>
+		<div class="comment" id="c59408">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59408">13</a></div>
+			<span class="authorname">Mike Smith</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I just redesigned my <a href="http://blogthememachine.com/">blog design</a> company website and it was about 1 year since the original design. I tend to redesign my other niche websites quicker as I get bored easily :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59425">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59425">14</a></div>
+			<span class="authorname"><a href="http://www.milner.ca/">WD Milner</a></span> said on September 10, 2008		</div>
+		<div class="quote"><p>I tend to agree with Craig, at least so far as a business or organisation is concerned.. If there is a sound practical reason to redesign then do so, but redesign and change just for the sake of it never made much sense to me. A perfect example is out provincial government website. They "update" it every year or two and every time they do it looks trendier and becomes harder to use. You just get accustomed to that design when they change it again to match the current trends in what is considered (by whom I don't know) an attractive design.</p>
+<p>I redesigned my personal site 2 years ago - the first time in 5 years, and that previous design replaced one another 5 years old. Personal sites are an exception though - they can be changed at the owner's whim simply because they want to try something new or got bored with the current one. I had considered redoing mine to simplify it a bit but in about 5 months still haven't gotten around to it.</p>
+<p>@Jonathan - re-technologomogrify/ I think you just invented a new word! Call Websters! &lt;grin /&gt;</p>
+<p>I saw a tagline sometime ago that I think is very true; "Obsolescence is just a lack of Imagination" ; and I think it is increasingly true of technology in general.</p>
+</div>
+	</div>
+		<div class="comment" id="c59463">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59463">15</a></div>
+			<span class="authorname">Andrew Noyes</span> said on September 12, 2008		</div>
+		<div class="quote"><p>The day when websites have a shelf-life longer than a couple of years (usually coinciding with a new Internet Explorer release) is the day that the doctype starts to mean something. Specifically, to IE. The state of the web has basically been "move towards standards with every new browser release", and that's where it stands to day. We're moving towards standards compliance, but we're not at standards compliance. This can even been seen with Firefox. There are some significant differences between Firefox 2 and Firefox 3, even the with the same doctype.</p>
+<p>Once we reach standards, doctypes will actually mean something. Once we all decide on what we want to be our standard, any page with that doctype, no matter how browsers advance from there, renders exactly the way it was intended. Well, in theory anyway.</p>
+<p>Per usual, this will only be the case once Internet Explorer reaches standards compliance <strong>and</strong> honors the doctype, rather than applying the same rendering method to every page, no matter what doctype the author scribbled into the top of the document. It wouldn't make sense to apply HTML 5 rendering rules and standards to an XHTML 1.0 Strict page.</p>
+<p>I think the biggest prompt for a redesign is embarrassing flaws that come from new browser releases. It's probably not <em>the</em> reason, but more often than not it's the final straw for a company to go for a redesign.</p>
+<p>Hopefully, once web standards are fully realized, browsers won't just continue to apply their latest rendering methods to every page, regardless of doctype. They will apply the appropriate rules for an XHTML 1.0 Strict page, an XHTML 2.0 page, an HTML 5 page, etc. The layout and rendering rules will be forever preserved and pages will have much more longevity. The page won't break every time a company like Microsoft drops a new browser on the world, because it will default back on the prescribed standard for that document. At that point, trully great designs that meet the needs of their owners will stand the test of time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59474">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59474">16</a></div>
+			<span class="authorname">Aaron</span> said on September 14, 2008		</div>
+		<div class="quote"><p>My employers site was redesigned after about 3 years, mind you this was down to performance concerns (Â£Â£Â£) rather than the actual design being outdated, which it was anyway. I can imagine the new site running for a good while longer than three years as it's quite a conservative design so it's not prone to any design fads running their course as well as testing it in a number of browsers every 6-8 mths.</p>
+<p>I have to admit there's a couple of niche sites I built for work years ago which I now look at and cringe, and I know now just from looking at the bounce rates they've definately kicked the bucket, only trouble is like someone mentioned before there's only so much time in the day to do these things when you're at work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59499">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59499">17</a></div>
+			<span class="authorname">lenen</span> said on September 17, 2008		</div>
+		<div class="quote"><p>I donâ€™t think you should label a design with a expatriation date just based on time. Browsers evolve, and this is indeed a force to reckoned with. But it just depends on multiple factors.<br />
+- The specific site<br />
+- Changes within the organisation<br />
+- A changing market<br />
+- Changing demands of your target group</p>
+<p>And so onâ€¦</p>
+<p>My point is a design should be evaluated from time to time (letâ€™s say  once every Â½ year). And based on these evaluations you can easily decide to adjust or begin from scratch again.</p>
+</div>
+	</div>
+		<div class="comment" id="c59735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59735">18</a></div>
+			<span class="authorname">C. Thomas</span> said on October 06, 2008		</div>
+		<div class="quote"><p>My website was sub-par and outdated and I was referred by a friend to a company named Wonka Promotions. I met with the owner Jimmy Dellaterza and he helped me to figure out what I needed to do to update my website. I felt very comfortable to work with the entire design team and they had my best interests in mind, instead of just trying to sell me things. Overall I owe much of my new business to Wonka and would very much recommend using this fantastic service. Just give Jimmy a call at 1-877-966-5293
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59800">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59800">19</a></div>
+			<span class="authorname">Alvaro Medina</span> said on October 15, 2008		</div>
+		<div class="quote"><p>Organizations communicational needs dictate the need for changes, mainly. Those needs can also require platform upgrades. Also, for some clients it is important to re-brand their site (visually) from time to time -- say 18 to 24 months.</p>
+<p>As for the redesign v/s realignment, that depends on the platform... with <a href="http://www.plone.org/">Plone</a> and its upgrades sometimes you have to redesign, or re-code, <strong>a lot</strong>. That said, normally is for the better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60029">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60029">20</a></div>
+			<span class="authorname"><a href="http://www.santhos.nl/">Thomas Eilander | Santhos</a></span> said on November 05, 2008		</div>
+		<div class="quote"><p>Well, this story is one of the reasons why I'd love to have my own server with my cms running on it and my clients websites. That way I could keep updating the cms to new standards and stuff, ALSO for past clients. </p>
+<p>Right now I always install the cms on every domain and in most cases never look back at it. When running into a problem and ten clients call me to say there cms is not functioning properly.... you don't want that!</p>
+<p>About design: some time ago you could search in Google like being in 2002 or something. Very good way of taking a look at how designs change in years. I think all aspects of webdesign are taken to a higher level. To keep in track you might need to update / redesign a site every 3 - 5 years I guess.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/opinion/shelf-life by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

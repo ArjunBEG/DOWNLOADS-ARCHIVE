@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/html5-forms-are-coming by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>HTML5 Forms Are Coming - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/html5-forms-are-coming">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/html5-forms-are-coming">
+	<meta property="og:title" content="HTML5 Forms Are Coming">
+	<meta property="og:description" name="description" content="HTML forms have been, to date, quite simplistic. We've had limited options: the text field, the checkbox, the radio button, the textarea and finally the select drop down. Any complex data like phone n...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>HTML5 Forms Are Coming</h1>
+		<p>HTML forms have been, to date, quite simplistic. We've had limited options: the text field, the checkbox, the radio button, the textarea and finally the select drop down. Any complex data like phone numbers, email addresses or dates had to be checked by JavaScript. (And you should <em>always </em>and I mean <strong>always</strong> do server-side validation of the data.)</p>
+<p>The <code>input</code> element works overtime by being rendered completely differently based on the type it's given&mdash;be that a text field, password, checkbox, radio button, and others. Considering my readership, this is all terribly old and boring to you now. I understand.</p>
+<h2>New Types</h2>
+<p>Under the HTML5 umbrella, however, forms are getting a makeover. The new input types are:</p>
+<ul>
+  <li>search</li>
+  <li>tel</li>
+  <li>url</li>
+  <li>email</li>
+  <li>datetime, date, month, week, time, and datetime-local</li>
+  <li>number</li>
+  <li>range</li>
+  <li>color</li>
+</ul>
+<p>In the example of an email field, validation could be performed by the browser, without JavaScript, to ensure that an email address was correctly entered. Even more powerful, it could <a href="http://mozillalabs.com/blog/2010/03/contacts-in-the-browser/">allow autocomplete based on your local address book</a>.</p>
+<h2>New Attributes</h2>
+<p>There are also plenty of new attributes, many designed to aid in constraining the limits of a field. Here is a small subset of new attributes:</p>
+<ul>
+  <li>list &mdash; points to a datalist element containing value suggestions</li>
+  <li>max and min &mdash; constrains valid date/time and number values</li>
+  <li>pattern &mdash; allows a regular expression as a constraint</li>
+  <li>placeholder &mdash; displays a text hint for the field</li>
+</ul>
+<h2>Fallback</h2>
+<p>If you try to use these new type now, browsers that don't recognize the type will fall back to the <code>text</code> type. Unrecognized attributes will similarly be ignored. That means that you could start using it now and when browsers begin to recognize them, you'll be ready. Client-side validation via JavaScript could be layered on in the meantime.</p>
+<p>Where things are unclear is how you can tell whether the browser already supports these features. For example, inspecting the type in Firefox returns &quot;<code>text</code>&quot; but Safari and Chrome return &quot;<code>email</code>&quot;. </p>
+<h2>Browser Support</h2>
+<p>What's most interesting is that we're starting to see some of these features get implemented into browsers. </p>
+<p>Mobile Safari (on the iPhone) was quick out of the gate by adding support for number, email and url. No validation is performed but special keyboards for each input type are presented to aid in entering a value.</p>
+<p><img src="https://snook.ca/files/html5forms-2.png" alt="Keyboard layouts on Mobile Safari" width="499" height="129"></p>
+<p>Most recently, Chrome 5 beta  has support for the placeholder attribute.</p>
+<p><img src="https://snook.ca/files/html5forms-1.png" alt="Placeholder attribute in Chrome 5 beta" width="400" height="133"></p>
+<pre><code>&lt;label for=&quot;email&quot;&gt;Email address&lt;/label&gt; 
+&lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;jonathan@example.com&quot;&gt;</code></pre>
+<h2>What next?</h2>
+<p>I have  qualms about how browsers will handle the complex input types like date and time and so I appreciate the slow and considered implementations to date. Yes, this isn't very much just yet but it's encouraging. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published March 26, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/974</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">39 Comments &middot; <a href="https://snook.ca/archives/html_and_css/html5-forms-are-coming.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64713">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64713">1</a></div>
+			<span class="authorname">Mike Taylor</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Placeholder has actually been in Chromium/Mac for a few versions.</p>
+<p>You can check out what your browser supports over here: http://www.miketaylr.com/code/input-type-attr.html</p>
+<p>as well as UI support here:<br />
+http://www.miketaylr.com/code/html5-forms-ui-support.html</p>
+</div>
+	</div>
+		<div class="comment" id="c64714">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64714">2</a></div>
+			<span class="authorname">Lynn Wallenstein</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Is it sad that I dream of the day when placeholder is completely supported? I am serious. I had a dream about it.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64715">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64715">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 26, 2010		</div>
+		<div class="quote"><p>@Mike Taylor: I question how accurate those checks are because it indicates that required and pattern attributes are supported but no action is taken on those. And I'm talking Chrome, not Chromium (as I understand it, Chromium is the developer version;correct me if I'm wrong).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64716">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64716">4</a></div>
+			<span class="authorname"><a href="http://www.nkbookreviews.com/">Nate Klaiber</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>Interesting concept of pulling from local address book - not sure I would welcome that addition for an array of reasons. I do like how the iPhone adapts to the type and presents you with the best keyboard layout - that is very useful. </p>
+<p>I need to research more and see more of the implementation details - but I will admit I am excited at the thought of being able to use these attributes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64717">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64717">5</a></div>
+			<span class="authorname"><a href="http://miketaylr.com/">Mike Taylor</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>@Snook--</p>
+<p>I understand why you'd question that--but feel free to take a closer look at the tests--it's just simple feature detection. I've yet to find an example where these tests are lying. Here's a more concrete example where you can see required and pattern in usage, for example:</p>
+<p>http://jsfiddle.net/yebhp/light/</p>
+<p>I'd be interested to see if someone *does* find a test that's wrong though, and be happy to update the test page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64718">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64718">6</a></div>
+			<span class="authorname">Mike Pearce</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Great article Jonathon, opens my eyes to the possibilities. @nefarioustim sent me this today: http://findmebyip.com/litmus#target-selector Looks like Chrome has full support on a Mac, partial support on Windows and you can go whistle for anything else!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64719">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64719">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 26, 2010		</div>
+		<div class="quote"><p>@Mike Taylor: Ah, yes, I see what you're saying now. Yes, Chrome allows the values to be specified and the checkValidity method is available (and works), but the work still needs to be performed by JavaScript. This definitely helps. Thanks! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64720">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64720">8</a></div>
+			<span class="authorname">Aaron Bassett</span> said on March 26, 2010		</div>
+		<div class="quote"><blockquote><p>it indicates that required and pattern attributes are supported</p>
+</blockquote>
+<p>That's because they are :)<br />
+Trying <a href='http://www.miketaylr.com/pres/html5/forms2.html'>the tests on this page</a> in Chrome (5.0.356.2 dev - OS X 10.6.2) the inputs with required and pattern function as I expect they should.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64721">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64721">9</a></div>
+			<span class="authorname"><a href="http://jakeprzespo.com/">Jake Przespo</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>Nice write-up Jonathan. The fact that unsupported browsers have a fallback of type="text" is a great reason to start playing around with HTML5 forms now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64722">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64722">10</a></div>
+			<span class="authorname">Jason Zipperer</span> said on March 26, 2010		</div>
+		<div class="quote"><p>While canvas and video will be cool for the bells and whistles, I think these are the elements that are really going to help the everyday web.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64723">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64723">11</a></div>
+			<span class="authorname">Jason P</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Thanks for making sense of the new HTML5 Forms. It will be a while before it all comes into play but good to get a jump on it for us designers and developers.</p>
+</div>
+	</div>
+		<div class="comment" id="c64724">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64724">12</a></div>
+			<span class="authorname">Shiva</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Thanks Jonathon, there isn't a lot being said about the form attributes for HTML 5 at this time and I find them a great improvement.  thanks for the write up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64726">13</a></div>
+			<span class="authorname">bruce lawson</span> said on March 26, 2010		</div>
+		<div class="quote"><p>We've had an experimental implementation in Opera for a couple of years now, that includes type=date (a date picker widget), type=range (a slider), type=email and type=url with validation, datalist (a new input type that allows you to suggest some options like a select box, but which also allows a user to type in their own value). There are such things as type=number min=1 max=11 step=3 and the output element that allows you to feedback to the user the current position of a slider/ the sum of two entered numbers etc. Almost any input type can accept the pattern attribute - you give it a JavaScript-style regex and the browser will validate against that pattern.</p>
+<p>It's an "experimental" implementation as we're ironing out the User Interface, but you can try demos I made (using Opera 9+) at<br />
+http://people.opera.com/brucel/demo/html5-forms-demo.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64727">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64727">14</a></div>
+			<span class="authorname"><a href="http://www.mysiteonline.org/">Brendon Kozlowski</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>When HTML5 first came out of the gate I was disheartened that XHTML was given up. However, I've gotten over it pretty quickly and am quite excited to start using the new markup that HTML has to offer. This is some pretty cool stuff!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64728">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64728">15</a></div>
+			<span class="authorname">Craig Saila</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Although implied, by Chrome's support, it's also worth noting Safari 4 also supports basic placeholder text
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64730">16</a></div>
+			<span class="authorname">Michael Warkentin</span> said on March 26, 2010		</div>
+		<div class="quote"><p>There's a great article about HTML5 forms over at Dive Into HTML5 (http://diveintohtml5.org/forms.html).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64731">17</a></div>
+			<span class="authorname">mors</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Thank you for ignoring Opera.<br />
+Opera has html5 forms implementation since 2007, back then web forms 2.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64732">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64732">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 26, 2010		</div>
+		<div class="quote"><p>@Mors: you mean there are people that use Opera? I kid, I kid. Sorry for missing out on Opera. Bruce Lawson has thankfully come to the rescue.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64734">19</a></div>
+			<span class="authorname">CoryMathews</span> said on March 26, 2010		</div>
+		<div class="quote"><p>Opera 10.50 has more support for HTML5 then any other browser and you failed to mention it. Makes it feel like a failed article IMO.</p>
+<p>@Mike Taylor<br />
+Really liked the site you set up for viewing what was supported. Makes it much easier to pick what to start using..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64735">20</a></div>
+			<span class="authorname">michael thorne</span> said on March 26, 2010		</div>
+		<div class="quote"><p>What ever happened to XML Forms?  :-(</p>
+<p><a href="http://www.w3.org/MarkUp/Forms/">http://www.w3.org/MarkUp/Forms/</a></p>
+<p>mxt</p>
+<p>THINK<br />
+think different<br />
+Think Open Source</p>
+</div>
+	</div>
+		<div class="comment" id="c64736">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64736">21</a></div>
+			<span class="authorname"><a href="http://avalonstar.com/">Bryan Veloso</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>If you use <a href="http://modernizr.com/">Modernizr</a> for testing for HTML5 support, <a href="http://github.com/sunny/provide-html5">this <code>(provide-html5)</code> is a pretty useful jQuery add-on</a> that'll provide fallbacks for the new <code>&lt;input&gt;</code> attributes (like <code>placeholder</code> and the like).</p>
+<p>I use this right now on a few projects, the only drawback being is that the font color isn't changed in say... Firefox. Another way to achieve <code>placeholder</code> in particular is  to use <a href="http://github.com/mudge/jquery_example"><code>jquery-example</code></a>. Actually, I'm sure the two can be combined for one Ã¼ber fallback. Just haven't tried that yet.</p>
+<p>That said, the new field types are a lot of fun. Only ones I haven't gotten around to testing are the ones Opera supports for (unfortunately) obvious reasons.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64737">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64737">22</a></div>
+			<span class="authorname">Michael Wales</span> said on March 26, 2010		</div>
+		<div class="quote"><p>@Bryan<br />
+I've been "cloning" HTML5's placeholder functionality in jQuery for awhile now. <a href="http://gist.github.com/345299">This gist</a> is an exact copy-paste from a current project.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64738">23</a></div>
+			<span class="authorname">Joel Sutherland</span> said on March 26, 2010		</div>
+		<div class="quote"><p>A colleague of mine (Eli Van Zoeren) wrote a jQuery plugin that lets you use these new capabilities:</p>
+<p>http://www.newmediacampaigns.com/page/nmcformhelper </p>
+<p>In browsers that don't support features, they are emulated in javascript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64739">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64739">24</a></div>
+			<span class="authorname">Daniel</span> said on March 26, 2010		</div>
+		<div class="quote"><p>As Opera originally proposed Web Forms 2, was the first to implement them and still supports them more than any other browser, it would be nice (and fair IMO) if the article could be edited to give Opera even just a brief hat-tip.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64740">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64740">25</a></div>
+			<span class="authorname">chaals</span> said on March 26, 2010		</div>
+		<div class="quote"><p>As various people noted, we (yes, I work for Opera) have had an experimental implementation of this for years.</p>
+<p>We included the repetition model that was around at the time - something that was a cool feature out of Xforms, which basically made it easy to mark a section of a form as a template, and then add more of them (or remove them). I used the feature in Xforms to make simple data-management tools really easily, and it would work really nicely with a native database interface (or for that matter a native RDF interface, if you're that way inclined). Unfortunately we were the only ones who expressed interest in it and it has since been dropped as a proposal for HTML5 ;(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64745">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64745">26</a></div>
+			<span class="authorname"><a href="http://www.denatasarim.com/">dena</a></span> said on March 27, 2010		</div>
+		<div class="quote"><p>Really nice Jonathan. It's the first time i'm seeing this and i can say i'm astonished by what HTML5 will be capable of. I guess attackers won't be able to enter stupid values to email field by disabling javascript :)</p>
+<p>HTML has done nothing but amazing me since the first time i heard about it. I don't know how long will it take for it to become fully usable within all browsers but i hope they will add more capabilites when it becomes a standart so we can minify javascript :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64746">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64746">27</a></div>
+			<span class="authorname">Glen</span> said on March 27, 2010		</div>
+		<div class="quote"><p>As nice as this is, with 60+ percent of the internet still using Internet Explorer, we'll likely never see it fully work.  Which means hacks (again).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64748">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64748">28</a></div>
+			<span class="authorname">Alain Couthures</span> said on March 28, 2010		</div>
+		<div class="quote"><p>XForms and HTML5 Forms aren't incompatible and many XForms implementations, such as mine ;-), are now based on HTML Forms.<br />
+It's good to know that HTML5 Forms will natively support features already in XForms because it will be better for performance.<br />
+The less Javascript instructions, the more productivity, speed and reliability. It's true for XForms and HTML5 Forms.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64749">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64749">29</a></div>
+			<span class="authorname">Magne Andersson</span> said on March 28, 2010		</div>
+		<div class="quote"><p>It could also be worth noting that the recent Firefox alphas has support for the "placeholder" attribute too ;-)</p>
+<p>http://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28HTML5%29
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64750">30</a></div>
+			<span class="authorname">Tudor</span> said on March 28, 2010		</div>
+		<div class="quote"><p>Didn't know about the input types for email, search, url. Thanks for the tip!</p>
+<p>I'm curious how big of a mess will HTML5 bring. Will there be cross-browser and cross-markup testing ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64751">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64751">31</a></div>
+			<span class="authorname"><a href="http://twitter.com/cliener/">Chris Lienert</a></span> said on March 28, 2010		</div>
+		<div class="quote"><p>I&rsquo;m impressed it took 30 comments before someone complained about IE. If only we had something like JavaScript to help bridge the gap for older browsers&hellip;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64754">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64754">32</a></div>
+			<span class="authorname">eva rajskub</span> said on March 29, 2010		</div>
+		<div class="quote"><p>Oh there is JScript alright and we love it. It just makes me sad whenever some new technology comes up and i know that even IE9 will somehow manage to screw it up :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64756">33</a></div>
+			<span class="authorname">Ramses</span> said on March 29, 2010		</div>
+		<div class="quote"><p>Great stuff coming for any blog/website designer who struggles with HTML forms on a regular basis - who doesn't?</p>
+<p>The placeholder attribute is a killer; finally I can get rid off ugly focus/unfocus JS garbage ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64757">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64757">34</a></div>
+			<span class="authorname">Daphne</span> said on March 29, 2010		</div>
+		<div class="quote"><p>Thank you for this awesome post.<br />
+I am definitely book marking your site.</p>
+<p>Check out our web design company.<br />
+<a href="http://www.evo33.com/">â€¨Web Design Los Angeles</a></p>
+</div>
+	</div>
+		<div class="comment" id="c64758">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64758">35</a></div>
+			<span class="authorname">Rob Crowther</span> said on March 30, 2010		</div>
+		<div class="quote"><p>In Chrome/Chromuim, even though the browser doesn't stop you submitting the form you can use the checkValidity state for user feedback via CSS eg.</p>
+<p>    input:valid {background-color: green;}<br />
+    input:invalid {background-color: red;}</p>
+<p><a href="http://www.boogdesign.com/examples/html5/form.html">Simple example</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64760">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64760">36</a></div>
+			<span class="authorname">Ryan</span> said on March 30, 2010		</div>
+		<div class="quote"><p>The behaviour between browsers on how they show that something is invalid is confusing e.g. A field with a pattern attribute in Opera will stop the form from submitting and popup a little helper to indicate that the field is invalid. Whereas Chromium will submit the form as though everything is ok, you do have the invalid pseudo-class do indicate to a user that something is wrong. The only way to stop Chrome submitting the form is to use javascript and the checkValidity() function. </p>
+<p>Another concerning approach is the hideous icons Opera have used for their url, email date picker fields which at the moment have no way of turning off or styling.</p>
+<p>I fear that the inconsistencies between browsers when it comes to HTML5 form validation will be the new headache that web developers face.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64761">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64761">37</a></div>
+			<span class="authorname">bruce lawson</span> said on March 31, 2010		</div>
+		<div class="quote"><p>Ryan, the hideous icons in Opera are gone in 10.50 (v soon out of beta in Mac/ Linux).</p>
+<p>I know this because I work for Opera, I too thought the icons hideous so campaigned long and hard internally for their removal. And won.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64789">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64789">38</a></div>
+			<span class="authorname">Ryan</span> said on March 31, 2010		</div>
+		<div class="quote"><p>Bruce, that is great news it looks much better now.</p>
+<p>Looking over the HTML5 spec it doesn't seem to state any where that form submission will be stopped if a field is invalid, however I did see a form can have a novalidate attribute which stops the form from validating leading me to believe Opera has the behaviour right? </p>
+<p>Is the tooltip that shows up when a field is a mismatch a left over from web forms 2.0?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64894">39</a></div>
+			<span class="authorname">Kevin Ruse</span> said on April 12, 2010		</div>
+		<div class="quote"><p>What is your opinion of HTML5 forms vs. xforms?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/html5-forms-are-coming by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

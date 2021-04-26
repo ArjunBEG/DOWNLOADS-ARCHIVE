@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/going-simple-with-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Going Simple with JavaScript - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/going-simple-with-javascript">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/going-simple-with-javascript">
+	<meta property="og:title" content="Going Simple with JavaScript">
+	<meta property="og:description" name="description" content="
+
+I was making a change to a page that needed to pull from a remote API and make changes to various parts of the page. Sounds like the time to pull out jQuery and Ajax, doesn't it? Instead, I just u...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Going Simple with JavaScript</h1>
+		
+
+<p>I was making a change to a page that needed to pull from a remote API and make changes to various parts of the page. Sounds like the time to pull out jQuery and Ajax, doesn't it? Instead, I just used old fashioned JavaScript. Actually, I used new fashioned JavaScript. </p>
+
+<p>Browsers haven't stood still in the advent of libraries and frameworks. As a result, we can take advantage of those features when we need to bake in a little extra.</p>
+
+<h2>Some JSONP</h2>
+
+<p>The first step was to get the JSONP call executing. This is generally straightforward: embed a script tag into the page. The script will run a function that you've defined on your page.</p>
+
+<pre><code>var scr = document.createElement('script');
+scr.src = 'http://openexchangerates.org/latest.json?callback=formatCurrency';
+document.body.appendChild(scr);
+</code></pre>
+
+<p>When the script runs, it'll pass the data into the <code>formatCurrency</code> function. Excellent.</p>
+
+<p>Once the data is in the function, I needed to grab all the elements of a particular type and make changes based on those. </p>
+
+<h2>querySelectorAll</h2>
+
+<p>The <code>querySelectorAll</code> method will grab all elements that match a particular selector&mdash;similar to jQuery. It's limited to selectors that the browser understands, which is definitely less than what jQuery can do. Sometimes a chisel will do in place of a sledgehammer. </p>
+
+<p>The <code>querySelectorAll</code> method works in IE8 and up and all of the other popular browsers, too. I also wrapped my entire block of code to check if the browser supports this method before doing anything.</p>
+
+<pre><code>if (document.querySelectorAll) {
+    function formatCurrency (data) {
+
+        var els = document.querySelectorAll('.price');
+        /* do stuff with the elements */
+    }
+
+    var scr = document.createElement('script');
+    scr.src = 'http://openexchangerates.org/latest.json?callback=formatCurrency'; 
+    document.body.appendChild(scr);
+}</code></pre>
+
+<p>As you can see in the example, all I'm looking for is every element that has a class of price. I could've used <code>getElementsByClassName</code> but that's not supported in IE8, whereas <code>querySelectorAll</code> is. So far, so good.</p>
+
+<p>After that, it was just a matter of getting an attribute, making some changes and then re-inserting it into the DOM using innerHTML. Easy peasy.</p>
+
+<h2>Progressive Enhancement</h2>
+
+<p>But what of users who don't support this new fandangled functionality? It'll be the same as those who don't support JavaScript. In my case, it meant that users will see just Canadian pricing instead of converting it into their local currency.</p>
+
+<p>Here's the final script in its entirety.</p>
+
+<pre><code>if (document.querySelectorAll) {
+    var currencyLookup = {
+        EUR:'&euro;', USD:'US$', CAD:'CDN$'
+    }
+    function formatCurrency (data) {
+        // format germany price
+        var els = document.querySelectorAll('.price');
+        for (var i=0; i&lt;els.length; i++) {
+            var price = parseInt(els[i].innerHTML.replace(/[^0-9]*/,''));    
+            var curr = els[i].getAttribute('data-currency');
+            var newPrice = price / data.rates.CAD * data.rates[curr];
+            els[i].innerHTML = '&lt;small>' + currencyLookup[curr] + '&lt;/small>' + Math.round(newPrice); 
+        }
+    }
+
+    var scr = document.createElement('script');
+    scr.src = 'http://openexchangerates.org/latest.json?callback=formatCurrency';
+    document.body.appendChild(scr);
+}</code></pre>
+
+<p>That's a total of 628 bytes. No JavaScript libraries or frameworks required. That could be minified to 469 bytes. A far cry from the 91,000 bytes needed just to get jQuery on the page. </p>
+
+<h2>Take it easy</h2>
+
+<p>"Just use jQuery" might be the go-to phrase but, thankfully, you don't always need that much code to solve a simple problem. Pages are getting bigger and bigger. It's nice to know that we don't always have to use large resources to accomplish a small goal.</p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published March 05, 2012 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1014</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">21 Comments &middot; <a href="https://snook.ca/archives/javascript/going-simple-with-javascript.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68894">1</a></div>
+			<span class="authorname">Bramus!</span> said on March 05, 2012		</div>
+		<div class="quote"><p>This overview's also handy towards stepping back from jQuery:<br />
+Vanilla JavaScript FTW â€“ <a href="http://sharedfil.es/js-48hIfQE4XK.html">http://sharedfil.es/js-48hIfQE4XK.html</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68895">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68895">2</a></div>
+			<span class="authorname">KMB</span> said on March 05, 2012		</div>
+		<div class="quote"><p>The final script got mangled in your code.</p>
+<p>Does the script mean, that even though no one wants to convert prizes you still pull the json-data on every page-load? This would be the kind of functionality I would do on the server-side with caching and stuff. Especially if I want to sell products outside Canada.</p>
+<p>Last but not least: I agree with your last two paragraphs but would add that even though jQuery is a heavy stone to kill a small bird, it usually kills a lot of birds at the same time.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68896">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68896">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 05, 2012		</div>
+		<div class="quote"><p>@KMB: I want the prices to show the approximate price in the local currency. I surveyed people and most said they'd prefer to see it in their local currency. I could do it server-side but then that meant I had to figure out a caching scheme and write more code than I wanted to. It would be kind of me to implement it server-side with some caching anyways, so that I don't hit the API too often but this page isn't trafficked heavily (less than a  hundred hits a day).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68897">4</a></div>
+			<span class="authorname">Airman</span> said on March 05, 2012		</div>
+		<div class="quote"><p>for (var i=0; i' + Math.round(newPrice);<br />
+}</p>
+<p>it's an error of syntax or a syntax I didn't know ?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68898">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68898">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 05, 2012		</div>
+		<div class="quote"><p>@airman: oops. Encoding issue. Fixed. Thank you. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68899">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68899">6</a></div>
+			<span class="authorname">Joan Piedra</span> said on March 05, 2012		</div>
+		<div class="quote"><p>I can express how strongly I agree with this, while being a jQuery fan from its beginning I do encourage developers to learn and use real Javascript.</p>
+<p>And if you'd like to use even fancier Javascript, you could of course use els.forEach(), since you querySelectorAll and Array.forEach are only supported from IE8 onward.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68900">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 05, 2012		</div>
+		<div class="quote"><p>@Joan Piedra: Indeed, <code>forEach</code> is available in newer browsers but could <strong>not</strong> be used directly with the NodeList returned by querySelectorAll. The NodeList looks like an Array but isn't and therefore, the <code>forEach</code> method would fail (hence the traditional <code>for</code> loop in the example).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68901">8</a></div>
+			<span class="authorname">Bruno Carriere</span> said on March 05, 2012		</div>
+		<div class="quote"><p>On forEach; To change the NodeList into an Array:</p>
+<pre><code>Array.prototype.slice.call(nodelist, 0)</code></pre>
+<p>Should do the trick.  But cross-browser support should be ensured, because I have a feeling it might fail in IE.</p>
+<p>It's nice to see how little code is needed for JSONP.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68902">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68902">9</a></div>
+			<span class="authorname">Mathias Bynens</span> said on March 05, 2012		</div>
+		<div class="quote"><p>@Bruno, no need, you could just do it like this:</p>
+<pre><code>[].forEach.call(document.querySelectorAll('.price'), function(el) {
+  // do stuff with `el` hereâ€¦
+};</code></pre>
+<p>@Jonathan, note that <code>if (condition) { function fn() {} }</code> is not allowed in ES5 strict mode, and will declare <code>fn</code> even if <code>condition</code> is falsy. Function expressions are allowed, though, so you could do something like:</p>
+<pre><code>
+var fn;
+if (condition) {
+  fn = function() {};
+}
+</code></pre>
+<p>In this case I think the ideal solution would be to use an IIFE:</p>
+<pre><code>
+condition &amp;&amp; (function() {
+  function fn() {}
+  // do other stuff here that will only be executed if `condition` is truthy
+}());
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c68903">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68903">10</a></div>
+			<span class="authorname">Xander M</span> said on March 05, 2012		</div>
+		<div class="quote"><p>Love going simple with JS if I can. Definitely the way forward for simple sites.<br />
+That said if you use a cdn for popular libraries then generally it doesn't slow down for the end user, as its a fair bet that they already have the latest version cached.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68904">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68904">11</a></div>
+			<span class="authorname">Not@applicable.com</span> said on March 05, 2012		</div>
+		<div class="quote"><p>Please, for the sake of the children; always specify a base for your integer parsing. If you are making judgement on currency exchange rates and parse that leading zero... well lets just say it could be a very very bad day.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68905">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68905">12</a></div>
+			<span class="authorname">Adam</span> said on March 05, 2012		</div>
+		<div class="quote"><p>It is important to know how to use JavaScript, but I would still use jQuery for this task. Because jQuery is so ubiquitous I assume the Google CDN hosted copy is cached on most machines so the is no serious delay to loading it.  jQuery code to do this task would be simpler and easier to read and maintain and requires no code to account for browser compatibility issues.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68906">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68906">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 05, 2012		</div>
+		<div class="quote"><p>@NotApplicable.com: Please, for the sake of the children, I wrote the HTML and the JavaScript, so I'm rest assured my prices will not have leading zeros. :) (but point taken)</p>
+<p>@Adam: cache miss ratios and browser performance still put a burden on users and browsers. The browser still has to parse 91k of JavaScript just to do something that will take approximately the same amount of code. Why plan for the best case scenario?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68907">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68907">14</a></div>
+			<span class="authorname">Joss</span> said on March 05, 2012		</div>
+		<div class="quote"><p>Great article, nice to see somebody using open exchange rates! Would be awesome to get a clicky link to it in the post - it's a free service so relies on people spreading to word for it to be maintained.</p>
+<p>Joss
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68908">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68908">15</a></div>
+			<span class="authorname">Oliver</span> said on March 05, 2012		</div>
+		<div class="quote"><p>JSONP is risky -- if you ever plan on offering private (or potentially confidential) data secured through session cookies and the like, JSONP opens your site to XSS attacks, in a way that real JSON and XML don't.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68909">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68909">16</a></div>
+			<span class="authorname">Nikke</span> said on March 05, 2012		</div>
+		<div class="quote"><p>Just lovely. </p>
+<p>&lt;nitpick&gt;<br />
+But you left out the radix in parseInt... ;-)<br />
+&lt;/nitpick&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68914">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68914">17</a></div>
+			<span class="authorname">Ward</span> said on March 08, 2012		</div>
+		<div class="quote"><p>I think I see one more bug - You only define the formatCurrency function in IE8 and up, not IE7, but IE7 will insert the script tag and fire the callback won't it? Eees bad, no?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68915">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68915">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 08, 2012		</div>
+		<div class="quote"><p>@Ward: Because the entire script is in a check for querySelectorAll, nothing will run in IE7, including the insertion of the script tag.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68919">19</a></div>
+			<span class="authorname">Graham B</span> said on March 09, 2012		</div>
+		<div class="quote"><p>I really do try to avoid jQuery wherever I can (I wrote something to this effect in a reply to one of your posts on animations). The short version; if you know jQuery but can't understand the underlying code then you're just building on sand (and I simply don't buy the 'its cached from a CDN anyway' argument).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68920">20</a></div>
+			<span class="authorname">Scott</span> said on March 09, 2012		</div>
+		<div class="quote"><p>For an extra couple hundred bytes or so you could have probably extended support down to IE 6 by using getElementsByClassName and implementing a custom function for browsers that don't support it--you know, like this http://snook.ca/archives/javascript/your_favourite_1 ;-)</p>
+<p>Like you said, it's not important in this case. But if someone else had a more critical reason to support more browsers, there are still lots of options outside of jQuery.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68950">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68950">21</a></div>
+			<span class="authorname">Nancy</span> said on March 26, 2012		</div>
+		<div class="quote"><p>I would like to note that this was the third SCR that I tried, and of the three this one had the worst burn. I am really hipong with some more aging these will turn out to be a decent mild smoke. I like the flavors associated with the Habano wrapper but this one didn't utilize them well. A great Habano to try is the Padilla Habano. The wrapper is a lighter shade but the flavor profile is much better.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/going-simple-with-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+</html>

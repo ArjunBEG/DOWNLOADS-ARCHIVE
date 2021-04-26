@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/browsers/version_targeting_ie8 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>IE8 to include version targeting - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/browsers/version_targeting_ie8">
+	<meta property="og:url" content="https://snook.ca/archives/browsers/version_targeting_ie8">
+	<meta property="og:title" content="IE8 to include version targeting">
+	<meta property="og:description" name="description" content="I so called it. Back in December, I gave my predictions and on the list was version targeting using the meta element. I even said it'd be using http-equiv.  
+Aaron Gustafson has an article on A List ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>IE8 to include version targeting</h1>
+		<p>I <strong><em>so</em></strong> <a href="https://snook.ca/archives/browsers/ie8_expectations/#c57181">called it</a>. Back in December, I gave my predictions and on the list was version targeting using the <code>meta</code> element. I even said it'd be using <code>http-equiv</code>.  </p>
+<p>Aaron Gustafson has an article on A List Apart entitled <a href="http://alistapart.com/articles/beyonddoctype/">Beyond DOCTYPE</a> that talks about a Internet Explorer's new approach to targeting rendering engines. Like a charset declaration, the <code>X-UA-Compatible</code> declaration can be declared using a meta tag or via HTTP headers, meaning that flipping the switch for all pages on a server to support new browsers will be a 5 minute process. </p>
+<p>Here's what the meta tag would look like:</p>
+<pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=8&quot; /&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=8;FF=3;OtherUA=4&quot; /&gt;</code></pre>
+<p>Although Internet Explorer is first out of the gate to support this, it was designed to be agnostic, allowing other browser developers to use this same approach of version targeting. </p>
+<h2>Why do we need targeting?</h2>
+<p>The biggest reason is support for legacy web sites. If you think version targeting like this is something new, it's not. We already have a basic opt-in approach to version targeting: the DOCTYPE switch.  The new <code>X-UA-Compatible</code> declaration just takes it to another level.</p>
+<p>The fact is, as each new browser comes out and fixes bugs from older versions, our sites need to be revisited. Until we have a chance to do so, our sites shouldn't break. Remember, this isn't about us, the developers, but about the end users who have to visit and use these sites day-to-day. Upgrading their browser shouldn't break the web.</p>
+<h2>I don't want to target</h2>
+<p>If you decide to do nothing then the sites you design for Internet Explorer will continue to pretend it's IE7. Or, if you didn't use a doctype, it'll pretend it's IE5.5 (I'm guessing here since this is the last version before the doctype switch). </p>
+<p>Alternatively, if you want to make sure your pages always use the most recent rendering engine, regardless, then you can specify that it always uses the latest version. </p>
+<pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;</code></pre>
+<p>What still isn't clear for me is how to specify the latest of every browser. Does <code>OtherUA=edge</code> work for all browsers if not specifically mentioned? I'm sure this stuff will get sorted out before long. </p>
+<p>I, for one, welcome our new <code>X-UA-Compatible</code> overlords. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 22, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/browsers/">Browsers</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/867</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">42 Comments &middot; <a href="https://snook.ca/archives/browsers/version_targeting_ie8.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57269">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57269">1</a></div>
+			<span class="authorname"><a href="http://www.bogglethemind.com/">Jeff L</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>awfully nervous....good concept but there is a LOT left to be fleshed out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57270">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57270">2</a></div>
+			<span class="authorname">Eric Eggert</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Yes, I really like to have dozens of UA noted there. Weâ€™re doing web standards, not Browser specific code. This is basically useless. Websites donâ€™t break in standards compliant browsers if they are designed according to the spec. Else Firefox, Opera and every other major browser would have introduced such a concept from the beginning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57271">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57271">3</a></div>
+			<span class="authorname">nogg3r5</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Surely it would be better for every browser to render html in the same way. That way designers dont have to guess at how things will display!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57272">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57272">4</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com/">Nate Klaiber</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>I must say, I am not too excited about it. I have read over it a couple of times, trying to get myself excited - but I just end up thinking how backwards it is.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57273">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57273">5</a></div>
+			<span class="authorname">Todd Rafferty</span> said on January 22, 2008		</div>
+		<div class="quote"><p>You should probably also mention that Microsoft is supposedly forcing everyone still using IE6 to IE7.  Not sure if worrying about IE 5 or lower is even worth it (I guess there's still a lot of win98 users out there still).</p>
+<p>http://www.infoworld.com/archives/emailPrint.jsp?R=printThis&amp;A=/article/08/01/17/Microsoft-warns-businesses-of-autoupdate-to-IE7_1.html
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57274">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57274">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 22, 2008		</div>
+		<div class="quote"><p>@Eric: which standards are those? CSS 1, 2.0, 2.1 or 3.0? And as much as we bash on IE, it affects us the most because it has the largest install base. I once had to use tables on a site because Safari didn't support what I wanted. Of course, it's progressed now to the point where I don't have to worry about it but there is a great deal of legacy code that we have no control over.</p>
+<p>Besides, it'll take you 5 minutes to set your server to never have to worry about it again (by setting the header to edge). Just set it and forget it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57275">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57275">7</a></div>
+			<span class="authorname">Lance Fisher</span> said on January 22, 2008		</div>
+		<div class="quote"><p>@nogg3r5, every browser rendering the same would be nice, but unfortunately we don't live in a perfect world.  I don't think this will ever happen, especially as new standards are released.  No one will get HTML 5 or CSS 3 right on the first try, and it is highly unlikely that they will all get it wrong in the same way.</p>
+<p>I think this is a good path to go down, and I hope other browser developers decide to support this as well.  If a client hires me to build a website, I don't want to have to check up on it every few years to make sure it doesn't explode with a new browser version, and I would say that most businesses don't want to hire a developer for that reason either.  If browsers can respect older pages, then it gives us developers a firm foundation on which to build.</p>
+<p>My only concern is browser bloat, but I would rather see that than webpage bloat which seems to be where we have been heading with CSS hacks, Javascript browser sniffing, and conditional comments.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57276">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57276">8</a></div>
+			<span class="authorname"><a href="http://braddielman.com/">Brad Dielman</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>@Nate - I agree with your assumption on this, it just seems wrong.</p>
+<p>@Snook - If I have to do it, looks like I'll be using 'edge'. At least we have that option.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57277">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57277">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 22, 2008		</div>
+		<div class="quote"><p>And to all those who think this is a bad idea, will you put pressure on the other browsers to drop quirks mode support?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57278">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57278">10</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com/">Nate Klaiber</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>@Snook - the other issue is, just as with other standards, its requires people to be able to set the header to 'edge' if they so wanted. This requires them to have knowledge to change it (not everyone understands), privileges to change it (some might not have access). </p>
+<p>So regardless of which way you look at it, it requires the developers to change something. Only now, we are putting more trust and faith in the browsers to implement this consistently. I feel like we have been down this path before.</p>
+<p>Honestly, I can't come with a solution - there just seem to be so many barriers to both sides (even web standards). I just don't feel right that this is a 'solution.'
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57279">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57279">11</a></div>
+			<span class="authorname">Neal G</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Many angry people are missing the fact here, that IE wants to do this so they can start SUPPORTING STANDARDS more aggressively. Currently they are reluctant to do so because they don't want to break old websites. It could be possible that with IE9, it could be completely on the same level with Firefox and the rest because they aggressively updated the rendering engine etc.</p>
+<p>This whole ordeal is quite funny to me considering the top "experts" in the field are supporting it (and partially microsoft) while all the lowly developers are turning their backs. Sort of against the trend for once.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57280">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57280">12</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>I'm with you on this one, I think it's a great idea, and the drawbacks are nothing major.</p>
+<p>More of my thoughts:<br />
+http://mattwilcox.net/archive/entry/id/956/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57281">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57281">13</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>"the other issue is, just as with other standards, its requires people to be able to set the header to 'edge' if they so wanted. This requires them to have knowledge to change it (not everyone understands), privileges to change it (some might not have access)."</p>
+<p>If the people do not know about EDGE then they are unlikely to be the people that code with standards, or want that behaviour anyway. As I see it this system is brilliant for ignorant web developers. When they test and build their website they will be viewing it in a DOCTYPE derived mode, so either 'quirks' or 'IE7'. Well, their ignorance won't matter to anyone because their page will always render properly, even if they author crap code but have a valid doctype (say someone developing in Dreamweaver...). And if they want to take advantage of the new-shiny they'll have to learn to code properly.</p>
+<p>Other people who are not ignorant of the issue can set EDGE. So they win too.</p>
+<p>Win/win/win, everywhere.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57282">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57282">14</a></div>
+			<span class="authorname">Shaun Andrews</span> said on January 22, 2008		</div>
+		<div class="quote"><p>"I so called it"</p>
+<p>When will you be predicting the NYS Lotto? Please keep me informed of all future predictions.</p>
+<p>Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57283">15</a></div>
+			<span class="authorname">Anonymous</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Jonathan, I definately agree.  Something is required to allow future browsers to break free from earlier editions featuring poor standards support.  Allowing sites to set the rendering engine that should be used negates the need for later rendering engines to compromise for the sake of supporting older sites.  This seems to be a reasonable solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57284">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57284">16</a></div>
+			<span class="authorname"><a href="http://pauldwaite.co.uk/">pauldwaite</a></span> said on January 22, 2008		</div>
+		<div class="quote"><blockquote><p>its requires people to be able to set the header to 'edge' if they so wanted</p></blockquote>
+<p>But if they donâ€™t, then the worst that will happen is their site, <em>when rendered in Internet Explorer</em>, will be rendered as if itâ€™s Internet Explorer 7. If they donâ€™t have enough control over the mark-up to be able to set a meta element, I doubt IE 7â€™s rendering will be an issue for them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57285">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57285">17</a></div>
+			<span class="authorname">gRegor</span> said on January 22, 2008		</div>
+		<div class="quote"><p>It makes zero sense to me that I should have to add a meta element to make <em>Browser X version Y</em> render as itself instead of an earlier version.  What on earth??
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57286">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57286">18</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>I think this is really good for the web. Because I think the new default of 'stay as IE7 when no meta tag found' will <em>enhance</em> the uptake of web standards. Because every ignorant developer on earth is now going to be permanently stuck with IE7 rendering and behaviour. They will never get to use any of the new-shiny of IE8 and above if they don't know to include that meta tag. They won't know to include that meta tag until they go away and learn about web standards.</p>
+<p>If I could, I'd have every browser on earth fall back to the current DOCTYPE switcher mode, and current render engines, if any part of the page did not validate. That'd stop ignorant developers simply slinging in the meta tag and carrying on producing tag-soup. It would force valid pages if you want to use CSS3 or the new ECMAScript. And all the while leaving the rest of the web totally unbroken.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57287">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57287">19</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com/">Nate Klaiber</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>@pauldwaite and @matt wilcox - I understand what you are both saying. I understand the default behavior (and do not like it). I understand that if people don't know about edge, then they probably aren't building to standards (still a bad argument for those who are just learning standards - maybe even a turn off). This all just seems like major hackery to me. I know we don't live in a perfect world and things will never be perfect, but this 'solution' doesn't seem like much of a solution to me. </p>
+<p>Maybe it's my lack of trust in MS, that they now have control over the rendering per a meta tag (or server configuration). As gRegor says, it makes no sense. </p>
+<p>Again, all my personal opinion and I have no solution, I just fail to see this as any kind of solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57288">20</a></div>
+			<span class="authorname">Tom Sieron</span> said on January 22, 2008		</div>
+		<div class="quote"><p>How about declaring the standard (eg. HTML4.1 strict; CSS 2.1) which the website creator followed instead of the browser agent? The W3C standards are specific enough. Declaring UA seems crazy - what about mobile devices, what about screen readers, exotic browsers? Why should I care about listing UAs? If I list FF3 and IE7 and forget to list some exotic browser how should it behave? Should all browsers try to imitate the mainstream ones? Why? It's like introducing quirksmode all over again.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57289">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57289">21</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 22, 2008		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/browsers/version_targeting_ie8/#c57282">Shaun Andrews</a>: My powers don't work that way. ;)</p>
+<p>@<a href="http://snook.ca/archives/browsers/version_targeting_ie8/#c57285">gRegor</a>: I think you're looking it as "as a developer, I have yet another thing to do to make my sites work" when you should probably be thinking "as an end user, I'm happy that things will continue to work just fine." </p>
+<p>I'm reading things like, "catastrophic failure" and I'm thinking, take 5 minutes right now, configure your server, and move on. People are spending more time complaining than it would take to solve the problem.</p>
+</div>
+	</div>
+		<div class="comment" id="c57290">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57290">22</a></div>
+			<span class="authorname">Anders YtterstrÃ¶m</span> said on January 22, 2008		</div>
+		<div class="quote"><p>What, exactly, is the difference in this compared to conditional comments? As far as I can see, this new feature is just another way of doing what web developers have done for years - writing specific rules for certain versions of IE (lower than 8, or lower than seven).</p>
+<p>Will IE8 drop support for conditional comments? In that case, it's nothing left to do but to reinventing the wheel and using this new feature. If not, I do not see the point.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57291">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57291">23</a></div>
+			<span class="authorname">Adam J. McIntyre</span> said on January 22, 2008		</div>
+		<div class="quote"><p>@Snook: I agree. It's just another one-line add to whatever you use as your "base template" upon which you build all your work.</p>
+<p>@Tom Sieron: It does seem like there's a lot of ambiguity here. How long will it take for FireFox to support this? What if Safari/WebKit never does? Do browser vendors now need to add a bit extra code to support these old rendering engines? It will be interesting to follow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57292">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57292">24</a></div>
+			<span class="authorname"><a href="http://kasimir-k.fi/">Kasimir K</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>So far I have designed to the standards - not to different browser versions. </p>
+<p>I'd love to continue that way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57293">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57293">25</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com/">Nate Klaiber</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>"I'm thinking, take 5 minutes right now, configure your server, and move on. People are spending more time complaining than it would take to solve the problem."</p>
+<p>I can think of at least ten people (web designers) who would have no clue how to configure their servers to do this. I could also list off the majority of agencies around me that would have no clue. Honestly, they wouldn't understand one bit. This requirement of 'just update your server' just seems really silly to me. How many times and how many different browser variations will we have for this? One for IE? One for FF? One for Safari? So now - instead of cluttering up our markup with hacks to fix their broken implementations, we now have to clutter up our server config files to send the right HTTP header info. Seriously? How is that a solution to anything?</p>
+<p>It all looks like the same pig, just different lipstick to me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57294">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57294">26</a></div>
+			<span class="authorname">Alan Rabinowitz</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Bizarre that we have to add code to use the latest browser, shouldn't it just detect compatibility, now that would be a superior browser, one that actually knows what to do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57295">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57295">27</a></div>
+			<span class="authorname">Carl Holmberg</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Well people didn't know about doctypes at first either but these were later auto-inserted by html-editors. Don't you think the editors will start adding this as well and what newbie webdesigner wannabe will choose anything but the "edge" setting. This is as doomed as the doctype switch was...</p>
+<p>It's only a matter of time before we'll need something new unless we can force the developers of the html-editors to not include the feature... The only way I see is to always force standards mode and have an opt-out instead of this opt-in system.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57296">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57296">28</a></div>
+			<span class="authorname">Samuel</span> said on January 22, 2008		</div>
+		<div class="quote"><p>Why not just use the standard, like HTML5 in the next few years. A standard created by most of the browser maker out there, as far as I know...<br />
+I think web developer should be able to tell he browser witch standard they use and their jobs (the browser) is to render it accordingly. I know that I may be dreaming.</p>
+</div>
+	</div>
+		<div class="comment" id="c57297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57297">29</a></div>
+			<span class="authorname"><a href="http://www.scarfoo.com/">Damjan MozetiÄ</a></span> said on January 22, 2008		</div>
+		<div class="quote"><p>Like I said before, I don't believe this is going to work in the long run. The implementation of this backwards compatibility meta thingie will be buggy as hell, and thus useless.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57298">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57298">30</a></div>
+			<span class="authorname">Inferis</span> said on January 23, 2008		</div>
+		<div class="quote"><p>As it stands, we'll only be needing this for IE8 now. Other browsers don't currently need it, and might never need it. But if/when they do: there's a way to do it. </p>
+<p>It's like an explicit fallback mechanism. One that you (as a developer) can control, and not one that depends on how a specific implementation renders a hack (which are interspersed in your code -&gt; ugly). This is much cleaner than all the CSS hacks we have now <strong>because it's explicit</strong>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57301">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57301">31</a></div>
+			<span class="authorname"><a href="http://thinkdrastic.net/">Olly</a></span> said on January 23, 2008		</div>
+		<div class="quote"><blockquote><p>What still isn't clear for me is how to specify the latest of every browser.</p></blockquote>
+<p>It's looking distinctly like IE will be the only browser to support the header. Today I've read posts from people representing Mozilla, Apple and Opera saying they can't see the benefit in adopting this header.</p>
+<p>I remain unconvinced by this idea. My feeling is the default behaviour is back to front.</p>
+<p>A major issue to me is one of education. How are MS going to get the message out to everybody developing websites now, let alone newcomers to the industry? It's bad enough helping people get their heads around the quirks/standards mode switches as they stand today.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57302">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57302">32</a></div>
+			<span class="authorname">gRegor</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@Snook Actually I'm just thinking "great, MS is doing another stupid thing that makes me have to do more to make their browser work correctly."</p>
+<p>And as an end user, if Browser X says it can do Y, <i>I want it to do it</i>.  It shouldn't have to rely on developers doing something extra.  This is both a developer and end-user perspective.</p>
+<p>Tom Sieron said it pretty well, I think.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57304">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57304">33</a></div>
+			<span class="authorname">Jessie</span> said on January 23, 2008		</div>
+		<div class="quote"><p>Interesting, well done on another great prediction.<br />
+Like other posters, i'd love it if every browser would render html the same. Would make my life 10x easier!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57319">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57319">34</a></div>
+			<span class="authorname">Jeff</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@Snook: </p>
+<p>Sorry Snook, but I have to disagree you and agree with Jeremy Keith here in that if you let MS say this is the only way they can support the spec it is letting the tail wag the dog and that's just not right. </p>
+<p>Since when does MS have the kind of power to get to dictate standards support to everyone else? Isn't that exactly what they are trying to do here? </p>
+<p>Now sure, itâ€™s a five minute job to change the server headers, but why should you have to, especially when at present itâ€™s just for Internet Explorer? Why is IE so damned special? Market share again? If so then isnâ€™t that all the more reason to hold their toes to the fire to support to current spec instead of creating their own like they did for OOXML?</p>
+<p>Also, if the content in those HTML 1, 2, and 3.2 pages is that important to preserve then screen scrape it, park in an XML file, and just be done with it. If itâ€™s the graphics you're after then make screen captures till your fingers hurt for all I care and again, convert it and store in an XML file or in a database. Either way the content is preserved in a format that is usable. Until the next time we run into this problem (which should be within the next five years anyway).</p>
+<p>You asked if someone earlier if they would pressure the other browser vendors to live up to the spec just like they were advocating MS should, my answer would be â€œDamn straight!â€ because the other browser vendors are all trying to do that as we speak, WITHOUT having to use version locking like the IE Team is suggesting. </p>
+<p>As to the backward compatibility argument, If the only browser your app will run in is IE 4 then donâ€™t you think its time you upgraded? And youâ€™ll say â€œBut upgrading costs moneyâ€ Sure it does, but a better, standards compliant browser is a free download and updating that application from Classic ASP to ASP.NET or PHP (or heaven forbid COBOL) can be done relatively painlessly for a modest investment and you're old app can live in place for the time it would take to outsource your upgrade. </p>
+<p>My point is I think an awful lot more scholarly debate actually needs to go on among all parties involved before we saddle up this pony riding headlong once more into the breach dear friends and damned be everyone else. </p>
+</div>
+	</div>
+		<div class="comment snook" id="c57320">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57320">35</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 23, 2008		</div>
+		<div class="quote"><p>@Jeff: First of all, thanks for such a lengthy reply. That was a whole blog post right there! :)</p>
+<p>Since Microsoft makes the browser, they can do what they want. Honestly, they can. Every browser developer can and in fact, have. If you don't like it, don't use it. The fact of the matter is, the majority of web users still use Internet Explorer more than any other browser. As a web developer, I cater to what my clients want and if they want IE support (warts and all), I give it to them. We've done so much more work to cater to IE's deficiencies that I wonder if this one extra line is just the straw that broke the developer's back.</p>
+<p>Anyways, let me offer up a possible scenario here: Let's say I've bought a big enterprise CMS. It's web-based but only works in IE7. This thing cost the company at least $100k, not including all the support required to install and train for this application. A new version of IE comes out and now I can't use the CMS to update the site. Even worse, all the code this CMS spit out to my customers doesn't work either and I've got plenty of support calls to prove it. The CMS doesn't have a new version available yet...what do I do? (and make sure your answer means I'm not spending another $100k+ to solve the problem.) </p>
+<p>This is a very real scenario that played itself out very nicely when IE7 came out. And guess what companies did? They stayed with IE6 because it worked. (This is just one of the reasons why the uptake on IE7 has been so slow.) Now, if you tell me that IE8 won't have this problem then hallelujah...let me roll out that browser to my entire company of 1000 people. And guess what, your site that you built with all the latest cool web standards but yes, had to add one line of code, now works quite nicely.</p>
+<p>I still think this is the best solution and we can debate it until the cows come home but I'd rather see Microsoft get their new browser with a rendering engine that meets Acid2 out to the masses.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57322">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57322">36</a></div>
+			<span class="authorname">Barney Scott</span> said on January 24, 2008		</div>
+		<div class="quote"><p>I think that there are a few reasons why people have been so negative about this proposal.</p>
+<p>1) I'll start with the obvious first, Microsoft is suggesting it. Now it's all well and good saying that people should give it a chance and that just because Microsoft are suggesting it shouldn't be written off immediately. The problem is that nobody trusts them and for good reason too, they have screwed over their end users and developers time and time again. Every move they have made into the standards world seems to be an attempt to destroy the competition by owning the standard. This may be a completely innocent idea from Microsoft but it is going to be a long time of nothing but good behaviour until people start trusting what they say.</p>
+<p>2) For that last few years the mantra has been code for the standards not for a browser, adding in browser specific code has been seen as dirty. When flame wars have built up over whether CSS hacks or conditional comments are the better way to go, can you blame people for being shocked when some of the most prominent standards people turn around backed by Microsoft and say actually it's ok.</p>
+<p>3) The way that it was announced seemed to have the traditional Microsoft air of backroom deals and shady dealings. There were explicit references to WaSP that made it seem like they were heavily involved as a group, only for a large number of them to turn around and say actually we've not heard about this before today.</p>
+<p>4) For the last few years we have had to hack around IE's deficiencies, make special allowances, compromise the quality of our code and all this time the end users have been oblivious to the state of their favourite browser. Then Microsoft announce that IE8 passes ACID2 and we all start thinking that maybe this time it will be better, we might be able to code once and then not spend the same amount of time again fixing for IE, there is hope. Then all of that is seemingly taken away to be replaced with the rod, is it any wonder that people are pissed. </p>
+<p>And with regards to IE8's ACID2 abilities surely they fail the test. As i understand it the test should be taken with default browser settings, and in its current state IE7 fails the test. If the new meta tag is used or the http headers are changed to fit then the test has been changed to suit one browser, which means that it is no longer ACID2. As far as i can see it then if this carries on then IE* will never pass the test as it will always be taken as IE7.</p>
+</div>
+	</div>
+		<div class="comment" id="c57337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57337">37</a></div>
+			<span class="authorname">Jamie Strachan</span> said on January 25, 2008		</div>
+		<div class="quote"><blockquote><p>Remember, this isn't about us, the developers, but about the end users who have to visit and use these sites day-to-day. Upgrading their browser shouldn't break the web.</p>
+</blockquote>
+<p>It seems like a lot of people are missing this point. As a developer, I'm trying to deliver an experience to the user and I'll work with the tools I have at my disposal to do so. If that now includes a new <code>&lt;meta&gt;</code> tag, that really doesn't seem like much of an imposition.</p>
+<p>Microsoft has to worry about their users too and this seems like a pretty reasonable way for them to progress without alienating their install base.</p>
+</div>
+	</div>
+		<div class="comment" id="c57339">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57339">38</a></div>
+			<span class="authorname">Dinoboff</span> said on January 25, 2008		</div>
+		<div class="quote"><p>Lots of people don't really understand the issue. The website that will break with IE8 (or IE9) are the one that are written with standard but assume IE is not Standard compliant and apply fixes to it. </p>
+<p>Remember what's happen last year:<br />
+http://www.thinkvitamin.com/features/design/internet-explorer-7-were-you-ready</p>
+<p>You can think MS has a secret plan to lock people into its products like Silverlight, but I don't see how this meta tag can fit into its evil plans.</p>
+<p>Also, with the standards we are using today (HTML4, XHTML1 and CSS 2.1...) that are now stable, clearly, IE is the only one that need this tag. But with HTML5, JavaScript2  and CSS3 coming, other browser might need it in the feature if they start to implement them when they are not finish.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57347">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57347">39</a></div>
+			<span class="authorname">Jeff</span> said on January 28, 2008		</div>
+		<div class="quote"><p>@Snook</p>
+<p>I see your point, but still, the way MS handled this whole debacle leads one to believe they haven't learned anything from their earlier mistakes despite what Chris Wilson says. Why must they always do everything so clandestine, blackbag and covert? I know its their option to do so, but its an option that just doesn't make sense.</p>
+<p>You think they'd want the development community to know "Hey we're working on a new version and we'd like your help!" After all, just look at how much community support there is for Firefox and Webkit.</p>
+<p>I think if they'd be more open and more forthocming with the developer community as a whole I bet that it would go a LONG way to restoring the trust developers now lack in and for MS and IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57361">40</a></div>
+			<span class="authorname">Stuart Steel</span> said on January 30, 2008		</div>
+		<div class="quote"><p>What I hate is its just another level of complexity to deal with, and another level to explain to clients.  There are always some hidden costs, that we don't even realise ourselves.</p>
+<p>As an example I've been consulting with a large corporate client for several years on a web application. For purely historical reasons it never used a doctype so ran in quirks mode, with a purely IE userbase.  To the client adding the doctype was an expense with no payoff, so it never happened. But more recently we discovered that the quirks mode rendering time was 5-6 times slower than standards compliant mode. Their app has been unfairly been perceived as slow as a result for years.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57362">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57362">41</a></div>
+			<span class="authorname">Johnny</span> said on January 30, 2008		</div>
+		<div class="quote"><p>One thing I am dreading seeing "Best Viewed in IE7" I sincerely hope it's not a return the bad old days!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57363">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57363">42</a></div>
+			<span class="authorname">hoopskier</span> said on January 30, 2008		</div>
+		<div class="quote"><p>@TomSieron: "How about declaring the standard (eg. HTML4.1 strict; CSS 2.1) which the website creator followed instead of the browser agent?"</p>
+<p>Because user agents have bugs in how they implement the standard.  Let's say Microsoft claims 100% CSS 2.1 compliance in IE8, but then after IE8 ships they find bugs in it.  When IE9 ships with those fixes, this could cause sites targeted at IE8 to now break.  This same scenario happens with other browsers today -- it's just that the perception of the breakage depends on the size and type of your user base.</p>
+<p>Until every browser is bug free (which, since code is written by humans, is quite a long time), there will always be compliance bug fixes, which all have the potential to cause disruption.  Targeting a UA version, not a spec, is required to minimize this disruption.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/browsers/version_targeting_ie8 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+</html>

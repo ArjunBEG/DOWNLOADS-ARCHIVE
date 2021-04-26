@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-parent-selectors by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Why we don't have a parent selector - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/css-parent-selectors">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/css-parent-selectors">
+	<meta property="og:title" content="Why we don't have a parent selector">
+	<meta property="og:description" name="description" content="On a seemingly regular basis, I see this discussion come up as to whether CSS should have a particular feature like the parent selector and while I haven't worked on a browser engine, I have my theori...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Why we don't have a parent selector</h1>
+		<p>On a seemingly regular basis, I see this discussion come up as to whether CSS should have a particular feature like the parent selector and while I haven't worked on a browser engine, I have my theories. </p>
+<p>In short: <em>performance</em>. </p>
+<h2>How CSS gets evaluated</h2>
+<p>With work, I've had to do quite a bit of examination of performance. We run a number of tools over an application to determine where the bottlenecks are. One such application is <a href="http://code.google.com/speed/page-speed/">Google Page Speed</a> which provides a number of recommendations to improve JavaScript and rendering performance. Before I get into its recommendations, we need to understand a little better about how browsers evaulate CSS.</p>
+<h3>The style of an element is evaluated on element creation</h3>
+<p>We often think of our pages as these full and complete documents full of elements and content. However, browsers are designed to handle documents like a stream. They begin to receive the document from the server and can render the document before it has completely downloaded. Each node is evaluated and rendered to the viewport as it is received.</p>
+<p>Take a look at the body of an example document:</p>
+<pre><code>&lt;body&gt;
+   &lt;div id=&quot;content&quot;&gt;
+      &lt;div class=&quot;module intro&quot;&gt;
+         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;module&quot;&gt;
+         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+         &lt;p&gt;Lorem Ipsum &lt;span&gt;Test&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/body&gt;</code></pre> 
+<p>The browser starts at the top and sees a <code>body </code>element. At this point, it thinks it's empty. It hasn't evaluated anything else. The browser will determine what the computed styles are and apply them to the element. What is the font, the color, the line height? After it figures this out, it paints it to the screen.</p>
+<p>Next, it sees a <code>div</code> element with an ID of content. Again, at this point, it thinks it's empty. It hasn't evaluated anything else. The browser figures out the styles and then the <code>div</code> gets painted. The browser will determine if it needs to repaint the body&mdash;did the element get wider or taller? (I suspect there are other considerations but width and height changes are the most common effects child elements have on their parents.)</p>
+<p>This process continues on until it reaches the end of the document. </p>
+<p>Here is a visualization of the reflow/repaint process in Firefox:</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/ZTnIxIA5KGw" frameborder="0" allowfullscreen></iframe>
+<h3>CSS gets evaluated from right to left.</h3>
+<p>To determine whether a CSS rule applies to a particular element, it starts from the right of the rule and works it's way left.</p>
+<p>If you have a rule like <code>body div#content p { color: #003366; }</code> then for every element&mdash;as it gets rendered to the page&mdash;it'll first ask if it's a paragraph element. If it is, it'll work its way up the DOM and ask if it's a <code>div </code>with an ID of content. If it finds what it's looking for, it'll continue its way up the DOM until it reaches the <code>body</code>. </p>
+<p>By working right to left, the browser can determine whether a rule applies to this particular element that it is trying to paint to the viewport much faster. To determine which rule is more or less performant, you need to figure out how many nodes need to be evaluated to determine whether a style can be applied to an element. </p>
+<h2>Rules</h2>
+<p>  Going back to Page Speed, let's take a look at a couple of <a href="http://code.google.com/speed/page-speed/docs/rendering.html#UseEfficientCSSSelectors">the recommendations it provides</a>:</p>
+<ul>
+  <li>Avoid descendant selectors </li>
+  <li>Avoid child or adjacent selectors </li>
+</ul>
+<p>Of course, ID selectors are the fastest. A rule of <code>#content</code> can be evaluated quite quickly for an element being processed. Does it have the ID or not? Class selectors are almost as fast. There are no other dependencies that need to be checked. </p>
+<p>Descendant selectors like <code>.content .sidebar</code> are problematic because to determine whether it should apply the styles to <code>.sidebar</code>, it has to find <code>.content</code>. Child selectors (Ex. <code>.content &gt; .sidebar</code>) are better than general descendant selectors because the browser only has to check one other element instead of mutiple elements.</p>
+<h3>Universal and Tag Selectors</h3>
+<p>Within its recommendations for descendant, child or adjacent selectors, it says to avoid the universal and tag selectors.</p>
+<p>Take a look at the following example:</p>
+<pre><code>#content * { color: #039; }</code></pre>
+<p>With the ID selector there, your initial thought might be that this is really fast. The problem is that with the browser engine evaluating from right to left, the universal selector matches first. For the browser to detemine whether this element should be this deep shade of blue, it now has to check every ancestor element until it finds an element with an ID of <code>content</code>. </p>
+<p>And it'll have to do this for every single element on the page.</p>
+<p>Now that we understand when an element gets evaluated, how the selectors are determined, and how it might impact performance, let's look at an example issue.</p>
+<h2>Why IE took so long to get <code>:last-child</code> support</h2>
+<p>A common complaint: most browsers these days have support for <code>:last-child</code>&mdash;except Internet Explorer. (It'll be in IE9!) One might think, &quot;how much harder can <code>:last-child</code> be if you have <code>:first-child</code>?&quot;</p>
+<p>Let's pretend we're a browser and we're parsing that document example I used earlier.</p>
+<pre><code>/* The CSS */
+.module &gt; p:first-child { color: red; } /* first rule */ 
+.module &gt; p:last-child { color: blue; } /* second rule */</code></pre> 
+<p>As we go into the first <code>div</code>, we see that we have a paragraph. The browser sees something like this: </p>
+<pre><code>&lt;div class=&quot;module&quot;&gt;
+   &lt;p&gt;Lorem Ipsum&lt;/p&gt;</code></pre>
+<p>Should the first rule be applied to this paragraph? Yes, it's a paragraph; yes, it's the first child; and yes, it's the direct child element of an element with the class module. </p>
+<p>Should the second rule be applied to this paragraph? It is currently the last element. But we haven't loaded any more elements in, so we're just not sure. </p>
+<p>Regardless of how I handle this dilemma, we now have the problem of having to re-evaluate the styles for two elements for every new element that we add to the DOM. If we add another paragraph after the first, then we have to re-determine what styles should be applied to the one previous to that. </p>
+<h3>How do browsers actually handle this?</h3>
+<p>I wasn't entirely sure how each browser would handle parsing :last-child, so I put together some test cases:</p>
+<ul>
+  <li><a href="http://testing.snook.ca/css-1.html">A static HTML page</a></li>
+  <li><a href="http://testing.snook.ca/css-1.php">Rendering pauses for one second</a></li>
+</ul>
+<p>The first example should be very unexciting. In every browser, including IE9, things load up and appear correctly. Within the <code>div</code>, the first element is red and the last is blue. Take a look at the <em>second</em> example, however, and you'll see some interesting behavioural differences between the browsers.</p>
+<p>The second example pauses before and after every paragraph in the <code>div</code>. </p>
+<p>In Firefox, the first paragraph is initially rendered blue. When it loads the second paragraph, the first turns to red and the second paragraph is blue. Finally, when the third paragraph is loaded, the second one turns to the browser default and the third one turns to blue. Firefox treats the last element loaded as the last element until it gets a new one.</p>
+<p>In Safari, Chrome and Opera, we see something slightly different. The first paragraph is red. The second one is rendered black. The last paragraph is rendered black until the closing <code>div</code> tag is received a second later. At which point, the last paragraph turns blue. These browsers don't treat any element as the last element until it closes the parent element.</p>
+<p>In Internet Explorer 9 beta, I've discovered an interesting bug. While the static page loads correctly, the forced-pause version ends up with an interesting side effect. The first paragraph is blue, then the second paragraph is blue and then the third. Once the closing  <code>div</code> is loaded, the second to last paragraph is changed to default black. IE9 is trying to behave like Webkit and Opera but...well...fails. <em>Time to file a bug report with Microsoft.</em></p>
+<h2>Why don't we have a parent selector?</h2>
+<p>That was a fair amount of explanation to get to the original question. The problem isn't that we <em>couldn't</em> have a parent selector. The problem is that it would introduce a performance concern when it comes to determining what CSS rules apply to a given element. If Google Page Speed doesn't like universal selectors then you can guarantee that a parent selector would end up at the top of the list, far exceeding any performance issues you might have with universal selectors.</p>
+<p>Let's take a look at why. First off, let's come up with an example syntax for our parent selector.</p>
+<pre><code>div.module:has(span) { color: green; }</code></pre>
+<p>The problem is that we can't evaluate this rule until either we match the criteria or until all elements within the node are loaded. Related to that, we have to evaluate this and all other rules (in case of specificity issues) that apply to this element for each descendant element that we load.</p>
+<p>Looking at a chunk of our document:</p>
+<pre><code>&lt;div class=&quot;module&quot;&gt;
+         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+         &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+         &lt;p&gt;Lorem Ipsum &lt;span&gt;Test&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre> 
+<p>Based on what we've seen, the module would get rendered without the styles from the parent selector coming into play. When the first <code>p</code> element gets loaded, it'll have to re-evaluate to see if the parent selector applies to the <code>div</code>. It'll do this again for the next paragraph. And again for the third. Finally, when it loads the span, the parent selector will apply to the parent <code>div</code> and the element will get re-rendered.</p>
+<p>Now what? If it changes any inheritable CSS properties,<strong> <em>every</em></strong> <em>single child element</em> needs to be re-evaluated and re-rendered. Ouch.</p>
+<h2>Why can JavaScript solve this problem but CSS can't?</h2>
+<p>It's a bit of an illusion that JavaScript solves the problem. Generally speaking, JavaScript polyfills or regressive enhancements (or whatever you kids call it these days) only run once after the DOM has completely loaded.</p>
+<p>To truly behave the way CSS does, any script that solves these problems would have to run after every single element was rendered to the page to determine whether a polyfill would need to be applied. Remember CSS expressions in Internet Explorer? There's a reason why they were a performance issue.</p>
+<h2>Not Impossible</h2>
+<p>Will we ever get a parent selector? Maybe. What I've described is not technically impossible. In fact, quite the opposite. It just means that we'd have to deal with the performance implications of using such a feature.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 10, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/984</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">37 Comments &middot; <a href="https://snook.ca/archives/html_and_css/css-parent-selectors.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c65078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65078">1</a></div>
+			<span class="authorname">Tony Milne</span> said on October 10, 2010		</div>
+		<div class="quote"><p>I've been aware of writing optimised jQuery selectors and caching them to variables for quite a while now, but never realised the affect my CSS selectors could be having on page load and overall performance - thanks for the insight Snook.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65079">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65079">2</a></div>
+			<span class="authorname">Rudie</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Someday, when performance isn't an issue anymore. Exciting things get less exciting everyday. So in a few years (+ a few years for IE) we'll have parent (pseudo) selectors.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65080">3</a></div>
+			<span class="authorname">Rudie</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Which is less efficient:<br />
+* { color:black; }<br />
+or<br />
+#content * { color:black; }<br />
+I'd say the first is VERY easy for a browser to paint... Or is that one shameful as well?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65081">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65081">4</a></div>
+			<span class="authorname"><a href="http://www.w3conversions.com/">Stephanie (Sullivan) Rewis</a></span> said on October 10, 2010		</div>
+		<div class="quote"><p>Thanks for writing the thoughts you explained to me on IM the other day. :) Great explanation! And yes, I've given up my desire (currently) for a parent selector. I'm also rethinking how I write CSS. OOCSS is looking better and better all the time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65082">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65082">5</a></div>
+			<span class="authorname">Sean Curtis</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Why couldn't the parent selector work when the tag is closed like the :last-child one does in Safari/Chrome/Opera? Eg first P is rendered, 2nd one, third one with span, div is closed, checks for span/last-child/whatever-else, applies styles?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65083">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 10, 2010		</div>
+		<div class="quote"><p>@Rudie: <code>#content *</code> is less efficient than <code>*</code>. The reason is because with just a plain <code>*</code>, only one element is evaluated to determine if it matches the selector. With <code>#content *</code>, every ancestor of the element being evaluated has to be checked to see if it has an ID of content applied to it.</p>
+<p>@Sean Curtis: There are various ways it could decide to handle it, all with various pros and cons. It could not render the <code>div</code> until all child elements are loaded but that might mean seeing an empty page until the entire document loads. Or, it could wait until the closing element to decide before re-rendering the style but then you still have all the child elements to re-render. That isn't an issue that :last-child has, per se. At least, not on the same scale.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65084">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65084">7</a></div>
+			<span class="authorname">cooljaz124</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Which will load faster - An HTML page with a .css or a page with all css implemented using Javascript/Jquery ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65085">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65085">8</a></div>
+			<span class="authorname">Keith Clark</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Sean, having a parent selector would mean the child nodes would have to monitor their parents for a change to the DOM. What your suggesting would be ok for applying styles during page load but I don't think the initial load time is the big issue - the problem is recalculating styles when the browser needs to redraw the viewport - that's what killed IE's performance when using expressions.</p>
+<p>It would be interesting to run speed tests on this stuff but I think it's beyond the scope of JavaScript - it would need to be done during the vendors build/test process.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65086">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65086">9</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com/">Brendan Falkowski</a></span> said on October 10, 2010		</div>
+		<div class="quote"><p>The static test renders using Safari/Mac in 5ms. Aside from the great test case for :last-child implementation, I'm not sure there is a great value in CSS performance optimization. Google Page Speed recommends avoiding descendent selectors which seems a little absurd. A robot would suggest using only ID selectors to eliminate specificity.</p>
+<p>I'd be curious if 1000 adjacent selectors is slower than 1 extra HTTP request. That's an extreme case, but in the total page speed scheme isn't CSS the least important?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65087">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65087">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 10, 2010		</div>
+		<div class="quote"><p>@COOLJAZ12: that depends on whether the JavaScript is applying the same CSS and selectors as there would've been in the beginning. It also depends on when you have to worry about render time. CSS will almost always be faster.</p>
+<p>@Brendan Falkowski: It depends on what you're doing. The problem with complex rendering is that it can impact JavaScript performance. It can also affect rendering performance if you're making a lot of repetitive changesâ€”say, with animations. Complex applications like Yahoo! Mail benefit from simplified selectors and improved rendering times because of the amount of work that is being done on the client. If you have a blog then it really isn't an issue because the page is rendered once, with few rules needing to get evaluated. Changing everything to ID or class selectors won't be worth the maintenance headache.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65088">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65088">11</a></div>
+			<span class="authorname">Dmitry Scriptin</span> said on October 10, 2010		</div>
+		<div class="quote"><p>From the "philosophical" point of view, <code>:parent</code> selector breaks the concept of CSS in its' "Cascading" part. What <code>:parent</code> does is reversing the flow of rules: while everything go inside and down, it goes outside.</p>
+<p>So, I think it's not only the question of performance.</p>
+<p>Also I think that the someone's need for this selector is a consequence of his/her misunderstang of CSS basic ideas. We don't actually need this, we can handle everything without it. And it would be bette (IMO) to not have this selector to keep CSS, you know, pure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65089">12</a></div>
+			<span class="authorname">Scott</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Actually given your explanation of descendent selectors, I don't see how a parent selector could be any worse.</p>
+<p>Take '.module:has(span)' - when the browser gets to a span element, all it needs to do is search upwards through the current tree to find .module, same as with the descendent selector. If it finds .module then it can apply the styles to that element right away. Assuming you do not have anything more complex than that simple boolean selector, it should be exactly as fast (or slow) as descendent selectors.</p>
+<p>That's not to say a parent selector is a good idea. Developers seem to be very keen to strip HTML to as bare bones as possible, while creating a horrid mess of CSS selectors. Usually adding one simple class can eradicate many lines of CSS.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65090">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65090">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 10, 2010		</div>
+		<div class="quote"><p>Scott, the difference is that a descendant selector is only evaluated once when that element is inserted by going directly up the tree. A parent selector would need to be evaluated each and every time a child selector was added. And then once a parent selector was matched, each and every child element would need to be potentially re-rendered. That's a potential for magnitudes of difference when it comes to performance. </p>
+<p>For example:</p>
+<p>.module span would fail immediately on all of the P's. Only when it hit the span would it attempt to work its way linearly up the tree.</p>
+<p>.module:has(span) can't render when .module renders, when it should. Instead, the P gets rendered and the styles on .module get re-evaluated (and fail). Note, we're now checking to see if a rule applies on two elements for every element inserted in the DOM. That's twice as many as before. Once we hit the span, any style on the span renders and then the .module is re-evaluated and then the styles on ALL of the child elements are re-evaluated and re-rendered because of inheritance. </p>
+<p>Huge difference.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65091">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65091">14</a></div>
+			<span class="authorname">Arieh</span> said on October 10, 2010		</div>
+		<div class="quote"><p>I disagree with your conclusion. Few reasons:<br />
+1. A language shouldn't be about performance. Performance is for developers to worry about.<br />
+2. The fact that the standard way of doing it is slow doesn't mean it's the way browsers do it. I'm pretty sure browsers can do smart evaluations of rules and determine what is the best way for evaluating them. For example - if a browser sees #content *, it could simply search that #content first. It's doable and feasible, and I doubt that with all the performance wars going on browsers aren't "cheating" a whole lot.</p>
+<p>So my point is - CSS is always about how can you best describe the hierarchy of a page. It's up to the browser to worry about performance, and PageSpeed, although a nice tool, always yells at me for very generic uses. The amount of work it would take to add classes to very element I might use is simply non realistic.<br />
+As for the parent selector - I agree with Sccot, that it's much more probable that the reason is that it's upside down, and that's counter CSS (although as I understand cascading means that every rules that follows on the same element will cascade on the previous).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65092">15</a></div>
+			<span class="authorname">Paul D.</span> said on October 10, 2010		</div>
+		<div class="quote"><p>I'm pretty sure Safari lead developer Dave Hyatt himself has said that performance issues make a parent selector unfeasible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65093">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65093">16</a></div>
+			<span class="authorname">yves torres</span> said on October 11, 2010		</div>
+		<div class="quote"><p>Totally agree with Arieh, working like this wouldn't be feasible, never mind bloating your html source into a big fast bastard child.</p>
+<p>As long as you're not developing the next Yahoo Mail or an application of similar size and scope, I think it's pretty safe to disregard Google Page Speed's results.</p>
+<p>Of course there are a few performance tweaks it suggests that do make sense and are easy to implement but other's are just doubtful. </p>
+<p>I've got a question about serving gzipped content, is this unproblematic? I've had some bad experiences with caching content, which is a very annoying problem to have.</p>
+<p>best<br />
+y
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65094">17</a></div>
+			<span class="authorname"><a href="http://twitter.com/rem">Remy Sharp</a></span> said on October 11, 2010		</div>
+		<div class="quote"><p>Whilst I agree with everything you've said - and the performance and rendering demos are great - I don't think a parent selector is a lost cause.</p>
+<p>Based on these demos, I can't see why E:parent wouldn't fit perfectly amongst the suite of CSS selectors.  </p>
+<p>Does it matter that it doesn't follow the "normal" CSS syntax style? I don't think it does.  It still cascades, it would still have a specificity weight and I think it's long overdue - as per my post:  <a href="http://remysharp.com/css-parent-selector/">http://remysharp.com/css-parent-selector/</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65095">18</a></div>
+			<span class="authorname">Scott</span> said on October 11, 2010		</div>
+		<div class="quote"><p>Jonathan, thanks for the explanation. You are of course right - once you match that parent you do need to re-evaluate the children.</p>
+<p>However, there may be ways to mitigate performance hits - for example combining my and Arieh's suggestions and waiting until certain elements are completely loaded in the DOM before applying styles to their children.</p>
+<p>Now when we encounter our .module element, we know the :has selector applies to it. We simply grab its entire HTML contents before applying the CSS. If we find a span along the way, we know to apply those styles. We can think of it like adding a .containsSpan class, in the same way you could think of :nth-child(even) would add .even to alternate elements.</p>
+<p>I guess this only works for elements further down the DOM, containing fewer elements. If the selector is applied to the body tag the performance hit is going to return.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65096">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65096">19</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com/">Brendan Falkowski</a></span> said on October 11, 2010		</div>
+		<div class="quote"><p>@ <a href="http://snook.ca/archives/html_and_css/css-parent-selectors#c65090">Jonathan Snook</a> I can see the application vs. blog angle making a difference to some degree. Rails apps using the domain.com/#/action/name pattern as a single-page controller would naturally ID elements that change the DOM asynchronously. There isn't any extra work to slim the CSS selectors and it helps human readability too.</p>
+<p>Factoring JS and DOM manipulation really depends on whether the inactive elements are removed or just hidden. Rendering a new interface (even without a preloaded DOM) would still be much faster than a standard AJAX request I think.</p>
+<p>I don't doubt at Yahoo! Mail's DOM complexity the difference is visible. For most sites I'd bet the incremental upgrades in browser engines provide more enhancement than language optimization though. JS has been 1-2x faster with each release.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65097">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65097">20</a></div>
+			<span class="authorname">Jon Raasch</span> said on October 11, 2010		</div>
+		<div class="quote"><p>Hey thanks this was a really interesting read, I really like posts that get down to the "why" as opposed to the "how" (or the "do this because I said so").
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65101">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65101">21</a></div>
+			<span class="authorname">Kenneth</span> said on October 12, 2010		</div>
+		<div class="quote"><p>Thanks, this was nicely explained.</p>
+<p>I'm surprised this is blocked on performance grounds though.  I can do plenty of CSS that slows my browser down.  It's the clever developer that chooses the right tools for the right job.  If you're concerned with page speed, it's up to you to re-evaluate your selectors.</p>
+<p>It feels a bit like someone's hiding the scissors, so we can't hurt ourselves.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65110">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65110">22</a></div>
+			<span class="authorname">Ian</span> said on October 15, 2010		</div>
+		<div class="quote"><p>I don't think we should ever have a parent selector. To cascade means to flow the style down to child elements. If you need to target the parent change the markup not the way CSS works.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65111">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65111">23</a></div>
+			<span class="authorname">Simon</span> said on October 15, 2010		</div>
+		<div class="quote"><p>So why do browsers behave like this? Why not apply the CSS after the HTML is fully loaded and use xpath to find the elements? That would be so much faster, easier and powerful. To bad some strange people decided that HTML5 doesn't have to be valid XML, like XHTML and XHTML5
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65113">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65113">24</a></div>
+			<span class="authorname">Nicolas Chevallier</span> said on October 17, 2010		</div>
+		<div class="quote"><p>Thank you for the article. I just (finally) had managed to understand how the layout elements by browsers. It is much clearer than the explanations given by Steve Souders I find (or that the Google team PageSpeed). And enhanced ability to better manage my CSS rules.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65114">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65114">25</a></div>
+			<span class="authorname">Niels Matthijs</span> said on October 17, 2010		</div>
+		<div class="quote"><p>Boo to the Google Page Speed page. While in context that article is not harmful many people will needlessly take over what they are suggesting.</p>
+<p>It's okay to worry a little about performance but when it comes to css we have worse problems to tackle. I can't imagine taking over a css of a project I never worked on that was constructed using their guidelines.</p>
+<p>Not complaining about this article though. Good reading.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65120">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65120">26</a></div>
+			<span class="authorname">Tyler Herman</span> said on October 19, 2010		</div>
+		<div class="quote"><p>I always complained about this (to myself mostly) but I'm glad I at least know the reason now, so I thank you for that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65123">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65123">27</a></div>
+			<span class="authorname">nyteshade</span> said on October 20, 2010		</div>
+		<div class="quote"><p>seems like a :parent pseudo-selector should work like last-element as someone else mentioned before, upon the closing of the tag in question. At this point, go up a single level for <code>#mydiv:parent {color: blue}</code> and target #mydiv's parent element. For multiple parents, #mydiv:parents(p), simply traverse upwards for any p elements that recursively apply to &lt;parent-node&gt;. Parent pathing is almost always a shorter trip then adjacent pathing. In which examples would a parent element not exist?</p>
+</div>
+	</div>
+		<div class="comment" id="c65129">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65129">28</a></div>
+			<span class="authorname"><a href="http://christianmontoya.net/">Montoya</a></span> said on October 21, 2010		</div>
+		<div class="quote"><p>I hate how this wasn't totally obvious already. I just kinda figured people knew this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65135">29</a></div>
+			<span class="authorname">Iain Dooley</span> said on October 24, 2010		</div>
+		<div class="quote"><p>The one place that I would have liked a parent selector in the past is on hover.</p>
+<p>It would be easy enough for a browser to process this on demand rather than during initial page load. So it could be included in CSS but not recommend for use with anything other than :hover states for performance reasons.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65139">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65139">30</a></div>
+			<span class="authorname">Ben Curtis</span> said on October 25, 2010		</div>
+		<div class="quote"><p>It's worth keeping in mind that CSS is not a "language" but a standard, and part of the standardization process involves successful implementations of the standard. If the W3C were to declare a parent selector, and all of the browser makers were to say it would cause performance issues, then you would have a few possible outcomes:
+<ol>
+<li>The browser makers do not want to implement it, since just the presence of the selector in the CSS would cause the performance hit and any browser that implements it would be thought of as the slowest, least performant browser, and as a result it <strong>must</strong> be dropped from the standard; or
+<li>A few browsers would implement it to be compliant, but would do so in a second pass after all HTML is loaded and would not reevaluate when the DOM changes or on hover events (essentially the same as a JS solution); or
+<li>Browsers implement it, take the performance hit, and all sane developers avoid it while other developers use it for simple, inconsequential stylings.
+</ol>
+<p>In none of these conditions is the web actually better. In none of these does being "standard compliant" actually improve things. I think that it's vital to remember that we aren't designing a perfect world, but rather paving a road to a better world.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65140">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65140">31</a></div>
+			<span class="authorname">Ben Curtis</span> said on October 25, 2010		</div>
+		<div class="quote"><p>I should have re-read my post. I meant in point #1 that if no browsers implement a proposed parent selector because they would lose market share by doing so, then the parent selector would have no implementations and would be stricken from the proposed standard.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65191">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65191">32</a></div>
+			<span class="authorname">Richard</span> said on November 09, 2010		</div>
+		<div class="quote"><p>My personal feeling is that the obsession with Page Speed nowadays is a bit pointless.</p>
+<p>I remember with dial-ups when speed was probably the priority thing which needed improving, but broadband means that the only reason I get bothered by such a thing is if a site is hosted on a particularly bad server. </p>
+<p>I'd rather improvements be made with things like parent selectors, and font embedding to make the page-building side easier.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65268">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65268">33</a></div>
+			<span class="authorname">Stephen Young</span> said on December 02, 2010		</div>
+		<div class="quote"><p>@Jonathan Snook Your deep understanding of CSS has forced me to re-evaluate what I <em>thought</em> was my competent understanding of the subject.  Great article!</p>
+<p>@Iain Dooley: I too wish we had</p>
+<pre><code>:hover:parent</code></pre>
+<p> Or some other kind of pseudo class for additional hover support.  I prefer doing as much mouse-hover-interaction as possible in CSS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65271">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65271">34</a></div>
+			<span class="authorname">Tom Conte</span> said on December 03, 2010		</div>
+		<div class="quote"><p>While we are on the topic of site performance, how do you prefer to write your CSS code? Would you rather keep all styles on one line per selector or list each style on a new line? I assume with very large sites, CSS files can become quite unmanageable and writing code on a new line would be easier to manage. If you throw sub-versioning into the mix, does your opinion change?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65273">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65273">35</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 04, 2010		</div>
+		<div class="quote"><p>@Tom: As you can see by looking at the code for this site, I like the everything on one line. However, working in a larger team, I've had to adjust my style. This was also partially to do with the fact that our heavy use of CSS3 made single-line CSS harder to work with. Now, we do each property/value on its own line. We also break up the files into various components, so each file never really gets that large.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65277">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65277">36</a></div>
+			<span class="authorname">Tom Conte</span> said on December 06, 2010		</div>
+		<div class="quote"><p>Thanks for your response Jonathan. Fellow developers of mine, on their own projects, write CSS on one line but working in teams they would switch to multi-line CSS. That seems to be the norm then, though, I haven't heard about CSS3 being an issue with single line CSS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67886">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67886">37</a></div>
+			<span class="authorname">marc</span> said on May 06, 2011		</div>
+		<div class="quote"><p>Why not just render the effects of has() after the element has been completed (all children loaded)?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-parent-selectors by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

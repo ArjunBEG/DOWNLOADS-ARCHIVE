@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/questions_ads by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Questions and Winners of Accelerated DOM Scripting - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/questions_ads">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/questions_ads">
+	<meta property="og:title" content="Questions and Winners of Accelerated DOM Scripting">
+	<meta property="og:description" name="description" content="Wow. Over 230 people left a comment to win a copy of Accelerated DOM Scripting. Either people really want to get their hands on it or people just really like free stuff! A few people also had question...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Questions and Winners of Accelerated DOM Scripting</h1>
+		<p>Wow. Over 230 people left a comment to win a copy of Accelerated DOM Scripting. Either people really want to get their hands on it or people just really like free stuff! A few people also had questions about the book and I figured now would be as good a time as any to reply to those. </p>
+<h2>Questions Answered </h2>
+<h3>I'm thinking of writing a book, too. What software do you use?</h3>
+<p>Most publishers have a Microsoft Word template that they make you use. Not very exciting. :)</p>
+<h3>Will it be available in the UK (or Canada)?</h3>
+<p>The book is being distributed by <a href="http://www.apress.com/book/view/1590597648">Apress</a>   and should be available for purchase in countries around the world including the UK, Canada, Australia and, of course, the US. You can also purchase it as an eBook from the Apress site. Whether it'll hit the shelves of your local bookstore will, I suppose, depend. I certainly hope it does! (I was pretty excited to see my last book on store shelves!) </p>
+<h3>Do you have any other books in the making?</h3>
+<p>I'll probably still be up for doing a chapter here and there as part of a multi-author effort but a book of this scope isn't very likely. The amount of research and editing involved in putting together a book is time-consuming. I've now achieved a life goal (that of writing a book) and I'm not as driven to repeat that. With that said, never say never. </p>
+<h3>What random number algorithm you will use to determine the winners?</h3>
+<pre><code>select * from comments where post_id = 846 
+   order by RAND() LIMIT 5</code></pre>
+<h3>What does this book have that others dont, why would you recommend it?</h3>
+<p>This book has my unique and pragmatic view on developing with JavaScript for the browser. I touched on some topics that don't get as much play in a lot of books that pertains to code structure like using object literals or function constructors and how it all works together. My pragmatic side brings up libraries quite a bit and I tried to bridge the gap, giving readers a better understanding of how they work. </p>
+<p>I recommend people buy the book because it's a succinct and straightforward take on modern browser-based JavaScript development. Whether or not I hit the mark on that is for the public to decide. </p>
+<h3> I have a basic understanding of the DOM, why should I pick this book instead of a book in JQuery?</h3>
+<p>Accelerated DOM Scripting takes a more generic look at things and gives you a deeper understanding of how all JavaScript libraries work, making it easier to leverage existing code as well as making it easier to understand how to extend them. If all you want to do is learn how to solve Problem X with Function B of Tool Y, then this might not be the book for you. If you want to know why Tool Y is the right tool for Problem X, then give this book a read. </p>
+<h3>In what ways does this book differ from Pro JavaScript Techniques by John Resig?</h3>
+<p>Much of the material is the same but I think we approached things differently. I felt that John's book presented solutions (or &quot;techniques&quot; as it were) to common problems whereas I tried to look more at the &quot;problem solving&quot; aspect of it. </p>
+<h3>Is there a TOC available anywhere, by chance? </h3>
+<ol>
+  <li>The State of JavaScript</li>
+  <li>HTML, CSS and JavaScript</li>
+  <li>Object-Oriented Programming</li>
+  <li>Libraries</li>
+  <li>Ajax and Data Exchange</li>
+  <li>Visual Effects</li>
+  <li>Form Validation and JavaScript (Stuart Langridge) </li>
+  <li>Case Study: FAQ Facelift (Aaron Gustafson) </li>
+  <li>A Dynamic Help System (Dan Webb) </li>
+</ol>
+<h3>As far as libraries, the Apress site says &quot;such as Prototype.&quot; And...?</h3>
+<p>I mention Prototype, jQuery, Mootools, Dojo, YUI along with Script.aculo.us, Interface, and ExtJS. </p>
+<p>If you have any other questions about the book, feel free to ask them in the comments or email them to me and I'll be sure to give you the best answer I can.</p>
+<h2>And the winners are... </h2>
+<p>The following five randomly selected winners will have a free copy sent their way. </p>
+<ul>
+  <li><a href="http://siliconloop.blogspot.com/">rick</a></li>
+  <li><a href="http://ramius.net/">Philip Dame </a></li>
+  <li><a href="http://www.disgone.com/">Shaun Smith</a></li>
+  <li><a href="http://googlesightseeing.com/">James Turnbull</a></li>
+  <li><a href="http://patspam.com/">Patrick</a></li>
+</ul>
+<p>If you haven't already, <a href="http://www.amazon.com/gp/product/1590597648/702-3295721-8680041?ie=UTF8&amp;tag=snookca0f-20&amp;linkCode=xm2&amp;camp=15121&amp;creativeASIN=1590597648">get a copy of Accelerated DOM Scripting now</a>! </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 01, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/847</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">14 Comments &middot; <a href="https://snook.ca/archives/javascript/questions_ads.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55781">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55781">1</a></div>
+			<span class="authorname"><a href="http://arjaneising.nl/">Arjan</a></span> said on October 01, 2007		</div>
+		<div class="quote"><blockquote><p>What random number algorithm you will use to determine the winners?</p></blockquote>
+<p>The code you used is not very bulletproof. Anyone who commented twice (or even more times) could have had more chances.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55782">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55782">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 01, 2007		</div>
+		<div class="quote"><p>@Arjan: I filtered all the comments removing any duplicates as well as making sure all valid comments were approved. Is it the code itself that you feel wouldn't be random enough or simply that multiple comments by people could throw things off? As it stands, five unique and separate individuals won a copy of the book. I'm not sure that any other method would have really changed the outcome (except to generate a different five individuals).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55785">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55785">3</a></div>
+			<span class="authorname">David</span> said on October 01, 2007		</div>
+		<div class="quote"><blockquote><p>I'm not sure that any other method would have really changed the outcome (except to generate a different five individuals).</p></blockquote>
+<p>Snook, that's the point. Arjan doesn't really care about the formula - he just wants you to change the formula until he is drawn. Then it will be correct.</p>
+<p>Arjan - I'm with you. I didn't win either - so lets keep looking for problems and snook conspiracies here until we get a copy of the book. ("Prejudice" is always a great topic to play off...)</p>
+<p>Oh, I know - He is bond to have a copy somewhere around his house. So lets get on google maps and figure out the best place to hid nearby until he leaves - then we can sneak in and steal his copy. Wait! Lets call him up and tell him to sign it - then we can steal a autographed copy! Mwhahaha</p>
+<p>Wait... how do we share it?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55786">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55786">4</a></div>
+			<span class="authorname"><a href="http://hribar.info/">Miha Hribar</a></span> said on October 01, 2007		</div>
+		<div class="quote"><p>Congrats to the winners. I had my fingers crossed, but forgot to click my heels together :) Btw Jonathan, how long did it take you to write this book?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55787">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55787">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 01, 2007		</div>
+		<div class="quote"><p>@Miha: well, from the time I started, it was over a year but actual focused writing was probably only about 2-3 months.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55789">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55789">6</a></div>
+			<span class="authorname"><a href="http://www.mileswjohnson.com/">Miles Johnson</a></span> said on October 01, 2007		</div>
+		<div class="quote"><p>I totally forgot to enter -_- Maybe next time, haha.<br />
+Congrats to the winners.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55800">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55800">7</a></div>
+			<span class="authorname">Robert Nyman</span> said on October 01, 2007		</div>
+		<div class="quote"><p>Wow, that's a bunch of comments! When I had a competition to win an iPod Nano I didn't even get half as many comments (although I <em>so</em> completely blame that on they having to write something about their favorite HTML tag ;-)).</p>
+<p>Congrats on the book; given your JavaScript talent, I'm sure it's outstanding!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55802">8</a></div>
+			<span class="authorname">Kevin van Dijk</span> said on October 02, 2007		</div>
+		<div class="quote"><p>Congratulations to the winners :)<br />
+And i will get it for sure when it comes out in dutch shops. I can't wait :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55812">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55812">9</a></div>
+			<span class="authorname">rick</span> said on October 02, 2007		</div>
+		<div class="quote"><p>I can't believe I'm a winner. It's like the day before you're a winner and the day after are totally different.  It's like one moment you feel like a regular guy and the next you feel blessed.  Wow.</p>
+<p>OK, I'm just kidding, but I look forward to getting the book, and I appreciate the link to <a href="http://siliconloop.blogspot.com/">my new blog</a>. I had started it only a day or two before you linked to it.  And today I actually got a visitor other than myself, which is about as exciting as it gets in suburban Chicago.</p>
+<p>I like you, Snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55839">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55839">10</a></div>
+			<span class="authorname">anonymous</span> said on October 05, 2007		</div>
+		<div class="quote"><p>Imagine that your new book can be downloaded from emule.<br />
+What will be your feeling about?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55840">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55840">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 05, 2007		</div>
+		<div class="quote"><p>@anonymous Indeed, I know that can and probably will happen. But my belief is that, like all piracy, only a minority of the people who get the book would have actually paid for it to begin with. With that said, I spent a lot of time and energy as did the publisher who spends money to get the book written, printed and distributed. I hope that anybody that likes the book recommends it to others and helps support someone who's just trying to put food on the table for his family (oh, and a Wii, and a big screen TV, and a...).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55884">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55884">12</a></div>
+			<span class="authorname"><a href="http://arjaneising.nl/">Arjan</a></span> said on October 07, 2007		</div>
+		<div class="quote"><p>@Jonathan; The code itself is randomly enough, my thoughts were more about the people who posted more than one comment in that entry.</p>
+<p>@David; damn, I've written an 'it's all ok'-message just a minute ago...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56080">13</a></div>
+			<span class="authorname">Calm_Pear</span> said on October 12, 2007		</div>
+		<div class="quote"><p>Well, I bought the book and am very happy with my purchase! The book came in yesterday and although I think I already know 90% of all the stuff in there the other 10% will be very interesting! Havenâ€™t had time to do some serious reading yet but I can already tell itâ€™s pleasantly written and for me a good resource for tickling my creative thinking. Thanks Jonathan, Aaron, Stuart and Dan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56227">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56227">14</a></div>
+			<span class="authorname">Patrick</span> said on October 16, 2007		</div>
+		<div class="quote"><p>Congrats on the book, Jonathan. I am sure it feels great to see your name in the big lights (or at least on the local bookshelves). Does this mean I can officially stop trying to steal ideas from your JS source files? ;)
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/questions_ads by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

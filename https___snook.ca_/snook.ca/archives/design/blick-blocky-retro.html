@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/design/blick-blocky-retro by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Blick Blocky Retro - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/design/blick-blocky-retro">
+	<meta property="og:url" content="https://snook.ca/archives/design/blick-blocky-retro">
+	<meta property="og:title" content="Blick Blocky Retro">
+	<meta property="og:description" name="description" content="After a wild couple days, it's live. Well, live-ish. Blick Blocky Retro, the ninth iteration of this veritable site, has made its debut.
+Why?
+I've been working on this redesign for close to a year n...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Blick Blocky Retro</h1>
+		<p>After a wild couple days, it's live. Well, live-ish. Blick Blocky Retro, the ninth iteration of this veritable site, has made its debut.</p>
+<h2>Why?</h2>
+<p>I've been working on this redesign for close to a year now. It has simmered, occasionally come to a boil, only for me to turn off the heat and step away from it. However, recent troubles with Dreamhost have finally made me flip my lid. The site performance has been sporadic with not-so-uncommon 500 errors and I just couldn't take it anymore.</p>
+<p>Like a midnight dash to escape the rent, I've pushed this design live on a new dedicated server &mdash; well, old, actually. It's the server that powers SidebarAds. I also completely rewrote the site from scratch using CakePHP 1.2 &mdash; although this is still the beta. I haven't had time to update things, considering this last minute change. </p>
+<h3>What was wrong with Dreamhost? </h3>
+<p>For the longest time, I advocated Dreamhost and when i was on their shared hosting environment, things were simply peachy. Seriously. I experienced little to no downtime and decent performance. Then, they introduced a new server called Private Servers. It's supposed to offer more control over resources and better performance. At least, I think that's what it said. Instead, I got constant downtime, even when there wasn't much load. </p>
+<p>I still have a bunch of other sites on Dreamhost and I have no plans to move those off any time soon. Moving sites is a hassle. For example, I screwed up the MX record when I changed DNS servers and received no email for 12 hours. Wheee! Thankfully, everything should be back to normal.</p>
+<h2>What about the design?</h2>
+<p>I should probably talk about the design, shouldn't I? Well, here it is. Obviously, this is heavily inspired by all the retro 70s chic that's going around. However, I wanted to take this redesign to simplify some things.</p>
+<h3>Splash Page</h3>
+<p>As some may remember, the &quot;main&quot; page of this site was at the <kbd>/jonathan/</kbd> sub-folder. There was a splash page that had a brief introduction to who I am. Why did I have a splash page to begin with? Turns out, there's a story to that, and what's interesting is how often we see this happen in <em>every</em> web site.</p>
+<p>The main page was originally a family portal with links to myself, my wife, and eventually, my first born. However, despite all my efforts, my wife never took on the task of writing and due to family  concerns, the other link was removed. By this point, however, I had already established my section as the default place to go to. Any time I left a comment somewhere else, it'd point to my section, and not the index page. </p>
+<p>A few months ago, while thinking that I'd get rid of the splash page, I've been using the clean Snook.ca as the URL that I leave everywhere. Now that the site is launched, I have finally gotten rid of the splash page and made it the main page. No more <kbd>/jonathan/</kbd>. Just <kbd>/</kbd> is okay by me. (<a href="http://en.wikipedia.org/wiki/Slash_(musician)">Slash</a> is okay by me, too). </p>
+<h3>It's three-dee!</h3>
+<p><a href="http://www.flickr.com/photos/jonathansnook/2303048364/" title="Snitter Theme: Blocker by Jonathan Snook, on Flickr"><img src="https://farm4.static.flickr.com/3101/2303048364_f6bd90f64b_m.jpg" alt="Snitter Theme: Blocker" width="150" height="240" hspace="5" vspace="5" align="right" /></a>The original idea came from a design comp that I had put together for Snitter. I took that and continued to work it into what you see here before you. One of the interesting parts was trying to figure out how to get the elements to wrap. For anybody that has been doing CSS for some time, they might think, well, that'll be a couple elements with some a series of <a href="http://www.alistapart.com/articles/slidingdoors/">sliding-door images</a>.</p>
+<p>It seemed like a hassle. I didn't want to have a bunch of CSS to apply different background colours and I didn't want to have 3 or 4 elements every time I wanted to do an element that wrapped over the slanted edge. </p>
+<p>My initial experiments started in Internet Explorer, since it's the largest hurdle. Get the hard stuff out of the way, as they say. Much to my surprise, IE was the easiest part of the equation. Using the <a href="http://msdn.microsoft.com/en-us/library/ms533014(VS.85).aspx">matrix filter</a>, which allows DOM elements to be manipulated, I was able to take an empty element and warp it across the slanted edge to get the effect that I wanted. Awesome! It even resized the element for me. This is all it took:</p>
+<pre><code>.transform  { filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M21="-.5"); }</code></pre>
+<p>The sizingMethod property resizes the element appropriately and the M21 is one of the points upon which the transformation occurs. To be honest, I still don't quite understand how matrices work but I finally found a number that worked, so I won't complain. My skew was perfect!</p>
+<p>But what of the other browsers? Canvas was the most universal solution I could think of. So, I set to work dropping canvas tags in all the wrap containers and applying a matrix transformation:</p>
+<pre><code>	var ctx = e.getContext('2d');
+	ctx.fillStyle = bg;
+	ctx.transform(1, -.5, 0, 1, 0, 0);
+	ctx.fillRect (0, 20, w, h);</code></pre>
+<p>Notice the -.05 in there is exactly like it is in the IE filter example? Yeah, it's the same thing. Within a year, however, I'll be able to replace this code with<a href="http://webkit.org/specs/CSSVisualEffects/CSSTransforms.html"> CSS transformations</a>. Webkit/Safari already support this and Firefox 3.1 is supposed to. I haven't looked at Opera support but it wouldn't surprise me to see it come down the pipe.</p>
+<h3>Multiply blending like Photoshop</h3>
+<p>Now, here's the other problem I ran into. While I had the elements wrapping, I still had to manually set the wrapped element background colour manually using CSS. Finally, in my desire to push this up live, I decided to find a better way. In this case, JavaScript. </p>
+<p>In the original Fireworks design, I used the muliply blending option to create the darker overlap colour along the slant. I decided to do a little research to see if I could do the same thing with JavaScript. As it turns out, it's pretty easy: Take one colour value, multiply it by the other colour value and then divide it by 255 (the maximum colour value). The default RGB of the slant was (235, 242, 204).</p>
+<p>I snagged the  background colour of the original container and then split it into its composite parts of red, green, and blue. Here's the JavaScript magic:</p>
+<pre><code>rgb[0] = Math.floor( rgb[0] * 235 / 255 );
+rgb[1] = Math.floor( rgb[1] * 242 / 255 );
+rgb[2] = Math.floor( rgb[2] * 204 / 255 );</code></pre>
+        <p>At this point, I decided to strip all the canvas tags I had in the template and moved it to the land of JavaScript. The script is now responsible for finding all the page containers, dropping canvas elements in, and making them look pretty. Then, if people don't have JavaScript, at least they don't see square elements in awkward places. </p>
+        <h3>Didn't you say simplify?</h3>
+        <p>Oh right. As I was saying, the simplification came both on the server-side &mdash; by rewriting all the code &mdash; and the client-side &mdash; with less content on the page and essentially a two column design instead of the 3 columns I had before.</p>
+        <p>With the backend getting a nice rewrite, much of the code has been simplified, uses more CakePHP idioms, and just simply uses less code. As a result, the performance of the site should be improved.</p>
+        <p>On the content side of things, I was beginning to worry that the sidebars were getting too bulky. Links to projects and books have disappeared but Delicious links now appear on every page. I might switch this up a little bit but haven't entirely decided now, yet. </p>
+        <h2>It's not done</h2>
+        <p>Despite all this, it's definitely not done. The comments, for example, were just thrown in so that people could get back to commenting. The design of which will  change dramatically. I've also got a few other tweaks here and there that need to be made. But now that I'm on the new server, I can relax. </p>
+        <p>If you come across any dead links, by all means, let me know. I have literally 7 years of debris strewn about this site and I'm sure some of it got missed in the transfer.</p>
+        <p>It has been almost two years with the old design. Plenty of people liked it, and so did I, but I wanted to experiment and this is what I got. It's not perfect. On a technical level, though, I'm happy with it. </p>
+        <p>I hope you like it.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 16, 2009 &middot; Updated January 16, 2009</div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/design/">Design</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/926</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">82 Comments &middot; <a href="https://snook.ca/archives/design/blick-blocky-retro.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c926">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c926">1</a></div>
+			<span class="authorname">Dan</span> said on January 19, 2005		</div>
+		<div class="quote"><p>Great concept and implementation, Jonathan!</p>
+<p>One dead link - the slicing screencast from (http://snook.ca/archives/design/slicing-photoshop-fireworks) -- returns "Error:  The requested address '/files/sc$this-&gt;normalizeEntities16bit("45")export.mov' was not found on this server."
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61046">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61046">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I just noticed a weird issue, and apologies to anybody that has already commented but comments were getting over-written instead of creating new ones. It should be fixed now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61047">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61047">3</a></div>
+			<span class="authorname">Dimitris Giotas</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Great redesign. Completely different then the last one.</p>
+<p>One problem on the homepage is that all the latest articles have the same text.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61048">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61048">4</a></div>
+			<span class="authorname"><a href="http://logon.com.pt/">JosÃ© Carlos</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Congratulations on the redesign, it looks awesome. Great work!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61050">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 16, 2009		</div>
+		<div class="quote"><p>@Dan: uploading the video now.</p>
+<p>@Dimitris: Whoops. forgot to change a variable name there. Fixed!</p>
+<p>@JosÃ©: thanks for the compliment!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61053">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61053">6</a></div>
+			<span class="authorname">jojo siao</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Hi,</p>
+<p>I like the retro idea! love it!<br />
+but, I noticed something that looks unusual to me.<br />
+http://www.flickr.com/photos/filchiprogrammer/3200608189
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61055">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61055">7</a></div>
+			<span class="authorname">Keeto</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Nice, I love the color scheme (probably because my site uses a variation of the same).. Your site looks better everytime!</p>
+<p>@jojo_siao: It's meant to look "cut" because of the perspective used.. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61057">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61057">8</a></div>
+			<span class="authorname">Mike T.</span> said on January 16, 2009		</div>
+		<div class="quote"><p>huzzah! what a pleasant surprise to come here this morning to this new design.</p>
+<p>nice work. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61058">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61058">9</a></div>
+			<span class="authorname">Travis Quinnelly</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I dig the retro boxy look. Looks good Snook...looks good.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61060">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61060">10</a></div>
+			<span class="authorname">Keith</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Groovy baby! Groovy. Dig the Atari 80's video game vibe.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61061">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61061">11</a></div>
+			<span class="authorname">Michal</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Love the design.<br />
+Stumbled upon this site from an article on Smashing.<br />
+Instant bookmark!</p>
+</div>
+	</div>
+		<div class="comment" id="c61062">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61062">12</a></div>
+			<span class="authorname"><a href="http://davidwalsh.name/">David Walsh</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>On a few of the pages (for example:  http://snook.ca/archives/business/)  the "Snook.Ca" link's hover action creates a green background across the entire header instead of just the link itself.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61066">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61066">13</a></div>
+			<span class="authorname"><a href="http://chrispacheco.net/">chris</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>great unique design, I like it :)</p>
+<p>good job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61069">14</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name/">Neal G</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Very cool new design. It reminds me of an old site I used to visit...I believe it was cartmanland.com but has since gone offline.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61070">15</a></div>
+			<span class="authorname">Dan</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I like it, although the text in the sidebar could be a little bigger.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61074">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61074">16</a></div>
+			<span class="authorname">Andrew Kelly</span> said on January 16, 2009		</div>
+		<div class="quote"><p>The site looks great! I like the changes you've made since I saw it last.</p>
+<p>Cheers!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61076">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61076">17</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Dreamhost has been pretty good for me (not my personal website but one client is on it), I hope the PS doesn't go downhill on me :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61077">18</a></div>
+			<span class="authorname">Franksta</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Design and type just fit perfectly; I absolutely love the redesign!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61078">19</a></div>
+			<span class="authorname"><a href="http://mattbrett.com/">Matt Brett</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Nicely done (once again), Jonathan!</p>
+<p>You never fail to deliver refreshing change to an otherwise boring internet, and this design is no exception.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61080">20</a></div>
+			<span class="authorname">Franksta</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Design and type just fit perfectly; I absolutely love the redesign!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61082">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61082">21</a></div>
+			<span class="authorname">Ethan</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Mr. Snook, this is brilliant. There's something very ExciteBike about the look, which, well, I freaking adore. Great work, as usual.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61083">22</a></div>
+			<span class="authorname">Dave McNally</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Just what the internet needs! Something that doesn't follow everything else.</p>
+<p>Great work, congrats :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61084">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61084">23</a></div>
+			<span class="authorname">SayB</span> said on January 16, 2009		</div>
+		<div class="quote"><p>whoa ! this is totally psyched ! .. reminds me of Bee Gees 'Stayin Alive'
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61085">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61085">24</a></div>
+			<span class="authorname">George</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I guess I'll be the first to say I like the old site better! Nothing wrong with this one, it's fresh and unique, but overall the old one was smoother.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61087">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61087">25</a></div>
+			<span class="authorname">Chris Coyier</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I think it's really strong. Nice work Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61090">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61090">26</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Thanks everybody for the really great comments. I have to say I was a little worried pushing this out live.</p>
+<p>@George: I understand what you're saying (I think). With that said, I have some changes coming down the pipe (when I have time) that should bring it up to where I wanted it and hopefully to the point that would bring your around from the old design. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61092">27</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com/">Jake Smith</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>So has your blog always been powered by cake or did you use wordpress?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61094">28</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 16, 2009		</div>
+		<div class="quote"><p>@Jake Smith: It has been powered by CakePHP for awhile now. Maybe a year or two now. Before that it was Movable Type which I installed in 2003.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61095">29</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com/">Brendan Falkowski</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Loving it, especially the design on post dates. Wishing for #head{margin:0 auto;}, bigger click-area for #header link, and the triumphant appearance of site search.</p>
+<p>I'd be interested in learning about your URL redirection since the departure from snook.ca/jonathan/.</p>
+<p>And yay for dropping IE6.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61096">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61096">30</a></div>
+			<span class="authorname">Alex Holt</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I have to say, i'm with George - the old site was slicker. </p>
+<p>Although, got to give it to you...  this site is unique - i've not seen anything quite like it... ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61097">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61097">31</a></div>
+			<span class="authorname"><a href="http://www.lealea.net/">Lea</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>I love it Snookums!!! The colors are so <em>fresh</em>. I also think the pattern you chose for the BG is perfect.</p>
+<p>My only point is that I'd probably render "Snook.ca" in a custom retro typeface instead of just having it as normal text and in the same scale as the site description.</p>
+<p>&lt;3 it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61099">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61099">32</a></div>
+			<span class="authorname">M. Keefe</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Wow, new look and its awesome. This is certainly unlike I have seen before.</p>
+<p>I do agree with Lea on the logo idea, the simple text gets lost and without that "fancy S" its not the same.. even though I did notice it hiding in the footer of the web site.</p>
+<p>Great stuff!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61104">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61104">33</a></div>
+			<span class="authorname">Ivan</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Amazing as usual ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61107">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61107">34</a></div>
+			<span class="authorname">Adam</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Congrats on getting the redesign out the door!  Having just gone through the same process, I know it can be tough.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61113">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61113">35</a></div>
+			<span class="authorname"><a href="http://www.alantucker.co.uk/">Alan Tucker</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Glad to see everything is running smoothly now :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61134">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61134">36</a></div>
+			<span class="authorname">Miles Johnson</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Loving the site, just one suggestion (not design wise).</p>
+<p>I always come here looking for your CakePHP articles. But I could never find them right off the bat unless I do a Google search. Perhaps create a CakePHP article category?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61137">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61137">37</a></div>
+			<span class="authorname">Oscar Cardoso</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Nice design.<br />
+Period!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61150">38</a></div>
+			<span class="authorname">Garret Bolthouse</span> said on January 17, 2009		</div>
+		<div class="quote"><p>When I saw your headers I was like what font is that!?!? Very nice use of Calibri, wishing it were more     abundantly available to all who come here. It really makes the site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61156">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61156">39</a></div>
+			<span class="authorname">Andy</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Not bad. still need some work on the details though, but not bad. </p>
+<p>I'd like a big[ger] 'Snook.ca' text (and maybe a font change) in the header and you might want to fix the logo in the footer for starters.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61161">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61161">40</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on January 17, 2009		</div>
+		<div class="quote"><p>Looks awesome, Snook! I love the fact that you've kept green as a consistent centerpiece in each of your designs (that I've seen) so far. To echo the previous comments, this is something completely different and fresh. Great work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61164">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61164">41</a></div>
+			<span class="authorname">Szymon</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Now I know, why you were a little bit slower with replying on emails ;) Great work! Gimme such too ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61167">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61167">42</a></div>
+			<span class="authorname">Malcolm</span> said on January 17, 2009		</div>
+		<div class="quote"><p>This retro looks cool too.. amazing work..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61173">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61173">43</a></div>
+			<span class="authorname">Graham Bradley</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Loving it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61175">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61175">44</a></div>
+			<span class="authorname">Daniel Marino</span> said on January 17, 2009		</div>
+		<div class="quote"><p>In all honesty, I wasn't too keen on the redesign at first, but haven't just read through an entire article, I'm falling in love. Great job, and I love reading about all the technical tricks used to make certain elements of the site work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61179">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61179">45</a></div>
+			<span class="authorname">Detruk</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Hi Jonathan,<br />
+I follow your work since few month. This redesign of your site is the time for me to write some words too you.<br />
+Thanks for sharing your knowledges on CSS, your work is amazing. The new design of your website is great.<br />
+You're definitely the re-incarnation of god in the css world. [Maybe too much?!..sorry;) ].<br />
+Ps:I'm french, sorry for the bad english language.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61188">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61188">46</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 17, 2009		</div>
+		<div class="quote"><p>@Miles Johnson: The categories that you see on the left are a subset of all the stuff I've talked about. It only shows topics that I've talked about within the last 6 months. With that said, I understand the concern and I might switch it up to show all categories.</p>
+<p>@Andy: I went with the smaller snook.ca text in the header because I felt that I didn't need to sell it. I also liked that I could fit it into the 20px band quite snugly. </p>
+<p>@Daniel Marino: I'm glad it's working for you!</p>
+<p>@Detruk: You're too kind and your english is pretty good. No need to apologize!</p>
+<p>Thanks again everybody for the comments, criticism and suggestions!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61194">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61194">47</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on January 18, 2009		</div>
+		<div class="quote"><p>I love the new redesign. The new layout just has really good flow for navigating content (plus the tags column makes it really easy to jump around) - may have to steal some ideas. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61200">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61200">48</a></div>
+			<span class="authorname">Oliver Treend</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Wow, I really like this new design!!</p>
+<p>Your old design was really good. This one's amazing!</p>
+<p>I went to read an article, not expecting the design to have changed because it was already so good. The page loaded, and I though, "What? Why has it changed? Oooooooooh!! It looks so nice! :-P".</p>
+<p>Normally when a site gets a redesign, it takes a while to sink in and get used to. This changeover seemed perfectly natural!</p>
+<p>Also, well done on rebuilding your backend from scratch. These things take a lot of time, effort and debugging - even when you use Cake!</p>
+<p>Well done, you've done a wonderful job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61222">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61222">49</a></div>
+			<span class="authorname">Johan</span> said on January 18, 2009		</div>
+		<div class="quote"><p>It looks great. You kept most of the structure but freshed up the design. The curvy looks have a little from http://www.hicksdesign.co.uk/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61223">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61223">50</a></div>
+			<span class="authorname">Johan</span> said on January 18, 2009		</div>
+		<div class="quote"><p>It looks great. You kept most of the structure but freshed up the design. The curvy looks have a little from http://www.hicksdesign.co.uk/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61229">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61229">51</a></div>
+			<span class="authorname">K</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Reminds me a bit of the http://acko.net/ theme. Pretty cool, though.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61231">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61231">52</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 18, 2009		</div>
+		<div class="quote"><p>@K Don't remind me!! Gah, I've been sitting on this design so long that when I came across Acko, I almost scrapped it entirely. In the end, though, I felt my approach was still worthy of attempt and decided to stick with it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61237">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61237">53</a></div>
+			<span class="authorname">redwall_hp</span> said on January 18, 2009		</div>
+		<div class="quote"><p>It looks good, though I prefer the old design personally.</p>
+<p>And congratulations on finally kicking the subdirectory. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61239">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61239">54</a></div>
+			<span class="authorname">Eli</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Not loving the font used for content, but overall it's very unique and cool.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61242">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61242">55</a></div>
+			<span class="authorname">AsceticMonk</span> said on January 18, 2009		</div>
+		<div class="quote"><p>It is simple, yet pleasing to the eyes and the graphics create some depth. Awesome work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61245">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61245">56</a></div>
+			<span class="authorname">Fouad Masoud</span> said on January 19, 2009		</div>
+		<div class="quote"><p>love it. love the colors, the layout. everything.</p>
+<p>gr8 job man.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61254">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61254">57</a></div>
+			<span class="authorname">Stijn Huyberechts</span> said on January 19, 2009		</div>
+		<div class="quote"><p>hi,</p>
+<p>I was checking out the source of the website (just a quick peek :) and noticed you use the html5 doctype. But there's no sign of 'new' html5 tags, or was my peek not long enough?</p>
+<p>Anyways, very nice design!!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61258">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61258">58</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 19, 2009		</div>
+		<div class="quote"><p>@Stijn Huyberechts: I <em>could</em> start using the new HTML5 tags but the need to use JavaScript to "turn on" the elements in Internet Explorer wasn't a great fallback for me. I'll hold off on that front for now. I'll leave it to the trendsetters to work out all the kinks. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61270">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61270">59</a></div>
+			<span class="authorname"><a href="http://andylaub.com/">Andy Laub</a></span> said on January 19, 2009		</div>
+		<div class="quote"><p>As I relaunched my own site this morning, I found myself thinking "I wonder what Snook's site looks like these days." Funny that you have just relaunched as well - looks great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61284">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61284">60</a></div>
+			<span class="authorname">Evan Byrne</span> said on January 19, 2009		</div>
+		<div class="quote"><p>New site looks good, but I'm still missing the magic of the old site...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61349">61</a></div>
+			<span class="authorname">Paul Stamatiou</span> said on January 20, 2009		</div>
+		<div class="quote"><p>Looking good, but when are you gonna walk to plank to Rails? You've been using Cake for as long as I can remember and Rails is the flavor of the week. ;-)</p>
+<p>See you at SXSWi!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61381">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61381">62</a></div>
+			<span class="authorname">Miles Johnson</span> said on January 21, 2009		</div>
+		<div class="quote"><p>Another thing I noticed are your page titles. The sub pages/blog posts are on the title and dont have your name in it. Unless you did it that way on purpose :p
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61384">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61384">63</a></div>
+			<span class="authorname"><a href="http://lancefisher.net/blog">Lance Fisher</a></span> said on January 21, 2009		</div>
+		<div class="quote"><p>I really like the new design!  Good work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61385">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61385">64</a></div>
+			<span class="authorname">Brad</span> said on January 21, 2009		</div>
+		<div class="quote"><p>JS Error with your CTX stuff in FF2(hope this pastes okay):</p>
+<p>ctx.transform is not a function<br />
+turnOnOffsets()snookv9.js (line 60)<br />
+init([div.container, div.container, div.container, 5 more...], function(), undefined)jquery.min.js (line 12)<br />
+init(function(), undefined)jquery.min.js (line 12)<br />
+turnOnOffsets()snookv9.js (line 11)<br />
+[Break on this error] ctx.transform(1, -.5, 0, 1, 0, 0);
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61405">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61405">65</a></div>
+			<span class="authorname">Rick</span> said on January 22, 2009		</div>
+		<div class="quote"><p>Loving the new design...simply inspirational! </p>
+<p>As for DreamHost....no point posting telling the world you hate them....everyone does :p</p>
+<p>Seriously though, people pay for bargain bin hosting and expect it to actually be usable. When you can go elsewhere and pay a few $ more and get a very reliable service!</p>
+<p>I recommend:<br />
+-JaguarPC (for shared)<br />
+-VPSLink or FSCKVPS (for VPS)<br />
+-ResellerZoom (for reseller)<br />
+-SoftLayer (dedicated)</p>
+<p>Additionally I've heard people rave about MediaTemple, but never used them myself (Quite pricey!)</p>
+<p>Anyway....love the new site, keep it up! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61484">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61484">66</a></div>
+			<span class="authorname">Manuel</span> said on January 24, 2009		</div>
+		<div class="quote"><p>Good job, at first I did not notice the 3d effect.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61506">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61506">67</a></div>
+			<span class="authorname">Jack F</span> said on January 24, 2009		</div>
+		<div class="quote"><p>Hi Mr Snook!!</p>
+<p>I really really love this design, but I can't find a link to a RSS feed? Is there one?</p>
+<p>Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61594">68</a></div>
+			<span class="authorname">Dennison Uy</span> said on January 27, 2009		</div>
+		<div class="quote"><p>Oh my gosh it's snook 3D!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61623">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61623">69</a></div>
+			<span class="authorname">Phil</span> said on January 27, 2009		</div>
+		<div class="quote"><p>Lovely design, very well thought out.</p>
+<p>Try resizing your browser window in Firefox though..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61641">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61641">70</a></div>
+			<span class="authorname">Timothy Armstrong</span> said on January 27, 2009		</div>
+		<div class="quote"><p>@Phil what's wrong with resizing it?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61644">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61644">71</a></div>
+			<span class="authorname"><a href="http://twitter.com/sulcalibur">Sulcalibur</a></span> said on January 27, 2009		</div>
+		<div class="quote"><p>Woah! I just visited the site and it look stunning mate. Kudos on the job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61648">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61648">72</a></div>
+			<span class="authorname">Paul Decowski</span> said on January 27, 2009		</div>
+		<div class="quote"><p>Fantastic design. One thing I'm not sure about, though: I think there's not enough contrast in "Deliciously linked" section in hover state.</p>
+<p>OK, I just tested it using your own tool (http://www.snook.ca/technical/colour_contrast/colour.html) and it doesn't pass :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c61655">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61655">73</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 27, 2009		</div>
+		<div class="quote"><p>@Paul: Ha, yeah, there's no doubt some areas that could use more contrast. To be honest, though, the text is still readable. The hover state is indicating that it is actionable (while still being readable for â€” I suspect â€” the majority of people).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61676">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61676">74</a></div>
+			<span class="authorname">Idil</span> said on January 28, 2009		</div>
+		<div class="quote"><p>this is by far my favourite design. it's so fresh looking. and so 3Dish! wicked job mate.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61710">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61710">75</a></div>
+			<span class="authorname">Marko</span> said on January 29, 2009		</div>
+		<div class="quote"><p>I can't belive I missed the launch!.(read: slow on reading my RSS) loving the retro style!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61756">76</a></div>
+			<span class="authorname">Graphic Design</span> said on January 30, 2009		</div>
+		<div class="quote"><p>A great piece of both design and explanation. I admire the late 70's design very, very much. Good job, man!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61833">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61833">77</a></div>
+			<span class="authorname"><a href="http://mcarthurgfx.com/">Sean McArthur</a></span> said on February 02, 2009		</div>
+		<div class="quote"><p>I really do like it alot.  However, I find the archives on the left to be confusing how the run together (category and then yearly).  Some sort of separation could be good.</p>
+<p>I also preferred how you designed the author comment.  I prefer being able to find your comments out of the bunch.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61940">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61940">78</a></div>
+			<span class="authorname">Tom</span> said on February 05, 2009		</div>
+		<div class="quote"><p>Where did you hide the link to the rss feed?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61991">79</a></div>
+			<span class="authorname"><a href="http://www.milner.ca/">WD Milner</a></span> said on February 05, 2009		</div>
+		<div class="quote"><p>I like it. One thing - I seem to get a pattern misalignment as can be seen in the following screenshot. The bottom of the left column is misaligned with the rest of the pattern too.</p>
+<p>Just ignore me if this is intended *grin*</p>
+<p>Screenshot: http://www.baud.ca/snook-retro-screenshot.png</p>
+</div>
+	</div>
+		<div class="comment" id="c62763">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62763">80</a></div>
+			<span class="authorname">Tom</span> said on February 17, 2009		</div>
+		<div class="quote"><p>Neat design, I didnt notice the 3D effect till I scrolled into the comments section. And before I noticed the 3D effect I didnt like the design at all, however now its kinda neat!</p>
+<p>The old sites 'fuzzy glow' was one of my favourite bits.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62960">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62960">81</a></div>
+			<span class="authorname">nivedano</span> said on March 01, 2009		</div>
+		<div class="quote"><p>Great redesign. Completely different then the last one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63102">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63102">82</a></div>
+			<span class="authorname">Steven Wittens</span> said on March 24, 2009		</div>
+		<div class="quote"><p>I'm the designer of the aforementioned Acko.net site... have to say, I love your design and it would've been such a shame if you'd canned it. Plus, I'm glad to see someone else used the trick of using canvas to render parts of the design ;).</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/design/blick-blocky-retro by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

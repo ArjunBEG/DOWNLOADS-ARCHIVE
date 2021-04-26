@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/jquery-bg-image-animations by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Using jQuery for Background Image Animations - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/jquery-bg-image-animations">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/jquery-bg-image-animations">
+	<meta property="og:title" content="Using jQuery for Background Image Animations">
+	<meta property="og:description" name="description" content="After reading Dave Shea's article on CSS Sprites using jQuery to produce animation effects, I felt like playing around with things to see what could be done but accomplish it with a simpler HTML struc...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Using jQuery for Background Image Animations</h1>
+		<p>After reading Dave Shea's article on <a href="http://alistapart.com/articles/sprites2">CSS Sprites using jQuery</a> to produce animation effects, I felt like playing around with things to see what could be done but accomplish it with a simpler HTML structure (no need for adding superfluous tags) and simpler code, too. </p>
+<p>Changing the position of the background image felt to be the best approach to creating the type of effect we're looking for (and I'm not the first to think so: see the examples at the end of this article). </p>
+<p>jQuery is a great library for this type of task but out of the box, it can't animate background position properly because of the need to animate two values instead of just one (too bad not all browsers implemented the non-standard background-position-x and -y like Internet Explorer). You'll have to use the Background-Position plugin that is linked in the demo (the original plugin is no longer available on the jQuery site). Previous versions didn't support negative or decimal values properly.</p>
+<h2>The HTML</h2>
+<p>Nobody likes adding extra HTML to pull off all the fancy stuff and therefore, we're looking at a very simple unordered list:</p>
+<pre><code>&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<h2>The Basic CSS</h2>
+<p>For this, I've just floated the navigation and set each of the links to display block with a little padding. Nothing fancy (which is the whole point).</p>
+<pre><code>ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}<br />li {
+	float:left;
+	width:100px;
+	margin:0;
+	padding:0;
+	text-align:center;
+}<br />li a {
+	display:block;
+	padding:5px 10px;
+	height:100%;
+	color:#FFF;
+	text-decoration:none;
+	border-right:1px solid #FFF;
+}<br />li a {
+	background:url(bg.jpg) repeat 0 0;
+}<br />li a:hover {
+	background-position:50px 0;
+}</code></pre>
+<p>Notice that a hover state has been declared. Users who visit the page without JavaScript will, at least, still be able to view the final state. I've declared the background on the <code>li a</code> separately to make it stand out, but an initial background position needs to be set along with the background image you want to use for the effect.</p>
+<h2>The Image</h2>
+<p>You can pull off different types of effects by creating your image in a particular fashion. </p>
+<div class="figure">
+<p><img src="https://snook.ca/technical/jquery-bg/bg2.jpg" alt="Swipe" /></p>
+<p>Figure 1: The Swipe</p>
+</div>
+<p>In Figure 1, the before and after states are on the left and right but a simple slant can create an interesting effect.</p>
+<div class="figure">
+<p><img src="https://snook.ca/technical/jquery-bg/bg3.jpg" alt="Swipe" /></p>
+<p>Figure 2: The Fade</p>
+</div>
+<p>Figure 2 is a little more elaborate. The amount of visible space in the normal and hover states are at the very top and bottom of the image. The large gradient in the middle generates a fade-in/out effect when animated over time. The larger the gradient, the less it'll feel like it's moving in from the bottom and feel more like it's actually fading in and out.</p>
+<p>The simplicity of the image allows the file size to be small, as well. More complex animations with more colour depth would require a larger file size. Always strike a balance between the effect and performance.</p>
+<p>Check out the <a href="https://snook.ca/technical/jquery-bg/">demo page</a> to see how these two effects (and a couple others) look in action.</p>
+<h2>The Script</h2>
+<p>Finally, the script to put this altogether is really straightforward. The animation needs to run when the user moves their mouse over and out of the navigation. </p>
+<pre><code>$('#nav a')
+	.css( {backgroundPosition: "0 0"} )
+	.mouseover(function(){
+		$(this).stop().animate(
+			{backgroundPosition:&quot;(0 -250px)&quot;}, 
+			{duration:500})
+		})
+	.mouseout(function(){
+		$(this).stop().animate(
+			{backgroundPosition:&quot;(0 0)&quot;}, 
+			{duration:500})
+		})</code></pre>
+<p>The elements are captured via the <code>$</code> function and given a default CSS. This is necessary for both Internet Explorer and Firefox 2, which don't report the default background position. In IE, you can get around the issue using background-position-x and -y but it's easier just to set the initial values in the script.</p>
+<p>Then the elements are animated using the <code>mouseover</code> and <code>mouseout</code> events. </p>
+<p>The key thing to note is that any animation is stopped before attempting to animate again. This avoids animations queuing up from repeatedly moving the mouse in and out of the element. </p>
+<p>jQuery also has a <code>hover</code> method which can be used instead of separately using the mouseover and mouseout methods. The reason I didn't was because I like the clarity that is provided by explicitly declaring them. The hover method takes two parameters: the function to run when over and the function to run when out.</p>
+<h2>The Demo</h2>
+<p>On <a href="https://snook.ca/technical/jquery-bg/">the demo page</a>, I've created four separate animations. Just hop to the source to see how it was all put together.</p>
+<h2>Other jQuery Examples</h2>
+<p>As mentioned, I'm certainly not the first to come up with this idea. Check out these other resources for more jQuery navigation animation exploration.</p>
+<ul>
+  <li><a href="http://nettuts.com/javascript-ajax/create-a-cool-animated-navigation-with-css-and-jquery/">Create a Cool Animated Navigation with CSS and jQuery</a> [nettuts.com]</li>
+  <li><a href="http://alistapart.com/articles/sprites2">CSS Sprites2 - It's JavaScript Time</a> [alistapart.com]</li>
+  <li><a href="http://www.tyssendesign.com.au/articles/animated-navigation-items-using-jquery/">Animated navigation items using jQuery</a> [tyssendesign.com.au]</li>
+  <li><a href="http://css-tricks.com/824-garage-door-style-menu/">Garage Door Style Menu</a> [css-tricks.com]</li>
+</ul>
+
+<div class="update">
+<p>Update: Want to know how to handle active state? <a href="https://snook.ca/archives/javascript/handling-active-state">I got you covered.</a></p>
+</div>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 22, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/913</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">103 Comments &middot; <a href="https://snook.ca/archives/javascript/jquery-bg-image-animations.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59570">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59570">1</a></div>
+			<span class="authorname">Chris Wallace</span> said on September 22, 2008		</div>
+		<div class="quote"><p>This is very nice. Who needs Flash?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59571">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59571">2</a></div>
+			<span class="authorname"><a href="http://twitter.com/anton">Anton</a></span> said on September 22, 2008		</div>
+		<div class="quote"><p>This is very cool, I love how something so simple can create such an interesting effect.<br />
+I can already think of some places I'd like to use such an idea.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59572">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59572">3</a></div>
+			<span class="authorname">Chris Coyier</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Very slick. That top-down is my favorite. This is a poster child example for progressive enhancement (or graceful degradation, depending on how you look at it).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59573">4</a></div>
+			<span class="authorname">ET</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Great method! Definitely will be in my upcoming projects.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59574">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59574">5</a></div>
+			<span class="authorname">Pedro Rogério</span> said on September 22, 2008		</div>
+		<div class="quote"><p>The example does not work in IE and Firefox, it seems to me that there was a problem with JavaScript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59575">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59575">6</a></div>
+			<span class="authorname">jthomas</span> said on September 22, 2008		</div>
+		<div class="quote"><p>It's a very cool effect but I tried to desactivate JavaScript and it wouldn't do anything. I mean, there's no alternative. Is it possible to have that cool JQuery effect, and, IF there's no JS, have the "simple" CSS effect ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59576">7</a></div>
+			<span class="authorname">Tariq</span> said on September 22, 2008		</div>
+		<div class="quote"><p>@Pedro works in Firefox here, check your browser
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59577">8</a></div>
+			<span class="authorname">Tim Wright</span> said on September 22, 2008		</div>
+		<div class="quote"><p>That's one of the cooler jQuery things I've seen lately.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59578">9</a></div>
+			<span class="authorname"><a href="http://derekallard.com/">Derek Allard</a></span> said on September 22, 2008		</div>
+		<div class="quote"><p>Jonathan, brilliant.  Its one of those :: smack head :: "why didn't I think of that" ideas.  Well written as well, thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59579">10</a></div>
+			<span class="authorname">Michael Hoskins</span> said on September 22, 2008		</div>
+		<div class="quote"><p>I also like that you get a 'bonus' effect if you roll in and out of the button very quickly  on the animated image examples, since the image simply tends to animate toward the final state, rather than jerking to the beginning of the mouseout state.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59580">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 22, 2008		</div>
+		<div class="quote"><p>I updated the article to highlight the issue with setting the initial CSS, which should fix both IE7 and FF2 issues. </p>
+<p>@jthomas: the demo page shows the noscript option which is what it could look like for users with no javascript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59581">12</a></div>
+			<span class="authorname">Denis Kuznetsov</span> said on September 22, 2008		</div>
+		<div class="quote"><p>it is very comfortable to use hover pseudo event (http://docs.jquery.com/Events/hover#overout) instead of mouseover and mouseout events in such cases -- less code
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59582">13</a></div>
+			<span class="authorname">John David Anderson</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Adding the <a href="http://gsgd.co.uk/sandbox/jquery/easing/">easing plugin</a> would add an extra bit of icing to the cake here (though I think there are two core easing options as well).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59583">14</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name/">Neal G</a></span> said on September 22, 2008		</div>
+		<div class="quote"><p>Thanks Snook! I was a bit aggravated with Dave's demo and all the extra classes he had in the code. I also did not like the fact that he used a hidden div to overlay over the menu items. Snook 1, Shea 0.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59584">15</a></div>
+			<span class="authorname">James</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Examples C &amp; D can be accomplished without images by using the official <a href="http://docs.jquery.com/Release:jQuery_1.2/Effects#Color_Animations">colour animations plugin</a> and the animate() function.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59585">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 22, 2008		</div>
+		<div class="quote"><p>@James: indeed it could. However, interestingly, the use of image + background-position plugin may end up smaller than using the color-animation plugin. But always nice to have options. Thanks for pointing it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59586">17</a></div>
+			<span class="authorname">Matthew</span> said on September 22, 2008		</div>
+		<div class="quote"><p>I too like this better than Dave's version which I had started incorporating into a new design buit will now switch, however this version doesn't have the "active" state setup. I guess that would be easy to do... but I'm lazy and would rather copy/paste.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59588">18</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on September 22, 2008		</div>
+		<div class="quote"><p>Great writeup Jonathan! As I was reading Dave's ALA article I kept thinking the same thing...why wouldn't you do it with an animated background? I'll definitely be using this type of effect on future projects.</p>
+<p>While it isn't nav/sprites related, I recently used JQuery and the background-position plugin on a client project. Thought I might as well post up a quick demo here in case anyone is trying to do something similar.<br />
+<a href="http://www.jasongraphix.com/sandbox/background-animation/">Background Image Animation Demo</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59589">19</a></div>
+			<span class="authorname">icaaq</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Really, really nice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59590">20</a></div>
+			<span class="authorname"><a href="http://adriaannel.com/">Adriaan Nel</a></span> said on September 22, 2008		</div>
+		<div class="quote"><p>I like it, think I will definitely use this. Although I gotta add that I prefer mootools to jquery.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59591">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59591">21</a></div>
+			<span class="authorname">travis beck</span> said on September 22, 2008		</div>
+		<div class="quote"><p>nice,<br />
+I really like the second example with the wave.<br />
+I also love how you can endlessly chain methods together in jQuery.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59592">22</a></div>
+			<span class="authorname">Dave S.</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Wow, this is simpler and more elegant than my article for sure. I never even thougt of background-image animation. Nicely done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59593">23</a></div>
+			<span class="authorname">Cameron Westland</span> said on September 22, 2008		</div>
+		<div class="quote"><p>I've been using this effect for a while, playing with animation the opacity property for really interesting effects!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59595">24</a></div>
+			<span class="authorname">Dever</span> said on September 22, 2008		</div>
+		<div class="quote"><p>Thanks for the stop().animate(...) bit, I was missing the stop() and my animations queued up. To prevent that I tried animate( queue:false, ... ) but that didn't work as expected.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59597">25</a></div>
+			<span class="authorname">Ricardo</span> said on September 22, 2008		</div>
+		<div class="quote"><p>I like it so much.<br />
+And I will use in any future project for sure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59599">26</a></div>
+			<span class="authorname">Tom</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Excellent. Loved the ALA article but thought it was a little heavy but this is excellent.</p>
+<p>Now to find a site I can use it on!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59600">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59600">27</a></div>
+			<span class="authorname">Gilbert</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Wow. I can't believe how much that looks like flash. Great effect.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59601">28</a></div>
+			<span class="authorname">Andreas Stephan</span> said on September 23, 2008		</div>
+		<div class="quote"><p>This rocks! Thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59602">29</a></div>
+			<span class="authorname">Jowra</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Looks nice, but in the end its just the continuation of manipulations of the position of background-images with CSS (like with image-rollovers). Only the creativity sets the limits of animating CSS properties with JS.</p>
+<p>Just an idea: Maybe its more helpful to a greater audience, if such things are described in a more general way and more as an impulse to get started. There are still many other JS frameworks out there and in use.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59604">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59604">30</a></div>
+			<span class="authorname">Anup</span> said on September 23, 2008		</div>
+		<div class="quote"><p>This is great. I have seen a few other ones in recent weeks, and used a hybrid myself, but I like this approach. One accessibility enhancement suggestion, however: use the focus and blur events to run the same code as mouseover and mouseout events, for keyboard accessibility. I just tried it locally and it worked quite nicely with keyboard access too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59605">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59605">31</a></div>
+			<span class="authorname">Flexer</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Another cool trick is to use</p>
+<pre>$('#nav a:not(:animated)').mouseover( this.animate [...] )</pre>
+<p>instead of the .stop().animate()<br />
+It will actually leave the original animation to finish instead of stopping and restarting it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59607">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59607">32</a></div>
+			<span class="authorname">Lauren</span> said on September 23, 2008		</div>
+		<div class="quote"><p>this literally could not have come at a better time! I've been fooling around with a menu using the sprite technique and the client really wanted flash. I just didn't see the need for the menu to be flash. This plug-in will work perfectly! </p>
+<p>Thanks Snook - You rule! </p>
+<p>^__^
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59608">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59608">33</a></div>
+			<span class="authorname">S.K.</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Awesome plugin.  But how do I create a variable that retrieves only the x background-position of the element and then use that variable in place of the x in backgroundPosition?  </p>
+<p>Here is my n00b attempt</p>
+<pre><code>$('#nav a')
+	var positionX = $(this).css("background-position-x");
+	.css( {backgroundPosition: positionX + "0"} )
+	.mouseover(function(){
+		$('#nav a').stop().animate(
+			{backgroundPosition:"(" + positionX + "-550px)"},
+			{duration:500})
+		})
+	.mouseout(function(){
+		$('#nav a').stop().animate(
+			{backgroundPosition:"(" + positionX + "0)"},
+			{duration:500})
+		})</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c59609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59609">34</a></div>
+			<span class="authorname">ralexismf</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Beautiful animated, great, not need flash!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59610">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59610">35</a></div>
+			<span class="authorname">Veera</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Really impressive.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59611">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59611">36</a></div>
+			<span class="authorname">Mark Story</span> said on September 23, 2008		</div>
+		<div class="quote"><p>Very Nice Jonathan! I like that there is no additional markup required. Keeps everything clean and simple.  Kudos on the clever use of background-position.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59613">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59613">37</a></div>
+			<span class="authorname">Jojo Siao</span> said on September 23, 2008		</div>
+		<div class="quote"><p>thanks for the tutorial!</p>
+<p>Jojo Siao.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59614">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59614">38</a></div>
+			<span class="authorname">Fatih CERITLI</span> said on September 24, 2008		</div>
+		<div class="quote"><p>Thanks.</p>
+<p>Realy gj.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59616">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59616">39</a></div>
+			<span class="authorname">Erwin Heiser</span> said on September 24, 2008		</div>
+		<div class="quote"><p>Seriously sweet this! I really like using the gradient image for a subtle color fade.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59617">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59617">40</a></div>
+			<span class="authorname">Dave</span> said on September 24, 2008		</div>
+		<div class="quote"><p>When I turned off Javascript, the hover states do not turn on.  This is a specificity issue with the CSS.  I see you addressed this sorta, but not completely.  Adding this the CSS seems to fix the issue:<br />
+<code><br />
+#a a:hover,#a li a:focus,#a li a:active,<br />
+#b a:hover,#b li a:focus,#b li a:active {<br />
+	background-position:-150px 0px;<br />
+}<br />
+#c a:hover,#c li a:focus,#c li a:active,<br />
+#d a:hover,#d li a:focus, #d li a:active {<br />
+background-position:0px -250px;<br />
+}<br />
+</code>
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59618">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59618">41</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 24, 2008		</div>
+		<div class="quote"><p>Dave: that's why I presented a no script option at the top of the page. The other examples demonstrated the script. It was an exercise for the user to put it all together. :) (and thanks for doing so...)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59626">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59626">42</a></div>
+			<span class="authorname">Tom</span> said on September 25, 2008		</div>
+		<div class="quote"><p>I will use it. thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59627">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59627">43</a></div>
+			<span class="authorname">Zack Katz @ Katz Web Design</span> said on September 25, 2008		</div>
+		<div class="quote"><p>Wow, thanks a lot!  This will be a great thing for clients who want to have Flash navigation on their websites. You could also do color fade effects in combination for additional visual trickery.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59630">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59630">44</a></div>
+			<span class="authorname">James</span> said on September 26, 2008		</div>
+		<div class="quote"><p>Nicely done Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59631">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59631">45</a></div>
+			<span class="authorname"><a href="http://bitsamppixels.com/">Fredrik W</a></span> said on September 26, 2008		</div>
+		<div class="quote"><p>I wrote a similar tutorial a while ago that demonstrated how can you fade between two images to create a similar effect. I took a similar approach to yours. For those interested, it can be found at http://swedishfika.com/2008/03/04/creating-a-fading-header/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59670">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59670">46</a></div>
+			<span class="authorname">FruJo</span> said on September 29, 2008		</div>
+		<div class="quote"><p>Great job.<br />
+Simple and at the same time pretty usage of jQuery. I wrote a russian translation of this article at http://habrahabr.ru/blogs/webdev/40801/ and it achieved a lot of positive feedback. Thanks a lot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59673">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59673">47</a></div>
+			<span class="authorname">Andrew Pawson</span> said on September 29, 2008		</div>
+		<div class="quote"><p>Jonathan: Nice post. FYI - perhaps it's the firewall I'm behind, but I get 403 (Unauthorized) errors (via Firebug and Safari error console) for both the core jQuery library and your plug-in .js files.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59685">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59685">48</a></div>
+			<span class="authorname">chris</span> said on September 30, 2008		</div>
+		<div class="quote"><p>thanks, these are some great example and will be very useful :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59710">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59710">49</a></div>
+			<span class="authorname">Jesse Vlasveld</span> said on October 03, 2008		</div>
+		<div class="quote"><p>Liking this alot, it could produce some awesome effects. Even saw it in use a couple times already, it sure is some good eye candy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59734">50</a></div>
+			<span class="authorname">Joel Sutherland</span> said on October 06, 2008		</div>
+		<div class="quote"><p>I turned this technique (specifically Shea's CSS Sprites2) into a jQuery plugin:</p>
+<p>http://www.newmediacampaigns.com/page/css-sprites2-refactored-building-an-unobtrusive-jquery-plugin</p>
+<p>Hopefully it is helpful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59737">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59737">51</a></div>
+			<span class="authorname">rama</span> said on October 06, 2008		</div>
+		<div class="quote"><p>nice article. exactly what i needed. thanks jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59738">52</a></div>
+			<span class="authorname">Davide Di Cillo</span> said on October 06, 2008		</div>
+		<div class="quote"><p>very nice script!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59750">53</a></div>
+			<span class="authorname"><a href="http://sulcalibur.com/">Sulcalibur</a></span> said on October 08, 2008		</div>
+		<div class="quote"><p>Superb post my friend. We need more posts like this (hint hint) ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59751">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59751">54</a></div>
+			<span class="authorname">Robin</span> said on October 08, 2008		</div>
+		<div class="quote"><p>"Who needs Flash?"</p>
+<p>Abso-frickin-lutely! DOM animation for the win! Beautiful stuff, I may be using something similar of my own in the near future. Cheers for the infos!</p>
+<p>...and is that CakePHP I see powering this site? Kudos to you if it is :)</p>
+<p>Robin
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59760">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59760">55</a></div>
+			<span class="authorname">chris simpson</span> said on October 09, 2008		</div>
+		<div class="quote"><p>Why didn't i think of this? So simple, yet so effective, i love the examples too. Thanks !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59763">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59763">56</a></div>
+			<span class="authorname"><a href="http://www.eaiti.com/">Josh Langner</a></span> said on October 09, 2008		</div>
+		<div class="quote"><p>Excellent! Now I've got a bigger challenge for you: How about changing the opacity of the background image, or at least simulating such an effect, without adding to the complexity of the XHTML markup? I've already spent some time working with this but alas without success.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59769">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59769">57</a></div>
+			<span class="authorname">Luc</span> said on October 10, 2008		</div>
+		<div class="quote"><p>Excellent - I've stolen it as part of my default toolset from hereon in...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59813">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59813">58</a></div>
+			<span class="authorname">Thomas</span> said on October 17, 2008		</div>
+		<div class="quote"><p>Very great and original plugin. jQuery meets flash!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59883">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59883">59</a></div>
+			<span class="authorname">insic</span> said on October 22, 2008		</div>
+		<div class="quote"><p>im really impress of this technique. thanks fro sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59897">60</a></div>
+			<span class="authorname">ShopDev</span> said on October 22, 2008		</div>
+		<div class="quote"><p>Probably the most elegant method I've seen.  Really very simple code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59920">61</a></div>
+			<span class="authorname">Steve</span> said on October 25, 2008		</div>
+		<div class="quote"><p>Very nice! Clean code, simple jquery, thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59941">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59941">62</a></div>
+			<span class="authorname">Mat</span> said on October 27, 2008		</div>
+		<div class="quote"><p>Is there a way to leave the background in it hover position is a certain class is attached the li?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59948">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59948">63</a></div>
+			<span class="authorname">Salwa</span> said on October 28, 2008		</div>
+		<div class="quote"><p>Ok this awesome! Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59975">64</a></div>
+			<span class="authorname">Morrocan baker</span> said on October 31, 2008		</div>
+		<div class="quote"><p>i liked the effect especially the first one, did you have any prototypeJS plugin who do the same &lt;= [lazy develloper] lol
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60111">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60111">65</a></div>
+			<span class="authorname">Sasha Sklar</span> said on November 11, 2008		</div>
+		<div class="quote"><p>Something to be aware of is jQuery's hover function actually uses the mouseenter/mouseleave events (either the proprietary IE version or an emulation of them in other browsers) whose behavior is somewhat distinct from mouseover/mouseout.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60137">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60137">66</a></div>
+			<span class="authorname">Jesse</span> said on November 13, 2008		</div>
+		<div class="quote"><p>Well I copied everything verbatim from the test page (images, js, the whole bit) to play with in on our test server, but it doesn't work. At all. Very strange. The "wave" animation gets stuck in the middle, and the rest get stuck too. Oh well, off to find another slick jQuery navigation trick. :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60177">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60177">67</a></div>
+			<span class="authorname">Anthony</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Inspired by what I saw on this post I'd hoped it could be replicated in Script.Aculo.Us so I could apply it to my existing apps.</p>
+<p>Sadly Scriptaculous' *Effect.Morph* doesn't anticipate dual values so can only move backgrounds horizontally (it's been logged as a bug back in July).</p>
+<p>Delighted by your examples, I've ported the methods over into an extension for Scriptaculous so now it works. Hopefully they'll see your examples and support it natively soon.</p>
+<p>Cheers for sharing all your hard work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60265">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60265">68</a></div>
+			<span class="authorname">rizki a. tyas</span> said on November 17, 2008		</div>
+		<div class="quote"><p>saya ingin buka blog foto
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60327">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60327">69</a></div>
+			<span class="authorname">derrick</span> said on November 23, 2008		</div>
+		<div class="quote"><p>this script absolutely does not work. i would not waste your time. the author has obviously used additional scripting to get it to work. This tutorial was written for search engine ranking and nothing else. Free stuff gets hits. :(
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60328">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60328">70</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 23, 2008		</div>
+		<div class="quote"><p>Derrick: you can view source to see exactly how it's been done. I can't make it do something special that nobody can see. If you're having problems, ask questions.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60329">71</a></div>
+			<span class="authorname">derrick</span> said on November 23, 2008		</div>
+		<div class="quote"><p>**TUTORIAL ADDED TO JUNK TUT DATABASE**<br />
+This tutorial has been added to the Junk Tut Database as part of the Junk Tutorial Project to be launched soon to help unsuspecting web users avoid time-wasting tutorials such as this.</p>
+<p>Thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60330">72</a></div>
+			<span class="authorname">Drew</span> said on November 23, 2008		</div>
+		<div class="quote"><p>Snook, thanks so much for taking the time to write this. Works great.</p>
+<p>@derrick, just because you aren't competent enough to get this to work doesn't mean its broken. It works just fine for me. Please take your arrogant and threatening comments somewhere else. I'm sure you will be added to the akismet spam DB if snook uses it, at least I would.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60334">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60334">73</a></div>
+			<span class="authorname">derrick</span> said on November 23, 2008		</div>
+		<div class="quote"><p>@drew,</p>
+<p>I guess you're not too sharp. You have to copy and paste script off others to get the job done. I'm not the one posting junk code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60335">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60335">74</a></div>
+			<span class="authorname">derrick</span> said on November 23, 2008		</div>
+		<div class="quote"><p>@drew,</p>
+<p>you also need to read the akismet site again. my comment hardly qualifies for spam. crying wolf to akismet is a good way to get your own site banned.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60337">75</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 23, 2008		</div>
+		<div class="quote"><p>Worked out the issue with Derrick via email. There was a missed file in the setup.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60343">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60343">76</a></div>
+			<span class="authorname">derrick</span> said on November 24, 2008		</div>
+		<div class="quote"><p>The problem was actually partially solved.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60344">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60344">77</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 24, 2008		</div>
+		<div class="quote"><p>@derrick: no, it was completely solved. I just double-checked the test page you had sent me via email and the one animation that doesn't "work" is because you're animating along the X axis when the image only changes along the Y axis.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60364">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60364">78</a></div>
+			<span class="authorname">Dave</span> said on November 25, 2008		</div>
+		<div class="quote"><p>We've put this concept into use in our game, http://www.vertigo-project.com/projects/redline-game</p>
+<p>Essentially the background 3 divs (road, grass and cloud) move at varying speeds by just adjusting the background position...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60409">79</a></div>
+			<span class="authorname">Tim</span> said on November 29, 2008		</div>
+		<div class="quote"><p>Snook lovely work. How hard would it be to apply this to a whole page background I wonder !?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60417">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60417">80</a></div>
+			<span class="authorname">Steve</span> said on November 29, 2008		</div>
+		<div class="quote"><p>@Tim: seems like it would apply in the same way. just change "#nav a" to "body" or whatever and give it a try.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60438">81</a></div>
+			<span class="authorname">Patrick</span> said on December 02, 2008		</div>
+		<div class="quote"><p>Very nice. I've never tried jQuery before, but this inspires me to give it a look. Thank you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60526">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60526">82</a></div>
+			<span class="authorname">elvisparsley</span> said on December 08, 2008		</div>
+		<div class="quote"><p>I wonder if this works with different lengths of menu.<br />
+Anyone, any idea??
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60527">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60527">83</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 09, 2008		</div>
+		<div class="quote"><p>It should work with whatever length of menu you have, assuming the image you use is designed for the length of the menu item.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60550">84</a></div>
+			<span class="authorname">esthezia</span> said on December 10, 2008		</div>
+		<div class="quote"><p>Hello. Great method, i love it. I just want to ask if it would be posibile for a FADE transition. fade background images one to another. Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60708">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60708">85</a></div>
+			<span class="authorname">Renee</span> said on December 20, 2008		</div>
+		<div class="quote"><p>I'm getting a flickering effect on IE6, anyone have a fix for this?<br />
+When will people stop using that browser so I can ignore it?!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61016">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61016">86</a></div>
+			<span class="authorname">Flepi</span> said on January 14, 2009		</div>
+		<div class="quote"><p>Hello Jonathan,</p>
+<p>You are probably very busy but I want to add the effect : When you click on a header link, the background stay in the second color (active tab). In wordpress there is a "current_page_item" we must add in CSS to do so but I don't success...</p>
+<p>If you could explain how to do so with jquery or css...</p>
+<p>Thanks a lot !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61102">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61102">87</a></div>
+			<span class="authorname">Frank</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Great post! I just found this awesome jQuery Cheat Sheet for the iPhone. I've only had it for a day and it's been really helpful.</p>
+<p>http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=302090867&amp;mt=8</p>
+<p>Looks like there's also a CSS Cheat Sheet from the same guys.</p>
+<p>http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=301093674&amp;mt=8
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61558">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61558">88</a></div>
+			<span class="authorname">Sean</span> said on January 26, 2009		</div>
+		<div class="quote"><p>Great post!  This opens up doing some new types of mouseovers I hadn't thought about before. </p>
+<p>Thanks for posting!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61797">89</a></div>
+			<span class="authorname">Goo</span> said on February 01, 2009		</div>
+		<div class="quote"><p>Very nice. actually the background animation can have some variations. Simply adding a png format image serving as a text mask can create a very nice effect. I have made a page according to your inspiration. see my site for demonstration
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61835">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61835">90</a></div>
+			<span class="authorname">pab</span> said on February 02, 2009		</div>
+		<div class="quote"><p>This is great, love the simplicity of it and it works like a charm, well done and thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61839">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61839">91</a></div>
+			<span class="authorname">jason</span> said on February 02, 2009		</div>
+		<div class="quote"><p>I'm trying to add a class selected to it.</p>
+<p>anyone have an idea on how to go about this?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62489">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62489">92</a></div>
+			<span class="authorname">Ben Cachel</span> said on February 11, 2009		</div>
+		<div class="quote"><p>@derrick it works fine! Same as per this demo page, try to install the script again.</p>
+<p>Thank you Jonathan. I love this way for buttons, much better than old animated .gif images :) and quicker too. Will play around possibly adding some CSS in addition. cheers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62929">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62929">93</a></div>
+			<span class="authorname">Aaqib</span> said on February 20, 2009		</div>
+		<div class="quote"><p>its really cool,,, thnx man
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65939">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65939">94</a></div>
+			<span class="authorname">Burt</span> said on February 15, 2011		</div>
+		<div class="quote"><p>Can't get this to work with jquery-1.4.4.min.js but is fine with 1.2.6.min
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66142">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66142">95</a></div>
+			<span class="authorname">Peter</span> said on February 23, 2011		</div>
+		<div class="quote"><p>Wonderful Jonathan - thank you. </p>
+<p>@ world, who is this Derrick guy?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66192">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66192">96</a></div>
+			<span class="authorname">Mike</span> said on February 25, 2011		</div>
+		<div class="quote"><p>Darn. I've been trying to get it to work with jQuery v1.4.4 as well. Anyone have any luck? What should one change to make it work?</p>
+<p>(thanks for any help!)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66193">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66193">97</a></div>
+			<span class="authorname">Norja</span> said on February 25, 2011		</div>
+		<div class="quote"><p>This is great, but what is the dimension of the background image for the remainder versions? I like the one "top down" one. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66738">98</a></div>
+			<span class="authorname">June</span> said on March 21, 2011		</div>
+		<div class="quote"><p>hello. i love this idea and currently trying to implement on my site but having some issues with handling active state. is there a way to disable mouseout animation once clicked? Thanks in advance!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66745">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66745">99</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 21, 2011		</div>
+		<div class="quote"><p>@June: Check out the follow-up article on <a href="http://snook.ca/archives/javascript/handling-active-state">active state</a>. This might explain what you need.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66760">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66760">100</a></div>
+			<span class="authorname">June</span> said on March 22, 2011		</div>
+		<div class="quote"><p>Jonathan, thank you for the quick reply. Follow-up article makes sense but I was hoping you would explain how to do it using 'onclick', 'addclass' type of route or add conditions at the beginning. The reason for this (for me) would be to 'include' menu as part of header through php. Well maybe when you have time you could expand this tut more.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66762">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66762">101</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 22, 2011		</div>
+		<div class="quote"><p>@June, in that case, you'd add an click handler that toggles an active class. Then include a conditional that checks for the existence of the active class before continuing the animation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67410">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67410">102</a></div>
+			<span class="authorname">Charles P.</span> said on April 15, 2011		</div>
+		<div class="quote"><p>@Jonathan,</p>
+<p>This is a wonderful snippet of code.   It took me a little bit of a moment to figure it out (due to my lack of solid CSS and ASP.NET masterpage knowledge), but it was fairly easy to follow.  Any ideas on how to get rounded edges for this concept, without any IE/other browser hacks?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68149">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68149">103</a></div>
+			<span class="authorname">Mary</span> said on May 18, 2011		</div>
+		<div class="quote"><p>Jonathan,<br />
+thank you for funtastic plugin! I can see that your example works just fine in IE7 but mine shows only hover state. Do you have any idea why? Thanks again.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/jquery-bg-image-animations by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

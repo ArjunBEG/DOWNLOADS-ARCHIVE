@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/screencast/screencast-converting-ttf2eot by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Screencast: Converting OTF or TTF to EOT - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">
+	<meta property="og:title" content="Screencast: Converting OTF or TTF to EOT">
+	<meta property="og:description" name="description" content="In case you hadn't noticed the lovely titles on this page, they're League Gothic. Well, they should be if you happen to be using the latest version of Firefox, Safari, or Internet Explorer. However, i...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Screencast: Converting OTF or TTF to EOT</h1>
+		<p>In case you hadn't noticed the lovely titles on this page, they're <a href="http://www.theleagueofmoveabletype.com/fonts/7-league-gothic">League Gothic</a>. Well, they should be if you happen to be using the latest version of Firefox, Safari, or Internet Explorer. However, it took much trial and error to figure out exactly how to get there. There are a number of pieces to the puzzle but in the end, I got something to work. The assumption here is that you are on a Mac (as I am) but I believe these tools work the same on PC.</p>
+<p><a href="https://snook.ca/video/font-face.mov"><img src="https://snook.ca/img/viewon-quicktime.jpg" alt="View with Quicktime" style="border:5px solid #CCC" /></a> <a href="https://snook.ca/video/font-face.m4v"><img src="https://snook.ca/img/viewon-iphone.jpg" alt="View on iPod or iPhone" style="border:5px solid #CCC" /></a></p>
+<h2>FontForge</h2>
+<p>First up is <a href="http://fontforge.sourceforge.net/">FontForge</a>. FontForge is an open source font editing and conversion application. There's a command line version but I highly recommend getting the full-blown desktop app&mdash;if only because that's what I did! There are <a href="http://sourceforge.net/projects/fontforge/files/fontforge-executables/">pre-built packages</a> already done for the Mac. You may need to install X11 in advance of installing FontForge but it's been awhile since I installed it and I honestly can't remember if or how I did.</p>
+<p>From within FontForge, you can open up an OTF or TTF file, make any changes and then generate a font in the format of your choice. In this case, it'll  be a TrueType font. Now, you might think you can go ahead and take that TTF and run it through a program like WEFT, Microsoft's ancient Windows-only TTF to EOT conversion application. Except I couldn't get it to work. It locked up every single time. You may think that a <a href="http://code.google.com/p/ttf2eot/">TTF2EOT</a> conversion should work and it may. It didn't with any of the fonts I was trying to work with, though.</p>
+<p>After finding an article that discussed <a href="http://karoshiethos.com/2009/08/05/creating-eot-files-with-ttf2eot/">some additional properties</a> that need to be defined, I realized that FontForge can be used to define those settings. Go to the Element menu and select Font Info. From there, choose TTF Names from the left side. The first step is to delete any of the existing properties on this screen. They'll be in black. The red ones can't be deleted. Then, create a new item. You'll need to create 3 new items, in fact. Make sure to always select &quot;English (US)&quot; as the language. Then choose the first, second and fourth items from the list. The first item is your font name, the second item is your font style and finally, the fourth item is the font name and font style separated by a hyphen.</p>
+<h2>TTF2EOT</h2>
+<p>Once you have completed the conversion, you need to convert the TrueType font into an Embedded OpenType format. That's a file with an EOT extension and the format that Internet Explorer needs. You can use the <a href="http://code.google.com/p/ttf2eot/"> TTF2EOT command line tool</a> or use an <a href="http://www.kirsle.net/wizards/ttf2eot.cgi">online tool</a> (<a href="http://ttf2eot.sebastiankippe.com/">or an alternative</a>) that can do the conversion for you (I use the online tool).</p>
+<h2>CSS</h2>
+<p>You should now have two files: an EOT and an OFT or TTF. I highly recommend you check out Paul Irish's <a href="http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/">Bulletproof @font-face</a> implementation for more details but here it is in a nutshell.</p>
+<pre><code>@font-face {
+  font-family: 'Graublau Web';
+  src: url(GraublauWeb.eot);
+  src: local('Graublau Web Regular'), local('Graublau Web'), 
+         url(GraublauWeb.otf) format('opentype');
+}</code></pre>
+<p>The font-family name is a unique name that will be used when defining a font-family elsewhere in your CSS. Then, just specify the EOT format for IE; the local format, in case users might already have the font installed (and to prevent IE from trying to download the OTF/TTF); and then specify the path to the OTF or TTF file.</p>
+<h2>The Future</h2>
+<p>Font embedding is still early days but, given the right font with the right licensing, you can create a fantastic experience for your visitors.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 06, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/956</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">30 Comments &middot; <a href="https://snook.ca/archives/html_and_css/screencast-converting-ttf2eot.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63959">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63959">1</a></div>
+			<span class="authorname"><a href="http://antonpeck.com/">Anton</a></span> said on October 05, 2009		</div>
+		<div class="quote"><p>Thank you for posting this, Jon. I knew I was close, but just shy of getting it to work right.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63960">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63960">2</a></div>
+			<span class="authorname">Ryan</span> said on October 05, 2009		</div>
+		<div class="quote"><p>I still get mixed results converting font's to ttf using fontforge, which is incredibly painful to setup on windows by the way. It really does depend on the font you are using a lot of the fonts I get jaggered edges on C's etc.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63961">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63961">3</a></div>
+			<span class="authorname">Kenneth D. Nordahl</span> said on October 05, 2009		</div>
+		<div class="quote"><p>I wrote an article about how to implement custome fonts on a website with @font-face (http://blog.nordahl.me/webdesign/font-face/). I'll have to update it later today with information on how to make @font-face available for IE with EOT. I guess it's no point implement it on my personal blog since it's HTML5, but its a good tip nonetheless, thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63962">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63962">4</a></div>
+			<span class="authorname">scrogson</span> said on October 05, 2009		</div>
+		<div class="quote"><p>Great stuff Snook! Thanks for posting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63963">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63963">5</a></div>
+			<span class="authorname">Dustin</span> said on October 06, 2009		</div>
+		<div class="quote"><p>You can do it without font-forge</p>
+<p>http://circuitbomb.com/index.php/2009/09/easy-oft-to-eot-conversion-for-font-face-css3-and-internet-explorer/
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63964">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63964">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 06, 2009		</div>
+		<div class="quote"><p>@Dustin: how reliably does the OTF to TTF work where it'll allow the TTF to EOT to work properly?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63965">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63965">7</a></div>
+			<span class="authorname">Jimmy Cuadra</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Font Squirrel has some downloads that already have TTF/OTF and EOT versions packaged together for the purposes of @font-face usage. It can save a few steps if the font you want to use is in their collection.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63966">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63966">8</a></div>
+			<span class="authorname">Jamie </span> said on October 06, 2009		</div>
+		<div class="quote"><p>Thanks for the useful and informative post. This is something I have not tried out before and will definitely try this out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63967">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63967">9</a></div>
+			<span class="authorname">Philippe</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I had <i>some</i> success with that circuitbomb.com converter (2 out of 4 tested fonts worked). On my XP virtual machine. But the same fonts failed on the Windows7 vm. The rendering on screen (XP) was not as good as the one from the installed equivalent.</p>
+<p>Then I realised that MS has been pushing a 'fix' for some security issue that kills t2embed (the underlying api that allow eot to work) when the name table records are too large (5000bytes I think). And that XP virtual machine is not up to dateâ€¦.</p>
+<p>(editing the fonts accordingly in FontForge 'fixes' the issue â€“ but this becomes a complicated exercise of dubious legality)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63968">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63968">10</a></div>
+			<span class="authorname">John Faulds</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I tried using the Online Font Converter the other day but it didn't work for me - kept exporting archive files that I couldn't open. So I tried FontForge instead. I didn't have any problem creating an .EOT file and didn't have to do the extra steps that you've described with the editing of properties in FontForge (font was Museo Sans 500).</p>
+<p>Also, I just made a similar comment on Mezzoblue, but I read on <a href="http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/">Mozilla Hacks</a>:</p>
+<blockquote><p>It (IE) doesnâ€™t understand format() hints and will ignore any @font-face rule containing these hints.</p></blockquote>
+<p>so you need to create two separate style declarations, one for the .eot and one for the others.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63970">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63970">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Just to highlight, <strong>the technique I've outlined in this article is the most consistent approach to converting OTF to TTF to EOT</strong>. If one of the easy, automated approaches works right off the bat, that's great. With the two fonts I was working with, nothing worked. I've talked to two other designers who've ran into similar problems as myself and again, the technique I've outlined above has worked.</p>
+<p>@<a href="http://snook.ca/archives/html_and_css/screencast-converting-ttf2eot#c63968">John Faulds</a>: the technique that I've detailed here in the article is directly from Paul Irish's article and has been tested to work. It works right here on this very site. Two separate declarations are not required.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63971">12</a></div>
+			<span class="authorname">Viktor Richardson</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I've used a similar technique while embedding fonts in Adobe Flex and it's great to finally see font embedding in the web browsers. </p>
+<p>Thanks for a great tutorial, and I must say I really like the font in your titles.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63973">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63973">13</a></div>
+			<span class="authorname">Dustin</span> said on October 06, 2009		</div>
+		<div class="quote"><p>@Jonathan</p>
+<p>Well, I've only tested it for use on my own site, which is the one I provided a link to.  If your looking for a quick fix that may be the answer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63975">14</a></div>
+			<span class="authorname"><a href="http://full-speed.org/">Scott Johnson</a></span> said on October 06, 2009		</div>
+		<div class="quote"><p>Thanks for taking the time to put together such a thorough explanation.  I've been getting tripped up with those extra properties that the EOT needs.  With this tutorial, though, conversions are a breeze.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63976">15</a></div>
+			<span class="authorname">Jesh Barlow</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Awesome&mdash;I've been looking for an online TTF2EOT converter. I'll give this one a try. I had issues with the free Aller face. It converted fine, but had terrible jaggies in Firefox 3.5 and Internet Explorer 6+. In Safari it looked perfect. I wonder if these issues are related to the face or the TTF2EOT utility. With such mixed results, I bet it's the face.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63978">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63978">16</a></div>
+			<span class="authorname">Philip Barron</span> said on October 06, 2009		</div>
+		<div class="quote"><p>In IE7, loading a page (like this very page) with an embedded font produces the annoying warning "This page uses fonts that need to be temporarily installed." Is there anyway to forestall that, short of having the visitor adjust IE's Internet Options/Security settings?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63979">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63979">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 06, 2009		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/html_and_css/screencast-converting-ttf2eot#c63978">Philip Barron</a>: I've been hearing of some odd reports, although not from IE7. Someone else mentioned seeing a similar message in Firefox. I wonder if the IE7 issue is a recent one as I just switched the top nav to Museo Sans. It's possible some additional settings should be made to correct that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63980">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63980">18</a></div>
+			<span class="authorname">Ethan Dunham</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Thanks for this Jonathan. Many of the fonts on our site fontsquirrel.com have had bad EOT files. I just completed a Fontforge script that seems to fix the fonts in a similar way that you describe. If anyone has had any issues with EOT files in IE, I'm fairly certain that I've fixed most if not all of them. </p>
+<p>Perhaps I will have to create an online converter for the web devs out there struggling with this. It took me two days to track all this stuff down....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63981">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63981">19</a></div>
+			<span class="authorname">Andy</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Jonathan: Here's also an example to accommodate the Chrome browser: http://nova-group.se/test/fonts/</p>
+<p>Opera, Safari and Chrome will use the SVG font while Firefox will use the TTF. The SVG is half the size of the TTF font, cutting the transfer time in half.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63982">20</a></div>
+			<span class="authorname">Ethan Dunham</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Excellent. Hadn't thought much about SVG fonts, but great idea!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63983">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63983">21</a></div>
+			<span class="authorname">DRoss</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I think Andy's nailed it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63984">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63984">22</a></div>
+			<span class="authorname">Andy</span> said on October 06, 2009		</div>
+		<div class="quote"><p>@Ethan Dunham &amp; Dross: Thanks :) </p>
+<p>As you can see in the example, the SVG font works in Chrome even if --enable-remote-font is disabled (which it is by default). A TTF font would require the switch to be enabled.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63988">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63988">23</a></div>
+			<span class="authorname">Daniel Marino</span> said on October 07, 2009		</div>
+		<div class="quote"><p>I've followed this tutorial several times now using Museo 300 and when I upload the TTF to TTF2EOT converter, it says everything worked fine, but it's not really working - it's not showing the test text in Museo.</p>
+<p>I tested the TTF2EOT service with an actual TTF font (not a OTF that I converted to TTF using the tutorial) and it works fine. Is anyone else having problems like this?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63989">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63989">24</a></div>
+			<span class="authorname"><a href="http://iamdanielmarino.com/">Daniel Marino</a></span> said on October 07, 2009		</div>
+		<div class="quote"><p>Just a follow up to say I got it working... Though I'm not convinced that Museo (serif version) looks that good in IE...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64005">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64005">25</a></div>
+			<span class="authorname">webmasterdubai</span> said on October 08, 2009		</div>
+		<div class="quote"><p>really nice read and screencast to convert font for font-face great job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64010">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64010">26</a></div>
+			<span class="authorname">SonyaSunny</span> said on October 08, 2009		</div>
+		<div class="quote"><p> Thank you! I would now go on this blog every day!<br />
+Have a nice day</p>
+</div>
+	</div>
+		<div class="comment" id="c64043">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64043">27</a></div>
+			<span class="authorname">Xavier</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Thanks for the tips! Especially the one about the Bulletproof CSS. I also got TTF2EOT to work on my Mac. Works flawlessly... By the way, when you convert a font via FontLab, the extra steps don't seem to be necessary (or maybe those extra steps are font-specific)</p>
+<p>By the way, there's a typo in your article; under the <strong>CSS</strong> title, it should say <del>OFT</del> &lt;insert&gt;OTF&lt;/insert&gt;.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64051">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64051">28</a></div>
+			<span class="authorname">Minneapolis Designer</span> said on October 11, 2009		</div>
+		<div class="quote"><p>This post is a god sent, been working on a fix for this and couldn't get it to go.  You suggestions work flawlessly.</p>
+<p>Thanks - C
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64110">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64110">29</a></div>
+			<span class="authorname">Stefan</span> said on October 26, 2009		</div>
+		<div class="quote"><p>No need to use FontForge or ttf2eot.<br />
+http://onlinefontconverter.com added eot recently.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65906">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65906">30</a></div>
+			<span class="authorname">iron samurai</span> said on February 14, 2011		</div>
+		<div class="quote"><p>I be enduring Verizon's Palm Pre Added to and can't non-standard like to see any momentary display videos on the browser. I've tried to download adobe flash entertainer but it won't seem to subside me. Anyone differentiate what to do?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/screencast/screencast-converting-ttf2eot by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

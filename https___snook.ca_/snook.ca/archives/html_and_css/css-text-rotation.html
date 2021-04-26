@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-text-rotation by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Text Rotation with CSS - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/css-text-rotation">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/css-text-rotation">
+	<meta property="og:title" content="Text Rotation with CSS">
+	<meta property="og:description" name="description" content="Once again, after reading somebody else's article, I felt inspired to put together an alternative example. In this case: Text Rotation.
+Within the article I linked to, the example uses an image sprit...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Text Rotation with CSS</h1>
+		<p>Once again, after reading <a href="http://css-tricks.com/date-display-with-sprites/">somebody else's article</a>, I felt inspired to put together an alternative example. In this case: Text Rotation.</p>
+<p>Within the article I linked to, the example uses an image sprite and a sprinkle of CSS to get things positioned right. Well, maybe not so much a sprinkle. It's like the top fell off the pepper shaker and you've suddenly got a large pile of pepper on your food. It makes me want to sneeze.</p>
+<p>Thankfully, many of the popular browsers of today support the ability to rotate HTML elements. Even better? We can make it work in Internet Explorer (back to version 5.5 even). How you might ask? Okay, let's look at the HTML.</p>
+<pre><code>&lt;div class=&quot;example-date&quot;&gt;
+  &lt;span class=&quot;day&quot;&gt;31&lt;/span&gt; 
+  &lt;span class=&quot;month&quot;&gt;July&lt;/span&gt; 
+  &lt;span class=&quot;year&quot;&gt;2009&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+<p>Nice and clean without too many extras. I conscientiously chose the date order I did to avoid having to use a comma. Otherwise, an extra span would be required to remove the comma from our final design.</p>
+<h2>The Magical CSS</h2>
+<p>For Webkit and Firefox (as of 3.5), you can take advantage of the proposed <code>transform</code> property to handle the rotation. Each browser requires its property prefix for now.</p>
+<pre><code>-webkit-transform: rotate(-90deg); 
+-moz-transform: rotate(-90deg);	</code></pre>
+
+<p>In order to perform a transformation, the element has to be set to <code>display:block</code>. In this case, just add the declaration to the span that you want to rotate.</p>
+
+<p>When it comes to effects in Internet Explorer, there is a surprising amount of power (and untapped at that, I'd say) in using filters. Although misleading, there is a filter 
+called BasicImage that offers up the ability to rotate any element that has layout.</p>
+<pre><code>filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);</code></pre>
+<p>The rotation property of the BasicImage filter can accept one of four values: 0, 1, 2, or 3 which will rotate the element 0, 90, 180 or 270 degress respectively.</p>
+<p>The <a href="http://msdn.microsoft.com/en-us/library/ms532972(VS.85).aspx">BasicImage filter</a> has other properties that can be set such as mirroring, masking, greyscale and others. Alternatively, you can take advantage of the <a href="http://msdn.microsoft.com/en-us/library/ms533014(VS.85).aspx">Matrix filter</a> but the coordinates still don't make any sense to me.</p>
+<h2>In action</h2>
+<style>
+		body { font-family: Arial, Helvetica, sans-serif; }
+	    .example-date { 
+			background-color:#987; 
+			float:right;
+			position:relative;
+			padding:45px 5px 0px;
+			margin-left:10px;
+			} 
+	 	.example-date .example-month {
+		    text-transform: uppercase;
+		    font-size:25px;
+			}
+		.example-date .example-day {
+			font-size:45px;
+line-height:45px;
+			position:absolute; left:5px; top:0px;
+			}
+	    .example-date .example-year { 
+			display:block; 
+			position:absolute; right:-5px; top:15px;
+			-webkit-transform: rotate(-90deg); 
+			-moz-transform: rotate(-90deg);			
+			}
+	</style>
+	<!--[if IE]>
+	<style>
+		.example-date .example-year {
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			right:-15px; top:5px;
+		}
+	</style>
+	<![endif]-->
+  
+<div><div class="example-date"><span class="example-day">31</span> <span class="example-month">July</span> <span class="example-year">2009</span></div></div>
+<p>What does this look like in action? Take a look at this page in Safari, Firefox or Internet Explorer and you should see something that looks like the following image. Probably the biggest downfall is the lack of consistency in text rendering. Internet Explorer will drop ClearType on any text that has a filter applied to it. You can also see the spacing between the day and the year is different between Safari and Firefox. The differences in text rendering  make it more difficult to create &quot;pixel perfect&quot; layout. <br />
+<img src="https://snook.ca/technical/text-rotation/text-rotation.png" /></p>
+<p>Here's hoping the article has offered up a little inspiration and shown that even IE has a few tricks up its sleeve, allowing us to pull off some layout fun.</p>
+
+<ins datetime="2010-04-01">
+<p><a href="http://dev.opera.com/articles/view/css3-transitions-and-2d-transforms/">Opera has -o-transform support in 10.50</a></p>
+</ins>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 28, 2009 &middot; Updated April 01, 2010</div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/952</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">83 Comments &middot; <a href="https://snook.ca/archives/html_and_css/css-text-rotation.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63694">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63694">1</a></div>
+			<span class="authorname">Divya</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Wow, this is awesome! Will be very useful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63695">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63695">2</a></div>
+			<span class="authorname">Lakshan</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Thanks for posting this!</p>
+<p>I remember I was struggling to do the same, several years ago - then it worked only in IE with basic image filter and didn't work on any other browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63696">3</a></div>
+			<span class="authorname">nicksatkovich</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Awesome Article, very useful!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63697">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63697">4</a></div>
+			<span class="authorname">Tom</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I'm literally stunned that this is possible in IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63698">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63698">5</a></div>
+			<span class="authorname">Beetbe</span> said on July 28, 2009		</div>
+		<div class="quote"><p>This is useful<br />
+Tks @snookca</p>
+</div>
+	</div>
+		<div class="comment" id="c63699">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63699">6</a></div>
+			<span class="authorname">dave rupert</span> said on July 28, 2009		</div>
+		<div class="quote"><p>ha.  this is so awesome.  i was just oooh-ing over Chris Coyer's tutorial from today (http://css-tricks.com/date-display-with-sprites/), but leave it up to Snook to come through with some old school BasicImage hacks!  I hope squarespace pays you the big bucks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63700">7</a></div>
+			<span class="authorname">Ollie Kavanagh</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I recently tried this with my personal vcard site (linked in my name) but had real trouble with IE turning off cleartype using rotate and opacity. The rendering ended up looking so bad I reverted back to images as you can see. And even then switching on opacity in IE on PNG images causes bad rendering.</p>
+<p>We are destined never to have full support for this stuff :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63701">8</a></div>
+			<span class="authorname">Henry B.</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I can't believe this is supported by IE 5.5... amazing. Thanks for the insight snook</p>
+</div>
+	</div>
+		<div class="comment" id="c63702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63702">9</a></div>
+			<span class="authorname">Tyson</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Good post. Certainly opened my ignorantly closed eyes with regard to Internet Explorer. I will have to take a look more at some of those IE filters now. Thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63703">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63703">10</a></div>
+			<span class="authorname">Kevin Thompson</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Ha! Perfect timing. I was just reading the css sprite article &amp; considering implementing that concept for date formatting on a site I'm working on, but was too lazy to put together a sprite sheet. :) I'll give this a shot though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63704">11</a></div>
+			<span class="authorname">David Rojas</span> said on July 28, 2009		</div>
+		<div class="quote"><p>wow, that's great! I'm thinking of a lot of uses for that. It's not working in Opera though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63705">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63705">12</a></div>
+			<span class="authorname"><a href="http://nellen.co.za/">Adriaan</a></span> said on July 28, 2009		</div>
+		<div class="quote"><p>Much better than the other site you linked to...thanks for explaining the proper way to do this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63706">13</a></div>
+			<span class="authorname">Anthony</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I knew there was a reason I followed you on Twitter. A real gem, thanks ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63707">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63707">14</a></div>
+			<span class="authorname">Andrew Cornett</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Sweet, thanks a bunch Snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63708">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63708">15</a></div>
+			<span class="authorname">Jason Miller</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Awesome!</p>
+<p>I would be interested in finding out where you came across the filter for IE. Is there a list available somewhere?</p>
+</div>
+	</div>
+		<div class="comment" id="c63709">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63709">16</a></div>
+			<span class="authorname">Korri</span> said on July 28, 2009		</div>
+		<div class="quote"><p>It looks like it does not works on FF 3.5 debian
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63710">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63710">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63700">Ollie</a>: Agreed, it's unfortunate that it has to destroy ClearType just to apply an effect. It certainly means that you'd have to be more careful with your type choices to ensure a decent rendering for IE.</p>
+<p>@<a href="#c63704">David Rojas</a>: Yeah, no Opera support as far as I know. I'm not sure if they plan to implement CSS transformations at any point.</p>
+<p>@<a href="#">Korri</a>: That's interesting that there are features that aren't available on that platform. That could be frustrating, that's for sure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63711">18</a></div>
+			<span class="authorname"><a href="http://www.felocity.org/">Jakob Heuser</a></span> said on July 28, 2009		</div>
+		<div class="quote"><p>Given the -ms-filter extension in IE8 http://msdn.microsoft.com/en-us/library/ms533754%28VS.85%29.aspx I'd expect that there's probably a few other Visual Filters that can help bridge the CSS3 gaps such as DropShadow()*. It probably should go without saying that you should be careful about what you put filters on for performance reasons.</p>
+<p>*Full Visual Filter reference at http://msdn.microsoft.com/en-us/library/ms532853%28VS.85%29.aspx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63712">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63712">19</a></div>
+			<span class="authorname">Chris Pratt</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Awesome article. I was literally just looking at the technique you alluded to this morning, but your approach here is so much nicer. Thanks alot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63713">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63713">20</a></div>
+			<span class="authorname">9swords</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I was thinking about how to do this in a header menu last week with images, now i can start to develop without any!<br />
+Another breakthrough for web design. If the browser can understand javascript it should be able to do things like this with CSS transform. Including IE&lt;- "The odd man out".<br />
+Thanks to you and Mr.Coyier for this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63714">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63714">21</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on July 28, 2009		</div>
+		<div class="quote"><p>I link to an article I think is a good resource and then here comes Jonathan with a 1up on said article. No wonder you're winning the Happy Webbies contest so far. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63715">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63715">22</a></div>
+			<span class="authorname">Webmancers</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Well, the sprite thing is something we had to learn. But personally I'm not comfortable using a large stylesheet to define a big list of sprite coordinates for such a little thing. I'm much more interested in some more efficient ways to do so like the one I found at is.gd/1RgZU<br />
+It's pretty much a hack that will break CSS2.1 validation (who cares), but stay tuned to CSS3.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63716">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63716">23</a></div>
+			<span class="authorname">Webmancers</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Nevermind, I wanted to post this on other blog's comments Sorry. This is the efficient one
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63717">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63717">24</a></div>
+			<span class="authorname">All for Design</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Waho...<br />
+Amazing possibilities...<br />
+Great article !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63718">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63718">25</a></div>
+			<span class="authorname">gWarez</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Not working here...</p>
+<p>Windows 7 - Firefox 3.0.12<br />
+<a href="http://img187.imageshack.us/img187/6482/ff3012.jpg">pic</a></p>
+<p>Windows 7 - IE 8.0.7100.0<br />
+<a href="http://img265.imageshack.us/img265/363/ie8071000.jpg">pic</a></p>
+</div>
+	</div>
+		<div class="comment" id="c63724">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63724">26</a></div>
+			<span class="authorname">Todd Smith-Salter</span> said on July 28, 2009		</div>
+		<div class="quote"><p>That's a great solution for those who have images disabled. The solution on CSS-Tricks, while it looks great, pushed the text -1000em to the left.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63725">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63725">27</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 28, 2009		</div>
+		<div class="quote"><p>@gWarez: Definitely won't work in Firefox 3.0. -moz-transform only got introduced in 3.5 (I mention this mid article but easy to miss). As for IE8 on Win7, my guess is that it needs the alternate syntax: -ms-filter and wrap the value in quotes. It was working on my version of IE8 so I didn't bother expanding on that approach.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63726">28</a></div>
+			<span class="authorname">Josh Smith</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I'm at a loss for words. I had no idea you could do something like this in IE 5.5. Great old school filter example, I love it!</p>
+<p>Bookmarked your site for later. I'm going to have a peek around.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63727">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63727">29</a></div>
+			<span class="authorname">BOLK</span> said on July 28, 2009		</div>
+		<div class="quote"><p>http://bolknote.ru/2006/12/16/~330</p>
+<p>2006 year
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63728">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63728">30</a></div>
+			<span class="authorname">Jasmin HalkiÄ‡</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Nice article.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63729">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63729">31</a></div>
+			<span class="authorname">Janko</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I just read the article on css-tricks and I must say both ideas are interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63730">32</a></div>
+			<span class="authorname">Jeff Nickel</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Excellent work. Will be very helpful in the future!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63731">33</a></div>
+			<span class="authorname">Christian</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I had written about this here: http://developer.cmzmedia.com/?p=368
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63732">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63732">34</a></div>
+			<span class="authorname">Karl</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Yep, the clue was in the title of the other article (which I too read first), but your technique was the one that sprung to my mind. It wouldn't bother me about IE support although this is a bonus - definitely something from my progressive enhancement toolbox.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63733">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63733">35</a></div>
+			<span class="authorname">Aaron</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I was wondering about the possibility of rotating text with CSS. Found this page via twitter. Thanks for the write up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63734">36</a></div>
+			<span class="authorname">EllisGL</span> said on July 28, 2009		</div>
+		<div class="quote"><p>Doesn't work in FF 3.0.12 in XP 64 either.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63735">37</a></div>
+			<span class="authorname">Douglas Heriot</span> said on July 28, 2009		</div>
+		<div class="quote"><p>I've been using rotate transformations on my new websiteâ€™s contact form: http://douglasheriot.com/#contact</p>
+<p>If youâ€™re using a browser that supports it, there will be a â€œsuper fun fun buttonâ€ at the bottom, which animates the contact form spinning around!</p>
+<p>I havenâ€™t made mine work in Internet Explorer yet though. It sounds like I would have to use the matrix transform filter, as I need more that 90Â° increments.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63736">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63736">38</a></div>
+			<span class="authorname">Carl</span> said on July 28, 2009		</div>
+		<div class="quote"><p>This is BIG man, I mean designers will have a great time with this method.</p>
+<p>Thanks!</p>
+<p>C
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63737">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63737">39</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com/">Michael Kozakewich</a></span> said on July 28, 2009		</div>
+		<div class="quote"><p>People have been beating up IE6, for not having this or that support, for so long that they can't believe it DOES have support for a wide range of effects. It's proprietary and confusing and from ten years ago, but it can help.</p>
+<p>Myself, I've only tried some of the basics. There's a lot in there to see. I'll have to try more in the future, when I'm running into difficulties with the IEs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63738">40</a></div>
+			<span class="authorname">Adel</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Thanks for sharing this!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63739">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63739">41</a></div>
+			<span class="authorname">Ashish</span> said on July 29, 2009		</div>
+		<div class="quote"><p>A simpler and non-filter way to achieve vertical text in IE browser is the CSS property "writing-mode: tb-rl;" obeys clear-type in my test.<br />
+I think rotation of "text" is best handled by writing mode property as some languages also are written from top to bottom. Rotation however can be applied to DIVs; spans and such.<br />
+Last checked FireFox may support writing mode in future releases.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63740">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63740">42</a></div>
+			<span class="authorname">chris</span> said on July 29, 2009		</div>
+		<div class="quote"><p>hey !<br />
+Thanks for this but it seems it doesn't work in opera browzer :(<br />
+any suggestions ?<br />
+Your website is really great !!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63742">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63742">43</a></div>
+			<span class="authorname">Kobi</span> said on July 29, 2009		</div>
+		<div class="quote"><p>I'd also include the line</p>
+<p>transform: rotate(-90deg); </p>
+<p>Even if transform isn't official yet, some browsers may already support it (maybe Opera, they're usually the first with those sort of things), and one day all browsers will support it, like opacity today.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63743">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63743">44</a></div>
+			<span class="authorname">Webmancers</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Yes, I'll add the standard CSS3 properties to this (It probably won't change in the final TR), to ensure interoperability for CSS3 compliant browsers which need no specific layout engine hacks:</p>
+<pre><code>rotation: 90deg !important;
+/* ** Hacks ** */
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);</pre>
+<p></code><br />
+Note that the default pivot point is</p>
+<pre><code>rotation-point: 50% 50%;</pre>
+<p></code> which should be just fine here (didn't tested).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63745">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63745">45</a></div>
+			<span class="authorname">Zach Leatherman</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Finally, we can do cross-browser horizontal accordion components without images!</p>
+<p>Well, once Firefox 3.0 is at appropriately low levels of usage.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63746">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63746">46</a></div>
+			<span class="authorname">Morf</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Thanks for the article! Came in handy already :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63747">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63747">47</a></div>
+			<span class="authorname">Rob</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Very cool, now I just need to get to work building an entire website sideways!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63748">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63748">48</a></div>
+			<span class="authorname">Colin Hardie</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Excellent post.  Really clean approach and amazed that something like this can even work in IE!  Not that I'll ever switch back from Firefox!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63749">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63749">49</a></div>
+			<span class="authorname">Jeffrey</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Not looking too great on IE 8 w/Vista.  The 2009 appears to the right outside of the brown box.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63750">50</a></div>
+			<span class="authorname">Mike Badgley</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Hah, you must have been as bored as I was yesterday as I too felt inspired to try a different variation based on the same article you referenced.</p>
+<p>You mentioned there being a whole pile of CSS needed when using sprites? True, but <a href="http://blog.apluswebcreations.com/2009/07/29/date-display-technique-using-css-sprites/">this variation takes care of that</a>.</p>
+</div>
+	</div>
+		<div class="comment" id="c63751">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63751">51</a></div>
+			<span class="authorname">Pierre Paul Lefebvre</span> said on July 29, 2009		</div>
+		<div class="quote"><p>That's kind of funny that Firefox is the one lacking behind.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63752">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63752">52</a></div>
+			<span class="authorname">joe larson</span> said on July 29, 2009		</div>
+		<div class="quote"><p>I can't get any version of this working in IE8 (compatibility on and off), FF 3.5 and Chrome... Can anyone post a snippet of a 100% complete html that does this?  Here is what I tested based on inspecting the html here:</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type=text/css&gt;
+.example-date {
+  background-color:#998877;
+  float:right;
+  margin-left:10px;
+  padding:45px 5px 0;
+  position:relative;
+}
+.example-date .example-day {
+  font-size:45px;
+  left:5px;
+  line-height:45px;
+  position:absolute;
+  top:0;
+}
+.example-date .example-month {
+  font-size:25px;
+  text-transform:uppercase;
+}
+.example-date .example-year {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  display:block;
+  position:absolute;
+  right:-5px;
+  top:15px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="example-date"&gt;
+  &lt;span class="day"&gt;31&lt;/span&gt;
+  &lt;span class="month"&gt;July&lt;/span&gt;
+  &lt;span class="year"&gt;2009&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ </pre>
+<p></code>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63753">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63753">53</a></div>
+			<span class="authorname">joe larson</span> said on July 29, 2009		</div>
+		<div class="quote"><p>@myself -- duh.  in style block, replace ".example-month" with ".month", ".example-day" with ".day", ".example-year" with ".year".  </p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type="text/css"&gt;
+.example-date {
+  background-color:#998877;
+  float:right;
+  margin-left:10px;
+  padding:45px 5px 0;
+  position:relative;
+}
+.example-date .day {
+  font-size:45px;
+  left:5px;
+  line-height:45px;
+  position:absolute;
+  top:0;
+}
+.example-date .month {
+  font-size:25px;
+  text-transform:uppercase;
+}
+.example-date .year {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  display:block;
+  position:absolute;
+  right:-5px;
+  top:15px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="example-date"&gt;
+  &lt;span class="day"&gt;31&lt;/span&gt;
+  &lt;span class="month"&gt;July&lt;/span&gt;
+  &lt;span class="year"&gt;2009&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c63754">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63754">54</a></div>
+			<span class="authorname">Ryan Corradini</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Ashish: your suggestion of using the <code>writing-mode</code> property appeals to me, but note that it won't exactly yield the same results in this particular case because it causes the year text to be rotated in the wrong direction (+90 degrees instead of -90 degrees)</p>
+</div>
+	</div>
+		<div class="comment" id="c63755">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63755">55</a></div>
+			<span class="authorname">Will Peavy</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Use
+<pre><code>-ms-filter: ...</code></pre>
+<p> to add support for IE8 Standards mode
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63756">56</a></div>
+			<span class="authorname">Scott C. Hughes</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Jonathan,<br />
+Good writeup. Thanks for the article.</p>
+<p>You can get the text of the filtered element to clean up if you give the element a background color. For example: background-color:#998877;  It's a fix that cleans up most filter display issues.</p>
+<p>I also found that explicitly setting the font size on the element to font-size:1.1em; gives a more consistent size across browsers.  It may take a little css filtering to get a constant position though. :-)</p>
+<p>Below is  joe larson's version with my changes.  Enjoy!</p>
+<p>Again, thanks for the writeup Jonathan.</p>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+.example-date {
+  background-color:#998877;
+  float:right;
+  margin-left:10px;
+  padding:45px 5px 0;
+  position:relative;
+}
+.example-date .day {
+  font-size:45px;
+  left:5px;
+  line-height:45px;
+  position:absolute;
+  top:0;
+}
+.example-date .month {
+  font-size:25px;
+  text-transform:uppercase;
+}
+.example-date .year {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  display:block;
+  font-size:1.1em;
+  background-color:#998877;
+  position:absolute;
+  right:0px;
+  top:10px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;example-date&quot;&gt;
+  &lt;span class=&quot;day&quot;&gt;31&lt;/span&gt;
+  &lt;span class=&quot;month&quot;&gt;July&lt;/span&gt;
+  &lt;span class=&quot;year&quot;&gt;2009&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+	</div>
+		<div class="comment" id="c63757">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63757">57</a></div>
+			<span class="authorname">John Dowdell</span> said on July 29, 2009		</div>
+		<div class="quote"><p>Rotation was introduced in Internet Explorer 4, with the nicer "flip" syntax:<br />
+http://msdn.microsoft.com/en-us/library/ms532847(VS.85).aspx<br />
+http://web.archive.org/web/19980201041517/www.dhtmlzone.com/articles/dhtmloverview.html</p>
+<p>But this was a situation where only some developers designed for such a subset of browser, and where audience members rebelled at the "Works Best in Browser X" tag. </p>
+<p>The above syntax is already verbose, but will require another clause once this behavior is standardized.</p>
+<p>I know some folks online have a religious objection to Flash, but when you stop to think things through....</p>
+<p>jd/adobe
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63758">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63758">58</a></div>
+			<span class="authorname">Subin Idic</span> said on July 30, 2009		</div>
+		<div class="quote"><p>Snook, Is there any fix for the same in mozilla browsers?</p>
+<p>Amazed to see its working IE6!!!</p>
+<p>Thanks<br />
+Subin
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63759">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63759">59</a></div>
+			<span class="authorname">Alex</span> said on July 30, 2009		</div>
+		<div class="quote"><p>Doesn't work  - Mac 10.4.11 Firefox 3.0.12
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63761">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63761">60</a></div>
+			<span class="authorname">Skoua</span> said on July 30, 2009		</div>
+		<div class="quote"><p>Nice trick, too bad this doesn't validate at all for now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63762">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63762">61</a></div>
+			<span class="authorname">Splat</span> said on July 30, 2009		</div>
+		<div class="quote"><p>In IE7 (I haven't tested others), it looks like the trick of adding a background colour to the .example-year seems to fix up the ClearType issue:</p>
+<pre><code>
+&lt;!--[if IE]&gt;
+&lt;style&gt;
+.example-date .example-year {
+  background-color:#987;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  right:-15px; top:5px;
+  }
+&lt;/style&gt;
+&lt;![endif]--&gt;
+</pre>
+<p></code></p>
+<p>Could something similar be achieved in IE using -ms-writing-mode without using a filter?</p>
+<pre><code>
+.example-date .example-year {
+  -ms-writing-mode:tb-rl;
+  writing-mode:tb-rl;
+  }
+</pre>
+<p></code></p>
+<p>More info about -ms-writing-mode : http://msdn.microsoft.com/en-us/library/ms531187(VS.85).aspx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63763">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63763">62</a></div>
+			<span class="authorname">tylor</span> said on July 31, 2009		</div>
+		<div class="quote"><p>search the google then find your site.<br />
+that is a really excellent post.</p>
+<p>Thanks for the post.</p>
+</div>
+	</div>
+		<div class="comment" id="c63764">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63764">63</a></div>
+			<span class="authorname">Will</span> said on July 31, 2009		</div>
+		<div class="quote"><p>Nice tip, it works fine in IE6 but unfortunately the 2009 is not slanted in FireFox version 3.0.12
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63765">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63765">64</a></div>
+			<span class="authorname">Joel Drapper</span> said on July 31, 2009		</div>
+		<div class="quote"><p>Wow! I had no idea you could do that!</p>
+<p>Thanks for posting about it. I'll be sure to consider this in my next design.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63766">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63766">65</a></div>
+			<span class="authorname">Uday Sutaria</span> said on July 31, 2009		</div>
+		<div class="quote"><p>really this is dream comes true.<br />
+I was searching for this kindo code since long.<br />
+Thanks very much.<br />
+Keep going.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63767">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63767">66</a></div>
+			<span class="authorname"><a href="http://tekkie.flashbit.net/">Ain Tohvri</a></span> said on August 01, 2009		</div>
+		<div class="quote"><p>Nice cross-browser overview.</p>
+<p>As for the WebKit, this functionality has been there for quite some time now. I blogged about <a href="http://tekkie.flashbit.net/css/css-transitions">CSS transitions</a> 2 years. You can basically animate the whole rotation in conjunction with <a href="http://tekkie.flashbit.net/css/css3-transforms-in-webkit">CSS transforms</a> (test-cases only work in WebKit).</p>
+<p>Let's hope it will soon leave the Working Draft of W3C and we'll get to use these properties in an uniform way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63768">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63768">67</a></div>
+			<span class="authorname">Sam Vloeberghs</span> said on August 01, 2009		</div>
+		<div class="quote"><p>Very nice tip! I will use it in my next blog design ;)</p>
+<p>Thx<br />
+Keep up the nice articles
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63776">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63776">68</a></div>
+			<span class="authorname">Ben Schwarz</span> said on August 04, 2009		</div>
+		<div class="quote"><p>While you're at it Jonathon, maybe you could use the
+<pre><code>&lt;time&gt;</code></pre>
+<p> tags and experiment with HTML5?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63777">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63777">69</a></div>
+			<span class="authorname">Ben Schwarz</span> said on August 04, 2009		</div>
+		<div class="quote"><p>Typo on your name there, my bad :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63787">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63787">70</a></div>
+			<span class="authorname">Tom Bradshaw</span> said on August 12, 2009		</div>
+		<div class="quote"><p>Awesome article, cheers!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63790">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63790">71</a></div>
+			<span class="authorname">Swapnil</span> said on August 13, 2009		</div>
+		<div class="quote"><p>Very nicely written. This is cool stuff!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63791">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63791">72</a></div>
+			<span class="authorname"><a href="http://nathanmckinleynash.com/">Nathan Nash</a></span> said on August 13, 2009		</div>
+		<div class="quote"><p>Wow this is a power bit of code:</p>
+<p>-webkit-transform: rotate(-90deg);<br />
+-moz-transform: rotate(-90deg);	</p>
+<p>I need something just like this for the realigning i'm doing right now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63792">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63792">73</a></div>
+			<span class="authorname">Nicole Sullivan</span> said on August 14, 2009		</div>
+		<div class="quote"><p>It is amazing how much of the stuff we are seeing in CSS recently was done by Microsoft via proprietary filters years back. Great article. </p>
+<p>Thanks, Nicole
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63798">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63798">74</a></div>
+			<span class="authorname">Rajagopalan</span> said on August 20, 2009		</div>
+		<div class="quote"><p>The above code works fine.. but it is not getting displayed in Firefox 3.0. can u please help me out.. Please it's urgent.</p>
+<p>Thanks<br />
+Rajagopalan
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65634">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65634">75</a></div>
+			<span class="authorname">Bruce Bell-Myers</span> said on February 03, 2011		</div>
+		<div class="quote"><p>I wonder if you have looked into IE 9.  Does it have these same issues with antialiasing going haywire when rotated?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65638">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65638">76</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 03, 2011		</div>
+		<div class="quote"><p>@Bruce: IE9 supports -ms-transform which provides finer control over the rotation and the rendering is probably one of the better text renderings cross-browser.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65679">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65679">77</a></div>
+			<span class="authorname">Ashok vardhan</span> said on February 05, 2011		</div>
+		<div class="quote"><p>nice article Mr.jonathan , thanks for sharing .
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65706">78</a></div>
+			<span class="authorname">Gray</span> said on February 07, 2011		</div>
+		<div class="quote"><p>Great article!<br />
+Opera still is not supporting this, even the latest version 11.01 - very sad.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66048">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66048">79</a></div>
+			<span class="authorname">CarlGY</span> said on February 19, 2011		</div>
+		<div class="quote"><p>Will the north star (polaris) always be the north star?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66189">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66189">80</a></div>
+			<span class="authorname">Chris Harrison</span> said on February 25, 2011		</div>
+		<div class="quote"><p>I found a solution for Opera!</p>
+<p>You have to use a wildcard on everything within a container in order for -o-transform to work. Example:</p>
+<p><code><br />
+#container * {<br />
+	-o-transform: rotate(270deg) !important;<br />
+	-o-transform-origin: 50% 50%;<br />
+}<br />
+</code></p>
+<p>As opposed to:</p>
+<p><code><br />
+#verticaltext {<br />
+	-o-transform: rotate(270deg) !important;<br />
+	-o-transform-origin: 50% 50%;<br />
+}<br />
+</code><br />
+(which will do nothing...)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66925">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66925">81</a></div>
+			<span class="authorname">Vimal Patel</span> said on March 29, 2011		</div>
+		<div class="quote"><p>Hi,<br />
+works great where span tag could be use.<br />
+&lt;li&gt;&lt;a href="#" id="issuesBI" runat="server" title=""&gt;&lt;span&gt;issues&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</p>
+<p>could I use it for rotating text in buttons ??</p>
+<p>how could I rotate submit text in follow button code??<br />
+&lt;li&gt;&lt;input type="submit" name="submitButton" value="submit" onclick="return SubmitBI_Check();" id="submitButtonBI" /&gt;&lt;/li&gt;</p>
+<p>not able to use span tag in button/input tag :-(</p>
+<p>Thanks in Advance
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66943">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66943">82</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 29, 2011		</div>
+		<div class="quote"><p>@Vimal: There's a couple options. One, best to rotate things that would normally be a block element. Rotating just the span in an anchor may be problematic. Rotating the anchor or the li may be better, depending on your design. However, you can do <code>&lt;button&gt;&lt;span&gt;&lt;/span&gt;&lt;/button&gt;</code>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67651">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67651">83</a></div>
+			<span class="authorname">BHB</span> said on April 27, 2011		</div>
+		<div class="quote"><p>Thx, worx great
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/css-text-rotation by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

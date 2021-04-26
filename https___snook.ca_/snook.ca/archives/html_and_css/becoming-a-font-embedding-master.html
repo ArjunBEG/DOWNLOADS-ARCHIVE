@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/becoming-a-font-embedding-master by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Becoming a  Font Embedding Master - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/becoming-a-font-embedding-master">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/becoming-a-font-embedding-master">
+	<meta property="og:title" content="Becoming a  Font Embedding Master">
+	<meta property="og:description" name="description" content="I've spent a couple days worth now trying to figure out the best and most complete approach to font embedding using @font-face. It really is a dark art that must be mastered. It is by no means a strai...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Becoming a  Font Embedding Master</h1>
+		<p>I've spent a couple days worth now trying to figure out the best and most complete approach to font embedding using <code>@font-face</code>. It really is a dark art that must be mastered. It is by no means a straightforward process.</p>
+<h2>Font Formats</h2>
+<p>Generally speaking, these days, a font on our system is going to be one of two formats: TrueType (with a .ttf file extension) or OpenType (with a .otf file extension). While it would be nice to be able to just throw a font like this on the web and link it up, we're hit with two major limitations. </p>
+<ol>
+  <li>Licensing, and</li>
+  <li>Browser Support</li>
+</ol>
+<h3>Licensing</h3>
+<p>Licensing is one of the biggest hurdles. It can be difficult to find a font that really works within the overall aesthetic of a design. It's the reason we've had to resort to exporting images, <a href="http://wiki.novemberborn.net/sifr3/">sIFR</a> or <a href="http://wiki.github.com/sorccu/cufon/about">Cufon</a>.</p>
+<p>Even many free fonts have limitations on how they can be used, often times requiring specific directions on linking back to the original source or only using them in non-commercial sites.</p>
+<p>These days, a number of resources are popping up&mdash;especially those dedicated to font embedding. A good start to finding the right font for your project would be <a href="http://www.fontsquirrel.com/">Font Squirrel</a>. Font Squirrel even provides <code>@font-face</code> kits to make implementation on your web site easy. However, even these kits don't provide as complete of browser support as what I'm covering here.</p>
+<h3>Browser Support</h3>
+<p>Which leads me into the other major issue, browser support. Font embedding with a TrueType or OpenType font only works as of Firefox 3.5, Safari 3.1, and Opera 10. (You can enable it in your copy of Chrome 2 by <a href="http://code.google.com/p/chromium/issues/detail?id=17818">using a command line switch</a>.) </p>
+<p>Okay, that's  decent already but we can do better. We can get Internet Explorer 4+, Chrome 0.3+, Opera 9+ and even a little mobile Safari action.</p>
+<h2>EOT</h2>
+<p>Internet Explorer supports a particular type of format called Embedded OpenType that provides some control over where and how the font is allowed to be embedded. You'll need to convert your TTF  into an EOT format. Microsoft provides a tool called WEFT but it is ancient and I'll be damned if I can get it working. Thankfully, there is a command line tool called <a href="http://code.google.com/p/ttf2eot/">TTF2EOT</a> that can convert your font. </p>
+<p>If you have an OTF file, you'll need to convert it into a TTF file before you can convert it into an EOT. <a href="http://fontforge.sourceforge.net/">FontForge</a> is the application that I use to do it and has provided me with the most consistent results. I urge you to check out my <a href="https://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">screencast on OTF to TTF conversion</a> using FontForge as it is a surprisingly tricky process.</p>
+<p>As you'll soon see, having the file in a TTF format will help us with the next step.</p>
+<h2>SVG</h2>
+<p>With TTF/OTF and EOT, we have decent browser coverage but the coup de grace is to add one more font format to the mix: SVG. SVG fonts are supported by Chrome 0.3+ without having to use a command line hack, along with Opera 9 and (with  testing provided by the Twitter folk) iPhone OS 3.1. Additional mobile browsers may support it as well but I have been unable to get thorough confirmation on this.</p>
+<p>FontForge has an option to export to an SVG format but I was seeing odd behaviour in Opera with missing characters. Alternatively (and thankfully!), I found a Java application that can be run from the command line called <a href="http://xmlgraphics.apache.org/batik/tools/font-converter.html">Batik</a>. When running the conversion, you must specify the ID parameter. You won't get an error if you don't but the ID is important at the CSS stage.</p>
+<pre><code>java -jar batik-ttf2svg.jar ./MuseoSans-500.ttf -o museo.svg -id museo</code></pre>
+<p>One of the concerns in exporting to SVG is file size. Immediately I had noticed that my 29k font was now sitting in well over 100k. The biggest reason was the number of <code>hkern</code> elements that, I guess, are meant for kerning. (I'm smart like that.) However, you should be able to delete them without greatly impacting the display of your font but greatly impacting the file size. The other thing I noticed was <code>glyph-name=&quot;null&quot;</code> on all of the glyph nodes. I was able to remove them with, once again, no impact to the display of the font. Having done so brought my SVG fonts to the point where they were smaller than the original TrueType font I had converted from (29k to 20k in one case and 18k to 12k in another case).</p>
+<h2>CSS</h2>
+<p>Now that we have our three files&mdash;TTF (or OTF), EOT and SVG&mdash;it is time to get our CSS mojo on. Starting with <a href="http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/">Paul Irish's bullet-proof base</a>, I've added an additional entry for the SVG font.</p>
+<pre><code>@font-face {
+  font-family: 'GothicCustom';
+    src: url(&quot;LeagueGothic.eot&quot;);
+    src: local('League Gothic'),
+       url(&quot;LeagueGothic.svg#lg&quot;) format('svg'),
+       url(&quot;LeagueGothic.otf&quot;) format('opentype');
+}</code></pre> 
+<p>The <code>font-family</code> name that you specify here is arbitrary and I like to choose a unique name to make it clear in my other declarations that I'm using an embedded font. </p>
+<p>The SVG syntax has one particular thing of note, and that is the ID anchor after the font name. Specify the ID that you used when doing the SVG conversion. Alternatively, open up the SVG font and make sure that the font element has an ID. </p>
+<pre><code>&lt;font id="lg"&gt;</code></pre>
+<p>Specifying <code>font-family</code> works as it normally would. Just specify the font name that you used in your <code>@font-face</code> declaration.</p>
+<pre><code>font-family: 'GothicCustom', 'Arial Narrow', sans-serif;</code></pre>
+<h2>Subsetting</h2>
+<p>In the <a href="https://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">screencast</a>, I gave a quick demo of how to subset a font by clearing glyphs that aren't to be used in the final font. Why would you want to subset a font? It makes the file smaller. Some font files can easily weigh in at 200k. That's a lot to download when people don't need to. For example, the masthead on this site is&mdash;as of this writing&mdash;using Museo Sans. A great font that weighs in at around 65k. Since the masthead only uses a limited set of characters, I was able to remove anything I didn't need and brought the file size down to 20k.</p>
+<p>If you optimize your images, why not optimize your fonts?</p>
+<h3>Text Transform Bug</h3>
+<p>There is one caveat to be aware of when subsetting. In my case, I assumed that I could quickly do without most of the lowercase glyphs. A <code>text-transform:uppercase</code> statement was all I really needed.</p>
+<pre><code>&lt;div&gt;About&lt;/div&gt;
+
+div { text-transform:uppercase; }</code></pre>
+<p>This works fine in Firefox and Safari but Opera and Internet Explorer both seem to decide whether to use a font for a particular character by looking at the lowercase character first. This meant it was using the uppercase characters from a fallback font. That's certainly less than ideal. </p>
+<p>Of course, you can always just change the HTML source to be uppercase, if you were dead set on removing those glyphs.</p>
+<h2>Print Style Sheets</h2>
+<p>When I first set out to use <code>@font-face</code>, I didn't even foresee this added bonus: the custom fonts also work just fine with print style sheets. It wasn't like using image replacement techniques and having to fall back to a boring browser font for print. It felt good printing off a page of my site that still used the same fonts as what I saw on screen.</p>
+<h2>Never Going Back</h2>
+<p>Despite the frustration, I've come to the conclusion that&mdash;if the design called for it&mdash;I'd rely on <code>@font-face</code> over sIFR and Cufon. I really prefer not having to use JavaScript and I enjoy all the other benefits that come from using <code>@font-face</code>. I certainly look forward to the future when all of these headaches are no longer necessary.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 07, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/957</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">92 Comments &middot; <a href="https://snook.ca/archives/html_and_css/becoming-a-font-embedding-master.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63990">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63990">1</a></div>
+			<span class="authorname">Michael Stanford</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Amen, friend. I'll definitely be using this (or attempting to) in an upcoming project of mine. Thanks for all the great advice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63991">2</a></div>
+			<span class="authorname">Paul Irish</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Whoa, mega-post. This is solid work, Jonathan. This'll be very useful.</p>
+<p>It's great to see SVG fonts get their proper respect here. For those that are interested, <a href="http://nimbupani.com/blog/about-fonts-in-svg.html">Divya Manian has done some great research on SVG fonts</a>.</p>
+<p>Did you manage to get a list of the mobile webkit agents that support SVG @font-face?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63992">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63992">3</a></div>
+			<span class="authorname">Matt Wiebe</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Thanks for the thorough rundown! I had no idea about SVG fonts, but I'll definitely have to include them in the arsenal from now on.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63993">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63993">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 07, 2009		</div>
+		<div class="quote"><p>@Paul: Unfortunately, the only reliable mobile webkit test was iPhone OS3.1. I had <a href="http://twitter.com/kimili/statuses/4693165565">one report</a> of a "Nokia N900 prototype (running Maemo 5 w/ a mobile Firefox build)" that was successful. I emailed PPK to see if he was up for the challenge if I provided him a test case. Hopefully we'll have something more concrete in the coming days.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63994">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63994">5</a></div>
+			<span class="authorname">Trent Walton</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Dark art indeed... what a great, comprehensive write-up.  I haven't taken @font-face any further than Safari &amp; FF3.  You've raised the bar.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63995">6</a></div>
+			<span class="authorname">Evan Stein</span> said on October 07, 2009		</div>
+		<div class="quote"><p>A giant leap for @font-face. Thanks!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63996">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63996">7</a></div>
+			<span class="authorname">Bennie Mosher</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Quite marvelous if I do say so myself! Probably the best tutorial and blog post on font replacement. Say goodbye to Javascript font replacement for me! Thank you very much for this post!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63997">8</a></div>
+			<span class="authorname">Bennie Mosher</span> said on October 07, 2009		</div>
+		<div class="quote"><p>Jonathan,</p>
+<p>I thought that I would let you know what a friend of mine let me know. When looking at your site in Chrome 3.0.195.25 on Windows 7 your title's look like this:</p>
+<p>&lt;img src=&quot;http://dev.benniemosher.com/font.jpg&quot; alt=&quot;Broken Title&quot; /&gt;</p>
+<p>I thought that I would let you know so that you can fix it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63998">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63998">9</a></div>
+			<span class="authorname"><a href="http://nellen.co.za/">Adriaan</a></span> said on October 07, 2009		</div>
+		<div class="quote"><p>It still seems like a lot of work to add custom fonts to your site - I wish it was easier...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63999">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63999">10</a></div>
+			<span class="authorname">sophy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>This good for my language that small use in the world. thankx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64000">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64000">11</a></div>
+			<span class="authorname">Jeremy Ricketts</span> said on October 08, 2009		</div>
+		<div class="quote"><p>I found that really helpful. Thanks man!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64001">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64001">12</a></div>
+			<span class="authorname">Lars</span> said on October 08, 2009		</div>
+		<div class="quote"><p>This looks great, but one comment though:</p>
+<p>I've tested it in FF, IE, Safari, Chrome and Opera (9.64).<br />
+Except from Opera all work great.</p>
+<p>In Opera 9.64 it actually falls back to the Impact-font.</p>
+<p>Any ideas about that one?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64002">13</a></div>
+			<span class="authorname">Nelson Menezes</span> said on October 08, 2009		</div>
+		<div class="quote"><p>I second Lars above... Opera 9.64 on Ubuntu here... no luck. Works beautifully on Opera 10 though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64003">14</a></div>
+			<span class="authorname">Tom</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Wow, another font file to throw into the fray? TTF and EOT are fine, but an extra SVG? I guess I need to try it in practice to see if it's worth it, but none the less: A great find and great write up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64004">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64004">15</a></div>
+			<span class="authorname">Paul Olyslager</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Finally a good overview of the possibilities of fonts in the different browsers. Thank you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64006">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64006">16</a></div>
+			<span class="authorname">Pete B</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Should add my name to the previous comment :)</p>
+</div>
+	</div>
+		<div class="comment" id="c64007">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64007">17</a></div>
+			<span class="authorname">prisca</span> said on October 08, 2009		</div>
+		<div class="quote"><p>brilliant post :)<br />
+Been trying to find some time to play around with font embedding... but does all seem quite drawn out - now I know where to start, right here.<br />
+Thanks for a great write up :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64008">18</a></div>
+			<span class="authorname">Christoph Sasse</span> said on October 08, 2009		</div>
+		<div class="quote"><p>I just want to thank you for taking all of this testing-pain and then share the good stuff with us. I hope this will lead to elegant ways for @font-face-embedding.<br />
+<small>Soon we might say: "There's an app for that."</small>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64009">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64009">19</a></div>
+			<span class="authorname">×¤×•×¨×•×ž×™×</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Excellent! I'm going to study this a little further with all the great material you posted
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64011">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64011">20</a></div>
+			<span class="authorname">Ed Melly</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Thanks for such a helpful article. I've adopted Paul Irish's syntax and tried to use @font-face <a href="http://www.marc.soton.ac.uk/">here</a>. It works perfectly in ie and locally in ff, but for some reason won't work on the live site in ff. </p>
+<p>Does anyone know if there are any server issues/permissions that need to be set to get otf files working from a Windows server? Or - more likely - have I just got something wrong?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64012">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64012">21</a></div>
+			<span class="authorname"><a href="http://www.fontsquirrel.com/">Ethan Dunham</a></span> said on October 08, 2009		</div>
+		<div class="quote"><p>I'll take that Font Squirrel comment as a challenge, Jonathan. SVG support and subsetting coming soon... :-)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64013">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64013">22</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 08, 2009		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c63997">Bennie Mosher</a>: Thank you for the screenshot. It looks like something is very off. :) I'll have to see why that is. I hate when one browser feels like throwing it all off.</p>
+<p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64001">Lars</a>: I have to admit that I didn't test in Opera 9 so it's certainly possible that it's not supported. I took <a href="http://en.wikipedia.org/wiki/Web_typography#Browser_support">Wikipedia</a> at face value. Nelson seems to confirm that. I'll update the post when I get a chance.</p>
+<p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64012">Ethan Dunham</a>: Please take it as a challenge! :) I'd love to see a one-stop shop for full font-face kits (as I'm sure plenty of other people would).</p>
+</div>
+	</div>
+		<div class="comment" id="c64014">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64014">23</a></div>
+			<span class="authorname">Greg Gamel</span> said on October 08, 2009		</div>
+		<div class="quote"><p>This is solid work Jonathan! Thanks a million for providing the results freely. In future font-embedding projects, I'll definitely refer to this list. </p>
+<p>Here's another hoping that PPK can provide results about mobile devices + font embedding. That would be superb!</p>
+<p>Thanks again!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64015">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64015">24</a></div>
+			<span class="authorname">Bonfield</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Nice post! I spent some time adding an @font-face the other day after watching your screencast, and felt like I learned a ton, but ended up falling back to Cufon after i found the serif font I wanted rendered like crap on IE in particular but also a little funky on some other Win browsers. Font-sizes weren't terribly small at 18px and 14px. </p>
+<p>The san-serifs did okay.</p>
+<p>Wondering if you found issues with that, and did something pre-@font-face or other?</p>
+<p>Again, thanks My Man for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64016">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64016">25</a></div>
+			<span class="authorname">Andy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>What, no cred for the SVG thing?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64018">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64018">26</a></div>
+			<span class="authorname">Steve</span> said on October 08, 2009		</div>
+		<div class="quote"><p>too much work. i'll stick with cufon for now.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64019">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64019">27</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 08, 2009		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64015">Bonfield</a>: I haven't seen fonts rendering too poorly but I have chosen fairly straightforward fonts. It's quite possible that additional hinting information is being lost, causing it to display poorly in IE. I don't have any specific workaround for that.</p>
+<p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64016">Andy</a>: Sorry to slight you. It was unintended. Did you do the write up to <a href="http://nova-group.se/test/fonts/">the article you linked up</a> from my last post? If so, thank you. It's where I found the Batik converter. I tried to clarify in this post that SVG isn't necessarily smaller without some additional work. Further optimizations to the TTF could also be made to improve file size, too (I don't believe I removed the hinting in my fonts).</p>
+</div>
+	</div>
+		<div class="comment" id="c64020">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64020">28</a></div>
+			<span class="authorname">Harsha M V</span> said on October 08, 2009		</div>
+		<div class="quote"><p>awesome post. thanx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64021">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64021">29</a></div>
+			<span class="authorname">Jeremy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Very complete article. I never got the Microsoft tool to work either, and I don't like that command line program. Instead, I use http://ttf2eot.sebastiankippe.com although I don't know if uploading licensed fonts on there is very legal.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64022">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64022">30</a></div>
+			<span class="authorname">Andy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>@Jonathan: Yes, I did. </p>
+<p>Also, I converted the font in full from TTF and the SVG ended up half the size of its TTF counterpart. I guess this could be coincidental and specific to that font. Either way, I would not recommend anyone to use the fonts without first optimizing them, of course.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64023">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64023">31</a></div>
+			<span class="authorname">Linus</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Why SVG? OpenType seems to do the job in all browsers but IE?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64024">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64024">32</a></div>
+			<span class="authorname">Manuel</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Very very cool! Thank you for this article and for explaining how SVG fonts are embedded.</p>
+<p>@Linus: As was mentioned in the article, SVG fonts are supported in Chrome .3+ and Opera 9. If you're happy with the cutting edge browsers, you don't have to worry about this.</p>
+<p>Furthermore, SVG is just cool, so having another use case more really rocks. And my personal measuring on GaramondNo8 (GPL font) shows me a saving of 308kB in file size from the TTF to the SVG version. *That's* a reason for switching, and I didn't even remove the hkern elements.</p>
+<p>Cheers,
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64025">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64025">33</a></div>
+			<span class="authorname">Manuel</span> said on October 08, 2009		</div>
+		<div class="quote"><p>... I should explain my last figure: I use all four TTFs, Regular, Medium, Italic and MedIta. On summary, and after converting the TTFs to SVG the fonts have lost the 308kB all together.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64026">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64026">34</a></div>
+			<span class="authorname">Jerry</span> said on October 08, 2009		</div>
+		<div class="quote"><p>I just spent a few days doing a custom WordPress job for a friend. When I was done I was real excited that it looked so good in all the browsers on my machine. When I looked at it on my backup machine, not so much. The title font really made the top of the page, and when that went away... I'm gonna try your advice. Good timing on this article for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64027">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64027">35</a></div>
+			<span class="authorname">Minneapolis Web Design Guy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>great and through article! Fonts have long been a design element that a lot of firms are ignorant on. Just happened to stumble upon this site, bookmarked now! Thanks for the info.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64028">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64028">36</a></div>
+			<span class="authorname">Cyprian GwÃ³ÅºdÅº</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Great feeling of Time.<br />
+Thanks - I was just looking for this information and you wrote this post yesterday.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64029">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64029">37</a></div>
+			<span class="authorname">Vaughan Risher</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Great work... but I will definitely stick to Cufon - it's just so easy and I'm a Javascript addict.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64030">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64030">38</a></div>
+			<span class="authorname">Divya</span> said on October 08, 2009		</div>
+		<div class="quote"><p><a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64023">@linus</a> If you want to know about the drawbacks of existing font formats, I wrote <a href="http://nimbupani.com/blog/font-in-your-face.html">a bit on that</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64031">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64031">39</a></div>
+			<span class="authorname">Andy</span> said on October 08, 2009		</div>
+		<div class="quote"><p>@Manuel: Actually, Opera 9 does not support SVG fonts for @font-face. Opera 10 does.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64032">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64032">40</a></div>
+			<span class="authorname">Joe</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Any word on the legal implications? If I take a legally purchased font and convert it for embedding purposes am I opening myself up to legal trouble from the font creator?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64033">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64033">41</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 08, 2009		</div>
+		<div class="quote"><p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64023">Linus</a>: There's two reasons why I'd include SVG: 1. smaller file and 2. iPhone.</p>
+<p>@<a href="http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master#c64032">Joe</a>: Every font is different. If you've had to pay money for it, it'll more than likely not support embedding (that means none of the stuff I've described here is allowed).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64034">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64034">42</a></div>
+			<span class="authorname">old9</span> said on October 08, 2009		</div>
+		<div class="quote"><p>seems won't be rendered by gdi++
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64035">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64035">43</a></div>
+			<span class="authorname">Victory</span> said on October 09, 2009		</div>
+		<div class="quote"><p>You did a lot of really great leg work here. This will definitely be my jumping off point for adventures in font-face land.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64037">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64037">44</a></div>
+			<span class="authorname">Chris L</span> said on October 09, 2009		</div>
+		<div class="quote"><p>I seem to find that the @font-face seems to render find rather chunky. If anyone can help me figure out how to get them to render smooth, I will be in your debt. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64039">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64039">45</a></div>
+			<span class="authorname">Pedro Almeida</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Very nice Post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64041">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64041">46</a></div>
+			<span class="authorname">Branden Silva</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Excellent. *Muhahaha* I feel like a mad scientist learning this black magic. Definitely bookmarking this to play around with some time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64042">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64042">47</a></div>
+			<span class="authorname">Zoltan Hawryluk</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Good to know about the SVG option.  Will be interesting to compare to see how they render compared to TTF, OTF and EOT on the various browsers.</p>
+<p>Thanks for this!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64044">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64044">48</a></div>
+			<span class="authorname">Bengacreative</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Thanks for the elaborate overview. I've known about sIFR , but it was good to learn about the other options that are out there. </p>
+<p>Benga creative
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64046">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64046">49</a></div>
+			<span class="authorname">Aaron Gustafson</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Inspired by this post, I built an extension, using eCSStender, to support a simplified @font-face syntax. It's rough right now and probably needs a little work still, but it gets the idea across: http://github.com/easy-designs/eCSStender.font-face.js
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64047">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64047">50</a></div>
+			<span class="authorname">Ethan Dunham</span> said on October 09, 2009		</div>
+		<div class="quote"><p>Ok guys, if you are willling to beta test, try the new Font Squirrel @font-face kit generator. You upload as many fonts as you want, and it churns out CSS, HTML, EOT, SVG plus your original fonts, all subsetted for the English language. Let me know if you find any bugs. GUI is still under construction.<br />
+<a href="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64048">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64048">51</a></div>
+			<span class="authorname">Torsten</span> said on October 10, 2009		</div>
+		<div class="quote"><p>Thank you for that, great information. Keep your effort up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64049">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64049">52</a></div>
+			<span class="authorname">Torsten</span> said on October 10, 2009		</div>
+		<div class="quote"><p>Thank you for that, great information. Keep your effort up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64050">53</a></div>
+			<span class="authorname">Julian</span> said on October 11, 2009		</div>
+		<div class="quote"><p>I just visited your web site in Firefox 3.5 (running in Windows Vista), and (presumably due to loading the embedded fonts) it seemed to freeze my whole computer for about 30 seconds (including freezing the mouse).  Quite concerning if you are not expecting it. Has anyone else experienced this?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64053">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64053">54</a></div>
+			<span class="authorname"><a href="http://www.crearedesign.co.uk/">Jamie </a></span> said on October 12, 2009		</div>
+		<div class="quote"><p>This is a really great article with a lot of useful information for people who would want to give this a go. Thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64054">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64054">55</a></div>
+			<span class="authorname">Rob Company</span> said on October 12, 2009		</div>
+		<div class="quote"><p>@julian... er nope, its fine on mine. But then I'm running XP.. maybe its a Vista issue.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64055">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64055">56</a></div>
+			<span class="authorname">Emma Smyth</span> said on October 12, 2009		</div>
+		<div class="quote"><p>Hey, thanks for the post, I enjoyed reading it, keep up the good work, also had a sneek peek at your portfolio, looking good :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64056">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64056">57</a></div>
+			<span class="authorname">Martyn - Bristol Wesite Design</span> said on October 12, 2009		</div>
+		<div class="quote"><p>Great post, you always see rticles based on the @fontface but it never goes into enough detail. great article and il be checking your site more often if you produce posts like this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64057">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64057">58</a></div>
+			<span class="authorname">Martyn - Bristol Wesite Design</span> said on October 12, 2009		</div>
+		<div class="quote"><p>Great article, you always see tutorials on @fonface but they never go in to really detail. if this is the quality of posts you offer regularly I'll be back.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64058">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64058">59</a></div>
+			<span class="authorname">PSD to HTML</span> said on October 12, 2009		</div>
+		<div class="quote"><p>great article! It seems everything works great on IE6 that is really a pain when it comes to sIFR and Cufon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64059">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64059">60</a></div>
+			<span class="authorname">Mark Guadalupe</span> said on October 12, 2009		</div>
+		<div class="quote"><p>Great read, and becoming a 'Font Embedding Master' is a time worth spent, congratulations.. it's a job very well done..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64060">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64060">61</a></div>
+			<span class="authorname">Mike</span> said on October 13, 2009		</div>
+		<div class="quote"><p>This is probably THE single best article I have read that summarizes the @font-face attributes to deal with the various browsers. So far I've had to put this information together on my own (and have come to the same result, except for the SVG option, which I just started investigating today).</p>
+<p>All's well so far, EXCEPT that I can't get the SVGs to display in CHROME 3.x what-so-ever. I know that SVG should be working, based on the demo here: http://devfiles.myopera.com/articles/751/SVGfonts_in_HTML.html</p>
+<p>Any ideas as to why Chrome would not render these out? I also tested it using FontSquirrel, a great site, btw, and it wouldn't work with the font kit provided, either!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64061">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64061">62</a></div>
+			<span class="authorname">Mike</span> said on October 13, 2009		</div>
+		<div class="quote"><p>I noticed something: you can test if your SVG font works by browsing directly to it in Chrome. I noticed that none of my fonts would display, while other SVG sets I downloaded did in fact work!<br />
+I will have to resort to locating fonts that work in SVG as well - I have a strong suspicion that the free fonts I was using had many overlap errors and other issues, and as such didn't export properly to SVG.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64063">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64063">63</a></div>
+			<span class="authorname">Mike</span> said on October 13, 2009		</div>
+		<div class="quote"><p>Sorry to keep updating in the comments like this - I hope it's not too much.<br />
+I identified why some SVG fonts will not render: the all-important DOCTYPE in the SVG file.</p>
+<p>FontForge created this DOCTYPE:<br />
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" &gt;</p>
+<p>This did not render. After downloading and instpecting a working SVG font, it turns out that it did not have a DOCTYPE. After removing the DOCTYPE from my own SVG files, they all render out.</p>
+<p>Now, I'm not exactly sure what the implications of this are. Can anyone elaborate on this?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64064">64</a></div>
+			<span class="authorname"><a href="http://www.fontsquirrel.com/">Ethan Dunham</a></span> said on October 14, 2009		</div>
+		<div class="quote"><p>Mike, thanks for discovering this bug!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64065">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64065">65</a></div>
+			<span class="authorname">Alan Ayoub</span> said on October 14, 2009		</div>
+		<div class="quote"><p>Great article Jonathan, I've been researching this recently myself. Still on the fence as to whether ill use it or not. Steve Souders does bring an interesting argument.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64066">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64066">66</a></div>
+			<span class="authorname"><a href="http://www.fontsquirrel.com/">Ethan Dunham</a></span> said on October 14, 2009		</div>
+		<div class="quote"><p>The fontsquirrel.com @font-face generator now removes the doctype from the svg fonts it renders. I also made sure that all fonts it generates have a proper NAME table. I guess malformed ones are screwing up Firefox.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64067">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64067">67</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 14, 2009		</div>
+		<div class="quote"><p>This really is a dark art. Thanks everybody for finding all the quirks in this conversion process and good job Ethan for getting all of this integrated into the converter. Sweet stuff.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64070">68</a></div>
+			<span class="authorname">joram Oudenaarde</span> said on October 16, 2009		</div>
+		<div class="quote"><p>One thing I noticed with the @font-face tag, is that when you zoom in on text in Safari ( not sure if it's the same in Firefox and such), it blinks for a second.</p>
+<p>So let's say you used a special font for your headers (like in your case Jonathan).<br />
+- Zoom in, and I noticed that it blinks back to Times for a second before showing the increased size of the @font-face font.</p>
+<p>I'm on the latest version of Safari, but it was very noticeable. Not sure if this is because of the way some people use the @font-face tag, or a bug in html5, or simply something in Safari itself, but it's a bit strange :)</p>
+<p>Having said that, I can't wait to have this see implemented in all browsers though... the idea of being able to use this tag without fear is very appealing :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64071">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64071">69</a></div>
+			<span class="authorname">csscoffee</span> said on October 16, 2009		</div>
+		<div class="quote"><p>This is awesome @snook, i will be grabbing this for the next project of mine<br />
+I really love your design :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64072">70</a></div>
+			<span class="authorname">Andreas</span> said on October 17, 2009		</div>
+		<div class="quote"><p>Thx very much.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64073">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64073">71</a></div>
+			<span class="authorname">In-80-days</span> said on October 17, 2009		</div>
+		<div class="quote"><p>Thanks for this... This motivates me to use it on my next project
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64075">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64075">72</a></div>
+			<span class="authorname">Patrick</span> said on October 19, 2009		</div>
+		<div class="quote"><p>Opera 10 has a strange bug. It only works with one tab open, not with the others. See my little Screenr sceencast:<br />
+http://screenr.com/bWN</p>
+</div>
+	</div>
+		<div class="comment" id="c64077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64077">73</a></div>
+			<span class="authorname">Graham Bradley</span> said on October 20, 2009		</div>
+		<div class="quote"><p>Fantastic stuff, I've been dying to ditch sFIFR and I have a feeling this will be the push I need. Thanks Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64078">74</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 20, 2009		</div>
+		<div class="quote"><p>@Patrick: I check out your screencast and that's an absolutely bizarre bug. I can only imagine that this is something that Opera will need to get fixed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64079">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64079">75</a></div>
+			<span class="authorname">Andy</span> said on October 20, 2009		</div>
+		<div class="quote"><p>@Jonathan: I've already reported that bug to the Opera developers through Mark Pilgrim.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64102">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64102">76</a></div>
+			<span class="authorname"><a href="http://gbradley.co.uk/">Graham Bradley</a></span> said on October 23, 2009		</div>
+		<div class="quote"><p>I used this tutorial for my latest project and it worked a charm (although I had to use FontForge as Batik threw an exception for me). Again, thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64111">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64111">77</a></div>
+			<span class="authorname">Nathan</span> said on October 26, 2009		</div>
+		<div class="quote"><p>Is there anyway to do this without fontForge?  For the life of me I cannot figure out how to install x11 from the cygwin website site and fontforge does not work without it.  Any programs similar to fontforge that can be used?  Really dying to try this out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64112">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64112">78</a></div>
+			<span class="authorname">Montana Flynn</span> said on October 26, 2009		</div>
+		<div class="quote"><p>Letter Spacing is also an issue in Safari 4 at least.   If you have a :hover on text with letter spacing the hover will be cut short very slightly.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64114">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64114">79</a></div>
+			<span class="authorname">Aeron</span> said on October 27, 2009		</div>
+		<div class="quote"><p>Thanks! Great to be able to reduce the declaration down to a single statement... my only comment would be to normalize your single and double quotes!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64125">80</a></div>
+			<span class="authorname">Minneapolis Designer</span> said on October 28, 2009		</div>
+		<div class="quote"><p>Thanks for adding value to the design community. I've had a chance to look at a few of your post and they have all been spot on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64130">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64130">81</a></div>
+			<span class="authorname"><a href="http://www.santhos.nl/">Thomas</a></span> said on October 29, 2009		</div>
+		<div class="quote"><p>Wow man that's some great research!<br />
+I'll try this out in the near future!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64144">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64144">82</a></div>
+			<span class="authorname">John Pitchers</span> said on November 01, 2009		</div>
+		<div class="quote"><p>Does this mean that Explorer does in fact support @font-face - but only with EOT font files? I was always under the impression that IE didn't support @font-face at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64148">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64148">83</a></div>
+			<span class="authorname">Aaron Peters</span> said on November 03, 2009		</div>
+		<div class="quote"><p>Fyi: Opera Mobile supports @font-face with (at least) TTF fonts as of version 9.7. <a href="http://dev.opera.com/articles/view/opera-mobile-9-7-features-standards/">http://dev.opera.com/articles/view/opera-mobile-9-7-features-standards/</a>. Scroll down to "Web fonts - Web typography just got easier".</p>
+<p>Opera Mobile homepage: <a href="http://www.opera.com/mobile/">http://www.opera.com/mobile/</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64149">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64149">84</a></div>
+			<span class="authorname">Wouter Vermeulen</span> said on November 03, 2009		</div>
+		<div class="quote"><p>Why do you use sometimes double quotes and sometimes single quotes in your CSS code?? Does that serve any purpose, or just accidentally?</p>
+<p>Many thanks,<br />
+Wouter Vermeulen
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64152">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64152">85</a></div>
+			<span class="authorname">Victor</span> said on November 04, 2009		</div>
+		<div class="quote"><p>Does this solve the licensing issue? Looking to ditch sIFR
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64161">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64161">86</a></div>
+			<span class="authorname">Rain</span> said on November 09, 2009		</div>
+		<div class="quote"><p>Nice work dude! Thanks a lot! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64235">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64235">87</a></div>
+			<span class="authorname">Tino</span> said on November 10, 2009		</div>
+		<div class="quote"><p>This post changes everything in web design!<br />
+Thank you Snook!</p>
+<p>With http://www.fontsquirrel.com/fontface/generator it's even easier to generate all files u need. Haven't found any bugs yet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64268">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64268">88</a></div>
+			<span class="authorname">Thomas</span> said on November 15, 2009		</div>
+		<div class="quote"><p>Thanks for this great article.</p>
+<p>What I'm wondering is what to do with different font weights (normal and bold). Do I have to use to separate font-face definitions or is it possible having two different weights in one ttf/eot/svg?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64277">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64277">89</a></div>
+			<span class="authorname">David Levin</span> said on November 17, 2009		</div>
+		<div class="quote"><p>I'm a first time visitor to your site but I was really captivated by your article. I totally thought that font-embedding was one of those CSS tricks I wasn't going to be able to implement for years to come.  I'll have to test this out in my next project.  Thanks for the introduction!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64281">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64281">90</a></div>
+			<span class="authorname">Shawn S</span> said on November 17, 2009		</div>
+		<div class="quote"><p>Great article.</p>
+<p>Question: If people have their IE security settings set fairly high, any page that has a @font-face embedded font will make IE pop up a warning dialog stating something along the lines that the page is trying to install something. </p>
+<p>Clicking OK allows it to load the fonts on the page, but every page you visit continues to pop-up that warning.</p>
+<p>Any suggestions on getting around this warning message (other than telling people to lower their settings)?</p>
+<p>BTW: I've tested this on WinXP w/ IE6/7/8 - All give this warning.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64283">91</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 17, 2009		</div>
+		<div class="quote"><p>@Shawn S: It's possible that a flag can be set in the EOT as far as what level of embedding is allowed. I have no idea whether this will solve the problem. Not sure if ttf2eot allows for setting the embedding flags.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64284">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64284">92</a></div>
+			<span class="authorname">Shawn S</span> said on November 17, 2009		</div>
+		<div class="quote"><p>I used the EOT tool at http://www.fontembedding.com/eot/ but it doesn't have any additional options (other than specifying the domain to be used).</p>
+<p>The example on webfontspecimen.com also displays the message.</p>
+<p>I'll have to give TTF2EOT a try. Thanks for the response.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/becoming-a-font-embedding-master by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

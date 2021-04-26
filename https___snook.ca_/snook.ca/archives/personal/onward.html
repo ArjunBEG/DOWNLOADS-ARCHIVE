@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/personal/onward by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Onward - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/onward">
+	<meta property="og:url" content="https://snook.ca/archives/personal/onward">
+	<meta property="og:title" content="Onward">
+	<meta property="og:description" name="description" content="It's so easy to wallow in self-pity when things don't go right. As much as 2009 sucked on all levels, it wasn't all bad. As much as I want to sulk, the fact remains that I live a charmed life. Through...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Onward</h1>
+		<p>It's so easy to wallow in self-pity when things don't go right. As much as 2009 sucked on all levels, it wasn't all bad. As much as I want to sulk, the fact remains that I live a charmed life. Through some karmic luck of the draw, I've got a lot to be thankful for.</p>
+<h2>Personal Projects</h2>
+<p>This past year was a year of simplication and basically had me letting go of all my personal projects&mdash;at least for the time being. I shut down SidebarAds, I never worked on Snitter, and I never finished Haylia, FontSmack or any number of other personal projects that I wanted to work on. </p>
+<p>I have mixed feelings about this. </p>
+<p>I gained more spare time but I'm not sure that I filled that spare time with anything truly useful. By the end of the year, I still feel that no Twitter client could do what I had envisioned with Snitter. No CMS could do what I had envisioned with GainCMS (a project that I've dreamt of since before going freelance).</p>
+<p> 2010 may be the year of the comeback and we'll see if I can harness my energies into any of these projects or possibly something new.</p>
+<h2>Blogging</h2>
+<p>It was a quiet year on the blogging front. Long periods of silence were shattered with bursts of posts as I felt a rush of inspiration and then back to silence. With that said, a couple posts that were slated to be written for my own blog ended up being written for other sites, namely <a href="http://phpadvent.org/2009/get-a-haircut-by-jonathan-snook">PHPAdvent</a> and <a href="http://24ways.org/2009/spruce-it-up">24ways</a>. </p>
+<p>I have many more posts in the wings but need to get off my ass and just write. Many have signed up for <a href="http://project52.info/">Project52</a> but I've yet to commit to something so rigid. We'll just have to wait and see when inspiration strikes</p>
+<p>I had ventured into <a href="https://snook.ca/archives/screencast/">screencasting</a> and did a number of posts in 2009, which I'm pretty happy with. I would like to continue doing the same in 2010.</p>
+<p> And yes, podcasting is still something I've been thinking about. But if I can't keep a regular blogging cycle, can I stay committed to a regular podcasting schedule? We'll see.</p>
+<h2>Writing</h2>
+<p>At the end of 2008, I made mention of possibly writing another book or even an e-book. As it turns out, I have begun work on another book but it has been a slow start and I hope to pick up the pace to finish writing by March. Half the problem is just getting the ball rolling. Let's hope things don't get sidetracked and this book gets finished. </p>
+<p>Others have done reasonably well with the e-book model but I've yet to feel completely inspired with e-books unless they're short reads. Writing an e-book isn't high on my list for 2010 but as many other things, inspiration may strike and it may happen. I wouldn't hold out hopes for this one! </p>
+<h2>Freelancing</h2>
+<p>For over three years, I was a freelancer. I ran my own business. It was a freeing experience but one that was fraught with hassle and disappointment. In previous <a href="https://snook.ca/archives/personal/reflections">retrospectives</a>, I flirted with the idea of getting out of freelancing. By the end of 2008, I had already come to the conclusion that growing my business wasn't something I wanted. I cemented my fate in 2009 by giving up freelancing for <a href="https://snook.ca/archives/personal/being-square">Squarespace</a> and finally <a href="https://snook.ca/archives/personal/hooligan">Yahoo!</a>.</p>
+<p>I've got the best of both worlds right now. I still live like a freelancer, working from home with my own office and computer, but enjoy the benefits of full-time employment working with people for a company doing some great stuff. I'm excited for the year ahead&mdash;a feeling I haven't felt in awhile.</p>
+<h2>Conferences and Speaking</h2>
+<p>Speaking engagements early in the year had to be cancelled, including having to turn down an opportunity to speak in New Zealand. I even missed SXSW. The first half of the year was definitely disappointing. However, the year ended on a high note. I got asked to step in at the last minute at <a href="http://fronteers.nl/congres">Fronteers</a> and had, in my opinion, probably one of my strongest sessions I've ever presented&mdash;all despite fighting a cold that had claimed my voice. I followed that up with the <a href="http://www.environmentsforhumans.com/jquery_summit/">jQuery Summit</a> which also felt good and very relaxed. I capped off the year by getting to speak at <a href="http://aneventapart.com/">An Event Apart</a>. </p>
+<p>I don't have anything currently slated for 2010. I haven't actively gone after speaking engagements but may take a more proactive approach to get back in the game. Likewise, I'll be working with the other folks in <a href="http://sidebarcreative.com/">Sidebar Creative</a> to possibly see a resurgence of <a href="http://sidebarworkshops.com/">Sidebar Workshops</a>.</p>
+<h2>Renewal</h2>
+<p>Sometimes we have to tear it all down to build it back up again and, for me, 2010 represents a year of renewal. I have a renewed interest in web design and development and a renewed energy to share what I learn along the way.</p>
+<p>Come along for the ride...</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 04, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/967</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">26 Comments &middot; <a href="https://snook.ca/archives/personal/onward.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64462">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64462">1</a></div>
+			<span class="authorname">cssbit</span> said on January 04, 2010		</div>
+		<div class="quote"><p>i enjoyed reading the post, i wish the best for you Jonathan<br />
+keep up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64463">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64463">2</a></div>
+			<span class="authorname">Rey Bango</span> said on January 04, 2010		</div>
+		<div class="quote"><p>I think getting rid of so many distractions was the right thing for you to do last year. It helped you focus on what was important at the moment. 2010 will be much better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64464">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64464">3</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net/">Matt Wilcox</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>Good to see you enthused for 2010 Jonathan, good luck. I've surprised myself with a similar feeling, lets hope it keeps up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64465">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64465">4</a></div>
+			<span class="authorname">"Cowboy" Ben Alman</span> said on January 04, 2010		</div>
+		<div class="quote"><p>Jonathan, I know how hard it is to manage everything.. even now that I have a todo list, it never seems to shrink even if I finish something. I guess that's something that has to be expected when one is very creative.. Either way, I look forward to more awesome content (from the both of us, heh) in the coming year!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64466">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64466">5</a></div>
+			<span class="authorname"><a href="http://antonpeck.com/">Anton</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>Hi Jon. Long time reader, not often enough commenter...</p>
+<p>I feel where your coming from on 2009. So many little personal things that got set aside for whatever reason. I too am looking forward to 2010. I think it's going to be a great year for the web community in general, so I hope that fortune smiles on you.</p>
+<p>Thanks also for the mention to Project 52. I'm surprised I didn't see your name on it, to be honest. Writing 1 post a week for a year should be within your grasp, easily.</p>
+<p>And a podcast? You know my thoughts on that already.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64467">6</a></div>
+			<span class="authorname">Shane</span> said on January 04, 2010		</div>
+		<div class="quote"><p>Hi John, a very interesting post. I hope that 2010 is a great year for you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64468">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64468">7</a></div>
+			<span class="authorname"><a href="http://gregnewman.org/">Greg</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>Hi Jon.<br />
+It's reassuring to know that there are so many respected individuals who have similar issues.  Tearing down and building back up is a great approach; good luck!  I'm sure we'll continue to see great things from you.  Happy New Year!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64469">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64469">8</a></div>
+			<span class="authorname">Stanton</span> said on January 04, 2010		</div>
+		<div class="quote"><p>Your post echoes a lot of my own thoughts about this year and what I want to achieve. I've mentally comitted myself to focusing on a couple of my pet projects seriously this year as I've neglected them for far too long, and get more into writing some blog-based content.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64470">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64470">9</a></div>
+			<span class="authorname">John McCulley</span> said on January 04, 2010		</div>
+		<div class="quote"><p>WOOT! I"m so glad to hear that, man. You're one of the first developers I started following when I went freelance. Good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64471">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64471">10</a></div>
+			<span class="authorname">beef</span> said on January 04, 2010		</div>
+		<div class="quote"><p>Cool post
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64472">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64472">11</a></div>
+			<span class="authorname">beef</span> said on January 04, 2010		</div>
+		<div class="quote"><br />
+</div>
+	</div>
+		<div class="comment" id="c64473">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64473">12</a></div>
+			<span class="authorname">Jay Tillery</span> said on January 04, 2010		</div>
+		<div class="quote"><p>Good to see you back in the swing of things, John. I look forward to following your adventures through 2010.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64474">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64474">13</a></div>
+			<span class="authorname">Ryan Lahay</span> said on January 04, 2010		</div>
+		<div class="quote"><p>A couple years ago, you were one of the main reasons I regained inspiration in this industry - and I could never thank you enough. I hope that you find (or by the sounds of it - you already may have) something that reinvigorates your enthusiasm as well! Good luck &amp; best wishes in the New Year.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64475">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64475">14</a></div>
+			<span class="authorname"><a href="http://www.contentwithstyle.co.uk/">Matthias Willerich</a></span> said on January 05, 2010		</div>
+		<div class="quote"><p>Ha, funny to see you're also sceptical about Project52. I've just looked at it today, and although we're two people writing for CwS, I did the "maths of pessimistic averages" and realized it's just not going to work through the entire year. </p>
+<p>I'll give the formula a shot, but I'll spare myself the public humiliation (most likely starting in week 2).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64476">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64476">15</a></div>
+			<span class="authorname">dan</span> said on January 05, 2010		</div>
+		<div class="quote"><p>fantastic and timely post. makes going to work a little easier today. thank you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64477">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64477">16</a></div>
+			<span class="authorname">Olle Jonsson</span> said on January 05, 2010		</div>
+		<div class="quote"><p>Yes, you were <em>quite great</em> at Fronteers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64479">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64479">17</a></div>
+			<span class="authorname"><a href="http://eightysix.co.za/">Byron Rode</a></span> said on January 05, 2010		</div>
+		<div class="quote"><p>Jon,</p>
+<p>Its funny how, when reading through this post and through some of your others over the year last year, I feel a similar feeling for web and my personal life in general.</p>
+<p>My lack of blogging, or a blog, to be perfectly honest, have made me realise that not having an outlet for all my frustrations and accomplishments, both personal and with web work, have made life and the curve balls I have been thrown a lot harder to grasp.</p>
+<p>Seeing it all laid out here makes me want to try harder at both getting back my inspiration for web development as well as getting back to blogging.</p>
+<p>Keep doing what you do Jon, keep inspiring others to keep trying. I know you inspire me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64481">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64481">18</a></div>
+			<span class="authorname">cosmin</span> said on January 07, 2010		</div>
+		<div class="quote"><p>Dude, it'll come back...<br />
+I always find it to be true that getting myself back will bring me back all the things I love.<br />
+2009 hit pretty hard everywhere but now it's over.<br />
+I love your articles, especially those on cake and jquery and I'm looking forward to a fresh year on the web.<br />
+So best wishes for 2010 and may it be a great one!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64483">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64483">19</a></div>
+			<span class="authorname">Alex</span> said on January 07, 2010		</div>
+		<div class="quote"><p>Snook, you are the man. Keep doing what you do and we will keep loving you for it. I hope that this year will be even more productive for you(although during your unproductive year you probably accomplished more than most people do).</p>
+<p>Good luck and happy 2010.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64485">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64485">20</a></div>
+			<span class="authorname">Omar</span> said on January 09, 2010		</div>
+		<div class="quote"><p>I feel I learned a lot this past year, but it was also the year that made me realize I'm not where I want to be. Snook, you help others through what you do, I know I've learned quite a bit from you. If this is what you love doing you will only succeed.</p>
+<p>Best of luck, Happy 2010.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64489">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64489">21</a></div>
+			<span class="authorname"><a href="http://www.astereostudio.com/">AJ</a></span> said on January 11, 2010		</div>
+		<div class="quote"><p>2009 wasn't the best year for me as well. I'm a big fan of this redesign and have no doubt 2010 will be much better for you. I'm thinking about bringing back a mintpages type private design/dev forum in the coming weeks as I realized I've greatly missed a true tight knit community of creative individuals. I'll hopefully be shooting you an invite soon.</p>
+<p>Take care!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64494">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64494">22</a></div>
+			<span class="authorname">Jordan Little</span> said on January 12, 2010		</div>
+		<div class="quote"><p>I'd be excited to see some of your personal projects take flight before the end of the year, especially the CMS (Textpattern just isn't cutting it for me anymore).</p>
+<p>It was awesome getting to meet you at the jQuery conference in Boston (I'm the guy who you kept beating at that Tetris-y game on the Microsoft Surface). Good luck in 2010!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64495">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64495">23</a></div>
+			<span class="authorname">Elle</span> said on January 13, 2010		</div>
+		<div class="quote"><p>Thank you for sharing this post!  Renewal is always a good thing - best wishes on your 2010 journey to new places!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64496">24</a></div>
+			<span class="authorname">Michael</span> said on January 14, 2010		</div>
+		<div class="quote"><p>It's great to hear that you will continue to share your web-knowledge with us. It was always a pleasure to read your articles in the past and I'm sure it will be in the future. I wish you all the best for 2010 and I wish us that we can read lots of interesting stuff in your blog.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64498">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64498">25</a></div>
+			<span class="authorname">Bill</span> said on January 14, 2010		</div>
+		<div class="quote"><p>I like reading your blog as it is very informative &amp; didn't makes me bore, what makes your different from most of the blogger is your easy &amp; persuasive way of communication.. keep sharing your thoughts. thanks</p>
+<p>It's great to hear that you will continue to share your web-knowledge with us. It was always a pleasure to read your articles in the past and I'm sure it will be in the future. I wish you all the best for 2010 and I wish us that we can read lots of interesting stuff in your blog.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64499">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64499">26</a></div>
+			<span class="authorname">Tejas</span> said on January 14, 2010		</div>
+		<div class="quote"><p>Good to hear your comments, I really enjoy your posts. Apart from your technical knowledge, I quite like your style of writing as well. You have added me as one of your blog's readers in 2009. Wish you the best for 2010.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/personal/onward by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

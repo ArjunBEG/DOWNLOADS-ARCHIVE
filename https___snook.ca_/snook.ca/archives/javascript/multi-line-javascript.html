@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/multi-line-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Multi-line JavaScript - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/multi-line-javascript">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/multi-line-javascript">
+	<meta property="og:title" content="Multi-line JavaScript">
+	<meta property="og:description" name="description" content=" In a case of, &quot;I didn't know you could do that,&quot; I discovered via some random blog post I've now lost track of, that you can do multi-line JavaScript by escaping the line breaks.
+var a = '...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Multi-line JavaScript</h1>
+		 <p>In a case of, &quot;I didn't know you could do that,&quot; I discovered via some random blog post I've now lost track of, that you can do multi-line JavaScript by escaping the line breaks.</p>
+<pre><code>var a = 'You can start here \
+and continue here \
+and then finish it up here.';</code></pre>
+<p>The backslash on each line allows you to keep going. It's a little bit cleaner than opening and closing quotes and a concatenation operator on each line.</p>
+<p>And now's your chance to say, &quot;I can't believe you didn't know that.&quot;</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 05, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/945</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">51 Comments &middot; <a href="https://snook.ca/archives/javascript/multi-line-javascript.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63431">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63431">1</a></div>
+			<span class="authorname"><a href="http://www.maratz.com/blog/">Marko DugonjiÄ‡</a></span> said on May 04, 2009		</div>
+		<div class="quote"><p>â€” I can't believe you didn't know that.</p>
+<p>There :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63432">2</a></div>
+			<span class="authorname"><a href="http://cheeaun.com/">Lim Chee Aun</a></span> said on May 04, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't know that. :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63433">3</a></div>
+			<span class="authorname"><a href="http://voyagerfan5761.blogspot.com/">Voyagerfan5761</a></span> said on May 04, 2009		</div>
+		<div class="quote"><p>Huh. I knew you could add or remove whatever whitespace you want, but I did not know that strings could be broken across lines using the backslash. Cool tip!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63434">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63434">4</a></div>
+			<span class="authorname"><a href="http://mark-story.com/">Mark Story</a></span> said on May 04, 2009		</div>
+		<div class="quote"><p>I didn't know that either, so you're note the only one :) By the way, I think your quotes are mismatched.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63435">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63435">5</a></div>
+			<span class="authorname">twe4ked</span> said on May 04, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't know that.</p>
+<p>Sorry, I didn't know it either, I just wanted to be the idiot to say it.</p>
+<p>Have a good day!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63436">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63436">6</a></div>
+			<span class="authorname"><a href="http://www.dustindiaz.com/">Dustin Diaz</a></span> said on May 04, 2009		</div>
+		<div class="quote"><p>I think you've been mistaken. The quote you're looking for is..." i can't believe i didn't know that either...."</p>
+<p>This was like when I discovered when JavaScript had "for each in"<br />
+http://www.dustindiaz.com/for-each-in/</p>
+<p>... yeah. (not to be confused with "array.forEach"
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63437">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63437">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 04, 2009		</div>
+		<div class="quote"><p>@Mark Story: Ooh, fixed mismatched quotes. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63438">8</a></div>
+			<span class="authorname">Davi Ferreira</span> said on May 04, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't know that!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63439">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63439">9</a></div>
+			<span class="authorname">Stephanie Sullivan</span> said on May 04, 2009		</div>
+		<div class="quote"><p>Well, the thing I most love about it is that you'll say it. Sometimes I don't blog things because I figure, "Oh heck, someone probably said that already 2 years ago... somewhere... probably." So good on ya because I sure didn't read it! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63440">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63440">10</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>That's like heredoc. I can't believe you didn't know that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63441">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63441">11</a></div>
+			<span class="authorname"><a href="http://antonpeck.com/">Anton</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>JS on multiple lines... CSS on single lines... what the hell is the world coming to?!?<br />
+;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63442">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63442">12</a></div>
+			<span class="authorname">Joy Dumb</span> said on May 05, 2009		</div>
+		<div class="quote"><p>What is javascript?  Who are you?<br />
+And what is this blog I keep hearing about on the fax?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63443">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63443">13</a></div>
+			<span class="authorname">simonth</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't know that.</p>
+<p>Actually I do not know that too. Thanks for the tips. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63444">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63444">14</a></div>
+			<span class="authorname">philip</span> said on May 05, 2009		</div>
+		<div class="quote"><p>neat trick, but <a href='http://jslint.com/'>JSLint</a> doesn't like it.  :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63445">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63445">15</a></div>
+			<span class="authorname">Gustavs</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't belive you didn't know that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63446">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63446">16</a></div>
+			<span class="authorname">yhss</span> said on May 05, 2009		</div>
+		<div class="quote"><p>amazing!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63447">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63447">17</a></div>
+			<span class="authorname">Dave Waller</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe *I* didn't know that!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63448">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63448">18</a></div>
+			<span class="authorname">Drew McLellan</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Ah, I knew that once, but I'd totally forgotten it. Thanks for the reminder!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63449">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63449">19</a></div>
+			<span class="authorname">Travis</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Awesome tip Jonathon - I've always wondered if there was an easier way than the rather clumsy "close string, concatenate on each line". I probably should have looked it up... duh.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63450">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63450">20</a></div>
+			<span class="authorname"><a href="http://adriaannel.com/">Adriaan</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>mmm, Interesting... I wonder if this would work with JSminifier scripts?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63451">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63451">21</a></div>
+			<span class="authorname">Michael Kozakewich</span> said on May 05, 2009		</div>
+		<div class="quote"><p>It struck me as odd when I first read this, because I distinctly remember not needing line breaks. Now that I think of it, though, I'm sure that was PHP. I'm sure I line-broke my javascript -- with quotes and semicolons.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63452">22</a></div>
+			<span class="authorname">saspijkerman</span> said on May 05, 2009		</div>
+		<div class="quote"><p>â€” I can't believe I didn't know that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63453">23</a></div>
+			<span class="authorname">cchana</span> said on May 05, 2009		</div>
+		<div class="quote"><p>^ same! i had no idea u could do that! nice little tip and i think it will actually fix a problem i was having! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63455">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63455">24</a></div>
+			<span class="authorname">Jaap</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I did not know this, why hasn't anyone told me about this before?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63456">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63456">25</a></div>
+			<span class="authorname">Pete</span> said on May 05, 2009		</div>
+		<div class="quote"><p>shucks, I can't believe I didn't know that either
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63457">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63457">26</a></div>
+			<span class="authorname">Dominic</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Interesting. I don't think it is cleaner than concatenating several quoted strings though. Imaging you need to define such a long string inside some function - how do you indent it? Either your code looks ugly, or you have some extra spaces or tabs in your string.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63458">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63458">27</a></div>
+			<span class="authorname">village_idiot</span> said on May 05, 2009		</div>
+		<div class="quote"><p>eh? What's my javascript?!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63459">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63459">28</a></div>
+			<span class="authorname">Beakid</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't \<br />
+believe you didn't know \<br />
+that
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63460">29</a></div>
+			<span class="authorname">Jon Thomas</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Whether you knew it or not, there's always beginners like myself that don't know this stuff.  Thanks for posting!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63461">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63461">30</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 05, 2009		</div>
+		<div class="quote"><p>@Dominic: agreed, indentation could be a concern. I have that issue with the HEREDOC approach in PHP.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63462">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63462">31</a></div>
+			<span class="authorname"><a href="http://teevio.com/">Teevio</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>Yeah, I can't believe *I* didn't know that!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63463">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63463">32</a></div>
+			<span class="authorname">Garth Braithwaite</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't show this to us before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63464">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63464">33</a></div>
+			<span class="authorname">Nick Sergeant</span> said on May 05, 2009		</div>
+		<div class="quote"><p>The worse part of me not knowing about that, is that I've specifically searched for ways to do it. Oy.</p>
+<p>Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63465">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63465">34</a></div>
+			<span class="authorname"><a href="http://www.designreverb.com/">Todd Austin</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe it's not butter... oh wait... o_O
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63466">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63466">35</a></div>
+			<span class="authorname">joseanpg</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Yes, I can believe you didn't know that: it was illegal in ECMA-262 3rd Edition:</p>
+<blockquote><p>
+7.8.4 String Literals<br />
+...<br />
+NOTE<br />
+A 'LineTerminator' character cannot appear in a string literal, <b>even if preceded by a backslash \</b>. The correct way to cause a line terminator character to be part of the string value of a string literal is to use an escape sequence such as \n or \u000A.
+</p></blockquote>
+<p>But there is "good news", in the final draft of ECMAScript 5th (TC39/2009/025) that sintax becomes accepted:</p>
+<blockquote><p>
+7.8.4 String Literals<br />
+...<br />
+NOTE<br />
+A line terminator character cannot appear in a string literal, <b>except when preceded by a backslash \ as a 'LineContinuation'</b> to produce the empty character sequence. The correct way to cause a line terminator character to be part of the string value of a string literal is to use an escape sequence such as \n or \u000A.
+</p></blockquote>
+</div>
+	</div>
+		<div class="comment" id="c63467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63467">36</a></div>
+			<span class="authorname">Juan</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe I didn't know that either. Damn all those '+'!</p>
+<p>Anyway, I think it is good that we didn't know that. We shouldn't be writing too much text inside a script.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63468">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63468">37</a></div>
+			<span class="authorname"><a href="http://mysiteonline.org/">Brendon Kozlowski</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>Different browsers support that slightly differently.  As someone mentioned, I believe line indentation is different, and some browsers keep the newline within the string whereas others will remove it.</p>
+<p>Unless you're using a specific browser (i.e.: Webkit in Adobe AIR or Titanium), then it might be more beneficial to simply use standard concatenation.</p>
+<p>(I found out about this the other week so did a little further research.  No specifics were given in my findings though, so perhaps they're outdated.  I prefer to lean on the side of caution.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63469">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63469">38</a></div>
+			<span class="authorname">Andrew Kolesnikov</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't belive you didn't know that, yes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63470">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63470">39</a></div>
+			<span class="authorname">Andrew Kolesnikov</span> said on May 05, 2009		</div>
+		<div class="quote"><p>*Still can't.*
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63471">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63471">40</a></div>
+			<span class="authorname">Chris Akers</span> said on May 05, 2009		</div>
+		<div class="quote"><p>YUI Compressor doesn't have any problems with it. It strips the return and the backslash.</p>
+<p>Crockford's JSMin leaves the backslashes and returns as is.</p>
+<p>+1 YUI
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63472">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63472">41</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on May 05, 2009		</div>
+		<div class="quote"><p>Having written lots and lots of JS code, I didn't know it either. Thanks for the great tip :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63473">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63473">42</a></div>
+			<span class="authorname">caktux</span> said on May 05, 2009		</div>
+		<div class="quote"><p>This random blog post was probably mine when I emailed you about it ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63474">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63474">43</a></div>
+			<span class="authorname">caktux</span> said on May 05, 2009		</div>
+		<div class="quote"><p>That one more specifically : http://www.caktux.ca/blog/suy-jquery-ui-based-ie6-outdated-notification-plugin</p>
+<p>I suppose you didn't need a "Your browser is outdated" jQuery notification for your too-hard-for-IE6 projects :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63475">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63475">44</a></div>
+			<span class="authorname">Timothy Armstrong</span> said on May 05, 2009		</div>
+		<div class="quote"><p>Believe it or not, I *did* know that, I just always found it to strange looking to use. Maybe you'll put it to more use than I have.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63476">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63476">45</a></div>
+			<span class="authorname">Keri Henare</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe that you didn't know that! But more importantly, I can't believe that I didn't know that!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63477">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63477">46</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 05, 2009		</div>
+		<div class="quote"><p>@caktux: Actually, yes, I do believe that's <a href="http://www.caktux.ca/blog/suy-jquery-ui-based-ie6-outdated-notification-plugin">what originally tipped me off</a>. I remember thinking, "is this just for code presentation or does this actually work?" And it does. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63484">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63484">47</a></div>
+			<span class="authorname">pan69</span> said on May 05, 2009		</div>
+		<div class="quote"><p>I can't believe you didn't know that AND that you wrote a blog post about it. Amazing....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63543">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63543">48</a></div>
+			<span class="authorname">Will Anderson</span> said on May 19, 2009		</div>
+		<div class="quote"><p>This brings back slightly disturbing memories of multi-line commands in classic asp :)</p>
+<p>I actually ran into a problem with this yesterday and ended up using a slightly more convoluted solution, so thanks for pointing this out!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63545">49</a></div>
+			<span class="authorname">wiaderko</span> said on May 20, 2009		</div>
+		<div class="quote"><p>lol<br />
+that was really simple :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63609">50</a></div>
+			<span class="authorname">M.S.</span> said on May 30, 2009		</div>
+		<div class="quote"><p>didn't know it either, been coding Javascript for 7 years :-(</p>
+</div>
+	</div>
+		<div class="comment" id="c63659">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63659">51</a></div>
+			<span class="authorname">Will Ayers</span> said on July 03, 2009		</div>
+		<div class="quote"><p>Thanks for this, now some of the plugins I have been using make a lot more sense!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/multi-line-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

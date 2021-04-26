@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/simplest-javascript-slideshow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Simplest JavaScript Slideshow - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/simplest-javascript-slideshow">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/simplest-javascript-slideshow">
+	<meta property="og:title" content="Simplest JavaScript Slideshow">
+	<meta property="og:description" name="description" content="Years ago, I put together a tiny jQuery script for doing a simple slideshow. Due to chaining, it was only a handful of lines. It still needed jQuery, though, which was a 93KB dependency (33KB gzipped)...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Simplest JavaScript Slideshow</h1>
+		<p>Years ago, I put together a <a href="https://snook.ca/archives/javascript/simplest-jquery-slideshow">tiny jQuery script for doing a simple slideshow</a>. Due to chaining, it was only a handful of lines. It still needed jQuery, though, which was a 93KB dependency (33KB gzipped). </p>
+
+<p>In the six years since then, browsers have improved their DOM APIs. What would it look like if I tried to write this script now without jQuery and used the DOM APIs along with some handy CSS?</p>
+
+<p>The concept is still the same. First, I want to hide all the images except the first one. </p>
+
+<pre><code>  var root = document.querySelector('.fadein');
+  var els = root.querySelectorAll(':not(:first-child)');
+</code></pre>
+
+<p>I grab the root element of the slideshow. This makes the assumption that there is only ever one slideshow, which is what the slideshow assumed, too. After that, I grab all the elements that are not the first child. </p>
+
+<p>Since the NodeList is not an Array, I can’t use Array functions. Instead, I just use a simple <code>for</code> loop. Yes, I can convert the NodeList into an Array but since this is the only time I need to loop through the elements, I’d be wasting time to do so.</p>
+
+<pre><code>  for (i=0; i &lt; els.length; i++) {
+    els[i].classList.add('is-hidden');
+  }
+</code></pre>
+
+<p>In the original jQuery script, the <code>fadeIn</code> and <code>fadeOut</code> routines change the opacity by modifying inline styles. This time around, I used CSS transitions to handle this.</p>
+
+<pre><code>    .fadein img { transition:opacity 1s; opacity:1; }
+    .fadein img.is-hidden { opacity:0; }
+</code></pre>
+
+<p>Since jQuery knew when the animation was over, it could easily move to the next part of the script. We’ll have to use the <code>transitionEnd</code> event to know this. </p>
+
+<pre><code>  root.addEventListener('transitionend', function(){
+    root.insertBefore(root.querySelector(':first-child.is-hidden'), null);
+  });
+</code></pre>
+
+<p>The event is attached to the root and rely on event bubbling to respond to when the images are done transitioning. The problem is that the event is fired twice: once for the image fading out and another for the image fading in. </p>
+
+<p>I qualified the image to move to the back to only grab the first child that is hidden. Once it’s moved to the back, the second event firing doesn’t have anything to do. </p>
+
+<p>The last thing we need to do is set up the 3 second interval, just like we had before. Again, we use <code>setInterval</code>. All that happens in the interval, though, is the adding and removing of the <code>is-hidden</code> class.</p>
+
+<pre><code>  setInterval(function(){
+    root.querySelector(':first-child').classList.add('is-hidden');
+    root.querySelector(':nth-child(2)').classList.remove('is-hidden');
+  }, 3000);
+</code></pre>
+
+<p>The <em>entire</em> <a href="https://snook.ca/technical/fade/fade-js.html">demo page</a> is 1KB. </p>
+
+<h2>The Full Script</h2>
+
+<p>The CSS:</p>
+
+<pre><code>.fadein { position:relative; height:332px; width:500px; outline: 1px solid blue; }
+.fadein img { position:absolute; left:0; top:0; transition:opacity 1s; opacity:1; }
+.fadein img.is-hidden { opacity:0; }
+</code></pre>
+
+<p>The Javascript:</p>
+
+<pre><code>  var i=0;
+  var root = document.querySelector('.fadein');
+  var els = root.querySelectorAll(':not(:first-child)');
+  for (i=0; i &lt; els.length; i++) {
+    els[i].classList.add('is-hidden');
+  }
+  root.addEventListener('transitionend', function(){
+    root.insertBefore(root.querySelector(':first-child.is-hidden'), null);
+  });
+  setInterval(function(){
+    root.querySelector(':first-child').classList.add('is-hidden');
+    root.querySelector(':nth-child(2)').classList.remove('is-hidden');
+  }, 3000)
+</code></pre>
+
+<p>For more slideshows:</p>
+
+
+<p>For more Snook.ca slideshows:</p>
+
+<ul>
+<li><a href="https://snook.ca/archives/javascript/simplest-jquery-slideshow">Simplest jQuery Slideshow</a></li>
+<li><a href="https://snook.ca/archives/javascript/more-simple-slideshow">More Simple jQuery Slideshows</a></li>
+<li><a href="https://snook.ca/archives/html_and_css/simplest-css-slideshow">Simplest CSS Slideshow</a></li>
+</ul>
+
+
+
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published January 04, 2016 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1061</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">5 Comments &middot; <a href="https://snook.ca/archives/javascript/simplest-javascript-slideshow.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70833">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70833">1</a></div>
+			<span class="authorname">Attila Györffy</span> said on January 04, 2016		</div>
+		<div class="quote"><p>Nice and clean. I like the fact that more and more people realise that jQuery is not always necessary for simple operations. The arrival of <code>querySelector</code> changes the game significantly.</p>
+<p>One small note: I think you may want to change the selector that matches the upcoming slide:</p>
+<p><code>root.querySelector('.is-hidden')</code> instead of using <code>:first-child</code> as <code>querySelector</code> returns the first matching element. This should also resolve a DOM exception that occurs during the switching of slides.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70834">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70834">2</a></div>
+			<span class="authorname">Scott</span> said on January 04, 2016		</div>
+		<div class="quote"><p>It can be a lot of fun revisiting the things that we did in the past with modern tools. Nice work, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70836">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70836">3</a></div>
+			<span class="authorname">Marc Brooks</span> said on January 05, 2016		</div>
+		<div class="quote"><p>var i; // please...
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70837">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70837">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 06, 2016		</div>
+		<div class="quote"><p>Thanks Marc. A little sloppy of me!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70849">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70849">5</a></div>
+			<span class="authorname">Toby</span> said on January 28, 2016		</div>
+		<div class="quote"><p>This is great! Oh to be able to ignore IE&lt;=9 ...
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/simplest-javascript-slideshow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+</html>

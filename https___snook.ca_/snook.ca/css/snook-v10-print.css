@@ -1,0 +1,7 @@
+/* I loves me some good ol' print style sheets */
+
+#main	 { float:none; width:auto; }
+#sidebar, #delicious, #header .nav, #livepreview .comment, #postcomments, #comments_form { display:none; }
+#content	{ padding-top: 10px; }
+#header, #content, #footer .shell { width:auto; overflow:visible; }
+#comments {page-break-before:always;}

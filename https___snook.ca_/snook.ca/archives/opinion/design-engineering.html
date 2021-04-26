@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/opinion/design-engineering by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Design Engineering - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/design-engineering">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/design-engineering">
+	<meta property="og:title" content="Design Engineering">
+	<meta property="og:description" name="description" content="
+
+
+“Front End Dev isn’t just JavaScript. FED is a melting pot of design &amp; dev skills to implement accessible UIs to accepted standards.” — Matt Hill
+
+
+When it comes to development on...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Design Engineering</h1>
+		
+
+<blockquote>
+<p>“Front End Dev isn’t just JavaScript. FED is a melting pot of design &amp; dev skills to implement accessible UIs to accepted standards.” — <a href="https://twitter.com/matthillco/status/480986847473303552">Matt Hill</a></p>
+</blockquote>
+
+<p>When it comes to development on Shopify Admin, we have—up until recently—only had two specializations: designers and engineers. There is a third specialization, however, that has had a tough time finding a solid home: front-end developers. The skills of a front-end developer can be varied and blends into design as much as it blends into engineering. We had been very lucky to have hired talented designers who can also create high quality front-end code without the need for dedicated front-end developers.</p>
+
+<p>Any talk of growing a dedicated team of front-end developers had been met with the rebuttal: “if they’re developers, then they’re part of the engineering team.” That is, all backend developers are front-end developers and vice versa. Shopify expects their developers to be full stack. <em>But if front-end development is development, why did we have our designers do it?</em> </p>
+
+<p>The problem is that we use the terms <em>front-end development</em> and <em>backend development</em> but people are often confused as to where a front-end developer starts and where a backend developer ends.</p>
+
+<p>When we examine the development process, there are three phases: “Design”, “Design Implementation”, and “Application Development”.</p>
+
+<figure>
+<img src="https://snook.ca/files/p1042-a.png" alt="Spectrum of Application Development">
+<figcaption>Spectrum of Application Development</figcaption>
+</figure>
+
+<h2>Design</h2>
+
+<p>Designers use many tools and while they should understand how their designs are implemented, it should not be a requirement for them to implement their own designs into HTML, CSS, and JavaScript. (Just as we don’t expect print designers to do their own printing. We have printers for that.) It’s advantageous when a designer can focus on multiple iterations of a design or can work through more design problems as a result of not having to focus on design implementation: the act of turning their designs into production-ready HTML and CSS. </p>
+
+<p>I’ll put the clarification here that I do believe that designers should know <em>how</em> to code but with a growing organization comes increasing specialization. </p>
+
+<h2>Application Development</h2>
+
+<p>Application Development is about hooking up the interface and serving it in the best way possible. Should we be using a client-side MVC or server-side rendering? What’s the caching or storage system? What’s the data model? These types of concerns bleed across the HTTP barrier and shouldn’t be restricted to one side of it or the other.</p>
+
+<p>Understanding OOP and prototypal inheritance requires a different set of skills than understanding how multiple browsers render a CSS property and how to best implement a design across multiple devices—phone, tablet, or desktop—and be accessible with multiple input methods—mouse, keyboard, gestures, or screenreaders.</p>
+
+<h2>Design Implementation</h2>
+
+<p>Implementing a design means writing HTML and CSS (and some JavaScript) and ensuring that the design holds up under the various design constraints: different browsers, different dimensions, different resolutions, and different interaction methods (mouse, keyboard, gestures, screen readers). It also can mean building out prototypes for UX validation. These people are design-minded but not necessarily designers. These people are technically-minded but not necessarily developers. </p>
+
+<p>People in this role provide a great bridge between design and engineering. I’ve often called these people the “arbiters of design”. They inform design of possibilities and constraints and help ensure that designers build a consistent and usable interface for as many users as possible. They help codify the design work. They have a developer mindset with concerns about render performance and load times and can work with engineering to build out a performant front-end. </p>
+
+<h2>Roles</h2>
+
+<p>It’s important that we have generalists that can bleed across these lines and specialists that can go deep in each of these sections. Up until a short while ago, we were not doing enough to foster the practice of design implementation within Shopify Admin. This has been affecting our designers’ ability to focus on design and affecting our ability to hire people due to our expectation of requiring generalists over specialists.</p>
+
+<h2>What to call these people?</h2>
+
+<blockquote>
+<p>“Could front-end translate as being design engineering?” — <a href="https://twitter.com/hereinthehive/status/481509193774792705">Dan Donald</a></p>
+</blockquote>
+
+<p>We debated on what this role should be called. <em>Design Implementors</em> felt less than impressive. We almost settled on <em>Design Engineers</em> but it sounded a little too “Disney”. </p>
+
+<p>We also already had a well-established team of front-end developers in Toronto focused on Shopify.com and other growth projects. Their needs were a little different than ours since their front-end developers bled more into backend development.</p>
+
+<p>In the end, we came back to <em>Front-End Developer</em>. </p>
+
+<p>It was more general and enveloped all front-enders, regardless of what end of the spectrum they are at. </p>
+
+<p>As an industry, though, we’re trending towards a greater specialization around <a href="https://github.com/micahgodbolt/front-end-architecture">design/code architecture</a> and we’re seeing new workflows around that as we try to scale product and site development with larger teams and larger codebases, much like we’ve seen with other technologies.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published November 25, 2014 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1044</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">8 Comments &middot; <a href="https://snook.ca/archives/opinion/design-engineering.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70577">1</a></div>
+			<span class="authorname">Tim</span> said on November 26, 2014		</div>
+		<div class="quote"><p>Branding them as "developers" is a <i>bit</i> presumptuous in some cases and <i>extremely</i> presumptuous in others. I'd argue that the same can be said of any species of "developer" you want to examine though. I know a lot of people who think they're developers until you take Stack Overflow away from them. There's such a huge spectrum of knowledge and capability among developers, and roles they are required to fill, that trying to pigeon hole them and label them is nearly pointless. Unlike "engineers" where there are very well defined requirements for calling yourself an engineer, the software world is still operating like it's the wild west. You can call yourself whatever you want, until someone calls you out, at which point you had better know how to handle your guns.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70578">2</a></div>
+			<span class="authorname">Brian</span> said on November 26, 2014		</div>
+		<div class="quote"><p>I'm a front-end developer and designer and this is the best description I've yet read on defining this weird position. The "front-end" part of front-end development refers to the surface of the website/app, what the user sees. In order to get this right, the FE dev needs to have something of a designer's eye, especially when it's in an iterative environment or when you're playing around with untested visual ideas. It's technical, but it's visual, which is why it's hard to pin down. I'm not at all surprised companies have a hard time finding the right place for them in an org chart. I'm really curious to hear more about how it plays out at Shopify. Thanks for the post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70579">3</a></div>
+			<span class="authorname">Hayo</span> said on November 26, 2014		</div>
+		<div class="quote"><p>It used to be that the front-end bit was design implementation. Then javascript came along and blurred the lines. Not that it matters, companies in my country now only seem to look for people who can do everything flawlessly, from design to oracle databases.  I also notice this dilutes the skills of people; it is a rare moment that I see beautiful HTML in a website, the web standards times are truly over. Usually everything is a js/css/html soup because no one knows or cares enough about one aspect of the stack to make it really good.</p>
+<p>I'm all for more specialisation ( or better defined existing specialisations), the (dutch) market unfortunately is not.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70580">4</a></div>
+			<span class="authorname">Peter Kaizer</span> said on November 26, 2014		</div>
+		<div class="quote"><p>Great characterization of a really important role and one that I increasingly find myself inhabiting. I believe a while ago the NYTimes.com design team used the title Design Technologist which I have always liked.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70581">5</a></div>
+			<span class="authorname">Dirk Ginader</span> said on November 26, 2014		</div>
+		<div class="quote"><p>I referred to my self as a "Web Developer" or "Frontend Engineer" for the most time. Just last month my employer Google officially renamed my role to "UX Engineer" and I must say it has a ring to it and nicely emphasizes the 2 parts of my job I'm passionate about: The User Experience and the Engineering.<br />
+I think I like it :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70582">6</a></div>
+			<span class="authorname">Ralph Whitbeck</span> said on November 26, 2014		</div>
+		<div class="quote"><p>We called these roles "Visual Design Engineers" at my last job.  It was that cross between design and front end programmer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70584">7</a></div>
+			<span class="authorname">Tim Wright</span> said on December 01, 2014		</div>
+		<div class="quote"><p>The role of the "Front-end Developer" has been in flux since, I don't know, 2004(?). We've never REALLY known what to call the person who sits between the PSD and the server. It's hard because there's TON of UI design and UX that happens at that level. I totally agree with your description of Design Implementation (whether that's the right term for it or not).</p>
+<p>The biggest problem I've seen with this is in hiring practices. Many startups (or companies, whatever...) are looking for, "Front-end Developers" to do application-level builds and the FE devs who do more UI design end up not having a home or they're asked to do the application-level programming they really shouldn't be doing because it's assumed that, "it's all front-end code." I've seen this blurry line become pretty damaging to a company.</p>
+<p>As the person who lives in this area, I do believe that there's a big difference between the Front-end developer who comes from a design background and a front-end developer who comes from a programming background. When we label them as the same thing we do more damage than good for the people who don't quite get it.</p>
+<p>Thanks for the great write-up, I'd love to talk more about it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70636">8</a></div>
+			<span class="authorname">Stevany</span> said on January 18, 2015		</div>
+		<div class="quote"><p>Doing the front-end job taking times longer than back-end job, if you're not working with framework. Minimal, you had to work with HTML, CSS, Ajax, Java Script.<br />
+In Application Development, a tester hold an important role. All of the code needed to be tested before it present to end-user.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/opinion/design-engineering by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+</html>

@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/definition-lists-v-tables by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Definition Lists versus Tables - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/definition-lists-v-tables">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/definition-lists-v-tables">
+	<meta property="og:title" content="Definition Lists versus Tables">
+	<meta property="og:description" name="description" content="I remember a couple years ago speaking at An Event Apart and mentioning how I don't use the definition list. I may have said it a few times, to the annoyance of the audience. When pushed on why I don'...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Definition Lists versus Tables</h1>
+		<p>I remember a couple years ago speaking at An Event Apart and mentioning how I don't use the definition list. I may have said it a few times, to the annoyance of the audience. When pushed on why I don't use definition lists, I mentioned that screenreaders read out that a term is equal to a definition. Somebody tested and confirmed with me afterwards that his particular screenreader did in fact read it out in a way that would be awkward if people were to use them. (Alas, I can't remember exactly what it was that the screenreader actually announced.)</p>
+
+<p>It's been a couple years since that fateful day and the situation came up at work. A co-worker was using a definition list and I mentioned the accessibility issue. A table was better. But was it? HTML5 indicates that definition lists are now data lists and can take any name/value content. Based on the spec, my co-worker was using the definition list correctly.</p>
+
+<p>I decided to test which is better: a <code>&lt;dl&gt;</code> or <code>&lt;table&gt;</code>. In these tests, I'm using the only two screenreaders that I have available to me: VoiceOver (with Chrome 17 on Mac and Safari 5.1, both on Lion) and NVDA (Firefox 11 on Windows 7 via VMWare Fusion).</p>
+
+<p>Game on!</p>
+
+<h2>The Design</h2>
+
+<p>The design is pretty typical: properties on the left, values on the right.</p>
+
+<a href="http://www.flickr.com/photos/jonathansnook/6869313596/" title="An Example Layout by Jonathan Snook, on Flickr"><img src="https://farm7.staticflickr.com/6039/6869313596_8d55918c12_o.png" width="319" height="132" alt="An Example Layout"></a>
+
+<h2>The Definition List</h2>
+
+<p>I created a simple definition list.</p>
+
+<pre><code>&lt;dl&gt;
+    &lt;dt&gt;Property&lt;/dt&gt;
+    &lt;dd&gt;Value&lt;/dd&gt;
+    &lt;dt&gt;Name&lt;/dt&gt;
+    &lt;dd&gt;Val&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+<p>NVDA'S behaviour here is interesting in that it just reads the items without announcing that it's a list or that the terms and definitions have any relation. The content is just read in a linear fashion. </p>
+
+<p>VoiceOver is better in that it informs you that it's a list but it says it is a list with 4 items. That's not very helpful. It doesn't establish any connection between the terms and their definitions.</p>
+
+<p>Based on this alone, I'd say that the DL isn't a great idea. So, what of the table?</p>
+
+<h2>The Table</h2>
+
+<p>I created a simple table with two rows and two columns.</p>
+
+<pre><code>&lt;table&gt;
+&lt;tbody&gt;
+     &lt;tr&gt;
+         &lt;td&gt;Property&lt;/td&gt;
+         &lt;td&gt;Value&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+         &lt;td&gt;Name&lt;/td&gt;
+         &lt;td&gt;Val&lt;/td&gt;
+     &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<p>NVDA nor VoiceOver provide any insight that this is a table. Once again, the content is simply linearized. This makes sense since tables are often used for layout instead of for semantics.</p>
+
+<p>There are a few different approaches that can be used to inform the screenreader that it's a valid table and allow for a richer interaction experience.</p>
+
+<h3>Use header cells</h3>
+
+<p>Changing the keys to use a TH instead of a TD allowed the screenreaders to recognize that it was a table and navigate the table.</p>
+
+<pre><code>&lt;table&gt;
+&lt;tbody&gt;
+     &lt;tr&gt;
+         &lt;th&gt;Property&lt;/th&gt;
+         &lt;td&gt;Value&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+         &lt;th&gt;Name&lt;/th&gt;
+         &lt;td&gt;Val&lt;/td&gt;
+     &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+
+<p>Interestingly, although the table could be navigated and you'd have a sense of rows and columns, neither NVDA nor VoiceOver in Chrome would announce that a particular cell was a header cell. VoiceOver in Safari 5.1, however, would announce the value of the header cell when switching rows. "row 1 of 2 property value" with a long enough pause between the words property and value so as to be able to tell that it's describing the heading for the cell.</p>
+
+<p>For NVDA, adding a scope attribute to the header cell would allow the heading to be announced.</p>
+
+<pre><code>&lt;table&gt;
+&lt;tbody&gt;
+     &lt;tr&gt;
+         &lt;th scope=&quot;row&quot;&gt;Property&lt;/th&gt;
+         &lt;td&gt;Value&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+         &lt;th scope=&quot;row&quot;&gt;Name&lt;/th&gt;
+         &lt;td&gt;Val&lt;/td&gt;
+     &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<p>In this case, NVDA would say "property row 1 of 2 value".</p>
+
+<h3>ARIA Roles</h3>
+
+<p>The third approach I used was to specify the ARIA grid role to the table. This also required adding the row roles to each of the TRs.</p>
+
+<pre><code>&lt;table role=&quot;grid&quot;&gt;
+&lt;tbody&gt;
+     &lt;tr role=&quot;row&quot;&gt;
+         &lt;th&gt;Property&lt;/th&gt;
+         &lt;td&gt;Value&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr role=&quot;row&quot;&gt;
+         &lt;th&gt;Name&lt;/th&gt;
+         &lt;td&gt;Val&lt;/td&gt;
+     &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<p>Once again, NVDA and VoiceOver would read the cells but did not indicate any association between the header cell and the content cell. There are additional roles that can be applied on the cell&mdash;<code>role="gridcell"</code> and <code>role="rowheader"</code>&mdash;but neither provided any additional clarity to the screenreader.</p>
+
+<h3>Caption</h3>
+
+<p>The last technique to inform the screenreaders that the table was a table was to apply a caption to the table.</p>
+
+<pre><code>&lt;table&gt;
+    &lt;caption&gt;Caption&lt;/caption&gt;
+&lt;tbody&gt;
+     &lt;tr&gt;
+         &lt;td&gt;Property&lt;/td&gt;
+         &lt;td&gt;Value&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+         &lt;td&gt;Name&lt;/td&gt;
+         &lt;td&gt;Val&lt;/td&gt;
+     &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<p>What I noticed was that the caption could be hidden using display:none and the table would still be navigable in VoiceOver. Unfortunately, with NVDA, setting the caption to display:none (or even just position:absolute) seems to render the table like a layout table. That's not good.</p>
+
+<h2>Other Options</h2>
+
+<p>In testing other options, the only other alternative that I could find that seemed particular relevant was to identify the heading. This could be done in one of two ways: use a heading tag or use a heading aria role.</p>
+
+<p>With the heading tag, the heading level is announced. </p>
+
+<p>With the heading ARIA role, it'll announce "heading level 0" in VoiceOver but just "heading" in NVDA. The document outline should be smart enough to figure out that the ARIA heading. However, in neither Safari nor Chrome was it able to automatically figure it out. Specifying an aria-level attribute should help clarify things. Unfortunately, while Safari recognized this attribute, Chrome didn't. Finally, NVDA recognized and read out "heading level 2" correctly.</p>
+
+<h2>Recommendation</h2>
+
+<p>Of all the options, I'd use one of two approaches:</p>
+
+<ol>
+<li>Use a table with scope attributes on header cells; or</li>
+<li>Use an ordered or unordered list (but not a definition list) with headings (tags or ARIA)</li>
+</ol>
+
+<p>I like the way that lists are announced and would therefore lean in that direction. Tables offer a lot of features but for a simple list of name/value pairs, a table feels like too much. Here is how I would code up the example:</p>
+
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;&lt;h3&gt;Property&lt;/h3&gt;
+        &lt;div&gt;Value&lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;h3&gt;Name&lt;/h3&gt;
+        &lt;div&gt;Val&lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Headings get floated to the left, divs get floated to the right, and list items clear floats. (Of course, use the proper heading level that is appropriate for your document.)</p>
+
+<p>This was an interesting process to explore and I definitely have changed the way I would approach this in the future. Those with insights about other screenreaders are welcome to chime in.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published March 25, 2012 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1015</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">38 Comments &middot; <a href="https://snook.ca/archives/html_and_css/definition-lists-v-tables.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68945">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68945">1</a></div>
+			<span class="authorname">Harri H</span> said on March 25, 2012		</div>
+		<div class="quote"><p>Nice post, thanks for sharing. But uh-oh, I guess this is a good example how creating semantic and logical markup doesn't necessarily guarantee much what comes to accessibility and screen readers. Shame.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68946">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68946">2</a></div>
+			<span class="authorname">Damon Muma</span> said on March 25, 2012		</div>
+		<div class="quote"><p>Fantastic! I would be so happy to see more of this sort of stuff studied. It's very easy to talk about semantics and best practice in a theoretical way without really field-testing anything.. especially since it's very difficult to field test screen readers (and also to know what the experience is like for non-sighted users!) Thanks for looking into this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68947">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68947">3</a></div>
+			<span class="authorname">George Zamfir</span> said on March 25, 2012		</div>
+		<div class="quote"><p>I think you've reached the right conclusion. I've been in your shoes fairly recently where I had to choose between tables and lists (ul or ol), I dismissed definition lists pretty early as well.</p>
+<p>My dilemma was similar to yours in that the data (which fit in a 2-by-x table, with x &lt; 10) being tabular I should've used a table but it was simple enough that it made more sense with (un)ordered lists. And the determining factor for me as well was that lists are correctly announced by screen readers (SR) across the board.</p>
+<p><b>The <code>&lt;table&gt;</code> solution</b></p>
+<p>However, those who have to use tables even for such simple content (because of framework limitations, etc.) should know that it's OK if the SR doesn't announce each cell header(s) as the user moves from one to another, it would be rather annoying especially for large tables to hear the headers for every cell. What SR users do is use their table-specific keystrokes to "read" the corresponding headers when they need to. Of course, in order for them to do that, they need the table to be marked-up with appropriate <code>&lt;th&gt;</code> and <code>scope=</code> attributes as you correctly identified.</p>
+<p>On top of your table solution, one thing I would do differently, especially if you have multiple info areas (Support &amp; Sales, Media, Shipping, etc.) which is usually the case, is to include the heading in the table. What this does is provide more context to each "Phone" / "Email" / "Website". </p>
+<pre><code>
+&lt;table&gt;
+   &lt;tr colspan="2"&gt;
+      &lt;th scope="col"&gt;Support &amp; Sales&lt;/th&gt;
+</code></pre>
+<p>Also, I'd be curious to know why you've tested with <code>&lt;caption&gt;</code> and not table <code>&lt;summary&gt;</code>.</p>
+<p>I think that the great take-away is that one must use <code>&lt;th&gt;</code> and <code>scope=</code> where appropriate and not &lt;td&gt; everything, it makes more semantic sense and of course it's more accessible.</p>
+<p>All in all a great post and the thought process is very insightful.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68948">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68948">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 25, 2012		</div>
+		<div class="quote"><p>@George: Thank you for the in-depth response. As to the caption vs summary, I didn't think of it. Maybe I'll retest that when I get a chance. (And I assume you meant the summary attribute. I wasn't aware of a summary tag.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68949">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68949">5</a></div>
+			<span class="authorname">Eric Eggert</span> said on March 26, 2012		</div>
+		<div class="quote"><p>Hi Jonathan,</p>
+<p>Thanks for the article, just a quick note: Chome isn't the best choice as the browser itself is largely inaccessible. The browser decides what he gives to the Accessibility API, and that's where chrome fails with th elements, it seems. Browsers have an algorithm that decides if a table is for layout or content purposes. A scope is a strong pointer that there isn't a layout table. </p>
+<p>Most screen reader users I've talked to prefer linearisation on simple data tables, so I wouldn't mess with it. (And I'd use an ul li with spans for that example anyway ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68951">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68951">6</a></div>
+			<span class="authorname">Anders</span> said on March 26, 2012		</div>
+		<div class="quote"><p>So are you saying we shouldn't be using definition lists at all?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68952">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68952">7</a></div>
+			<span class="authorname">Tim Wright</span> said on March 26, 2012		</div>
+		<div class="quote"><p>Excellent post. Just out of curiosity, is there any particular reason you went with a DIV in the last example over maybe a paragraph? (I realize the example value is a single word).</p>
+<p>Thanks for the write-up, I'm always interested in reading accessibility studies as it's something we tend to take for granted.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68953">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68953">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 26, 2012		</div>
+		<div class="quote"><p>@Anders: I'd say that the only time they should be used is for actual definitions but done in such a way that the term and definitions are obviously separated. I don't like the way screenreaders treat them, in any case.</p>
+<p>@Tim Wright: I used a DIV because it's innocuous and with such a small phrase, a P seems heavy handed; I'd have to strip it of margin/padding anyways.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68956">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68956">9</a></div>
+			<span class="authorname">Holly Doggett</span> said on March 26, 2012		</div>
+		<div class="quote"><p>I was surprised to see an H3 and a div inside of an LI. Does that validate?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68957">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68957">10</a></div>
+			<span class="authorname">Lars Gunther</span> said on March 26, 2012		</div>
+		<div class="quote"><p>Hmmm....</p>
+<p>First of all, if there is no scope="row" the th is not supposed to be a row header at all. So that was no surprise.</p>
+<p>Second thought: <a href="http://asurkov.blogspot.se/2011/10/data-vs-layout-table.html">How Firefox calculates if it's a layout table or data table</a>. </p>
+<p>Third thought: You're testing on a Mac? Accessibility in Firefox really shines on Windows and Linux. Thus we need lots of more tests before anything conclusive can be said.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68958">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68958">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 26, 2012		</div>
+		<div class="quote"><p>@Lars Gunther: That Firefox link is fantastic. Thank you very much for that. </p>
+<p>As to your thought regarding testing, I tested on a Mac <em>and</em> on Windows. Specifically, using NVDA with Firefox. More testing is welcome but this is the extent of which I can test. (I'd love to get my hands on JAWS but it's expensive.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68959">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68959">12</a></div>
+			<span class="authorname">Thierry Koblentz</span> said on March 26, 2012		</div>
+		<div class="quote"><p>Hi Jonathan,</p>
+<p>For what it worth I don't agree with this approach.<br />
+I believe if the support for DL is that bad, it is because (screen-reader) vendors didn't see the need to support this element since it is not much used in the wild.</p>
+<p>Choosing to ignore this semantically rich element for a11y reasons should do nothing more than reducing the chances to see SR vendors take this issue into consideration.</p>
+<p>Of course, the other problem is that many authors have a hard time styling Definition Lists - which does not help.</p>
+<p>So I'll finish with a shameless plug <a href="http://www.css-101.org/articles/glossary-and-table-format/definition-list.php">Definition Lists, Glossary and Table format</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68962">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68962">13</a></div>
+			<span class="authorname">Maxim</span> said on March 26, 2012		</div>
+		<div class="quote"><p>Great post. However, I can not agree more with Thierry Koblentz.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68963">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68963">14</a></div>
+			<span class="authorname">Andy Hawkes</span> said on March 27, 2012		</div>
+		<div class="quote"><p>The one thing I have always hated about the definition / description list is the lack of an enclosing &lt;li&gt; element around individual term / data groups - you can have multiple data items per term but there are limited means of semantically grouping/separating them in a way that would also work visually when you have a theoretically many-to-many relationship between &lt;dt&gt; and &lt;dd&gt; elements.</p>
+<p>For me it's one of those rare elements that has a theoretical semantic meaning and <em>could</em> be used appropriately but is generally more hassle than it's worth in the real world.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68969">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68969">15</a></div>
+			<span class="authorname">Lee Kowalkowski</span> said on March 29, 2012		</div>
+		<div class="quote"><p>I agree with Thierry too.  You said: "Based on this alone, I'd say that the DL isn't a great idea.", that struck me as odd, because my conclusion was that it was the screen readers that did a shamefully poor job, all the required semantics are there.</p>
+<p>It also appears TABLE and UL didn't work well in the screen reader before applying additional effort, yet there's no mention of any such effort being spent to help DL work better, e.g. using ARIA.  If DL is semantically appropriate, then use it.  Assistive technology will catch up eventually.</p>
+<p>There's nothing wrong with a two-column table if you have a 1 to 1 relationship, the decision between DL or TABLE is truly optional in that instance.  But DL also supports 1 to many, many to 1 and many to many, trying to achieve that with a TABLE is not as clean/terse.</p>
+<p>I found the UL LI Hn structure awkward too, and not a good substitute for when it's not a simple 1 to 1 relationship.  I'm not sure screen reader users would be comfortable hearing a list of something and having headings announced within it, sounds kinda noisy.</p>
+<p>Ideally, there should never be the advice "do not [properly] use a construct because its support in a particular technology is poor", that should be a reason for not choosing the technology, think IE6.  Although NVDA is actively developed, so it just needs raising with them (if your findings are still true when using the latest version).</p>
+<p>http://webaim.org/discussion/mail_thread?thread=3463#post12 Says JAWS announces and supports user-navigation through a definition list, so does Windows Eyes. (2008)</p>
+<p>http://www.nomensa.com/blog/2011/using-html-lists/ describes the behaviour of definition lists in screen readers.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68973">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68973">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 30, 2012		</div>
+		<div class="quote"><p>@Lee Kowalkowski: Of note, I did look at what ARIA roles could be applied to the definition list that would allow the screenreader to better understand the list. </p>
+<p>The problem with "assistive technology will catch up" is that for people who need screenreaders, there isn't a lot of options. And it's not that I'm recommending no semantics or a lesser experience. I'm recommending descriptive and semantic HTML elements that also allow screenreaders to navigate the content in a way that, I think, makes sense and do so rather consistently across screenreaders.</p>
+<p>For example, I don't use HTML5 elements on which I have to rely on styling unless i can guarantee JavaScript support. Yes, user agents can and are catching up but I want to be as inclusive as possible whenever possible. Why should I destroy the experience for a subset of users just for code purism? And why does code purism only stand at the HTML? Why not the CSS or the JavaScript? /this last paragraph was also in response to Thierry.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68975">17</a></div>
+			<span class="authorname">Lee Kowalkowski</span> said on March 31, 2012		</div>
+		<div class="quote"><p>Thanks Jonathan, but I'm not sure your perception of screen reader support is up to date enough to justify not using definition list.  </p>
+<p>Looking at <a href="http://webaim.org/projects/screenreadersurvey3/">Surveys of screen reader users</a>, most users are using JAWS and WindowsEyes, and definition list work fine in them (and NVDA in Internet Explorer).  </p>
+<p>The respondents over time have growing faith in free/default screen readers, but most are still using the commercial heavyweights.</p>
+<p><a href="http://www.nvda-project.org/ticket/263">An NVDA ticket</a> reports this issue as fixed and specific to how Firefox exposes the elements (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=532338">Firefox bug</a>).</p>
+<p>For new technologies (HTML5/CSS3) I also prefer to hang fire and wait for the native support before using them on the internet for crucial applications, just to be inclusive.</p>
+<p>If it's between being purist of code and purist of what devices I support, then yes I suppose I'm choosing to be a purist of something over which I have control.  Besides, there are some really awful devices out there. </p>
+<p>The exclusion of specific devices is not deliberate, I have no control what device is used.  It's the device that is excluding the user, not me, so we should not be making scapegoats out of other things.  </p>
+<p>Definition list is not new, and screen readers really ought to support them properly (and apparently, most of them do nowadays, <a href="http://accsupported.trace.wisc.edu/use-summary.php?use_id=56">some results even say VoiceOver does</a>).  </p>
+<p>If you're still really concerned about the unsupported devices, you can always create a runtime shim (I dunno, stick a &lt;dfn&gt; element inside your &lt;dd&gt; or something).  That seems to be the approach of choice for unsupported HTML5/CSS3 just lately.</p>
+<p>I didn't really follow the "why not also CSS or JavaScript?" part.  Did somebody say they shouldn't be included?  Don't we like everything to be as pure as possible?  We like to be inclusive in what we like to be pure, I'd like to think.  I'd like the screen readers to be pure also.  If you make your HTML impure in response to an impure screen reader, that's pollution, and I'm starting to write really weird things now so...</p>
+<p>In a nutshell, I think support is adequate to go ahead and use the definition list without criticism.  The inadequate screen readers must catch up if they really still haven't.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68977">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68977">18</a></div>
+			<span class="authorname">Reinier Kaper</span> said on April 03, 2012		</div>
+		<div class="quote"><p>Honestly I don't think semantics should be adapted to the capacity of screen readers, but the other way around.</p>
+<p>If you have data that "should" go into a table (tabular data) or in a list (typically a (linear) list of items), then I think it's a good idea to keep it that way.</p>
+<p>You should not try to compensate for the (in)ability of screen-readers to making a (logical) connection between elements, it's what got us in this "mess" in the first place.</p>
+<p>Also, it might be worth testing with Jaws as it's a highly popular screen-reader (but as far as I know it doesn't work in virtual environments).</p>
+<p>Just my 2 cents of course ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68978">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68978">19</a></div>
+			<span class="authorname">Reinier Kaper</span> said on April 03, 2012		</div>
+		<div class="quote"><p>I forgot to add that it's an interesting read of course and it displays the gap there still is between structured data and the way it's presented (in a medium independent way).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68986">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68986">20</a></div>
+			<span class="authorname">Matthew James Taylor</span> said on April 07, 2012		</div>
+		<div class="quote"><p>I think its a shame to use a table when a definition list is clearly more semantically correct. Screen readers need to follow standards just like browsers otherwise we're all wasting our time. We should be coding to standards, not to the quirks of particular browser's (or screen readers).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68991">21</a></div>
+			<span class="authorname">Frederico Cerdeira</span> said on April 07, 2012		</div>
+		<div class="quote"><p>Hi. Im agree with with Matthew. DL represents more semantic content than tables. SR should follow closely the web standards. The standards should be the only design way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68992">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68992">22</a></div>
+			<span class="authorname">Vlad</span> said on April 07, 2012		</div>
+		<div class="quote"><p>Disagree with previous reviewers. The job of the designer is not to design "to spec". his job is to think of the user and do what works. If screen readers are at fault, they need to be encouraged to do better. In the mean time, if the "correct" approach does not give the user what they need, then it's not the right approach.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68995">23</a></div>
+			<span class="authorname">alexmarkup</span> said on April 09, 2012		</div>
+		<div class="quote"><p>Ok, but what about Jaws screenreader, the most used by the organisations that install that kind of soft ?</p>
+</div>
+	</div>
+		<div class="comment" id="c68996">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68996">24</a></div>
+			<span class="authorname">alexmarkup</span> said on April 09, 2012		</div>
+		<div class="quote"><p>Ok Sorry, id just read above.... DL works fine in JAWS. I think that all accessibility testing should be done with Jaws software</p>
+<p>Look at this doc. Its in french but a wcag 2.0 very well explained.</p>
+</div>
+	</div>
+		<div class="comment" id="c68997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68997">25</a></div>
+			<span class="authorname">alexmarkup</span> said on April 09, 2012		</div>
+		<div class="quote"><p>http://certif.accessibiliteweb.com/accueil/base-de-connaissances/
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69001">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69001">26</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 10, 2012		</div>
+		<div class="quote"><p>JAWS is hard to test for on a Mac but it does, indeed seem to have the best support for navigating definition lists. However, JAWSâ€”based on the survey linked earlierâ€”only has a 60% share and I suspect that number is in decline with free alternatives (like NVDA and VoiceOver) appearing on the market. "Most notable is a significant decline in primary usage of JAWS" and this was back in 2010. </p>
+<p>Is there a reason why you'd knowingly make the experience worse for potentially 40%+ of your audience? And for what? A generic list or a table is still completely relevant in describing the content. I'm not describing a bastardization of semantics... just alternatives. In fact, the definition list seems the least relevant as we're not defining terms. An address doesn't define "email", it's a value of. (But yes, HTML5 does change this to make it more generic and relevant.)</p>
+<p>Now if you'll excuse me, I'm going back to designing IE-only sites.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69002">27</a></div>
+			<span class="authorname">Reinier Kaper</span> said on April 10, 2012		</div>
+		<div class="quote"><p>The black/white view would be between 100% semantics (if there's such a thing) and 100% user experience (if there's such a thing).</p>
+<p>I tend to lean more toward semantics, because I honestly believe if most people follow standards and best practices, browsers HAVE to keep up. The days of IE only are over and it has become clear that people want browsers that actually behave predictably.</p>
+<p>Text-readers are always the odd one out because most people don't care about them and/or don't test them (or don't have the means to). Mainly because this group is relatively small as well.</p>
+<p>I'm of the opinion that if a text reader can't sufficiently "connect the semantic dots", then that's something they should change, not me. Should I go the extra mile to try and make their experience best as I can? Possibly, but I won't give in to bad practice for that.</p>
+<p>I guess it simply boils down to what you think is more important in this case ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69021">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69021">28</a></div>
+			<span class="authorname">fjpoblam</span> said on May 08, 2012		</div>
+		<div class="quote"><p>I can *somewhat* see your reasoning, in a generic way, as applied to a non-descript reading of the words "property value". However, if the selfcheck machine at my grocery store reads to me, "phone, 800-555-1212, email, myname@mydomain.com" I have no problem understanding the associations. It may well be that these were formatted as a dl, and it may well be that they were formatted as a table. But I had no problem understanding them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69022">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69022">29</a></div>
+			<span class="authorname">Niels Matthijs</span> said on May 08, 2012		</div>
+		<div class="quote"><p>An nice way of looking at it. I would use a simple list or even div structure myself. It's not really a table (one could try to argue that it's a one-col table but since multiple columns wouldn't make sense in this situation a table just doesn't feel right). Definition lists are cool, especially if you take the html5 definition, but the fact that they miss a list item wrapper just plain sucks.</p>
+<p>Oh, and one thing ... screenreaders should get their act together. We got browsers to shift gears, screenreaders should definitely follow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69023">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69023">30</a></div>
+			<span class="authorname">Niels Matthijs</span> said on May 08, 2012		</div>
+		<div class="quote"><p>Oh, and one more thing: why use a float:left/float:right construction when float:left/margin-left is way more stable?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69025">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69025">31</a></div>
+			<span class="authorname">Christian Mueller</span> said on May 09, 2012		</div>
+		<div class="quote"><p>Did you try any aria roles on a DL and see how that performs?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69028">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69028">32</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 10, 2012		</div>
+		<div class="quote"><p>@Niels: the float:left/right with a clear float seems like the most appropriate approach. I'm not sure in what way it would be considered unstable.</p>
+<p>@Christian: I looked at ARIA roles and didn't see any that would be appropriate for this situation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69043">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69043">33</a></div>
+			<span class="authorname">Reinier Kaper</span> said on May 15, 2012		</div>
+		<div class="quote"><p>Recently I have found a way that seems to perform nicely (albeit not thoroughly tested for screen readers), with the help of a slightly "unsemantic" helper-class in HTML% boilerplate.</p>
+<p>I would style this element as an unordered list (after all, it's a lit of information), where I would use the following structure:</p>
+<pre><code>&lt;ul&gt;
+ &lt;li&gt;Phone: 613-000-1111&lt;/li&gt;
+ &lt;li&gt;E-mail: me@somewhere.com&lt;/li&gt;
+ &lt;li&gt;Website: www.mysite.com&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Now the nice part comes in at the colons, which I wrap in a span with the 'visuallyhidden' class. What this does it hides it from visual browsers, but it will still be present for screen readers and it makes a lot of sense.</p>
+<p>I also use this for headings that have sub-headings, which semantically are part of the actual heading (example "Annual report: 2012 a year in review", where I put the colon in a span and hide it from view and wrap the sub-heading in a span or div (depending on block/inline)).</p>
+<p>What do you think about something like that?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69046">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69046">34</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 16, 2012		</div>
+		<div class="quote"><p>@Reinier: I think that it's a potentially valid option. As long as it is descriptive and makes sense when read aloud, go for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69058">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69058">35</a></div>
+			<span class="authorname">Alex O'Neal</span> said on May 25, 2012		</div>
+		<div class="quote"><p>You know, I was in the anti-definition list camp myself for years, but never took the time to methodically test things out like this. Excellent and insightful - thanks for sharing :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69562">36</a></div>
+			<span class="authorname">Darrel Austin</span> said on November 05, 2012		</div>
+		<div class="quote"><p>First, a complete aside, but it's nice to see blog discussions like this still take place. Twitter and Facebook have distracted us from meaty (albeit niche) discussions like this. :)</p>
+<p>I stumbled upon this conversation googling this very question myself. I have a small-ish table of less than 10 rows of simple label/value pairs. A table was the go-to choice but the markup seemed excessive for such a small table.</p>
+<p>So DL made the next-best sense. Glad to hear JAWS supports it, though I too disagree that a) we should pander to JAWS or b) pander to screen readers in general that don't support proper markup to begin with.</p>
+<p>One thought I had was to stick with DL, but add a dividing character of some sort, such as a colon.</p>
+<p>Visually I can justify it, but can't say if the colon offers any benefit to screen readers (or worse, if it hampers comprehension).</p>
+<p>Since I'm working on an iOS app at the moment, I though I'd run some options through iOS's VoiceOver.</p>
+<p>I made two sets of DLs (one with a colon separator, and one without) and two tables (one with THs and one without):</p>
+<p>http://jsbin.com/operid/2/edit</p>
+<p>The verdict? At least with VoiceOver, those are all read exactly the same. VoiceOver ignores the colon (which probably makes sense) and also does nothing special for the TH.</p>
+<p>And, in the end, I think that's probably OK. Again, these are simple lists of label/value pairs and having them read linearly perhaps isn't so bad.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70152">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70152">37</a></div>
+			<span class="authorname">Wayne Fuller</span> said on March 08, 2013		</div>
+		<div class="quote"><p>Jonathan;<br />
+Nice article, well written.</p>
+<p>Just one thing:  Am currently taking an HTML course at a local CC.  The instructor has indicated (and this is not the first time I have heard this) that TABLES is one of the many tags that will be going away.</p>
+<p>Wayne
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70153">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70153">38</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 08, 2013		</div>
+		<div class="quote"><p>Wayne, tables will not ever go away. Using them for <em>layout only</em> already mostly has (gone away).
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/definition-lists-v-tables by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:51 GMT -->
+</html>

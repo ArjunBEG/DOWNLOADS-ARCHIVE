@@ -1,0 +1,3686 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:03:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Posts</title>
+	<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Snook.ca - Life and Times of a Web Developer">
+ <link href="https://micro.blog/snookca" rel="me">
+		<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="../posts/index.rss"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('../css/MuseoSans_500-webfont.html') format('woff2'), url('../css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('../css/playfair.html') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(../img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(../img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(../img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(../img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(../img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(../img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(../img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(../img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(../img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(../img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(../img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(../img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(../img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(../img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(../img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(../img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(../img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(../img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(../img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(../img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(../img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(../img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="../css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="../index.html">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="../about/index.html">About</a> &middot;  <a href="../contact/index.html">Contact</a> &middot; <a href="index.html">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		
+<style>
+	#main .article { background:none; }
+	.article div { overflow:hidden; }
+	.dt { float:right; }
+	.article a { display:block; text-decoration:none; font-size:90%; float:left; }
+	.article div:hover { background:url(../img/line.png) no-repeat 40% 80%;}
+</style>
+<div class="article inside">
+<h1>Archives</h1>
+
+<h2>2021</h2>	
+<div>
+	<a href="personal/waited.html">Waited</a>	<div class="dt">21 Apr 2021</div>
+</div>
+	
+<div>
+	<a href="personal/wait.html">Wait</a>	<div class="dt">15 Apr 2021</div>
+</div>
+<h2>2020</h2>	
+<div>
+	<a href="personal/uncanny.html">Uncanny</a>	<div class="dt">02 Aug 2020</div>
+</div>
+	
+<div>
+	<a href="other/thats-pretty-clever.html">That’s Pretty Clever</a>	<div class="dt">25 Jul 2020</div>
+</div>
+	
+<div>
+	<a href="rss/reply-via-email.html">Reply via Email</a>	<div class="dt">20 Jul 2020</div>
+</div>
+	
+<div>
+	<a href="design/an-exploration-of-flavour.html">An Exploration of Flavour</a>	<div class="dt">26 Jun 2020</div>
+</div>
+	
+<div>
+	<a href="html_and_css/overlapping-header-with-css-grid.html">Overlapping Header with CSS Grid</a>	<div class="dt">18 May 2020</div>
+</div>
+	
+<div>
+	<a href="conferences/fancy-zoom-calls.html">Fancy Zoom Calls</a>	<div class="dt">05 May 2020</div>
+</div>
+	
+<div>
+	<a href="html_and_css/button-button-link.html">A .Button is a Button is a Link</a>	<div class="dt">05 May 2020</div>
+</div>
+	
+<div>
+	<a href="food/kjolle.html">Kjolle</a>	<div class="dt">28 Apr 2020</div>
+</div>
+	
+<div>
+	<a href="html_and_css/playing-with-css-grid.html">Playing with CSS Grid</a>	<div class="dt">06 Feb 2020</div>
+</div>
+	
+<div>
+	<a href="other/consuming-to-produce.html">Consuming to Produce</a>	<div class="dt">14 Jan 2020</div>
+</div>
+	
+<div>
+	<a href="personal/travelling-man.html">Travelling Man</a>	<div class="dt">04 Jan 2020</div>
+</div>
+<h2>2019</h2>	
+<div>
+	<a href="food/year-of-restaurants.html">A Year of Restaurants</a>	<div class="dt">26 Dec 2019</div>
+</div>
+	
+<div>
+	<a href="html_and_css/leggo-my-analogy.html">Leggo My Pattern Library Analogy</a>	<div class="dt">07 Jul 2019</div>
+</div>
+	
+<div>
+	<a href="javascript/difficulty-with-react.html">Why Did I Have Difficulty Learning React?</a>	<div class="dt">01 Jul 2019</div>
+</div>
+	
+<div>
+	<a href="html_and_css/understanding-the-flexbox-albatross.html">Understanding the Albatross</a>	<div class="dt">14 Jan 2019</div>
+</div>
+	
+<div>
+	<a href="other/coming-home.html">Coming Home</a>	<div class="dt">11 Jan 2019</div>
+</div>
+	
+<div>
+	<a href="servers/deploying-11ty-to-gh-pages.html">Deploying an 11ty Site to GitHub Pages</a>	<div class="dt">06 Jan 2019</div>
+</div>
+<h2>2018</h2>	
+<div>
+	<a href="food/le-pigeon-portland.html">Le Pigeon</a>	<div class="dt">23 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="food/50-50-2018.html">50 by 50 for 2018</a>	<div class="dt">13 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="food/pujol.html">Pujol</a>	<div class="dt">13 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="food/quintonil.html">Quintonil</a>	<div class="dt">11 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="food/relae.html">Relae</a>	<div class="dt">11 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="food/geranium.html">Geranium</a>	<div class="dt">11 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="personal/lost-in-a-moment.html">Lost in a Moment</a>	<div class="dt">10 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="personal/go_abstract.html">Go Abstract</a>	<div class="dt">03 Dec 2018</div>
+</div>
+	
+<div>
+	<a href="personal/uneasy.html">Uneasy</a>	<div class="dt">16 Nov 2018</div>
+</div>
+	
+<div>
+	<a href="design/codification-of-design.html">The Codification of Design</a>	<div class="dt">28 Sep 2018</div>
+</div>
+	
+<div>
+	<a href="food/little-bird-portland.html">Little Bird, Portland</a>	<div class="dt">13 Sep 2018</div>
+</div>
+	
+<div>
+	<a href="food/petit-trois-la.html">Petit Trois</a>	<div class="dt">01 Sep 2018</div>
+</div>
+	
+<div>
+	<a href="food/majordomo-la.html">Majordomo</a>	<div class="dt">28 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/mastro-steakhouse-la.html">Mastro Steakhouse</a>	<div class="dt">27 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/felix-la.html">Felix Trattoria</a>	<div class="dt">26 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/alinea.html">Alinea</a>	<div class="dt">24 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/nyc-food-adventures.html">New York Food Adventures</a>	<div class="dt">24 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/rating-restaurants.html">Rating Restaurants</a>	<div class="dt">24 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="food/fifty-before-fifty.html">50 Before 50</a>	<div class="dt">24 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="javascript/normalize-bootstrap-carousel-heights.html">Normalize Bootstrap Carousel Item Heights</a>	<div class="dt">02 Aug 2018</div>
+</div>
+	
+<div>
+	<a href="photography/photo-nypl.html">New York Public Library</a>	<div class="dt">20 Jul 2018</div>
+</div>
+	
+<div>
+	<a href="html_and_css/icon-wrap-after-text.html">Preventing Icon Wrap After Text</a>	<div class="dt">12 Jul 2018</div>
+</div>
+	
+<div>
+	<a href="opinion/view-source.html">View Source</a>	<div class="dt">08 Jul 2018</div>
+</div>
+	
+<div>
+	<a href="design/prototypes-steve-jobs.html">Steve Jobs on Prototypes</a>	<div class="dt">02 Jul 2018</div>
+</div>
+	
+<div>
+	<a href="html_and_css/cjk-font-stack-notes.html">Notes on Font Stacks for CJK</a>	<div class="dt">02 Jul 2018</div>
+</div>
+	
+<div>
+	<a href="personal/that-time-la.html">That Time I Tried to Get to LA</a>	<div class="dt">27 May 2018</div>
+</div>
+	
+<div>
+	<a href="photography/streets-of-sf.html">Streets of San Francisco</a>	<div class="dt">30 Apr 2018</div>
+</div>
+	
+<div>
+	<a href="html_and_css/animating-progress.html">Animating Progress</a>	<div class="dt">23 Apr 2018</div>
+</div>
+	
+<div>
+	<a href="personal/five-michelin-starred-restaurants.html">That Time I Ate at Five Michelin-starred Restaurants in a Week</a>	<div class="dt">21 Apr 2018</div>
+</div>
+	
+<div>
+	<a href="food/five-michelin-starred-restaurants.html">That Time I Ate at Five Michelin-starred Restaurants in a Week</a>	<div class="dt">21 Apr 2018</div>
+</div>
+	
+<div>
+	<a href="photography/budapest-in-spring.html">Budapest in Spring</a>	<div class="dt">26 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="personal/rattled.html">Rattled</a>	<div class="dt">22 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="personal/one-change-changes-everything.html">One Change Changes Everything</a>	<div class="dt">18 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="photography/stairs.html">Stairs</a>	<div class="dt">14 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="html_and_css/safari-display-contents-bug.html">Safari display:contents bug</a>	<div class="dt">10 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="html_and_css/open-graph-and-sharing-tags.html">The Open Graph and Sharing Tags</a>	<div class="dt">09 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="personal/not-so-reflective.html">Not So Reflective</a>	<div class="dt">09 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="photography/lone-house.html">Lone House on the Hill</a>	<div class="dt">09 Jan 2018</div>
+</div>
+	
+<div>
+	<a href="photography/hemingway-office.html">Hemingway&#039;s Office</a>	<div class="dt">08 Jan 2018</div>
+</div>
+<h2>2017</h2>	
+<div>
+	<a href="opinion/curation.html">Curation</a>	<div class="dt">13 Dec 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/calendar-css-grid.html">Calendar with CSS Grid</a>	<div class="dt">08 Dec 2017</div>
+</div>
+	
+<div>
+	<a href="conferences/quiet-time.html">Quiet Time</a>	<div class="dt">22 Nov 2017</div>
+</div>
+	
+<div>
+	<a href="home_automation/smart-home.html">Smart Home</a>	<div class="dt">30 Aug 2017</div>
+</div>
+	
+<div>
+	<a href="other/photos-lightroom-mobile.html">Photo Editing Workflow With Lightroom and Lightroom Mobile</a>	<div class="dt">05 Jun 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/container-grids.html">Container Grids</a>	<div class="dt">24 Apr 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/template-technology-agnosticism.html">Template Technology Agnosticism</a>	<div class="dt">18 Apr 2017</div>
+</div>
+	
+<div>
+	<a href="other/matias-wireless-keyboard.html">Matias Wireless Keyboard</a>	<div class="dt">20 Mar 2017</div>
+</div>
+	
+<div>
+	<a href="personal/attempting-deeper-work.html">Attempting Deeper Work</a>	<div class="dt">18 Mar 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css-concerns.html">CSS Concerns</a>	<div class="dt">03 Mar 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/coding-css-for-context.html">Coding CSS for Context</a>	<div class="dt">10 Feb 2017</div>
+</div>
+	
+<div>
+	<a href="html_and_css/mixed-content-responsive-images.html">Mixed Content and Responsive Images</a>	<div class="dt">24 Jan 2017</div>
+</div>
+<h2>2016</h2>	
+<div>
+	<a href="other/on-platform-independence.html">On Platform Independence</a>	<div class="dt">08 Nov 2016</div>
+</div>
+	
+<div>
+	<a href="other/running-into-windows.html">Running into Windows</a>	<div class="dt">03 Oct 2016</div>
+</div>
+	
+<div>
+	<a href="other/how-do-i-learn.html">How do I learn?</a>	<div class="dt">22 Sep 2016</div>
+</div>
+	
+<div>
+	<a href="other/physical-web-beacons.html">Physical Web Beacons</a>	<div class="dt">15 Sep 2016</div>
+</div>
+	
+<div>
+	<a href="other/working-remotely.html">Working Remotely</a>	<div class="dt">03 Aug 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/will-web-components-change-css.html">How Will Web Components Change CSS Architecture?</a>	<div class="dt">11 Jul 2016</div>
+</div>
+	
+<div>
+	<a href="other/lunch-and-learn.html">Lunch and Learn</a>	<div class="dt">30 Jun 2016</div>
+</div>
+	
+<div>
+	<a href="other/bad-manager.html">Bad Manager</a>	<div class="dt">29 Jun 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/avoid-overstyling-base-styles.html">Avoid Overstyling Base Styles</a>	<div class="dt">06 Jun 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/semantic-css.html">Semantic CSS</a>	<div class="dt">26 May 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/component-design.html">Considerations in Component Design</a>	<div class="dt">24 May 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/dealing-with-cascade-specificity.html">Dealing with the Cascade and Specificity</a>	<div class="dt">23 May 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/all-or-nothing.html">All or Nothing</a>	<div class="dt">18 May 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/more-meaningful-css.html">More Meaningful CSS</a>	<div class="dt">17 May 2016</div>
+</div>
+	
+<div>
+	<a href="personal/whats-next.html">What’s Next?</a>	<div class="dt">27 Apr 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/educating-users-in-app.html">Educating Users In App</a>	<div class="dt">19 Apr 2016</div>
+</div>
+	
+<div>
+	<a href="opinion/make-the-right-things-easy.html">Make the right things easy</a>	<div class="dt">07 Apr 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/are-you-single.html">Are you Single?</a>	<div class="dt">05 Apr 2016</div>
+</div>
+	
+<div>
+	<a href="conferences/like-driving-a-car.html">Like driving a car</a>	<div class="dt">31 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="opinion/staffing-design-systems-team.html">Staffing a Design Systems Team</a>	<div class="dt">22 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="opinion/much-ado-about-twitter.html">Much ado about Twitter</a>	<div class="dt">18 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="opinion/value-truly-rwd.html">Why I Value Truly Responsive Web Design</a>	<div class="dt">18 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="personal/aligning-values.html">Aligning Your Values</a>	<div class="dt">17 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="personal/japanese-kitkats.html">The Great Japanese KitKat Taste Test</a>	<div class="dt">17 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/will-change.html">Will Change</a>	<div class="dt">15 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/ugc-in-a-classy-world.html">User Generated Content in a Classy World</a>	<div class="dt">06 Mar 2016</div>
+</div>
+	
+<div>
+	<a href="personal/reinvention.html">Reinvention</a>	<div class="dt">24 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="javascript/css-in-javascript.html">You got your CSS in my JavaScript</a>	<div class="dt">21 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="personal/pm-your-life.html">Applying Product Management to Your Life</a>	<div class="dt">21 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="personal/managing-my-finances.html">How I Manage My Finances</a>	<div class="dt">10 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="design/design-doubt.html">Design Doubt</a>	<div class="dt">07 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="personal/spontaneity.html">Spontaneity</a>	<div class="dt">06 Feb 2016</div>
+</div>
+	
+<div>
+	<a href="writing/smacss-rewrite-progress.html">SMACSS Rewrite Progress</a>	<div class="dt">16 Jan 2016</div>
+</div>
+	
+<div>
+	<a href="personal/habit-list.html">Habit List</a>	<div class="dt">13 Jan 2016</div>
+</div>
+	
+<div>
+	<a href="html_and_css/simplest-css-slideshow.html">Simplest CSS Slideshow</a>	<div class="dt">05 Jan 2016</div>
+</div>
+	
+<div>
+	<a href="javascript/simplest-javascript-slideshow.html">Simplest JavaScript Slideshow</a>	<div class="dt">04 Jan 2016</div>
+</div>
+	
+<div>
+	<a href="personal/simplicity-and-comfort.html">Simplicity and Comfort</a>	<div class="dt">03 Jan 2016</div>
+</div>
+	
+<div>
+	<a href="personal/movement.html">Movement</a>	<div class="dt">02 Jan 2016</div>
+</div>
+<h2>2015</h2>	
+<div>
+	<a href="other/just-one-cable.html">Just One Cable</a>	<div class="dt">30 Dec 2015</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/review-patterns-and-principles.html">Review of Responsive Design: Patterns &amp; Principles</a>	<div class="dt">06 Dec 2015</div>
+</div>
+	
+<div>
+	<a href="other/not-good-enough.html">Not good enough</a>	<div class="dt">01 Nov 2015</div>
+</div>
+	
+<div>
+	<a href="opinion/overnight-success.html">Overnight Success</a>	<div class="dt">13 Oct 2015</div>
+</div>
+	
+<div>
+	<a href="personal/what-does-success-look-like.html">What does success look like?</a>	<div class="dt">10 Oct 2015</div>
+</div>
+	
+<div>
+	<a href="personal/second-midlife-crisis.html">My Second Mid-Life Crisis</a>	<div class="dt">04 Oct 2015</div>
+</div>
+	
+<div>
+	<a href="design/truncation.html">Truncat...</a>	<div class="dt">14 Aug 2015</div>
+</div>
+	
+<div>
+	<a href="opinion/just-right-for-me.html">Just Right For Me</a>	<div class="dt">27 May 2015</div>
+</div>
+	
+<div>
+	<a href="writing/just-write-for-me.html">Just Write For Me</a>	<div class="dt">26 May 2015</div>
+</div>
+	
+<div>
+	<a href="html_and_css/icons-and-type.html">Icons and Type</a>	<div class="dt">26 Apr 2015</div>
+</div>
+	
+<div>
+	<a href="review/moto360-pebble.html">Comparing Smartwatches: Moto 360 vs Pebble</a>	<div class="dt">14 Mar 2015</div>
+</div>
+	
+<div>
+	<a href="html_and_css/windows-subs-helvetica-arial.html">Windows Substitutes Helvetica for Arial</a>	<div class="dt">03 Feb 2015</div>
+</div>
+	
+<div>
+	<a href="other/ten-years-in-contrast.html">Ten Years in Contrast</a>	<div class="dt">11 Jan 2015</div>
+</div>
+	
+<div>
+	<a href="other/my-custom-video-setup.html">My Custom Video Setup</a>	<div class="dt">03 Jan 2015</div>
+</div>
+<h2>2014</h2>	
+<div>
+	<a href="opinion/design-engineering.html">Design Engineering</a>	<div class="dt">25 Nov 2014</div>
+</div>
+	
+<div>
+	<a href="html_and_css/specificity-graphs.html">Specificity Graphs</a>	<div class="dt">19 Nov 2014</div>
+</div>
+	
+<div>
+	<a href="html_and_css/code-from-crust-to-core.html">Evolving Code: From the Crust to the Core</a>	<div class="dt">17 Nov 2014</div>
+</div>
+	
+<div>
+	<a href="pm/cleaning-the-cruft.html">Cleaning the Cruft</a>	<div class="dt">25 Aug 2014</div>
+</div>
+	
+<div>
+	<a href="pm/unmanaged.html">Unmanaged</a>	<div class="dt">24 Aug 2014</div>
+</div>
+	
+<div>
+	<a href="pm/consistency.html">Consistency</a>	<div class="dt">22 Aug 2014</div>
+</div>
+	
+<div>
+	<a href="html_and_css/rethinking-the-grid.html">Rethinking the Grid</a>	<div class="dt">09 Aug 2014</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/book-review-making-it-right.html">Book review: Making it Right</a>	<div class="dt">28 Jul 2014</div>
+</div>
+	
+<div>
+	<a href="pm/saying-no.html">Saying No</a>	<div class="dt">13 May 2014</div>
+</div>
+	
+<div>
+	<a href="pm/the-feature-guy.html">The Feature Guy</a>	<div class="dt">29 Apr 2014</div>
+</div>
+	
+<div>
+	<a href="pm/what-kind-of-product-manager.html">What kind of product manager am I?</a>	<div class="dt">23 Apr 2014</div>
+</div>
+	
+<div>
+	<a href="pm/pm_learnings.html">Product Management Learnings</a>	<div class="dt">17 Apr 2014</div>
+</div>
+	
+<div>
+	<a href="pm/pm-what-is-a-pm.html">What is a Product Manager?</a>	<div class="dt">06 Apr 2014</div>
+</div>
+	
+<div>
+	<a href="pm/pm-so-here-we-are.html">PM Learnings: So here we are</a>	<div class="dt">31 Mar 2014</div>
+</div>
+	
+<div>
+	<a href="javascript/more-simple-slideshow.html">More Simple jQuery Slideshows</a>	<div class="dt">19 Feb 2014</div>
+</div>
+	
+<div>
+	<a href="html_and_css/floated-label-pattern-css.html">Floated Label Pattern with CSS Only</a>	<div class="dt">11 Feb 2014</div>
+</div>
+<h2>2013</h2>	
+<div>
+	<a href="snooks_book_nook/book-review-content-everywhere.html">Book Review: Content Everywhere</a>	<div class="dt">19 Jun 2013</div>
+</div>
+	
+<div>
+	<a href="personal/career-in-transition.html">A Career in Transition</a>	<div class="dt">09 Mar 2013</div>
+</div>
+<h2>2012</h2>	
+<div>
+	<a href="writing/selling-ebook-on-amazon.html">Selling my e-book on Amazon </a>	<div class="dt">21 Oct 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/previous-parent.html">Previous Parent</a>	<div class="dt">22 Sep 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/one-module-or-two.html">One Module or Two</a>	<div class="dt">01 Sep 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/handling-overflow.html">Handling Overflow</a>	<div class="dt">27 Jun 2012</div>
+</div>
+	
+<div>
+	<a href="business/payment-gateways.html">My Notes on Payment Gateways</a>	<div class="dt">16 Jun 2012</div>
+</div>
+	
+<div>
+	<a href="conferences/smashingly-smacked.html">Smashingly Smacked</a>	<div class="dt">11 Jun 2012</div>
+</div>
+	
+<div>
+	<a href="conferences/dconstructed.html">dConstructed</a>	<div class="dt">09 Jun 2012</div>
+</div>
+	
+<div>
+	<a href="other/helping-hand.html">Getting a Helping Hand</a>	<div class="dt">08 Jun 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/project-detritus.html">Project Detritus</a>	<div class="dt">24 Apr 2012</div>
+</div>
+	
+<div>
+	<a href="browsers/coffeeconsole.html">CoffeeConsole: A Chrome Extension </a>	<div class="dt">06 Apr 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/definition-lists-v-tables.html">Definition Lists versus Tables</a>	<div class="dt">25 Mar 2012</div>
+</div>
+	
+<div>
+	<a href="javascript/going-simple-with-javascript.html">Going Simple with JavaScript</a>	<div class="dt">05 Mar 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/prefixed-classes-bootstrap.html">Prefixed Classes in Bootstrap</a>	<div class="dt">21 Feb 2012</div>
+</div>
+	
+<div>
+	<a href="writing/ebook-notes.html">My Notes on Writing an E-book</a>	<div class="dt">09 Feb 2012</div>
+</div>
+	
+<div>
+	<a href="html_and_css/naming-convention-in-css.html">Naming Convention in CSS</a>	<div class="dt">24 Jan 2012</div>
+</div>
+	
+<div>
+	<a href="javascript/preparetransition-jquery-plugin.html">Handling CSS Transitions with prepareTransition </a>	<div class="dt">12 Jan 2012</div>
+</div>
+<h2>2011</h2>	
+<div>
+	<a href="personal/reflective.html">Reflective</a>	<div class="dt">28 Dec 2011</div>
+</div>
+	
+<div>
+	<a href="writing/smacss-stats-and-gender.html">SMACSS Statistics and Gender</a>	<div class="dt">21 Dec 2011</div>
+</div>
+	
+<div>
+	<a href="design/meet-jack-the-lumberjack.html">Meet Jack</a>	<div class="dt">28 Nov 2011</div>
+</div>
+	
+<div>
+	<a href="personal/of-bits-and-butterfly-effects.html">Of bits and butterfly effects</a>	<div class="dt">10 Nov 2011</div>
+</div>
+	
+<div>
+	<a href="conferences/fake-it.html">Presentation: Fake it &#039;til you make it</a>	<div class="dt">06 Nov 2011</div>
+</div>
+	
+<div>
+	<a href="personal/unsure.html">Unsure</a>	<div class="dt">01 Nov 2011</div>
+</div>
+	
+<div>
+	<a href="conferences/css-takes-over-the-world.html">Presentation: CSS Takes Over the World</a>	<div class="dt">06 Oct 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css-architecture.html">Thinking about CSS Architecture</a>	<div class="dt">26 Sep 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/yellow-fade-technique-css-animations.html">Yellow Fade Technique with CSS Animations</a>	<div class="dt">24 Sep 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/vm-vh-units.html">Sizing with CSS3&#039;s vw and vh units</a>	<div class="dt">20 Aug 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/ie8-bug-max-width-overflow.html">IE8 bug with max-width and overflow </a>	<div class="dt">03 Aug 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css3-animation-proposal.html">A Modest Proposal for CSS3 Animations</a>	<div class="dt">29 Jul 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/font-size-with-rem.html">Font sizing with rem</a>	<div class="dt">01 May 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/absolute-position-textarea.html">Absolutely Positioned Textareas</a>	<div class="dt">31 Mar 2011</div>
+</div>
+	
+<div>
+	<a href="accessibility_and_usability/keyboard-accessibility-for-web-apps.html">Keyboard Accessibility for Web Applications </a>	<div class="dt">30 Mar 2011</div>
+</div>
+	
+<div>
+	<a href="conferences/web-design-master-class.html">Web Design Master Class</a>	<div class="dt">21 Mar 2011</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/elements-of-content-strategy.html">Book Review: The Elements of Content Strategy</a>	<div class="dt">05 Mar 2011</div>
+</div>
+	
+<div>
+	<a href="html_and_css/hiding-content-for-accessibility.html">Hiding Content for Accessibility</a>	<div class="dt">25 Feb 2011</div>
+</div>
+	
+<div>
+	<a href="other/word-of-vim.html">Journey into the World of Vim</a>	<div class="dt">13 Feb 2011</div>
+</div>
+	
+<div>
+	<a href="opinion/assumptive-development.html">Assumptive Development</a>	<div class="dt">01 Feb 2011</div>
+</div>
+	
+<div>
+	<a href="opinion/amazon-ses-launches.html">Amazon launches Simple Email Service</a>	<div class="dt">25 Jan 2011</div>
+</div>
+<h2>2010</h2>	
+<div>
+	<a href="other/vmware-fusion-snapshots.html">How I Use VMWare Fusion and Snapshots</a>	<div class="dt">15 Dec 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/fieldset-nested-list-item-bug.html">Fieldset Nested in a List Item Bug in Firefox</a>	<div class="dt">14 Dec 2010</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/css3-for-web-designers.html">Book Review: CSS3 for Web Designers</a>	<div class="dt">17 Nov 2010</div>
+</div>
+	
+<div>
+	<a href="other/following-you.html">I&#039;m Following You</a>	<div class="dt">04 Nov 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css-parent-selectors.html">Why we don&#039;t have a parent selector</a>	<div class="dt">10 Oct 2010</div>
+</div>
+	
+<div>
+	<a href="review/ipad-bluetooth-keyboard.html">My iPad Experience with a Bluetooth keyboard</a>	<div class="dt">04 Oct 2010</div>
+</div>
+	
+<div>
+	<a href="conferences/just-try-and-shut-me-up.html">Just Try and Shut Me Up</a>	<div class="dt">03 Oct 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css-display-resets-scroll.html">Changing Display Resets Scroll Offset</a>	<div class="dt">10 Jun 2010</div>
+</div>
+	
+<div>
+	<a href="javascript/handling-active-state.html">Handling Active State for jQuery Animated Backgrounds</a>	<div class="dt">27 May 2010</div>
+</div>
+	
+<div>
+	<a href="opinion/filling-in-the-gaps.html">Filling in the Gaps</a>	<div class="dt">17 May 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/vendor-prefixes-competing.html">Vendors using Competing Prefixes</a>	<div class="dt">11 May 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/font-face-in-chrome.html">Font-face in Chrome</a>	<div class="dt">02 Apr 2010</div>
+</div>
+	
+<div>
+	<a href="other/finishing-an-email.html">Finishing an Email</a>	<div class="dt">01 Apr 2010</div>
+</div>
+	
+<div>
+	<a href="other/hundred-pushups.html">Hundred Pushups</a>	<div class="dt">31 Mar 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/html5-forms-are-coming.html">HTML5 Forms Are Coming</a>	<div class="dt">26 Mar 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/not-supported.html">Not Supported</a>	<div class="dt">22 Mar 2010</div>
+</div>
+	
+<div>
+	<a href="conferences/mix10-the-type-we-want.html">MIX10: The Type We Want</a>	<div class="dt">21 Mar 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/background-position-x-y.html">Background Position X and Y</a>	<div class="dt">02 Mar 2010</div>
+</div>
+	
+<div>
+	<a href="review/logo-design-love.html">Review: Logo Design Love</a>	<div class="dt">17 Feb 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/multiple-bg-css-gradients.html">Multiple Backgrounds and CSS Gradients</a>	<div class="dt">01 Feb 2010</div>
+</div>
+	
+<div>
+	<a href="html_and_css/safari-transparent-borders.html">Safari and Transparent Borders</a>	<div class="dt">23 Jan 2010</div>
+</div>
+	
+<div>
+	<a href="personal/onward.html">Onward</a>	<div class="dt">04 Jan 2010</div>
+</div>
+	
+<div>
+	<a href="personal/failure.html">Failure</a>	<div class="dt">04 Jan 2010</div>
+</div>
+<h2>2009</h2>	
+<div>
+	<a href="javascript/simplest-jquery-slideshow.html">Simplest jQuery Slideshow</a>	<div class="dt">11 Dec 2009</div>
+</div>
+	
+<div>
+	<a href="review/bookarc.html">BookArc</a>	<div class="dt">21 Nov 2009</div>
+</div>
+	
+<div>
+	<a href="review/fancy-form-design.html">Review: Fancy Form Design</a>	<div class="dt">13 Nov 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/creative-use-bitwise-operators.html">Creative Use of Bitwise Operators</a>	<div class="dt">12 Nov 2009</div>
+</div>
+	
+<div>
+	<a href="review/mobify.html">Review: Mobify</a>	<div class="dt">11 Nov 2009</div>
+</div>
+	
+<div>
+	<a href="personal/hooligan.html">&#039;Hooligan</a>	<div class="dt">09 Nov 2009</div>
+</div>
+	
+<div>
+	<a href="review/review-html-css-web-standards-solutions.html">Review: HTML and CSS Web Standards Solutions</a>	<div class="dt">27 Oct 2009</div>
+</div>
+	
+<div>
+	<a href="browsers/firefox-greader.html">In Firefox, In Google Reader</a>	<div class="dt">20 Oct 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/becoming-a-font-embedding-master.html">Becoming a  Font Embedding Master</a>	<div class="dt">07 Oct 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/screencast-converting-ttf2eot.html">Screencast: Converting OTF or TTF to EOT</a>	<div class="dt">06 Oct 2009</div>
+</div>
+	
+<div>
+	<a href="screencast/screencast-converting-ttf2eot.html">Screencast: Converting OTF or TTF to EOT</a>	<div class="dt">06 Oct 2009</div>
+</div>
+	
+<div>
+	<a href="design/minimal.html">Minimal</a>	<div class="dt">28 Sep 2009</div>
+</div>
+	
+<div>
+	<a href="personal/less-of-me.html">Less of Me</a>	<div class="dt">08 Sep 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/css-text-rotation.html">Text Rotation with CSS</a>	<div class="dt">28 Jul 2009</div>
+</div>
+	
+<div>
+	<a href="adobe_air/html-flash-air.html">HTML in a Flash World</a>	<div class="dt">08 Jul 2009</div>
+</div>
+	
+<div>
+	<a href="opinion/adobe-html5-canvas.html">Adobe and HTML5&#039;s Canvas</a>	<div class="dt">07 Jul 2009</div>
+</div>
+	
+<div>
+	<a href="design/snitter-icon-design.html">Behind the Process: Snitter Icon</a>	<div class="dt">22 May 2009</div>
+</div>
+	
+<div>
+	<a href="browsers/elephant-in-the-room.html">The Elephant in the Room</a>	<div class="dt">21 May 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/ie-position-fixed-opacity-filter.html">Fixed Position and Opacity Filter Bug in Internet Explorer</a>	<div class="dt">07 May 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/shifting-opinion-css-animations.html">Shifting my Opinion on CSS Animations</a>	<div class="dt">05 May 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/multi-line-javascript.html">Multi-line JavaScript</a>	<div class="dt">05 May 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/no-love-for-module-pattern.html">Why I don&#039;t love JavaScript&#039;s Module Pattern</a>	<div class="dt">29 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="business/death-of-an-ad-network.html">Death of an Ad Network</a>	<div class="dt">28 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="php/url-shortener.html">Building a URL Shortener</a>	<div class="dt">27 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="opinion/supporting-old-browsers.html">Old Browsers: Do they still exist?</a>	<div class="dt">24 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="other/screencast-webkit-in-titanium.html">Screencast: Webkit in Titanium</a>	<div class="dt">23 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="screencast/screencast-webkit-in-titanium.html">Screencast: Webkit in Titanium</a>	<div class="dt">23 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/streamliner.html">Streamliner</a>	<div class="dt">21 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/titanium.html">Creating Desktop Applications with Titanium</a>	<div class="dt">17 Apr 2009</div>
+</div>
+	
+<div>
+	<a href="opinion/twitter-autofollow.html">Twitter to Lose Auto-follow</a>	<div class="dt">31 Mar 2009</div>
+</div>
+	
+<div>
+	<a href="other/colour-contrast-updated.html">Colour Contrast Check Tool Updated</a>	<div class="dt">30 Mar 2009</div>
+</div>
+	
+<div>
+	<a href="personal/being-square.html">Being Square</a>	<div class="dt">24 Mar 2009</div>
+</div>
+	
+<div>
+	<a href="html_and_css/matrix-layouts.html">Matrix Layouts</a>	<div class="dt">13 Mar 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/yahoo-pipes-xml-json.html">Using Yahoo Pipes to turn XML feeds into JSON APIs</a>	<div class="dt">08 Mar 2009</div>
+</div>
+	
+<div>
+	<a href="screencast/firebug-breakpoints.html">Screencast: Firebug Breakpoints</a>	<div class="dt">28 Feb 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/firebug-breakpoints.html">Screencast: Firebug Breakpoints</a>	<div class="dt">28 Feb 2009</div>
+</div>
+	
+<div>
+	<a href="javascript/embed-twitter-status.html">Embedding Twitter Status</a>	<div class="dt">18 Feb 2009</div>
+</div>
+	
+<div>
+	<a href="other/book-blog-blazers.html">Blog Blazers</a>	<div class="dt">14 Feb 2009</div>
+</div>
+	
+<div>
+	<a href="review/review-things-app.html">Review: Things.app</a>	<div class="dt">08 Feb 2009</div>
+</div>
+	
+<div>
+	<a href="design/screencast-fireworks-light-in-design.html">Screencast: Playing with Light in Design</a>	<div class="dt">31 Jan 2009</div>
+</div>
+	
+<div>
+	<a href="screencast/screencast-fireworks-light-in-design.html">Screencast: Playing with Light in Design</a>	<div class="dt">31 Jan 2009</div>
+</div>
+	
+<div>
+	<a href="design/blick-blocky-retro.html">Blick Blocky Retro</a>	<div class="dt">16 Jan 2009</div>
+</div>
+	
+<div>
+	<a href="other/pardon-me.html">Pardon Me</a>	<div class="dt">15 Jan 2009</div>
+</div>
+	
+<div>
+	<a href="personal/reflections.html">Reflections</a>	<div class="dt">01 Jan 2009</div>
+</div>
+<h2>2008</h2>	
+<div>
+	<a href="design/slicing-photoshop-fireworks.html">Slicing in Photoshop and Fireworks</a>	<div class="dt">19 Dec 2008</div>
+</div>
+	
+<div>
+	<a href="other/mail-vs-entourage.html">Mail.app vs Entourage</a>	<div class="dt">11 Dec 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/ie6-alpha-pngs-vml.html">Alpha PNGs in Internet Explorer 6</a>	<div class="dt">08 Dec 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/ie-rounded.html">Rounded Corners in Internet Explorer</a>	<div class="dt">03 Dec 2008</div>
+</div>
+	
+<div>
+	<a href="business/sidebarads-expands.html">SidebarAds Expands</a>	<div class="dt">01 Dec 2008</div>
+</div>
+	
+<div>
+	<a href="review/charles-http-monitoring.html">HTTP Monitoring with Charles</a>	<div class="dt">27 Nov 2008</div>
+</div>
+	
+<div>
+	<a href="review/navicat-mac.html">Navicat for the Mac</a>	<div class="dt">24 Nov 2008</div>
+</div>
+	
+<div>
+	<a href="other/new-macbook-pro.html">The New Switcheroo</a>	<div class="dt">15 Nov 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/jquery-plugin-switcheroo.html">The Ol&#039; Switcheroo</a>	<div class="dt">05 Nov 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/sidebar-workshops.html">Sidebar Workshops</a>	<div class="dt">20 Oct 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/jquery-bg-image-animations.html">Using jQuery for Background Image Animations</a>	<div class="dt">22 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/review-cakephp-app-development.html">Book Review: CakePHP Application Development</a>	<div class="dt">19 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/tiling-background-ie.html">Tiling Backgrounds in Internet Explorer</a>	<div class="dt">18 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/web-dev-personal-projects.html">A Web Developer&#039;s Personal Projects</a>	<div class="dt">09 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/shelf-life.html">The Shelf Life of a Web Site</a>	<div class="dt">06 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/practical_prototype_scriptaculous.html">Book Review: Practical Prototype and Script.aculo.us</a>	<div class="dt">05 Sep 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/broken_promises.html">Broken Promises</a>	<div class="dt">30 Aug 2008</div>
+</div>
+	
+<div>
+	<a href="review/w3_markup.html">Service Review: W3 Markup</a>	<div class="dt">29 Aug 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/rounded_corners_experiment_ie.html">An Experiment in Rounded Corners</a>	<div class="dt">18 Aug 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/dont_bring_me_down.html">Don&#039;t bring me down</a>	<div class="dt">12 Aug 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/multiple_validatable_behavior.html">Multiple Validation as Behavior in CakePHP 1.2</a>	<div class="dt">30 Jul 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/contact_form_cakephp.html">Creating a Contact Form in CakePHP 1.2</a>	<div class="dt">24 Jul 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/multiple_validation_sets_cakephp.html">Multiple Validation Sets in CakePHP 1.2</a>	<div class="dt">23 Jul 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/debug_styles.html">CakePHP Debug Styles</a>	<div class="dt">10 Jul 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/easier_static_pages_2.html">Easier Static Pages for CakePHP 1.2 Update</a>	<div class="dt">04 Jul 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/twitter_survival.html">Why Twitter Survives</a>	<div class="dt">30 Jun 2008</div>
+</div>
+	
+<div>
+	<a href="opinion/hecklers.html">Don&#039;t Listen to the Hecklers</a>	<div class="dt">26 Jun 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/atmedia08-wrapup.html">@media 2008 Wrapup</a>	<div class="dt">16 Jun 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/snogs.html">Snogs</a>	<div class="dt">09 Jun 2008</div>
+</div>
+	
+<div>
+	<a href="business/sidebarads.html">An Evolution of Advertising: SidebarAds</a>	<div class="dt">08 Jun 2008</div>
+</div>
+	
+<div>
+	<a href="adobe_air/snape_basic.html">Snape Basic</a>	<div class="dt">30 May 2008</div>
+</div>
+	
+<div>
+	<a href="business/socializing_freelancer.html">Socializing for the Freelancer</a>	<div class="dt">21 May 2008</div>
+</div>
+	
+<div>
+	<a href="business/freelance_devs_equals_poor_software.html">Are Freelance Developers a Recipe for Poor Software?</a>	<div class="dt">02 May 2008</div>
+</div>
+	
+<div>
+	<a href="other/pm_email.html">Project Management via Email</a>	<div class="dt">21 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/no_css_reset.html">No CSS Reset</a>	<div class="dt">17 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="adobe_air/adobe_air_resources_ajax.html">Adobe AIR Resources for the Ajax Developer</a>	<div class="dt">15 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/typos_javascript.html">Frustrating Typos with JavaScript</a>	<div class="dt">15 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="php/header_called_once.html">PHP header can only be called once</a>	<div class="dt">11 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="business/sidebar_creative_state.html">Sidebar Creative: State of the Union</a>	<div class="dt">09 Apr 2008</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/building_findable_websites.html">Building Findable Websites</a>	<div class="dt">31 Mar 2008</div>
+</div>
+	
+<div>
+	<a href="html_and_css/content_overlay_css.html">Content Overlay with CSS</a>	<div class="dt">26 Mar 2008</div>
+</div>
+	
+<div>
+	<a href="business/review_psd2html.html">Review: PSD2HTML</a>	<div class="dt">18 Mar 2008</div>
+</div>
+	
+<div>
+	<a href="other/maintain_personal_brand.html">Maintaining your Personal Brand Online</a>	<div class="dt">17 Mar 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/live_chat_1.html">Live Chat</a>	<div class="dt">04 Mar 2008</div>
+</div>
+	
+<div>
+	<a href="adobe_air/snoto_photo.html">Snoto Photo</a>	<div class="dt">29 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="adobe_air/snitter_air1.html">Snitter for AIR 1.0</a>	<div class="dt">25 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/settimeout_solve_domcontentloaded.html">Using setTimeout to Solve DOMContentLoaded</a>	<div class="dt">14 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="other/commandshift3.html">CommandShift3</a>	<div class="dt">09 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="other/effective_blog_comment_spam_blocker.html">How I built an effective blog comment spam blocker</a>	<div class="dt">05 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="cakephp/static_pages_cakephp12.html">Easier Static Pages for CakePHP 1.2</a>	<div class="dt">04 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/wdn08_working_with_ajax_frameworks.html">WDN08: Working with Ajax Frameworks</a>	<div class="dt">02 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/wdn08_recap.html">Web Directions North 2008 Recap</a>	<div class="dt">02 Feb 2008</div>
+</div>
+	
+<div>
+	<a href="servers/password_protect_admin.html">Password Protecting Admin Functions in CakePHP</a>	<div class="dt">29 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/review_pro_html_css_design_patterns.html">Review: Pro CSS and HTML Design Patterns</a>	<div class="dt">25 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/jquery_plugin.html">Developing a jQuery Plugin</a>	<div class="dt">24 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="browsers/importance_of_being_html5.html">The Importance of Being HTML5</a>	<div class="dt">23 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="browsers/version_targeting_ie8.html">IE8 to include version targeting</a>	<div class="dt">22 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="writing/contributing_insideria.html">Contributing to InsideRIA</a>	<div class="dt">21 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="javascript/xmlhttprequest_activex_ie.html">Microsoft&#039;s XMLHttpRequest ActiveX Objects</a>	<div class="dt">21 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="other/gridiron_flow.html">GridIron Flow</a>	<div class="dt">16 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="conferences/refresh_ottawa_finally.html">Refresh Ottawa, finally</a>	<div class="dt">07 Jan 2008</div>
+</div>
+	
+<div>
+	<a href="personal/evaluating_2007.html">Evaluating the past year</a>	<div class="dt">06 Jan 2008</div>
+</div>
+<h2>2007</h2>	
+<div>
+	<a href="personal/merry_christmas_2008.html">Merry Christmas</a>	<div class="dt">24 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="browsers/ie8_expectations.html">IE8 Expectations</a>	<div class="dt">20 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="writing/24ways_adobe_air.html">Learning about Adobe AIR</a>	<div class="dt">19 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/mixnmash2007.html">Mix&#039;n&#039;mash 2007</a>	<div class="dt">06 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/wdn08_in_two_months.html">Web Directions North in two months</a>	<div class="dt">03 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="opinion/web20_jumped_shark.html">Web 2.0 has jumped the shark</a>	<div class="dt">01 Dec 2007</div>
+</div>
+	
+<div>
+	<a href="accessibility_and_usability/what_does_accessibility_mean.html">What does Accessibility mean?</a>	<div class="dt">27 Nov 2007</div>
+</div>
+	
+<div>
+	<a href="design/design_inspiration.html">Design Inspiration</a>	<div class="dt">23 Nov 2007</div>
+</div>
+	
+<div>
+	<a href="other/next_date_excel.html">Determining Next Date with Excel</a>	<div class="dt">11 Nov 2007</div>
+</div>
+	
+<div>
+	<a href="adobe_air/international_keyboard_adobe_air_beta2.html">Hacking in International Keyboard Support  in AIR beta 2</a>	<div class="dt">01 Nov 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/css_animations_in_safari.html">CSS Animations in Safari</a>	<div class="dt">31 Oct 2007</div>
+</div>
+	
+<div>
+	<a href="opinion/joy_of_application_development.html">The Joys of Application Development</a>	<div class="dt">26 Oct 2007</div>
+</div>
+	
+<div>
+	<a href="adobe_air/snitter_air_beta2.html">Snitter on AIR Beta 2</a>	<div class="dt">09 Oct 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/speaking_at_fowd.html">Speaking at FOWD</a>	<div class="dt">09 Oct 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/questions_ads.html">Questions and Winners of Accelerated DOM Scripting</a>	<div class="dt">01 Oct 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/accelerated_dom_scripting.html">Accelerated DOM Scripting</a>	<div class="dt">26 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/recap_wjs2007.html">Recap of Webmaster Jam Session 2007</a>	<div class="dt">25 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/offsets_scrolling_overflow.html">Determining Offsets with Scrolling Overflow</a>	<div class="dt">19 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="opinion/advocacy_losing_edge.html">When Advocacy Loses its Edge</a>	<div class="dt">18 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="adobe_air/adobe_air_and_html.html">Adobe AIR and HTML</a>	<div class="dt">06 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="adobe_air/snitter_alpha.html">Snitter Alpha</a>	<div class="dt">04 Sep 2007</div>
+</div>
+	
+<div>
+	<a href="personal/snook_plus_one.html">Snook++</a>	<div class="dt">20 Aug 2007</div>
+</div>
+	
+<div>
+	<a href="html_and_css/six_keys_to_understanding_css_layouts.html">6 Keys to Understanding Modern CSS-based Layouts</a>	<div class="dt">08 Aug 2007</div>
+</div>
+	
+<div>
+	<a href="html_and_css/creating_page_break.html">Creating a Page Break</a>	<div class="dt">02 Aug 2007</div>
+</div>
+	
+<div>
+	<a href="other/summer_update.html">Summer Update</a>	<div class="dt">31 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="snooks_book_nook/review_web_development_solutions.html">Review: Web Development Solutions</a>	<div class="dt">13 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_three_interviews.html">Three Interviews</a>	<div class="dt">11 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="php/zend_framework_first_impressions.html">Zend Framework: First Impressions</a>	<div class="dt">10 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="html_and_css/understanding_pseudo_elements.html">Understanding Pseudo-elements</a>	<div class="dt">08 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="other/track_comments_with_co_mments.html">Track Comments with Co.mments</a>	<div class="dt">04 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/google_feedburner_pro_free.html">Google makes FeedBurner Pro free</a>	<div class="dt">03 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_zend_framework_1_0.html">Zend Framework Releases 1.0</a>	<div class="dt">03 Jul 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_math_object_short_scripts.html">Using Math object to shorten scripts</a>	<div class="dt">28 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_focus_clouds.html">Focus Clouds</a>	<div class="dt">26 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="cakephp/elemental_conditional_content_with_cakephp.html">Elemental: Conditional Content with CakePHP</a>	<div class="dt">23 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_google_universal_search.html">Google Universal Search</a>	<div class="dt">22 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_ie6_memory_leaks_fixed.html">IE6 Memory Leaks Fixed</a>	<div class="dt">22 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_pagination_101.html">Pagination 101</a>	<div class="dt">21 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/wjs2007.html">Webmaster Jam Session 2007</a>	<div class="dt">20 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/private_javascript.html">Private JavaScript</a>	<div class="dt">16 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_incremental_leading.html">Incremental Leading</a>	<div class="dt">16 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/ie6_fires_onresize.html">IE Fires Onresize When Body Resizes</a>	<div class="dt">15 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="html_and_css/unicode_for_css_class_names.html">Unicode for CSS Class Names</a>	<div class="dt">12 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="browsers/why_safari_for_windows.html">Why Safari for Windows?</a>	<div class="dt">12 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_spiekermann_interview.html">Spiekermann Interview</a>	<div class="dt">08 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="snooksurvey/to_link_or_not.html">SnookSurvey #2: To Link or Not?</a>	<div class="dt">06 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="snooksurvey/element_attributes_recap.html">SnookSurvey Recap: Element Attributes in JavaScript</a>	<div class="dt">06 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="content_management_systems/mt_4_beta_closerlook.html">A Closer Look at Movable Type 4 beta</a>	<div class="dt">05 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/mt_4_beta_released.html">Movable Type 4 beta released</a>	<div class="dt">05 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/toggler_v01.html">Toggler v0.1</a>	<div class="dt">03 Jun 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/firebug_profiling_bug.html">Firebug 1.05 Profiling Bug</a>	<div class="dt">31 May 2007</div>
+</div>
+	
+<div>
+	<a href="other/untapped_power_of_galleries.html">The Untapped Power of Design Galleries</a>	<div class="dt">25 May 2007</div>
+</div>
+	
+<div>
+	<a href="personal/why_i_left_9rules.html">Why I Left 9rules</a>	<div class="dt">25 May 2007</div>
+</div>
+	
+<div>
+	<a href="opinion/telling_your_side.html">Telling Your Side of the Story</a>	<div class="dt">25 May 2007</div>
+</div>
+	
+<div>
+	<a href="snooksurvey/element_attributes_in_javascript.html">SnookSurvey: Element Attributes in JavaScript</a>	<div class="dt">24 May 2007</div>
+</div>
+	
+<div>
+	<a href="conferences/want_to_be_a_speaker.html">So you want to be a speaker? </a>	<div class="dt">21 May 2007</div>
+</div>
+	
+<div>
+	<a href="quick_links/quick_link_anonymous_functions.html">Anonymous Functions in PHP</a>	<div class="dt">20 May 2007</div>
+</div>
+	
+<div>
+	<a href="design/v8_supercharger.html">V8: Supercharger</a>	<div class="dt">06 May 2007</div>
+</div>
+	
+<div>
+	<a href="business/running_own_advertising.html">Can running your own advertising be worthwhile? </a>	<div class="dt">04 May 2007</div>
+</div>
+	
+<div>
+	<a href="javascript/managing_style_and_state.html">Managing Style and State</a>	<div class="dt">03 May 2007</div>
+</div>
+	
+<div>
+	<a href="business/tracking_project_profit.html">Tracking Project Profitabilty</a>	<div class="dt">30 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="servers/hosted_subversion.html">Hosted Subversion</a>	<div class="dt">20 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_dailypixel_cnma">Dailypixel.ca nominated for CNMA</a>	<div class="dt">18 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/death_of_comments">The Death of Comments</a>	<div class="dt">18 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/short_xmlhttprequest_abstraction">Shorter XHR Abstraction</a>	<div class="dt">18 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/art_science_of_css">The Art and Science of CSS</a>	<div class="dt">16 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/how_i_found_my_niche">How I Found My Niche</a>	<div class="dt">15 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_freelance_switch">Quick Link: Freelance Switch</a>	<div class="dt">13 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/withcake_com_revamp">WithCake.com Revamp</a>	<div class="dt">05 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_cakephp_flickr">Quick Link: CakePHP and Flickr</a>	<div class="dt">04 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/reworked">Reworked.</a>	<div class="dt">01 Apr 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/abundance_mentality">Abundance Mentality</a>	<div class="dt">29 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/recent_podcasts">Recent Podcasts</a>	<div class="dt">25 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/remote_worker">The Remote Worker</a>	<div class="dt">22 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/barcampottawa3_1week">BarCampOttawa3</a>	<div class="dt">21 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_rules_and_context">Quick Link: Rules and Context</a>	<div class="dt">20 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/codeigniter_vs_cakephp">CodeIgniter vs. CakePHP</a>	<div class="dt">18 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/building_english360">Building English360</a>	<div class="dt">16 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw07_after_the_storm">SXSW&#039;07: After the Storm</a>	<div class="dt">15 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw07_home_version">SXSW&#039;07:The Home Version</a>	<div class="dt">09 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/refresh_ottawa">Refresh Ottawa</a>	<div class="dt">06 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/position_relative_overflow_ie">position:relative and overflow in Internet Explorer</a>	<div class="dt">04 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw07_one_week">One week</a>	<div class="dt">01 Mar 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/agency_the_new_four_letter_word">Agency: the new four letter word</a>	<div class="dt">28 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/be_library_agnostic">Be Library Agnostic</a>	<div class="dt">27 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/close_your_tags">Close your tags</a>	<div class="dt">26 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/handling_onscroll">Handling Onscroll</a>	<div class="dt">23 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/symfony_1_0_released">Symfony 1.0 Released</a>	<div class="dt">20 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_debug_flash_with_firebug">Debug Flash with Firebug</a>	<div class="dt">20 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/rss/feed_subscriber_rates">Feed Subscriber Rates</a>	<div class="dt">17 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/selfreferencing_in_vbscript">Self-referencing in VBScript</a>	<div class="dt">15 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/wdn07_recap">WDN&#039;07 Recap</a>	<div class="dt">14 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw07_web_awards">SXSW 07 Web Awards</a>	<div class="dt">05 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/making_a_good_favicon">Making a Good Favicon</a>	<div class="dt">01 Feb 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/clean_up_debugging">Clean Up Debugging</a>	<div class="dt">30 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/pay_to_upgrade">Pay to Upgrade?</a>	<div class="dt">29 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/review_php_solutions">Review: PHP Solutions</a>	<div class="dt">28 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/sidebar_creative">Sidebar Creative</a>	<div class="dt">25 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_ages_of_the_web">Ages of the Web</a>	<div class="dt">24 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/the_javascript_environmentalist">The JavaScript Environmentalist</a>	<div class="dt">22 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/prototype_1_5_0_released">Prototype 1.5.0 Released</a>	<div class="dt">18 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/web_directions_north_2007">Web Directions North 2007</a>	<div class="dt">16 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_better_design_review">Tips for a Better Design Review Process</a>	<div class="dt">16 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/sxsw_2007_contest_winner">And the winner is...</a>	<div class="dt">15 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/jquery_1_1_released">jQuery 1.1 Released</a>	<div class="dt">14 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/mootools_r83_cheatsheet">Mootools r.83 Cheat Sheet</a>	<div class="dt">11 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/prototype_1_5_0_cheatsheet">Prototype 1.5.0 Cheat Sheet</a>	<div class="dt">10 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/update_2007-01-09">Mid-week Update</a>	<div class="dt">09 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/getting_help_from_chm">Getting Help from CHM</a>	<div class="dt">08 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/have_a_mint">Have a Mint</a>	<div class="dt">07 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/review_pro_css_techniques">Review: Pro CSS Techniques</a>	<div class="dt">07 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/delete_cached_models">Delete Cached Models in CakePHP</a>	<div class="dt">06 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/digg_us_centric">Is Digg Too U.S.-centric?</a>	<div class="dt">05 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2007_contest">SXSW 2007 Interactive Pass Contest</a>	<div class="dt">03 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/finding_business">Finding Business</a>	<div class="dt">02 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/prototype_1_5_0rc2_documentation">Sergio&#039;s Prototype 1.5.0rc2 Documentation </a>	<div class="dt">02 Jan 2007</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/use_of_address_element">Use of ADDRESS Element</a>	<div class="dt">01 Jan 2007</div>
+</div>
+<h2>2006</h2>	
+<div>
+	<a href="https://snook.ca/archives/business/advertise_on_snookca">Advertise on Snook.ca</a>	<div class="dt">30 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/yui_treepanel">YUI TreePanel</a>	<div class="dt">30 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/all_comments">All Comments</a>	<div class="dt">29 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/personal/looking_back_and_forward">Looking Back and Forward</a>	<div class="dt">26 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/review_beginning_javascript">Review: Beginning JavaScript</a>	<div class="dt">22 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/five_questions_houle">Five Questions</a>	<div class="dt">21 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/project_checklists">Project Checklists</a>	<div class="dt">19 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/is_this_overrated">Is this overrated?</a>	<div class="dt">18 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/review_transcending_css">Review: Transcending CSS</a>	<div class="dt">16 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/its_not_divitis">It&#039;s not Divitis</a>	<div class="dt">14 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/upcoming_modx_changes">Upcoming MODx Changes</a>	<div class="dt">14 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/76design_hiring">76design Hiring</a>	<div class="dt">13 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/review_xhtmlgenius">Review: XHTMLGenius</a>	<div class="dt">13 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/elements_focusable_with_tabindex">Making Elements Focusable with Tabindex</a>	<div class="dt">12 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/how_i_design">How I Design</a>	<div class="dt">11 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/determining_the_droppable">Determining the Droppable</a>	<div class="dt">08 Dec 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/anatomy_of_a_drag_and_drop">Anatomy of a Drag and Drop</a>	<div class="dt">17 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/safari2_display-none_getcomputedstyle">Safari 2.0, display:none, and getComputedStyle</a>	<div class="dt">16 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/the_banner_unleashed">The Banner: Unleashed</a>	<div class="dt">16 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/review_beginning_css">Review: Beginning CSS Web Development</a>	<div class="dt">15 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/farfromfearless_com">farfromfearless.com</a>	<div class="dt">14 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/html_css_services">List of HTML/CSS Services</a>	<div class="dt">13 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/incd">Inc.&#039;d</a>	<div class="dt">09 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/micropatronage">Micropatronage</a>	<div class="dt">09 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/is_this_working">Is this working?</a>	<div class="dt">07 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_flickrdrillr">Flickrdrillr</a>	<div class="dt">03 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/personal/frenetic_freelance">Frenetic Freelance</a>	<div class="dt">01 Nov 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/commoditization_of_html">The Commoditization of HTML</a>	<div class="dt">29 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/debug_css_cakephp">Use Debug CSS in CakePHP</a>	<div class="dt">29 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/fall_06_redesign">Fall &#039;06 Redesign</a>	<div class="dt">27 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/using_uses_in_appcontroller">Using Uses in AppController</a>	<div class="dt">26 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/firefox_2_out">Firefox 2 is out</a>	<div class="dt">24 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/build_progressively">A reason to build sites progressively</a>	<div class="dt">24 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/view_caching_cakephp118">View Caching in CakePHP 1.1.8</a>	<div class="dt">22 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/withcake_bought">WithCake gets bought out</a>	<div class="dt">21 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/still_here">Still here?</a>	<div class="dt">20 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/ie7_released">Internet Explorer 7 for XP Released</a>	<div class="dt">18 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/setting_layout">Setting Layout for Users Logged In</a>	<div class="dt">16 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/rss/add_logo_to_feed">Add a Logo to your Feed</a>	<div class="dt">15 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/top_of_page2">Top of Page</a>	<div class="dt">15 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_xpath_injection">Quick Link: XPATH Injection Attacks</a>	<div class="dt">14 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/personal/upon_my_return">Upon My Return</a>	<div class="dt">11 Oct 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/personal/on_hiatus_2006">On hiatus</a>	<div class="dt">26 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/singletons_with_functions">Singletons with Functions</a>	<div class="dt">20 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/html_instead_of_xhtml">Serve HTML instead of XHTML</a>	<div class="dt">20 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/top_css_tips">Top CSS Tips</a>	<div class="dt">20 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/ultimate_web_page">The Ultimate Web Page</a>	<div class="dt">19 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/objectifying_javascript">Objectifying JavaScript</a>	<div class="dt">19 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/twentyone_things">21 Things I learned about CakePHP</a>	<div class="dt">19 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2007_panel_picker_round_2">SXSW 2007 Panel Picker Round 2</a>	<div class="dt">18 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/snook_ca_using_cakephp">Snook.ca Now Using CakePHP</a>	<div class="dt">15 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/in_transition">In Transition</a>	<div class="dt">14 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/itunes_search_a">iTunes Search API Around the Corner?</a>	<div class="dt">13 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/mootools_drag_a">Mootools Drag and Drop Example</a>	<div class="dt">11 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/mootools_javasc">Mootools JavaScript Library Released</a>	<div class="dt">10 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/testing_for_a_v">Testing for a Value in JavaScript Array</a>	<div class="dt">08 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/stackable_css_c">Stackable CSS Columns</a>	<div class="dt">07 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/elementextend_a">Element.extend an Element  in Prototype</a>	<div class="dt">06 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/screencast_cros">Screencast: Cross Faded Images in Fireworks</a>	<div class="dt">05 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/screencast/screencast_cros">Screencast: Cross Faded Images in Fireworks</a>	<div class="dt">05 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/firefox_2_beta">Firefox 2 Beta is out</a>	<div class="dt">04 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/how_not_to_work">How NOT to Work on a Project</a>	<div class="dt">01 Sep 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/handy_image_uti">Handy Image Utility: PNGOUT</a>	<div class="dt">31 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/which_image_for">Which Image Format is Best</a>	<div class="dt">29 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_stri_1">Quick Link: String functions in Prototype 1.5</a>	<div class="dt">29 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/which_is_better_1">Which is Better?</a>	<div class="dt">29 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_memo">Quick Link: Memory Leaks Reduced in IE7</a>	<div class="dt">28 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/minimize_lookup">Minimize Lookups to Speed up JavaScript</a>	<div class="dt">28 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_go_p">Quick Link: Go Pink for October</a>	<div class="dt">28 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/business/web_developer_f">Web Developer Found</a>	<div class="dt">28 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_as_blog_platform">CakePHP as a Blog Platform</a>	<div class="dt">27 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/self_censorship">Self Censorship</a>	<div class="dt">26 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/components_or_controllers">Should Components populate the view?</a>	<div class="dt">24 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/web_developer_n_1">Web Developer Needed</a>	<div class="dt">23 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_stri">Quick Link: Strip HTML in SQL Server</a>	<div class="dt">23 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/understanding_c">Understanding CSS Specificity</a>	<div class="dt">23 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/quick_merge_in">Quick Merge in MySQL</a>	<div class="dt">22 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/an_email_from_s">An email from Shaun Inman</a>	<div class="dt">21 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/cross_domain_aj">Cross Domain Ajax: a Quick Summary</a>	<div class="dt">18 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/batch_set_calls">Run Your Set Calls as a Batch</a>	<div class="dt">18 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_remo">Quick Link: Remote JSON</a>	<div class="dt">17 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/data_always_there">Data Always There</a>	<div class="dt">17 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/arent_people_ti">Aren&#039;t people tired of arguing?</a>	<div class="dt">16 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/displaying_perc">Displaying Percentages in a Progress Bar</a>	<div class="dt">15 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_crea">Quick Link: Creation of the AP Logo</a>	<div class="dt">15 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/minimize_your_d">Minimize Your Database Connection Time</a>	<div class="dt">15 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/temp_page">Temp Page</a>	<div class="dt">15 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_links_php">Quick Links: PHP UTF-8 Tips and XML to JSON</a>	<div class="dt">10 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/how_to_pixelize">How to Pixelize in Fireworks</a>	<div class="dt">05 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/finding_a_short">Finding a Shortcut</a>	<div class="dt">04 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/merging_data_into_this_data">Merging data into $this-&gt;data</a>	<div class="dt">02 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/custom_model_functions">Custom Model Functions</a>	<div class="dt">01 Aug 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/json_is_a_subse">JSON is a subset of the Object Literal</a>	<div class="dt">27 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_enum">Quick Link: Enumerating JavaScript Objects</a>	<div class="dt">27 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/watch_your_paths">Watch Your Paths</a>	<div class="dt">27 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/incremental_des">Incremental Design Update</a>	<div class="dt">26 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/session_object">Session Object</a>	<div class="dt">25 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/improving_edit">Improving Edit in Place</a>	<div class="dt">25 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/rapid_dom_slide">Rapid DOM Slides from Webvisions 2006</a>	<div class="dt">21 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/off_to_webvisio">Off to Webvisions 2006</a>	<div class="dt">19 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/add_value_on_th">Add Value on the Web</a>	<div class="dt">17 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/ease_deployment">Ease Deployment with Automatic Server Check</a>	<div class="dt">16 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/table_aliases">Use Table Aliases in Custom Queries</a>	<div class="dt">15 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/auto_pluralize">Auto Pluralize</a>	<div class="dt">14 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_is_it_w_1">CakePHP, is it worth it?</a>	<div class="dt">14 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/selecting_datab">Selecting Fields With the Same Name</a>	<div class="dt">12 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/s5key_slideshow">S5key: Slideshow Launcher</a>	<div class="dt">10 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/gush">Gush</a>	<div class="dt">02 Jul 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/simple_business">Simple Business Workshop</a>	<div class="dt">28 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_setting">CakePHP: Setting Default Values</a>	<div class="dt">27 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_page">Quick Link: Page Slugs in CakePHP</a>	<div class="dt">21 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_data_va_1">CakePHP: Data Validation</a>	<div class="dt">19 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/javascript_name">JavaScript Namespaces</a>	<div class="dt">18 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/design_analysis">Design Analysis: Comments</a>	<div class="dt">15 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_bake">CakePHP: Bake</a>	<div class="dt">14 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/cakephp/cakephp_initial">CakePHP: Initial Thoughts</a>	<div class="dt">14 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/dom_and_ajax_pr">DOM and Ajax Presentation</a>	<div class="dt">12 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_ajax">Quick Link: Ajax Edit in Place using Prototype</a>	<div class="dt">10 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_comp">Quick Link: Comparison of JavaScript Loops</a>	<div class="dt">10 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_inte_1">Quick Link: Interview with Cameron Adams</a>	<div class="dt">07 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/internationaliz">Internationalization Primer</a>	<div class="dt">06 Jun 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/saving_a_design">Saving a Design for Posterity</a>	<div class="dt">30 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/egos_and_empire">Egos and Empires</a>	<div class="dt">27 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/ajax_vs_ajax">AJAX vs Ajax and Ajax Effects</a>	<div class="dt">25 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/upcoming_carson">Upcoming Carson Workshops</a>	<div class="dt">25 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_java_1">Quick Link: JavaScript Tetris</a>	<div class="dt">16 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/snooks_book_nook/blog_design_sol">Review: Blog Design Solutions</a>	<div class="dt">13 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_html">Quick Link: HTML Editor Reviews</a>	<div class="dt">10 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/webvisions_2006">Webvisions 2006</a>	<div class="dt">10 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/why_frameworks_1">Why Frameworks Suck (redux)</a>	<div class="dt">08 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_flum">Quick Link: Flummoxed by Frameworks</a>	<div class="dt">08 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/reboot_the_css">Reboot: The CSS</a>	<div class="dt">06 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/trimming_long_o">Trimming Long Outlines in Firefox</a>	<div class="dt">05 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/reboot_light_vs">Reboot: Light vs. Dark</a>	<div class="dt">03 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/reboot_the_java">Reboot: The JavaScript</a>	<div class="dt">02 May 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/rebooted">Rebooted</a>	<div class="dt">29 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_sess">Quick Link: Sessions and Multiple Windows</a>	<div class="dt">27 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_snoo">Quick Link: Snook.ca Design Revealed</a>	<div class="dt">26 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_pric">Quick Link: Pricing a Project</a>	<div class="dt">25 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_get">Quick Link: Get the rendered style</a>	<div class="dt">24 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/failed_redesign">Failed Redesign</a>	<div class="dt">20 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/whats_wrong_wit">What&#039;s wrong with innerHTML?</a>	<div class="dt">13 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/productivity_is">Productivity is like a Train</a>	<div class="dt">13 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/triggering_wind">Triggering window.onerror</a>	<div class="dt">12 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/now_where_was_i">Now, where was I?</a>	<div class="dt">12 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/playing_with_fi">Playing With Fire</a>	<div class="dt">02 Apr 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/triple_intervie">Triple Interview at Fadtastic</a>	<div class="dt">29 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/targetting_ie7">Targeting IE7 using CSS</a>	<div class="dt">27 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/barcampottawa">BarCampOttawa</a>	<div class="dt">24 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_hand">Quick Link: Handling AJAX Timeouts using Prototype</a>	<div class="dt">24 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/microformats_in">Microformats in Dreamweaver</a>	<div class="dt">23 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/use_multiple_de">Use Multiple Desktops with Synergy</a>	<div class="dt">22 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/on_reaching_400">On Reaching 400 Posts</a>	<div class="dt">21 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/inheriting_link">Inheriting Link Colour</a>	<div class="dt">20 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/an_interview_wi">An Interview with Dean Edwards</a>	<div class="dt">19 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/excessive_eleme">Excessive Elements</a>	<div class="dt">18 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_9cha">Quick Link: 9charities</a>	<div class="dt">17 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006_lesso">SXSW 2006: Lessons Learned</a>	<div class="dt">17 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006_its_o_1">SXSW 2006: It&#039;s over (Part 2 of 2)</a>	<div class="dt">16 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006_its_o">SXSW 2006: It&#039;s over (Part 1 of 2)</a>	<div class="dt">16 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006_day_2">SXSW 2006 Day 2</a>	<div class="dt">13 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006_day_1_1">SXSW 2006 Day 1</a>	<div class="dt">12 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_day_0">SXSW Day 0</a>	<div class="dt">11 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/im_on_my_way">I&#039;m on my way</a>	<div class="dt">09 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/podcast_intervi">Podcast Interview with Dustin Diaz</a>	<div class="dt">08 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_forg">Quick Link: Forget addEvent, use Yahoo!&#039;s Event </a>	<div class="dt">07 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/element_object">Element Object in Prototype Revised</a>	<div class="dt">07 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxswi_2006">SxSWi 2006</a>	<div class="dt">06 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/gray_is_the_new">Gray is the New White</a>	<div class="dt">01 Mar 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/working_with_sh">Working with Shapes in Fireworks</a>	<div class="dt">28 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_phot">Quick Link: Photoshop Starburst Effect</a>	<div class="dt">26 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/is_your_name_jo">Is your name &quot;Jonathan Snook&quot;? I&#039;m sorry.</a>	<div class="dt">26 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_yaho_1">Quick Link: Yahoo&#039;s PHP Developer Center</a>	<div class="dt">24 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/a_bunch_of_link">A bunch of links</a>	<div class="dt">23 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/prototype_disse">Prototype Dissected</a>	<div class="dt">20 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/prototypepowere">Prototype-powered Popups</a>	<div class="dt">18 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/when_you_know_a">When you know a day is going to hurt</a>	<div class="dt">16 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/make_your_langu">Make Your Language Clear</a>	<div class="dt">16 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/css_mastery_by">CSS Mastery by Andy Budd</a>	<div class="dt">15 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_disc">Quick Link: Discoverability in Rich Web UI&#039;s</a>	<div class="dt">15 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_yaho">Quick Link: Yahoo Links</a>	<div class="dt">14 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/microsoft_offic">Microsoft Office and Usability</a>	<div class="dt">08 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/server_switched">Server Switched</a>	<div class="dt">04 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/ie7_beta_2_prev">IE7 Beta 2 Preview: Send in your bug reports</a>	<div class="dt">01 Feb 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/absolute_and_re">Absolute and Relative Paths in MSHTML</a>	<div class="dt">31 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/internet_explor_1">Internet Explorer 7 Beta 2 Preview is available</a>	<div class="dt">31 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/pdf_generation">PDF Generation Using Only PHP</a>	<div class="dt">25 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/web_presentatio">Web Presentation Patterns</a>	<div class="dt">24 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/emailing_large">Emailing Large Files using DropSend</a>	<div class="dt">23 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_gett">Quick Link: Getting Funky With Scopes and Closures</a>	<div class="dt">22 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/poor_form_desig">Poor Form Design</a>	<div class="dt">22 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/_source_order_s">Source Order, Skip links and Structural labels</a>	<div class="dt">19 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/javascript_pass">JavaScript: Passing by Value or by Reference</a>	<div class="dt">18 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/whats_the_best_1">What&#039;s the best XML editor?</a>	<div class="dt">18 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/whats_the_best">What&#039;s the best MySQL admin tool?</a>	<div class="dt">13 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/dealing_with_ja">Dealing with JavaScript Scope</a>	<div class="dt">12 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_usin">Quick Link: Using Flash as an Animation Underlayer</a>	<div class="dt">09 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/spam_filtering">Spam Filtering in MovableType 3.2</a>	<div class="dt">06 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/which_is_better">Which is better: HTML or XHTML?</a>	<div class="dt">04 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/the_value_of_gr">The Value of Graphic Design</a>	<div class="dt">03 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/the_bloggies_an">The Bloggies and the Value of Self Promotion</a>	<div class="dt">02 Jan 2006</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/buzzword_hell">Buzzword Hell</a>	<div class="dt">01 Jan 2006</div>
+</div>
+<h2>2005</h2>	
+<div>
+	<a href="https://snook.ca/archives/other/retrospection_i">Retrospection, Introspection and Future-spection</a>	<div class="dt">31 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_ligh">Quick Link: Lightbox JS</a>	<div class="dt">29 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_make">Quick Link: Make Internal Links Scroll Smoothly with JavaScript</a>	<div class="dt">27 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/merry_christmas">Merry Christmas</a>	<div class="dt">23 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_links_aro">Quick Links: Around 9rules</a>	<div class="dt">20 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/going_solo">Going Solo</a>	<div class="dt">19 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/tables_with_sty">Tables with Style</a>	<div class="dt">18 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_zind">Quick Link: Z-index and Positioning</a>	<div class="dt">16 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/rounding_intege">Rounding Integers Proves Troublesome</a>	<div class="dt">16 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/know_javascript">Know JavaScript and need a job?</a>	<div class="dt">14 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_ruby">Quick Link: Ruby on Rails hits 1.0</a>	<div class="dt">14 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_unob">Quick Link: Unobtrusive and Persistent Script.aculo.us Effects</a>	<div class="dt">08 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/design/the_yourtotalsi">The YourTotalSite Redesign that never was</a>	<div class="dt">05 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_how_1">Quick Link: How to: Embedded Google Maps</a>	<div class="dt">04 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_worn">Quick Link: Worn Type</a>	<div class="dt">03 Dec 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_quic">Quick Link: Quick Guide to Prototype</a>	<div class="dt">29 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_fire">Quick Link: Firefox 1.5 Released</a>	<div class="dt">29 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/email_makes_you">E-mail Makes You Smarter</a>	<div class="dt">29 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/cssvista_you_do">CSSVista, you done me wrong!</a>	<div class="dt">26 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/move_over_ajax">Move over AJAX, welcome AHAH</a>	<div class="dt">24 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/interview_at_mc">Interview at mcville</a>	<div class="dt">21 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/google_ads_to_t">Google Ads to target content. What about Google search?</a>	<div class="dt">19 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/hidden_rewards">Hidden Rewards</a>	<div class="dt">17 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/why_frameworks">Why Frameworks Suck</a>	<div class="dt">16 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_goog">Quick Link: Google Analytics</a>	<div class="dt">14 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/feeling_nostalg">Feeling nostalgic</a>	<div class="dt">13 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_how">Quick Link: How Big Companies Can Innovate</a>	<div class="dt">12 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/the_solution_to">The Solution to Getting Things Done</a>	<div class="dt">09 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/building_a_netw">Building Traffic through Networking</a>	<div class="dt">07 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_the_1">Quick Link: The Ultimate getElementsByClassName</a>	<div class="dt">07 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/yourtotalsite_d">YourTotalSite defunct</a>	<div class="dt">01 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/snooks_resizabl">Snook&#039;s Resizable Underlines</a>	<div class="dt">01 Nov 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/server_issues">Server Issues</a>	<div class="dt">31 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/javascript_effe">JavaScript Effect Libraries</a>	<div class="dt">28 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/the_expectation">The Expectations of Links</a>	<div class="dt">26 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/ie7_and_the_use">IE7 and the use of CSS Hacks</a>	<div class="dt">19 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/variable_scope">Variable Scope</a>	<div class="dt">17 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_cros">Quick Link: Cross-browser Image Transitions</a>	<div class="dt">07 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quick_link_max">Quick Link: MAX Awards Finalists</a>	<div class="dt">06 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/how_do_you_sign">How do you sign an email</a>	<div class="dt">06 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/now_added_quick">Now added: Quick Links</a>	<div class="dt">05 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/full_feeds_are">Full Feeds are back</a>	<div class="dt">03 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/treehouse_a_web">Treehouse - A Web Development Magazine</a>	<div class="dt">03 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/writeboard_from">Writeboard from 37signals</a>	<div class="dt">02 Oct 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/rollyo_roll_you">Rollyo: Roll your own search engine</a>	<div class="dt">29 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/browsers/stopping_animat">Stopping Animated GIFs from Animating in Firefox</a>	<div class="dt">27 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/new_companies_c">New companies: clear:left and Blue Flavor</a>	<div class="dt">26 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/veerle_reviews">Veerle reviews Dreamweaver 8</a>	<div class="dt">26 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/quick_tagging_i">Quick Tagging in Dreamweaver</a>	<div class="dt">22 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/find_and_replac">Find and Replace using Dreamweaver</a>	<div class="dt">21 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/upgrading_to_mo">Upgrading to MovableType 3.2</a>	<div class="dt">17 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/soap_request_pa">SOAP Request Parameter Order Can Make a Difference</a>	<div class="dt">17 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/writely_so">Writely, so.</a>	<div class="dt">09 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_javasc_1">Bookmark: JavaScript Logging</a>	<div class="dt">08 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/the_modulo_oper">The Modulo Operator for Alternating Rows</a>	<div class="dt">01 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/snookca_on_webj">snook.ca on WebJillion</a>	<div class="dt">01 Sep 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/rss/feedburner_konf">FeedBurner Konfabulator Widget</a>	<div class="dt">31 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/opera_8_for_fre">Opera 8 for Free (Ad-free that is)</a>	<div class="dt">30 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/show_feedburner">Show FeedBurner Circulation using PHP</a>	<div class="dt">29 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/css_star_rating">CSS Star Ratings Selector</a>	<div class="dt">29 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/footerstickalt">footerStickAlt</a>	<div class="dt">29 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/feedburner_and">FeedBurner and excerpt feeds</a>	<div class="dt">29 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/conferences/sxsw_2006">SxSW 2006</a>	<div class="dt">26 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/design_tweaks">Design Tweaks</a>	<div class="dt">25 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/database_joins">Database Joins</a>	<div class="dt">21 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dotnet/when_xpath_does">When XPath does not return a node or nodeset</a>	<div class="dt">11 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/proof_that_comp">Proof that companies do listen to me.</a>	<div class="dt">09 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/introduction_to">Introduction to Developing a Relational Database</a>	<div class="dt">02 Aug 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/what_we_wanted">What We Wanted: IE7 Beta 2</a>	<div class="dt">30 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/blinksale_invoi">Blinksale - Invoicing Great for Freelancers</a>	<div class="dt">28 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/internet_explor">Internet Explorer 7 Beta 1 Released</a>	<div class="dt">28 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/how_i_added_a_w">How I Added a Weighting to My Tags</a>	<div class="dt">25 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/learning_web_de_1">Learning Web Development</a>	<div class="dt">21 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/all_on_my_own">All on my own</a>	<div class="dt">20 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/joining_9rules">Joining 9rules</a>	<div class="dt">19 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/php/how_i_added_tag">How I Added Tagging Using PHP and MySQL</a>	<div class="dt">11 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/bookmark_access">Bookmark: Accessible Data Tables</a>	<div class="dt">05 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/fontsmack_blog">FONTSMACK Blog is Live</a>	<div class="dt">04 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/fontsmack_updat">FontSmack Update</a>	<div class="dt">04 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/launching_fonts_1">Launching FONTSMACK, Part 2</a>	<div class="dt">01 Jul 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/launching_fonts">Launching FONTSMACK</a>	<div class="dt">30 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/ode_to_keyboard">Ode to Keyboard</a>	<div class="dt">29 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/new_column_at_d">New Column at Digital Web</a>	<div class="dt">28 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/what_is_ajax">What is AJAX?</a>	<div class="dt">22 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_css_ro">Bookmark: CSS Rollovers Image Preload</a>	<div class="dt">22 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/bookmark_fix_ba">Bookmark: Fix back button and enable bookmarking in AJAX applications</a>	<div class="dt">15 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/month_validator">Month Validator</a>	<div class="dt">12 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/fuel_games">Fuel Games: Managing SEO</a>	<div class="dt">09 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/writing/writing_at_your">Writing at YourTotalSite</a>	<div class="dt">07 Jun 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/your_favourite_1">Your Favourite getElementsByClassName</a>	<div class="dt">27 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/potable_quotabl">Potable Quotables</a>	<div class="dt">27 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/comments_behind">Comments: Behind the Scenes</a>	<div class="dt">18 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/arriving_late_t">Arriving Late to the Meme Party: Musical Baton</a>	<div class="dt">17 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/stepping_it_up">Stepping it up: Live Preview</a>	<div class="dt">16 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/im_an_addict">I&#039;m an addict.</a>	<div class="dt">13 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/bookmark_browse">Bookmark: Browser Filtering by DOM</a>	<div class="dt">12 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/global_variable">Global Variables in JavaScript</a>	<div class="dt">06 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/an_experiment_w">An experiment with INS and DEL</a>	<div class="dt">05 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/applying_a_back">Applying a background image to a table row</a>	<div class="dt">03 May 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/bookmark_domfun">Bookmark: domFunction</a>	<div class="dt">28 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/onscroll_isnt_a">Onscroll isn&#039;t always onscroll</a>	<div class="dt">26 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/experiment_with">Experiment with position:fixed</a>	<div class="dt">25 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/explosion_of_de">Explosion of design</a>	<div class="dt">23 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/css_debugging">CSS Debugging</a>	<div class="dt">21 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/determining_dat">Determining Database Field Lengths</a>	<div class="dt">16 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/problems_using">Problems using white-space:nowrap in Internet Explorer</a>	<div class="dt">11 Apr 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/unused_design_g">Unused Design Giveaway!</a>	<div class="dt">31 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/encoding_accent">Encoding Accented Characters in E-mail Subjects</a>	<div class="dt">30 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/firstline_bug_i">:first-line bug in Firefox</a>	<div class="dt">21 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/aspnet_links">ASP.NET links</a>	<div class="dt">14 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/using_images_as">Using Images as Labels in Internet Explorer</a>	<div class="dt">11 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/optimized_truef">Optimized True/False Assignments in JavaScript</a>	<div class="dt">11 Mar 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/dynamically_sho">Dynamically showing and hiding table rows</a>	<div class="dt">28 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/safari_bug_floa">Safari bug? Float, float, relative, absolute.</a>	<div class="dt">14 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/site_updates">Site Updates</a>	<div class="dt">13 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/variables_decla">Variables declared even if unused</a>	<div class="dt">12 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/bookmark_cms_do">Bookmark: CMS Do&#039;s and Dont&#039;s</a>	<div class="dt">09 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/bookmark_tips_f">Bookmark: Tips for a Successful Wiki</a>	<div class="dt">06 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/cdosys_the_diff">CDOSYS The Different SendUsing Options</a>	<div class="dt">04 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/goal_reached">Goal Reached!</a>	<div class="dt">02 Feb 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/peculiar_crossb_1">Peculiar Cross-Browser Regular Expression performance</a>	<div class="dt">27 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/empty_location">Empty Location header can cause unpredictable behaviour</a>	<div class="dt">26 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/setting_title_u">Setting TITLE using text from H1 header in Dreamweaver</a>	<div class="dt">22 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_sql_se">Bookmark: SQL Server DBCC Commands</a>	<div class="dt">18 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_guidel">Bookmark: Guidelines for Accessible and Usable Web Sites</a>	<div class="dt">18 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/getting_to_know">Getting to know you</a>	<div class="dt">13 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/colour_color_co">Colour (Color) Contrast Check</a>	<div class="dt">11 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/setting_disk_qu">Setting Disk Quotas for User Profiles on Windows Server</a>	<div class="dt">10 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/instant_messeng">Instant Messenger Timezone Detection</a>	<div class="dt">06 Jan 2005</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/new_postgresql">New PostgreSQL and Rubyonrails web sites</a>	<div class="dt">03 Jan 2005</div>
+</div>
+<h2>2004</h2>	
+<div>
+	<a href="https://snook.ca/archives/other/override_custom">Override Custom Context Menu in Firefox</a>	<div class="dt">23 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/building_an_add">Building an Address Book...</a>	<div class="dt">23 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/template_overvi">Template Overview</a>	<div class="dt">23 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/happy_holidays">Happy Holidays!</a>	<div class="dt">23 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/update_to_gainc">Update to GainCMS Web Site</a>	<div class="dt">19 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/view_previous_v_1">The Document Version Switcher</a>	<div class="dt">12 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/marketing_a_web">Marketing a Web Application</a>	<div class="dt">10 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/new_functionali">New functionality on snook.ca</a>	<div class="dt">10 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/designing_with">Designing with CSS in Dreamweaver</a>	<div class="dt">09 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/understanding_i">Understanding Identity Columns (SQL Server)</a>	<div class="dt">08 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/investors_anyon">Investors, anyone?</a>	<div class="dt">01 Dec 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/i_redesigned">I redesigned.</a>	<div class="dt">24 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/quotations_and">Quotations and Citations</a>	<div class="dt">24 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/clear_links_to_1">Clear Links to Current Page with Unobtrusive JavaScript Version Two</a>	<div class="dt">18 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/clear_links_to">Clear Links to Current Page with Unobtrusive JavaScript</a>	<div class="dt">18 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_aspnet">Bookmark: ASP.NET Performance Techniques</a>	<div class="dt">17 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/aspnet_captcha">ASP.NET CAPTCHA</a>	<div class="dt">16 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/bookmark_search">Bookmark: Search Engine Decoder</a>	<div class="dt">16 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/working_as_part">Working as Part of a Team</a>	<div class="dt">15 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/ruby/entering_the_wo">Entering the World of Ruby</a>	<div class="dt">12 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/author_banning">Author Banning in MovableType</a>	<div class="dt">11 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/use_of_the_targ">use of the :target attribute and conditional text </a>	<div class="dt">10 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/opinion/branding_is_dea">Branding is dead?</a>	<div class="dt">09 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/new_products">New Products</a>	<div class="dt">09 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/technology_choi">Technology Choices: One Decision Made</a>	<div class="dt">04 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/database_design_1">Database Design: Handling Unstructured Data</a>	<div class="dt">01 Nov 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/quick_links/ruby_links">Ruby Links</a>	<div class="dt">28 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/prevent_image_r">Prevent Image Resize in MSHTML/DEC</a>	<div class="dt">25 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web_6">Building a Web Application: Technology Choices</a>	<div class="dt">22 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/database_design">Database Design Choices</a>	<div class="dt">21 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web_1">Building a Web Application: Database Design</a>	<div class="dt">21 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/revised_program">Revised Program Flow</a>	<div class="dt">16 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/validation_and">Validation and Content Management Systems</a>	<div class="dt">14 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/bloglines_where">Bloglines, where are you?</a>	<div class="dt">14 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/iterative_desig_1">Iterative Design</a>	<div class="dt">13 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web">Building a Web Application: Prototyping</a>	<div class="dt">12 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/upgrading_from">Upgrading from MovableType 2.64 to 3.1</a>	<div class="dt">10 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/content_management_systems/squarespace">Squarespace</a>	<div class="dt">09 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/open_source_vs">Open Source vs. Closed Source</a>	<div class="dt">07 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/the_usable_page">The Usable Page Title</a>	<div class="dt">07 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web_5">Building a Web Application: Requirements Gathering</a>	<div class="dt">05 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/five_design_tre">Five Design Trends</a>	<div class="dt">01 Oct 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web_4">Building a Web Application: The Idea</a>	<div class="dt">30 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/building_a_web_application/building_a_web_3">Building a Web Application: Intro</a>	<div class="dt">29 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/storing_values">Storing Values in Bits</a>	<div class="dt">14 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/software_design">Software Design Patterns</a>	<div class="dt">08 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/opposites_attra">Opposites Attract in Internet Explorer</a>	<div class="dt">07 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/the_knowledge_b">The Knowledge Bubble</a>	<div class="dt">07 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/the_bordercolla">The border-collapse dilemma</a>	<div class="dt">06 Sep 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/track_bloglines">Track Bloglines Readers</a>	<div class="dt">31 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/default_mac_or">Default Mac or PC Fonts</a>	<div class="dt">31 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/ado_error_800a0">ADO error 800a01fb</a>	<div class="dt">23 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/web_design_tips">Web Design Tips for Print Designers</a>	<div class="dt">15 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/perma_your_rss">Perma your RSS!</a>	<div class="dt">10 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/a_faq_of_reject">A FAQ of rejected ideas</a>	<div class="dt">10 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/scripting_dns_e">Scripting DNS Entries using VBScript</a>	<div class="dt">03 Aug 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/importing_css_a">Importing CSS and images into a secure page</a>	<div class="dt">30 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/ia_and_css">IA and CSS</a>	<div class="dt">26 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/creating_access">Creating Accessible Alternatives of Corporate Site</a>	<div class="dt">26 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/htaccess_genera">htAccess Generator</a>	<div class="dt">23 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/gecko_dom_refer">Gecko DOM Reference</a>	<div class="dt">23 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/custom_borders">Custom Borders and Corners</a>	<div class="dt">23 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/doing_sql_searc">Doing SQL searches on accented characters</a>	<div class="dt">19 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/getting_your_di">Getting your DIVs to behave like TABLEs</a>	<div class="dt">15 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/improved_bullet">Improved Bulletproof Slants</a>	<div class="dt">13 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/hit_bug_in_fire">Hit Bug in Firefox and Flash</a>	<div class="dt">08 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/label_bug_in_ne">label bug in Netscape 6</a>	<div class="dt">05 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/drop_down_menu">Drop down menu</a>	<div class="dt">05 Jul 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/designing_data_1">Designing Data Part 2: Adding Style</a>	<div class="dt">13 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/definition_list">Definition List or Table?</a>	<div class="dt">10 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/windowlocation">window.location on a Mac</a>	<div class="dt">09 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/designing_data">Designing Data Part 1: Table structure</a>	<div class="dt">08 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/logo_design">Logo design</a>	<div class="dt">08 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/servers/custom_404">Custom 404</a>	<div class="dt">08 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/keep_it_simple">Keep it simple</a>	<div class="dt">05 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/the_slow_redesi">The slow redesign process</a>	<div class="dt">04 Jun 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/java/run_a_jar_file">Run a jar file in JSP</a>	<div class="dt">19 May 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/java/create_md5_hash">Create MD5 hash in JSP</a>	<div class="dt">19 May 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/minheight">min-height</a>	<div class="dt">26 Apr 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/best_way_to_set">best way to set up resizable fonts</a>	<div class="dt">22 Apr 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/cdosys_cdo_for">CDOSYS (CDO for Windows 2000)</a>	<div class="dt">21 Apr 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/super_quick_lau">Super Quick Launch toolbar for free</a>	<div class="dt">05 Mar 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/a_couple_of_boo">a couple of bookmarks</a>	<div class="dt">05 Mar 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/a_new_kind_of_s">A new kind of spam</a>	<div class="dt">23 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/flash_frustrati">Flash Frustration</a>	<div class="dt">20 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/using_css_expre">Using CSS expressions in IE</a>	<div class="dt">19 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/geonames">GeoNames</a>	<div class="dt">16 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/firefox_not_rea">Firefox not ready for the mass market</a>	<div class="dt">16 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/using_newid_to">Using NEWID to Randomly Sort Records</a>	<div class="dt">16 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/disable_flash_p">Disable Flash plugin</a>	<div class="dt">16 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/colour_contrast">Colour Contrast Check</a>	<div class="dt">13 Feb 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/list_of_cssonly">List of CSS-only hacks</a>	<div class="dt">20 Jan 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/take_a_message">Take a message!</a>	<div class="dt">09 Jan 2004</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/moving_movablet">Moving MovableType a success</a>	<div class="dt">09 Jan 2004</div>
+</div>
+<h2>2003</h2>	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/css_navigation">CSS Navigation Example</a>	<div class="dt">25 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/sortable_html_t">Sortable HTML Tables</a>	<div class="dt">21 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/fusebox_methodo">Fusebox Methodology</a>	<div class="dt">19 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/rounded_corner">Rounded corner using CSS</a>	<div class="dt">19 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/import_email_ad">Import e-mail addresses from a text file into Outlook</a>	<div class="dt">19 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/the_reuseit_win">The ReUseit winner is in!</a>	<div class="dt">14 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/use_of_eval_in">Use of eval in Flash</a>	<div class="dt">12 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/3_versions_of_i">3 versions of IE on one machine</a>	<div class="dt">09 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/wysiwyg_editing">WYSIWYG editing in Mozilla</a>	<div class="dt">08 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/reuseit_contest">ReUSEIT Contestants</a>	<div class="dt">04 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/dreamweaver_ext_1">Dreamweaver Extension: Metadata DC.DATE Auto-update</a>	<div class="dt">04 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/dreamweaver_ext">Dreamweaver Extension: Change to French Quotes</a>	<div class="dt">04 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/tabbed_navigati">Tabbed Navigation using CSS</a>	<div class="dt">04 Nov 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/semitransparent">semi-transparent and stuff</a>	<div class="dt">30 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/cdo_for_windows">CDO for Windows 2000</a>	<div class="dt">29 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/send_email_from">Send E-mail from ASP without a COM object</a>	<div class="dt">29 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/sql/on_delete_casca">ON DELETE CASCADE in Transact-SQL</a>	<div class="dt">28 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/line_breaks_and">line breaks and the hyphen</a>	<div class="dt">27 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/mouse_gestures">Mouse Gestures for ALL!</a>	<div class="dt">27 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/is_bloated_css">Is bloated CSS the new HTML?</a>	<div class="dt">27 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/link_checkers">link checkers</a>	<div class="dt">24 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/all_about_fahrn">All about Fahrner</a>	<div class="dt">24 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/the_better_if">the better &#039;if&#039;</a>	<div class="dt">22 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/add_link_toolba">Add Link Toolbar to Firebird</a>	<div class="dt">22 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/firebird_07_is">Firebird 0.7 is released</a>	<div class="dt">17 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/use_of_mozborde">Use of &quot;-moz-border-radius&quot; CSS property in Standards Mode</a>	<div class="dt">16 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/an_argument_aga">An argument against multicolumn web design</a>	<div class="dt">16 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/the_css_mid_pas">The CSS Mid Pass Filter for IE5.x/Win</a>	<div class="dt">15 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/using_the_float">Using the Float property in CSS</a>	<div class="dt">15 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/wheres_that_cur">Where&#039;s that cursor?</a>	<div class="dt">09 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/know_your_entit">Know your entities!</a>	<div class="dt">08 Oct 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/colourblindness">Colour-blindness and web development</a>	<div class="dt">29 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/arsenal_of_tool">Arsenal of Tools</a>	<div class="dt">26 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/two_great_tools">Two great tools</a>	<div class="dt">26 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/logo">Logo</a>	<div class="dt">26 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/issn_for_weblog">ISSN for Weblogs</a>	<div class="dt">25 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/firebird_is_hot">Firebird is hot</a>	<div class="dt">24 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/other/back_to_square">back to square one</a>	<div class="dt">23 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/fluid_or_fixed">Fluid or Fixed?</a>	<div class="dt">17 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/reuseit">ReUseit</a>	<div class="dt">02 Sep 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/onpaste_fired_o">onpaste fired oncontextmenu</a>	<div class="dt">29 Aug 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/instant_page_va">Instant Page Validation</a>	<div class="dt">20 Jul 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/html_and_css/dont_be_so_shy">Don&#039;t be so shy</a>	<div class="dt">09 Jul 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/top_of_page">Top of Page</a>	<div class="dt">06 Jul 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/xhtml_compliant">XHTML compliant Flash</a>	<div class="dt">01 Jul 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/using_getbookma">Using getBookmark and moveToBookmark</a>	<div class="dt">30 Mar 2003</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/pasting_content">Pasting Content into the MSHTML</a>	<div class="dt">07 Feb 2003</div>
+</div>
+<h2>2002</h2>	
+<div>
+	<a href="https://snook.ca/archives/dreamweaver/relative_links">Relative Links in Macromedia Dreamweaver template </a>	<div class="dt">05 Nov 2002</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/creating_custom">Creating Custom Context Menus for MSHTML</a>	<div class="dt">29 Jul 2002</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/showborders_pro">ShowBorders property for MSHTML</a>	<div class="dt">29 Jun 2002</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/accessibility_and_usability/making_usable_a">Making Usable and Accessible Forms</a>	<div class="dt">26 Mar 2002</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/creating_a_cust">Creating a custom Find dialog for MSHTML</a>	<div class="dt">22 Feb 2002</div>
+</div>
+<h2>2001</h2>	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/custom_colour_p">Custom Colour Picker</a>	<div class="dt">12 Nov 2001</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/from_word_to_th">From Word to the DEC</a>	<div class="dt">06 Nov 2001</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/mshtml_and_dec/microsofts_dyna">Microsoft&#039;s Dynamic HTML Editing Component (DEC)</a>	<div class="dt">01 Nov 2001</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/vbscript_code_t">VBScript code to replace text NOT in HTML tags</a>	<div class="dt">01 Nov 2001</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/javascript/copying_from_mi">Copying from Microsoft Word to a textarea using JavaScript</a>	<div class="dt">31 Oct 2001</div>
+</div>
+	
+<div>
+	<a href="https://snook.ca/archives/active_server_pages/reading_paramet">Reading parameters of a Macromedia Flash (SWF) file using ASP</a>	<div class="dt">31 Oct 2001</div>
+</div>
+
+</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:47 GMT -->
+</html>

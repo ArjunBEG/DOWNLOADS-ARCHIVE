@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/personal/being-square by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Being Square - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/being-square">
+	<meta property="og:url" content="https://snook.ca/archives/personal/being-square">
+	<meta property="og:title" content="Being Square">
+	<meta property="og:description" name="description" content="The snow is melting. Spring is upon us. It's that time of year for new beginnings. And there are definitely plenty of new beginnings around the Snook household. On top of all the other things that hav...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Being Square</h1>
+		<p>The snow is melting. Spring is upon us. It's that time of year for new beginnings. And there are definitely plenty of <a href="https://snook.ca/archives/personal/full-circle">new beginnings</a> around the Snook household. On top of all the other things that have been happening, I've decided to make some changes, too.</p>
+<p> After three long years, I'm leaving the life of freelance. What's old is new again, it seems. I'm going to be working for someone else. As of April 1st, I'll be working for <a href="http://www.squarespace.com/">Squarespace</a>, no foolin'.</p>
+<h2>But what about the freelance dream?</h2>
+<p>There have been plenty of ups and downs over the past three years and I've learned plenty about what it takes to make it on my own and learned plenty about who I am, what I want out of my day-to-day life and what I want out of my future.</p>
+<p>I went freelance for a combination of reasons.</p>
+<ol>
+  <li>I no longer saw a growing role in the organization I was in.</li>
+  <li>I wanted to work on my own projects, to see them evolve and to see them flourish.</li>
+  <li>I wanted to be more involved with clients, having a larger say in the evolution of their projects.</li>
+</ol>
+<p>For my time, I was able to work on my own projects. I released a bunch of applications and sites like Snitter, Overheard.it, and Snogs along with a version or two of my own site.</p>
+<p> I enjoyed working intimately with clients, creating sites and applications that I'm still very proud of today.</p>
+<h2>What went wrong</h2>
+<p>All of it  hasn't been rainbows and butterflies, though. I've had to come to some very hard realizations about who I am and what I want moving forward.</p>
+<p>Despite the flexibility,<strong> I too easily put client work in front of my own projects</strong>, letting them linger and die (<a href="http://getsnitter.com/">Snitter</a> is a great example). Putting client work in front of my own meant that I was really in a similar boat  to what I was in before: working project to project with little to show for it but the experience. I always felt that working on my own projects (well, ones that make money) would eventually allow me the opportunity to forego client work altogether. That obviously never happened.</p>
+<p><strong>I can't manage other people.</strong> This problem cropped up any time I got particularly busy. Do I outsource? Do I hire somebody? Trying to manage cashflow and workflow was too much for me. Making sure that people have enough work to do, without stepping on each other's toes, while making sure people can get paid, without going broke was something I just couldn't do. I commend anybody who can. Not only am I not a good business person, it's also not something I <em>want</em> to do.</p>
+<p>Finally, <strong>I hadn't been very good at managing my own priorities</strong> which  led to being overworked and possibly depression &mdash; something I had a tough time admitting to myself or those around me. This is probably the biggest issue and  certainly the hardest to admit to so publicly. If a timeline slid, it'd mean that billables would slide, too. To make up the difference, I'd take on more work. With more work, I had to divide my time, ultimately getting less done than I would have if I focused singularly on one project. Of course, with more projects not getting done, billables slid, and I'd take on more work to make up the difference. Being overworked with little sleep and even less social contact left my mind frayed.</p>
+<p>Thankfully,  I recognized these issues and had taken steps to resolve them. My productivity in the last 3 months alone has been consistently better and I made the smart choice not to take on more projects. I used <a href="http://www.rescuetime.com/">Rescue Time</a> to track my sore spots, I blocked sites that sucked up my time, and I tried to set more realistic timelines with clients. Clients have been happier and so have I.</p>
+<p>If the last 3 months were any indication, this  would have been a great year. </p>
+<h2>An Opportunity</h2>
+<p>But then an opportunity came from Squarespace. Never one to say no to an opportunity right away, I talked to Anthony Casalena &mdash; the man behind Squarespace &mdash; and even flew to NYC to meet the team. </p>
+<p>It was the right opportunity at the right time and I took it.</p>
+<p>It meant having a singular focus. Working on a single product for a single company and seeing it evolve. This is what I wanted to do. I don't have to manage a team of people. I don't have to worry about running a business. I just get to enjoy building things.</p>
+<p>Squarespace is also a very open company. Check out their <a href="http://live.squarespace.com/">Live</a> page, where you can keep tabs on some of the crew. They're cool with blogging and twittering, conferences and speaking. This means I get to continue to do the things that I enjoy doing in between doing the things that I enjoy doing.</p>
+<p>What will I be doing exactly? Lots of JavaScript development. I'll be focused on the interface, working to improve the interactivity and continuing to build a platform that makes it easy for people to manage their own web sites.</p>
+<p>I'll still be working from home in Ottawa but will be making the trip out to Manhattan a few times a year which I will look forward to each and every time. (I love New York, I really do.) </p>
+<p>Finally,  I wanted to share one last interesting tidbit: Anthony and I spoke a number of years ago about joining forces to work on Squarespace. I believe it was just him working out of his dorm room at the time. While it didn't work out then, it's been fun to watch the application and the company evolve. Now that things have come full circle, I'll (finally) be doing my part.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published March 24, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/935</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">62 Comments &middot; <a href="https://snook.ca/archives/personal/being-square.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63104">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63104">1</a></div>
+			<span class="authorname">Chris Rowe</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Good luck with it Jon, at first I couldn't see you doing it but some of your points really hit home.</p>
+<p>I'm sure you'll be glad you've made the move a year from now too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63105">2</a></div>
+			<span class="authorname">Steve</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats Jonathan. Liking that LIVE page on the squarespace site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63106">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63106">3</a></div>
+			<span class="authorname">Martin Ringlein</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations! I can't wait to what more amazing stuff is to come from Squarespace!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63107">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63107">4</a></div>
+			<span class="authorname">Mike Taylor</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats! Squarespace looks like an awesome place. Does this mean we'll get some Sidebar Creative action down here in NYC? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63108">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63108">5</a></div>
+			<span class="authorname">Todd Austin</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Jonathan! I too was looking at leaving the freelance world about a month ago, but the opportunity that was presented to me wasn't all it was cracked up to be. So for now, I will stay an independent. Hope yours works out well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63109">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63109">6</a></div>
+			<span class="authorname"><a href="http://www.bogglethemind.com/">Jeff L</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Best of luck with the new adventure!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63110">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63110">7</a></div>
+			<span class="authorname">mike susz</span> said on March 24, 2009		</div>
+		<div class="quote"><p>as a fellow freelancer, i certainly understand. our needs are constantly evolving (especially with you growing your family!)</p>
+<p>i went freelance for most of the same reasons, am facing a lot of the same struggles, and am considering full time employment again also. in the pursuits of profitability and liquidity, there is much value in liquidity, especially if you can do it without sacrificing what you love to do. that's the important part.</p>
+<p>best of luck to you sir, and congratulations to squarespace!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63111">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63111">8</a></div>
+			<span class="authorname">Patrick Haney</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats to you and the Squarespace team, I'm sure you'll both flourish thanks to this relationship. I've always admired their work, and yours, so I'm curious as to what you'll do from here on out.</p>
+<p>Plus you get to visit the NYC, which is a bonus. I'm only 4 hours away by car, and yet I don't feel like I get down there enough.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63112">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63112">9</a></div>
+			<span class="authorname">Chris</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Good luck. As much as the freelance lifestyle rocks, it can suck equally so (especially if you have trouble with the business side).</p>
+<p>Hopefully this will give you all of the peace and stability you need with a new baby coming soon!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63113">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63113">10</a></div>
+			<span class="authorname">Aaron</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Wow, that's a big announcement. Good luck and godspeed. (Hope they can put up with you.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63114">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63114">11</a></div>
+			<span class="authorname">TimC</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Grats, "Lead Developer".  ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63115">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63115">12</a></div>
+			<span class="authorname">Steve Avery</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Jon. Sounds like you've made a great move.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63116">13</a></div>
+			<span class="authorname">Kyle</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Jonathan. I hope you find that your new position is everything you've hoped for and need.</p>
+</div>
+	</div>
+		<div class="comment" id="c63117">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63117">14</a></div>
+			<span class="authorname">Andrew Yates</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Good luck in your new position.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63118">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63118">15</a></div>
+			<span class="authorname">Andy Stratton</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Snook! Congrats and good luck with change!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63119">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63119">16</a></div>
+			<span class="authorname">Tom Watson</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Snook! </p>
+<p>It sounds like a great opportunity for you and your family. I wish you the best of luck at Squarespace. They couldn't be getting a better guy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63120">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63120">17</a></div>
+			<span class="authorname"><a href="http://www.lealea.net/">Lea</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Jon, I love your openness and honesty here. I think it will really help anyone who is considering freelancing or considering leaving freelancing. The most important part is that you were honest with yourself and what you wanted from your career. From you what you say, it looks like it will be a good balance of structure and freedom. :) Good luck to you and your family! :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63121">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63121">18</a></div>
+			<span class="authorname"><a href="http://mattbrett.com/">Matt Brett</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Bah, now you've gone and got me questioning my current position as a freelancer... again.  I've been feeling super spread thin lately, and am quite honestly jealous of the role you've just secured for yourself.  </p>
+<p>Congrats, Jon!  I hope this change does you well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63122">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63122">19</a></div>
+			<span class="authorname">John F Croston III</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations, Jonathan, on the new job at Squarespace!</p>
+<p>I have been thinking about going freelance and building a few web applications in the next year or so. For some of the reasons you stayed (managing people and not the best business person) I have been waiting to do so. Going to try and save up enough to pay the bills for six months or a year so I can work on what I want and not have to worry so much.</p>
+<p>Good luck on the new job, spending more time with the ever expanding family, and your own projects.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63123">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63123">20</a></div>
+			<span class="authorname">Billy Girlardo</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats Jonathan.</p>
+<p>Your blog has always been a great source of inspiration, and I hope to hear more from you in the future.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63124">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63124">21</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>I had no idea when I talked to you earlier. Congratulations! What a cool opportunity. Best wishes!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63125">22</a></div>
+			<span class="authorname">John McMullen</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats on the job AND recognizing a hard truth in your life. Best of luck and keep us posted. This site isn't going anywhere, right?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63126">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63126">23</a></div>
+			<span class="authorname">James Cogan</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats on the move/decision, and best of luck in your new position! A big win for Squarespace, without doubt.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63127">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63127">24</a></div>
+			<span class="authorname">Ben Carlson</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Huge April Fools Day joke? :P Would be impressive, as you're already up on Squaredspace!</p>
+<p>But all kidding aside, that's awesome! Got some great experience freelancing, I'm sure, and hopefully you enjoy this new venture even more!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63128">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63128">25</a></div>
+			<span class="authorname">Emil Nikov</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Surprised to hear you step away from the freelance life. I hope you enjoy your time at Squarespace even more, it seem like a really nice place to work.</p>
+<p>Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63129">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63129">26</a></div>
+			<span class="authorname">Amy</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Hard choice to make, but it sounds like you made the right one.  Good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63130">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63130">27</a></div>
+			<span class="authorname">Paul Grunt</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations! I think being a freelancer is great when your time and resources allow it, but the stability of working on one project for a long time and watching it grow is fantastic. I'm starting to look for a full time position myself and I wish you all the luck in the world in your new role. :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63131">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63131">28</a></div>
+			<span class="authorname">Thomas Lewis</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations and thanks for sharing your story. It's not easy at times to make hard decisions, especially around work/life balance.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63132">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63132">29</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com/">Brendan Falkowski</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Sounds like you're ready to roll &ndash; already in the Live.Squarespace ranks! Really interesting to see people move in and out of freelance/products/agencies.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63133">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63133">30</a></div>
+			<span class="authorname">roxstyle</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats on all new beginnings for this year.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63134">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63134">31</a></div>
+			<span class="authorname">Leon Poole</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Good luck with the move working for Squarespace!! It sounds like you've weighed up your options and that you're excited about the new direction. Congrats!! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63135">32</a></div>
+			<span class="authorname">Jamie Huskisson</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations :) Having taken the move from freelance to company to working for someone else a year ago, I hope it goes well for you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63136">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63136">33</a></div>
+			<span class="authorname">Michael Rice</span> said on March 24, 2009		</div>
+		<div class="quote"><p>You've made a wise choice. Congratulations on the position at Squarespace, they seem to have a wonderful product.</p>
+</div>
+	</div>
+		<div class="comment" id="c63137">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63137">34</a></div>
+			<span class="authorname">oluwasogo</span> said on March 24, 2009		</div>
+		<div class="quote"><p>hnmmmmmm.....u have been a great developer and channeling your energy into one place will definitely bring in more productivity....cant wait to see ur tweets when u get there. cheers bro.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63138">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63138">35</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Wow, thanks everybody for the well wishes! It's going to be a lot of fun, I can feel it! :)</p>
+<p>@Mike Taylor: It'd be great to throw a Sidebar event in NYC. At the very least, I'll try and arrange a geek meetup any time I'm in town!</p>
+<p>@Todd Austin: I understand that. I've had a few offers over the years including an opportunity here in town. Except for one, none of them were the right fit and I turned them all down. You have to go with what works.</p>
+<p>@John McMullen: This site isn't going anywhere. I hope to blog more, if anything! (although I hope I didn't just jinx it!)</p>
+<p>I'm definitely excited to join the ranks of Squarespace and have some great ideas to make an excellent product even better! :)</p>
+</div>
+	</div>
+		<div class="comment" id="c63139">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63139">36</a></div>
+			<span class="authorname"><a href="http://www.pixelingo.com/">Carolyn </a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>They are very fortunate to have you on their team, Mr. Multitalented Guy. I bet they're walking around thinking, "I can't believe we snagged Snook!" Hope it all works out great for you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63140">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63140">37</a></div>
+			<span class="authorname"><a href="http://5thirtyone.com/">Derek</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations on joining the Squarespace team. I've been watching the service closely for awhile now - watching it grow quite quickly into a very attractive platform. Sounds like a fantastic gig considering you get to work from home with the occasional trip.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63141">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63141">38</a></div>
+			<span class="authorname">shin</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations and good luck with your new job. All the best for your new challenge.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63142">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63142">39</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Wait, so are you going to switch to their blogging platform for snook.ca? I mean, eat your own dogfood kinda thing, right?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63143">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63143">40</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 24, 2009		</div>
+		<div class="quote"><p>@Chris Wallace: I'm definitely going to see how easy it'll be for me to take what I've done here and replicate it on the squarespace platform. It'll be a great way to empathize with users and discover the pain points that would get fellow developers on board.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63144">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63144">41</a></div>
+			<span class="authorname">Ralph Whitbeck</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats Jon.  Nothing wrong with going back to work for the man.  Sounds like you are going back to work for a trending company in SquareSpace.  Seems to have a buzz about them in the last few weeks.</p>
+</div>
+	</div>
+		<div class="comment" id="c63145">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63145">42</a></div>
+			<span class="authorname">Mike Rohde</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Jon, I truly appreciate that you've taken time to share not only the details of your new gig but how you came to the point of making a major life change â€” especially sharing where your strengths and weaknessess are. </p>
+<p>I'm proud of you for being transparent about the freelance life and the stresses it's put on you and your family. It would have been very easy to hide that part of the story and you chose to be transparent â€” says quite a lot about you my friend.</p>
+<p>Best wishes as you move forward with SquareSpace. I keep hearing great things about the company and their services, so I'm happy to hear they've brough you on board.</p>
+<p>Mike
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63146">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63146">43</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com/">Jake Smith</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congrats Jonathan!</p>
+<p>I think you should retitle the blog post to "It's Hip to be Square"....just a thought ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63147">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63147">44</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Jonathan! Have fun working at squarespace and on your own projects :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63148">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63148">45</a></div>
+			<span class="authorname">JT</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Freelance life can expose you to some unexpected pressures.  I tried it myself, but packed in after 6 months as I was finding I was more stressed than I'd ever been.</p>
+<p>I've been back in a permanent position for a few months now and it's good to have some routine back in my life.  I can even switch off on evenings and weekends ... although the Monday morning feeling's back.</p>
+<p>Good luck in the new place, and thanks for the candid post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63150">46</a></div>
+			<span class="authorname">Darcy Adam Murphy</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations Snook. Best of luck to you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63151">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63151">47</a></div>
+			<span class="authorname">Geof Harries</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Yep, if there's one thing that current business owners rarely share or discuss with "owners to be" it's how hard running your own company is. Once the ball starts rolling, it doesn't stop, and worse yet, it only picks up speed!</p>
+<p>Owning a business you have to constantly invest in infrastructure (software, furniture, books and training, technology, etc.) not to mention pay the bills (government taxes, organizations, insurance, sub-contractors, employees, etc.) all the time, every month.</p>
+<p>The entire experience is very, very draining and it's never a smooth ride, at least on a consistent basis.</p>
+<p>So, I can completely understand your desire to blaze a fresh path for your life and career - Squarespace will be an amazing new opportunity. Congrats.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63153">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63153">48</a></div>
+			<span class="authorname">Derek</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations, Snook. I think any business owner can really identify with your situation and the ups and downs of running a business. Sometimes it's nice to simply create things and not have to spend an equal amount of time doing paperwork and managing people.</p>
+<p>All the best to you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63154">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63154">49</a></div>
+			<span class="authorname">Ruth Kalinka</span> said on March 24, 2009		</div>
+		<div class="quote"><p>Congratulations, Snook!</p>
+<p>This sounds like a great opportunity and the best of both worlds.  That's so cool that you've been watching this project since it began. Isn't it amazing how life can come full circle with new opportunities and fresh perspective?</p>
+<p>I missed hanging out with you at SXSW this month but look forward to catching up in NYC!</p>
+<p>Good luck!<br />
+Ruth
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63157">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63157">50</a></div>
+			<span class="authorname"><a href="http://www.alantucker.co.uk/">Alan Tucker</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>An opportunity too good to miss, congratulations and good luck.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63158">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63158">51</a></div>
+			<span class="authorname">Michael Layne</span> said on March 24, 2009		</div>
+		<div class="quote"><p>We have had some similarities in our paths (but you're a lot smarter than me...), and your points are solid and nicely expressed.</p>
+<p>I have been in the same situation over the last year, and I just [sort of] went the same direction.  I took a part-time/permanent position with my biggest and best client. It was a blessing as they had decided to slash budgets for the work I was doing for them. I can still pursue my own projects, so it's hopefully a win-win.</p>
+<p>I have been and will continue to be a fan of your work and writing.  </p>
+<p>Best of luck with squarespace!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63159">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63159">52</a></div>
+			<span class="authorname"><a href="http://brandingdavid.com/">David</a></span> said on March 24, 2009		</div>
+		<div class="quote"><p>I have to admit, many of your points really hit home for me. Maybe I should be looking towards being hired on by a company. </p>
+<p>Good luck with Squarespace. They are definitely attracting some attention, and now some great talent.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63160">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63160">53</a></div>
+			<span class="authorname">Neil Bradley</span> said on March 25, 2009		</div>
+		<div class="quote"><p>Hey Jonathan,</p>
+<p>Thank you for your frank and honest post. Like several others who have already commented, some of the things you mention also ring true for me.</p>
+<p>A year ago, I took on more of a line management role in the organisation that I work for and when you're a designer and have to focus more on the management aspects of the job, you feel like you are losing a part of why you went into a design career. I like to still be hands on with the design work and it was difficult having to step back from that and being more of a manager.</p>
+<p>I'm also now moving to a new organisation, where I will be able to get back to the design work.</p>
+<p>Congratulations on your new job and I hope it makes you feel much happier in your life.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63162">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63162">54</a></div>
+			<span class="authorname"><a href="http://www.whoisskillen.co.uk/">Steve K</a></span> said on March 25, 2009		</div>
+		<div class="quote"><p>Good luck Jon, Squarespace looks like a great company to work for, I especially like that live section.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63164">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63164">55</a></div>
+			<span class="authorname">Tony Wright</span> said on March 25, 2009		</div>
+		<div class="quote"><p>Thanks for the RescueTime mention-- glad it helped!</p>
+<p>FWIW, I was a freelancer-turned-consultancy-owner (doing web design and app development) for 7 years before starting RescueTime and I have no regrets leaving the world of billable hours behind.</p>
+<p>I hope the transition is as sweet for you as it was for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63165">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63165">56</a></div>
+			<span class="authorname"><a href="http://www.kartooner.com/">Erik Sagen</a></span> said on March 25, 2009		</div>
+		<div class="quote"><p>Awesome news and congrats, man. </p>
+<p>I've been keeping my eye on Squarespace and what they offer is impressive to say the least. They are lucky to have you now. :)</p>
+</div>
+	</div>
+		<div class="comment" id="c63168">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63168">57</a></div>
+			<span class="authorname">Mike Rundle</span> said on March 26, 2009		</div>
+		<div class="quote"><p>This is great news man, you'll love it at Squarespace.</p>
+<p>I've known Anthony for many years and he's a real solid guy and has built something from scratch. Definitely not just a business guy or just a developer, but someone who can see both sides and is really smart overall.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63175">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63175">58</a></div>
+			<span class="authorname">Andrew Kolesnikov</span> said on March 27, 2009		</div>
+		<div class="quote"><p>Very interesting read, and an opportunity too good to miss, indeed. Good luck, John!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63176">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63176">59</a></div>
+			<span class="authorname">Antoine E Butler Sr</span> said on March 27, 2009		</div>
+		<div class="quote"><p>Awesome. Congrats! Outside of full freelane and independance that is exactly what I would want. The ability to focus, fine tune and perfect a single product / website / brand.</p>
+<p>Good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63177">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63177">60</a></div>
+			<span class="authorname">Lucas</span> said on March 27, 2009		</div>
+		<div class="quote"><p>You're very fortunate to have the opportunity to make a choice like that!  So many people are having trouble finding employment!  Obviously, your talents are in demand!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63194">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63194">61</a></div>
+			<span class="authorname">Deb</span> said on March 31, 2009		</div>
+		<div class="quote"><p>Congratulations and I'm a user of Squarespace (love it). Nice to see your name with the team. Good luck with the new gig and hope to see you around in the developers community.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63232">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63232">62</a></div>
+			<span class="authorname">Cyprian GwÃ³ÅºdÅº</span> said on April 09, 2009		</div>
+		<div class="quote"><p>This is funny, people are changing their roles. It is like big circle. I donâ€™t want to work now for any organization, because more interesting are priorities and opportunities of freelancing. You are going for something different, after you have got to know a lot what was interesting for you as freelancer.</p>
+<p>Best luck.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/personal/being-square by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

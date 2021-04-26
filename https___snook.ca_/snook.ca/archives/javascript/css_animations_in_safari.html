@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/css_animations_in_safari by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>CSS Animations in Safari - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/css_animations_in_safari">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/css_animations_in_safari">
+	<meta property="og:title" content="CSS Animations in Safari">
+	<meta property="og:description" name="description" content="Safari is building in CSS animations. That's right. With a little bit of CSS, you'll be able to animate obects on the page. The transitions are built using a number of CSS declarations for declaring w...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>CSS Animations in Safari</h1>
+		<p>Safari is building in <a href="http://webkit.org/blog/138/css-animation/">CSS animations</a>. That's right. With a little bit of CSS, you'll be able to animate obects on the page. The transitions are built using a number of CSS declarations for declaring what properties should change, for how long, and even being able to transform the object like rotations.</p>
+<p>Sound cool? I don't think so. Not only does it make CSS more complicated, it makes JavaScript more complicated, too. </p>
+<h2>Misbehaving</h2>
+<p>Animation is behaviour. You're telling your elements how to behave. Move this way, disappear, turn around. Good element. Here's a biscuit. </p>
+<p>JavaScript was designed to be that layer of interactivity. It's designed to change the values of an object over time. All the mechanisms are right there. By introducing the ability to change element values via CSS, there's now a number of factors that have to be considered:</p>
+<h3>Cross-browser compatibility</h3>
+<p>Obviously, right now, there isn't any. Therefore, to create these animations, you'll end up having to resort to JavaScript but having to filter out Safari to create the same effects. </p>
+<h3>JavaScript interactivity</h3>
+<p>The other major concern is  how accessible are these properties via JavaScript? What if I try accessing a property that is mid-animation? What about after? Will I know the animation has completed? By separating the behaviour layer, it can lead to gaps in expectations. </p>
+<p>This gap has already happened with pseudo-elements. Try getting the correct style of a <code>span</code> that happens to get styled by a <code>:first-line</code> declaration. (hint: <em>you can't</em>) By manipulating values within the CSS, life for the JavaScript developer just got a whole lot harder. Are the values that we're checking for accurate? </p>
+<h3>Accessibility</h3>
+<p>And what of accessibility? While I'm no accessibility guru, I can only imagine the headaches this'll introduce in accessibilty circles. </p>
+<h2>Extend the DOM</h2>
+<p>Now, I can see why they thought this was a good idea.    CSS makes it really easy to extend without getting in anybody's way and risk incompatibility. Just add a <code>-webkit</code> prefix and go to town. But the DOM is flexible, too, and would have made it easier to create a cross-browser solution. In fact, I'd love to see the ability to rotate elements like Safari demonstrates.  </p>
+<p>Imagine if there was an animate or rotate method on elements?</p>
+<pre><code>// (property, start, end, duration)
+document.getElementById('elementId').animate('opacity', .5, 1, 2000); 
+document.getElementById('elementId').transform('rotate', -90, 4000); </code></pre>
+<p>At least then all we'd have to do is check if the animate or transform methods existed before overwriting them with our own specifications. You can't do that with CSS. </p>
+<h2>Remember HTML+TIME? </h2>
+<p>Of course, Safari isn't the first one to try this. Microsoft has something similar that they came up with in 1999 called <a href="http://msdn2.microsoft.com/en-us/library/ms533113.aspx">HTML+TIME</a> and was even <a href="http://www.w3.org/TR/2000/WD-smil-boston-20000622/html-smil-profile.html">based on standards</a>. Luckily, that didn't catch on either. </p>
+<h2>All doom and gloom?</h2>
+<p>There are potential uses for this such as prototyping. It'd make things easier to just drop in a couple extra CSS declarations to demonstrate a potential interaction to a client. </p>
+<p>And, as some people suspect, this could be intended for use on the Apple iPhone, enabling developers to include simple animations . </p>
+<h2>Don't jump on the bandwagon</h2>
+<p>I really hope that other browsers don't try to jump on this bandwagon. I'd rather the DOM got extended and we leave behaviour where it belongs: in JavaScript.  </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published October 31, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/851</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">35 Comments &middot; <a href="https://snook.ca/archives/javascript/css_animations_in_safari.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c56572">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56572">1</a></div>
+			<span class="authorname">Alexander Radsby</span> said on October 31, 2007		</div>
+		<div class="quote"><p>I'm with you on this one. This sounds really stupid.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56573">2</a></div>
+			<span class="authorname">dieter</span> said on October 31, 2007		</div>
+		<div class="quote"><p>mm, well the only positive thing I can think of is that animations will work for people that have css on but javascript disabled...</p>
+<p>Otherwise seems a weird thing to do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56574">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56574">3</a></div>
+			<span class="authorname"><a href="http://novemberborn.net/">Mark Wubben</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>I'm all for browser-native animation. Don't really care how to get there, as long as we get it.</p>
+<p>That said, I agree it'd make more sense to run this through the DOM.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56575">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56575">4</a></div>
+			<span class="authorname">Dave Hyatt</span> said on October 31, 2007		</div>
+		<div class="quote"><p>I disagree.  Many kinds of animated transitions are presentational and have nothing to do with behavior.  For example, the pulsing default buttons in dialogs in OS X, or the animated fade that occurs when you roll over buttons in dialogs on Vista.  These animations are not behavior, but are actually part of the visual theme of those controls.</p>
+<p>A good way of thinking about this feature is to ask yourself if you would have to redo certain animations completely if you changed the visual appearance of your page.  If the answer is yes, then that animation is probably presentational and tied to that specific theme.</p>
+<p>Anyway, that's what this feature is about.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56576">5</a></div>
+			<span class="authorname"><a href="http://www.projectdesigns.org/">Ben Henschel</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>Yeah I'm gonna have to agree on this one, I can not see anything good coming from this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56577">6</a></div>
+			<span class="authorname"><a href="http://sonspring.com/">Nathan Smith</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>I agree. CSS animation is probably one of the dumbest things I've heard in awhile. It seems like the iPhone is plunging web development back into another round of browser wars. I suppose it's to be expected, as we work out the kinks of a (relatively) new medium, but I wouldn't have pegged Apple to be the bad guy this time around. It's almost like a full role-reversal: IE7 becoming more standards compliant, and Safari off doing it's own thing. Being a web developer is fun times, I tell ya!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56578">7</a></div>
+			<span class="authorname">Jamie Hill</span> said on October 31, 2007		</div>
+		<div class="quote"><p>Along similar lines to my worry: http://www.thelucid.com/articles/2007/10/30/proprietary-css-rules-are-we-returning-to-1995
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56579">8</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>I'm with Dave here. The "behavior" in Behavior Layer refers to the behavior of the <em>user</em>. The Behavior Layer might be more aptly-named the user-interaction layer. Animations are presentational. The are part of the visual style of a site or web app. They're not (at least usually not) part of the interaction process.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56580">9</a></div>
+			<span class="authorname">Nathan</span> said on October 31, 2007		</div>
+		<div class="quote"><p>I agree that animation in general does not need to be in CSS, but I think most are missing where I think this might be used the most - :hover</p>
+<p>We already use :hover to change the colors of links, what if it faded to the new color? Do you really think that is behavior? Even when the color was already being changed, it was just immediate?</p>
+<p>So again, I agree. But I think you are ignoring some uses where it is the same as current practices, just enhanced.</p>
+<p>And yeah, I don't expect this to catch on in any other browser ever. But I think there will be some nice widgets come out of this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56582">10</a></div>
+			<span class="authorname"><a href="http://riddle.pl/">Riddle</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>I'm pretty sure they introduced it for iPhone and WebClips.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56583">11</a></div>
+			<span class="authorname"><a href="http://cheeaun.phoenity.com/">Lim Chee Aun</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>Wow, some really good points there. As for accessibility features, I guess browsers supporting CSS animation will have an option to disable it, something like disabling GIF animation.</p>
+<p>And I never knew HTML+TIME. Looks ugly, anyway.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56584">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 31, 2007		</div>
+		<div class="quote"><p>@Dave/Jeff: I define behaviour (of the Content-Presentation-Behavior layer) as change. A user enacts a change by interacting with the page via a mouse click, etc. However, these changes can occur without user intervention or as a continuation of user intervention. A user may begin the interaction by hovering over an element but the animated element behaves in a particular way: it throbs, it bounces, it moves so you can't click on it. </p>
+<p>While I'm surely trivializing the development process, the Webkit crew had to build the code to animate an element on the page. They simply made CSS the implementation point. Why not make the implementation point in the DOM? It'd still be available to all the iPhone talkin', widget writin', Safari lovin' folks and yet makes it easier for cross-browser implementations among other things. For example, what happens when I try to animate an object that also has a CSS animation on it?</p>
+<p>It's not that I'm saying, "hey, no browser-based animation"... I'm saying, let's put it in the DOM where I think you'll get plenty more traction and offer up plenty more ways to extend the functionality, beyond anything you could do with CSS transformations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56585">13</a></div>
+			<span class="authorname">Maciej Stachowiak</span> said on October 31, 2007		</div>
+		<div class="quote"><p>You can animate from the DOM too, by using CSS object model to set the appropriate style rules. The way it is implemented, it work both ways.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56586">14</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on November 01, 2007		</div>
+		<div class="quote"><p>Jonathan, I know you're not anti browser-animation. Still, CSS just makes sense to me as the place for this. Animation is a purely visual and presentational thing. CSS is the best place for visual and presentational bits, in my mind. I wouldn't throw a fit if it was in the behavior layer, because I'm not a purist like that -- but if you're choosing, CSS just feels like the right place to me.</p>
+<p>If, when you hover over and element, it changes color, where do you specify that color? CSS. So if, when you hover over and element, that element animates, it makes sense that animation would also be defined in CSS.</p>
+<p>At least to me. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56587">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56587">15</a></div>
+			<span class="authorname">jdbartlett</span> said on November 01, 2007		</div>
+		<div class="quote"><p>Jonathan: thanks for the response.  I can certainly see your angle here, but I sympathize with Apple's reasoning, especially as browser developers.</p>
+<p>This goes beyond the scope of your article, but I feel that the 'hover' pseudo-class (which provides precedent for CSS event handling, as Nathan pointed out) is unfairly snubbed by endorsers of the behavior layer.  The extra links necessary for IE6 implementation of 'hover' are often called semantically meaningless, but it could be argued that any element with an event associated with it should be a link anyway--it would certainly encourage accessibility.  If we're willing to accept behavior into CSS, the line between 'turn red on hover' and 'bounce three times on hover' is blurred somewhat.</p>
+<p>Of course, the real reason to use a behavior layer is that many more events than 'hover' exist (for our biggest target--iPhone webapps--the disputed 'hover' is meaningless).  As style rules per se, 'red' and 'bouncing three times' do not seem equally valid: one is a static description, one describes three events and is only valid before the last event has completed!  But for the simple sort of animation common in Dashboard widgets and webapps, 'bounce three times' is a handy shortcut as a style rule.  (Though I certainly agree, bad practice in general.)</p>
+<p>Jon, your earlier point about extended DOM functionality that get in the way is another valid counter-argument; there are so many kits out there that add methods to Element's prototype, it would seem dangerous for Apple to assume the 'animate' or 'transform' methods aren't taken.  Ok, so Apple could have used 'appleSaysAnimateAndOnlyAppleCanUseThisMethodName', but that would be very un-Apple :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56589">16</a></div>
+			<span class="authorname">Jakub Nesetril</span> said on November 01, 2007		</div>
+		<div class="quote"><p>It's border-line, but I tend to agree with Dave/Jeff. In my opinion, behavior means user-interaction. There can be two types of animation: animations that are part of <b>visual presentation</b> and animations that constitute <b>behavior</b>. As I'll show below, neither these two use cases contradicts the animations in CSS. Let's look into both cases:
+<ol>
+<li>Animation as part of <b>visual layer</b>
+<p>There are plenty of examples of rich user interfaces today that employ animation - pulsing as a form of highlight comes to mind. These animations are inherent part of the visual presentation. A multi-style page like CSS Zend Garden is a good example &ndash; if you change the stylesheet, the animations should change too. They are inartistically linked with it. Having to switch between two versions of Javascript animation code would be&hellip; stupid.</p>
+</li>
+<li>Animation as part of <b>behavior layer</b>
+<p>Take the case of drag-n-drop in <a href="http://developer.yahoo.com/yui/examples/dragdrop/dd-reorder.html">this example</a>. The animation of the drag proxy to it's original location is a user behavior. The animation would be triggered by Javascript &ndash; by first setting the transition CSS property and then setting the target location. The rest is again left up to the browser. The DOM CSS manipulation thus provides the necessary entry-point for behavioral animation.</p>
+<p>This solution, however, removes the unnecessary rapid fire of Javascript callbacks updating the position over and over again. The overhead is removed and Javascript thread is freed up to perform more useful tasks.</p>
+</li>
+</ol>
+<p><em>PS: I love the live preview Jonathan</em>
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56593">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 01, 2007		</div>
+		<div class="quote"><p>Why is a CSS solution better than a JavaScript solution? How it addresses the technical issues (when did the animation start, what is the value at any given time, what happens when I try to access a property of an element mid-way, how do I know that an element is being animated, when did it stop...)?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56594">18</a></div>
+			<span class="authorname"><a href="http://antonpeck.com/">Anton</a></span> said on November 01, 2007		</div>
+		<div class="quote"><p>I'll probably just use Flash instead... neither CSS nor JS.  ;-)</p>
+<p>Seriously though for a moment, for all the good points on both sides, I'm trying to think of a real-world situation where I will need an animation <strong>without some kind of event triggering it</strong>.  Although motion is a visual state, which does <em>suggest</em> CSS, I  still see it requiring some type of interaction to activate it.</p>
+<p>Pseudoclasses are, unfortunately, the gray area in this argument because they are just shy of true interaction.  These are static states that change appearance based on certain conditions, such as a :hover (which is where I start seeing how making a button fade/throb/glow on :hover makes perfect sense).</p>
+<p>Rather than argue A/B, perhaps we should elaborate the finer details of what qualifies as a CSS appearance (or pseudoclass), and what qualifies as interaction.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56595">19</a></div>
+			<span class="authorname">Michael Hoskins</span> said on November 01, 2007		</div>
+		<div class="quote"><p>I agree.  This is far too familiar, like Microsoft's proprietary extensions to DOM, their half-assed CSS implementations, as well as proprietary CSS (filters that use DirectShow and those awesome page transitions).</p>
+<p>You can argue from the other side that these extensions could be written in such a way as to be ignored by other browsers, but if you wanted anybody except a Safari user to view your page properly, you'd have to write supporting DOM animation code, and intentionally skip processing in Safari.</p>
+<p>There's no point in reinventing a tool that already exists.  If they truly were concerned about both standards <strong>and</strong> user experience, the best bet would be to support the E4S specification completely, and leverage the performance benefits of a strongly-typed language.  Just grab Adobe's source for Tamarin from Mozilla!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56596">20</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on November 01, 2007		</div>
+		<div class="quote"><p>Jonathan: I totally agree with you that a JavaScript solution is probably better, as in it's probably more flexible, more robust, and more useful (after all, JavaScript is a full programming language, so it's natural that it would be more robust). But, that doesn't mean it's behavior instead of presentation.</p>
+<p>This is going to be more of an issue going forward. As we get more advanced, we're going to need more programming constructs for presentation. CSS is too simple for the future. Either we need a much, much more advanced CSS, or we need to decide it's okay to use a full programing language like JavaScript for presentation.</p>
+<p>In short: animation feels like presentation to me, but you're right that JavaScript is better-equipped than CSS to handle that presentational task.</p>
+<p>:)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56597">21</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on November 01, 2007		</div>
+		<div class="quote"><p>I'm with Anton on this one. Presentational animation in CSS seems logical, but you really want control. You want event triggering and you want better control over the conditions of those animations happening. </p>
+<p>I see good place for a "bounce three times" (or any other animation) addition to :hover and other pseudo-classes, which are, in their current form, already a form of interaction. However, you don't want to use CSS to make all div's flash for 40s when loading a page. I think most people would agree that, if you wanted to do that, you should use javascript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56598">22</a></div>
+			<span class="authorname">Johan</span> said on November 01, 2007		</div>
+		<div class="quote"><p>this sounds like Safari heading to  Microsofts IE proprietary filters ...</p>
+<p>CSS is to give style to content not to animate content.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56599">23</a></div>
+			<span class="authorname">Gregory</span> said on November 01, 2007		</div>
+		<div class="quote"><p>This is bad, really bad. I already have enough trouble trying to get effects with Javascript working cross browser wise, and this can add some more confusion, frustration, headaches, and broken keyboards/monitors for ALL programmers. It's already bad enough with browsers conflicting with one another. CSS is for styling/POSITIONING elements on the page - not effects - that is what Javascript is for. </p>
+<p>I DO like the fact that they are trying to enhance a previous language. BUT not like this. THIS is wrong.</p>
+<p>Users don't care how the Internet/web site works, BUT the programmers do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56604">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56604">24</a></div>
+			<span class="authorname">Ben</span> said on November 01, 2007		</div>
+		<div class="quote"><p>Looking at this from a cross-browser development angle is nonsensical. Surely CSS is meant to enhance a person's experience of a website? Wouldn't you prefer your ice cream with chocolate sauce and a cherry?</p>
+<p>If CSS is meant to give style to content, surely animation is style? I find that current javascript implementations of such behaviour are convoluted to say the least - and one line of code looks highly desirable from a developing point of view.</p>
+<p>What the property allows for is implicit animations - i.e. providing a smooth transition from one state to the next - instead of jumping. Not a complete timeline control of an animation state - look at it like Core Animation in Leopard.</p>
+<p>I'm glad that the WebKit team are advancing towards a better Web - if that means proprietary CSS, so be it. Heck, no other browser supports multiple backgrounds natively... why should I support them?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56608">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56608">25</a></div>
+			<span class="authorname">Chris</span> said on November 02, 2007		</div>
+		<div class="quote"><p>I agree with Dave Hyatt, this type of animation is styling and belongs in CSS. </p>
+<p>Perhaps there'd be less confusion if we call it "CSS Transition Effects", rather than "CSS Animations". It doesn't do full animation - you couldn't exactly program Pacman with it, that requires a full programming language - this is just style transitions.</p>
+<p>I certainly hope other browsers implement it too, and I can create nice smooth effects on my website.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56609">26</a></div>
+			<span class="authorname">Michael Hoskins</span> said on November 02, 2007		</div>
+		<div class="quote"><p>Ben: Having multple backgrounds is a property of CSS3, not because the WebKit team is particularly clever.  I was unaware, though, that the animations being discussed are for smooth transition animations.</p>
+<p>Having looked at the WebKit specs a little more, I can see that it's going straight to exactly what microsoft did: custom properties and filters available via proprietary CSS.  One difference is that they intend to submit these change to the w3c, so maybe we'll see their inclusion in one form or another.</p>
+<p>What I don't want to see is another browser that brings yet more proprietary baggage to the web.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56611">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56611">27</a></div>
+			<span class="authorname">Jakub Nesetril</span> said on November 02, 2007		</div>
+		<div class="quote"><p>@Johnathan:<br />
+<blockquote>Why is a CSS solution better than a JavaScript solution?</p></blockquote>
+<p>Because it allows visual layer animation to be decoupled from behavioral programming and coupled with visual styles that it belongs to.<br />
+<blockquote>How it addresses the technical issues (when did the animation start, what is the value at any given time, what happens when I try to access a property of an element mid-way, how do I know that an element is being animated, when did it stop...)?</p></blockquote>
+<p>I don't see any problem at all. The animation starts when a CSS value changes. If you triggered that in Javascript, you know the time anyway. Value at any given time is exactly the same as now - a value "somewhere in the middle" of the animation in progress. You know when the element stops by adding the transformation duration to the start time.</p>
+<p>All of these questions/problems are just a valid (and problematic) on current JS-only implementations of animation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56613">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56613">28</a></div>
+			<span class="authorname">Ben</span> said on November 02, 2007		</div>
+		<div class="quote"><p>Michael - Multiple backgrounds are in the CSS3 specification for sure, but to be honest I have no idea why they aren't supported anywhere else yet. Adding more markup to achieve the same effect defeats the point somewhat.</p>
+<p>As for proprietary CSS - as long as it's legible and it works well, what's the problem? Would you rather have the CSS spec frozen because of the W3C's painfully slow progress? Do you mind waiting another 5 or so years for Microsoft to update Internet Explorer? Wouldn't it be grand to actually have good tools for development - like a proper grid based layout engine?</p>
+<p>Oh wait, my bad. We already have that. It's called a <strong>table</strong>.</p>
+<p>The only time proprietary markup is bad is when it's in place of functionality that should be built in. IE6 needs this kludge to render PNGs with proper transparency:</p>
+<p>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png');</p>
+<p>Trust Microsoft to come up with proprietary CSS that has their name in it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56625">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56625">29</a></div>
+			<span class="authorname"><a href="http://fire3k.com/">Chris</a></span> said on November 04, 2007		</div>
+		<div class="quote"><p>Animated CSS? sounds too much like &lt;blink&gt;blink&lt;/blink&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56628">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56628">30</a></div>
+			<span class="authorname">MÃ¡r</span> said on November 04, 2007		</div>
+		<div class="quote"><p>Jonathan, my first impression with this idea was the same as yours. However, the more I think about it, the more appealing I find it.</p>
+<p>Bear with me for a moment...</p>
+<p>The common javascript syntax for most animation libraries involves passing concrete styling values as parameters (as illustrated by your own pseudocode examples above), which is obiously poor seperation of style and behaviour.</p>
+<p>The best/cleanest seperation I've seen in javascript libraries, something like they implement in <a href="http://demos.mootools.net/Fx.Morph"><code>Mootools.fx.Morph demo</code></a>,  and <a href="http://berniecode.com/writing/animator.html">Bernie's Animator.apply method</a>, where the animation class' parameter is a CSS <code>className</code>. That way the CSS coder gets to decide the visuals.</p>
+<p>That leaves only the decisions of a) transition-speed and b) 'easing'-effect in the hands of the Javascript programmer. However, most graphic designers I know would love to be able to tweak those parameters themselves, instead of having to go through the programmer all the time...</p>
+<p>This is a gray area, and there will always be cases where a pure Javascript animation is more appropriate, but I think Apple's approach is a nicely logical step forward in the development of CSS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56631">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56631">31</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn Parker</a></span> said on November 04, 2007		</div>
+		<div class="quote"><p>I am only half an expert compared to most hear but they way I see it is that CSS should stay for STYLING (hint: Cascading Style Sheet) :?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56632">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56632">32</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on November 04, 2007		</div>
+		<div class="quote"><p>@Chris: What's wrong with blinking? The bling HTML element was a bad idea, because a presentational property should not be part of HTML, but it would be perfect for CSS. Granted, the property would be widely abused by lousy web designers, but that doesn't mean it's entirely useless. And, if it belongs, CSS is certainly the place where it should exist.</p>
+<p>@Jermayn: So your assertion is that animation is not "styling?" I would beg to differ.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56676">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56676">33</a></div>
+			<span class="authorname">Ser</span> said on November 06, 2007		</div>
+		<div class="quote"><p>How many users (%) of internet use Safari?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56714">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56714">34</a></div>
+			<span class="authorname">David Walsh</span> said on November 07, 2007		</div>
+		<div class="quote"><p>I don't see this idea to be useful at all.  It seems like a complete IE6 type of move -- if it's not something that will be supported by everyone (IE, 'fox, Opera), why create it?  What value does it have?  Sounds better suited for a javascript library to me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56726">35</a></div>
+			<span class="authorname"><a href="http://www.christianmontoya.net/">Montoya</a></span> said on November 09, 2007		</div>
+		<div class="quote"><p>Jeff is advocating blinking in CSS. Oy. Anything between a 2Hz and 60Hz frequency is *unhealthy* to look at! That's what blinking does!</p>
+<p>I don't know how I feel about this animation support in Webkit, but I think it's stupid. Not that it's a horrible idea, just that there's so much support in CSS 3 to work on, and I want to at least see the standards-aware browsers working toward that, not thinking of random little "features" that are already achieved with Javascript.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/css_animations_in_safari by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

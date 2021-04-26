@@ -1,0 +1,2055 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/accelerated_dom_scripting by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Accelerated DOM Scripting - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/accelerated_dom_scripting">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/accelerated_dom_scripting">
+	<meta property="og:title" content="Accelerated DOM Scripting">
+	<meta property="og:description" name="description" content="Yippeee! My largest writing effort to date has finally come to fruition: Accelerated DOM Scripting with Ajax, APIs, and Libraries published by the fine folks over at Apress. 
+The book was something t...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Accelerated DOM Scripting</h1>
+		<p><img src="https://snook.ca/img/acceldom.jpg" alt="Accelerated DOM Scripting from Apress in classic yellow and black" align="right" style="margin:0 0 1em 1em;"/>Yippeee! My largest writing effort to date has finally come to fruition: <strong>Accelerated DOM Scripting with Ajax, APIs, and Libraries</strong> published by the fine folks over at Apress. </p>
+<p>The book was something that I started last summer after having met the senior editor at the time, Chris Mills, at SXSW. (Chris has since moved on to Opera...the browser, not the musical style!) The writing was slow going and I was unable to get much done with the book. Surprisingly, Chris stuck behind me and I continued on. In June and July of this year, I buckled down, passing on a lot of client work to focus on the book. Writing a book turns out to be a lot of work. Seriously. Writing a book is not for the faint of heart. How Molly managed to <a href="http://molly.com/books.php">write over 30 books</a>, I'll never know. </p>
+<p>To help out with writing duties, Mr. Mills managed to get <a href="http://easy-reader.net/">Aaron Gustafson</a>, <a href="http://www.kryogenix.org/days/">Stuart Langridge</a> and <a href="http://www.danwebb.net/">Dan Webb</a> to pitch in a chapter each. I'm deeply honoured to have my name next to theirs. I'm also really happy to have had <a href="http://www.themaninblue.com/">Cameron Adams</a> handle the tech review. </p>
+<h2>So, what's it about?</h2>
+<p>Well, if it wasn't a little obvious, it's basically about JavaScript. The book is a lightweight 250 pages and full of DOM scripty goodness. The book is <em>not</em> meant to teach JavaScript. In fact, there's an assumption that you already understand the basics like variables, arrays and the basic syntax.</p>
+<p>The first chapter, I ease into things with a quick overview and an introduction to some debugging tools. Nobody writes perfect code so it's good to have some tools at the ready. </p>
+<p>Chapter 2 covers quite a bit, first going over some tips on how to approach your HTML and your CSS. Then, it jumps into the different constructs of JavaScript, how to work with the document object model, and eventually moving into event handling. </p>
+<p>In the third chapter, I look at object-oriented JavaScript along with some other topics like closures, callbacks and chainability.</p>
+<p>With the hardcore stuff out of the way, the rest of the book builds on top of that starting with Libraries in chapter 4. Overall, I'd say the book takes a positive and pragmatic view at the use of libraries in our day to day development. In the Ajax and Visual Effects chapters that follow, I build out custom examples to explain the concepts and then show how the same can be accomplished using libraries. </p>
+<p>Stuart takes on form validation, Aaron gives the FAQ a facelift and Dan Webb creates a dynamic help system.</p>
+<h2>Win, win, buy! </h2>
+<p>Hopefully by now I've gotten you excited enough to get your hands on a copy. You can certainly <a href="http://www.amazon.com/gp/product/1590597648/702-3295721-8680041?ie=UTF8&amp;tag=snookca0f-20&amp;linkCode=xm2&amp;camp=15121&amp;creativeASIN=1590597648">head on over to Amazon and order now</a>, it should be shipped out fairly quickly. To help launch the book, I've got five (that's right, 5) copies that I'm looking to give away (don't forget, I'm also <a href="https://snook.ca/archives/conferences/recap_wjs2007/">giving away copies</a> of the Art &amp; Science of CSS). </p>
+<p>How can you win a copy? Just leave a comment on this post and five random commenters will be picked. The deadline is this Sunday, September 30, at 11:59PM. I'll announce the winners on Monday. Be sure to use a valid email address as I'll need to be able to get ahold of you if you won. </p>
+<p>Happy scripting!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 26, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/846</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">237 Comments &middot; <a href="https://snook.ca/archives/javascript/accelerated_dom_scripting.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55487">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55487">1</a></div>
+			<span class="authorname">Martin Ringlein</span> said on September 26, 2007		</div>
+		<div class="quote"><p>First!!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55488">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55488">2</a></div>
+			<span class="authorname"><a href="http://fortyeightdesigns.com/">Kenny Saunders</a></span> said on September 26, 2007		</div>
+		<div class="quote"><p>Hopefully by "random", you mean the first comment ;)</p>
+<p>Congrats on the book, can't wait to read it...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55489">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55489">3</a></div>
+			<span class="authorname">a. falk</span> said on September 26, 2007		</div>
+		<div class="quote"><p>I've been following your Snitter efforts, for one (nice work, btw), and that's brought me to your site where I've found a lot more great info. Would love a copy of your book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55490">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55490">4</a></div>
+			<span class="authorname">Ryan</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Wow, Snook, I can't believe that you have another book with your name on it. For some reason I don't see you stopping anytime soon. I might just have to get this book though because I have covered myself with the basic Javascript and what it does, and I know enough about similar languages to keep going, although I just don't know where to go next. Maybe the book will throw out some ideas.</p>
+</div>
+	</div>
+		<div class="comment" id="c55491">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55491">5</a></div>
+			<span class="authorname">Sulcalibur</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Woooo I'm up for any giveaway of something I would buy. *note to self. better learn to read asap<br />
+Cheers senor Snook. You are spoiling us readers lately :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55492">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55492">6</a></div>
+			<span class="authorname">Geof Harries</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Our Yukon winter is already starting (snow is creeping down into the valley) so I need a great book to read by the fire on those cold winter nights. A perfect companion!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55493">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55493">7</a></div>
+			<span class="authorname">Alex Payne</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Ooh ooh ooh!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55494">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55494">8</a></div>
+			<span class="authorname">Steve Fleischer</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Looking forward to your new book regardless of whether I buy it or win it. Congratulations for all your hard work - both the book and the very excellent Snitter (the Dan Rubin skinning of which I am eager to see!!)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55495">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55495">9</a></div>
+			<span class="authorname">Matthew Keefe</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Very nice work on the book, I will either be winning it or buying it.. albeit I will be very happy to win it... *cheers*</p>
+<p>I am guessing you are already working on the next one. haha ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55496">10</a></div>
+			<span class="authorname">J. Bradford Dillon</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Can't wait to read it, either way I get it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55497">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55497">11</a></div>
+			<span class="authorname">Tobz</span> said on September 26, 2007		</div>
+		<div class="quote"><p>I really need a good DOM Scripting book, and yours sounds perfect.(hint hint)</p>
+<p>Chur
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55498">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55498">12</a></div>
+			<span class="authorname">Larry T</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Hmmm sounds like an interesting book... certainly something I've wanted to investigate more of. Sounds perfect!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55499">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55499">13</a></div>
+			<span class="authorname">Uriel Katz</span> said on September 26, 2007		</div>
+		<div class="quote"><p>good luck with the sales
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55500">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55500">14</a></div>
+			<span class="authorname">Taylor</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Wow. Sounds like a great resource! I could definitely go for a copy. Adding to wishlist, in case I don't win one :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55501">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55501">15</a></div>
+			<span class="authorname">David Cohen</span> said on September 26, 2007		</div>
+		<div class="quote"><p>I enjoyed the Art &amp; Science of CSS, would love to enter into the giveaway for the new book
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55502">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55502">16</a></div>
+			<span class="authorname">Cory</span> said on September 26, 2007		</div>
+		<div class="quote"><p>You are really not helping my tech book addiction (unless I win one, of course). I keep buying new ones before I'm even finished with the old ones!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55503">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55503">17</a></div>
+			<span class="authorname">Joe Gornick</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congrats on the book!  I'll definitely take a look at it when it hits the shelves, or maybe I could just win a free one here :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55504">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55504">18</a></div>
+			<span class="authorname">Shawn Grimes</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congrats on the book Jonathan! Seems it will be an invaluable resource to have on hand and will indeed wind up in my book collection one way or the other. I hope it flies off the shelves as I'm sure it will.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55505">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55505">19</a></div>
+			<span class="authorname">Aaron Barker</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Sounds like good stuff.  Can't wait to see it... hopefully for free =)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55506">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55506">20</a></div>
+			<span class="authorname"><a href="http://briandelicata.com/">Brian Delicata</a></span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congrats on the new book! Art &amp; Science of CSS sits prominently in my library!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55507">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55507">21</a></div>
+			<span class="authorname"><a href="http://theworkaround.com/">Tarellel</a></span> said on September 26, 2007		</div>
+		<div class="quote"><p>Wow, great job bud. Just another title to add to the list of great books, written by great technology enthusiasts. I have to say, even if I don't win, I'm definitely going to go down and purchase a copy of this new book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55508">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55508">22</a></div>
+			<span class="authorname">Eddie Welker</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Hoping I win a copy (I'm poor!) but if not, I'll probably buy it anyway.  Cheers for the book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55509">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55509">23</a></div>
+			<span class="authorname">Matt Beck</span> said on September 26, 2007		</div>
+		<div class="quote"><pre><code>
+function checkWinner()
+  {
+  if(document.getElementById('winner').value=='Matt Beck')
+     {
+     praiseSnook();
+     return true;
+     }
+    else{
+       cry();
+       return false;
+       }
+  }
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c55510">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55510">24</a></div>
+			<span class="authorname">Jeff Carouth</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congratulations on the book writing. I've had a desire to write a book at some point in my life but good for you having your name in the author list of two titles.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55513">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55513">25</a></div>
+			<span class="authorname">Mario</span> said on September 26, 2007		</div>
+		<div class="quote"><p>5 of 24... still pretty good chances for that book (css book would also be nice if you run out of javascript ones :)<br />
+Anyway, congratulations man
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55514">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55514">26</a></div>
+			<span class="authorname">Scott Powers</span> said on September 26, 2007		</div>
+		<div class="quote"><p>congrats on the book snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55516">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55516">27</a></div>
+			<span class="authorname">Michiel Jelijs</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Now this is a book i would buy! Congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55517">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55517">28</a></div>
+			<span class="authorname">Sudar</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congrats on your second book!</p>
+<p>I would definitely like to read this book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55519">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55519">29</a></div>
+			<span class="authorname">paul irish</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Been a little disappointed by some of the Apress books, but this one looks to satisfy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55520">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55520">30</a></div>
+			<span class="authorname">Gabe da Silveira</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Awesome!  Sorry I missed your talk at the Jam Session, but you made a good impression at the roundtable Saturday morning.  And your blog is one of the most beautiful I've seen recently.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55521">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55521">31</a></div>
+			<span class="authorname">Joseph Scott</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Congrats on getting your book completed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55522">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55522">32</a></div>
+			<span class="authorname">Stefan Alexiev</span> said on September 26, 2007		</div>
+		<div class="quote"><p>I'm really considering picking one up, this is probably the area where my skills are most lacking. Well done and good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55523">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55523">33</a></div>
+			<span class="authorname">puNk!d</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Hoping I could get a free copy or definitely I'd wait for and buy a translated one in China :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55524">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55524">34</a></div>
+			<span class="authorname">Gilbert West</span> said on September 26, 2007		</div>
+		<div class="quote"><p>And suddenly it's just like de-lurking day all over again. Free, free, did soomeone say free.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55525">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55525">35</a></div>
+			<span class="authorname">sike</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Am I lucky enough to pick up a copy?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55526">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55526">36</a></div>
+			<span class="authorname">Pascal</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Souns like a book I would love to win. Keep up the good work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55528">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55528">37</a></div>
+			<span class="authorname">Andrew Kumar</span> said on September 26, 2007		</div>
+		<div class="quote"><p>free book would be nice... on a student budget =D (yes tha's right I played the sympathy I'm a poor student card =P )
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55529">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55529">38</a></div>
+			<span class="authorname">emaz</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Me excite if win ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55531">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55531">39</a></div>
+			<span class="authorname">Aosh</span> said on September 26, 2007		</div>
+		<div class="quote"><p>It's great to see more well written Javascript books coming out.  I look forward to reading it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55532">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55532">40</a></div>
+			<span class="authorname"><a href="http://mondaybynoon.com/">Jonathan Christopher</a></span> said on September 26, 2007		</div>
+		<div class="quote"><p>A book is certainly no small feat. Congratulations on publishing, Jonathan, I'm sure it's a great book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55533">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55533">41</a></div>
+			<span class="authorname">Thomas Lauwers</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Would you even pick somebody from "far far away", meaning Belgium. The country best known for its chocolate, beer (Westvleteren), its waffels and not to forget Veerle Pieters ;-)</p>
+<p>your work inspire's me, thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55534">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55534">42</a></div>
+			<span class="authorname"><a href="http://deanjrobinson.com/">Dean Robinson</a></span> said on September 26, 2007		</div>
+		<div class="quote"><p>ooo... this book sounds interesting, looks like another one to add to my wishlist. Top work, it frightens me to think of the amount of time and effort that must go into producing a quality book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55535">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55535">43</a></div>
+			<span class="authorname">Steffen GÃ¶rtz</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Winning this Book would be great .. so i'll set up some coffee and wait now :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55536">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55536">44</a></div>
+			<span class="authorname">Stuart Langridge</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Can I have a free copy? ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55537">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55537">45</a></div>
+			<span class="authorname">Gerlof van Ek</span> said on September 26, 2007		</div>
+		<div class="quote"><p>I find it very interesting that you write books snook. Its very nice way to contribute to a coder community to spread your knowledge. Thumbs up and congrats. </p>
+</div>
+	</div>
+		<div class="comment" id="c55538">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55538">46</a></div>
+			<span class="authorname">Calm_Pear</span> said on September 26, 2007		</div>
+		<div class="quote"><p>Sounds like a very interesting book you wrote there! I'll be looking forward having a peak in it when I'm at the bookstore. ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55539">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55539">47</a></div>
+			<span class="authorname">Eric Eggert</span> said on September 26, 2007		</div>
+		<div class="quote"><p>That book sounds indeed quite interesting. It certainly has a place on my christmas wishlist if I donâ€™t win.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55540">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55540">48</a></div>
+			<span class="authorname">Bartek</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I'm feeling very random this morning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55541">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55541">49</a></div>
+			<span class="authorname">DevMountain</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I look forward to reading my 'won' copy  :-D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55542">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55542">50</a></div>
+			<span class="authorname"><a href="http://pixelated.com.au/">Ian</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book release!</p>
+<p>I'm thinking of writing a book too. What software(s) do you use to get it all down (author the book)?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55543">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55543">51</a></div>
+			<span class="authorname">Andy</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Just what I need. Another book to add to my 'to read' pile. So much to read, so little time... congrats on the new book ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55544">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55544">52</a></div>
+			<span class="authorname">Ole</span> said on September 27, 2007		</div>
+		<div class="quote"><p>math.random(47)</p>
+<p>i really like books about dom scripting (like my bible "Dom Scripting" from Jermy Keith).<br />
+ so i hope, i will be lucky....</p>
+</div>
+	</div>
+		<div class="comment" id="c55545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55545">53</a></div>
+			<span class="authorname"><a href="http://www.thewatchmakerproject.com/">Matthew Pennell</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Review copy? ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55546">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55546">54</a></div>
+			<span class="authorname">Kim Joar</span> said on September 27, 2007		</div>
+		<div class="quote"><p>This looks really good, Jonathan. I'm looking forward to reading it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55547">55</a></div>
+			<span class="authorname">Sjors</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I am currently working on a project which has ~1000 lines of JS code. This book could be usefull ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55548">56</a></div>
+			<span class="authorname"><a href="http://www.whatstyle.net/">Harmen Janssen</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations!<br />
+I'm looking forward to reading it! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55549">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55549">57</a></div>
+			<span class="authorname">digitarald</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Great review, very useful, great idea with the give-aways to fill the comments ;-). The book sounds great for me degree work, useful resources for Ajax applications (without too much bullshitting) are rare :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55551">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55551">58</a></div>
+			<span class="authorname">Tanvir Mahmud</span> said on September 27, 2007		</div>
+		<div class="quote"><pre><code>div.comment { display:none; }
+div#c55549 { display:block; }</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c55552">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55552">59</a></div>
+			<span class="authorname">Michael</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations.... can't wait to hold this baby in my arms!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55553">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55553">60</a></div>
+			<span class="authorname"><a href="http://matsimitsu.nl/">Robert</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations on the book, snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55555">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55555">61</a></div>
+			<span class="authorname"><a href="http://cheeaun.tumblr.com/">Lim Chee Aun</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>That is really one nice book :-D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55556">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55556">62</a></div>
+			<span class="authorname">Matias Lespiau</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Being an everyday reader of your blog, it will be very satisfing to grab a condensed amount of your knoledge in one piece! </p>
+<p>Congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55557">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55557">63</a></div>
+			<span class="authorname">Ben Bodien</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations on what looks to be an excellent resource! This will fit nicely into the rapidly swelling Apress section of my bookshelf.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55560">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55560">64</a></div>
+			<span class="authorname">Andre</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats for your book, Snook! My bookshelf will be proud of it! :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55561">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55561">65</a></div>
+			<span class="authorname">Silvan Hagen</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wow, sounds great to me. Maybe I win one, otherwise I grad myself a copy from amazon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55562">66</a></div>
+			<span class="authorname">MrQwest</span> said on September 27, 2007		</div>
+		<div class="quote"><p>How cool!  Well done Snook!  I'll take a peak at the book on Amazon later today. (Will it be available in the UK?).  Wouldn't mind learning a bit more about JS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55563">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55563">67</a></div>
+			<span class="authorname">Stephen Price</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Found out about your book via Twitter post. :)<br />
+Gratz on the book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55564">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55564">68</a></div>
+			<span class="authorname">Stellaris</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looking forward to the book, either won or bought.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55565">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55565">69</a></div>
+			<span class="authorname">ZÃ© Pedro</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Hi from a long time fan from Portugal! Keep up the good work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55566">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55566">70</a></div>
+			<span class="authorname">Olli P.</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations, very nice indeed!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55567">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55567">71</a></div>
+			<span class="authorname">Nasko</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations, Snook! I'm sure I'd be as pleased reading the book as I am following your blog.<br />
+Being a more server-side oriented developer, I've always suffered from not taking the time to learn JavaScript the proper way. I've taken different bytes of it as I've tackled different tasks, but never tried to grasp it in its entirety. I'm sure your new book would be an invaluable read for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55568">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55568">72</a></div>
+			<span class="authorname">Curro</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Great news, Jonathan. Congratulations! Do you think the book could be used as textbook for teaching a 32-hour DHTML course over an 8-week term to computer science students? They'd be already familiar with JavaScript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55569">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55569">73</a></div>
+			<span class="authorname"><a href="http://hribar.info/">Miha Hribar</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p><strong>Congrats Jonathan!</strong> Am looking forward to getting my hands on a copy. Do you have any other books in the making? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55570">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55570">74</a></div>
+			<span class="authorname">Ben</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Count me in!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55571">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55571">75</a></div>
+			<span class="authorname">Stijn De Lathouwer</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wow, looks like a great book. Might just be the thing to hone my JavaScript skills a bit further.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55572">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55572">76</a></div>
+			<span class="authorname">Peter</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55574">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55574">77</a></div>
+			<span class="authorname">JosÃ© Carlos</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations on the book. It has been in my Amazon wishlist for some time. Finally I can get it. Hopefully free. :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55575">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55575">78</a></div>
+			<span class="authorname">Quang Anh</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Nice book :D</p>
+<p>I've read the Art &amp; Science of CSS and really want to read this new book, too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55576">79</a></div>
+			<span class="authorname">Mike Birch</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I already have a couple of javascript books, but this sounds like it will fill a gap, and like others  I'll probably buy it if I'm not lucky here.  Thanks for the chance for a freebee :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55577">80</a></div>
+			<span class="authorname">Huseyin</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55578">81</a></div>
+			<span class="authorname">Remco</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats with the book!<br />
+still 6.5% chance on winning ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55579">82</a></div>
+			<span class="authorname">Nick Allen</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Excactly what i'm looking for, I follow the sentiments of others in that if I don't win it'll end up in the library anway! Nice work
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55580">83</a></div>
+			<span class="authorname">Simon Hanmer</span> said on September 27, 2007		</div>
+		<div class="quote"><p>The books looks great, it'd be nice to win one but if not I'll be heading over to Amazon to purchase one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55581">84</a></div>
+			<span class="authorname"><a href="http://www.projectdesigns.org/">Ben Henschel</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Good Job on the Book Jonathan! Looking forward to reading it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55583">85</a></div>
+			<span class="authorname">jan.ptacek</span> said on September 27, 2007		</div>
+		<div class="quote"><p>dynamic help system? i am eager to see it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55584">86</a></div>
+			<span class="authorname">Eugene Sutula</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Thank you for a great work. Looks really professional. Hope I will have a chance to look inside ;)</p>
+<p>P.S. I wish in time people will be happy to say the same about my future book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55586">87</a></div>
+			<span class="authorname">MÃ¡rio AraÃºjo</span> said on September 27, 2007		</div>
+		<div class="quote"><p><code>var winner = String.fromCharCode(56, 50);</code>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55587">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55587">88</a></div>
+			<span class="authorname">Georgi Momchilov</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Well done :) happy to hear you've publishing a book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55588">89</a></div>
+			<span class="authorname">Ian O</span> said on September 27, 2007		</div>
+		<div class="quote"><p>The book looks great! Can't wait to read it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55589">90</a></div>
+			<span class="authorname">Thomas Higginbotham</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looks like a good read. My only other JavaScript book is fairly outdated.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55590">91</a></div>
+			<span class="authorname"><a href="http://omnibuscreative.com/">Benjamin Hirsch</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats Snook. Looking forward to reading this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55591">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55591">92</a></div>
+			<span class="authorname">Chris M Johnson</span> said on September 27, 2007		</div>
+		<div class="quote"><p>This is exactly the type of book I need. Lately, I have been planning on stepping up my Javascript game to make use of some of the more recent additions. This book, free or purchased, will make a great addition to my library.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55592">93</a></div>
+			<span class="authorname">Graham</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Here's ta swimmin with bow-legged women! I'd love a copy of that book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55593">94</a></div>
+			<span class="authorname">Paul Groves</span> said on September 27, 2007		</div>
+		<div class="quote"><p>If you can find them, maybe you can hire. . . The A-Team
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55594">95</a></div>
+			<span class="authorname">Cameron Westland</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Snook: Is indigo/chapters going to be stocking this aswell?</p>
+<p>Oh and go Canada!</p>
+<p>Cheers<br />
+-Cameron
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55595">96</a></div>
+			<span class="authorname">Gilles</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Just finishing Christian Heilmann's book on DOM scripting &amp; I have the feeling this is the perfect follower. Will have to wait until after this weekend though, you never know, my Monday might be sweetened ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55596">97</a></div>
+			<span class="authorname"><a href="http://www.focusminded.com/">James Mitchell</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Like the Donkey in Shrek:  "pick me, pick me".
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55597">98</a></div>
+			<span class="authorname">Paul Robinson</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations on your new baby!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55598">99</a></div>
+			<span class="authorname">Steve Cunliffe</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wow, note to self:  The best way to get "Eleventy Billion" comments on a blog!  Tell folks that all they have to do is place a comment for a chance to win! - sweet! (I'll be copying this technique for sure! ;-)</p>
+<p>PS It is also a very clever way to make sure the posters are posting with the correct email address!</p>
+<p>Wow, the book does sound good... I look forward to a JavaScript book that is the "Well, now that you think you've mastered JavaScript - Lets start digging real deep in to best practices, accelerating code, libraries etc." sounds right up my alley.</p>
+<pre>
+var winners = snook.book.winners.join( ',' );
+if( winners.indexOf( 'Steve Cunliffe' ) ){
+  alert( YUI.owner );
+} else {
+  visa.pull().out( new Date() );
+  location.href = 'http://tinyurl.com/2bp2yo';
+}
+</pre>
+</div>
+	</div>
+		<div class="comment" id="c55599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55599">100</a></div>
+			<span class="authorname">Kevin Hillabolt</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Can't wait to check it out.</p>
+<p>Hopefully, I'll be one of the lucky five.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55600">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55600">101</a></div>
+			<span class="authorname">Bryan Buchs</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looking forward to picking this one up (or having it given to me!)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55601">102</a></div>
+			<span class="authorname">Gustaf Lindqvist</span> said on September 27, 2007		</div>
+		<div class="quote"><p>This is really a book that I have been waiting for! Also nice reading in Digital Web Magazine about you guys in Sidebar Creative. A good interview.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55602">103</a></div>
+			<span class="authorname">Jeff Smith</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Many congrats Jon.  I can't even imagine the amount of time and dedication it took to see this through to the end.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55603">104</a></div>
+			<span class="authorname">MichaÅ‚ Szajbue</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Seems to be a must-have for me as I am going to dig into JS &amp; AJAX pretty soon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55605">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55605">105</a></div>
+			<span class="authorname">Tim</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looks like a good read. Will try this first, but if it fails, I will just have to go buy it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55606">106</a></div>
+			<span class="authorname">RÃ©mi PrÃ©vost</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations! I'd like to win, please :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55607">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55607">107</a></div>
+			<span class="authorname">Dan Shields</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I can't wait to check this book out, I'm currently reading the "Beginning JavaScript with DOM Scripting and Ajax" book, so hopefully after that this book will help push me farther into being a Javascript Ninja!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55608">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55608">108</a></div>
+			<span class="authorname">Joshua Marshall</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Sounds like an interesting read, Jonathan, can't wait to get my paws on a copy.</p>
+<p>Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55610">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55610">109</a></div>
+			<span class="authorname">Phil</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I would love to win this! Congratulations on finishing it, sounds like an effort, which is why I'm surprised you're giving it away too!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55609">110</a></div>
+			<span class="authorname">Tom Leverenz</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I think I'll buy it if I don't win anyway but hey, you gotta play to win!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55611">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55611">111</a></div>
+			<span class="authorname">Trevor Davis</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Book sounds great, I might buy it even if I don&rsquo;t win it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55612">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55612">112</a></div>
+			<span class="authorname">Markus</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I want one!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55613">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55613">113</a></div>
+			<span class="authorname"><a href="http://www.epiphantastic.com/">Thomas Messier</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats, you're now well on your way to 30 books! I might just have to check this one out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55615">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55615">114</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>You know, they say the lottery is a tax for people who are bad at math.  One scratch-off please. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55616">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55616">115</a></div>
+			<span class="authorname"><a href="http://stephenminded.com/">Steve Lounsbury</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Hah, looking like the competition for the 5 copies is fierce!  Congrats on the book, Jon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55617">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55617">116</a></div>
+			<span class="authorname">syed</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I would love have the book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55618">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55618">117</a></div>
+			<span class="authorname">Adam</span> said on September 27, 2007		</div>
+		<div class="quote"><p>It's already in my "booksiwant" tag in del.icio.us, but i'd love a free copy congrats on the book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55619">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55619">118</a></div>
+			<span class="authorname">Nick</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I love Apress books, and I'm sure this one would be another great addition to my bookshelf.  Congratulations on getting it done.  I can't even imagine what it's like to write a book like this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55620">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55620">119</a></div>
+			<span class="authorname">Scott Messner</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats Jonathan! I look forward to reading your book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55621">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55621">120</a></div>
+			<span class="authorname">Chris Luebbe</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Hooray! Congrats on the book. Now give it here.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55622">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55622">121</a></div>
+			<span class="authorname">Travis</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations!  I can't wait to read it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55623">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55623">122</a></div>
+			<span class="authorname">John MacAdam</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Just lowering the % for everybody else.... ;)  Sorry!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55625">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55625">123</a></div>
+			<span class="authorname">Ben Lacy</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Nice work Jonathan!  Looks like this will be a great resource.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55626">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55626">124</a></div>
+			<span class="authorname">Chris Luebbe</span> said on September 27, 2007		</div>
+		<div class="quote"><p>@Matt Beck: Freaking hilarious!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55627">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55627">125</a></div>
+			<span class="authorname">Hamish M</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looks great Jonathan! Writing a book is no easy task. But It's definitely worth it.<br />
+I think this would be a great addition to any developers library.</p>
+<p>Good luck to all!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55628">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55628">126</a></div>
+			<span class="authorname">James Turnbull</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Random Comment: "Do It Now - Today will be yesterday tomorrow" -- Talking Moose.</p>
+<p>Looking forward to reading the book :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55629">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55629">127</a></div>
+			<span class="authorname">Dan Brady</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Ooh! I want to play Me Wantee too!</p>
+<p>(Keep up the great work.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55630">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55630">128</a></div>
+			<span class="authorname">Jonathan Powell</span> said on September 27, 2007		</div>
+		<div class="quote"><p>The book sounds awesome!  Congrats on finishing it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55631">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55631">129</a></div>
+			<span class="authorname">David</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats.  I'm looking forward to reading it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55632">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55632">130</a></div>
+			<span class="authorname">Paul Monson</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I love the idea of tackling issues libraries solve with simple DOM scripting! I have been looking for some insight on just that this week. </p>
+<p>Thanks, and I look forward to checking it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55633">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55633">131</a></div>
+			<span class="authorname">Nate Constant</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Cant wait to read it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55635">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55635">132</a></div>
+			<span class="authorname">Jason Padgett</span> said on September 27, 2007		</div>
+		<div class="quote"><p>gimme!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55636">133</a></div>
+			<span class="authorname">William Doyle</span> said on September 27, 2007		</div>
+		<div class="quote"><p>That's a lot of commentary. I'm interested in what random number algorithm you will use to determine the winners.</p>
+<p>Congratulations on the book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55637">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55637">134</a></div>
+			<span class="authorname">louis</span> said on September 27, 2007		</div>
+		<div class="quote"><p>winner here!<br />
+yey.</p>
+<p>congrats on the book dude.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55638">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55638">135</a></div>
+			<span class="authorname">Tommy Valand</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations on your new book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55639">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55639">136</a></div>
+			<span class="authorname">Pete Jones</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Everyone has a good book in them, is this it? I hope so.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55640">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55640">137</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>I read your chapter in the art and science of css with much pleasure, you have a solid writing style. If i ever decide to <em>really</em> start with javascript, I'll certainly check out your book :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55641">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55641">138</a></div>
+			<span class="authorname">Arpit Jacob</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book hope I win :)</p>
+</div>
+	</div>
+		<div class="comment" id="c55642">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55642">139</a></div>
+			<span class="authorname">Brian Wigginton</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Snook, loking forward to getting a copy!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55644">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55644">140</a></div>
+			<span class="authorname">Marc</span> said on September 27, 2007		</div>
+		<div class="quote"><pre><code>myMood = isWinner ?
+	array('suprised','happy') :
+	array('normal','appreciative');</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c55645">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55645">141</a></div>
+			<span class="authorname">Scott</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I'm totally winning this one!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55646">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55646">142</a></div>
+			<span class="authorname">Sam Rayner</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book John. I'll be adding it to my Amazon wishlist for sure :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55647">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55647">143</a></div>
+			<span class="authorname">Gustavo Schonarth</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Gimme that! =)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55648">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55648">144</a></div>
+			<span class="authorname">Karl</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I'd love a free copy, of course. If I'm not one of the lucky winners, though, I'd be happy to pay for it ... unless you'd like to trade one for <a href="http://www.amazon.com/Learning-jQuery-Interaction-Development-JavaScript/dp/1847192505/ref=pd_bbs_sr_1/002-8230022-8271224?ie=UTF8&amp;s=books&amp;qid=1190909935&amp;sr=8-1">my book</a>. :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55650">145</a></div>
+			<span class="authorname">Scott</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55652">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55652">146</a></div>
+			<span class="authorname">Jacob</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wow! that's 5 minus 1 now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55653">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55653">147</a></div>
+			<span class="authorname">Sean Madden</span> said on September 27, 2007		</div>
+		<div class="quote"><p>oh aye.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55655">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55655">148</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book, hoping to win a copy. ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55656">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55656">149</a></div>
+			<span class="authorname">Mark McDonnell</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Well done on completing the book!</p>
+<p>I hope I win so I can better my skills with Ajax and so I can get my head around all these different API's and Frameworks as well.</p>
+<p>M.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55657">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55657">150</a></div>
+			<span class="authorname">John Mark</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wouhooo! I hope I win! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55658">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55658">151</a></div>
+			<span class="authorname"><a href="http://arjaneising.nl/">Arjan</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>I'd love to read your new book. As I'm not very experienced with libraries and APIs (but with the DOM itself), I would like to read how such extras can help me develop.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55659">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55659">152</a></div>
+			<span class="authorname">Jarrod Goddard</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations Jonathan! Enter me in the contest, can't wait to read it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55660">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55660">153</a></div>
+			<span class="authorname">Dennis</span> said on September 27, 2007		</div>
+		<div class="quote"><p>To win, or not to win, that is the question.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55661">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55661">154</a></div>
+			<span class="authorname">Sheldon</span> said on September 27, 2007		</div>
+		<div class="quote"><p>The book certainly looks interesting and I know I would learn a thing or two.  I should just buy it anyway . . . I kinda owe you from just the stuff I've learned reading the blog!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55662">155</a></div>
+			<span class="authorname">Dave Peele</span> said on September 27, 2007		</div>
+		<div class="quote"><p>That book sure would look nice on my bookshelf!!  After I read it, of course.  ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55663">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55663">156</a></div>
+			<span class="authorname">Brennnan Falkner</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Yeah, I don't know how you people can manage to write whole books, either.  I dread writing a simple email.  I guess I should just be glad you do. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55664">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55664">157</a></div>
+			<span class="authorname">Proleter</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55665">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55665">158</a></div>
+			<span class="authorname">Jason Grunstra</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats! Looks interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55666">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55666">159</a></div>
+			<span class="authorname">Tim Bendt</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Oooh oooh, pick me pick me. Seriously though, that book looks like It would be very useful to me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55667">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55667">160</a></div>
+			<span class="authorname"><a href="http://nathanlogan.com/">Nathan Logan</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Well, if I'm not randomly chosen, I'll buy one anyway, so I'm probably not your best choice.</p>
+<p>Congrats on a tough project - I'm sure it feels much better to be on this side of the project than it was on the other.  Nicely done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55669">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55669">161</a></div>
+			<span class="authorname"><a href="http://frankmanno.com/">Frank Manno</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations, Jonathan!</p>
+<p>Looking forward to reading this one.  With yours and Dustin's books coming my way, it's going to be a fun, javascript-filled time! ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55671">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55671">162</a></div>
+			<span class="authorname">Hans Nilsson</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Feeling lucky! Good work with the book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55672">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55672">163</a></div>
+			<span class="authorname"><a href="http://www.grantpalin.com/">Grant Palin</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Sweet.  On my wish list.  I'll hope to win a copy here, but if not, will probably buy it anyway.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55673">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55673">164</a></div>
+			<span class="authorname">John Wilson</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Shiney!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55674">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55674">165</a></div>
+			<span class="authorname">Kylir Horton</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Nice book! I would love to win a copy. If not, I'll probably purchase one from Amazon. Good job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55675">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55675">166</a></div>
+			<span class="authorname">Mika</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I want to read this one! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55680">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55680">167</a></div>
+			<span class="authorname">Rory Casey</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Yeah I'm just as keen as every one else to win the book too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55682">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55682">168</a></div>
+			<span class="authorname">NICCAI</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Pick me!  Pick me!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55683">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55683">169</a></div>
+			<span class="authorname">zeratul</span> said on September 27, 2007		</div>
+		<div class="quote"><p>just entering in the drawing :p
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55684">170</a></div>
+			<span class="authorname">Shaun Smith</span> said on September 27, 2007		</div>
+		<div class="quote"><p>That was a long scroll to the bottom, i'm not liking the odds :P</p>
+<p>Looking forward to reading the book, win or lose. Congrats.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55685">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55685">171</a></div>
+			<span class="authorname">Patrick</span> said on September 27, 2007		</div>
+		<div class="quote"><p>over here, over here!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55686">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55686">172</a></div>
+			<span class="authorname">Boby</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulation on the book!<br />
+If I don't win it here :P I'll need to buy it :)</p>
+<p>PS: I would give the book away to those with creative comments (functions and code) :p
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55687">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55687">173</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog/">Jermayn Parker</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>I enjoyed your input on the CSS book and would love to read your input on this new book and also improve my DOM scripting at the same time, so please?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55689">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55689">174</a></div>
+			<span class="authorname">Emilio Bool</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I would like to read that book : )
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55690">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55690">175</a></div>
+			<span class="authorname">Greg</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Adding my name to 175 others here. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55691">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55691">176</a></div>
+			<span class="authorname">Ray</span> said on September 27, 2007		</div>
+		<div class="quote"><p>what does this book have that others dont, why would you recommend it?</p>
+</div>
+	</div>
+		<div class="comment" id="c55692">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55692">177</a></div>
+			<span class="authorname">Dang Truong</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Wow, another wonderful book. I really wish to have it from you, I can't afford to buy it from my country- Vietnam.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55694">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55694">178</a></div>
+			<span class="authorname"><a href="http://www.yourmosttrusted.com/">Wesley Walser</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>Looks like a fun read. Thanks for the chance to win also.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55695">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55695">179</a></div>
+			<span class="authorname">Darrel</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulation on the book, sounds like a must read.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55696">180</a></div>
+			<span class="authorname">Morgan Currie</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I just found a copy of the Art &amp; Science of CSS in Cape Breton, Nova Scotia, and, after crapping my pants, promptly paid more than I would have anywhere else in Canada, went straight home, and read the whole thing in an hour. Now I want more, so hows about picking me?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55698">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55698">181</a></div>
+			<span class="authorname">Alexander Radsby</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Great to hear that you've finished a book yet again. I need to learn more about it I'll probably read it somehow :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55700">182</a></div>
+			<span class="authorname">Altay KarakuÅŸ</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Why not?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55701">183</a></div>
+			<span class="authorname">rick</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congratulations! I can't wait to check it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55702">184</a></div>
+			<span class="authorname"><a href="http://twaites.com/">Kory Twaites</a></span> said on September 27, 2007		</div>
+		<div class="quote"><p>I'll throw in my comment for a chance to win!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55704">185</a></div>
+			<span class="authorname">Isaak kwok</span> said on September 27, 2007		</div>
+		<div class="quote"><p>Congrats on the publication of your new book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55705">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55705">186</a></div>
+			<span class="authorname">mordret</span> said on September 27, 2007		</div>
+		<div class="quote"><p>I want that book.. pick me *g*
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55706">187</a></div>
+			<span class="authorname">Antti MÃ¤ki</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Gimme gimme gimme.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55708">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55708">188</a></div>
+			<span class="authorname"><a href="http://www.emils.se/">Emil</a></span> said on September 28, 2007		</div>
+		<div class="quote"><p>I'm not that into Javascript. I do my ajax and my visual effects with Prototype/ScriptAc/JQuery/Interface. I have a basic understanding of the DOM, why should I pick this book instead of a book in JQuery? Give me som arguments :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55709">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55709">189</a></div>
+			<span class="authorname">Jon Randahl</span> said on September 28, 2007		</div>
+		<div class="quote"><p>sounds like a really good read! Gonna try to get a copy for work, and play! Although, one would be fine for both!<br />
+J
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55710">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55710">190</a></div>
+			<span class="authorname">Omar Sheikh</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Who can say no? Not me :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55711">191</a></div>
+			<span class="authorname">Paul Decowski</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Will you post to UK though?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55712">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55712">192</a></div>
+			<span class="authorname"><a href="http://codeandeffect.co.uk/blog/">AMD</a></span> said on September 28, 2007		</div>
+		<div class="quote"><p>Never look a gift ajax call in the mouth...good on your sir!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55713">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55713">193</a></div>
+			<span class="authorname"><a href="http://foobr.co.uk/">Aaron Bassett</a></span> said on September 28, 2007		</div>
+		<div class="quote"><p>Could this be your most commented post on your blog? Nothing like a free give away to get the lurkers posting ;)</p>
+<p>But congrats on the book, I can't imagine the time and effort that goes into doing something like that. I keep toying with the idea myself - but like most people thats all I have done. </p>
+<p>Am glad to see you ain't one of those people!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55714">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55714">194</a></div>
+			<span class="authorname">Jakub Nesetril</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Johnathan, congratulations on your new book, indeed it's a helluva lot of work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55717">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55717">195</a></div>
+			<span class="authorname">Keith Rousseau</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congrats on the new book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55718">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55718">196</a></div>
+			<span class="authorname">Rich</span> said on September 28, 2007		</div>
+		<div class="quote"><p>A book would be nice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55719">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55719">197</a></div>
+			<span class="authorname"><a href="http://codeandeffect.co.uk/blog/">AMD</a></span> said on September 28, 2007		</div>
+		<div class="quote"><p>With the amount of pages this industry generates, I think it's telling that we all want *your* book on our shelves. We know it's going to deliver.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55721">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55721">198</a></div>
+			<span class="authorname">John Lascurettes</span> said on September 28, 2007		</div>
+		<div class="quote"><p>No purchase necessary to enter contest. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55722">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55722">199</a></div>
+			<span class="authorname">Jeff</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congratulations! It's great to see another book on DOM Scripting out on the shelves.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55723">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55723">200</a></div>
+			<span class="authorname">Tom Sieron</span> said on September 28, 2007		</div>
+		<div class="quote"><p>I'd love to read your book!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55724">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55724">201</a></div>
+			<span class="authorname">Marcus Derencius</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Wonderful. I really enjoy your blog, and now happy to know about a full book of your writings.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55725">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55725">202</a></div>
+			<span class="authorname">Mike Nosal</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Looking forward to the book,<br />
+Cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55726">203</a></div>
+			<span class="authorname">Juan Ignacio Serra</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Wow Jon, congrats!!, You never stop amazing me!</p>
+<p>Cheers, from Juani (the Argie of The List)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55727">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55727">204</a></div>
+			<span class="authorname">Zach Cox</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congrats!  Can't wait to check out the book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55728">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55728">205</a></div>
+			<span class="authorname">Daniel Lemire</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Nothing brings out the comments like a giveaway!  Another book already?!  I haven't even had a chance to buy the first one!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55729">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55729">206</a></div>
+			<span class="authorname">Aaron Conran</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congrats on the book, looking forward to reading it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55730">207</a></div>
+			<span class="authorname">Jon</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Looks like a good read. In what ways does this book differ from Pro JavaScript Techniques by John Resig?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55731">208</a></div>
+			<span class="authorname">David</span> said on September 28, 2007		</div>
+		<div class="quote"><p>With so much to be done on the web - books like this are bound to be useful for those looking for more advanced logic and stuff. I know that I personally need to drop PS CS3 and PHP for a while so I can concentrate on some JS</p>
+<p>So Good Work - writing enough for a book IS hard work ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55732">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55732">209</a></div>
+			<span class="authorname">George</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congrats from Greece :)<br />
+cheers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55733">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55733">210</a></div>
+			<span class="authorname">Andreas</span> said on September 28, 2007		</div>
+		<div class="quote"><p>pick me pick me! seriously though, congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55734">211</a></div>
+			<span class="authorname">David Walsh</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Sweet, looks like a great read!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55735">212</a></div>
+			<span class="authorname">Adrian Diaz de Leon</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Wow, so many comments... is this equal opportunity winning? Well I hope a nerdy latin webmaster can get a copy. I do have a P.O. Box though.... for when you send out the book *wink
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55738">213</a></div>
+			<span class="authorname"><a href="http://blog.userland.fr/">Goulven</a></span> said on September 28, 2007		</div>
+		<div class="quote"><p>Wow wow wow, sounds great! Just the kind of things I'm eager to dive into after two starter books on Javascript. Still struggling with OO Javascript and I really need a good look at it because that's just the way to go.</p>
+<p>Can't wait to get my hands on one, for free or from Amazon!</p>
+<p>Good luck with the sales!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55740">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55740">214</a></div>
+			<span class="authorname">Kevin Fukawa</span> said on September 28, 2007		</div>
+		<div class="quote"><p>Congrats on the new book, and on making the transition from conference attendee to presenter.  Hope to see you at WDN08!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55742">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55742">215</a></div>
+			<span class="authorname">BARTdG</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Now that looks like a  book I'd like to read. In fact, I am someone who knows 'the basics like variables, arrays and the basic syntax' but has troubles taking the next step. Hope I win :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55745">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55745">216</a></div>
+			<span class="authorname"><a href="http://www.thefutureoftheweb.com/">Jesse Skinner</a></span> said on September 29, 2007		</div>
+		<div class="quote"><p>Congrats, Snook! I can only imagine how much work it would take to put together a 250-page book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55746">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55746">217</a></div>
+			<span class="authorname">Phil Dame</span> said on September 29, 2007		</div>
+		<div class="quote"><p>No wonder you're so busy. Congrats on getting it done - doesn't sounds easy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55748">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55748">218</a></div>
+			<span class="authorname">Rory Fitzpatrick</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Hmm, "DOM scripty goodness" for free! Nice one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55749">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55749">219</a></div>
+			<span class="authorname">Jens Bjerrehuus</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Looks to be an interesting read.  Congratulations on finishing it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55750">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55750">220</a></div>
+			<span class="authorname">tenni</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Nothing like a competition to bring out the lurkers!! (myself included)</p>
+<p>I would love a copy of your bookâ€”but will happily buy it either way. Sounds like just the type of thing I need to take my scripting to the next level.<br />
+Congrats on the achievement.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55751">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55751">221</a></div>
+			<span class="authorname">Manuel Catez</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Sounds really good! Can't wait to read it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55755">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55755">222</a></div>
+			<span class="authorname">Dejan BoÅ¾iÄ</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Found my way to this website not long ago, but from what I have read so far, the book will surely be a good read.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55756">223</a></div>
+			<span class="authorname">Johan</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Snook, I want that book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55757">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55757">224</a></div>
+			<span class="authorname">Tyler </span> said on September 29, 2007		</div>
+		<div class="quote"><p> congrats, can't wait for it to come out!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55758">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55758">225</a></div>
+			<span class="authorname">Kevin van Dijk</span> said on September 29, 2007		</div>
+		<div class="quote"><p>I'm going to get this book as soon as it comes out in Dutch book shops :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55759">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55759">226</a></div>
+			<span class="authorname">Pablo</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Congratulations on your new book, which probably took a lot of time and work - DOM Scripting isn't easy to learn, let alone teach. I hope it makes the Best Seller's list or something and you make a lot of royalties ;) lol, we all know that you had other reasons other than your love for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55762">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55762">227</a></div>
+			<span class="authorname">jack</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Good for you! win it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55763">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55763">228</a></div>
+			<span class="authorname">Foaud Masoud</span> said on September 29, 2007		</div>
+		<div class="quote"><p>Mabrook for the book.</p>
+<p>Mabrook means Congratulations in Arabic :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55765">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55765">229</a></div>
+			<span class="authorname">Su</span> said on September 30, 2007		</div>
+		<div class="quote"><p>Is there a TOC available anywhere, by chance? Also, as far as libraries, the Apress site says "such as Prototype." And...?<br />
+(Sorry if this has been asked, but you see how far down this is. I promise I did some searching.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55766">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55766">230</a></div>
+			<span class="authorname">Luke</span> said on September 30, 2007		</div>
+		<div class="quote"><p>I'm the winner of "the art and science of CSS" from your previous post.  Hopefully I'll also be able to get one free copy of your new book :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55767">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55767">231</a></div>
+			<span class="authorname">Erik</span> said on September 30, 2007		</div>
+		<div class="quote"><p>hope i win =)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55768">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55768">232</a></div>
+			<span class="authorname">Erik</span> said on September 30, 2007		</div>
+		<div class="quote"><p>haha time to step away from the comp. put the wrong email address in the last post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55769">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55769">233</a></div>
+			<span class="authorname">Umut Muhaddisoglu</span> said on September 30, 2007		</div>
+		<div class="quote"><p>Hey.., If I can't be the winner I'll be ask this to you on 7th of October at the Future of Web Design Event :)</p>
+<p>Cheers,<br />
+Umut
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55773">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55773">234</a></div>
+			<span class="authorname">Doug</span> said on September 30, 2007		</div>
+		<div class="quote"><p>Hope I'm still in time. You didn't specify a timezone!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55775">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55775">235</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 30, 2007		</div>
+		<div class="quote"><p>Thanks everybody for playing! The contest is now closed. The winners will be announced tomorrow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60128">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60128">236</a></div>
+			<span class="authorname">Joel Merritt</span> said on November 12, 2008		</div>
+		<div class="quote"><p>1je3rxjeh412sewq</p>
+</div>
+	</div>
+		<div class="comment" id="c61124">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61124">237</a></div>
+			<span class="authorname"><a href="http://suedehandbag.co.cc/">Makin</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Hi webmaster!.<br />
+I am from Ukraine and also now am reading in English, tell me whether I wrote the following sentence: "Rather than using I statements, begin each sentence with an action word to describe your experience."</p>
+<p>Thank you very much :(. Makin.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/accelerated_dom_scripting by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

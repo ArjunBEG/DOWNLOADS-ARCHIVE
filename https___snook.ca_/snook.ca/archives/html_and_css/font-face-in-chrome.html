@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/html_and_css/font-face-in-chrome by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Font-face in Chrome - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/font-face-in-chrome">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/font-face-in-chrome">
+	<meta property="og:title" content="Font-face in Chrome">
+	<meta property="og:description" name="description" content="Some days you can tell that @font-face embedding is still trying to find its feet in becoming a stable and viable solution. Chrome 4 and 5 beta currently have a bug that creates some weird behaviour....">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Font-face in Chrome</h1>
+		<p>Some days you can tell that <code>@font-face</code> embedding is still trying to find its feet in becoming a stable and viable solution. Chrome 4 and 5 beta currently have a bug that creates some weird behaviour.</p>
+<p>In the following screenshot, you'll notice that everything looks a little <em>off</em>. Okay, that's an understatement.</p>
+<p><img src="https://snook.ca/files/chrome-font-face.png" alt="Affected display in Chrome" width="501" height="269" /><br />
+<small><i>Image courtesy of <a href="http://pixelicious.co.uk/">Pete Lambert</a></i></small></p>
+<p>Every character is replaced by an A in a box. The problem is the <code>local()</code> declaration in the <code>@font-face</code> declaration. If you have the font installed on your machine and visit a page that uses the <code>local()</code> declaration then you'll see these boxes instead of your beautiful font.</p>
+<p>The only solution I've seen so far is to remove the <code>local()</code> declaration. </p>
+<p><em>Hat tip to <a href="http://antonpeck.com/">Anton Peck</a> for actually discovering the connection.</em></p>
+
+<div class="update">
+<p>This is apparently <a href="http://code.google.com/p/chromium/issues/detail?id=29729">fixed in the latest dev builds</a> and will be in the next version of Chrome.</p>
+</div>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published April 02, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/977</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">15 Comments &middot; <a href="https://snook.ca/archives/html_and_css/font-face-in-chrome.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64820">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64820">1</a></div>
+			<span class="authorname">David Petersen</span> said on April 02, 2010		</div>
+		<div class="quote"><p>Probably has something todo with this ticket: <a href="http://code.google.com/p/chromium/issues/detail?id=29729">Issue 29729: Chrome sandbox blocks loading of fonts stored in nonstandard locations by font managers</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64822">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64822">2</a></div>
+			<span class="authorname">Trent Walton</span> said on April 02, 2010		</div>
+		<div class="quote"><p>I've been wondering about this.  I'm seeing the same sort of problem &amp; am using Font Explorer.  Removing the local() declaration did help, but I've even seen seen Georgia show up with those repetitive "A" characters on a site using @font-face elsewhere (in a different class) during testing.  It's a bummer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64823">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64823">3</a></div>
+			<span class="authorname">Joshua Clanton</span> said on April 02, 2010		</div>
+		<div class="quote"><p>Interesting. I haven't had any problems with Chrome 4 and local(). But then I don't have a font manager installed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64824">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64824">4</a></div>
+			<span class="authorname">Trevor</span> said on April 02, 2010		</div>
+		<div class="quote"><p>I was recently having the same issues on a little site I put together where I had several versions of a font installed and one of them was a "dingbat" version. That's all it would use for the local font so I went with the smiley technique</p>
+<p>http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/#smiley</p>
+<p>Nice Web Type's write up is a pretty nice and thorough covering of @font-face</p>
+<p>http://nicewebtype.com/notes/2009/10/30/how-to-use-css-font-face/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64825">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64825">5</a></div>
+			<span class="authorname"><a href="http://blog.vernontgerzen.com/">Trevor</a></span> said on April 02, 2010		</div>
+		<div class="quote"><p>Forgot to wrap those links in anchors. If you want 'em linked up properly please feel free to do so :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64827">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64827">6</a></div>
+			<span class="authorname">Graham Ballantyne</span> said on April 02, 2010		</div>
+		<div class="quote"><p>There's been an open Chrome Bug on this issue since January -- I found it on a site I was working on, tweeted about it and Paul Irish filed the bug:<br />
+http://code.google.com/p/chromium/issues/detail?id=33173
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64828">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64828">7</a></div>
+			<span class="authorname">Nathan Pitman</span> said on April 02, 2010		</div>
+		<div class="quote"><p>I've seen similar issues with sites that just use a font family declaration too... http://www.icdcouriers.co.uk.</p>
+<p>So perhaps it's not simply a @font-face issue?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64829">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64829">8</a></div>
+			<span class="authorname">Gunnar Andreassen</span> said on April 02, 2010		</div>
+		<div class="quote"><p>Chrome still have som bugs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64830">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64830">9</a></div>
+			<span class="authorname">Tiffany JEnkins</span> said on April 02, 2010		</div>
+		<div class="quote"><p>Yeah I'v encountered this problem on our site as well. Was figuring it was a chrome bug. So far it has only happened to people on Mac's using chrome, which I figured is a relatively small demographic but eventually had to turn off the @font-face and use a standard web-font
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64835">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64835">10</a></div>
+			<span class="authorname">John Hancock</span> said on April 03, 2010		</div>
+		<div class="quote"><p>this is why lots of us are using bulletproof (smiley variant) instead - judging from the possible (ab)use cases I think this is a bug I'd prefer to see kept out of play by web designers - being able to load fonts from anywhere could make it very easy for script kiddies to pseudo-deface websites.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64838">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64838">11</a></div>
+			<span class="authorname">Andy</span> said on April 04, 2010		</div>
+		<div class="quote"><p>Works fine over here. Then again, I'm serving SVG fonts to webkit browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64843">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64843">12</a></div>
+			<span class="authorname"><a href="http://www.denatasarim.com/">Dena</a></span> said on April 05, 2010		</div>
+		<div class="quote"><p>Well it's great that you found this out Jonathan. But the reason for using local() is that so the user won't have to download the font if they have it locally anyway. It's used a lot for using some Win7/Vista fonts on your website. But you might do it for a font that possibly only "you" would have it installed :P</p>
+<p>I sincerely hope they fix this bug :/ Otherwise it sucks to add more traffic to your bandwidth for just Chrome. I know though you can control the browser with javascript but it sucks anyway :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64848">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64848">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 06, 2010		</div>
+		<div class="quote"><p>Upon some further research, it looks like this has nothing to do with @font-face in particular and everything to do with trying to access a locally installed font that is enabled through a font management application like Font Explorer X.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64857">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64857">14</a></div>
+			<span class="authorname"><a href="http://broken-links.com/">Peter Gasston</a></span> said on April 07, 2010		</div>
+		<div class="quote"><p>That's exactly the issue; I've only ever encountered it in Chrome for Mac (not Windows, AFAIK) when a font manager is being used.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64861">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64861">15</a></div>
+			<span class="authorname">Michael Meyer</span> said on April 08, 2010		</div>
+		<div class="quote"><p>The only solution I've found is to move my FontExplorer library to a folder in ~/Library/Fonts/
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/html_and_css/font-face-in-chrome by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:53 GMT -->
+</html>

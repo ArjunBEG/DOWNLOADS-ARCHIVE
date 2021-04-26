@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/cakephp/contact_form_cakephp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Creating a Contact Form in CakePHP 1.2 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/cakephp/contact_form_cakephp">
+	<meta property="og:url" content="https://snook.ca/archives/cakephp/contact_form_cakephp">
+	<meta property="og:title" content="Creating a Contact Form in CakePHP 1.2">
+	<meta property="og:description" name="description" content="Most contact forms take a name and feedback from a user and mail it off to the administrator but don't store any information in the database. This tutorial will show how to use CakePHP's models, even ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Creating a Contact Form in CakePHP 1.2</h1>
+		<p>Most contact forms take a name and feedback from a user and mail it off to the administrator but don't store any information in the database. This tutorial will show how to use CakePHP's models, even when no table is being used.</p>
+<p>CakePHP is great in that you set up a database table, define an empty class file for the Model and suddenly you're halfway there. The Form helper can automatically display error messages and outputs the proper input type depending on the field data type. </p>
+<p>However, what do you do when you don't have a database table, as is the case with our contact form? We look to the model property, <code>_schema</code>. Normally this is automatically populated by CakePHP when it figures out what the database says. With no database table, you have to define the schema by hand. </p>
+<p>Here's an example schema for our contact form:</p>
+<pre><code>class Contact extends AppModel {
+    var $useTable = false;
+    var $_schema = array(
+        'name'		=>array('type'=>'string', 'length'=>100), 
+        'email'		=>array('type'=>'string', 'length'=>255), 
+        'details'	=>array('type'=>'text')
+    );
+}</code></pre>
+<p>As you can see, we've told the model not to use a table by setting <code>useTable</code> to false. Then, we define the schema for the table. In this case, we're going to ask the site visitor to fill out name, email, and contact details.</p>
+<p>With the schema defined, we can also specify some validation rules to go along with that:</p>
+<pre><code>var $validate = array(
+    'name' => array(
+        'rule'=>array('minLength', 1), 
+        'message'=>'Name is required' ),
+    'email' => array(
+        'rule'=>'email', 
+        'message'=>'Must be a valid email address' ),
+    'details' => array(
+        'rule'=>array('minLength', 1), 
+        'message'=>'Feedback is required' )
+);</code></pre>
+<p>With the model now set up and ready to go, setting up the view is a piece of cake:</p>
+<pre><code>&lt;?php 
+    echo $form->create('Contact');
+    echo $form->inputs();
+    echo $form->end('Send');
+?&gt;</code></pre>
+<p>Then, all we have to do is set up our controller to do something.</p>
+<pre><code>function add() {
+    if ($this-&gt;RequestHandler-&gt;isPost()) {
+        $this-&gt;Contact-&gt;set($this-&gt;data);
+        if ($this-&gt;Contact-&gt;validates()) {
+            //send email using the Email component
+            $this-&gt;Email-&gt;to = 'admin@example.com';  
+            $this-&gt;Email-&gt;subject = 'Contact message from ' . $this-&gt;data['Contact']['name'];  
+            $this-&gt;Email-&gt;from = $this-&gt;data['Contact']['email'];  
+   
+            $this-&gt;Email-&gt;send($this-&gt;data['Contact']['details']);
+        }
+    }
+}</code></pre>
+<p>And that's it! The process for the contact form, validating and sending emails hasn't changed. All we had to do was define the schema to be able to take advantage of our model validation.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 24, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/cakephp/">CakePHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/902</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">53 Comments &middot; <a href="https://snook.ca/archives/cakephp/contact_form_cakephp.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59061">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59061">1</a></div>
+			<span class="authorname">Cristian</span> said on July 25, 2008		</div>
+		<div class="quote"><p>Great tutorial!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59062">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59062">2</a></div>
+			<span class="authorname"><a href="http://walkerhamilton.com/">Walker Hamilton</a></span> said on July 25, 2008		</div>
+		<div class="quote"><pre><code>$form-&gt;inputs();</code></pre>
+<p>Does this mean that, as long as one is not doing anything "weird" in a form, you don't need to put every field?!?</p>
+<p>When did this happen?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59063">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59063">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 25, 2008		</div>
+		<div class="quote"><p>@Walker: hehe, you like that, eh? Somewhere in the 1.2 stuff, it got in there. Pure genius (and I used it to show off just how easy the form helper can be).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59064">4</a></div>
+			<span class="authorname"><a href="http://walkerhamilton.com/">Walker Hamilton</a></span> said on July 25, 2008		</div>
+		<div class="quote"><p>Pure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59065">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59065">5</a></div>
+			<span class="authorname"><a href="http://walkerhamilton.com/">Walker Hamilton</a></span> said on July 25, 2008		</div>
+		<div class="quote"><p>Completely Pure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59066">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59066">6</a></div>
+			<span class="authorname"><a href="http://mysiteonline.org/">Brendon Kozlowski</a></span> said on July 25, 2008		</div>
+		<div class="quote"><p>Darn...I really need to re-bake my applications between each release to see the new changes.  Thanks for that information on the form helper's new method, Jonathan!  I've seen $_schema in my debug output too, but didn't realize what it was exactly, so that part's also very useful.  Thanks a bunch!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59067">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59067">7</a></div>
+			<span class="authorname">Gian</span> said on July 25, 2008		</div>
+		<div class="quote"><p>Man, you really rock JSnook. I was never aware of that $form-&gt;inputs() function. Great tutorial dude. CakePHP is freakin awesome.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59068">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59068">8</a></div>
+			<span class="authorname">byBartus</span> said on July 25, 2008		</div>
+		<div class="quote"><p>Hi,</p>
+<p>many thanks about this tip, but you forgot to 'echo' the '$form-&gt;' in the views.</p>
+<p>T+
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59069">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 25, 2008		</div>
+		<div class="quote"><p>@byBartus: good catch. fixed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59070">10</a></div>
+			<span class="authorname">Pablo Impallari</span> said on July 26, 2008		</div>
+		<div class="quote"><p>Hi Jonathan:<br />
+You should try Kohana as well. (www.kohanaphp.com)<br />
+Today I was doing a contact form too. And was surprisingly easy</p>
+<p>In the controller:</p>
+<pre><code>
+$form=new Forge(url::current(), '', 'POST');
+$form-&gt;input('name')-&gt;label('Your Name')-&gt;rules('required');
+$form-&gt;input('email')-&gt;label('Your Email')-&gt;rules('valid_email');
+$form-&gt;textarea('messaje')-&gt;label('Your Messaje')-&gt;rules('required');
+$form-&gt;submit('submit');
+
+if ( $form-&gt;validate() ) {
+    // Do Stuff
+} else {
+    $this-&gt;myFrom = $form;
+}
+</code></pre>
+<p>In the View:</p>
+<pre><code>
+&lt;h2&gt;Contact Us&lt;/h2&gt;
+&lt;?php echo $myfrom ?&gt;
+</code></pre>
+<p>I just love it. Its like jQuery
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59071">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59071">11</a></div>
+			<span class="authorname">Juarez P. A. Filho</span> said on July 26, 2008		</div>
+		<div class="quote"><p>WoW... It's great, I've been working with cake about 6 months and it's very great, but I don't migrate to 1.2 yet.<br />
+@Jonathan do you think CakePHP 1.2 is stable sufficiently to use on a serious web project?<br />
+Thanks for share.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59072">12</a></div>
+			<span class="authorname">Brett Wilton</span> said on July 26, 2008		</div>
+		<div class="quote"><p>Do you additionally use the Security component to secure the form or do you find the $this-&gt;RequestHandler-&gt;isPost() is sufficient ? I guess this question also applies in general to other forms as well e.g. Comments, was just curious.<br />
+Thanks for the insight into $from-&gt;inputs() hadn't seen that yet, is there a nice way when using that method to also customize the labels ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59073">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59073">13</a></div>
+			<span class="authorname">primeminister</span> said on July 27, 2008		</div>
+		<div class="quote"><p>Nice! Thnx Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59076">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59076">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 27, 2008		</div>
+		<div class="quote"><p>@Pablo: The syntax for Kohana seems really interesting. It's nice to see other frameworks taking the simplicity approach.</p>
+<p>@Juarez: Yes, CakePHP 1.2 is definitely stable. They're onto release candidates with a final version likely out within the month.</p>
+<p>@Brett Wilton: No, I don't use the Security component. I'm okay with just ensuring that it's a post request.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59077">15</a></div>
+			<span class="authorname">Alex Cohaniuc</span> said on July 28, 2008		</div>
+		<div class="quote"><p>This is so cool, CakePHP rocks!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59081">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59081">16</a></div>
+			<span class="authorname">Andreas Dantz</span> said on July 28, 2008		</div>
+		<div class="quote"><p>This is great. I just needed something quite similar for my app. Thanks alot!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59082">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59082">17</a></div>
+			<span class="authorname">Brett Wilton</span> said on July 29, 2008		</div>
+		<div class="quote"><p>Just in case I've missed some other auto magic features in 1.2, is there an auto magic means of setting custom input labels when using the $from-&gt;inputs() method ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59088">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59088">18</a></div>
+			<span class="authorname">Skip Hire</span> said on July 31, 2008		</div>
+		<div class="quote"><p>I have been aware of Cake for some time, but this is the first time I've seen any code examples. I have been thinking about doing something similar in PHP for some time where all the details for the form are stored in an XML file, which configures a controlling class. All you need to do is write and ref. the XML and its done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59099">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59099">19</a></div>
+			<span class="authorname">Orhan</span> said on August 03, 2008		</div>
+		<div class="quote"><p>Is the textarea field named 'feedback' or 'details'? Seems like you are using both.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59103">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59103">20</a></div>
+			<span class="authorname">Eric</span> said on August 03, 2008		</div>
+		<div class="quote"><p>I've been reading up on different frameworks for a while and recently noticed what seems to be a misunderstanding/misuse of the View portion of the MVC pattern. </p>
+<p>@Pablo: It seems wrong to me that the Controller, with respect to the MVC pattern, should have the ability to define the content and structure of the View. To me, this violates the separation of logic layers by which the View should define itself.</p>
+<p>I found the same inherent problem in the Zend Framework. Perhaps i'm missing something, but i'm surprised to see it in Big-Name frameworks like Zend. Does anyone want to explain their perception of this?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59104">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59104">21</a></div>
+			<span class="authorname">Eric</span> said on August 03, 2008		</div>
+		<div class="quote"><p>@Snook: It also seems wrong to me that the CakePHP Model is *assumed* to be database driven, and therefore you have to specifically tell it *not* to connect to a database table. </p>
+<p>Do you have any comments on this behavior?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59105">22</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 03, 2008		</div>
+		<div class="quote"><p>@Brett Wilton: If you declare the field names, you can declare custom labels with them. Like, <code>$form-&gt;inputs(array('name'=&gt;array('label'=&gt;'My name')))</code></p>
+<p>@Orhan: you're correct. A typo in the middle there which I've now corrected. Thanks!</p>
+<p>@Eric (1): Zend in particular is a framework that can be used for MVC but wasn't built specifically as an MVC framework. I haven't looked too closely but last time I remember, their CakePHP or Code Igniter equivalent was pretty loose.</p>
+<p>@Eric (2): CakePHP has a similar "convention over configuration" mindset as Ruby on Rails and the fact is, it's built for the 80% of apps which are database driven. It's about solving the common goal, not about some strict adherence to a methodology. Of all the apps I've built with CakePHP, 98% of the controllers have needed a database table association. I like CakePHP for automating that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59106">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59106">23</a></div>
+			<span class="authorname">Eric</span> said on August 03, 2008		</div>
+		<div class="quote"><p>Thanks for the response,</p>
+<p>@Snook (1): You're right, I went to find something which stated the Zend Framework was designed specifically as an MVC framework, but couldn't find it. I still think its strange that they implement the MVC pattern (in the tutorial i'm referring to here: http://akrabat.com/zend-framework-tutorial/) and seemingly devalue the concept of independent logic layers.</p>
+<p>@Snook (2): I definitely appreciate the "convention over configuration" philosophy - I employ it constantly. I question why the CakePHP Model doesn't skip loading table data until a database request is made. For example:</p>
+<pre><code>var $useTable = false;
+var $_schema = array(
+    'name' =&gt; array('type'=&gt;'string', 'length'=&gt;100),
+    'email' =&gt; array('type'=&gt;'string', 'length'=&gt;255),
+    'details' =&gt; array('type'=&gt;'text')
+);
+</code></pre>
+<p>... looks like "configuration" to me. This could easily be avoided in the spirit of "convention":</p>
+<pre><code>class Contact extends AppModel {
+    var $validate = array(
+        'name' =&gt; array(
+            'rule'=&gt;array('minLength', 1),
+            'message'=&gt;'Name is required' ),
+        'email' =&gt; array(
+            'rule'=&gt;'email',
+            'message'=&gt;'Must be a valid email address' ),
+        'details' =&gt; array(
+            'rule'=&gt;array('minLength', 1),
+            'message'=&gt;'Feedback is required' )
+    );
+};</code></pre>
+<p>... should be the only code needed to accomplish this, and even that could be simplified.</p>
+<p>I guess this is relatively minor in retrospect, but it's part of what keeps me from using CakePHP and Zend frameworks. Ruby On Rails seems to have more correctly adopted this philosophy, though, I'm not a Ruby programmer. CakePHP seems like the best of the available PHP frameworks anyway.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59113">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59113">24</a></div>
+			<span class="authorname">Adam Duro</span> said on August 05, 2008		</div>
+		<div class="quote"><p>Wow Snook! Clean. I remember chating with you on IRC a month or so ago about this subject. You really discovered a slick solution. Kudos to you and anyone else who helped come up with this solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59122">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59122">25</a></div>
+			<span class="authorname">Mark</span> said on August 08, 2008		</div>
+		<div class="quote"><p>This is a great tutorial and clean solutions. I certainly like the convention over configuration philosophy in CakePHP. One of the most powerful features is the relational mapping provided by the model, and CakePHP is furthermore awesome for automating.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59126">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59126">26</a></div>
+			<span class="authorname">Alexei A. Korolev</span> said on August 09, 2008		</div>
+		<div class="quote"><p>Btw, why CakePHP? Can you explain your chooice? Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59130">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59130">27</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 09, 2008		</div>
+		<div class="quote"><p>Alexei: I chose CakePHP because I felt it was the PHP framework that best took the "convention over configuration" approach. I've been very happy with the features and feel that it ultimately saves me time in developing applications (and more so than any other framework I've tried so far).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59135">28</a></div>
+			<span class="authorname">Mike</span> said on August 12, 2008		</div>
+		<div class="quote"><p>Thanks for tutorial - great job :) On my own I would spend a few hours above it
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59156">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59156">29</a></div>
+			<span class="authorname">Sreejith</span> said on August 13, 2008		</div>
+		<div class="quote"><p>I'm trying out CakePHP. Thanks for the nice tutorial !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59169">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59169">30</a></div>
+			<span class="authorname">Adriaan</span> said on August 16, 2008		</div>
+		<div class="quote"><p>Smart! Didn't knew about the $_schema property! Simple and useful!</p>
+<p>Maybe a bit offtopic. But I always save contactform data also in the database. Because I had some clients complaining about lost emals and such. Also it's so damn easy in Cake :)</p>
+</div>
+	</div>
+		<div class="comment" id="c59197">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59197">31</a></div>
+			<span class="authorname">Tom</span> said on August 21, 2008		</div>
+		<div class="quote"><p>thanks for the tuto,</p>
+<p>I am a beginner and have a error :<br />
+Call to a member function isPost() on a non-object </p>
+<p>What's wrong ? I did a copy/past of your code
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59198">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59198">32</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 21, 2008		</div>
+		<div class="quote"><p>Tom: the example uses the RequestHandler component to check if it's a post request. If you don't use the RequestHandler, you can check for the existence of $this-&gt;data or there's a server variable (if I remember correctly) that you can use to check that it's a POST request. <code>$_SERVER['REQUEST_METHOD']</code> I think.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59199">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59199">33</a></div>
+			<span class="authorname">Tom</span> said on August 21, 2008		</div>
+		<div class="quote"><p>Thank you, but can you just tell me how can I use RequestHandler. I checked the file on the directory cake Â» libs Â» controller Â» components and I have it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59200">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59200">34</a></div>
+			<span class="authorname">Tom</span> said on August 21, 2008		</div>
+		<div class="quote"><p>OK, I put a declaration of the components and It seems to be OK. But I don't receive the email when I check on my development environnement, is it normal ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59201">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59201">35</a></div>
+			<span class="authorname">Tom</span> said on August 21, 2008		</div>
+		<div class="quote"><p>I tried in a production mode, and it's work, OK
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59485">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59485">36</a></div>
+			<span class="authorname">zahid</span> said on September 15, 2008		</div>
+		<div class="quote"><p>great article
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59496">37</a></div>
+			<span class="authorname">Riman</span> said on September 17, 2008		</div>
+		<div class="quote"><p>Thanks for this tutorial :) It's work
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59548">38</a></div>
+			<span class="authorname">Peter</span> said on September 21, 2008		</div>
+		<div class="quote"><p>Thanks for the tute, Jonathan.</p>
+<p>I'm new to PHP and Cake. I'm wondering what the code you provided would look like if it were modified to allow the user to select (from a select list) who the e-mail is sent to, rather than just 'admin@example.com'. Eg: john@example.com, barry@example.com, danny@example.com, etc.</p>
+<p>And what if the user wanted to choose a subject title from a list, like 'Sales', 'Orders', 'Support', 'Website', etc?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59699">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59699">39</a></div>
+			<span class="authorname">Lesti</span> said on October 02, 2008		</div>
+		<div class="quote"><p>Great tutorial - it was very helpful for me :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59729">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59729">40</a></div>
+			<span class="authorname">MIke</span> said on October 06, 2008		</div>
+		<div class="quote"><p>Thanks for this, I just looking for thath
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59858">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59858">41</a></div>
+			<span class="authorname">FranÃ§ois</span> said on October 20, 2008		</div>
+		<div class="quote"><p>Hi,<br />
+thx for sharing that :).</p>
+<p>I've one question about this piece of code :</p>
+<pre><code>
+$form-&gt;inputs();
+</code></pre>
+<p>Do you know any solution to display something else than the "name field" as a "&lt;label&gt;",   witch is sometime not very friendly ?</p>
+<p>Best regards </p>
+<p>FranÃ§ois</p>
+<p>sorry for my english :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59859">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59859">42</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 20, 2008		</div>
+		<div class="quote"><p>You can specify the fields manually and then declare the label on any specific field.</p>
+<pre><code>$form-&gt;inputs(array(
+   'name'  =&gt; array('label'=&gt;'Enter your name'),
+   'email',
+   'comment'
+));</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c60116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60116">43</a></div>
+			<span class="authorname">Otte</span> said on November 12, 2008		</div>
+		<div class="quote"><p>It's all work :) Thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60483">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60483">44</a></div>
+			<span class="authorname">Mozeten</span> said on December 05, 2008		</div>
+		<div class="quote"><p>I just looking for this. Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60632">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60632">45</a></div>
+			<span class="authorname">GÃ¶te</span> said on December 15, 2008		</div>
+		<div class="quote"><p>I was googling around looking for a howto about cake's forms, and I found your great site.</p>
+<p>I am taking a look at cake 1.2, and I run into problems with the validation of form data. I took advantage of the console application to bake some views, a model, and a controller based on an existing MySQL-database. I don't yet have a deep understanding of cake, and would happily welcome hints and pointers which direction I should go.</p>
+<p>All fields are considered invalid and the validation fails whatever data I use to fill in the form. I verified that the correct data from the form are assigned to the controller object's data array with Configure::write('debug', 3); The view contains code to evaluate the validation: pr($this-&gt;validationErrors);</p>
+<p>PHP version: 5.1.6<br />
+OS: Linux</p>
+<p>CakePHP version:<br />
+$Id: VERSION.txt 7692 2008-10-02 05:06:48Z nate $</p>
+<p>libs/model/model.php version:<br />
+$Id: model.php 7690 2008-10-02 04:56:53Z nate $
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60634">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60634">46</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 15, 2008		</div>
+		<div class="quote"><p>It's hard to say exactly what you might be running into without seeing the code (maybe paste it to a <a href="http://bin.cakephp.org/">bin</a>). Are you trying to validate() the code? If so, remember to set the data to the model like I've done in the article (<code>$this-&gt;Contact-&gt;set($this-&gt;data)</code>).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60652">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60652">47</a></div>
+			<span class="authorname">GÃ¶te</span> said on December 16, 2008		</div>
+		<div class="quote"><p>I am trying to post data from a form to a database. However, whatever data I post, I get redirected back to the form, where a label "This field cannot be left blank" is attached to all fields. For instance if I fill the alphanumeric field "last_name" with "Jones" (without qoutes), I will get the error message: "This field cannot be left blank".  Futhermore, $this-&gt;validationErrors contains all fields and the same error message.</p>
+<p>The view is just a simple form like:</p>
+<p>echo $form-&gt;create('Lead');<br />
+echo $form-&gt;input('last_name');<br />
+echo $form-&gt;input('modified_user_id');<br />
+... quite a few more fields here ...<br />
+echo $form-&gt;end('Submit');</p>
+<p>There are also a few form fields added with pure html code. These fields are not supposed to be posted to the database, neither be validated with the standard cake validation feature.</p>
+<p>In the model, there is nothing but "name" and the validation array.</p>
+<p>The model's validation array looks like:</p>
+<p>var $validate = array(<br />
+		'last_name' =&gt; array('alphanumeric'),<br />
+		'modified_user_id' =&gt; array('alphanumeric'),<br />
+		--- quite a few more fields here ---<br />
+		)</p>
+<p>The controller's add function:</p>
+<p>	function add() {<br />
+		if (!empty($this-&gt;data)) {<br />
+			if ($this-&gt;RequestHandler-&gt;isPost()) {<br />
+				$this-&gt;Lead-&gt;create();<br />
+				$this-&gt;Lead-&gt;set($this-&gt;data);<br />
+				if ($this-&gt;Lead-&gt;save($this-&gt;data)) {<br />
+					$this-&gt;Session-&gt;setFlash(__('The Lead has been saved', true));<br />
+					$this-&gt;redirect(array('action'=&gt;'index'));<br />
+				} else {<br />
+					$this-&gt;Session-&gt;setFlash(__('The Lead could not be saved. Please, try again.', true));<br />
+				}<br />
+			}<br />
+		}<br />
+	}</p>
+<p>I also tried the following code in the controller: if ($this-&gt;Lead-&gt;validates()) with the same result.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60660">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60660">48</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 17, 2008		</div>
+		<div class="quote"><p>Nothing instantly jumps out at me. Sorry I can't be of more help. Try posting to the CakePHP Google Group if you haven't already.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60953">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60953">49</a></div>
+			<span class="authorname">satheesh</span> said on January 12, 2009		</div>
+		<div class="quote"><p>how to create of confirmation form(with back button) in cakephp for a contact form with database,</p>
+</div>
+	</div>
+		<div class="comment" id="c65828">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65828">50</a></div>
+			<span class="authorname">Joseph P. Buarao</span> said on February 10, 2011		</div>
+		<div class="quote"><p>Wow.. great tutorial, big help on my project. keep up the good work man..</p>
+<p>Thanks..</p>
+<p>Joseph P. Buarao<br />
+Web Developer<br />
+Azure Web Design
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65972">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65972">51</a></div>
+			<span class="authorname"> Hello! caegdde interesting caegdde site!</span> said on February 16, 2011		</div>
+		<div class="quote"><p> Hello! caegdde interesting caegdde site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65975">52</a></div>
+			<span class="authorname">Very nice site!</span> said on February 16, 2011		</div>
+		<div class="quote"><p>Very nice site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67199">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67199">53</a></div>
+			<span class="authorname">Tuan</span> said on April 06, 2011		</div>
+		<div class="quote"><p>Hello, I am sorry, I have acode:<br />
+echo $form-&gt;create('Message', array(<br />
+            'url' =&gt; array(<br />
+                'controller' =&gt; 'contacts',<br />
+                'action' =&gt; 'view',<br />
+                $contact['Contact']['alias'],<br />
+            ),<br />
+        ));<br />
+But I can't understand, can you help me, thank you very much.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/cakephp/contact_form_cakephp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/css-in-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>You got your CSS in my JavaScript - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/css-in-javascript">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/css-in-javascript">
+	<meta property="og:title" content="You got your CSS in my JavaScript">
+	<meta property="og:description" name="description" content="Separation of concerns. You have your HTML over there, your CSS over there, and your JavaScript over there. Each should be as separated and independent as possible. Or so we’re told. 
+
+While CSS Z...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>You got your CSS in my JavaScript</h1>
+		<p>Separation of concerns. You have your HTML over there, your CSS over there, and your JavaScript over there. Each should be as separated and independent as possible. Or so we’re told. </p>
+
+<p>While CSS Zen Garden gave us a glimpse of a possible world where CSS could change and HTML never would, the reality—at least, in my experience—has been much different. Design changes often require both HTML and CSS to change. That’s because the fundamental structure of what we want to style also changes. </p>
+
+<p>Likewise, for JavaScript. It interfaces with the document to allow for dynamic interactions for and from the user. For increasingly complex applications, JavaScript has needed to take on more and more work. JavaScript is used to load HTML partials (or entirely new views); it is used to manage application state; and it is used to manage data and decide whether it needs to generate new chunks of the page using a template system.</p>
+
+<p>As you can see, with JavaScript doing so much, it should be unsurprising to see many frameworks move to using JavaScript as the crux of the application—to the point where the body may start empty until the application is loaded and can render the view.</p>
+
+<p>The React community, with its large gravitational pull, is pulling everything into the land of JavaScript: HTML (in the form of JSX) and CSS (in the form of CSS Modules and inline CSS).</p>
+
+<p>Some rail against this unified theory of application development on the purist grounds that each pillar of web development should remain completely autonomous. </p>
+
+<h2>Why declare CSS in JavaScript?</h2>
+
+<p>To answer that question, let’s consider the React approach. There’s a lot of talk about the virtual DOM but, to me, the big thing about React is its component-based approach to application development. </p>
+
+<p>This component-based approach is very much in line with the <a href="http://smacss.com/">SMACSS</a> approach. They’re both trying to modularize an interface. Part of that modularization is the ability to isolate a component: to make it independent of the rest of the interface.</p>
+
+<p>Making a component independent requires taking a chunk of HTML along with the CSS and JavaScript to make it work and hoping that other CSS and JavaScript don’t mess with what you built and that your component does not mess with other components.</p>
+
+<p>At <em>Yahoo!</em>, we had a folder structure that looked similar to this:</p>
+
+<pre><code>/js/modules/modal.js
+/css/modules/modal.css
+/html/modules/modal.mu
+</code></pre>
+
+<p>React can essentially merge all of these into one file. For a given page, when you load only the components that you need, you load in only the JavaScript and CSS that you need as well. With these components now loaded, they can be used repeatedly without requiring any additional bandwidth. Again, this is very similar to how we did things at <em>Yahoo!</em> but we used YUI. </p>
+
+<p>Whether you generate CSS classes or inline the CSS into the actual HTML won’t really matter for client-side-only applications. If you want to generate the initial view server-side then you might have some considerations about how to separate these pieces to allow caching, if that’s a concern. (Why wouldn’t it be a concern? Maybe you’re doing post-render client-side caching.)</p>
+
+<h2>http/2 and Web Components</h2>
+
+<p>Web Components are similar to React components in that they allow us to encapsulate HTML, CSS, and JavaScript into a single file. (Whether we choose to do that or not is another matter.) And http/2 allows us to ship these components individually without having to compile them into a large bundle like we’ve traditionally done.</p>
+
+<h2>What, me worry?</h2>
+
+<p>While some may rally against mixing CSS (and HTML) in with JavaScript, I’m not overly concerned. When using a component-based approach, bundling everything together doesn’t feel like a grand departure. Instead, it feels like a reasonable way to build a site.</p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published February 21, 2016 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1069</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">6 Comments &middot; <a href="https://snook.ca/archives/javascript/css-in-javascript.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70862">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70862">1</a></div>
+			<span class="authorname">Tommy Hodgins</span> said on February 22, 2016		</div>
+		<div class="quote"><p>There has been some talk about CSS-in-JS on Hacker News today with a posting about Descartes.io over at: https://news.ycombinator.com/item?id=11143377</p>
+<p>I think it's not the best solution violating the separation of concerns, but it's ~sure~ a lot better than abusing HTML as some kind of a go-between to make JS and CSS talk to each other!</p>
+<p>I'm not sure which approach is cleaner: CSS-in-JS or JS-in-CSS. I made the JS-in-CSS work for me, but I'm a CSS guy, not a JS guy so maybe I'm biased ;)</p>
+<p>Either way, I'm glad to see people experimenting and trying out new things.I can't wait to see how these (and other) experiments inform how the web evolves in the future!</p>
+<p>Are you planning on releasing any experiments of your own in the realm of CSS-in-JS? I'd love to see what you come up as a mashup of the two syntaxes, based on your experience!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70863">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70863">2</a></div>
+			<span class="authorname">Sten Hougaard </span> said on February 22, 2016		</div>
+		<div class="quote"><p>I Like the style of developing where content is seen as components/objects which holds both content, style and functionality. It's the way of object oriented development: each object/component has the knowledge needed to "live" somewhere, like in the DOM. In that perspective HTML, CSS and JavaScript are only parts being used give "life" to the object.</p>
+<p>We (in the website building world) have focused mostly on those three parts but now start to feel the need for another way to view the way to construct websites as the web is growing into more (web)app style. Things from object oriented development world like inheritance and methods being part of each object start to make sense and frameworks like React offers that.</p>
+<p>Have you seen the Yandex BEM system? Only the CSS part of it has gained respect outside Russia. I saw some videos where Vladimir Grinenko explained the framework and I was impressed with how well structured it is. Take a look at it here: https://en.bem.info/ and here http://youtu.be/2r72EjALq2s
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70864">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70864">3</a></div>
+			<span class="authorname">Samuel Allen</span> said on February 22, 2016		</div>
+		<div class="quote"><p>There are ways to create focused, semantic markup and CSS without violating the separation of concerns.  Here's my approach using LESS: https://medium.com/@dehuszar/semantic-remapping-with-css-pre-processors-906ba1a9910c#.smpvjakm3
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70865">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70865">4</a></div>
+			<span class="authorname">Rachel Nabors</span> said on February 22, 2016		</div>
+		<div class="quote"><p>And let's not forget how interaction and animation further muddle the water: is animation a "display property" that should go in the CSS? What it it's interactive, reacts to the swipe of a user's finger? Maybe that animation should be put in the JavaScript. Oh dear, now how do we maintain consistency between the two? And how will we know where to look for them when we need to make changes??</p>
+<p>As the web becomes more interactive, more reactive, the line begins to blur between content, layout, and behavior.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70866">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70866">5</a></div>
+			<span class="authorname">Liam </span> said on February 24, 2016		</div>
+		<div class="quote"><p>Well, let me land my support to keeping CSS and JS separate. I mostly do design, and HTML/CSS, preprocessors. For years now I have been struggling with JS. I just don't get it. Maybe, I am dumb or maybe I just have some mental block do to my aversion to JS. I don't seem to have much trouble with a bit of Bash and Python. But this push to have designers code, and now having CSS in JS, is screwing me over and making me less hire-able.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70868">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70868">6</a></div>
+			<span class="authorname">Bramus!</span> said on February 25, 2016		</div>
+		<div class="quote"><p>Whilst I don't mind combining all needed things (JS/CSS/MU) of a component/module/whatever into one file – they, after all, only work when combined – I don't like the React approach.</p>
+<p>In React you can indeed define styles, but not using the CSS syntax we are already used to. The use of some specific selectors (combinators, to name just one) is therefor not possible with said syntax, leaving me as a frontend developer limited in my options.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/css-in-javascript by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:50 GMT -->
+</html>

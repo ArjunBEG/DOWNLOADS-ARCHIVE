@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/offsets_scrolling_overflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Determining Offsets with Scrolling Overflow - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/offsets_scrolling_overflow">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/offsets_scrolling_overflow">
+	<meta property="og:title" content="Determining Offsets with Scrolling Overflow">
+	<meta property="og:description" name="description" content="In drag and drop situations, there's often a time where an area of the page is within an  element with the overflow set to scroll. This is common to display a list of items that would be longer than t...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Determining Offsets with Scrolling Overflow</h1>
+		<p>In drag and drop situations, there's often a time where an area of the page is within an  element with the overflow set to scroll. This is common to display a list of items that would be longer than the rest of the elements on the page. If you're dragging from Section A to Section B, you don't want the user to have to scroll down the page to access the drop point. JPG Magazine is a prime example of that (see Figure 1).</p>
+<div class="figure">
+<p><img src="https://snook.ca/img/jpgmag1.png" width="500" height="300" alt="the scroll area of JPG magazine" /></p>
+<p>Figure 1. The scroll area from JPG Magazine. </p>
+</div>
+<p>With JPG Magazine, the elements can be dragged from the left and dropped within the list on the right. The list of &quot;themes&quot; is quite long and is therefore placed within a scrollable section using <code>overflow:scroll</code>. </p>
+<p>When the user drags the image over, the site needs to accurately know which theme you happen to be dropping the photo on. As described in <a href="https://snook.ca/archives/javascript/determining_the_droppable/">Determining the Droppable</a>, this is done by calculating the <code>offsetTop</code> and <code>offsetLeft</code> of the elements all the way up the tree (<a href="http://www.quirksmode.org/js/findpos.html">see Quirksmode for an example script</a>). We have to go all the way up the tree because the offsets are only relative to the positioned parent element. </p>
+<p>In the example, the &quot;Fluid&quot; element might have an offsetTop of 200px which would be 200 pixels from the top of the element that has <code>overflow:scroll</code> set on it. It does <strong>not</strong> take into account the fact that the parent element has been scrolled. Therefore, the cursor's position which is relative to the offset of the in relation to the total offset of the &quot;Fluid&quot; element won't match. </p>
+<h2>scrollTop and scrollLeft </h2>
+<p>If a parent element has been scrolled, you can use the scrolled elements's <code>scrollTop</code> and <code>scrollLeft</code> properties. Therefore, to calculate an element's real position, you need to total up the total offsets and take away any scrolling offsets. Whether you have to determine whether the page has scrolled or not depends on whether you can determine whether the mouse or element position is relative to the top-left of the document or to the window.  </p>
+<h2>JavaScript Libraries </h2>
+<p>JavaScript libraries may or may not directly take this into account when trying to determine the position of an element. jQuery (using <code>offset</code>) and YUI (using <code>getXY</code>) do this automatically whereas Mootools and PrototypeJS require more explicit direction to include the offset.</p>
+<p>Mootools requires you to pass in an array of elements that may have scrolling when using <code>getPosition</code>. PrototypeJS has  <code>realOffset</code> to calculate the scroll offset separately. </p>
+<p>For a look in the drag and drop process, check out:</p>
+<ul>
+  <li><a href="https://snook.ca/archives/javascript/anatomy_of_a_drag_and_drop/">Anatomy of a Drag and Drop</a></li>
+  <li><a href="https://snook.ca/archives/javascript/determining_the_droppable/">Determining the Droppable  </a></li>
+</ul>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 19, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/844</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">5 Comments &middot; <a href="https://snook.ca/archives/javascript/offsets_scrolling_overflow.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55339">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55339">1</a></div>
+			<span class="authorname">Brendan Falkowski</span> said on September 19, 2007		</div>
+		<div class="quote"><p>An interesting topic to explore. I played with the Prototype library briefly, but never tried dropping within an element with the overflow:scroll rule. Now I'm sort of curious how modifying the z-index affects layering upon dragging in/out of a scrollable element or performing the scrolling action.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55345">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55345">2</a></div>
+			<span class="authorname">Dustin Brewer</span> said on September 19, 2007		</div>
+		<div class="quote"><p>Great post, I also use Prototype and it has some useful functions for drag and drop but I haven't used them enough to actually get a good feel for for how well they work in situations such as this.</p>
+<p>I do like it's method for calling in external files and passing variables to them though, the library keeps it simple and sweet.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55354">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 19, 2007		</div>
+		<div class="quote"><p>@Brendan: normally when dragging elements, a proxy element is inserted as a child of the body and therefore you can avoid the z-indexing issues to a degree (you still have to make sure the element has a higher z-index than anything else, though). Calculating that element in relation to the droppable is where the scrollTop/scrollLeft values comes into play. Dragging an element or creating a proxy within any element with overflow (scroll or hidden) is a recipe for disaster.</p>
+<p>In regards to scrolling areas, some libraries can auto-scroll if you're close to the top or bottom of the scrollable area. I know Scriptaculous can do this but I'm not sure if the base PrototypeJS can and whether any other JS libraries take this under consideration.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55385">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55385">4</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on September 21, 2007		</div>
+		<div class="quote"><p>indeed an interesting topic to explore. Good to hear Jquery does it automagically, though I suppose something more explicit would be better for the programmer. Do you have any idea how Ext holds up here?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55452">5</a></div>
+			<span class="authorname">Julian Turner</span> said on September 24, 2007		</div>
+		<div class="quote"><p>Have you seen this: http://peter.michaux.ca/article/51</p>
+<p>Essentially he enables event delegation doing something different with the draggable shadow.  He splits it into four pieces and arranges these around the mouse, leaving a small box under the mouse to allow events underneath to be triggered.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/offsets_scrolling_overflow by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/writing/smacss-stats-and-gender by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>SMACSS Statistics and Gender - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/writing/smacss-stats-and-gender">
+	<meta property="og:url" content="https://snook.ca/archives/writing/smacss-stats-and-gender">
+	<meta property="og:title" content="SMACSS Statistics and Gender">
+	<meta property="og:description" name="description" content="I hesitate putting this information out there as I'm not sure what its relevance is. I merely note it as interesting, especially in light of gender inequality in our field. 
+
+In number crunching the...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>SMACSS Statistics and Gender</h1>
+		<p>I hesitate putting this information out there as I'm not sure what its relevance is. I merely note it as interesting, especially in light of gender inequality in our field. </p>
+
+<p>In number crunching the people who have purchased a <a href="http://smacss.com/">SMACSS</a> e-book or site membership, I've noticed that the numbers are heavily skewed in one direction: 94.5% of the purchases are by men. That means only 5.5% of purchases were by women. </p>
+
+<p>I wonder if there is anything in the way that I've presented the information that has turned women off from buying the book. Since I market the book under my personal 'brand', especially via Twitter, I wonder if my particular following is also heavily skewed towards men (I suspect it is). Could I be presenting myself and the book in a better way?</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published December 21, 2011 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/writing/">Writing</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1008</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">24 Comments &middot; <a href="https://snook.ca/archives/writing/smacss-stats-and-gender.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68694">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68694">1</a></div>
+			<span class="authorname">Sunny Singh</span> said on December 20, 2011		</div>
+		<div class="quote"><p>Is this all that surprising? There are way less women developers and designers than mem.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68695">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68695">2</a></div>
+			<span class="authorname">Sunny Singh</span> said on December 20, 2011		</div>
+		<div class="quote"><p>Sorry for the typo, I meant men*
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68696">3</a></div>
+			<span class="authorname">Twisted</span> said on December 20, 2011		</div>
+		<div class="quote"><p>Sunny makes a fair point, but it would be interesting to see if a female author (publishing a similar book) would have the same stats.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68697">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68697">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 20, 2011		</div>
+		<div class="quote"><p>While there are more men developers than women developers, I'd be surprised if the ratio of men to women for front-end design/development is anywhere as drastic as 20:1.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68698">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68698">5</a></div>
+			<span class="authorname">Jackson</span> said on December 20, 2011		</div>
+		<div class="quote"><p>maybe a lot of men were buying this book for their wife's christmas present, this could have effected the statistics quite significantly.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68699">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68699">6</a></div>
+			<span class="authorname">Shekhar</span> said on December 20, 2011		</div>
+		<div class="quote"><p>It it the fact Jon.<br />
+Overall people who are IT professionals, men are there more and less women. Its 80/20 - see http://aneventapart.com/alasurvey2010/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68700">7</a></div>
+			<span class="authorname">Doug</span> said on December 20, 2011		</div>
+		<div class="quote"><p>A lumberjack who " smacks ".  Not every women is in to that!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68701">8</a></div>
+			<span class="authorname">Hilde</span> said on December 20, 2011		</div>
+		<div class="quote"><p>Make the lumberjack take his shirt off?</p>
+<p>I'm a female web developer (but I have a wife, so the shirt trick would be wasted on me), and read your initial writings about SMACSS with interest. I work with a big and complex online newspaper (with a bunch of more or less related services), and have built and improved our own architecture over the years. Thus, I find it interesting to compare your suggestions with our own practices - but I don't have time to invest more in it than whatever time I spend browsing the online version.</p>
+<p>So for me, I guess what stops me from buying the e-book is the knowledge that I won't find time to read it anyway (and if I magically find the time, I have the last additions to the A Book Apart series waiting for me).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68702">9</a></div>
+			<span class="authorname">Carina</span> said on December 20, 2011		</div>
+		<div class="quote"><p>Maybe we just all bought it for the Kindle (when I save money, I can buy more; I don't need a fancy membership; yay, more shopping!) or maybe it's because we don't want to be lumberjacks when we grow up. I'm not a native speaker so I don't know what "smacked" means but from what I've seen on Urban Dictionary, I don't want to be that either.</p>
+<p>But in my case it's the Kindle thing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68703">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68703">10</a></div>
+			<span class="authorname">lupalz</span> said on December 21, 2011		</div>
+		<div class="quote"><p>If we consider ALA Survey 2010 as an accurate indication of gender divide in the industry (showing a roughly 80/20 ratio) I'd say there are other factors at play. Just throwing ideas here:</p>
+<p>1. Your core Twitter crowd may be more predominantly male (there may be an historic reason based on your inner circle or inner circle of your biggest referrals).</p>
+<p>2. Female developers may tend to hold on the impulse-buying and sit and wait for things to develop further. This is a gut feeling based on personal experience, I have indeed observed a male dominance amongst front end developers but if I was to only observe the very high-end of the talent scale things even out quite bit. And high-end talent scale may behave differently.</p>
+<p>3. Your sample is just too small to reflect the industry gender divide.</p>
+<p>4. This last one was the one that came to mind first. Although I am reluctant to point to it as a significant factor because of the sample size (branding perception would usually start playing significantly with high numbers) I cannot ignore it: your branding has a beard. I know it sounds silly but this take the number of visible beards on this page to 2.  A 2/2 ratio of faces/beards is very high and may affect the perception of the brand's gender target, consciously or more likely, subconsciously.</p>
+<p>I hope it helps
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c68704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68704">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 21, 2011		</div>
+		<div class="quote"><p>@Shekhar: Indeed, and if I got 80/20, I would think I'm in line with the industry. That I'm at 95/5 says that I'm out of line.</p>
+<p>@Carina: The Kindle version may definitely be skewing things as I don't have access to those stats.</p>
+<p>@Doug and Carina, re: "getting smacked": I've been debating this since I started using this. I'm certainly not advocating for hitting people physically but rather getting "smacked with a wave of knowledge". Although, even that could be construed as somewhat overpowering. Mostly, I used it because it was short, catchy, and reinforced the acronym (since some people aren't sure how to pronounce it).</p>
+<p>@Lupalz: 1/2 of the beards on this page are mine. :) It has been suggested (on Twitter, even) that my following is historically predominantly male and that may be true. I haven't been able to dissect my readership in quite the same way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68705">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68705">12</a></div>
+			<span class="authorname">Nate Eagle</span> said on December 21, 2011		</div>
+		<div class="quote"><p>Think you could figure out a rough breakdown of the genders of your Twitter followers? That would be a small step in pursuing verification for the theory about your readership.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68706">13</a></div>
+			<span class="authorname">Victoria Pavlova</span> said on December 21, 2011		</div>
+		<div class="quote"><p>I have put off buying but it has nothing to do with the book itself. When I buy a tech book, I don't care for author's gender, only the usefulness of the book information.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68707">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68707">14</a></div>
+			<span class="authorname">JulieG</span> said on December 21, 2011		</div>
+		<div class="quote"><p>This female front-end dev was linked directly to the intro of the free version (have started my first project using it, it's going well so far!). If I were to buy a copy, I'd probably choose the Kindle version too. So I'm probably not showing up in your stats. </p>
+<p>I can't speak for all the 20% of female devs, but of the handful I know, none would be put off by the branding or marketing you've done so far.</p>
+<p>I'd guess it's the small sample size that's skewing your stats, Maybe the stats will shift proportion as the book reaches further away from your starting circle. </p>
+<p>Your brand/image doesn't come across as particularly aggressive, marketing-obsessed or show any disrespect for your female colleagues (which are things that make me shudder and leave a site), and you don't indulge in tedious mansplaining. I like the low-key, matter-of-fact attitude you present to the world - it promises a high signal-to-noise ratio.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68709">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68709">15</a></div>
+			<span class="authorname">wendee</span> said on December 21, 2011		</div>
+		<div class="quote"><p>I am in the same boat as Hilde (with the exception of my other half being a husband). I am a web UI dev with a full plate and though a shirtless lumberjack might make me take a look it won't make me buy something. </p>
+<p>I think almost all the points in the comments made are accurate except the beards did not have a negative impact on me and author gender is not a purchasing factor for me.  I do think the impulse buying difference between men and women could be a factor as well as the membership.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68710">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68710">16</a></div>
+			<span class="authorname">wendee</span> said on December 21, 2011		</div>
+		<div class="quote"><p>I am in the same boat as Hilde (with the exception of my other half being a husband). I am a web UI dev with a full plate and though a shirtless lumberjack might make me take a look it won't make me buy something. </p>
+<p>I think almost all the points in the comments made are accurate except the beards did not have a negative impact on me and author gender is not a purchasing factor for me.  I do think the impulse buying difference between men and women could be a factor as well as the membership.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68711">17</a></div>
+			<span class="authorname">Ben</span> said on December 22, 2011		</div>
+		<div class="quote"><p>I think it may be the fact their are very few women web developers, Most women in the industry are designers and not all designers code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68713">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68713">18</a></div>
+			<span class="authorname">Rob W</span> said on December 22, 2011		</div>
+		<div class="quote"><p>First, I wanted to say that it's awesome you took the time to ask about this, and actively solicited first hand info from your female readership (of which I am not one, btw). It's great to see people in our field recognize and try and address gender bias and disparity.</p>
+<p>As a side note, the "Get Smacked" tagline seemed a little aggressive/unwelcoming even to me, and at odds with the friendly lumberjack. Don't know how you'd take the bite out of it though (exSMACSSly what the doctor ordered? I got nothing).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68714">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68714">19</a></div>
+			<span class="authorname">Denise R</span> said on December 23, 2011		</div>
+		<div class="quote"><p>Honest, I don't think you could have done a better job promoting the book. Well, unless you somehow manage to squeeze a vampire or a sexy pirate in there...<br />
+But seriously, the lumberjack is not a con here. I actually find it cute (and makes me think of <a href="http://laughingsquid.com/beard-measuring-t-shirt/">this</a> everytime I see it). To me, blaming the lumberjack is saying that if you put unicorns and rainbows and flowers more women'll be inclined to buy it.</p>
+<p>In my experience women wait out to buy things, until there's a sale or the seller has a mental break down and starts giving things away for free.<br />
+At least I'm thinking "I want to read the book, but I have no time to do it... Maybe he'll write about his book in his blog and slips some tips for free, and I'll get all the gist of it in three short paragraphs". If a year has gone by and you vow to not write a word until more women buy the book... maybe then I'll get one. But then again, I won't have time to read it...<br />
+Women never seem to have time...<br />
+It could also be that we seek knowledge or answer on forums, blogs, Google... instead of books. It doesn't require that much time and doesn't involve so much reading to get the answer you seek.</p>
+<p>On the other hand, it could be that that 20% front-end women developers are worrying about making the layout work in IE6, and not on more fundamental things like architecture.</p>
+<p>Maybe have a female friend promoting the book? You saw how it was with Stephanie in Startech... apparently women have a high clustering coefficient.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68730">20</a></div>
+			<span class="authorname">Jesse Beach</span> said on December 31, 2011		</div>
+		<div class="quote"><p>I'd put it down to small sample size. The lumberjack is cute in a cartoony way. I'm a woman and I bought the book soon after it was offered. I think you've got a solid take on CSS architecture and that's what persuaded me to buy.</p>
+<p>I must admit, I appreciate you bringing up the issue and questioning the numbers. This is a good conversation to have, but I hope it doesn't get belabored.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68737">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68737">21</a></div>
+			<span class="authorname">Sequoia McDowell</span> said on January 04, 2012		</div>
+		<div class="quote"><blockquote><p>Could I be presenting myself and the book in a better way?</p></blockquote>
+<p>Kudos to you for even considering this!  Many men in the dev community would simply dismiss this discussion as meaningless or divisive (see: hackernews, etc.); the fact that you are <em>actually interested</em> in the cause and whether there is something you can change is a huge breath of fresh air, and inspirational to me, as a male developer.  Once again, good on you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68740">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68740">22</a></div>
+			<span class="authorname">Miranda</span> said on January 06, 2012		</div>
+		<div class="quote"><p>I don't think you had a problem relating to the women in the live audience when I saw you speak at #a11yyow event. </p>
+<p>Just be aware while men will interrupt to ask a question, many women will wait to be acknowledged before asking a question. I've often noticed at events that women with hands in the air are overlooked. So scan, scan, scan your audience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68871">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68871">23</a></div>
+			<span class="authorname">Susse Thrane</span> said on February 18, 2012		</div>
+		<div class="quote"><p>I teach upcoming Multimedia Designers (MMD) and Computer Science (CS) at an Academy in DK. Stats here show women tend to outnumber the men in the MMD classroom and visa versa in the CS programme. MMD is very creative and focus' on IA, where CS is programming, which is math heavy and is more often not the favourite subject amongst women. My experience is that most of my female students mentally block, when it comes to HTML/CSS till they realise that it's not really programming, but a language. I believe this is some of what you are up against, when it comes to selling your book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69091">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69091">24</a></div>
+			<span class="authorname">Mukola</span> said on June 18, 2012		</div>
+		<div class="quote"><p>Shudder.  There is a difference beweten a Gosling sexy mini-beard and a full-on lumberjack-there-are-things-living-in-it beard.   I guess some people don't care about the distinction ?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/writing/smacss-stats-and-gender by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

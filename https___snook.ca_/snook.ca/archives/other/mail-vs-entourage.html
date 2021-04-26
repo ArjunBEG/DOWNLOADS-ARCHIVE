@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/other/mail-vs-entourage by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Mail.app vs Entourage - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/mail-vs-entourage">
+	<meta property="og:url" content="https://snook.ca/archives/other/mail-vs-entourage">
+	<meta property="og:title" content="Mail.app vs Entourage">
+	<meta property="og:description" name="description" content="It's been a few weeks since I've been on this lovely MacBook Pro. It's a fabulous little laptop. And probably one of the tasks I've spent the most time doing is sending and receiving email. 
+Keep in m...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Mail.app vs Entourage</h1>
+		<p>It's been a few weeks since I've been on this lovely MacBook Pro. It's a fabulous little laptop. And probably one of the tasks I've spent the most time doing is sending and receiving email. </p>
+<p>Keep in mind, this is from the point of view of a die-hard Windows user of many years. I've been using Microsoft Outlook and had really gotten to like the most recent version in Office 2007.</p>
+<p>My default view in Outlook 2007 gave me all of my information at a glance: my inbox, a list of favourite folders that I used to track current projects, a quick view of upcoming appointments, and my to-do list which included flagged emails (which could be further categorized by colour).</p>
+<h2>Mail.app</h2>
+<p>My first idea was to skip having to use Office for the Mac altogether. I paid for iWorks which gave me all the apps I felt I'd need in the beginning. Mail.app fit the bill, for the most part. Some things, though, were different from what I was used to. I didn't like that email, the address book, and the calendar were all separate apps. I used to do all of this within a single application. </p>
+<p>I do like the design of Mail.app. It's clean and easy to navigate. It's also simple and straightforward and really gets out of your way, focusing only on the important task: the email.</p>
+<p>I don't like that Mail.app nor Calendar.app send responses to calendar appointments that I confirmed and it stops me from moving an event on my schedule that was created by somebody else. In Outlook, I'd be able to move it and then send an update to the person who originally sent the invite requesting a time change.</p>
+<p>I hate the way Mail.app handles attachments by placing big chunky previews right in my email. Ick. I prefer them to be named attachments listed somewhere else, out of the content of my email. (I've since discovered that you can change this via a terminal command.)</p>
+<p>There doesn't seem to be support for email to be sent at a different time. It's not unusual for me to be up in the middle of the night writing out an email (or a blog post, as the case happens to be) but I don't actually want to send the email until 9am so that clients don't think I'm up 24/7 and at their beck and call. </p>
+<h2>Entourage</h2>
+<p>When I first installed Entourage, there was an initial sense of comfort. Ah, the familiar 3 column view! But that comfort was short-lived. Overall, the design of Entourage is horrendous. It doesn't seem to follow Mac conventions, the purple accents are ugly (and unchangeable), default font sizes were too big and line spacing was too large. Very little of the interface seems to be customizable.</p>
+<p>A number of the elements provide way too much spacing and in other places, not enough. It's missing the favourite folders feature that I liked so much in Outlook, or rather, is now a toolbar but my folder names are longer and sometimes I'd have too many to display horizontally. I just want a vertical list.</p>
+<p>It looks like Entourage supports delayed emails but no, I don't think it does. There's a Send Later feature but all it does is send the email the &quot;next time you connect to the server&quot;, which just happens to be every 10 minutes when I check my mail. I don't really need to delay sending an email just for that.</p>
+<p>I do like how it handles attachments. Being able to see the file names in a list at the top is nice. Why Mail.app insists on attachments being viewed inline, I have no idea.</p>
+<p>And why can't Entourage import from an Outlook .pst file? They're from the same company! Thankfully, it pulled everything in from Mail.app just fine and the syncing of address book and calendar was nice once I discovered how to enable the feature in Entourage. (I had been busily looking for 3rd party apps to do it when, in the end, I didn't need to do that at all.)</p>
+<p>There's a mini-application called MyDay to give you a quick synopsis of your day and can sit in the menu bar but it's also quite ugly.</p>
+<p> I have no doubt that Microsoft has plenty of designers and they probably put this application through lots of user testing but, to me, it could use an overhaul from top to bottom to help simplify the application and make it fit better with the Mac aesthetic.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published December 11, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/922</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">39 Comments &middot; <a href="https://snook.ca/archives/other/mail-vs-entourage.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c60576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60576">1</a></div>
+			<span class="authorname">Byron Rode</span> said on December 11, 2008		</div>
+		<div class="quote"><p>Jonathan, you summed up my thoughts on Entourage exactly.<br />
+When I first moved to my MacBook Pro earlier this year, and started using Mail.app, it felt like I had moved from Outlook 2007 to Outlook Express. </p>
+<p>I think I had Entourage installed for about a day, and much like you I was disgusted in the layout, the colours, and the overall chunkiness of the software. As for MyDay, it annoyed me.</p>
+<p>Now, Mail.app is not the best email client I have ever used, and I do feel there could be a bit more development put into the application, but after all it is only really a email client, and as such should be treated that way. </p>
+<p>I wish there was a bit more customization available through the interface and not through terminal, but then again, would we not just be restricting ourselves to the M$ way of things. </p>
+<p>All in all, IMO Mail.app still beats Thunderbird.app and Entourage.</p>
+<p>Nice post though, good for the noob OS X user, especially considering the price of Office:Mac.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60577">2</a></div>
+			<span class="authorname">Nick Jones</span> said on December 12, 2008		</div>
+		<div class="quote"><p>So, what's this magical Terminal command for toggling attachment previews on or off? Do tell! And welcome to the Mac; you seem to be getting along just fine!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60578">3</a></div>
+			<span class="authorname">Martin Hipp</span> said on December 12, 2008		</div>
+		<div class="quote"><p>If you prefer Mail.app to have 3 colums, have a look at <a href="http://harnly.net/software/letterbox/">Letterbox</a> or <a href="http://www.daneharnett.com/widemail/">WideMail</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60579">4</a></div>
+			<span class="authorname">j4k3</span> said on December 12, 2008		</div>
+		<div class="quote"><p>Well, the part about Outlook  totally reflects my impressions of all the apps in the new office for mac suite. </p>
+<p>The term that immediately came to my mind was "Playskool". The whole thing just looks like a user interface experiment that's gone terribly wrong.</p>
+<p>I know, packing all functions Microsoft needs for their definition of the term groupware into one program sure isn't easy. But, seriously, how can they fail so hard?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60580">5</a></div>
+			<span class="authorname">Alexander Chuprin</span> said on December 12, 2008		</div>
+		<div class="quote"><p>You also can use WideMail (http://www.daneharnett.com/widemail/) to have three-columns view in Mail.app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60581">6</a></div>
+			<span class="authorname">Jaimie</span> said on December 12, 2008		</div>
+		<div class="quote"><p>I also switched and moved to Entourage when we moved to an Exchange server (it works but is ugly!).</p>
+<p>If you still use Mail.app try MailTags.  It is a great little addition.</p>
+</div>
+	</div>
+		<div class="comment" id="c60583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60583">7</a></div>
+			<span class="authorname">bcarter</span> said on December 12, 2008		</div>
+		<div class="quote"><p>I'm a die-hard mac user, but I agree that the entire mail.app, ical.app, address book.app needs to be summed up in one functional application. Currently it just wastes time to have them as three apps. Also, Mail.app has come a long way over the years. It does need to include the iCal and Address Book apps to be truly functional, but the Mail.app seems to be built very well for just email. I do have some suggestions in the area or email organization, but even Google can't get that right so why expect it from Apple.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60584">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 12, 2008		</div>
+		<div class="quote"><p>@Nick Jones: I thought there was a terminal command but I apparently got it confused with something else. However, there is a plugin called <a href="http://lokiware.info/Mail-Attachments-Iconizer">Mail Attachments Iconizer</a> that'll do the trick.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60586">9</a></div>
+			<span class="authorname">Christian Ross</span> said on December 12, 2008		</div>
+		<div class="quote"><p>So which did you decide on?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60587">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60587">10</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com/">Jake</a></span> said on December 12, 2008		</div>
+		<div class="quote"><p>I have yet to find a mac email program that makes me say "I like this equally or more than outlook".  If you guys have a combo of plugins for mail.app that makes it somewhat comparable I would love to hear/read it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60588">11</a></div>
+			<span class="authorname">miklb</span> said on December 12, 2008		</div>
+		<div class="quote"><p>I'd suggest looking at the beta of Thunderbird 3, and dig up the pre beta of Lightning 1.0.  I too have tried every mail app I could find on the Mac, and this seems like the closest thing to the perfect Mac email client I've found.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60589">12</a></div>
+			<span class="authorname">Mr. Darcy Murphy</span> said on December 12, 2008		</div>
+		<div class="quote"><p>At my day job, I'm actually running Windows through VMware in order to use Outlook. It's a hack, but it's workable, and not too bad resource wise.</p>
+<p>I haven't tried it yet myself, but Thunderbird with <a href="http://www.mozilla.org/projects/calendar/">Lightning</a> might be the Email+Calendar solution you're looking for.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60590">13</a></div>
+			<span class="authorname"><a href="http://mcarthurgfx.com/">Sean McArthur</a></span> said on December 12, 2008		</div>
+		<div class="quote"><p>I personally use Thunderbird with the Lightning Plugin.  I find it very simple to use, has all the same features you liked about Outlook, and it's free.  It might be a little buggy if you use IMAP, but POP works fine in my experience.</p>
+<p>Lightning adds a calendar and tasks to Thunderbird, and you can have each in separate tabs.  But you can also easily add upcoming events from the calendar and your todo list into a column with your email.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60592">14</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on December 12, 2008		</div>
+		<div class="quote"><p>I gave up on trying to find a professional email program for Mac, they just don't exist. Mail.app is a limited email program by design. Running a VM in order to use Outlook 2007 is definitely worthwhile for anything more than personal email.</p>
+<p>I would also agree with j4k3 that Office Mac 2008 is pretty unimpressive. The UI for Office 2007 is beautiful, elegant, and simple. What they accomplished is probably the best UI that I have ever experienced, Office Mac just seems like a step backward.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60594">15</a></div>
+			<span class="authorname">Sarah Jean</span> said on December 12, 2008		</div>
+		<div class="quote"><p>I would agree with miklb and others on the Thunderbird/Lightning combo, seems to work pretty well as a replacement for outlook. </p>
+<p>I'm an avid Remember the Milk user, so I'd like to see Thunderbird or Lightning accept feeds from RTM without crazy run-around customizations. If you manage all of your tasks within the application and don't need them to also be web-accessible or sync with anything else, then it works really well. Unfortunately, though, Thunderbird/Lightning are still very buggy. (My inbox always says I have 1 new message, even if there are no unread messages in the folder. SUPER annoying.)</p>
+</div>
+	</div>
+		<div class="comment" id="c60595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60595">16</a></div>
+			<span class="authorname"><a href="http://blog.niccai.com/">NICCAI</a></span> said on December 12, 2008		</div>
+		<div class="quote"><p>For me, the importance of oodles of features inside a mail client is becoming less and less important.  Get in, get out.  Drag. Drop.  Do the deed quick.  I don't want it to be a hub for anything.  For me, a mix of the Apple apps and the Google cloud is the winning combination.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60598">17</a></div>
+			<span class="authorname">Karl Swedberg</span> said on December 12, 2008		</div>
+		<div class="quote"><p>Another nice plugin for mail.app is <a href="http://www.indev.ca/MailActOn.html">Mail Act-on</a>. While version 2.0 is $19.95, I haven't had a need to upgrade from the 1.3.2 version, which is offered free on the same page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60601">18</a></div>
+			<span class="authorname">Ben</span> said on December 12, 2008		</div>
+		<div class="quote"><p>It took a lot of getting used to, but i really Opera as my mail client. I apreciate filters, IMAP, Feed integration, very fast searching, and highly-customizable views. And having seemless integration with the browser, mail client, and RSS reader is not something i would trade for anything.</p>
+<p>It has a lot of limitations like a HORRIBLE UI and no support for composing HTML emails. Those two things are dealbreakers for most people. But now that Opera has Jon Hicks as their senior UI designer and is adding rich text email in Opera 10, i think the mail client in Opera 10 is something to look eagerly forward too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60609">19</a></div>
+			<span class="authorname"><a href="http://tekkie.flashbit.net/">flash tekkie</a></span> said on December 13, 2008		</div>
+		<div class="quote"><p>Apple Mail is also troublesome when it all goes multibyte. There's <a href="http://tekkie.flashbit.net/mac-os/changing-apple-mail-default-encoding-to-unicode">no solid option in Mail to change default encoding to UTF8</a> and so the emails that are sent out in German, Dutch or any other language having umlauts, are most likely to break on other platforms.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60611">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60611">20</a></div>
+			<span class="authorname">Matthew</span> said on December 13, 2008		</div>
+		<div class="quote"><p>Hi,</p>
+<p>Interesting notes, Microsoft have certainly set a high bar with Outlook 2007.</p>
+<p>One app which hasn't yet been mentioned is Daylight 3, which you may want to look into:</p>
+<p>http://www.marketcircle.com/daylite/index.html</p>
+<p>It is quite pricey though and requires even more for Mail integration. There is a demo though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60618">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60618">21</a></div>
+			<span class="authorname"><a href="http://kevinvancrawford.com/">Kevin</a></span> said on December 14, 2008		</div>
+		<div class="quote"><p>I miss the flagging functionality of Outlook :( It makes it so easy to prioritize action-items with a simple click... in mail.app I have to right click -&gt; click or cmd+shift+L. But OS X definitely makes up for it with many other productivity enhancements...</p>
+<p>Oh, and I like keeping Calendar &amp; Mail.app separate! It is more flexible in case I don't want to use mail.app (I use gmail + Calendar.app). I suppose some sort of option to enable Calendar.app functionality in Mail.app could be useful though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60621">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60621">22</a></div>
+			<span class="authorname">Eric</span> said on December 14, 2008		</div>
+		<div class="quote"><p>There's an AppleScript for scheduling email deliveries -- it's part of Mail Scripts 2.8.3 by Andreas Amann. I haven't tried it, so don't know if it works.</p>
+<p>http://homepage.mac.com/aamann/Mail_Scripts.html</p>
+</div>
+	</div>
+		<div class="comment" id="c60622">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60622">23</a></div>
+			<span class="authorname"><a href="http://tekkie.flashbit.net/">flash tekkie</a></span> said on December 14, 2008		</div>
+		<div class="quote"><p><a href="#c60611">Matthew</a>: That high bar certainly didn't concern keeping to the promises as <a href="http://tekkie.flashbit.net/open-standards/testing-standards-compliance-of-microsoft-outlook-2007">new Outlook is still not standards-compliant</a>. </p>
+<p><a href="#c60618">Kevin</a>: Apple Mail flagging from a toolbar flag icon is nicely synced with GMail starred items without using any keyboard magic.<br />
+Alternatively you could use Google's own ToDo list in GMail as part of Google Labs.</p>
+<p>As in terms of Apple Mail - iCal integration Leopard introduced ToDo integration in Mail. You can attach ToDos straight to the emails in Mail.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60644">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60644">24</a></div>
+			<span class="authorname">Jonny Jaynes</span> said on December 16, 2008		</div>
+		<div class="quote"><p>Thunderbird plus lightning all the way, although I've never like Outlook. Great article as always!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60645">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60645">25</a></div>
+			<span class="authorname">Matt Newboult</span> said on December 16, 2008		</div>
+		<div class="quote"><p>Can I ask what you dislike about Google Mail/Calendar/To-do list?  I used to use Entourage and hotmail but when Gmail came out, it suited all my needs and I ditched Entourage straight away.  I use Apple Mail to backup my Gmail and everything is rosy.</p>
+<p>I don't understand why you don't just use online email?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60654">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60654">26</a></div>
+			<span class="authorname">KeeKee</span> said on December 16, 2008		</div>
+		<div class="quote"><p>We use Mac at work and they just changed our email to outlook express which is what I use on my Dell laptop.  It's not the same outlook express!!!  I wish they would read this at work.  Hey, I have an idea, I'll send them the link from an email they don't know, like my Moms and maybe they'll check it out.  Thanks for the heads up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60679">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60679">27</a></div>
+			<span class="authorname">villageindian</span> said on December 18, 2008		</div>
+		<div class="quote"><p>There is a way to do with Terminal. Please check here <a href="http://creativebits.org/mac_os_x/mail_app_attachment_as_icon"> Mail.app attachment as icon</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60718">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60718">28</a></div>
+			<span class="authorname">Adrian</span> said on December 20, 2008		</div>
+		<div class="quote"><p>I know this is a bit off topic but how are you liking the glossy screen so far? That's the one thing holding me back from pulling the trigger for a new notebook. For anything but graphics work, I'm sure it's fine, but for most designers, colors are a big concern.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60722">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60722">29</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 21, 2008		</div>
+		<div class="quote"><p>@Adrian: The screen is so bright you'll almost never notice any glare. I've had glossy screens for 3 years now and it's almost never been a problem.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60726">30</a></div>
+			<span class="authorname">Adrian</span> said on December 21, 2008		</div>
+		<div class="quote"><p>Awesome, thanks for the info!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60734">31</a></div>
+			<span class="authorname">Eric Angella</span> said on December 22, 2008		</div>
+		<div class="quote"><p>I've been looking high and low to schedule emails for the same reason, and can't find a thing.  The mailscripts mentioned above by Eric doesn't work since the latest Leopard has a bug preventing launching applications from alarms in ical.  But I would throw in a vote for the mail.app + add-ons method of email management.  Mail Act-On, Mailtags, MiniMail, MsgFiler, and Widemail together is a pretty stellar combo.  <a href="http://www.hawkwings.net/plugins.htm">There are many more here</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60773">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60773">32</a></div>
+			<span class="authorname">Ryan</span> said on December 27, 2008		</div>
+		<div class="quote"><p>I switched to Entourage because I thought I might be able to use it's project tracking to manage projects.  After a while I put up with the shortcomings and update issues... until one day my IMAP just went AWOL and I couldnt access my new e-mail, just my cached mail.  I had to delete the caches and all this garbage and well. </p>
+<p>I realised it just wasnt what I wanted - I wanted a simple email client for sending email.  So I use gmail and Mac Mail :)  In fact I use gmail since it fell over and have not turned back...  </p>
+<p>I do miss drag and drop attachements though, send and forget isn't quite gmail....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60825">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60825">33</a></div>
+			<span class="authorname">smudge it</span> said on January 04, 2009		</div>
+		<div class="quote"><p>Thunderbrid is my favourite mail app. I find mail is quite slow with huge mailboxes and didn't seem to work that well with IMAP. Maybe it has improved a bit in the last year. My app is still Thunderbird
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60908">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60908">34</a></div>
+			<span class="authorname">jason</span> said on January 09, 2009		</div>
+		<div class="quote"><p>This is a month old, but just thought I'd throw in my preference and the main reason why. I prefer mail.app over entourage. The main reason, if you store any mail on your computer at all (I use iMap, but I keep my folders on my Mac and drag them off the server when organizing) mail.app is better. In the library, the folders and emails are separate files, which may not be as efficient, but if an email becomes corrupt you just delete the bad guy. In entourage you (and I have) lose all your mail if the file or the microsoft identity gets corrupt. I guess if all your mail stays on the server this shouldn't matter.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60938">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60938">35</a></div>
+			<span class="authorname">Cris</span> said on January 11, 2009		</div>
+		<div class="quote"><p>At Duo we use our imacs with vista / xp running in parallels. This combined with mac spaces is a great developer solution. You can use one of your spaces for full screen windows and cmd+cursor keys allows you to switch between them. On some of our machines we run vista and a default xp install to get IE6,7 and MS Office 2007 all at the same time. With 4GB of memory installed this works really well and allows us to develop and communicate via dedicated spaces. I just wish there was a one key solution to refresh all your browsers on both platforms. I had to disable ctrl+f5 on mac as it kept switching on screen reader instead of a pragma-refresh.</p>
+<p>Calendar wise we've installed ical GPL server on a linux box which gives us a very simple shared calendar solution for our 5 staff via ical, we also run an exchange server but the whole sharing permissions thing with calendar was too much of a pain to set up ( i hate MS Server Admin, too used to Linux I suppose). I think we may drop outlook in favour of mac mail when it supports exchange, our iphones already use the exchange server beautifully, perhaps snow leopard will deliver a more professional angle on mac mail, who knows? With anything, it's what you are used to. But parallels + spaces is very cool. If you don't want to buy parallels I hear Sun have done a free virtualisation system called virtual box. Could be worth checking out.</p>
+</div>
+	</div>
+		<div class="comment" id="c61109">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61109">36</a></div>
+			<span class="authorname">Bradford C.</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I too am using Outlook 2007 via VMware fusion. I'm not happy about it, but it's the best solution I've found so far. I need the event management and the Zimbra integration in general.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61218">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61218">37</a></div>
+			<span class="authorname">Scott Meier</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Mail.app Attachments<br />
+If you ctrl-click on the attachments you can change the display at the email to view as icon. You don't need to go to the command-line for this.</p>
+<p>Email sent at a different time...<br />
+There is a folder called Drafts. Just save it and send it later... ;-)</p>
+</div>
+	</div>
+		<div class="comment" id="c65931">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65931">38</a></div>
+			<span class="authorname">Huang Shuqin</span> said on February 14, 2011		</div>
+		<div class="quote"><p>Description<br />
+Full Set including:<br />
+(boom 2~6m, boom support, mounting plate, remote control, button)<br />
+Size:360Ã—300Ã—1070MM<br />
+Parameters<br />
+Imputer power:220VAC50HZ<br />
+Electronic engine power:180W220VAC<br />
+Maximum pole length:2~6M<br />
+Movement Velcity:2~6s<br />
+Protection class:IP44<br />
+Working temperature range:-40~+70Â°C<br />
+Working temperature range:-40~+70Â°C<br />
+Life: over 5 years</p>
+</div>
+	</div>
+		<div class="comment" id="c65978">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65978">39</a></div>
+			<span class="authorname">Huang Shuqin</span> said on February 16, 2011		</div>
+		<div class="quote"><p>Description<br />
+Full Set including :<br />
+(boom 6m, boom support, mounting plate, remote contro,with LED traffic lights,button,has voice)<br />
+Size:360Ã—275Ã—1170MM<br />
+Parameters<br />
+Imputer power:220VAC50HZ<br />
+Electronic engine power:180W220VAC<br />
+Maximum pole length:2~6M<br />
+Movement Velcity:2~6s<br />
+Protection class:IP44<br />
+Working temperature range:-40~+70Â°C<br />
+Life: over 5 years<br />
+Product feactures:<br />
+Being integrated with up-to-date shape design, dynamic traffic lights, ultra-thin visual effect, fashionable but not frivolous appearance plus its ARM embedded technology and imported baked-enamel automobile coating, our products not only have powerful and complete system functions, but also ensure a top quality.</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/other/mail-vs-entourage by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/other/new-macbook-pro by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>The New Switcheroo - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/new-macbook-pro">
+	<meta property="og:url" content="https://snook.ca/archives/other/new-macbook-pro">
+	<meta property="og:title" content="The New Switcheroo">
+	<meta property="og:description" name="description" content="I've been using a Microsoft operating system ever since I got a 386sx back in the day. First DOS, then any number of  Windows iterations. From 95, to 2000, to XP. It's been a long streak that has fina...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>The New Switcheroo</h1>
+		<p>I've been using a Microsoft operating system ever since I got a 386sx back in the day. First DOS, then any number of  Windows iterations. From 95, to 2000, to XP. It's been a long streak that has finally come to an end. I have switched to a Mac as my primary machine. </p>
+<p>Why did it take so long? I jokingly say that I've harboured a grudge against Apple ever since they ditched the IIgs for the Mac. Truth is, I was comfortable. I had the applications that I liked to use and a configuration where I knew where everything was. Then I got sucked into getting an iPhone back in June. I even stood in line for half a day to get one and I haven't regretted it for one day since. In the meantime, my old laptop was starting to feel the burden of almost 3 years of use and abuse. I've been monitoring the price gap between a similarly configured Dell laptop and a Macbook Pro. The divide was wide, providing little incentive to make the switch. </p>
+<p>Until I heard of a new Macbook Pro to come out in October. </p>
+<p>I watched the reveal in earnest. Then, I quickly leaped to the Internet to do a price comparison. I noticed the price gap was down to $300. That's a more reasonable price gap. I placed an order. I even ordered a 1TB Time Capsule to go along with it. Might as well go whole-hog.</p>
+<p>Now that it has been a week, here are my thoughts on the transition.</p>
+<h2>Time Capsule</h2>
+<p>The Capsule arrived a couple days before the laptop did and I didn't hesitate to set it up. I chose the Time Capsule because I was enticed by the all-in-one nature of it. It's an automated backup, wireless router, file server, and print server all in one. In fact, this is the first time since I've started computing that I've had a formal backup practice in place. Seriously.</p>
+<p>It has been working well but my biggest pet peeve is trying to use it as a file server. If I haven't accessed the Capsule in some time, it takes a few seconds for things to power up. Otherwise, no complaints. It does what it says on the box and the automated backups via Time Machine have been painless.</p>
+<h2>Macbook Pro</h2>
+<p>And then the MBP arrived. All 2.53Ghz, 4GB, 250MB 7200RPM hard drive of it. I was instantly awed by the experience of getting it set up. It was truly a delight. I had a smile from ear to ear. Yet, after an hour or so I noticed that I seemed to be running on battery power. A defective power supply, it seems. Despite not getting very hot, I discovered that putting the brick on a block of ice gave me hours of usage instead of minutes. I got Apple to send out a replacement post-haste. In the meantime, I picked up a second power supply and was pleased as punch with having persistent power. Huzzah!</p>
+<p>I dove right in and made the laptop my primary machine. No sense delaying the inevitable. I even put  my session for the Sidebar Workshop on it, although it wouldn't detect the screen properly where all the other Macbooks of the day did.</p>
+<p>The past week has been spent installing plenty of software and getting used to the new environment. </p>
+<p>The main applications I have installed already include:</p>
+<ul>
+  <li>Adobe CS4</li>
+  <li>iWork</li>
+  <li>Transmit</li>
+  <li>Textmate</li>
+  <li>Quicksilver</li>
+  <li>Adium</li>
+  <li>Zend Studio (since I already had a license for it)</li>
+  <li>Sequel Pro (I'm not loving it. Not as good as SQLYog.)</li>
+  <li>Dropbox, Desktoptopia, and other utilities</li>
+</ul>
+<p>My transition has been mostly painless. With that said, there have been some things that I haven't been overly thrilled with. I find Mail.app limiting. Although I'm told that plugins fill the gap there. I'm thinking of trying Entourage but plenty of people have told me that it's a resource hog. Getting email off the old machine was a minor inconvenience but I was able to use Thunderbird to export the mail from Outlook and then use Mail.app to import the mail from Thunderbird. It worked perfectly, from what I can tell. My contacts got ported via the iPhone, which was handy. Lastly, I'm not loving iCal either. The integration of to-do items isn't as slick as it was with Outlook. It doesn't seem to send out calendar responses nor allow you to suggest changes to an event that somebody else creates. (If you know how, let me know)</p>
+<p>Probably the last major piece of software I need to install is the VMWare/Vista combo for Windows testing. Now to get my hands on a copy of VMWare. In the meantime, I have Crossover that I can use for IE6 testing, at the very least.</p>
+<h3>Trackpad</h3>
+<p>My favourite part of the whole laptop is the trackpad. The ability to do two, three and four finger swipes is fantastic. I use it constantly. So much so, that I don't want a separate keyboard and mouse. The keys are well spaced so I don't feel like I'm mashing away on a tiny keyboard. It's quite comfortable. My only complaint is that the edge of the laptop has a hard edge and doesn't make it conducive to resting your wrists. </p>
+<h3>Multiple Monitors and Spaces</h3>
+<p>One of the interesting things I've noticed is less of a need for multiple monitors or using Spaces to separate what I'm working on. When I was on Windows, more screen space was welcome. Yet, with the magnificent trackpad, I find them cumbersome. As a result, I'm just using the laptop screen and haven't had a problem with it. Once I get back into the flow of heavy development, we'll see if that still holds true.</p>
+<h3>Glossy screen</h3>
+<p>Some people were curious about the screen but I had a glossy screen before. Neither bother me. The screen is so bright it breaks through any glare you might have. The screen is so bright that I usually turn it down. The screen is so bright that someone looked at my screen and said, &quot;that's bright&quot; only for me to turn the brightness up further. Some muttering from said individual could be heard. (I've turned down the brightness on the iPhone, as well, for the same reason.) I do find myself being more particular about keeping the new screen clean, though, as I do notice specks more readily. That can only be a good thing.</p>
+<h2>Final Comments</h2>
+<p>This is a purchase that I have no regrets about. I'm happy to have made the switch. I can finally feel cool when I go to a web conference and not be the loner with the Windows laptop. More than that, I just like how the machine looks and feels. It's well constructed and perfect for my needs right now.	</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published November 15, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/916</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">56 Comments &middot; <a href="https://snook.ca/archives/other/new-macbook-pro.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c60178">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60178">1</a></div>
+			<span class="authorname">Jeremy Nicoll</span> said on November 15, 2008		</div>
+		<div class="quote"><p>I'd suggest going with Parallels instead of VMWare.  I've had much more luck (and performance) with Parallels.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60180">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60180">2</a></div>
+			<span class="authorname">bkorte</span> said on November 15, 2008		</div>
+		<div class="quote"><p>I got a 15" MBP at the same time as you, maybe a couple weeks earlier.  I came from a 15" Powerbook.</p>
+<p>I have to agree with you for the most part - I don't use Mail.app/iCal/Address book very much.  They sync with my MobileMe but for the most part I use GMail and my iPhone for all that stuff.</p>
+<p>The trackpad is the rockstar of the machine - 3 and 4 finger swiping rocks!  Make sure you get MultiClutch and turn 3-finger swiping left and right to tab switching in Firefox/Safari/TextMate.  I use zoom in/out as code collapse in TextMate as well.</p>
+<p>I just set up my desk again without an external keyboard and mouse - I don't see the point in having one!  I'm much more efficient with the trackpad.</p>
+<p>I completely agree with the glossy screen comments as well.  I came from a matte Powerbook and I dont even notice the glossy screen.</p>
+<p>Good post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60181">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60181">3</a></div>
+			<span class="authorname">J Lane</span> said on November 15, 2008		</div>
+		<div class="quote"><p>And I've had the opposite experience of @Jeremy.  I think that with the latest release, Parallels and Fusion are pretty well on par, and the price is identical.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60182">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60182">4</a></div>
+			<span class="authorname">Grant Palin</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Although Thunderbird, Firefox, and their ilk would make the transition that much easier I guess, being available on all the major platforms.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60183">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60183">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 15, 2008		</div>
+		<div class="quote"><p>@bkorte: I can't believe I forgot to mention MultiClutch! It's an absolute must, in my opinion. I have the 3-finger swipe left/right to go back/forward and up/down to go top of page/bottom of page.</p>
+<p>@Grant Palin: I'm partial to Firefox over Safari so I've been using it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60184">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60184">6</a></div>
+			<span class="authorname">Geof Harries</span> said on November 15, 2008		</div>
+		<div class="quote"><p>I assume you still work a fair amount with asp.net, windows server, sql server and various Microsoft development tools. If this is true, how are you finding connecting to Windows networks and working/collaborating on code and documents with MS-based people?</p>
+<p>For my business, which is mostly government consulting, using a Mac has its disadvantages when it comes to consistency and formatting across platforms, plus a lot of Mac software isn't as "powerful" compared to Windows programs (e.g. MS Office 2007 vs. iWork). I run VMware on my iMac to compensate, but it's way more sluggish than a native Windows install.</p>
+<p>Sometimes I wonder if I should just bite the bullet and switch to a PC. Windows 7 doesn't look half bad. I'm justifiably terrified after so many years with Apple.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60185">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60185">7</a></div>
+			<span class="authorname">Paul Redmond</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Great to hear. I switched from Windows recently too, and I love it!</p>
+<p>You should also check out Coda, which now has Subversion support. I love it!</p>
+<p>The biggest thing I had to get used to was setting up a nice Dev environment for PHP. I opted to use the already-installed version, only to find that it was a frustration to set up Mod Rewrite properly. I followed countless tutorials, with minimal success. Probably my fault :) but I set it up on windows painlessly. Other things, such as Mcrypt were not included in the native build, and I found the localhost/~name to be really weird.</p>
+<p>Now I run <a href="http://www.mamp.info/en/index.php">MAMP</a> just fine, but still had to get used to localhost:8888. Otherwise, you have to type your password in with a lower port. Also, for CakePHP, I had to add RewriteBase /dir_name/ to each .htaccess file to get mod rewrite working.</p>
+<p>On Windows I could compile my own PHP with ease and it seemed to have all the bells and whistles. Anyway, a minor inconvenience. I would be interested to know what PHP build you are using on your Mac.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60186">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60186">8</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com/">Brendan Falkowski</a></span> said on November 15, 2008		</div>
+		<div class="quote"><p>Nice that the MBP is working well for you. Which edition of Adobe CS4 do you own? My own switcheroo plan involves a Mac Pro + Aperture for photography work. I've been thinking long and hard about the glossy topic.</p>
+<p>Also, I'm curious how the new MBP architecture fits with the Grand Central tech in OSX 10.6 Snow Leopard. I'll be hanging till Macworld in January for more news.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60187">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60187">9</a></div>
+			<span class="authorname">Grant Friedman</span> said on November 15, 2008		</div>
+		<div class="quote"><p>What was the process of installing CS4 on the Mac?  Did you have any problems convincing Adobe to give you a license for a Mac version?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60188">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60188">10</a></div>
+			<span class="authorname"><a href="http://next.pixeldepo.com/">Radoslav Stankov</a></span> said on November 15, 2008		</div>
+		<div class="quote"><p>:) I hope to make same switch any day soon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60189">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60189">11</a></div>
+			<span class="authorname">Neil Bradley</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Jonathan, which screen size did you get? I've been holding out for the new 17" model as I was not sure how I would cope with a smaller screen for developing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60190">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60190">12</a></div>
+			<span class="authorname">Justin Noel</span> said on November 15, 2008		</div>
+		<div class="quote"><p>I miss SQLYog too.  I use it daily for my day job and then come home to use the command line for my side project.  I bought Navicat 2 years ago because it was the best at the time.  I gave up on it after a while.  I'll give Sequel Pro a try.  </p>
+<p>FYI : The MySQL Query Browser on the Mac is horrible.  However, it is being replaced with a built in query browser for the upcoming (not soon enough) Mac version of MySQL Workbench.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60191">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60191">13</a></div>
+			<span class="authorname">Rob Wilkerson</span> said on November 15, 2008		</div>
+		<div class="quote"><p>If you're still looking for a MySQL client, try CocoaMySQL (free). It's better than anything else I've tried, though I haven't tried Sequel Pro. That will go on my list for the weekend if it's free.</p>
+<p>@Paul Redmond: You can run MAMP on port 80. Just shut of the Mac's built-in web server and you won't have any conflicts. I used MAMP for a while and customized the bejeezus out of its config before finally just switching over to Macports for Apache, PHP &amp; MySQL. A little harder to install, but easier to manage and configure, in my opinion.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60192">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60192">14</a></div>
+			<span class="authorname">Nicole</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Hey, another switcher! I bought my Mac a few months ago and haven't looked back since. It's lucky that you have CS4, I unfortunately bought CS3 when I got the laptop. Yes, I've been smacking my head silly. Luckily, I'm a student, so I'll be keeping an eye on the deals. (If you see a good one, I got my CS3 for $150 and am holding out until I get a similar price. I'm on disability, that's why I'm being so cheap. I'm sick as hell from the pain pills and am not good enough to do freelance yet! I'm still hurting from the laptop.) After using Windows for so long, it was a breath of fresh air getting a Mac. I was so fed up with Windows and its annoyingness (I'm aware that isn't a word) that I seriously researched it for months. Since web design is hard to do on Linux (can't do it until virtualisation is better), Mac was the way to go. Anyway, everyone in my classes back when I was going on campus had one, so I was the odd one out.</p>
+<p>I was wondering about Time Machine. I just put in a request with my mother so I can get that started. She was wondering what to get me for Christmas...</p>
+<p>First post! I love your feed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60193">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60193">15</a></div>
+			<span class="authorname">lisamac</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Finally! I'm so happy for you buddy. If you think you love it now, give it a year. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60194">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60194">16</a></div>
+			<span class="authorname">Arjan Terol</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Great to have you on our team. My personoal must haves:  <a href="http://www.navicat.com/">Navicat</a>, <a href="http://www.versionsapp.com/">Versions</a> and <a href="http://www.aptana.com/studio">Aptana</a>.</p>
+</div>
+	</div>
+		<div class="comment" id="c60195">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60195">17</a></div>
+			<span class="authorname">Karinne</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Congrats on the purchase Jonathan! I recently made the switch too back in July when I bought myself a nice iMac.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60196">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60196">18</a></div>
+			<span class="authorname">James Asher</span> said on November 15, 2008		</div>
+		<div class="quote"><p>You might also consider VirtualBox for your virtualization needs.  Works great for me whenever I have IE testing to do.  It's free as well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60197">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60197">19</a></div>
+			<span class="authorname">Mike Alsup</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Great stuff, Jonathan.  I'm just a few weeks away from making the switch too, so I love posts like this!  Thanks for sharing.</p>
+</div>
+	</div>
+		<div class="comment" id="c60198">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60198">20</a></div>
+			<span class="authorname">chris</span> said on November 15, 2008		</div>
+		<div class="quote"><p>I really don't see what all the hype is over apple computers. Everything you seem to mention can also be done on windows, sure leopard is probably better than vista right now but everything can almost be done on a windows machine if not more just as easily. Apple seems to be more of a trend with a design everyone loves. I really don't see the big deal in having a mac over a windows computer and vice versa. I think both are equally as good in their own ways. :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60199">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60199">21</a></div>
+			<span class="authorname">Steffen Rusitschka</span> said on November 15, 2008		</div>
+		<div class="quote"><p>Is it really about <em>migrating</em>?  I have three different VMs running no matter which OS my main OS is... Right now it's Ubuntu, yeah Linux - and virtualization is right how it should be... VirtualBox does the trick for me but there are loads of options. And if  Windows or Mac OS X is my OS, I run the others in a VM anyway. Just one problem here: Mac OS X is really tricky to tame in a VM - it's possible, but it's tricky.</p>
+<p>So I guess right now Mac OS X is the right choice if you want to run <em>everything else</em> in a VM - question is: Is this a pro or con? ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60204">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60204">22</a></div>
+			<span class="authorname"><a href="http://mark-story.com/">Mark Story</a></span> said on November 15, 2008		</div>
+		<div class="quote"><p>Paul Redmond:  Try using MacPorts.  The stock PHP and apache2 install provided can be a bit troublesome if you are trying to get xDebug or any cool stuff setup.  However, MacPorts solves all those issues.</p>
+<p>chris: for me the biggest difference is Unix.  OSX is based on unix, windows is not, plain and simple. I can run all the useful and powerful Unix tools I want, and be able to use Illustrator/Photoshop.  Sure there is cygwin, but that's not native to windows.  All in all if you are doing development to deploy on a *nix server, things are somewhat easier on a *nix development environment.   Your argument could also stand true for any computer. They all do basically the same things, but the devil is in the details.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60207">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60207">23</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 16, 2008		</div>
+		<div class="quote"><p>@Geof, I still have my Windows server (although my intention is either to take it down or move it out of the office and into a closet somewhere) but I've been trying to reduce and eliminate any windows-based projects. No more .net, no more ASP. I'm focusing on the linux platform.</p>
+<p>@Brendan: I'm running the Master Suite. </p>
+<p>@Grant: The process was smooth. No hiccups, no complaints. And no convincing of Adobe was necessary. :)</p>
+<p>@Nicole: I hope you manage to get a copy of CS4. I think there's lots of great stuff in there and for $150, it'd be totally worth it. :)</p>
+<p>@chris: having a single machine that I can do all my testing on will be a huge advantage of having a Mac. Otherwise, I agree. The OS is on par in a lot of ways. However, the ability to simplify my setup has been the biggest plus. The laptop itself in combination with the OS has given me a better setup than what I had before, hence the desire to switch. I almost bought another Windows laptop until this new MBP came out.</p>
+<p>On the MySQL thing, I'm trying out Navicat now. The critical feature for me is being able to do a query and edit the db contents from that query. Sequel Pro doesn't seem to do that. Navicat does it, although I wish the raw mode was default, instead of having to hit ctrl-enter.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60208">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60208">24</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 16, 2008		</div>
+		<div class="quote"><p>@Neil Bradley: the 2.53GHz is the 15". Having had a 17" laptop for almost three years, I was tired of lugging around such a large machine. This 15" feels lighter, more solid (and it looks nice, too).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60209">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60209">25</a></div>
+			<span class="authorname">Nikos</span> said on November 16, 2008		</div>
+		<div class="quote"><p>My first mac was a tangerine iMac (I still have it) but it was enough to make me a switcher. A few years later it was a PowerBook that made take the decision and from there I never looked back. I'm pretty sure the same will happen to you.<br />
+I agreed with all of your observations. I never used Mail.app, instead I prefer Thunderbird with some  plugins (like QuickText Pro) as it is very easy to keep several machines synchronized. I have also tried the new Entourage which is really good but has too many proprietary formats and functions and doesn't play well with the similar OSX functions.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60211">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60211">26</a></div>
+			<span class="authorname">Alex</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I don't get it....I love Mail, and iCal. What is the big problem with them? I guess I am not some crazy business power user that is looking to do a laundry list of insane things with my mail app...The actual displaying and handling of emails is superb. I can't understand what else you do with email. Does Thunderbird have Smart Folders? I don't think so. That's one feature that will keep me using Mail instead of Thunderbird.</p>
+<p>I can see the issue some poeple might have with a glossy screen. Color on a glossy screen is not representative of the actual color. Color on a matte screen is closer to the actual color. So if you are a photographer or designer, it just ends up being more work when managing your colors when working on a glossy screen. </p>
+<p>VMWare Fusion is great and all, but you might want to think about setting up a Boot Camp partition. That way you have the option of running Windows apps natively as opposed to through virtualization software which can be slow and/or buggy. And once you have the boot camp partition set up, you can use that volume to launch VMWare Fusion.</p>
+<p>And in response to Chris who said: "I really don't see what all the hype is over apple computers. Everything you seem to mention can also be done on windows" </p>
+<p>I can tell you one thing Windows can't do and that is RUN THE MAC OS. The whole point of him getting the Mac was so that he could test in BOTH operating systems NATIVELY. You can't do that on a Windows PC. It's incredibly helpful when doing web design.</p>
+</div>
+	</div>
+		<div class="comment" id="c60212">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60212">27</a></div>
+			<span class="authorname">David Rojas</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I've been a linux user for a very long time, but I was lacking tools like photoshop. Last week I switched to a new macbook and i'm very happy with it. No more hardware-compatibility issues, and everything working fine out of the box. I'm gladly surprised you switched to mac too, I was always thinking "this Snook guy is like the best all-in-one guy in web development, if only he didn't use windows..." :-P
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60213">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60213">28</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Alex, to clarify, I only used Thunderbird to convert Outlook mail over to Mail.app. I haven't used it beyond that. I'm currently using Mail.app. My issue with them is just access to features that I had gotten used to with Outlook. For example, if I get invited on a calendar event, I should be able to move the event in my own calendar. With iCal, I can't. With Outlook, I am presented an option to email the inviter. For email, I found Outlook was easier for flagging stuff and creating to-do items from emails. I'll be interested to see how well Entourage fits the bill.</p>
+<p>Thanks for the tip on Boot Camp.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60216">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60216">29</a></div>
+			<span class="authorname">Rick</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Textmate is great piece of software, only thing it lacks is FTP support (as in how Coda works).</p>
+<p>I would recommend Navicat for the mysql client.</p>
+<p>The best PM out there is Daylite, though might be pricy for a freelancer.</p>
+<p>When you get the dough, get a mac mini or something like that, and install leopard server on it.  Made my life easier dealing with designers, developers, etc.  Got daylite, versions, svn server, test server for all our sites, and a bunch of other stuff, etc.</p>
+<p>I switched last year and am so glad I did from a web developer / designer standpoint.</p>
+<p>CS3 sucks on mac though (it's really slow).  Really want to get cs4 but can't at the moment.</p>
+<p>If you use svn clients, Versions and Cornerstone are pretty sweet.</p>
+<p>OnyX will keep your system clean.</p>
+<p>Check out ScreenFlow for screencasting.  Gets better every release too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60217">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60217">30</a></div>
+			<span class="authorname">THEODIN</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Its true what they say, once you get a mac, you never look back. The only real let down is the lack of decent FTP clients, although Cyberduck is ok, I would strongly advise getting your hands on <a href="http://www.panic.com/coda/">Coda</a>, from panic, thats when life gets realy good!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60221">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60221">31</a></div>
+			<span class="authorname">Chris</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I'm surprised you're not opposed to having a 250<strong>MB</strong> HDD ;)</p>
+<p>Nice review though, I'm holding out for the technical refresh that's sure to come within the next year.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60223">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60223">32</a></div>
+			<span class="authorname">Terrence</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I'm glad you are trying out iWork. I have it, and I like it...sometimes. I really like using Pages instead of Word. Numbers vs. Excel is not as easy of a call. Excel still kind of rocks in an indescribable way. And everybody loves Keynote. Let us know what you think of the three apps, when you get a chance to try them out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60225">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60225">33</a></div>
+			<span class="authorname">Zvi Band</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Jonathan,<br />
+I also recently switched to a MBP, after being a hardcore PC user (so much so I refused to help out my grandparents with their Mac), and have not looked back since.</p>
+<p>I would also throw in my support for Coda. That, and Transmit, are great pieces of Mac software.<br />
+-Zvi
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60226">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60226">34</a></div>
+			<span class="authorname">Prashant</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Nice review. I also switched to a Mac around 2 years ago and don't regret it at all.</p>
+<p>I suggest you don't use Mail.app because it's very unstable, I have a MacBook Pro w/ 4GB RAM and it always freezes for no reason, it can get frustrating when your typing an email. I personally would stick to Thunderbird, it works great with no problems.</p>
+<p>You might also want to checkout Parallels, that way you can have Windows on your Apple and also IE6 in order to test the sites you work on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60227">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60227">35</a></div>
+			<span class="authorname">Rick</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I don't think Mail.app is bad.  I've some most people that are used to how Outlook works struggle with it though.  Prior to switching to a mac, I used Gmail's web interface solely.  Because Gmail has a different philosophy in organizing mail (tag system instead of outlooks folder way), it was easy for me to switch to Mail.app.</p>
+<p>If you're used to putting things in a bunch of different folders, than it's hard to get used to Mail.app.  I have only one folder (besides the standards like inbox, drafts, etc.) called "Global".  Everything gets put in there when I'm done.  That way I only have to search in one folder for everything.  I also use Daylite's email plugin....so Daylite organizes my emails according to projects, opportunities, meetings, etc. when they come in through Mail.app
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60230">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60230">36</a></div>
+			<span class="authorname">grant</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Typo: 250MB 7200rpm </p>
+<p>don't you mean GB?</p>
+<p>I can't wait to get my iMac... I couldn't totally switch though, I'm going to be keeping my vaio laptop.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60242">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60242">37</a></div>
+			<span class="authorname">Steve</span> said on November 16, 2008		</div>
+		<div class="quote"><p>If you're parked at a desk using AC most of the time I suggest pulling the battery and cycling it once a month or it will die on month 13 (heat fatigue is my guess).  But then it's only $150 to replace.  VMWare is magic, can't even imagine using anything else, setup two spaces - one for OS X and the other for Windows (full screen).  Thunderbird w/tweaks comes close to Mail.app but on an IMAP connection it's to slow to tolerate.  The gotta have accessory is http://www.raindesigninc.com/ilap.html (toss the cushion).  The iLap keeps the system cool on the desk (longer life I expect) and it's great for cruising around the house.  I was a PC for 20 years and my Mac Pro is hands down the most useful computer I have ever owed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60247">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60247">38</a></div>
+			<span class="authorname">Patty</span> said on November 16, 2008		</div>
+		<div class="quote"><p>I work as a graphic designer/prepress technician in the printing industry (as well as run my own web design business) and I understand your desire to purchase a MAC for testing, but I am a little disappointed that one of the reasons for your purchase was peer pressure or the need to feel "cool".</p>
+<p>The fact that Mac has become such a status symbol is one of the reasons I prefer my PC (I do own both), and it's not even so much Mac towers as it is just the Mac book.  Everybody has to have a Mac book because everybody else has one. If you don't have one...well then your just not very cool, and you are most certainly not a "real" designer because "real" designers use Macs. *rolls eyes*</p>
+<p>All the essential programs that I need to design and code will work just as well on my PC as on my Mac, and when it comes down to testing if I really needed to test my websites on safari I would just install VirtualBox and viola! instant site preview in safari .  (although I admit for my day job I have to have both a Mac and PC...due to the various file formats and fonts I deal with on a daily basis)</p>
+<p>It reminds me too much of all things I hated about high school. It saddens me that the creative crowd that makes up our community has succumb to this mentality.</p>
+<p>I refuse to be another brick in the wall!  *hugs my PC*</p>
+<p>~And I am a PC.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60253">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60253">39</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 17, 2008		</div>
+		<div class="quote"><p>Patty: The being "cool" thing was a joke. Don't worry, I understand it's hard to tell facetiousness on the internet. I got a Mac because of the ability to do all my testing off one machine and to simplify my office setup. I've been a die hard Windows user for years and I don't really have anything bad to say about it. I got a laptop because I need the portability. I got a 15" because I wanted something smaller than the 17" and I got a Mac because of how well it all works together (such as that trackpad of awesomeness).</p>
+<p>I'm not begrudging any Windows users and by all means stand tall and feel good about using it. It's a solid operating system. I never ran virus software and my laptop crashed once in the 3 years I had it. But to each their own. This is just my experience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60255">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60255">40</a></div>
+			<span class="authorname">Nicolas</span> said on November 17, 2008		</div>
+		<div class="quote"><p>Well, i'm about to switch too after 20 years of PC+MS. The iPhone is a really brilliant evangelist, it really made the difference.<br />
+Well done, Jobs.<br />
+So long, Balmer, i'll miss you (or not, who knows ? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60259">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60259">41</a></div>
+			<span class="authorname">NICCAI</span> said on November 17, 2008		</div>
+		<div class="quote"><p>Coda + Versions + Beanstalk is really nice.  I also had to remap the ctrl and cmd keys to get them more like windows.  It makes moving between machines easier (I still need to).  Like you, I'd say one of the biggest things for me was streamlining my set up.  I replaced two machines with one, and that was huge.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60260">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60260">42</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on November 17, 2008		</div>
+		<div class="quote"><p>@Patty<br />
+I have one of the new MacBook Pro's as well, but I avoid the "Cult of Mac." Most of the people that sing Apple's praises and bash Microsoft every chance they get don't really know what they're talking about. Microsoft makes great products, and they will continue to make great products (and I'll continue developing .NET apps because C# is too sexy to ignore, Windows apps - I dislike ASP.NET). I bought my new Mac for the same reasons that Jonathan did - its pretty much the most productive environment that you could possibly have for web application development. Plus, as far as laptops go, Macs tend to be more reliable than most laptops.</p>
+<p>@Jonathan<br />
+Just run Outlook via VM in the background with Fusion/Parallels/VirtualBox, I guarantee that the resources that it takes up will be well worth it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60263">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60263">43</a></div>
+			<span class="authorname">Richard Henry</span> said on November 17, 2008		</div>
+		<div class="quote"><p>One of the things I love so much is that there are so many recognizable and interesting companies/indie developers making software, instead of a huge mass of faceless corporations or small-time crapware developers. The typical quality of the third party software was the final thing that made me switch from XP to OS X.</p>
+<p>We have some really great companies making apps, like Panic, MacRabbit, and Delicious Monster, just to name a few. Apps like Cha-Ching and the just released Versions (an truly amazing SVN client) are so well designed (I'm not just talking about the eye-candy either) it makes my eyes water.</p>
+<p>I'll also recommend MacRabbit's CSSEdit 2 if you're spending any significant amount of time doing CSS work these days; having a real-time preview of what you're doing as you type is actually amazingly useful and really speeds up your workflow. (http://macrabbit.com/cssedit/)</p>
+<p>Hope you enjoy your new machine,<br />
+Richard
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60264">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60264">44</a></div>
+			<span class="authorname">Patty</span> said on November 17, 2008		</div>
+		<div class="quote"><p>@Johnathan<br />
+I did assume you were being slightly facetious, but I also could understand if there was an inkling of truth to it as well.   I have been in many situations where I got that weird look for having PC in hand after stating that I'm a designer.</p>
+<p>I actually have a 17" MacBook Pro, I just dont take it with me anywhere.  It's too big to lug around.  I bought an Asus Eee 1000 for travel, and I love it.</p>
+<p>@Andy<br />
+I agree completely.  </p>
+<p>Oh and by the way... as I type this I see that Apple just released a firmware update for the trackpad issues on the new MacBook pro.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60267">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60267">45</a></div>
+			<span class="authorname">John MacAdam</span> said on November 18, 2008		</div>
+		<div class="quote"><p>I'm glad to see you made the switch.  You will not regret it.  Also glad to see you are using Textmate.  How have you enjoyed it so far?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60272">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60272">46</a></div>
+			<span class="authorname">Brandon</span> said on November 18, 2008		</div>
+		<div class="quote"><p>Just came across your site on a google search. FANTASTIC DESIGN! This comment form is excellent. And I love the css.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60278">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60278">47</a></div>
+			<span class="authorname">Michael</span> said on November 19, 2008		</div>
+		<div class="quote"><p>Hi Snook!</p>
+<p>I love your work and happy to see you switch.  :)  I am curious how you've setup your environment.  How do you test sites locally...did you setup vhost...etc.  Could you please email me, when you have time, some pointers on setting up a Mac environment for development.  Do you develop locally, then transfer to the server?  Things like that.  I really appreciate your time/work and tutorials.</p>
+<p>Thank you,<br />
+Michael
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60298">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60298">48</a></div>
+			<span class="authorname"><a href="http://www.eleven3.com/">George Huff</a></span> said on November 21, 2008		</div>
+		<div class="quote"><p>Congrats Snook!</p>
+<p>I laughed out loud at:</p>
+<p>" I can finally feel cool when I go to a web conference and not be the loner with the Windows laptop. "</p>
+<p>I remember you plugging away on that beast at SXSW. You said something about being fair &amp; balanced when it comes to Apple/Microsoft.</p>
+<p>Welcome to the Apple side, and as with any blogger's official "switch" post, this will get tons of traction.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60307">49</a></div>
+			<span class="authorname">Aaron Newton</span> said on November 21, 2008		</div>
+		<div class="quote"><p>I switched to OSX about a year ago and I couldn't be happy. Had a very similar experience.</p>
+<p>Might I suggest you check out iusethis.com and appfresh? You can see what popular and upcoming applications are in use by others. It also has two other killer features: 1) it'll scan all your apps and tell you which ones have updates. In most cases it can just install the update for you right there. 2) it integrates with iusethis.com so that if you have more than one machine (or you reinstall your OS) you can pull up appfresh and see which apps you haven't installed that you use. </p>
+<p>Here are all the apps I use:<br />
+http://osx.iusethis.com/user/anutron</p>
+<p>Some favorites:</p>
+<p>Visor (a Quake-like console that slides down to give you terminal access)<br />
+MenuMeters (quick glance info on memory and cpu usage up by the sysclock)<br />
+Plex (a free mediacenter interface that blows me away every time I open it)<br />
+Fluid (turn web sites into desktop apps - I use gmail in a Fluid app as my main mail client - same for google calendar and other sites)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60309">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60309">50</a></div>
+			<span class="authorname"><a href="http://www.milner.ca/">WD Milner</a></span> said on November 21, 2008		</div>
+		<div class="quote"><p>Apple makes some attractive and capable products. They still represent, for me, an overpriced option, but then again so does much of the Windows world.</p>
+<p>I moved my machines away from Windows years ago (except for a testing machine) to Linux and the BSD's and haven't looked back since.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60331">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60331">51</a></div>
+			<span class="authorname">Kyle Bradshaw</span> said on November 23, 2008		</div>
+		<div class="quote"><p>Jonathan, congrats on finally switching! I love my Mac, I could never go back.</p>
+<p>I just recently procured the same exact model MBP that you just picked up - I was coming from an older 17" MBP. The new MBP's are great.</p>
+<p>I feel your pain with a decent MySQL client for OSX. Reminds me of a blog article I had previously written back in April. http://somedirection.com/2008/04/17/my-kingdom-for-a-useful-mysql-client-on-os-x/</p>
+<p>Sequel Pro isn't a bad attempt, but it's definitely not ready for prime time.</p>
+<p>I can understand your frustration with Mail.app and iCal, I've personally never used them. I transitioned completely to Gmail and Google apps a couple of years ago and I've been happy with the flexibility. </p>
+<p>How do you like TextMate?</p>
+</div>
+	</div>
+		<div class="comment" id="c60341">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60341">52</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris W.</a></span> said on November 24, 2008		</div>
+		<div class="quote"><p>I'm a PC.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60351">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60351">53</a></div>
+			<span class="authorname">Jeremy</span> said on November 24, 2008		</div>
+		<div class="quote"><p>I recently switched to the new macbook pro and also love it. Though some seem to think that alot of people are switching to be trendy, I think you will find that most people are just wanting a better experience. I have Vista at home as well, but I'm MUCH happier and more productive on the Mac.</p>
+<p>My only issue after two weeks has been that my external display doesn't like it when the macbook goes to sleep. I usually have to unplug it and replug it in. From what I gather Apple has a fix comming for that issue.</p>
+<p>For those of you wondering about switching from PC to Mac versions of the Adobe suite, keep in mind that they do offer a cross sell option. It involves sending a Letter of Destruction saying you destroy your PC version, but then they'll give you CS4 for Mac. If you have CS3 and want to switch it, you will have to upgrade it to CS4. </p>
+</div>
+	</div>
+		<div class="comment" id="c60381">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60381">54</a></div>
+			<span class="authorname">Frank Topel</span> said on November 26, 2008		</div>
+		<div class="quote"><p>I bought an iPhone and the one thing I can say is that it was my first Apple product, and definitely will be my last. Why? Because I feel strangled by Apple so massively I'm astonished you all cheer Apple for this gadget.</p>
+<p>It forces me to use iTunes, the slowest and most unintuitively and intransparently designed piece of software I ever used (Windows Version). Beyond that, I haven't had that many system crashes in 20 years of PC experience as I've had with my iPhone in 4 weeks.</p>
+<p>As long as Apple has such a dictatory approach of tieing it's customers, I'm definitely not interested.</p>
+<p>Freedom means free software, free access, and being able to decide in which way you want to use your equipment. Windows doesn't offer this in every aspect, but compared to Apple, it's a freedom paradise. I guess I'll stick with Ubuntu Linux, running Windows in a Virtual Box. </p>
+<p>For me, Mac OS X can go to hell as long as it can't legally be installed on the machine of my choice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60414">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60414">55</a></div>
+			<span class="authorname">kOoLiNuS</span> said on November 29, 2008		</div>
+		<div class="quote"><p>doh! another switcher here :-D</p>
+<p>Hi Jon ... if you have to work on IE6 there's no need of an entire virtual machine since you can have it running thanks to the <a href="http://www.kronenberg.org/ies4osx/"><strong>ie4osx</strong></a> project.</p>
+<p>Also, the fact that people' switching all over the time, anytime will make you discover many "hidded" and beautiful pieces of software that will do whatever you like .... Coda, CyberDuck, ID3X, Cog, Fugu, MacFUSE and it's sshfs ... every each and now have a look on <a href="http://osx.iusethis.com/"><strong>OSX I use this</strong></a> community to search something you need.</p>
+<p>A last word on MS Office on Mac ... even if MacTopia site is somewhat more appealing than a standard MS website, even it their mac blog is interesting and joyful to read the actual product is a PITA ... at work we have it running from 2004 up to 2008 on four different MacBooks (Pro and not) and all have witnessed issues.</p>
+<p>None of us is running Entourage, so I cannot say how it behaves with the iPhone (we've got a 2G and a 3G), but Entourage 2004 was the app that has collected the highest number of crashes on my machine.</p>
+<p>Tim Gaden <a href="http://www.hawkwings.net/">Hawk Wings</a> is THE resource you have to digg into turning Mail.app in a powerful mail commodity.</p>
+<p>Cheers!<br />
+(and sorry for the long comment!)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60431">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60431">56</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 01, 2008		</div>
+		<div class="quote"><p>@Kyle: I like Textmate. It's a nice, quick, simple editor with nice features. I don't love the svn integration but it's good enough. I have Versions if I need something easier to use. Although I'm looking into git.</p>
+<p>@Frank Toppel: I'm not concerned about free. I just want something that works well with my workflow and the iPhone along with the MBP have done just that. I certainly understand your point of view and respect you for it. No product is going to be perfect for everybody.</p>
+<p>@Koolinus: I have used Crossover but running IE6 has been buggy. Having played with IE6, 7 and 8 now in VMware Fusion, I think I'll stick with that. I have heard of iusethis but haven't gotten around to signing up.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/other/new-macbook-pro by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:55 GMT -->
+</html>

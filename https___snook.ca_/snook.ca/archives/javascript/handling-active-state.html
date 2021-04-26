@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/javascript/handling-active-state by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Handling Active State for jQuery Animated Backgrounds - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/handling-active-state">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/handling-active-state">
+	<meta property="og:title" content="Handling Active State for jQuery Animated Backgrounds">
+	<meta property="og:description" name="description" content="Awhile back, I wrote an article on how to animate background images with jQuery to create some nifty effects. One of the most common questions I receive on that article is, &quot;How do I handle activ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Handling Active State for jQuery Animated Backgrounds</h1>
+		<p>Awhile back, I wrote an article on <a href="https://snook.ca/archives/javascript/jquery-bg-image-animations/">how to animate background images with jQuery</a> to create some nifty effects. One of the most common questions I receive on that article is, &quot;How do I handle active states?&quot; It is time to answer that question.</p>
+<p>There are two ways in which you can handle the active state:</p>
+<ol>
+  <li>Create a different animation for active elements; or</li>
+  <li>Change the background image to be animated.</li>
+</ol> 
+<h2>The HTML </h2>
+<p>The HTML for this is exactly the same as before except an active class would be applied to the <code>LI</code>. You can add the active class to the link, if you wish. You just need to update the code below accordingly.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;&hellip;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li <strong>class=&quot;active&quot;</strong>&gt;&lt;a href=&quot;&hellip;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&hellip;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<h2>Different Animation for Active Elements </h2>
+<p>This should hopefully be very straightforward: just create two sets of animation. One will animate on any element that is <em>not</em> with an active class and another will animate on any element that <em>does</em> have an active class.</p>
+<pre><code>$('#nav li:not(.active) a')&hellip;
+$('#nav li.active a')&hellip;</code></pre>
+<p>The rest of the code will be tailored to handle the animation however you wish.</p>
+<h2>Change the Background Image</h2>
+<p>This is by far the more optimized of the two solutions as the amount of additional JavaScript required is absolutely zero but is based on the assumption that the animation will be exactly the same. </p>
+<p>All that needs to be done is to have the background image set to something else for the active state.</p>
+<pre><code>#a a { background:url(bg.jpg) repeat -20px 35px; }
+#a .active a { background-image:url(bg-active.jpg); } </code></pre>
+<p>And that's it!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 27, 2010 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/980</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">6 Comments &middot; <a href="https://snook.ca/archives/javascript/handling-active-state.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64966">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64966">1</a></div>
+			<span class="authorname"><a href="http://www.twitter.com/icaaq">icaaq</a></span> said on May 26, 2010		</div>
+		<div class="quote"><p>Nice and simple solution!<br />
+One thing that crossed my mind is that I usually remove the link in the active li, sometimes replaces it with a span-element for styling purposes. If CSS isn't supported (e.g mobile-devices) I can more easily understand where I am in the navigation-element.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64969">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64969">2</a></div>
+			<span class="authorname">Chris Heilmann</span> said on May 27, 2010		</div>
+		<div class="quote"><p>This was a very confusing title. I thought you'd talk about the :active selector to make this keyboard accessible. As it is I agree that the current section should never be a link - it is linking to the page you are on. I normally replace it with a strong to make it obvious even for non-css browsers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64976">3</a></div>
+			<span class="authorname">Tasarim</span> said on May 30, 2010		</div>
+		<div class="quote"><p>Nice one Jonathan. I usually remove hover states or animations from active elements so i don't use 2 different animations for active and non-active elements. I just apply all animations to $('#nav li:not(.active) a').hover(..)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64981">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64981">4</a></div>
+			<span class="authorname">Adam Cooper</span> said on June 01, 2010		</div>
+		<div class="quote"><p>I always loved jQuary,  This makes me love it all the more.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65602">5</a></div>
+			<span class="authorname">dalk</span> said on February 01, 2011		</div>
+		<div class="quote"><p>Thank Snook<br />
+But I use another way to show active elements.<br />
+I use css !Important and it's work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68101">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68101">6</a></div>
+			<span class="authorname">Mary</span> said on May 17, 2011		</div>
+		<div class="quote"><p>Is it possible that it doesn't work in IE?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/javascript/handling-active-state by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

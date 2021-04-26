@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/browsers/elephant-in-the-room by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>The Elephant in the Room - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/browsers/elephant-in-the-room">
+	<meta property="og:url" content="https://snook.ca/archives/browsers/elephant-in-the-room">
+	<meta property="og:title" content="The Elephant in the Room">
+	<meta property="og:description" name="description" content=" Almost a month ago, I wrote about supporting older browsers &mdash; how and whether we should even support them. 
+ 
+   We draw a line in the sand that says, &quot;You popular browsers, stand over h...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>The Elephant in the Room</h1>
+		 <p>Almost a month ago, I wrote about <a href="https://snook.ca/archives/opinion/supporting-old-browsers">supporting older browsers</a> &mdash; how and whether we should even support them. </p>
+ <blockquote>
+   <p>We draw a line in the sand that says, &quot;You popular browsers, stand over here. Everybody else, just be happy you got content.&quot;</p>
+   <p>More specifically, a base style sheet would declare some default font styles but no float or other layout tricks. Just linear content. This default would look decent in any browser, no matter from what era. It makes a great print style sheet, too.</p>
+ </blockquote>
+ <p>The general consensus that came from that was to ignore old browsers like they don't exist. Testing in every browser is impossible. Therefore, we test for what we know and hope for the best with the rest.</p>
+ <p>Today, Andy Clarke (and all that malarkey) released a <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">Universal Internet Explorer 6 CSS</a>. The idea behind it is to provide a simple style sheet devoid of any layout tricks but that still provides a designed experience. Just linear content. This default would look decent in any browser. It even makes a great print style sheet, too.</p>
+ <p>I, personally, prefer this approach of providing a minimalist experience over the idea of preventing people from accessing it altogether. Or berating them for their choice of browser,  assuming they have any choice at all.  We should stop making fun of the kid who dresses funny because his parents can't afford nice clothes.</p>
+ <p>This still doesn't solve the problem for those browsers we no longer want to test in. What of those 83 people that visited my site in the last month with Safari 2? Or the <em>2500</em> people that were still using Firefox 2? I can only assume that what I've designed looks half decent. I mean, Firefox 2 has decent CSS support, right?</p>
+ <p>I guess we just hope for the best.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 21, 2009 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/browsers/">Browsers</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/948</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">32 Comments &middot; <a href="https://snook.ca/archives/browsers/elephant-in-the-room.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63547">1</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on May 21, 2009		</div>
+		<div class="quote"><p>I definitely agree with this approach. I wrote about my hatred of <a href="http://www.chris-wallace.com/2009/05/13/why-ie6-update-is-a-terrible-idea/">IE6 update</a> because of the issues it causes. I think this is the right solution. However, I still do think if your IE6 audience is in the 30% and up range, you really need to make sure you're doing the right thing in dropping any and all advanced features and layout styles from your web app or website.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63548">2</a></div>
+			<span class="authorname">Paulo Pereira</span> said on May 21, 2009		</div>
+		<div class="quote"><p>I think approaching IE6 w/ a separate stylesheet is an awesome idea. This idea came up sometime ago in the community, actually, but I can't remember who had it in the first place.</p>
+<p>While I agree with the approach, I don't agree with the Universal IE6 CSS. I think it's good as a basis to create your own, I'd never use Alan's CSS. I mean, even if the layout is trimmed down and linear, IE6 still has some typography and colors support. You can still keep your branding and your style there, so why not to?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63549">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63549">3</a></div>
+			<span class="authorname">DavidYell</span> said on May 21, 2009		</div>
+		<div class="quote"><p>I love this idea, we shouldn't punish people for using legacy browsers, but they MUST be pushed away from this technology at some point so why not now. With CSS3 support potentially around the corner, they are only going to get less and less from the net in terms of experience and enjoyability as time goes by.</p>
+<p>Something like this though does let them down slowly, coupled with tricks like http://ie6update.com/ and http://code.google.com/p/sevenup/ should help them to make the transition cleanly and without feeling victimised for LIVING IN THE DARK AGES! :p</p>
+<p>Good article :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63550">4</a></div>
+			<span class="authorname">NIck Burd</span> said on May 21, 2009		</div>
+		<div class="quote"><p>I think that using a typical cookie cutter CSS layout could prove to be a little un-realistic. As Paulo Pereira above me suggested: </p>
+<p>"IE6 still has some typography and colors support. You can still keep your branding and your style there, so why not to?"</p>
+<p>Mind you I'm still horribly new to the whole web design thing, but wouldn't otherwise suggest that several sites on the net will look pretty well identical in IE6? And while I would rather just slice IE6 out of my life, I would much rather prefer to have something with my own look and feel added to it. </p>
+<p>There seems to be 2 sides to every story however, a separate approach to this would simply be that its better to have something of a cookie cutter design for IE6, than to have a broken, non-functional website. </p>
+<p>So again, I find myself torn between good and bad. But like you mentioned, there is no way to test every browser, and we do tend to just hope for the best in a sense.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63551">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63551">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 21, 2009		</div>
+		<div class="quote"><p>@DavidYell: don't be mean to your users. and no, they mustn't be moved off it if they don't want to go. That seems very arrogant of us. They'll leave, in time. We just have to be patient.</p>
+<p>@Nick, let me clarify that I don't think Andy's style sheet should be used as-is without any customization whatsoever â€” although, with the number of overused WordPress themes out there, I'm not sure the average user would notice everything looking the same. It's the idea I support. Make your own design. Make it fit within your brand. Use Andy's as a base, if it makes your life easier.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63552">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63552">6</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on May 21, 2009		</div>
+		<div class="quote"><p>@Nick, I think the actual implementation will always need customization. It's not meant to just be added to your list of stylesheets and left alone. I think some basic branding and colors are quite easy changes, as well as updating the list of classes and ids in the IE6 stylesheet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63553">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63553">7</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com/">Chris Wallace</a></span> said on May 21, 2009		</div>
+		<div class="quote"><p>@Jonathan Damn, just beat me to it. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63554">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63554">8</a></div>
+			<span class="authorname">Rob</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Thanks for this post. A lot of people still stuck on IE6 are not simpletons who don't care about better browsers -- it's entire offices with a busy IT staff and some entrenched applications, still unable to upgrade.  Reminders about better browsers or giving the cold shoulder is in many cases beating a dead (browser) horse.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63555">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63555">9</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com/">Michael Kozakewich</a></span> said on May 21, 2009		</div>
+		<div class="quote"><p>But I've just finished designing the most wonderful anti-IE6 t-shirt!</p>
+<p>The thing about IE6 is that a lot of big businesses just refuse to upgrade their computers, so it's a good idea to give them an alternate style.<br />
+I couldn't imagine Firefox 2 users being anything but lazy, though. I think a lot of people have upgrading issues, anyway (A theme I had on Firefox 2 kept me from getting 3 until I uninstalled things).</p>
+<p>Inconveniencing the user wouldn't do anything, anyway. We can shuttle them off in another direction and just forget about them, or we could do something, somehow, to make the companies themselves upgrade from IE6 (or, more specifically, upgrade from Win95 or whatever they're using).<br />
+On second thought, the people using those computer might have installed Firefox 2, if Firefox 3 has issues with really old computers like that. Maybe that's why you're getting so many of those.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63556">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63556">10</a></div>
+			<span class="authorname">Phil Ricketts</span> said on May 21, 2009		</div>
+		<div class="quote"><p>You noted 2500 firefox 2 visitors per month. I find that very interesting. Does anyone here use (css) 'display:inline-block'. FF2 does not support this at all. IE6 does.</p>
+<p>I have never really considered Firefox 2 users until recently, but have now made myself more aware of ff2's limitations. Inline-block being a major one I think.</p>
+</div>
+	</div>
+		<div class="comment" id="c63557">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63557">11</a></div>
+			<span class="authorname"><a href="http://the-echoplex.net/">Pete</a></span> said on May 21, 2009		</div>
+		<div class="quote"><p>To play devils advocate..</p>
+<p>Sometimes providing complete ie6 support is a complete pain, but more often than not I find providing *good* support for it (i.e not breaking my back to emulate fixed positioning) is not too much work. </p>
+<p>So this feels to me a bit like developers patting each other on the back saying "Lets boycott the difficult browser and not have a conscience about it", as being the the most enlightened solution to the problem. </p>
+<p>Maybe when the user share is, say &lt; 5%, I could adopt this philosophy for client work, but for now this seems a bit pre-mature, and dare I say it, a little unprofessional. </p>
+</div>
+	</div>
+		<div class="comment" id="c63558">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63558">12</a></div>
+			<span class="authorname">Phil Ricketts</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Also, check out SenCSS: http://sencss.kilianvalkhof.com/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63559">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63559">13</a></div>
+			<span class="authorname">nick burd</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Wordpress is another thing that seems to be overpopulating with repeat themes.. and Joomla!, etc. </p>
+<p>But yes, it would be ideal to style based on your design using this template as a base.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63561">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63561">14</a></div>
+			<span class="authorname">Jamie</span> said on May 21, 2009		</div>
+		<div class="quote"><p>I like this idea in theory, but I've met with enough difficult clients to know that, at least with my company, it just wouldn't fly. Sure, some might be savvy enough to know that a simplified IE6 layout would be cheaper in the long run. But the too many of our clients don't know what IE6 or even Internet Explorer is (it's just "the internet"), want their website to look the same "on every screen", and really have no concept that different browsers render websites differently. Most of our websites (we have about 500 registered in Google Analytics) see anywhere from 12-20% IE6 usage, which, in my opinion, is still (unfortunately) significant enough. Once it drops below 10% then we'll probably drop or significantly cut back support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63562">15</a></div>
+			<span class="authorname">Jake Archibald</span> said on May 21, 2009		</div>
+		<div class="quote"><p>You can't forget that some people use IE6 because they have no other choice.</p>
+<p>Many large companies still use IE6 as their desktop browser and don't allow users to install other browsers for 'security reasons'. I know that's ironic, but it's how it is for a lot of people.</p>
+<p>If you stop supporting IE6 you're turning your back on a significant amount of users, the majority in some cases (although not for web-dev related sites like this one).</p>
+<p>I'd like to stop supporting IE6 too, but remember you're developing for the end user, if you give them a below-par experience you're failing at your job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63563">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63563">16</a></div>
+			<span class="authorname">Jesse Altman</span> said on May 21, 2009		</div>
+		<div class="quote"><p>This is a good idea, but if any of this work is being done professionally it just isn't practical. No one wants to pay for a site that does not look optimal in less commonly used, but still rather active browsers.</p>
+<p>The main issue is that anyone who, for instance, works at a company that has all of their computers locked down and uses IE 6 still, will have a different experience if they go home an use a personal computer that has IE 8, Firefox 3, Safari 4, Chrome, etc. This inevitably leads to a bad process of having inconsistent design, which can lead people to be confused while attempting to use a site in different locations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63564">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63564">17</a></div>
+			<span class="authorname">Gary Turner</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Perhaps it's because of the years spent fighting IE6's oddities have made it second nature, but I see no need not to feed it from the same trough.  The bug hacks are safe, and the work-arounds are pretty well known and generally easy to implement.  This applies to IE7 also, a minor bug-fix/cosmetic revision of IE6.</p>
+<p>Phil Ricketts: "Does anyone here use (css) 'display:inline-block'. FF2 does not support this at all. IE6 does."</p>
+<p>FF2 supports inline-block as the proprietary/test property value, "-moz-inline-box".  There are some issues to be dealt with, but on the whole, it works rather well.  IE6/7 does not actually support the value.  Instead, it gives inline elements hasLayout, which allows dimensioning.  Block level elements must be made inline for these browsers.</p>
+<p>You may study my <a href="http://gtwebdev.com/workshop/layout/inline-block-gallery.php">inline-block gallery demo</a> for usage.  Inline-block has been sadly neglected due to IE6's (actual) non-support, and FF2's proprietary value.</p>
+<p>cheers,</p>
+<p>gary
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63565">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63565">18</a></div>
+			<span class="authorname">dr. Hannibal Lecter</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Initially, I wanted to post a message here. But I felt it was too large so I've cast it into an article:</p>
+<p>http://dsi.vozibrale.com/articles/view/ie-sucks-and-can-kiss-my-ass</p>
+<p>It's nothing personal, I just disagree with the idea of holding IE by the hand. I say let it die already. We have the guns, let's use them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63566">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63566">19</a></div>
+			<span class="authorname">Heather Kyle</span> said on May 21, 2009		</div>
+		<div class="quote"><p>Great point, DavidYell. I agree that we should somehow encourage people to move away from IE6 without punishing them. You're right, if there is no insentive for them to move past the archaic technology of IE6, then why would they be inclined move? The use of the IE6 stylesheet sounds like a great temporary solution and a good reason for IE6 users to start thinking about making the transition to a newer browser. Thanks for the post.</p>
+</div>
+	</div>
+		<div class="comment" id="c63567">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63567">20</a></div>
+			<span class="authorname">Steve</span> said on May 21, 2009		</div>
+		<div class="quote"><p>conceptually fine, but it fails in web apps.</p>
+<p>If you have a spiffy autocompletion widget with all kinds of magic, the CSS for it will likely be something that really needs high-level tweaking in IE just to function, never mind look pretty.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63571">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63571">21</a></div>
+			<span class="authorname"><a href="http://www.iamfrankstallone.com/">Frank</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>Andy's article is being featured everywhere lately I have noticed. =) </p>
+<p>I am glad it is getting a good general acceptance because I feel that his hard work is paying off. This is a great idea and I have expressed this to a few people already. I will fit these into future projects I am sure!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63572">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63572">22</a></div>
+			<span class="authorname"><a href="http://www.pixelbath.com/">Michael Hoskins</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>Even though Pete says he's playing devil's advocate, I think he really means, "disagreeing with the consensus here." But, he makes some valid points.</p>
+<p>I'm also forced to support IE6 on all of our sites (not in the hundreds, but a few tricky ones), and while it is a pain, and a pain I'd like not to have, I have not so far found a problem that can't be worked around by tweaking the CSS and/or using conditional comments.</p>
+<p>If you don't want to support older browsers, that's a decision you have to make on a case-by-case basis, but as others have said here, degrading a site into a completely different design leads to an inconsistency in user experience.  If you want to "draw the line" somewhere, why even bother to degrade the experience?  It's not openly berating the user, like the <a href="http://code.google.com/p/sevenup/">sevenup</a> thing, but it seems like a cop-out from doing what you get paid to do, which is to create a uniform user experience for <b>all</b> users.</p>
+</div>
+	</div>
+		<div class="comment" id="c63589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63589">23</a></div>
+			<span class="authorname"><a href="http://www.santhos.nl/">Thomas</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>Still 15% uses IE6. I've seen websites of webdevelopers which didn't support IE6 at all and threw a big red message that said: 'update your browser'.</p>
+<p>I just can't believe that. There are lots of methods these days to make website look allright in IE6. I don't think a special IE6 stylesheet is needed to achieve that...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63590">24</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com/">Michael Kozakewich</a></span> said on May 23, 2009		</div>
+		<div class="quote"><p>I figure this is a pertinent question to ask: Where do people get their browser stats from?<br />
+Searching "browser market share" on Google gets me <a href="https://snook.ca/archives/browsers/www.w3schools.com/browsers/browsers_stats.asp">W3Schools</a> and <a href="http://marketshare.hitslink.com/report.aspx?qprid=0">This other one</a>, which I've taken to be the computer-savvy and total consumers, respectively.<br />
+What sites do you use?</p>
+<p>(I just saw a different site that pegged IE at 71% and yet another at 75%, so I really have no clue which is the most comprehensive.)</p>
+<p>Also, Meppel above makes a good point. We can't exactly put :after tags everywhere, but there's really nothing important (like flash or javascript or images) that IE6 can't handle. The only problem is that it takes a bit more work.<br />
+<i>At least it has http support!</i>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63591">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63591">25</a></div>
+			<span class="authorname">Gary Schnabl</span> said on May 23, 2009		</div>
+		<div class="quote"><p>Chris's estimate of 30% for IE6 usage is about double what W3C pegs it as being (http://www.w3schools.com/browsers/browsers_stats.asp). I tend to use the W3C for giving me a clue as to when stop supporting a particular browser (usually at around 1% usage).</p>
+<p>It took IE5.x about eight years to reach the 1% threshold. Other browsers--not anywhere so long. IE6 is my basement; I neglect supporting anything lower than IE6 and the pre-IE6 kludges and games. Why worry about it? It isn't worth holding hands for those few who don't bother to upgrade and such. Besides, those few still get the vast amount of the content fairly OK anyway. It's hardly a death penalty for them.</p>
+<p>Acquiring another (modern) browser via download and installation is child's play, so the old-computer issue may not exist except at those firms that refuse to have any such software installed on their computers. But, dem's da breaks, for those unfortunate few. The workplace is meant for work anyway--not enhanced Internet coverage.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63593">26</a></div>
+			<span class="authorname">Ian Alexander Wood</span> said on May 24, 2009		</div>
+		<div class="quote"><p>Personally I think that the level of browser support depends entirely on the project. I specify a list of "supported browsers" when quoting for client work, but build everything with a progressive enhancement methodology. That way everyone can access the content, and those using older browsers will still be able to view the information. The advantage of working this way from stage 1 is that everything can be separated out design wise, so for instance I can provide colour and type styling to all browsers and then build on top of this. If the client needs the site to display a specific way for a browser that isn't on my standard list (like IE6) then I can easily adapt to incorporate that and just quote a little extra for the additional time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63601">27</a></div>
+			<span class="authorname">Dansko</span> said on May 27, 2009		</div>
+		<div class="quote"><p>For me around 35% visitors are still using IE6, and 79% of visitors using IE. Firefox stands at 14%
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63603">28</a></div>
+			<span class="authorname">Paige</span> said on May 27, 2009		</div>
+		<div class="quote"><p>I agree with your thought about not punishing those with older browsers.  There ARE a lot of people who are using older computers that were acquired for free as hand-me-downs.  Especially low income school children.  We need to make sure that they can benefit from the computers as long as possible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63614">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63614">29</a></div>
+			<span class="authorname">Shapia web design</span> said on June 03, 2009		</div>
+		<div class="quote"><p>It is really difficult to check out in all the browsers that is available in the Internet industry. There are huge number of browsers with varying versions. My idea is also to go with the default font style inoder to have basic style on the browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63623">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63623">30</a></div>
+			<span class="authorname">Bilal Ayub</span> said on June 10, 2009		</div>
+		<div class="quote"><p>hello Ian Alexander Wood,<br />
+i found your idea very informative.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63637">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63637">31</a></div>
+			<span class="authorname">John G</span> said on June 25, 2009		</div>
+		<div class="quote"><p>But what about the elephant? With those massive feet he'll have trouble with the keyboard regardless of whether the 'puter is running IE6 or FF3.  A simple CSS for IE6 takes minimal effort and (if necessary) is the least we can do until IE6 says 'bye bye' for good.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63666">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63666">32</a></div>
+			<span class="authorname">Jacob Lee</span> said on July 04, 2009		</div>
+		<div class="quote"><p>To all the people who are completely against IE6 i think it's a pretty ignorant and unprofessional approach.</p>
+<p>It's your job to offer a decent service, and this means adding a few extra bits to support IE6, just like i hope you do for screen readers (not including aural) and Braille pads.</p>
+<p>The truth is, many large companies run on the w2k os, whilst Microsoft is pushing the newer versions of IE out through the update system, none of them work the w2k, so they HAVE to stick with IE6 or spend alot of money upgrading the os. It's completely illogical for them to spend massive sums of money on upgrading. However, next year, official support for w2k ends, and thus many companies will naturally upgrade to a fresh os with official support, oh and a fresh browser.</p>
+<p>By the latter of 2010, the ie6 market share should be firmly &gt;10%
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/browsers/elephant-in-the-room by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:54 GMT -->
+</html>

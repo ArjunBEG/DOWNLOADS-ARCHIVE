@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/personal/snook_plus_one by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Snook++ - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/snook_plus_one">
+	<meta property="og:url" content="https://snook.ca/archives/personal/snook_plus_one">
+	<meta property="og:title" content="Snook++">
+	<meta property="og:description" name="description" content="Things have been crazy busy for the past couple weeks and for good reason. I've mentioned before that my wife and I were in the process of adopting. Last Wednesday, the day we've been working towards ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Snook++</h1>
+		<p>Things have been crazy busy for the past couple weeks and for good reason. I've mentioned before that my wife and I were in the process of adopting. Last Wednesday, the day we've been working towards for almost two years had finally arrived: to be parents once again.</p>
+<p>Lucas Adam James  has become the latest addition to the Snook clan and we couldn't be happier. Our deepest gratitude to the birthmom who allowed us to be in the room during the birth, which was absolutely incredible. To be sure, it will be a day I will never forget.</p>
+<p>After spending a week in Kansas, we're heading on to Chicago for a few days before our return home to Canada. We're looking forward to getting back home and settle into our new routine. </p>
+<p>Anyways, just thought I'd share the good news! </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published August 20, 2007 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/840</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">95 Comments &middot; <a href="https://snook.ca/archives/personal/snook_plus_one.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c54348">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54348">1</a></div>
+			<span class="authorname">Alex Bischoff</span> said on August 20, 2007		</div>
+		<div class="quote"><p>I'm happy for you &mdash; congrats, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54349">2</a></div>
+			<span class="authorname">Ben Henschel</span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congratulations Johnathan, that is excellent news!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54350">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54350">3</a></div>
+			<span class="authorname">Daniel Black</span> said on August 20, 2007		</div>
+		<div class="quote"><p>Hi, Jonathan,</p>
+<p>Just noticed this on Twitter.  For whatever it might mean from a complete and utter stranger, many congratulations.  I'll surreptitiously drop the hint of my curiosity at your use of "again" without blatantly sticking my nose in your business, in the off chance that you'll possibly go into more detail.</p>
+<p>Congratulations and stuff,</p>
+<p>Daniel
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54351">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54351">4</a></div>
+			<span class="authorname">Vicki Stanton</span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congratulations and all the best to you and your whole family, including little Lucas. What awesome news.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54352">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54352">5</a></div>
+			<span class="authorname"><a href="http://jinabolton.com/">Jina Bolton</a></span> said on August 20, 2007		</div>
+		<div class="quote"><p>Wow!  Congratulations, that's fantastic!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54353">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54353">6</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congrats, man! That's awesome! </p>
+<p>Out of curiousity, where in Kansas were you? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54354">7</a></div>
+			<span class="authorname">Dan Cramer</span> said on August 20, 2007		</div>
+		<div class="quote"><p>That's great! Long time lurker, but glad to hear the good news. Congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c54355">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54355">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 20, 2007		</div>
+		<div class="quote"><p>@Daniel: my wife and I have a 3yr old, as well. </p>
+<p>@Jeff Croft: We're in Wichita. A little ways from Lawrence. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54357">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54357">9</a></div>
+			<span class="authorname"><a href="http://alternateidea.com/">Justin Palmer</a></span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congrats Jonathan! Best of luck to you and your wife.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54358">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54358">10</a></div>
+			<span class="authorname"><a href="http://kimblim.dk/">kimblim</a></span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congratulations :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54359">11</a></div>
+			<span class="authorname">Dan Rubin</span> said on August 20, 2007		</div>
+		<div class="quote"><p>Awesome news Jon! Congrats on the addition, can't wait to see pics :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54360">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54360">12</a></div>
+			<span class="authorname">Sharandeep Brar</span> said on August 20, 2007		</div>
+		<div class="quote"><p>Congratulations Jonathan :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54361">13</a></div>
+			<span class="authorname">jamjammo</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Amazing mr.Snook!<br />
+I've just become a Dad myself, now I know what it is like being in the delivery room first hand. A most loving congratulations to the new Father!<br />
+:)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54362">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54362">14</a></div>
+			<span class="authorname">Ben Snape</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats from the UK John!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54363">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54363">15</a></div>
+			<span class="authorname"><a href="http://www.brokenkode.com/">khaled</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Fantastic news Jonathan,easily the best things I've read all day. Good luck buddy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54364">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54364">16</a></div>
+			<span class="authorname"><a href="http://hribar.info/">Miha Hribar</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats again Jonathan!</p>
+<pre><code>while (true) {
+    snook++;
+}</code></pre>
+<p>? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54368">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54368">17</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratz Jonathan! Take care!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54370">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54370">18</a></div>
+			<span class="authorname">Lo.J</span> said on August 21, 2007		</div>
+		<div class="quote"><p>FÃ©licitations Mister Snook! greetings from Belgium.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54378">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54378">19</a></div>
+			<span class="authorname">Geert Leyseele</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratz to you both!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54380">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54380">20</a></div>
+			<span class="authorname">Adrian</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations!</p>
+<p>I hope the next few months and years are all smooth sailing!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54382">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54382">21</a></div>
+			<span class="authorname"><a href="http://www.b-list.org/">James Bennett</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations!</p>
+<p>You still should have come to Lawrence for a visit, though; we would have let you use Jeff's trash can, and that's an honor few people receive ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54386">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54386">22</a></div>
+			<span class="authorname">Alexander Radsby</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations! That's great to hear!</p>
+<p>Is adopting a big process?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54389">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54389">23</a></div>
+			<span class="authorname">Ionut</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54390">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54390">24</a></div>
+			<span class="authorname">Ben Bodien</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations to the new family!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54391">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54391">25</a></div>
+			<span class="authorname">Charlie Park</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Fantastic news. Congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54392">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54392">26</a></div>
+			<span class="authorname">Alen Grakalic</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations. May you have a long and happy life together.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54393">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54393">27</a></div>
+			<span class="authorname">Ivan Brezak Brkan</span> said on August 21, 2007		</div>
+		<div class="quote"><p>What else can I say? Congratulations from Croatia! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54394">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54394">28</a></div>
+			<span class="authorname"><a href="http://shaunandrews.com/">Shaun Andrews</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats buddy!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54397">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54397">29</a></div>
+			<span class="authorname">Darren</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Great stuff. Wish you all the luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54400">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54400">30</a></div>
+			<span class="authorname"><a href="http://www.focusminded.com/">James Mitchell</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>That is awesome, congratulations!</p>
+<p>I am a proud father of two daughters and I can tell you that all the headaches, down moments, and frustrations of being a father of two are many.  However, they are not worth trading for gold!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54403">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54403">31</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com/">Kilian Valkhof</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>congratulations to you and the rest of the family!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54404">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54404">32</a></div>
+			<span class="authorname">Igor</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54407">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54407">33</a></div>
+			<span class="authorname">Alex Giron</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Must be an incredible feeling! Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54408">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54408">34</a></div>
+			<span class="authorname">BillyG</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats. Love the post title!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54409">35</a></div>
+			<span class="authorname">J. Bradford</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Many congratulations! And yes, I have to say the post title is quite clever.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54415">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54415">36</a></div>
+			<span class="authorname">Jeff Sargent</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats! That's awesome!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54417">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54417">37</a></div>
+			<span class="authorname"><a href="http://www.derekallard.com/">Derek Allard</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Jonathan, let me add my voice to the many already here.  Congrats man, to you and your family.  I wish you the very best.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54418">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54418">38</a></div>
+			<span class="authorname">MrQwest</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats Jon, to yourself &amp; your family, that's wicked news!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54420">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54420">39</a></div>
+			<span class="authorname"><a href="http://mondaybynoon.com/">Jonathan Christopher</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratuations Jonathan, that's simply fantastic news!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54422">40</a></div>
+			<span class="authorname"><a href="http://stephenminded.com/">Steve Lounsbury</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats to you and your family, Jonathan! Such good news.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54423">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54423">41</a></div>
+			<span class="authorname"><a href="http://iamacamera.org/">Carl Camera</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations Jonathan! I'll offer up my first parenting advice to you in two words: <em>rechargeable batteries.</em>  :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54424">42</a></div>
+			<span class="authorname"><a href="http://www.wishingline.com/">Scott</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats! Looking forward to seeing some pics up on Flickr soon. Hope you've been storing up those hours of sleep. We'll tell the interweb not to do anything too exciting so you can have some quality time away with the newly extended family!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54426">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54426">43</a></div>
+			<span class="authorname">Brian Reindel</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Many congratulations!</p>
+<p>My wife and I are in the middle of adopting internationally, and we know from experience the whole process can be stressful at times. I wish the best for you and your new family member.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54427">44</a></div>
+			<span class="authorname"><a href="http://sonspring.com/">Nathan Smith</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Great news, congrats Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54428">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54428">45</a></div>
+			<span class="authorname">Andrew Kelly</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Hey Jonathan!</p>
+<p>As I said earlier congratulations on the new addition! Good luck with everything!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54430">46</a></div>
+			<span class="authorname"><a href="http://montgomerystudios.com/">Michael Montgomery</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations to all your family.</p>
+<p>Best wishes and blessings,
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54432">47</a></div>
+			<span class="authorname">Camron Flanders</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Wow, quite a few fellow Lawrencians on here :) </p>
+<p>Congrats Jonathan!  Don't judge Kansas purely on Wichita :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54433">48</a></div>
+			<span class="authorname">Adam Kirkwood</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations to your family!</p>
+<p>Best wishes!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54435">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54435">49</a></div>
+			<span class="authorname">Andrew</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats Jonathan! My wife and I can't wait to adopt our first child.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54436">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54436">50</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Grats, Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54437">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54437">51</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>On an unrelated note, that "Snook++" is pretty funny.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54438">52</a></div>
+			<span class="authorname">Sally Carson</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Alright! Big congratulations Jonathan!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54439">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54439">53</a></div>
+			<span class="authorname">John David Anderson</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats, Jonathan! Best wishes in your new adventure. I have the greatest respect for those who adopt and those who give for adoption.</p>
+<p>Are you headed to Chicago for AnEventApart? Maybe I'll see you there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54442">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54442">54</a></div>
+			<span class="authorname">John Giotta</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Good for you! Always good to hear :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54443">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54443">55</a></div>
+			<span class="authorname"><a href="http://www.reinspire.net/">Jonathan E</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>That's awesome Jonathan, congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54444">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54444">56</a></div>
+			<span class="authorname">Chris Gross</span> said on August 21, 2007		</div>
+		<div class="quote"><p>What great news!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54446">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54446">57</a></div>
+			<span class="authorname">Natalie Jost</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Beautiful news, Jonathan! And from an adoptee, thank you for adopting! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54448">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54448">58</a></div>
+			<span class="authorname">Kanwal</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Mubarak Snook!    You both are very lucky to have been able to adopt   :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54449">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54449">59</a></div>
+			<span class="authorname"><a href="http://briandelicata.com/">Brian Delicata</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>This is great news - congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54452">60</a></div>
+			<span class="authorname">Allen Holt</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Big congratulations!  Excellent news!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54453">61</a></div>
+			<span class="authorname">Brad Dielman</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations to you and your family, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54456">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54456">62</a></div>
+			<span class="authorname">Lucas Visinoni</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Killer name!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54461">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54461">63</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Snook, you're doing a great thing. Adoption is great enough on its own, but it's even better when it means removing a poor young soul from the hell that is Wichita. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54463">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54463">64</a></div>
+			<span class="authorname"><a href="http://www.tareeinternet.com/">SEO Carly</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Another Congratulations to add to the list. All the best with the new addition Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54467">65</a></div>
+			<span class="authorname">David</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Contratulations Snook!  When will Lucas' blog be up?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54471">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54471">66</a></div>
+			<span class="authorname">pablasso</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54475">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54475">67</a></div>
+			<span class="authorname"><a href="http://716ink.com/">Gil Creque</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Just had to come and say congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54476">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54476">68</a></div>
+			<span class="authorname">Matt Heerema</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congrats!! so cool...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54481">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54481">69</a></div>
+			<span class="authorname">Lance Fisher</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Awesome!  Congratulations!  That is so wonderful you got to be there for the birth.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54482">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54482">70</a></div>
+			<span class="authorname">Kyle Jones</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Super Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54483">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54483">71</a></div>
+			<span class="authorname"><a href="http://walkerhamilton.com/">Walker Hamilton</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Jon, are you going to be in Chicago for AEA? I live there, would be a pleasure to meet ya.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54486">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54486">72</a></div>
+			<span class="authorname">Andy</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulations! Teach him the way of the Jedi well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54487">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54487">73</a></div>
+			<span class="authorname">lewro</span> said on August 21, 2007		</div>
+		<div class="quote"><p>Congratulation to you and your family!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54507">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54507">74</a></div>
+			<span class="authorname">Nick Finck</span> said on August 21, 2007		</div>
+		<div class="quote"><p>congrats on Snook 2.0!  Hope to see you at WMJS, SXSWi or some other web conference soon :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54508">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54508">75</a></div>
+			<span class="authorname"><a href="http://www.chrispalle.com/">Chris PallÃ©</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Good stuff, man. Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54513">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54513">76</a></div>
+			<span class="authorname"><a href="http://theworkaround.com/">Tarellel</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>Wow, Congrats man, having a new addition to the family is always worth any and all stresses.</p>
+<p>Now we just have to wait 16 years before we have a new era of snook, baby geniuses leading the world in design and innovation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54541">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54541">77</a></div>
+			<span class="authorname">Davy</span> said on August 22, 2007		</div>
+		<div class="quote"><p>hi Jonathan,</p>
+<p>Congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54544">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54544">78</a></div>
+			<span class="authorname"><a href="http://theblogstudio.com/">Peter Flaschner</a></span> said on August 22, 2007		</div>
+		<div class="quote"><p>Congratulations Jon! Remember, 2 kids isn't twice as much work as 1, it's 4 times as much. Have fun!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54548">79</a></div>
+			<span class="authorname">Jason Beaird</span> said on August 22, 2007		</div>
+		<div class="quote"><p>Wow! Great news. As Nick Finck said on Twitter this mornin', "Congrats on Snook 2.0!"
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54550">80</a></div>
+			<span class="authorname">Jason Beaird</span> said on August 22, 2007		</div>
+		<div class="quote"><p>...or perhaps he said it yesterday, <a href="#c54507">right here</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54552">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54552">81</a></div>
+			<span class="authorname"><a href="http://warnis.com/">Fredrik WÃ¤rnsberg</a></span> said on August 22, 2007		</div>
+		<div class="quote"><p>Congratulations Jonathan!</p>
+<p>So when will Snook 3.0 be arruving? :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54553">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54553">82</a></div>
+			<span class="authorname"><a href="http://frankmanno.com/">Frank Manno</a></span> said on August 22, 2007		</div>
+		<div class="quote"><p>Congratulations, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54564">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54564">83</a></div>
+			<span class="authorname">David Mead</span> said on August 22, 2007		</div>
+		<div class="quote"><p>Congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54566">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54566">84</a></div>
+			<span class="authorname">Daniel</span> said on August 22, 2007		</div>
+		<div class="quote"><pre><code>
+echo "congrats!!"
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c54573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54573">85</a></div>
+			<span class="authorname">Dain</span> said on August 22, 2007		</div>
+		<div class="quote"><p>Congrats!!! Hope everything is going well, we are having a son next month, and I'm getting a bit nervous... but very excited. Again, congratulations to you and your fam'.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54580">86</a></div>
+			<span class="authorname">Harry</span> said on August 22, 2007		</div>
+		<div class="quote"><p>Many congratulations! It is a truly wonderful thing to do, and I hope it brings you much happiness!</p>
+<p>All the best, Harry!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c54603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54603">87</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 22, 2007		</div>
+		<div class="quote"><p>Thanks everybody for the well wishes! </p>
+<p>@Alexander Radsby: adoption can be a very long, complicated and expensive process. Of course, it's also an extremely rewarding process and has been worth every bit of effort we've put into it.</p>
+<p>Re: An Event Apart, although I'm in Chicago at the moment, in all likelihood I'll be leaving on Friday and won't be able to stick around for the conference. Too bad though...I'd certainly like to attend. Or at the very least, hang out at the after party. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54610">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54610">88</a></div>
+			<span class="authorname">Carolyn </span> said on August 22, 2007		</div>
+		<div class="quote"><p>Jonathan, I'm really happy for you and your family...and to be there for the birth itself - what a privilege. </p>
+</div>
+	</div>
+		<div class="comment" id="c54627">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54627">89</a></div>
+			<span class="authorname"><a href="http://usabilityworks.org/">Matthew Oiphant</a></span> said on August 23, 2007		</div>
+		<div class="quote"><p>Jon that's awesome!  Congrats to your family.  What a great opportunity to be there for the birth. :)  </p>
+<p>(We just got back from Canada so I am a little late responding. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54637">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54637">90</a></div>
+			<span class="authorname">Cheryl</span> said on August 23, 2007		</div>
+		<div class="quote"><p>hey Jonathan, congratulations, that's such awesome news. Much love to you and the family. </p>
+<p>Out of curiosity how does it work with the birth mom? Is she interested in staying in touch with him or does she want to want and see what happens when he's older, etc? I've not heard a lot about adopting in this day and age, more just stories from the 60s when it was very taboo...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55003">91</a></div>
+			<span class="authorname"><a href="http://www.bernzilla.com/">Bernie Zimmermann</a></span> said on August 26, 2007		</div>
+		<div class="quote"><p>Congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55011">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55011">92</a></div>
+			<span class="authorname">Delilah Hinman</span> said on August 26, 2007		</div>
+		<div class="quote"><p>That is wonderful :D I hope all goes well. Congrats :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55038">93</a></div>
+			<span class="authorname">sara</span> said on August 28, 2007		</div>
+		<div class="quote"><p>That rocks! Your hands are definitly full now!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55052">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55052">94</a></div>
+			<span class="authorname"><a href="http://www.456bereastreet.com/">Roger Johansson</a></span> said on August 29, 2007		</div>
+		<div class="quote"><p>A bit late, but congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55056">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55056">95</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 29, 2007		</div>
+		<div class="quote"><p>Thanks everybody for the well wishes!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/personal/snook_plus_one by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:57 GMT -->
+</html>

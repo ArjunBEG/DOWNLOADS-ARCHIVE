@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/other/word-of-vim by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Journey into the World of Vim - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/word-of-vim">
+	<meta property="og:url" content="https://snook.ca/archives/other/word-of-vim">
+	<meta property="og:title" content="Journey into the World of Vim">
+	<meta property="og:description" name="description" content="I used to make it a part of my day to learn a new tool or find a shortcut for something I already did. It's a habit I got out of for awhile. I called it my laziness: I don't want to spend time operati...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Journey into the World of Vim</h1>
+		<p>I used to make it a part of my day to learn a new tool or find a shortcut for something I already did. It's a habit I got out of for awhile. I called it my laziness: I don't want to spend time operating a tool; I want to spend time building what needs to get built. </p>
+
+<p>In my heyday, I'd have my machine customized to the nines. Lots of shortcuts and gestures and bells and whistles to help me be productive. It was always awkward to hop onto somebody else's machine because I'd instinctively attempt to use a shortcut and it wouldn't be there. </p>
+<h2>Transitioning</h2>
+<p>When I switched to a Mac about three years ago, I kept it fairly minimalist. Yes, I had a bunch of new tools to learn. I had settled nicely into using <a href="http://macromates.com/">Textmate</a> as my main day-to-day editor. It's a perfectly reasonable editor with lots of great features. I used <a href="http://ciaranwal.sh/projectplus">ProjectPlus</a>, <a href="http://code.google.com/p/zen-coding/">Zen Coding</a>, and a couple other plug-ins. Textmate is a decent application and is easy to get started with. It's like most other text editors: cut, copy, paste with a number of handy options available at the click of a mouse. Expertise in the application grew as I learned a few more of the keyboard shortcuts within Textmate. </p>
+
+<p>However, in my current job, I found my time split between working locally on my machine and needing to be logged into a remote server making to review and test changes. Sure, I could work locally and just copy the files back and forth. And this is exactly what I did. For awhile.</p>
+<h2>First introduction to Vim</h2>
+<p>I knew of Vim and would occasionally use it when working on remote servers. Edit an Apache configuration file here. Make a quick change to a file there. I first learned of Vi (of which Vim was born from) back around 1991 when I did a co-op placement and found myself in front of a Unix box.</p>
+
+<p>I learned enough to know how to open a file from the command line (<kbd>vim filename.ext</kbd>), edit the file (<kbd>a</kbd> to go into insert mode), save it (<kbd>:w</kbd>), and then exit (<kbd>:q</kbd>). My skill with Vim really hadn't evolved in the 20 years since I first learned of the editor.</p>
+<h2>Diving in deep</h2>
+<p>I knew Vim could do more&mdash;much more. And so I decided to take the leap and make it my primary editor. I installed <a href="http://macvim.org/OSX/index.php">MacVim</a> and then watched these <a href="http://ontwik.com/tools/vim-from-novice-to-professional-by-derek-wyatt-p1/">great screencasts</a> by Derek Wyatt to get started.</p>
+
+<p>The screencasts are a fantastic place to start because they focus on the core pieces of Vim that you need to know and will quickly pick up steam:</p>
+
+<ul>
+	<li>Movement</li>
+	<li>Editing</li>
+	<li>Buffers</li>
+	<li>Windows</li>
+</ul>
+
+<p>The first three are really the key ones. Movement is important because a lot of the power in Vim is being able to move around a document quickly. Wyatt's screencasts cover the basic movements well. From there, having an understanding of how to get into Insert mode is helpful (beyond hitting <kbd>a</kbd>, like I used to do). </p>
+
+<p>Buffers are really where it's at. A buffer is like having a document open in another editor. Except it's just sitting there in memory, waiting to be worked on. By default, you only see one document at a time. I used to have to save, exit out of Vim and then open another file to make changes. This is very tedious. I just didn't know any better. Once you discover how to have multiple files open and to switch between them, you're well on your way to using Vim as your primary editor.</p>
+
+<p>Understanding buffers is just the first step to working with multiple files. The next step is to manage those buffers in a visual way. Two ways to do that include Windows and Tabs.</p>
+
+<p>Tabs are a familiar paradigm. MacVim supports them much like tabs in any other desktop application. Hit Command-T and voila, you have a new tab. That new tab has access to the same list of buffers as all the other tabs. It's just a visual way of separating your work. Terminal-based Vim sessions can also do tabs. </p>
+
+<p>Windows, on the other hand, are different than what you might expect. They're actually more like panes. A screen can be split into multiple panes. They can be split horizontally and vertically and split multiple times. </p>
+
+<p>You might want to check out the <a href="http://www.vim.org/scripts/script.php?script_id=1658">NERDTree plug-in</a> which provides a browsable directory view, similar to ProjectPlus. NERDTree uses windows, so an understanding of how windows work will help you more readily use the plug-in.</p>
+<h2>Diving deeper</h2>
+<p>Since that time, my knowledge of Vim has continued to increase. I'll take time with a set of features, like tabs and windows, and work with them until they start to become second nature. Then I'll learn a new feature and continue on from there.</p>
+
+<p>After the screencasts, I've gone on to learn how to customize my interface, such as getting a status line that I like. My vimrc file, a file that stores Vim preferences, is getting larger as more and more tweaks go in. It now handles indentation using the approach we have at work (four spaces instead of tabs). These are small things, I know, but I feel like I'm getting back into old habits&mdash;good habits: I'm customizing my environment to get the most out of it. As a result, I'm feeling more productive. I feel like I'm getting more out of my tools.</p>
+
+<p>Yesterday, I took time to learn about code-folding (a feature that I, admittedly, have used very infrequently in any editor that I've used). Today, I was told to look into autocomplete, and so I did. Now there is a feature I will use heavily. Going back to plug-ins, I installed Zen Coding for Vim, since I find it quite handy. I mapped a handy keyboard shortcut for it, tweaked some of the snippets, and <em>bam</em>, I'm getting stuff done! I even wrote this blog post in Vim. </p>
+<h2>All in!</h2>
+<p>I have undoubtedly become a Vim convert and will likely use it for years to come. Yes, the learning curve is steep but for me, it's been worth it. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 13, 2011 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/991</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">27 Comments &middot; <a href="https://snook.ca/archives/other/word-of-vim.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c65883">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65883">1</a></div>
+			<span class="authorname">Gregory Gaskill</span> said on February 13, 2011		</div>
+		<div class="quote"><p>My full-time editor progression: Gvim on Linux to TextMate on Mac to MacVim on Mac. What I missed from TextMate was command-T to open a file, and snippets. Luckily, the amazing <a href="http://wincent.com/products/command-t">Command-T</a> plug-in and SnipMate exist, and work wonderfully.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65888">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65888">2</a></div>
+			<span class="authorname">Francesco Levorato</span> said on February 14, 2011		</div>
+		<div class="quote"><p>I recently switched to MacVim from nothing less than Eclipse (I am a php dev).<br />
+The best thing I feel when using Vim is that I can /program/ it to my likings, adding shortcuts like the ones I was used to in Eclipse.<br />
+You can make it behave like you want and feel great!<br />
+Janus helped me in the switch as it gets you a decent MacVim without getting crazy in hunting for plugins<br />
+Thanks for sharing,<br />
+Francesco<br />
+[1] https://github.com/carlhuda/janus<br />
+[2] http://www.delicious.com/flevour/vim
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65892">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65892">3</a></div>
+			<span class="authorname">Scott</span> said on February 14, 2011		</div>
+		<div class="quote"><p>It's funny, I've used Vim a lot and seen a lot written about it, but I've never seen *anything* that is actually easier or quicker to do in Vim.</p>
+<p>For example, deleting a line is "dd" in Vim. In other editors it's simply Shift+End, Delete (or Ctrl+X). Technically Vim is fewer keystrokes (assuming you're already in command mode - and can remember the command!) but a regular editor is always more intuitive and quicker.</p>
+<p>The one I see a lot of is, "oh but you can delete 20 lines instantly with :d20". But how do you know you need to delete exactly 20 lines unless you sit and count them? With the mouse you can quickly select the section you wish to delete. Or hold Shift + Arrow key.</p>
+<p>Even movement is quicker using a combination of dragging the scrollbar, Ctrl+Home, Ctrl+End, PgUp, PgDown, Ctrl+G, Ctrl+F, etc...</p>
+<p>I don't mean to sound like a troll, but I am genuinely interested in how and where Vim is quicker because I don't see it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65894">4</a></div>
+			<span class="authorname">Tim McCormack</span> said on February 14, 2011		</div>
+		<div class="quote"><p>Unclosed parenthetical in "First introduction" is really bugging me!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65897">5</a></div>
+			<span class="authorname">Nate Klaiber</span> said on February 14, 2011		</div>
+		<div class="quote"><p>I made the decision to switch a few months ago. I had to force myself to just do it. Up to that point, I knew the basics. My main reason was that I found myself doing a lot more server related tasks, and I wanted to be efficient while editing in the server and moving around. It's why I wanted a barebones setup of VIM - I didn't want to switch and have so many dependencies.</p>
+<p>The only problem I have now is that I want to navigate in all text editors with H,J,K,L. </p>
+<p>Scott - I can honestly say VIM is much quicker than working with something like TextMate. I used to think the same thing - my colleagues all used VIM, and I was the only one on TextMate. Over time I started to see how efficiently they used their screen, buffers, and a few custom mappings - and I was blown away. All of that without ever touching a mouse.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65900">6</a></div>
+			<span class="authorname">Karl G</span> said on February 14, 2011		</div>
+		<div class="quote"><p>&gt; I don't mean to sound like a troll, but I am genuinely interested in how and where Vim is quicker because I don't see it! </p>
+<p>ci"<br />
+d%<br />
+=aB<br />
+.</p>
+<p>If you're just using basic commands, vim isn't that much faster. You get the big gains with the compound motion commands (f/t), text objects (i/a), and repeat (.).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65901">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 14, 2011		</div>
+		<div class="quote"><p>@Tim: fixed it! :)</p>
+<p>@Scott: I definitely recommend you watch the first couple screencasts that I linked up. They're all about movement, which is where you'll see some of the moves. &lt;kbd&gt;:d20&lt;/kbd&gt; isn't a move that I use very often, and demonstrating such isn't a huge selling point, I'll give you that. :) Getting to know some of the other movement commands like ^, $, } will help you start to see the power. </p>
+<p>For example, if I'm in a function and I want to select the function, I could start at the beginning, switch to Visual Line mode with Shift-V and then } to select to the close bracket. x to cut it. or c to cut it and go into insert mode. I could cut it to a specific clipboard using "ax, grab something else with "bx, and then paste from either of those clipboards using "ap, "ab. </p>
+<p>As certain movements become second nature, it just becomes much quicker to do things without having to shift your hand to the mouse and back. With that said, using MacVim means I don't have to give up the mouse altogether. There are times where I still feel more comfortable using the mouse. But the more I practice, the less work my mouse gets (and the longer the batteries last! :)).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65902">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65902">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 14, 2011		</div>
+		<div class="quote"><p>And thank you, Karl. Now I know about % and will use that frequently!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65904">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65904">9</a></div>
+			<span class="authorname">Karl G</span> said on February 14, 2011		</div>
+		<div class="quote"><p>There is one trick to %: it searches forward for a match. If you have |foobar(xyz) (| is cursor) d% will delete the entire function call.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65907">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65907">10</a></div>
+			<span class="authorname">Matt Alexander</span> said on February 14, 2011		</div>
+		<div class="quote"><p>Thanks for letting me know about Derek Wyatt. I can tell I'll learn a lot from him.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65908">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65908">11</a></div>
+			<span class="authorname">ralcus</span> said on February 14, 2011		</div>
+		<div class="quote"><p>i've been learning Vim the last few weeks too. I'm a dreamweaver user :-\ on windows. I felt like there had to be a better alternative and i was searching around for a textmate like program for windows. A couple of weeks a go i happened to nose in your delicious bookmarks and clicked on one of Derek Wyatt's screen casts. It convinced me enough to give Vim a good try. So far i'm enjoying it although i have to admit its a tough transition for me. But i'm persevering.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65911">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65911">12</a></div>
+			<span class="authorname">Yannick</span> said on February 14, 2011		</div>
+		<div class="quote"><p>I have started with Vim a few month ago, after using a mix of texMate, BBedit and Espresso depending on how I felt on the day. I fot started with <a href="http://peepcode.com/products/smash-into-vim-i">Dan benjamin screen cast</a> which i really recommend. But now i can't live without <a href="http://oreilly.com/catalog/9780596529833/">"learning Vi and the VIm editor"</a> from O'reilly . Best geeky book that I have ever bought and full of crispy Vim knowledge nuggets.</p>
+<p>It's an editor quite challenging to learn but the reward is really worth it :) I really love the surgical precision that one can reach while editing code.</p>
+<p>Some of the most useful plugins for me are the Tim Pope collection (surround, ragtag, fugitive),unimpaired, bufferexplorer, zen coding that I now use more than the snipmate bundle equivalent.</p>
+<p>My best vim tip of the day is ctrl+o while in insert mode. it take you back to normal mode to issue command and switch back to insert straight after. Pure little gold gem.</p>
+<p>Good learning!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65912">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65912">13</a></div>
+			<span class="authorname">redwall_hp</span> said on February 14, 2011		</div>
+		<div class="quote"><p>I use TextWrangler for 90% of my text editing, and nano when I have to edit something over SSH. I pretty much despise command line text editors, no matter how much people rave about them. (I still can't believe there are weirdos who do *all* of their editing in vim or emacs...) I purposefully use nano because it's the least needlessly arcane.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65918">14</a></div>
+			<span class="authorname">Enrico Teotti</span> said on February 14, 2011		</div>
+		<div class="quote"><p>@scott, I have :set relativenumber as a shortcut so I can switch the regular line count to be relative to the current line. That way you can do the :d20 or even 20j (to move down 20l)</p>
+<p>I don't think that's the reason I am on vim tough :)</p>
+<p>Like yannick I'd recommended http://stevelosh.com/blog/2010/09/coming-home-to-vim/ and the oreily book
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66059">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66059">15</a></div>
+			<span class="authorname">dr. Hannibal Lecter</span> said on February 20, 2011		</div>
+		<div class="quote"><p>Jonathan, welcome to the dark side!</p>
+<p>You may also like <code>ggVG</code> as a shortcut :)</p>
+<p>One thing I like a lot is getting an error from PHP/Ruby etc.. "There is an error in file ZZZZ on line XX" because you can simply do <code>XXgg</code> in Vim and you're on line XX in your file. Quite handy, wouldn't you say? :)</p>
+<p>Also, see this for some kick ass tricks:</p>
+<p>http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66105">16</a></div>
+			<span class="authorname">SteveM</span> said on February 22, 2011		</div>
+		<div class="quote"><p>vi is a very rewarding editor to use and the reason some people don't like it is they're not prepared to put in the effort to learn it.  Unlike editors that are "easy" to use from day 1, you can really get fast when you're proficient in vi - the "easy" editor will always be slower.</p>
+<p>The first thing you need to do is to ":map g 1G" so a single lower case 'g' will take you to the top of your file (as a single upper case one takes you to the end).  Then learn how to move the cursor along the line using 't' and 'f' (and their upper case reversals).  And it's a word processor, too!  Use brackets, '('and ')' to take you to the next and previous sentence!  You have to end end sentence with a period followed by two spaces or a newline, of course. :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66130">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66130">17</a></div>
+			<span class="authorname">Dave Allen</span> said on February 23, 2011		</div>
+		<div class="quote"><p>You'll love this then:</p>
+<p>http://net.tutsplus.com/articles/general/quick-tip-even-quicker-markup-with-sparkup/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66131">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66131">18</a></div>
+			<span class="authorname">andy</span> said on February 23, 2011		</div>
+		<div class="quote"><p>@scott</p>
+<p>HAHAHAHAHAHHAHAHAHAHAHAHA. ha.</p>
+<p>I guess I shouldn't laugh, I used to think I was efficient in Notepad++. Things are more "intuitive" for you in other editors because you don't know how to use VIM. I especially like your PgUp/Home examples. You need to embrace the Vim mentality of keeping your fingers on the home row. Reaching over (and probably having to look at your keyboard) to hit PgUp is a huge time waster. And god forbid use the mouse.</p>
+<p>Things that are actually faster in Vim? Well, pretty much every command</p>
+<p>- gg/G jump to start/end of file, reaching over to home/end is a productivity killer<br />
+- ci" / ca" change word inside quotes<br />
+- I / A - insert at beginning or end of line<br />
+- / simply the search command, instant find-as-you-type search without a disgusting dialog box appearing OVER what you are trying to search for<br />
+- dd delete line and copy it to yank buffer, definitely faster than other programs<br />
+- Ctrl+O jump backwards through lines that you edited<br />
+- cw/cW/cB etc delete the current word, copy it to yank buffer, and go into insert mode</p>
+<p>Once you actually learn the power of VIM you won't switch to another editor. There are thousands of extremely useful commands, making mastering VIM a new learning experience every day. In fact check out vimgolf.com to really boost your efficiency.</p>
+<p>@Stevem what? gg goes to top of file fine.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66134">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66134">19</a></div>
+			<span class="authorname">Reinier Sierag</span> said on February 23, 2011		</div>
+		<div class="quote"><p>Hi, in my daily work as a programmer and webdesigner at an isp I'm working on different projects on different servers. I used losts of different editors the last 6 years, from dreamweaver, to eclipse, textmate and learned about VIM the hard way :). I discovered Coda a year ago. The problem with VIM is that you do not have code completion, project viewer (explorer style) a.d oplossing files for example. Also working on different projects on different servers Coda will let me switch mutch faster (sftp). Ps I think everyone must give VIM a change before sticking to a Textmate like editor.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66136">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66136">20</a></div>
+			<span class="authorname">Reinier Sierag</span> said on February 23, 2011		</div>
+		<div class="quote"><p>(edit) oplossing = uploading
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66158">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66158">21</a></div>
+			<span class="authorname">Amadeus</span> said on February 24, 2011		</div>
+		<div class="quote"><p>I really liked vim's commands a lot, and with each new command I really grew faster (d motions!!!).</p>
+<p>However, as a jr. front end developer and general newbie to vim, it was unsuccessful for me ti set up vim so that I could even install plugins on vim, ie zencoding, command-T. The directories and vimrc just weren't linking up in some way, and I have to say, there are a supreme shortage to tutorials for setting these take-for-granted root directories and linking them up. I just keep seeing install to your ~/.vim/plugins folder and it works, or just add to your .vimrc and it works. No dice for me so far.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66168">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66168">22</a></div>
+			<span class="authorname">RV David</span> said on February 24, 2011		</div>
+		<div class="quote"><p>When I had first started using vim, a vim document/script with lessons/exercises formatted to get a new user familiar with with Vim's features called "vimtutor" was key.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66288">23</a></div>
+			<span class="authorname">Anthony Clark</span> said on February 28, 2011		</div>
+		<div class="quote"><p>This post and site just got a glowing review in 'The Dev Show' #37 by 5by5.tv
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66307">24</a></div>
+			<span class="authorname">James Childers</span> said on March 01, 2011		</div>
+		<div class="quote"><p>vimtutor FTW!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66361">25</a></div>
+			<span class="authorname">judev</span> said on March 03, 2011		</div>
+		<div class="quote"><p>Check out https://github.com/astrails/dotvim if you haven't seen it already, it's quite RoR focused but a great starting point for a custom .vim setup whatever your situation
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66393">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66393">26</a></div>
+			<span class="authorname">Tommy Bollman</span> said on March 05, 2011		</div>
+		<div class="quote"><p>I have been using Vim to and fro for several years dating back to about 1990.<br />
+Vim is great for a lot of stuff. I have however realized that no single editor is perferct and that no one ever will be. </p>
+<p>I now depend on BBEdit, as an all round editor both it and TextWrangler (which is free) is reachable from the command line.<br />
+You don't have to learn some arcane version of lisp in order to customize it. -It is not perfect, but it takes care of most of the business in a pleasant way, like programming, editing websites and latex documents, It has a whole range of plugins.<br />
+During the usage of three years I bet I haven't customized it for more than 10 hours.<br />
+You get pre built plugins for version control, syntax highligthning and such.<br />
+BBEdit even has palettes where you just embed some selections, or drag them into your document. It also updates a whole website on request when you have changed your persisten includes.</p>
+<p>I guess I have spent far more hours with vim rc.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66394">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66394">27</a></div>
+			<span class="authorname">Jesse</span> said on March 05, 2011		</div>
+		<div class="quote"><p>Geez, just when I thought switching from Dreamweaver to Expression Web to Notepad ++ was gonna do the trick, I come across this. Stink!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/other/word-of-vim by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:52 GMT -->
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from snook.ca/archives/other/commandshift3 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>CommandShift3 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/commandshift3">
+	<meta property="og:url" content="https://snook.ca/archives/other/commandshift3">
+	<meta property="og:title" content="CommandShift3">
+	<meta property="og:description" name="description" content="&ldquo;CommandShift3 is like Hot or Not. Except, instead of clicking on hot babes, you click on hot websites.&rdquo;
+A very straightforward concept and one that has definitely caught on with a bunch ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('https://snook.ca/css/MuseoSans_500-webfont.woff2') format('woff2'), url('https://snook.ca/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('https://snook.ca/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(https://snook.ca/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(https://snook.ca/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(https://snook.ca/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(https://snook.ca/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(https://snook.ca/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(https://snook.ca/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(https://snook.ca/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(https://snook.ca/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(https://snook.ca/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(https://snook.ca/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(https://snook.ca/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(https://snook.ca/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(https://snook.ca/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(https://snook.ca/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(https://snook.ca/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(https://snook.ca/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(https://snook.ca/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(https://snook.ca/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(https://snook.ca/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(https://snook.ca/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(https://snook.ca/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(https://snook.ca/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="https://snook.ca/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="https://snook.ca/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="https://snook.ca/about/">About</a> &middot;  <a href="https://snook.ca/contact/">Contact</a> &middot; <a href="https://snook.ca/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>CommandShift3</h1>
+		<p>&ldquo;<a href="http://commandshift3.com/">CommandShift3</a> is like Hot or Not. Except, instead of clicking on hot babes, you click on hot websites.&rdquo;</p>
+<p>A very straightforward concept and one that has definitely caught on with a bunch of people. One of the neat things they've done that I like, is the video you see when you submit your site. They've conveniently compiled a list of <a href="http://commandshift3.com/all_videos.html">all the videos</a> for your perusal. Ben Brown and Taylor McKnight are probably my two favourites of the list.</p>
+<p>Beyond that, <a href="http://elliotjaystocks.com/blog/archive/2008/video-on-commandshift3/">Elliot Jay Stocks</a> got asked to put together a special video for their 404 page. I left a comment on that post about doing a video. Lo and behold, they saw the comment and asked if I'd do a video. (See, it never hurts to ask...even in an off-handed way.)</p>
+<p>If you'd like to see said video, try to find <a href="http://commandshift3.com/404">a page from the unknown</a>. You may have to refresh as it'll randomly choose a video between myself and Elliot. (And yes, <a href="http://twitter.com/snookca/statuses/687413112">I bought a webcam just to do this video</a>. Although, trying out <a href="http://ustream.tv/">Ustream.tv</a> and <a href="http://live.yahoo.com/">Y! Live</a> has been fun, too.)</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 09, 2008 </div>
+	<div class="cat">Categorized as <a href="https://snook.ca/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/876</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">13 Comments &middot; <a href="https://snook.ca/archives/other/commandshift3.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57449">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57449">1</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com/">Nate Klaiber</a></span> said on February 09, 2008		</div>
+		<div class="quote"><p>Those were great. I'm thinking you should do a revision with a pirate hat. That would be sweet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57450">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57450">2</a></div>
+			<span class="authorname">mark</span> said on February 09, 2008		</div>
+		<div class="quote"><p>Great concept, slaps forehead, why didn't I think of that...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57451">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57451">3</a></div>
+			<span class="authorname">Luke</span> said on February 09, 2008		</div>
+		<div class="quote"><p>Have you seen <a href='http://webhotornot.com/'>webhotornot</a>? It's a different take on the same idea - although it's a little closer to hot-or-not in terms of implementation style(using 1-10 to rate).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57453">4</a></div>
+			<span class="authorname"><a href="http://jessecollins.com/">Jesse C.</a></span> said on February 10, 2008		</div>
+		<div class="quote"><p>The whole concept is wild - I love it. It also reminds me to bring "add interesting/ functional 404's to all the sites we work on" a little higher up on the to-do list. </p>
+<p>Great video, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57455">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57455">5</a></div>
+			<span class="authorname"><a href="http://www.scarfoo.com/">Damjan MozetiÄ</a></span> said on February 10, 2008		</div>
+		<div class="quote"><p>This is just like I want it, simple and effective. And of course it's so much better because of Dan :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57459">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57459">6</a></div>
+			<span class="authorname">amfis</span> said on February 12, 2008		</div>
+		<div class="quote"><p>"Interesting" approach. I never liked such sites, because it's waste of time. There are a lot of web galleries and stuff. Actually it is becoming "need to have" sites whose purpose is to advertise and make some money but nothing else. </p>
+<p>But 1 great web gallery, unified system with users, ratings, connections and networking all over the web design world could be an idea worth $1million. </p>
+<p>And yes, I understand that guys from "CommandShift3" tried to develop something unique. And they project outcome is still simple and effective.</p>
+<p>By the way Jonathan, not bad video. </p>
+<p>+1 from me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57466">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57466">7</a></div>
+			<span class="authorname">Graham Smith</span> said on February 13, 2008		</div>
+		<div class="quote"><p>Hi<br />
+Am new to commentating here on your site, but it a regular visitor in my inbox due to the updates.</p>
+<p>I tend to read and get used to new sites for a while, see what they are all about before deciding to contribute to the articles.</p>
+<p>I just hate leaving a 'hi, nice site' comment and be done with it. Nice to get now and again i'm sure, but if it's that nice, then why not go to a little more effort to write a few more words? Anywho, nothing new in that train of thought I guess.</p>
+<p>I thoroughly enjoyed this article and spent some time on the site. Probably a little too much time in hindsight. But hey ho.</p>
+<p>I have also wrote about this site on my Blog and have 'trackbacked' to your article. Forgive me for my naivety, but this is the first time I have used trackback and not even sure I have implemented it correctly. </p>
+<p>Would be greatful if you are able to tell me if you got this trackback? I am under the impression it shows my post as originating from your original post? Or have i got that all wrong? :0)</p>
+<p>Anywho, you DO have a awesome site. Everything about it works for me, a source of true inspiration. I am designer, but not web, so am now converting my talents to designing and learning CSS and PHP, long steep road, but hopefully it will be worth it.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57470">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57470">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 13, 2008		</div>
+		<div class="quote"><p>@Graham: I actually don't have trackbacks implemented so you won't see your blog post linked up here. But I'm glad you like the site and enjoyed visiting CommandShift3.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57472">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57472">9</a></div>
+			<span class="authorname">Barnaby Claydon</span> said on February 13, 2008		</div>
+		<div class="quote"><p>Sounds like the next wait-a-few-months-and-monetize-the-whole-thing-with-a-stylish-little-book idea, no? ;)</p>
+<p>Interesting find though Jonathan. In the same vein, I do miss notproud.com ... oh well
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57473">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57473">10</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn</a></span> said on February 13, 2008		</div>
+		<div class="quote"><p>Cant view the video at the moment - silly work! but i better get back to work as ive already looked at quite a few cute websites...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57495">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57495">11</a></div>
+			<span class="authorname">Mike</span> said on February 18, 2008		</div>
+		<div class="quote"><p>So the great idea is to choose between 2 sites which one you like the most?<br />
+I really don't think is such a great idea..is more like an copy of the hot babes applied to another domain.<br />
+Still great layouts found there..:)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57504">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57504">12</a></div>
+			<span class="authorname">Adam</span> said on February 20, 2008		</div>
+		<div class="quote"><p>This is already a high page rank website with much traffic, are you afraid people will be spam submitting websites to increase backlinks? (runs away and hides).</p>
+<p>I admit I have submitted a few, but purely to see the results, I do often submit to websites like CSS Based to see the results of "Voting"</p>
+<p>And I admit, I already sent my CV off :)</p>
+<p>I like the idea of it, I just hope it doesn't fall in the hands of all the degenerates that are on "Hot or Not" and end up with results based purely on looks, and not on the code,  Code is so important now!</p>
+<p>Hot or Not, though last time I went on this it was just random images and it popping up saying "Hot or Not" and then numbers 1-9 or whatever...</p>
+<p>I think it should be more evolved to make it only "one" website and not a competition, are their any prizes for winning etc?</p>
+<p>The only flaw with being truly hot or not style is like all the girls vote the other girls fugly, and visa versa.</p>
+<p>There is some nice stuff on there, I'll be keeping tabs on this!</p>
+<p>My first comment so, Hi! Everyone :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57511">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57511">13</a></div>
+			<span class="authorname">andrej</span> said on February 21, 2008		</div>
+		<div class="quote"><p>Great and fun site. Hope it doesn't steal too much of my time ;)</p>
+<p>Maybe one could really do some kind of psychological visual preference guide out of the results. </p>
+<p>Such as: Most Users prefer designs green background gradients and some grey and black in the header :)</p>
+<p>By the way, did you submit snook.ca? If you didn't I'll do it ;)
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="https://snook.ca/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="https://snook.ca/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+
+<!-- Mirrored from snook.ca/archives/other/commandshift3 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Apr 2021 22:04:56 GMT -->
+</html>
