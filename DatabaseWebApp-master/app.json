@@ -1,0 +1,8 @@
+{
+  "name": "Database Web App",
+  "description": "A sample app demonstrating how to integrate, write to, and read from a database. ",
+  "repository": "https://github.com/HubSpot/DatabaseWebApp",
+  "logo": "",
+  "keywords": ["node", "express", "static", "firebase"],
+  "image": "heroku/nodejs"
+}
