@@ -1,0 +1,1 @@
+A simple polyfil for Object.create method.
