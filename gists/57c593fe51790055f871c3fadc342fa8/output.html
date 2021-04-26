@@ -1,0 +1,26 @@
+<body>
+  <header>
+    <h1>Hello world!</h1>
+  </header>
+  
+  <main>
+    <noscript id='__await_block_0_start'></noscript>
+    <p>loading...</p>
+    <noscript id='__await_block_0_end'></noscript>
+  </main>
+  
+  <footer>
+    copyright 2017 this guy
+  </footer>
+</body>
+
+<script>
+  removeNodesBetween(__await_block_0_start, __await_block_0_end);
+  __await_block_0_start.insertAdjacentHTML('afterend', '<p>the value is 42</p>');
+  __await_block_0_start.parentNode.removeChild(__await_block_0_start);
+  __await_block_0_end.parentNode.removeChild(__await_block_0_end);
+  
+  function removeNodesBetween(start, end) {
+    // TODO implement 
+  }
+</script>

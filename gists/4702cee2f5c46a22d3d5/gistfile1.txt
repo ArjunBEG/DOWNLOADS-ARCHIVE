@@ -1,0 +1,15 @@
+// run at http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+var hex = "";
+var rgb = "";
+var g = document.getElementsByClassName('color-group');
+for (var i = 0; i < g.length; i++){
+  var c = g[i].getElementsByClassName('color');
+  var title = c[0].textContent.split('\n')[1].replace(/\s+/g, '');
+  title = title.charAt(0).toLowerCase() + title.substring(1);
+  for (var a = 1; a < c.length; a++){
+    hex += ('@' + title + '--' + c[a].textContent.split('#')[0] + ': #' + c[a].textContent.split('#')[1] + ';\n')
+    rgb += ('@' + title + '--' + c[a].textContent.split('#')[0] + ': ' + c[a].style.backgroundColor + ';\n')
+  }
+}
+console.log(hex);
+console.log(rgb);

@@ -1,0 +1,5 @@
+Since 2013 I've worked entirely in the open, lowering the barriers to different developer ecosystems as one of the most active users on GitHub. 
+
+I've helped big OSS projects with design, project management and occasionally code.
+
+I'm currently exploring a YouTube video series and am interested in where GitHub Sponsors goes.

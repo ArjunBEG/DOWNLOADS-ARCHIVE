@@ -1,0 +1,32 @@
+➜  ~  curl -H "Accept-Encoding: gzip,deflate,br" -I -X GET https://mxb.dev
+HTTP/2 200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=UTF-8
+date: Thu, 20 Aug 2020 12:00:12 GMT
+etag: "631b652bdb73e4d0c9b90d79a626dac9-ssl-df"
+referrer-policy: no-referrer-when-downgrade
+strict-transport-security: max-age=31536000
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+content-encoding: gzip
+age: 16062
+content-length: 11658
+server: Netlify
+vary: Accept-Encoding
+x-nf-request-id: 4c29b527-69d4-4730-97c0-518c8e771192-10739793
+
+
+➜  ~  curl -H "Accept-Encoding: gzip,deflate,br" -I -X GET https://www.zachleat.com
+HTTP/2 200
+date: Thu, 20 Aug 2020 16:28:08 GMT
+server: Apache
+vary: Accept-Encoding
+last-modified: Mon, 17 Aug 2020 17:16:20 GMT
+accept-ranges: bytes
+content-length: 12945
+cache-control: max-age=0, public
+expires: Thu, 20 Aug 2020 16:28:08 GMT
+content-type: text/html; charset=utf-8
+content-encoding: gzip
+via: e2s

@@ -1,0 +1,3 @@
+Optical Character Recognition with node.js and Tesseract.
+
+Check your console for the results...

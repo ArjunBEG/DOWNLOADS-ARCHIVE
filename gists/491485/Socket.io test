@@ -1,0 +1,41 @@
+guillermo:test rauchg$ git clone git://github.com/LearnBoost/Socket.IO-node.git --recursive
+Initialized empty Git repository in /Users/rauchg/test/Socket.IO-node/.git/
+remote: Counting objects: 464, done.
+remote: Compressing objects: 100% (331/331), done.
+remote: Total 464 (delta 214), reused 283 (delta 129)
+Receiving objects: 100% (464/464), 67.25 KiB, done.
+Resolving deltas: 100% (214/214), done.
+Submodule 'lib/vendor/js-oo' (git://github.com/visionmedia/js-oo.git) registered for path 'lib/vendor/js-oo'
+Submodule 'test/client' (git://github.com/LearnBoost/Socket.IO.git) registered for path 'test/client'
+Initialized empty Git repository in /Users/rauchg/test/Socket.IO-node/lib/vendor/js-oo/.git/
+remote: Counting objects: 116, done.
+remote: Compressing objects: 100% (100/100), done.
+remote: Total 116 (delta 49), reused 0 (delta 0)
+Receiving objects: 100% (116/116), 14.37 KiB, done.
+Resolving deltas: 100% (49/49), done.
+Submodule path 'lib/vendor/js-oo': checked out '1f94bd897994a952114cb1f280c1949d5e6a0648'
+Initialized empty Git repository in /Users/rauchg/test/Socket.IO-node/test/client/.git/
+remote: Counting objects: 413, done.
+remote: Compressing objects: 100% (408/408), done.
+remote: Total 413 (delta 257), reused 0 (delta 0)
+Receiving objects: 100% (413/413), 100.32 KiB, done.
+Resolving deltas: 100% (257/257), done.
+Submodule path 'test/client': checked out 'fec3a888e0f640ecc9c5051ec0436b3f8e898211'
+Submodule 'lib/vendor/web-socket-js' (git://github.com/gimite/web-socket-js.git) registered for path 'lib/vendor/web-socket-js'
+Initialized empty Git repository in /Users/rauchg/test/Socket.IO-node/test/client/lib/vendor/web-socket-js/.git/
+remote: Counting objects: 401, done.
+remote: Compressing objects: 100% (335/335), done.
+remote: Total 401 (delta 196), reused 167 (delta 55)
+Receiving objects: 100% (401/401), 1.45 MiB | 258 KiB/s, done.
+Resolving deltas: 100% (196/196), done.
+Submodule path 'lib/vendor/web-socket-js': checked out 'e5c19418fd4e70f28d36c694e6e45e750abe6e76'
+guillermo:test rauchg$ cd Socket.IO-node/
+guillermo:Socket.IO-node rauchg$ ls
+README.md lib       test
+guillermo:Socket.IO-node rauchg$ cd test/
+guillermo:test rauchg$ ls
+chat.html client    server.js
+guillermo:test rauchg$ sudo node server.js 
+26 Jul 17:01:32 - socket.io ready - accepting connections
+26 Jul 17:01:37 - Initializing client with transport "websocket"
+26 Jul 17:01:37 - Client 5667016815859824 connected

@@ -1,0 +1,6 @@
+Hi, my name is: ${include("fixture2.txt")}
+Hi, my name is: ${include("fixture2.txt", { name: 'Bob' })}
+Hi, my name is: ${partial("fixture3", { name: 'Alice' })}
+${prompt({ type: 'input', name: 'name', message: 'Name?' })}
+Hi, my name is: ${include("fixture2.txt")}
+${log(this)}

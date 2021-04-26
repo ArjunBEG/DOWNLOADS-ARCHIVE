@@ -1,0 +1,5 @@
+acr_file_exporter.exporttask:
+  route_name: 'acr_file_exporter.exportform'
+  title: 'Export'
+  base_route: 'entity.node.canonical'
+  weight: 100

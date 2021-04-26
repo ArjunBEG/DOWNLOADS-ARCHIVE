@@ -1,0 +1,1 @@
+LMD example for issue #105

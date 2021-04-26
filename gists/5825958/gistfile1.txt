@@ -1,0 +1,12 @@
+Stacktrace (most recent call last):
+
+  File "/home/build/phabricator/src/applications/conduit/controller/PhabricatorConduitAPIController.php", line 38, in processRequest
+    $call = new ConduitCall($method, $params);
+  File "/home/build/phabricator/src/applications/conduit/call/ConduitCall.php", line 19, in __construct
+    $this->handler = $this->buildMethodHandler($method);
+  File "/home/build/phabricator/src/applications/conduit/call/ConduitCall.php", line 100, in buildMethodHandler
+    $application = $method->getApplication();
+  File "/home/build/phabricator/src/applications/chatlog/conduit/ConduitAPI_chatlog_Method.php", line 9, in getApplication
+    return PhabricatorApplication::getByClass('PhabricatorApplicationChatlog');
+  File "/home/build/phabricator/src/applications/base/PhabricatorApplication.php", line 251, in getByClass
+    throw new Exception("No application '{$class_name}'!");

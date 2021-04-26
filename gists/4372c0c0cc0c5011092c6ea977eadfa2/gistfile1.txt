@@ -1,0 +1,7 @@
+Stream stream = File.OpenRead("foo");
+Console.WriteLine("Before using");
+using (stream)
+{
+    // Whatever...
+}
+Console.WriteLine("After using statement - variable is still in scope");

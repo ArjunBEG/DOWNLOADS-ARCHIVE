@@ -1,0 +1,26 @@
+diff --git a/lib/arborist/reify.js b/lib/arborist/reify.js
+index 9854d2d..54325aa 100644
+--- a/lib/arborist/reify.js
++++ b/lib/arborist/reify.js
+@@ -233,12 +233,18 @@ module.exports = cls => class Reifier extends cls {
+         .then(() => process.emit('timeEnd', 'reify:loadTrees'))
+     }
+ 
++    const updateNames = options.update && options.update.names || []
+     const actualOpt = this[_global] ? {
+       ignoreMissing: true,
+       global: true,
+-      filter: (node, kid) => this[_explicitRequests].size === 0 || !node.isProjectRoot
+-        ? true
+-        : (node.edgesOut.has(kid) || this[_explicitRequests].has(kid)),
++      filter: (node, kid) => {
++        const explicits = new Set([
++          ...this[_explicitRequests],
++          ...updateNames,
++        ])
++        return explicits.size === 0 || !node.isProjectRoot ? true
++          : (node.edgesOut.has(kid) || explicits.has(kid))
++      }
+     } : { ignoreMissing: true }
+ 
+     if (!this[_global]) {

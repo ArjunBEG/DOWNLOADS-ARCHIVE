@@ -1,0 +1,1 @@
+A resize sensor component for React that doesn't use iframes, objects, or require ResizeObservers.

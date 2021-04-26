@@ -1,0 +1,36 @@
+info:    Creating snapshot 0.3.1-9
+info   Uploading: [=============================] 100%
+info:    Updating app Dillinger
+info:    Activating snapshot 0.3.1-9 for Dillinger
+info:    Starting app Dillinger
+error:   Error running command deploy
+error:   Nodejitsu Error (500): Internal Server Error
+error:   
+error:   There was an error while attempting to start the app
+error:   Error spawning drone
+error:   Script prematurely exited
+error:   
+error:   This type of error is usually a user error.
+error:   Error output from app:
+error:   
+error:   /opt/haibu/apps/joemccann/Dillinger/package/node_modules/express/lib/router/index.js:252
+error:       throw new Error(msg);
+error:             ^
+error:   Error: .get() requires callback functions but got a [object Undefined]
+error:       at Router.route.Route.sensitive (/opt/haibu/apps/joemccann/Dillinger/package/node_modules/express/lib/router/index.js:252:11)
+error:       at Array.forEach (native)
+error:       at Router.route (/opt/haibu/apps/joemccann/Dillinger/package/node_modules/express/lib/router/index.js:248:13)
+error:       at Router.methods.forEach.Router.(anonymous function) [as get] (/opt/haibu/apps/joemccann/Dillinger/package/node_modules/express/lib/router/index.js:270:16)
+error:       at Function.methods.forEach.app.(anonymous function) [as get] (/opt/haibu/apps/joemccann/Dillinger/package/node_modules/express/lib/application.js:411:26)
+error:       at Object.<anonymous> (/opt/haibu/apps/joemccann/Dillinger/package/app.js:93:5)
+error:       at Module._compile (module.js:449:26)
+error:       at Object.Module._extensions..js (module.js:467:10)
+error:       at Module.load (module.js:356:32)
+error:       at Function.Module._load (module.js:312:12)
+help:    For help with this error contact Nodejitsu Support:
+help:      webchat: <http://webchat.nodejitsu.com/>
+help:          irc: <irc://chat.freenode.net/#nodejitsu>
+help:        email: <support@nodejitsu.com>
+help:    
+help:      Copy and paste this output to a gist (http://gist.github.com/)
+info:    Nodejitsu not ok

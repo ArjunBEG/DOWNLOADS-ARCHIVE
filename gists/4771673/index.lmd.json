@@ -1,0 +1,19 @@
+{
+    "name": "index build",
+    "root": "../",
+    "output": "index.lmd.js",
+    "modules": {
+        "jQuery": "myjQuery.js",
+
+        "_jQuery": {
+            "path": "jQuery.js",
+            "exports": "jQuery"
+        },
+
+        "_Bacon": "Bacon.js",
+        "main": "main.js"
+    },
+    "main": "main",
+    "ie": false,
+    "optimize": true
+}

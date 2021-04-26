@@ -1,0 +1,1 @@
+Helper to mock DOM methods, for when an element might not exist.

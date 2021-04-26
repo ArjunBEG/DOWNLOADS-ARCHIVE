@@ -1,0 +1,17 @@
+using System;
+
+class Test
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("In try block");
+            throw new Exception();
+        }
+        finally
+        {
+            Console.WriteLine("In finally block");
+        }
+    }
+}

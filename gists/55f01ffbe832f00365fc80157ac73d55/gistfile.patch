@@ -1,0 +1,16 @@
+diff --git a/lib/arborist/reify.js b/lib/arborist/reify.js
+index e563f625..e9b1ecba 100644
+--- a/lib/arborist/reify.js
++++ b/lib/arborist/reify.js
+@@ -507,6 +507,11 @@ module.exports = cls => class Reifier extends cls {
+       .then(() => this[_loadAncientPackageDetails](node))
+ 
+     return this[_handleOptionalFailure](node, p)
++      .catch(er => {
++        er.explain = node.explain()
++        er.resolved = node.resolved
++        throw er
++      })
+       .then(() => {
+         this.finishTracker('reify', node.name, node.location)
+         process.emit('timeEnd', timer)

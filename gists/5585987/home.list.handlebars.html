@@ -1,0 +1,11 @@
+<div class="{{type}}">
+    <h3>{{title}}</h3>
+    
+    <ol class="items">
+    {{#items}}
+        {{> item}}
+    {{/items}}
+    </ol>
+    
+    <button class="browse r-arrow" data-tag="{{type}}">{{i18n "gemstore.home.browse"}}</button>
+</div>

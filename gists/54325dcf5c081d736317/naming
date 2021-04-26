@@ -1,0 +1,74 @@
+/* 
+ directory structure
+
+ sugar / item /
+ -- put.js
+ -- create.js
+ -- remove.js
+ -- delete.js
+ ...
+
+ sugar / table /
+ -- create.js
+ -- recreate.js
+ -- remove.js
+ ...
+
+ it is clear where the operations are happening and we can use put as a filename instead of putItem
+ which feels better for me. the api stays the same, also the sugar in sugar.js at /lib. but internally
+ we can build it on a more generic way.
+ */
+
+function sugar(client) {
+
+    var sugarClient = {
+
+        set: function () {},
+        get: function () {},
+        
+        // ...
+
+        multiUpsert: function () {
+            // here I am not sure if 'item' is the right naming
+            // maybe 'items'?
+            return sugarFn.item.multiUpsert(client, tables);
+        },
+        
+        create: function(tableName) {
+            return sugarFn.table.create(client, tableName);
+        },
+        
+        read: function(tableName) {
+            return sugarFn.table.read(client, tableName)
+        },
+
+        // ...
+        
+        table: function table(tableName) {
+            
+            return {
+                
+                // ...
+                
+                create: function(item) {
+                    return sugarFn.item.create(client, tableName, item);
+                },
+
+                read: function(hash, range) {
+                    return sugarFn.item.read(hash, range);
+                },
+
+                // ...
+
+                multiUpsert: function(items) {
+                    // todo: build tables object
+                    tables = {};
+                    return sugarClient.multiUpsert(tables);
+
+                    // I think at this point it es better to not create another
+                    // file, because it feels redundant to do so.
+                }
+            }
+        }
+    }
+}

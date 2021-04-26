@@ -1,0 +1,1 @@
+Prevent CSS animations before page load.

@@ -1,0 +1,295 @@
+diff --git a/src/Symfony/Component/EventDispatcher/ContainerAwareEventDispatcher.php b/src/Symfony/Component/EventDispatcher/ContainerAwareEventDispatcher.php
+index b92defe..942f51d 100644
+--- a/src/Symfony/Component/EventDispatcher/ContainerAwareEventDispatcher.php
++++ b/src/Symfony/Component/EventDispatcher/ContainerAwareEventDispatcher.php
+@@ -132,6 +132,22 @@ class ContainerAwareEventDispatcher extends EventDispatcher
+     }
+ 
+     /**
++     * {@inheritdoc}
++     */
++    public function getListenerPriority($eventName, $listener)
++    {
++        if (null === $eventName) {
++            foreach ($this->listenerIds as $serviceEventName => $args) {
++                $this->lazyLoad($serviceEventName);
++            }
++        } else {
++            $this->lazyLoad($eventName);
++        }
++
++        return parent::getListenerPriority($eventName, $listener);
++    }
++
++    /**
+      * Adds a service as event subscriber.
+      *
+      * @param string $serviceId The service ID of the subscriber service
+diff --git a/src/Symfony/Component/EventDispatcher/Debug/TraceableEventDispatcher.php b/src/Symfony/Component/EventDispatcher/Debug/TraceableEventDispatcher.php
+index 7653ccf..35df816 100644
+--- a/src/Symfony/Component/EventDispatcher/Debug/TraceableEventDispatcher.php
++++ b/src/Symfony/Component/EventDispatcher/Debug/TraceableEventDispatcher.php
+@@ -102,6 +102,14 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
+     /**
+      * {@inheritdoc}
+      */
++    public function getListenerPriority($eventName, $listener)
++    {
++        return $this->dispatcher->getListenerPriority($eventName, $listener);
++    }
++
++    /**
++     * {@inheritdoc}
++     */
+     public function hasListeners($eventName = null)
+     {
+         return $this->dispatcher->hasListeners($eventName);
+@@ -186,6 +194,8 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
+             }
+         }
+ 
++        uasort($notCalled, array($this, 'sortListenersByPriority'));
++
+         return $notCalled;
+     }
+ 
+@@ -285,6 +295,7 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
+     {
+         $info = array(
+             'event' => $eventName,
++            'priority' => $this->getListenerPriority($eventName, $listener),
+         );
+         if ($listener instanceof \Closure) {
+             $info += array(
+@@ -332,4 +343,25 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
+ 
+         return $info;
+     }
++
++    private function sortListenersByPriority($a, $b)
++    {
++        if (is_int($a['priority']) && !is_int($b['priority'])) {
++            return 1;
++        }
++
++        if (!is_int($a['priority']) && is_int($b['priority'])) {
++            return -1;
++        }
++
++        if ($a['priority'] === $b['priority']) {
++            return 0;
++        }
++
++        if ($a['priority'] > $b['priority']) {
++            return -1;
++        }
++
++        return 1;
++    }
+ }
+diff --git a/src/Symfony/Component/EventDispatcher/EventDispatcher.php b/src/Symfony/Component/EventDispatcher/EventDispatcher.php
+index b54d07b..e40ce01 100644
+--- a/src/Symfony/Component/EventDispatcher/EventDispatcher.php
++++ b/src/Symfony/Component/EventDispatcher/EventDispatcher.php
+@@ -76,6 +76,29 @@ class EventDispatcher implements EventDispatcherInterface
+     }
+ 
+     /**
++     * Gets the listener priority for a specific event.
++     *
++     * Returns null if the event or the listener does not exist.
++     *
++     * @param string   $eventName The name of the event
++     * @param callable $listener  The listener to remove
++     *
++     * @return int|null The event listener priority
++     */
++    public function getListenerPriority($eventName, $listener)
++    {
++        if (!isset($this->listeners[$eventName])) {
++            return;
++        }
++
++        foreach ($this->listeners[$eventName] as $priority => $listeners) {
++            if (false !== ($key = array_search($listener, $listeners, true))) {
++                return $priority;
++            }
++        }
++    }
++
++    /**
+      * {@inheritdoc}
+      */
+     public function hasListeners($eventName = null)
+@@ -169,8 +192,6 @@ class EventDispatcher implements EventDispatcherInterface
+      */
+     private function sortListeners($eventName)
+     {
+-        $this->sorted[$eventName] = array();
+-
+         krsort($this->listeners[$eventName]);
+         $this->sorted[$eventName] = call_user_func_array('array_merge', $this->listeners[$eventName]);
+     }
+diff --git a/src/Symfony/Component/EventDispatcher/ImmutableEventDispatcher.php b/src/Symfony/Component/EventDispatcher/ImmutableEventDispatcher.php
+index 7ef9ece..13e8572 100644
+--- a/src/Symfony/Component/EventDispatcher/ImmutableEventDispatcher.php
++++ b/src/Symfony/Component/EventDispatcher/ImmutableEventDispatcher.php
+@@ -86,6 +86,14 @@ class ImmutableEventDispatcher implements EventDispatcherInterface
+     /**
+      * {@inheritdoc}
+      */
++    public function getListenerPriority($eventName, $listener)
++    {
++        return $this->dispatcher->getListenerPriority($eventName, $listener);
++    }
++
++    /**
++     * {@inheritdoc}
++     */
+     public function hasListeners($eventName = null)
+     {
+         return $this->dispatcher->hasListeners($eventName);
+diff --git a/src/Symfony/Component/EventDispatcher/Tests/AbstractEventDispatcherTest.php b/src/Symfony/Component/EventDispatcher/Tests/AbstractEventDispatcherTest.php
+index 2e4c3fd..0169ede 100644
+--- a/src/Symfony/Component/EventDispatcher/Tests/AbstractEventDispatcherTest.php
++++ b/src/Symfony/Component/EventDispatcher/Tests/AbstractEventDispatcherTest.php
+@@ -108,6 +108,20 @@ abstract class AbstractEventDispatcherTest extends \PHPUnit_Framework_TestCase
+         $this->assertSame($expected, $this->dispatcher->getListeners());
+     }
+ 
++    public function testGetListenerPriority()
++    {
++        $listener1 = new TestEventListener();
++        $listener2 = new TestEventListener();
++
++        $this->dispatcher->addListener('pre.foo', $listener1, -10);
++        $this->dispatcher->addListener('pre.foo', $listener2);
++
++        $this->assertSame(-10, $this->dispatcher->getListenerPriority('pre.foo', $listener1));
++        $this->assertSame(0, $this->dispatcher->getListenerPriority('pre.foo', $listener2));
++        $this->assertNull($this->dispatcher->getListenerPriority('pre.bar', $listener2));
++        $this->assertNull($this->dispatcher->getListenerPriority('pre.foo', function () {}));
++    }
++
+     public function testDispatch()
+     {
+         $this->dispatcher->addListener('pre.foo', array($this->listener, 'preFoo'));
+diff --git a/src/Symfony/Component/EventDispatcher/Tests/ContainerAwareEventDispatcherTest.php b/src/Symfony/Component/EventDispatcher/Tests/ContainerAwareEventDispatcherTest.php
+index 6f2fbcb..18a4b3f 100644
+--- a/src/Symfony/Component/EventDispatcher/Tests/ContainerAwareEventDispatcherTest.php
++++ b/src/Symfony/Component/EventDispatcher/Tests/ContainerAwareEventDispatcherTest.php
+@@ -92,6 +92,7 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
+ 
+     /**
+      * @expectedException \InvalidArgumentException
++     * @group legacy
+      */
+     public function testTriggerAListenerServiceOutOfScope()
+     {
+@@ -111,6 +112,9 @@ class ContainerAwareEventDispatcherTest extends AbstractEventDispatcherTest
+         $dispatcher->dispatch('onEvent');
+     }
+ 
++    /**
++     * @group legacy
++     */
+     public function testReEnteringAScope()
+     {
+         $event = new Event();
+diff --git a/src/Symfony/Component/EventDispatcher/Tests/Debug/TraceableEventDispatcherTest.php b/src/Symfony/Component/EventDispatcher/Tests/Debug/TraceableEventDispatcherTest.php
+index 4aa6226..1d4a8c8 100644
+--- a/src/Symfony/Component/EventDispatcher/Tests/Debug/TraceableEventDispatcherTest.php
++++ b/src/Symfony/Component/EventDispatcher/Tests/Debug/TraceableEventDispatcherTest.php
+@@ -25,7 +25,7 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+         $dispatcher = new EventDispatcher();
+         $tdispatcher = new TraceableEventDispatcher($dispatcher, new Stopwatch());
+ 
+-        $tdispatcher->addListener('foo', $listener = function () {; });
++        $tdispatcher->addListener('foo', $listener = function () {});
+         $listeners = $dispatcher->getListeners('foo');
+         $this->assertCount(1, $listeners);
+         $this->assertSame($listener, $listeners[0]);
+@@ -39,7 +39,7 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+         $dispatcher = new EventDispatcher();
+         $tdispatcher = new TraceableEventDispatcher($dispatcher, new Stopwatch());
+ 
+-        $tdispatcher->addListener('foo', $listener = function () {; });
++        $tdispatcher->addListener('foo', $listener = function () {});
+         $this->assertSame($dispatcher->getListeners('foo'), $tdispatcher->getListeners('foo'));
+     }
+ 
+@@ -51,7 +51,7 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+         $this->assertFalse($dispatcher->hasListeners('foo'));
+         $this->assertFalse($tdispatcher->hasListeners('foo'));
+ 
+-        $tdispatcher->addListener('foo', $listener = function () {; });
++        $tdispatcher->addListener('foo', $listener = function () {});
+         $this->assertTrue($dispatcher->hasListeners('foo'));
+         $this->assertTrue($tdispatcher->hasListeners('foo'));
+     }
+@@ -76,14 +76,14 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+     {
+         $dispatcher = new EventDispatcher();
+         $tdispatcher = new TraceableEventDispatcher($dispatcher, new Stopwatch());
+-        $tdispatcher->addListener('foo', $listener = function () {; });
++        $tdispatcher->addListener('foo', $listener = function () {});
+ 
+         $this->assertEquals(array(), $tdispatcher->getCalledListeners());
+-        $this->assertEquals(array('foo.closure' => array('event' => 'foo', 'type' => 'Closure', 'pretty' => 'closure')), $tdispatcher->getNotCalledListeners());
++        $this->assertEquals(array('foo.closure' => array('event' => 'foo', 'type' => 'Closure', 'pretty' => 'closure', 'priority' => 0)), $tdispatcher->getNotCalledListeners());
+ 
+         $tdispatcher->dispatch('foo');
+ 
+-        $this->assertEquals(array('foo.closure' => array('event' => 'foo', 'type' => 'Closure', 'pretty' => 'closure')), $tdispatcher->getCalledListeners());
++        $this->assertEquals(array('foo.closure' => array('event' => 'foo', 'type' => 'Closure', 'pretty' => 'closure', 'priority' => null)), $tdispatcher->getCalledListeners());
+         $this->assertEquals(array(), $tdispatcher->getNotCalledListeners());
+     }
+ 
+@@ -107,8 +107,8 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+ 
+         $dispatcher = new EventDispatcher();
+         $tdispatcher = new TraceableEventDispatcher($dispatcher, new Stopwatch(), $logger);
+-        $tdispatcher->addListener('foo', $listener1 = function () {; });
+-        $tdispatcher->addListener('foo', $listener2 = function () {; });
++        $tdispatcher->addListener('foo', $listener1 = function () {});
++        $tdispatcher->addListener('foo', $listener2 = function () {});
+ 
+         $logger->expects($this->at(0))->method('debug')->with('Notified event "foo" to listener "closure".');
+         $logger->expects($this->at(1))->method('debug')->with('Notified event "foo" to listener "closure".');
+@@ -123,7 +123,7 @@ class TraceableEventDispatcherTest extends \PHPUnit_Framework_TestCase
+         $dispatcher = new EventDispatcher();
+         $tdispatcher = new TraceableEventDispatcher($dispatcher, new Stopwatch(), $logger);
+         $tdispatcher->addListener('foo', $listener1 = function (Event $event) { $event->stopPropagation(); });
+-        $tdispatcher->addListener('foo', $listener2 = function () {; });
++        $tdispatcher->addListener('foo', $listener2 = function () {});
+ 
+         $logger->expects($this->at(0))->method('debug')->with('Notified event "foo" to listener "closure".');
+         $logger->expects($this->at(1))->method('debug')->with('Listener "closure" stopped propagation of the event "foo".');
+diff --git a/src/Symfony/Component/EventDispatcher/composer.json b/src/Symfony/Component/EventDispatcher/composer.json
+index 8a6a750..4fab95b 100644
+--- a/src/Symfony/Component/EventDispatcher/composer.json
++++ b/src/Symfony/Component/EventDispatcher/composer.json
+@@ -19,10 +19,10 @@
+         "php": ">=5.3.9"
+     },
+     "require-dev": {
+-        "symfony/dependency-injection": "~2.6",
+-        "symfony/expression-language": "~2.6",
+-        "symfony/config": "~2.0,>=2.0.5",
+-        "symfony/stopwatch": "~2.3",
++        "symfony/dependency-injection": "~2.6|~3.0.0",
++        "symfony/expression-language": "~2.6|~3.0.0",
++        "symfony/config": "~2.0,>=2.0.5|~3.0.0",
++        "symfony/stopwatch": "~2.3|~3.0.0",
+         "psr/log": "~1.0"
+     },
+     "suggest": {
+@@ -35,7 +35,7 @@
+     "minimum-stability": "dev",
+     "extra": {
+         "branch-alias": {
+-            "dev-master": "2.7-dev"
++            "dev-master": "2.8-dev"
+         }
+     }
+ }

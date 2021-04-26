@@ -1,0 +1,14 @@
+public class MyData
+{
+    public double Alpha { get; set; }
+    public double Beta { get; set; }
+    public double Gamma { get; set; }
+    
+    public double GetValueByName(string name) => name switch
+    {
+         nameof(Alpha) => Alpha,
+         nameof(Beta) => Beta,
+         nameof(Gamma) => Gamma,
+         _ => throw new ArgumentException();
+    };
+}

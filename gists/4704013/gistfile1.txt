@@ -1,0 +1,19 @@
+error:   Error running command deploy
+error:   Nodejitsu Error (500): Internal Server Error
+error:   There was an error while attempting to deploy the app
+error:   
+error:   package.json error: can't find starting script: node app
+error:   Package.json start script declared but not found
+error:   
+error:   This type of error is usually a user error.
+error:   Error output from Haibu:
+error:   
+error:   Error: package.json error: can't find starting script: node app
+error:       at Spawner.spawn (/root/haibu-orchestra/node_modules/haibu/lib/haibu/core/spawner.js:232:17)
+error:       at Object.oncomplete (fs.js:297:15)
+help:    For help with this error contact Nodejitsu Support:
+help:      webchat: <http://webchat.nodejitsu.com/>
+help:          irc: <irc://chat.freenode.net/#nodejitsu>
+help:        email: <support@nodejitsu.com>
+help:    
+help:      Copy and paste this output to a gist (http://gist.github.com/)

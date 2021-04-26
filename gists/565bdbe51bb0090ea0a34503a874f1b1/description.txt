@@ -1,0 +1,1 @@
+From a script in the babel-plugin-syntax-dynamic-import library
