@@ -1,0 +1,10 @@
+<p>Decapitalizes the first letter of a string.</p>
+<ul>
+<li>Use array destructuring and <code>String.prototype.toLowerCase()</code> to decapitalize first letter, <code>...rest</code> to get array of characters after first letter and then <code>Array.prototype.join('')</code> to make it a string again.</li>
+<li>Omit the <code>upperRest</code> argument to keep the rest of the string intact, or set it to <code>true</code> to convert to uppercase.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> decapitalize <span class="op">=</span> ([first<span class="op">,</span> ...<span class="at">rest</span>]<span class="op">,</span> upperRest <span class="op">=</span> <span class="kw">false</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">first</span>.<span class="at">toLowerCase</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  (upperRest <span class="op">?</span> <span class="va">rest</span>.<span class="at">join</span>(<span class="st">&#39;&#39;</span>).<span class="at">toUpperCase</span>() : <span class="va">rest</span>.<span class="at">join</span>(<span class="st">&#39;&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">decapitalize</span>(<span class="st">&#39;FooBar&#39;</span>)<span class="op">;</span> <span class="co">// &#39;fooBar&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">decapitalize</span>(<span class="st">&#39;FooBar&#39;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span> <span class="co">// &#39;fOOBAR&#39;</span></a></code></pre></div>

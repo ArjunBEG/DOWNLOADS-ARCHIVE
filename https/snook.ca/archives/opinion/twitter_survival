@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Why Twitter Survives - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/twitter_survival">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/twitter_survival">
+	<meta property="og:title" content="Why Twitter Survives">
+	<meta property="og:description" name="description" content="...or why I think Mashable  is wrong.
+Mashable has an interesting article that places Twitter's popularity purely on its simplicity. Even more bold, it believes that people haven't left Twitter becau...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Why Twitter Survives</h1>
+		<p><em>...or why I think Mashable  is wrong.</em></p>
+<p>Mashable has <a href="http://mashable.com/2008/06/29/less-is-more-unlock-the-web/">an interesting article that places Twitter's popularity purely on its simplicity</a>. Even more bold, it believes that people haven't left Twitter because of its simplicity. Its competitors are simply too complex.</p>
+<p>I contend that Twitter has succeeded and continues to succeed because no other service matches its breadth of distribution.</p>
+<h2>Avenues of Distribution</h2>
+<p>Twitter has been smart by allowing multiple ways to interact with the service:</p>
+<ul>
+  <li> There's the web site, of course. </li>
+  <li>There's the mobile site. </li>
+  <li>There's instant messenger. </li>
+  <li>There's the well-documented API. </li>
+  <li>And there's SMS.</li>
+</ul>
+<p>All of this combined has made Twitter a very compelling platform for barnacle application development. Having so many services that depend on it creates a great deal of resistence to move to other platforms. </p>
+<h2>Scaling</h2>
+<p>This breadth of distribution is also one of the major things that people miss when they talk about making the Twitter-killer or think they know how to scale Twitter. Ultimately, people miss or forget or ignore one of the avenues of distribution. </p>
+<p>It's a combination of push and pull technologies that have to work reliably together. The web site, the mobile site and the API are pull technologies that require requests from the end user. SMS and Instant Messenger are push technologies. Each technology you throw in the stack can cause issues in various ways if it goes down.</p>
+<p>For example, one of the headaches that Twitter has to deal with every time their IM service goes down is bringing it back up. Suddenly, you receive a flood of status notices that a few thousand users are online. It's enough to take the service back down just as soon as it comes online.</p>
+<p>Consider SMS and the cost of having short codes for various countries. The cost alone enough of a barrier for competition to enter the market.</p>
+<h2>Competition</h2>
+<p>Inevitably, many services are trotted out as possible Twitter-killers. Here's the more popular ones:</p>
+<h3>Pownce</h3>
+<p><a href="http://pownce.com/">Pownce</a> is often referred to as a possible alternative to Twitter. It's simple, well-designed, and has an API. But there's no IM or SMS, nor do I think it's practical for it to go that direction. It wasn't designed to do that. The tagline is &quot;send stuff to your friends&quot; and the service does that. It serves a niche that is separate and complimentary to Twitter and not necessarily a competitor. Pownce may wish to look into providing Twitter support as an additional facet of their service creating more of a &quot;one-stop shop&quot; approach.</p>
+<h3>Plurk</h3>
+<p><a href="http://www.plurk.com/">Plurk</a> is a relative newcomer to the marketplace and takes a very unique approach to how it displays information. With the lack of an official API (an <a href="http://code.google.com/p/rlplurkapi/">unofficial but poorly documented API is available</a>), no SMS, and an IM service that's currently down, it's a long ways away from taking down the likes of Twitter.</p>
+<h3>Jaiku</h3>
+<p>Finally, I wanted to mention <a href="http://jaiku.com/">Jaiku</a>. It comes the closest to being the Twitter killer. Web site, check. Mobile site, <a href="http://m.jaiku.com/">check</a>. SMS, check. IM, check. What about an API? Half check. They do offer up an API but it is limited and for the most part, read-only. </p>
+<p>When you consider estimates that 10 times the Twitter traffic occurs over the API as it does on the web site, and you can see that the secret to building a competitor is building a compelling environment in which to do so. </p>
+<p>Unfortunately, when Jaiku sold the service to Google, they shut off new signups. It has been 9 months since and they still haven't opened things up. Behind the scenes, they've been <a href="http://www.jaiku.com/blog/2008/04/08/wroom-were-moving-to-google-app-engine/">porting things over to Google App Engine</a> and no doubt continuing to work on the service. </p>
+<p>However, if Twitter gets its service stabilized before Jaiku's re-emergence, I hold out little hope for Jaiku to steal any major market share. I also find the Jaiku interface more complex than it needs to be. </p>
+<h2>The future of Twitter</h2>
+<p>My own interest in Twitter has been waning due to the unreliability of the service and  API. I can only surmise that they are currently in the process of rearchitecting the entire application. Otherwise, they may be doomed to eternal failure. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 30, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/898</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">30 Comments &middot; <a href="/archives/opinion/twitter_survival.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58915">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58915">1</a></div>
+			<span class="authorname"><a href="http://www.dustindiaz.com">Dustin Diaz</a></span> said on June 30, 2008		</div>
+		<div class="quote"><p>Damn your comment form. It cleared out my entry as soon as window's 'load' fired which was well into my comment *grr*<br />
+Anyway, I wasn't aware of anyone trying to come up with the "Twitter-killer" until now, nor that Twitter was dying. Sure it's been down quite a bit, but apparently they just recently hired some stud to fix their scalability issues... perhaps that will bear fruit.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58916">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58916">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 30, 2008		</div>
+		<div class="quote"><p>re: comment form trouble. Odd that. There should be no onload code that clears the field. The only time it should try to clear the field is if the field receives focus and still has the default text in it (never once content gets entered). I'll have to look into it further.</p>
+<p>I'm not sure that any of these companies have specifically gone into the business with the direct desire to replace Twitter but these companies are the ones that are routinely mentioned as possible competitors. Hopefully Twitter's new scalability guru can resolve their issues.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58917">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58917">3</a></div>
+			<span class="authorname">Binny V A</span> said on June 30, 2008		</div>
+		<div class="quote"><p>There is another factor - Twitter was the first. Once enough people got in, the 'social inertia' factor prevents them from moving to another application. That's why Qwerty is more popular than Dvorak - and why windows is still popular than Linux.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58918">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 30, 2008		</div>
+		<div class="quote"><p>Binny, that inertia exists, of course, but the fact that the inertia exists at so many more access points into the service is the more compelling issue. In other words, to become a Twitter killer, you'd have to compete at providing the same level of service before you could convince communities to shift focus to a new service. Otherwise, you'll have people who rely on an access point (such as SMS) unable to use the new service and unable to switch (therefore creating increased desire to stay with the existing service).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58919">5</a></div>
+			<span class="authorname">Niki Brown</span> said on June 30, 2008		</div>
+		<div class="quote"><p>I stick with twitter because its where my friends are, plus i think its a great service that will only continue to get better as they work on it. Its also super simple, and the variety of twitter clients is nice (still want to go back to snitter when it works!)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58920">6</a></div>
+			<span class="authorname">Travis Vocino</span> said on June 30, 2008		</div>
+		<div class="quote"><p>I attribute Twitter's initial success to being the first real good API available in that space.  The developers got behind it and things like Twitterific which captured the early-adopting Mac users who then got the word out.</p>
+<p>We're passionate about our technology and we almost force other people to get into it.  When Twitter got ahold of that core set, it was like letting the beast run wild.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58921">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58921">7</a></div>
+			<span class="authorname">Greg not Craig</span> said on June 30, 2008		</div>
+		<div class="quote"><p>@Binny V A - actually, Jaiku was first. Jaiku launch July 2006 to Twitter's October 2006. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58922">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58922">8</a></div>
+			<span class="authorname">Spencer Lavery</span> said on June 30, 2008		</div>
+		<div class="quote"><p>As you and a few other commenters have quite rightly pointed out - a large part of Twitter's success is down to early adopters. The same could be said of MySpace, but we've seen what can happen there a la' FaceBook. People are sheep, all the while everyone's using Twitter, everyone else will. Eventually though, a better service will come along, and everyone will jump ship. Better service at this point would probably just be one that stays for more than a few minutes at a time, as opposed to one that has more features.</p>
+<p>I personally would rather see the platform go completely open with multiple clients able to connect to one stream of data, with the ability to host one's own 'feed'. Much in the same way that the blog landscape changed with the advent of RSS, but then I have always preferred services I can host myself.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58923">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58923">9</a></div>
+			<span class="authorname">Indranil</span> said on June 30, 2008		</div>
+		<div class="quote"><p>To me, twitter's first winning point is the website. People look at it, and they get it. It's not complicated, and one look at the form and the surroundings tell people what they need to do.</p>
+<p>And when you get your friends along for the ride, it only gets better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58924">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58924">10</a></div>
+			<span class="authorname">Andrew</span> said on June 30, 2008		</div>
+		<div class="quote"><p>Jonathan, have you given friendfeed a try yet? It aggregates everything in one place including Twitter.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58925">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58925">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 30, 2008		</div>
+		<div class="quote"><p>@Andrew: I haven't because I haven't been looking for cross-service aggregation (although I can certainly see the benefits of such a service). It seems like a passive intake service and I think it's important to be able to be able to push out and expect a response back to that. (ie: two-way communication)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58926">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58926">12</a></div>
+			<span class="authorname"><a href="http://www.somenice.com">Andrew</a></span> said on June 30, 2008		</div>
+		<div class="quote"><p>@Jonathan it absolutely is about two way communication. It's got some of the most active conversations I've seen lately. Lost of early adopters at the moment but growing fast. It's very customizable to what you want to push/see/intake/participate which is it's true strength. Anyway, keep up the good work. Cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58927">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58927">13</a></div>
+			<span class="authorname"><a href="http://scottj.info/">Scott Johnson</a></span> said on June 30, 2008		</div>
+		<div class="quote"><p>I only recently found Twitter to be the least bit entertaining.  I now have Hahlo bookmarked on my iPhone, and I browse the latest Twitter updates while I'm in the can.  It's the people that use it that interest me.  I don't care about the service.  If those people go, I'll follow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58928">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58928">14</a></div>
+			<span class="authorname"><a href="http://www.somefoolwitha.com">Matthew</a></span> said on June 30, 2008		</div>
+		<div class="quote"><p>Im *pretty* sure Jaiku came before Twitter but I could be wrong.</p>
+<p>IMO the beauty and popularity of Twitter is mostly dues to it's simplicity. In addition, I think the secret to Twitter's future popularity and longlastyness (as I like to call it) is it's seemingly medusian API; I wager that anything any other Twitter *killer* or just plain (competitor) can do can be leveraged by a third party site with their API. </p>
+<p>If you can think of a use for Twitter, chances are someone somewhere can or will make that idea so. Then again if you just want to sms your friends you can.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58929">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58929">15</a></div>
+			<span class="authorname">Matt</span> said on June 30, 2008		</div>
+		<div class="quote"><p>I have to agree that the reason Twitter keeps on keeping on is the simplicity. That is why I keep being a fan of it even though I've tried the other services, including new comer Plurk which I really don't care for.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58931">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58931">16</a></div>
+			<span class="authorname"><a href="http://www.pixelingo.com">Carolyn </a></span> said on June 30, 2008		</div>
+		<div class="quote"><p>What would be perfect? I already agree with you on the avenues of distribution, we all agree that it needs to work—in fact, our frustration that it so often doesn't work is a sign of what a great idea it is or was—I'd also like to do away with numbers of followers and friends, though being able to see the followers and connect with them is great. And, I wish there was a way to be public to all the people using Twitter yet not have your comments or theirs appear on Google. An alphabetical list of who you can direct message would be cool, too. Other than the, um, "not working" part, that's an amazingly short list for a service like this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58932">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58932">17</a></div>
+			<span class="authorname">Dan</span> said on July 01, 2008		</div>
+		<div class="quote"><p>Twitter's reliability is one big crack in an otherwise impressive suit of armour but I don't think it's enough to make people jump ship just yet. The flexible API, SMS and IM functionality combine to make it the microblogging platform of choice for the majority of people into that type of thing... </p>
+<p>Others are more complicated but that would be far less of an issue if their other features competed at the same level as twitter. Plurk for example. That timeline is pretty darn snazzy and the replies, in my opinion are a lot smoother and more intuative... but lack of an API means there's no desktop AIR app so you have to keep a tab open to the site all the time...lame.</p>
+<p>I think my favourite article about Twitter so far is <a href="//elliotjaystocks.com/blog/archive/2008/a-blessay-about-twitter/">Elliot Jay Stocks' Blessay</a> which discusses 5 reasons why Twitter is such a success. </p>
+<p>Dan
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58933">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58933">18</a></div>
+			<span class="authorname"><a href="http://www.feike.biz">Rainer</a></span> said on July 01, 2008		</div>
+		<div class="quote"><p>I call it the "Ibiza-Cafe-Effect": If you have two shops side by side serving the same food and drinks, the people will choose the crowded one. Twitter will stay successful because it's already successful :-)<br />
+I'm too old to use it, but I believe it's kind of a new communication form to the youth: It's a one-to-many SMS platform - and it seems to be fun.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58938">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58938">19</a></div>
+			<span class="authorname">Tim</span> said on July 01, 2008		</div>
+		<div class="quote"><p>I guess I'm not as confident about Twitter as most people. They're a pretty small company (although they just got something like $20MIL to work with). I wouldn't be surprised if they lost serious ground to Plurk or whatever the next Twitter assassination attempt may be.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58942">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58942">20</a></div>
+			<span class="authorname">Wyatt Gallagher</span> said on July 02, 2008		</div>
+		<div class="quote"><p>Twitter may be growing out of its traffic scaling quite well, but consider the titans. I'd much rather have access to a feed of my Facebook status updates, because that's where most of my current friends are, thus I update it more often. Using Twitter is out of the way for me, and while it's gotten a tight hold in celebrity Web design circles, general geek culture, and apparently journalism, I wonder if other average people already attached to MySpace or Facebook face the same conundrum that I have.</p>
+<p>(The only reason I'm posting this is to see what happens when I do. :p)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58944">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58944">21</a></div>
+			<span class="authorname">jansegers</span> said on July 02, 2008		</div>
+		<div class="quote"><p>Although Twitter has some concurrents and most languages have they're own microblogs at the moment, almost all provide an posting opportunity of Twitter.</p>
+<p>The better microblogs worldwide</p>
+<p>This list is a personal choice and based on three criteria: ease of operability, quality of service and experienced functional up-time.</p>
+<p>general<br />
+twitter.com<br />
+jaiku.com<br />
+pownce.com<br />
+beemood.com<br />
+twoorl.com<br />
+yonkly.com<br />
+kwippy.com<br />
+microblogr.com<br />
+brightkite.com<br />
+plurk.com<br />
+secondbrain.com</p>
+<p>Chinese<br />
+fanfou.com<br />
+zuosa.com<br />
+komoo.cn</p>
+<p>Portuguese<br />
+gozub.com</p>
+<p>Brazilian<br />
+telog.com.br</p>
+<p>Indian<br />
+snockles.com</p>
+<p>Singaporean<br />
+tiish.com</p>
+<p>Italian<br />
+meemi.com</p>
+<p>Spanish<br />
+khaces.com</p>
+<p>Turkish<br />
+nolyo.com</p>
+<p>French<br />
+noumba.net<br />
+poodz.com<br />
+tapioka.ca</p>
+<p>Korean<br />
+playtalk.net</p>
+<p>Japanese<br />
+feecle.jp</p>
+<p>German<br />
+niimo.com</p>
+<p>Polish<br />
+blip.pl</p>
+<p>Dutch<br />
+numpa.nl</p>
+<p>Portuguese<br />
+gozub.com</p>
+<p>Russian<br />
+smspr.ru</p>
+<p>Arabic<br />
+watwet.com</p>
+<p>Romanian<br />
+cirip.ro</p>
+<p>Mexican<br />
+mexicodiario.com</p>
+<p>Czech<br />
+drbz.cz</p>
+<p>special<br />
+tumblr.com<br />
+hictu.com<br />
+babl.nl<br />
+floort.com<br />
+help.com<br />
+justtell.us<br />
+talkaboutadate.com<br />
+adocu.com</p>
+<p>multiple posting</p>
+<p>hellotxt.com</p>
+<p>The most exhaustive list I know about is the list made up by thw www.thws.cn/articles/twitter-clones.html </p>
+<p>Pieter Jansegers<br />
+<a href="//microblogs.ning.com">microblogs.ning.com</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58946">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58946">22</a></div>
+			<span class="authorname">Chris</span> said on July 02, 2008		</div>
+		<div class="quote"><p>One service you forgot, but still in early infancy, is <a href="//www.kwippy.com">Kwippy</a>.  It really is very similar to Twitter, with a few additions.  Might be worth keeping an eye on in the future.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58947">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58947">23</a></div>
+			<span class="authorname">Yossarian</span> said on July 03, 2008		</div>
+		<div class="quote"><p>I still really don't get this whole twitter thing. Also if I did like it I could see my productivity plummit
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58955">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58955">24</a></div>
+			<span class="authorname"><a href="http://www.felocity.org">Jakob Heuser</a></span> said on July 04, 2008		</div>
+		<div class="quote"><p>I think if anyone wants to hold a candle to Twitter, they're going to need to be Twitter +1. "Staying up more" probably doesn't cut it. You need to be twitter, but bring to the table something else, such as stronger APIs, location information, or webhook integration.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58985">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58985">25</a></div>
+			<span class="authorname"><a href="http://www.pixelingo.com">Carolyn </a></span> said on July 09, 2008		</div>
+		<div class="quote"><p>hmm, my list of people to Direct Message is now alphabetical. Wasn't before I posted a comment here. Coincidence or the power of the Snook?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58986">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58986">26</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 09, 2008		</div>
+		<div class="quote"><p>While I <em>am</em> all powerful, I suspect it's just coincidence. The problem before was the performance hit in pulling the names out alphabetically instead of by database order (normally the user ID). Now that they're resolving performance issues, things are starting to get back in shape.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59032">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59032">27</a></div>
+			<span class="authorname">jos</span> said on July 18, 2008		</div>
+		<div class="quote"><p>Like i have always say simplicity always beats features when you are targeting a large audience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59040">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59040">28</a></div>
+			<span class="authorname">es Ilaid</span> said on July 20, 2008		</div>
+		<div class="quote"><p>Twittering is a big waste of time and I knew it since the first time I saw all those non-sense micro-posts.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59058">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59058">29</a></div>
+			<span class="authorname">Chris Harold</span> said on July 23, 2008		</div>
+		<div class="quote"><p>I really don't get Twitter it seems to me like another element to my day that I really could doo without. It's hard enogh with all the distractions from running a freelance business!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59132">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59132">30</a></div>
+			<span class="authorname">Michael Mackus</span> said on August 10, 2008		</div>
+		<div class="quote"><p>Very interesting blog post, and I definitely think you hit the nail straight on.  I must say that the simplicity aspect of twitter, however, DOES have a great influence on its success as well.  That, in addition to mobile, IM, API, etc. makes it very appealing because twitter actually does not FORCE you to do anything (mobile, IM, API) that you do not want to do.  It is just there as a simple to enable option, or in the case of the API - a developer's API.</p>
+<p>I have never actually been a sucker for social networks due to the fact that well it takes TIME to participate in them, and time is money.  However, Twitter eliminates much of this time.  (Although, this also makes it easier to suck more time OUT of you ;) )</p>
+<p>I arrived here from your tweet by the way :)
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

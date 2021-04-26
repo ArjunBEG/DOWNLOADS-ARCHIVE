@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Failure - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/failure">
+	<meta property="og:url" content="https://snook.ca/archives/personal/failure">
+	<meta property="og:title" content="Failure">
+	<meta property="og:description" name="description" content="It has been a year marked with a series of failures and while I feel some urge to explain it all, I think it will be better off left unsaid. This post is a stick in the sand to remind me of what has h...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Failure</h1>
+		<p>It has been a year marked with a series of failures and while I feel some urge to explain it all, I think it will be better off left unsaid. This post is a stick in the sand to remind me of what has happened. Onward we go, for time gives us no other choice.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 04, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/966</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">21 Comments &middot; <a href="/archives/personal/failure.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64446">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64446">1</a></div>
+			<span class="authorname">Dustin Senos</span> said on January 03, 2010		</div>
+		<div class="quote"><p>Knowing where and what went wrong paves a path for successes in the future. </p>
+<p>The amount of people who have learnt from your words, time dedication, and examples would stand tall against your failures.</p>
+<p>Best of luck in the future Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64447">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64447">2</a></div>
+			<span class="authorname"><a href="http://www.twe4ked.com">twe4ked</a></span> said on January 03, 2010		</div>
+		<div class="quote"><p>A new year with new oppertunities :) </p>
+<p>Good luck for the new year!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64448">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64448">3</a></div>
+			<span class="authorname"><a href="http://Gotepik.com">Evan Krambuhl </a></span> said on January 03, 2010		</div>
+		<div class="quote"><p>Everyone has had a point in their life like that, but you have the right perspective.  Remember that you're still alive and it seems like you might have a preggers son.  Enjoy the bright days and downplay the grey, it reallly is the only way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64449">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64449">4</a></div>
+			<span class="authorname"><a href="http://kevinthompson.info">Kevin Thompson</a></span> said on January 03, 2010		</div>
+		<div class="quote"><p>It's been a rough year for many of us, myself included. I can only speculate on the hardships you've endured, but I feel a few of your tweets over the year have offered me some insight.</p>
+<p>I'm not a religious man, and as such have no prayers to offer, but you do have my respect, admiration, and compassion. I wish you the best and am always happy to lend an ear or a few beers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64450">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64450">5</a></div>
+			<span class="authorname">Justin Barkhuff</span> said on January 04, 2010		</div>
+		<div class="quote"><p>In times good and bad, I've always found inspiration in this Gilbert E. Kaplan quote:</p>
+<p>First, when everybody tells you that you are being idealistic or impractical, consider the possibility that everybody could be wrong about what is right for you. Look inside yourself the way nobody else can. Will the pursuit of your dream hurt anybody? Do you stand at least a fair chance of success? If you fail, will you be seriously damaged or merely embarrassed? If you succeed, will it change your life for the better? When you can persuade yourself that your dream is worthwhile and achievable--then you say thank you to the doubters and take the plunge â€¦ How much better to know that we have dared to live our dreams than to live our lives in a lethargy of regret.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64451">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64451">6</a></div>
+			<span class="authorname">Lunks</span> said on January 04, 2010		</div>
+		<div class="quote"><p>"I'm not a religious man, and as such have no prayers to offer, but you do have my respect, admiration, and compassion. I wish you the best and am always happy to lend an ear or a few beers."</p>
+<p>Ditto. Happy New Year, all the good and happy wishes you probably heard already.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64452">7</a></div>
+			<span class="authorname"><a href="http://nellen.co.za">Adriaan</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>I think that globally a lot of people had a tough year, even in South Africa we were burned by the recession...</p>
+<p>All the best for 2010 and beyound!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64453">8</a></div>
+			<span class="authorname">Chris Rowe</span> said on January 04, 2010		</div>
+		<div class="quote"><p>While you may be talking about a different type of failure, Elliott Kember makes a great point in his latest post "On Failure"</p>
+<p>http://blog.elliottkember.com/posts/8-OnFailure
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64454">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64454">9</a></div>
+			<span class="authorname">Derek Anderson</span> said on January 04, 2010		</div>
+		<div class="quote"><p>"This Page Left Intentionally Blank" - I saw that here originally and it reminded me of reading some AIGA book, which was littered with "This Page Left Intentionally Blank' pages.  What a waste of paper, but how brilliant a statement!</p>
+<p>I hope you have better luck in 2010
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64455">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64455">10</a></div>
+			<span class="authorname"><a href="http://www.contentwithstyle.co.uk">Matthias Willerich</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>I just saw your tweet about not publishing a post (I imagine it's the extended version of this one). Good on you for not sharing, it's too easy to revel in personal failure. All the best to you and your family in 2010, I'm sure it'll feel better than the last year.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64456">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64456">11</a></div>
+			<span class="authorname">Marin</span> said on January 04, 2010		</div>
+		<div class="quote"><p>At least, your speak at Fronteers 09 was not one of those failures, I can tell! Keep it up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64457">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64457">12</a></div>
+			<span class="authorname"><a href="http://www.davidrojas.net">David Rojas</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>Sorry to hear that. I'm guessing that your failures come from personal side. I don't know what to say, just that you are an inspiration for a lot of people. I'm hoping some day I can meet you in person in some european conference.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64458">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64458">13</a></div>
+			<span class="authorname"><a href="http://www.jeffleombruno.com/">Jeff L</a></span> said on January 04, 2010		</div>
+		<div class="quote"><p>May 2010 bring you successes.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64459">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64459">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 04, 2010		</div>
+		<div class="quote"><p>@Derek Anderson: heh, yeah. That's what I originally started with and reworked it to present something with a little more context (if only barely).</p>
+<p>@Matthias: indeed, 2010 shall (with even just a sliver of luck) go on record as a much better year than 2009. There was still plenty in 2009 to be happy about, too, and a blog post is still in order to talk about that. It's admittedly too easy to wallow in self-pity when things don't go right.</p>
+<p>@David Rojas: it's actually been a combination of personal and business. And hopefully I can meet you someday... a european conference sounds lovely. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64460">15</a></div>
+			<span class="authorname">Scott Nelle</span> said on January 04, 2010		</div>
+		<div class="quote"><p>It's good to read that you have both eyes fixed in the right direction, Jonathan. Best of luck in twenty ten. I'll keep a positive thought in my head for you, as I'm sure many other appreciative readers will.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64461">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64461">16</a></div>
+			<span class="authorname">Dana Kashubeck</span> said on January 04, 2010		</div>
+		<div class="quote"><p>I sincerely hope that this year brings you happier times.  Don't measure yourself by the things you haven't accomplished!  You have been such a source of information and help for so many.  Take care of yourself.  Chin up in 2010!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64478">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64478">17</a></div>
+			<span class="authorname">Jeffrey Friend</span> said on January 05, 2010		</div>
+		<div class="quote"><p>Tomorrows a better day! Keep rockin!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64490">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64490">18</a></div>
+			<span class="authorname">Jamie</span> said on January 11, 2010		</div>
+		<div class="quote"><p>Failure is my middle name, well given how many times i have failed in probably the last 6 yrs or so. But I'm still here, and everyday i get up ready for what challenges lay ahead.</p>
+<p>That is all you can do my friend, just keep going, no matter how tough things get, keep moving forward.</p>
+</div>
+	</div>
+		<div class="comment" id="c64492">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64492">19</a></div>
+			<span class="authorname"><a href="http://www.bengacreative.com">Bengacreative</a></span> said on January 12, 2010		</div>
+		<div class="quote"><p>To add my little bit, sometimes you will learn more from failure than you'll from success. Failure helps you in knowing specifically what went wrong and it gives you the chance to correct them appropriately, and further prevent them from happening again. </p>
+<p>Benga Creative
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64493">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64493">20</a></div>
+			<span class="authorname">Michael Montgomery</span> said on January 12, 2010		</div>
+		<div class="quote"><p>Love the family you have.<br />
+Enjoy each blessing.<br />
+...forget the rest.</p>
+<p><em>(I'll try to do the same.)</em>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64497">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64497">21</a></div>
+			<span class="authorname">Philip</span> said on January 14, 2010		</div>
+		<div class="quote"><p>Well, 2009 was a challenging year for me too - not as bad as 2008 (but we won't go there for fear of waking the demons), but 2009 was certainly a year of huge transition to a new way of life. On the positive side, I get to spend a whole lot more time with my beautiful children.</p>
+<p>So I'll join you Jonanthan, in raising a glass to 2010 - here's to finding the right balance.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

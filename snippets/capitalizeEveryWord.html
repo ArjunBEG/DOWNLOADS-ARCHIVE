@@ -1,0 +1,7 @@
+<p>Capitalizes the first letter of every word in a string.</p>
+<ul>
+<li>Use <code>String.prototype.replace()</code> to match the first character of each word and <code>String.prototype.toUpperCase()</code> to capitalize it.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> capitalizeEveryWord <span class="op">=</span> str <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">str</span>.<span class="at">replace</span>(<span class="ss">/</span><span class="sc">\b[a-z]</span><span class="ss">/g</span><span class="op">,</span> char <span class="kw">=&gt;</span> <span class="va">char</span>.<span class="at">toUpperCase</span>())<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">capitalizeEveryWord</span>(<span class="st">&#39;hello world!&#39;</span>)<span class="op">;</span> <span class="co">// &#39;Hello World!&#39;</span></a></code></pre></div>

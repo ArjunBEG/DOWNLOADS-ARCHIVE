@@ -1,0 +1,15 @@
+<p>Finds the first index of a given element in an array using the linear search algorithm.</p>
+<ul>
+<li>Use a <code>for...in</code> loop to iterate over the indexes of the given array.</li>
+<li>Check if the element in the corresponding index is equal to <code>item</code>.</li>
+<li>If the element is found, return the index, using the unary <code>+</code> operator to convert it from a string to a number.</li>
+<li>If the element is not found after iterating over the whole array, return <code>-1</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> linearSearch <span class="op">=</span> (arr<span class="op">,</span> item) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">for</span> (<span class="kw">const</span> i <span class="kw">in</span> arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">if</span> (arr[i] <span class="op">===</span> item) <span class="cf">return</span> <span class="op">+</span>i<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="cf">return</span> <span class="dv">-1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">linearSearch</span>([<span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">9</span>]<span class="op">,</span> <span class="dv">9</span>)<span class="op">;</span> <span class="co">// 1</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">linearSearch</span>([<span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">9</span>]<span class="op">,</span> <span class="dv">7</span>)<span class="op">;</span> <span class="co">// -1</span></a></code></pre></div>

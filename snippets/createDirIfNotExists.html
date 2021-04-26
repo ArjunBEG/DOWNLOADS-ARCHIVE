@@ -1,0 +1,9 @@
+<p>Creates a directory, if it does not exist.</p>
+<ul>
+<li>Use <code>fs.existsSync()</code> to check if the directory exists, <code>fs.mkdirSync()</code> to create it.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> fs <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;fs&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">const</span> createDirIfNotExists <span class="op">=</span> dir <span class="kw">=&gt;</span> (<span class="op">!</span><span class="va">fs</span>.<span class="at">existsSync</span>(dir) <span class="op">?</span> <span class="va">fs</span>.<span class="at">mkdirSync</span>(dir) : <span class="kw">undefined</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">createDirIfNotExists</span>(<span class="st">&#39;test&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// creates the directory &#39;test&#39;, if it doesn&#39;t exist</span></a></code></pre></div>

@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Vendors using Competing Prefixes - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/vendor-prefixes-competing">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/vendor-prefixes-competing">
+	<meta property="og:title" content="Vendors using Competing Prefixes">
+	<meta property="og:description" name="description" content="IE Mobile for Windows Phone 7 has decided to implement support for -webkit-text-size-adjust. They'll also be adding their own duplicate vendor-specific prefix, -ms-text-size-adjust. That's right, Micr...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Vendors using Competing Prefixes</h1>
+		<p>IE Mobile for Windows Phone 7 has decided to implement support for <code>-webkit-text-size-adjust</code>. They'll also be adding their own duplicate vendor-specific prefix, <code>-ms-text-size-adjust</code>. That's right, Microsoft will be adding support for another vendor's non-standard implementation.</p>
+<p>Is this good or bad? The general consensus on Twitter would indicate that this is a bad thing but while there is a scenario where this could go terribly wrong, I haven't found a real world example to back it up.</p>
+<p>So why is this a bad thing?</p>
+<h2>Vendor-prefixed implementations may change </h2>
+<p>The point of a vendor prefix is to avoid a situation where an implementation changes before becoming a standard, thereby breaking all sites that come before it. This is a good thing. A vendor can continue to revise the syntax under a prefixed property without breaking things when they finally do become standard and implementations drop the vendor prefix. </p>
+<p>If a competing vendor implements a vendor prefix, they run the risk that changes to the competing browser will then break their implementation. For example, if Webkit changes how <code>-webkit-text-size-adjust</code> works then Microsoft will be in a tough situation because their implementation will break. The problem is, any developer who implemented <code>-webkit-text-side-adjust</code> before the change will also find their implementations broken in newer versions of the browser. </p>
+<p>Has there been a situation where a browser has changed the syntax on a vendor-prefixed property that has broken previous implementations? I can't think of any but feel free to chime in on the comments.</p>
+<p>Of note, browsers have implemented syntax changes on non-prefixed properties like background that <em>have</em> broken previous implementations. Multiple backgrounds, for example, break on browsers that don't support it, requiring the background property to be specified twice. (The situation is exacerbated by the fact that vendor-prefixed properties in multiple backgrounds will be ignored in other browsers, requiring  backgrounds to be specified three or four separate times to support all current browsers.)</p>
+<h2>Mimicking another vendor's prefix is like using no prefix at all</h2>
+<p>This argument is a misdirection and not the case at all. If every browser implemented a single vendor's prefixed property then the property would become standard and the prefix would be dropped. For example, imagine <code>-moz-opacity</code> was implemented by all browsers before becoming standard. The property becomes <code>opacity</code> and we all move on. I'd prefer this over <code>-webkit-opacity</code>, <code>-moz-opacity</code>, <code>-o-opacity</code> and <code>opacity</code> all having to be set.</p>
+<p>It's perfectly possible for all browsers to agree on an implementation using a prefixed property before re-implementing it with a non-prefixed standards-based property. The simpler the syntax, the easier it is to expect that the implementation won't change. The <code>-webkit-text-size-adjust</code> property is a perfect example of this. It's very simple and extremely unlikely that the implementation will change. </p>
+<h2>Implementations may change but syntax won't</h2>
+<p>Sometimes browsers don't get the implementation correct. Border radius is a prime example of this. Firefox 2, for example, had a problem with their implementation that caused the rounding to be unbalanced. (I recall Happy Cog having an issue with this when working on the WordPress admin a couple years back; I can't find the article, though.) Had another browser implemented it like Firefox, the implementations would no longer match.</p>
+<p>This situation is a little different because of expectations. In this case, the implementation had a bug. This wasn't a style preference or syntax issue. It was a bug in how a particular edge case was rendered. </p>
+<p>Border-radius implementations across all browsers still don't match the specification in a lot of edge cases (<a href="http://blogs.msdn.com/ie/archive/2010/03/19/the-css-corner-about-css-corners.aspx">something that IE9 is looking to address</a>; my apologies if Opera has already done this in 10.5). </p>
+<p>This is a grey area and I can see good points and bad points against this. The question is whether a feature is implemented by a web developer based on the expectation set forth by these edge cases. For example, if I <a href="https://snook.ca/archives/html_and_css/safari-transparent-borders">expected all browsers to overlap border corners to compound transparency values</a> then I'd be terribly disappointed when this started to get fixed in subsequent implementations.</p>
+<p>In this last case, how does one browser mimicking the implementation of another change this situation? I'm not sure it does.</p>
+<h2>It's like -beta prefixes and that's bad</h2>
+<p>A <code>-beta</code> prefix had been bandied about on the W3C style list where browser developers and the public at large discuss CSS implementations. The problem with the <code>-beta</code> prefix is that it prevents versioning of a particular feature. Right now, vendor prefixes essentially act as a versioning process. One browser implements it using Syntax A. That's version 1. Other browsers ponder it and implement it using Syntax B. That's version 2. The vendor prefixes for each browser acts as the versioning system.</p>
+<p>In the case of something like CSS gradients, browsers have implemented different vendor prefixes: <code>-webkit-gradient</code> versus <code>-moz-linear-gradient</code> and <code>-moz-radial-gradient</code>. The syntax may be different but so is the property name which essentially means that they are two separate implementations. Microsoft could theoretically implement both syntaxes and still not break anything.</p>
+<h2>Theoretically and hypothetically speaking</h2>
+<p>We often argue based on extremes to prove a point but the practicality of the matter is that this particular implementation of the <code>-webkit-text-size-adjust</code> property in IE Mobile isn't really a big deal and is unlikely to affect developers to any extent.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published May 11, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/978</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">30 Comments &middot; <a href="/archives/html_and_css/vendor-prefixes-competing.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64899">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64899">1</a></div>
+			<span class="authorname">Arnout</span> said on May 11, 2010		</div>
+		<div class="quote"><p>Seems like IE migrated their User Agent String team to the CSS team. ._."<br />
+When will they stop making such idiotic decisions.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64900">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 11, 2010		</div>
+		<div class="quote"><p>@arnout: why is it an idiotic decision? An argument would be helpful
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64901">3</a></div>
+			<span class="authorname">Steve Workman</span> said on May 11, 2010		</div>
+		<div class="quote"><p>I can see the MS team meeting: "Guys, we need to support this CSS3 property in IE, it's already being used by Webkit.", says the manager.<br />
+A developer says, "Why don't we just piggy back on that, it's not changed since being implemented and is used all over the place. If we can take advantage of that we may get some good will from developers who won't have to re-code their sites to suit IE Mobile."<br />
+"Excellent, two birds with one stone" says the manager - and the deal is done.</p>
+<p>To the general public and most web developers (NB: not those who read www-style) they won't notice the difference and may even like it. I don't endorse it but I completely understand why they've done it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64902">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64902">4</a></div>
+			<span class="authorname">Faruk AteÅŸ</span> said on May 11, 2010		</div>
+		<div class="quote"><blockquote><p>"Has there been a situation where a browser has changed the syntax on a vendor-prefixed property that has broken previous implementations?"</p></blockquote>
+<p>I know of at least one occasion where this happened, yes: Webkit's Transitions changed syntax when specifying multiple properties to transition. That broke implementations I was buildingâ€”fortunately I discovered it prior to things going live, but I have a couple of direct channels to the Webkit team which most people don't and thus can't rely on.</p>
+<p>There was a brief moment (which I unfortunately can't seem to find on the Web right now) wherein it was announced that Firefox would start to implement CSS Transitions using the -webkit- prefix. That concerned me then just as this concerns me now, because it means I can't differentiate as a web developer anymore. In the case of Transitions, Webkit has a relatively stable implementation by now (finally); Firefox's is far from stable, complete and robustâ€”if they were still using the -webkit- prefix I would be forced to rely on <em>really bad practices</em> (like <code>userAgent</code> sniffing) in order to do the right thing. It's precisely the kind of situation we want to avoid on the web.</p>
+<p>I understand Microsoft's desire to implement both prefix syntaxes, so that they can offer the result of the feature to users of Windows Phone 7 without forcing all web developers to update their code, but the problem with that is, like Firefox and -webkit-transition, it's a browser vendor breaking their own rules to fix someone else's problem. </p>
+<p>If we don't like writing this:</p>
+<pre><code>opacity: .5;
+-o-opacity: .5;
+-ms-opacity: 0.5;
+-moz-opacity: .5;
+-webkit-opacity: .5;
+</code></pre>
+<p>â€¦then we should create solutions that alleviate that problem for us, like a server-side script that takes care of this (I've been thinking of writing an open-source Django plugin for this exact reason, actually). It shouldn't be resolved by browser vendors abusing the vendor prefix system in order to make websites slightly better in their newest browser: that's the whole user agent mess all over again.</p>
+<p>I mean, are we really happy that we have a UA that is something like this? <code>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.22.7 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7</code></p>
+<p>Because I sure as hell don't, and I would prefer we don't go down that road <em>again</em>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64903">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64903">5</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>The problem of an implementation being changed when a new version of a browser comes out is inherent in the fact that we are playing with effects that do not have a fixed specification. If they break then they break - and it's our choice as developers whether we use the -vendor- "work in progress" or not. We shold not expect them to be stable, and if we do that is our own misunderstanding of the situation.</p>
+<p>But it's a much worse situation and one (more importantly) that is impossible to fix if vendors start cross-vendor parsing and then only one vendor changes its rendering implementation and the others don't. You end up with two or more implementations of a common idea and no control over who gets what. Vendor prefixes are designed to give that control, that is their point. A vendor prefix should NEVER be rendered by a different vendor, no matter how simple the syntax or how unlikely it is to change. Wait until it's tested thoroughly, and part of the W3C spec. Then you parse it cross vendor.</p>
+<p>Adding multiple "identical" declarations is a small price to pay for guaranteed control and stability whilst also getting to play with new-fangled shiny.</p>
+<p>Syntax DOES change. Look at the -moz-gradient vs -webkit-gradient syntax's to see how there are differences, and multiple ways to skin a cat. Which is better? We don't know until we try them, and cross-pollination is entirely possible. If a browser supports both vendor prefixes then we get into the VERY sticky area of rule precedence. If I write both, which does MS parse? the -ms- rule or the -webkit- rule? Should it prefer its native, or go on order dependence? What if the -ms- shorthand property has an effect that the -webkit- one doesn't? Should that effect still render?</p>
+<p>How can order dependence even work? If IE is rendering the page and sees -ie- and then -moz- what happens if the implementations differ?</p>
+<p>In short, it's a hell of a mess, and the IE team are only parsing -webkit- stuff to leapfrog proper development and get results fast because -webkit- is in the wild and -ms- isn't. It is a terrible *idea*.</p>
+<p>In this instance, it's not going to effect much - but it does legitimise the abuse of the -vendor- prefix and set the industry up for a shambles later down the line if it continues to be applied.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64904">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64904">6</a></div>
+			<span class="authorname"><a href="http://www.vcarrer.com">Vladimir Carrer</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>Last week I suggested -css3 prefix for all the browser "<a href="//www.vcarrer.com/2010/05/css-vendor-prefixes-can-we-all-get.html">Can we all get along</a>" . In my opinion it doesn't matter if it  is -css3 or -beta it is important that all browsers communicate and find one prefix and after they all should use the same syntax.</p>
+<p>We are in the front of great danger (much bigger than IE6) if all browser can Not find the way to communicate. The result will be you will have different CSS for different browsers.</p>
+<p>If we have 100 different browsers we will have 100 different CSS. I think nobody wants that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64905">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64905">7</a></div>
+			<span class="authorname">Jen</span> said on May 11, 2010		</div>
+		<div class="quote"><p>Vladimir, no, they should not embrace one prefix. Multiple prefixes support exploration and that is happening. </p>
+<p>Microsoft's apparent piggybacking on Webkit is odd. Can anyone confirm that is in fact what they're doing?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64906">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64906">8</a></div>
+			<span class="authorname">Lee Willis</span> said on May 11, 2010		</div>
+		<div class="quote"><p>OK, so I design a site that uses:<br />
+-webkit-foo: xxx;<br />
+-webkit-bar: xxx;</p>
+<p>These two style rules create a nice effect. I also take care that the absence of both rules is just as usable. </p>
+<p>The problem now comes when a non-webkit browser decides to support -webkit-foo, but not -webkit-bar. I now have a situation I didn't plan for ...</p>
+<p>It's messy, it's wrong.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64907">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64907">9</a></div>
+			<span class="authorname">Marco Jardim</span> said on May 11, 2010		</div>
+		<div class="quote"><p>I think that the probably reason why Microsoft resorted to such an action is because they realized that a majority of developers of mobile websites have been "ignoring" non-webkit browsers.</p>
+<p>With Blackberries sporting a webkit browser that means that a very large percentage of mobile-internet users will be using a webkit-based browser.</p>
+<p>It's very common for me to go across a site's CSS and find that the front-end-dev only implement the vendor prefix tags.</p>
+<p>Bottom line: yes, it is a bit "cheap" that Microsoft is implementing another vendor's prefix in mobile IE, to get sites to render better on it, but I honestly think that they wouldn't have done it if the devs hadn't forgotten about the future of specification, and other browsers.</p>
+<p>Microsoft is doing this to remain competitive.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64908">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64908">10</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>@Jen: http://blogs.msdn.com/iemobile/archive/2010/05/10/javascript-and-css-changes-in-ie-mobile-for-windows-phone-7.aspx is the post where IE team say they're parsing -webkit-</p>
+<p>Vladimir - that's wrong. Remember the point of these tools is NOT to be relied upon, they are all experimental and not supposed to be used for production in a "risk free" manner. They are the little proto-entities that have yet to grow up into a fully fledged specification. Single prefixes rendered by multiple engines are a terrible idea. Prefixes exist to facilitiate trials of possible implementations - they aren't about giving you finished toys to play with.  If they get to the point where they are reliable and all vendors agree it's logical, then they graduate to W3C approved CSS. Not before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64909">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64909">11</a></div>
+			<span class="authorname">Andrei Zharau</span> said on May 11, 2010		</div>
+		<div class="quote"><p>Jon,<br />
+All your notes are great points. I do hate using vendor prefixes too, but at some point they help me to change layout depending on a browser, e.g. I can have rollover for an image with -moz-outline-radius since FF supports round outlines and Webkit doesn't, so I can make unique rollover for Webkit too. Well, it against CSS specification when all properties should be standardized.</p>
+<p>I wonder what will happen if I'll use both properties on the same object, e.g. </p>
+<p>.class {<br />
+   -webkit-text-size-adjust: 200%;<br />
+   -ms-text-size-adjust: 100%;<br />
+} </p>
+<p>Which one has "more power"? Is -webkit- prefix only an alias in IE browser or it is independent property on its own?</p>
+<p>Personally, I don't think that I will either develop nor optimize my sites for IE mobile, but I am 100% sure that after this Jon's article Microsoft IE Team will not use this property at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64910">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64910">12</a></div>
+			<span class="authorname"><a href="http://keryx.se/">Lars Gunther</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>I agree with Marco &amp; Matt. I understand why MS is doing this. Way too many developers use only webkit prefixes, with no fallback to the standard - which BTW should be <strong>LAST</strong> in the cascade!</p>
+<p>Way too many developers have Webkit up their arse, to paraphrase PPK. I regularly see code with Webkit only prefixes, even for stuff that's been in Firefox long before it came to Webkit!</p>
+<p>Still, that is no excuse for MS. This is a bad move that will not alleviate the problem, but make it worse, since now developers are <strong>EXCUSED</strong> if they do not provide anything but the Webkit prefixes.</p>
+<p>Some people really need to stop complaining about having to write duplicate code. That's your job! If you don't like it, stop using <strong>experimental</strong> features.</p>
+</div>
+	</div>
+		<div class="comment" id="c64911">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64911">13</a></div>
+			<span class="authorname"><a href="http://www.zachleat.com/">Zach Leatherman</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>webkit-text-size-adjust probably isn't a big deal.  But by that same token, if that specific property isn't a big deal, why do they need to parse it?</p>
+<p>It's arrogant of Microsoft to say that their implementation will match the Webkit implementation exactly.  I don't think they've earned that level of trust yet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64912">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64912">14</a></div>
+			<span class="authorname"><a href="http://iamacamera.org">Carl Camera</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>I see this as organic growth of CSS. If Company A thinks it has a good idea, then Company A can implement its own extension to the wild and see if or how web developers and designers use it.  If this extension becomes very widely adopted (even if it hasn't gone through the W3C) the browser market should be free to implement it. Isn't this how we got <em>XMLHttpRequest</em>?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64913">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64913">15</a></div>
+			<span class="authorname"><a href="http://www.vcarrer.com">Vladimir Carrer</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>@Jen &amp; @Matt: I'm aware that everything is in experimental stage, but people are starting to like the new browser "experiments". There are many blogs and sites that are using CSS3 syntah. I think it is Ok to use the new CSS3 features. So everyone who is using CSS3 is using the browser prefix.</p>
+<p>Even with prefix the syntah is different in some cases. Also there are browser who in some cases they don't use prefix... There are so many open issues.</p>
+<p>In other words today we don't have standards. Looks like the History will repeat itself. We will continue to write for the browsers like we always did in the past. I'm already starting to miss the "good all days" when we only had to write for two browsers IE and Netscape.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64914">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64914">16</a></div>
+			<span class="authorname">jen</span> said on May 11, 2010		</div>
+		<div class="quote"><p>@vladimir : I hear you, but the browser developers can change the implementation if they so desire. Sure, many things are pretty stable, but others are still being tinkered with (I probably shouldn't use the word tinker as it belittles what they do!). And they may have something great develop if they are given the freedom.</p>
+<p>"We've also added support for the -webkit-text-size-adjust CSS selector. This selector allows you to control how text on the Web page is scaled to increase readability for the user (you can also use -ms-text-size-adjust, IE Mobile recognizes both)."</p>
+<p>This seems weird. IE should just say that it supports the webkit selector and leave it at that. Naming it with their own prefix and saying that will work is definitely fishy. Webkit should implement something that tests to see if it is IE Mobile and then throw an error â€” no! :) That would only impact the end user and they don't deserve the insult. Lousy action on the part of the IE Mobile team. </p>
+<p>It would be great if some of them would weigh in on this discussion. C'mon, Jon &amp; Faruk, don't you know anyone you can ping? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64915">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64915">17</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>@ Vladimir</p>
+<p>"I think it is Ok to use the new CSS3 features" - then use them. No one is advocating you stop using them. But don't begrudge having to re-declare the effect for each vendor you want to support. That's the price we pay for getting to use this stuff before it's final. We don't have any rights to expect cross vendor conformance on experimental properties, nor can we expect the vendors to agree on how to parse and implement such an experimental feature when there isn't a spec for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64916">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64916">18</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>@Carl - spot on. But you implement the NON vendor prefixed version, or if it's not been accepted into the W3C yet then you roll your own prefix. You don't hijack someone else's prefix - because if you do you can very easily break the web.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64917">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64917">19</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>Sorry Jonathan, I don't mean to be tearing your position up but this did make me do a double take the second time through:</p>
+<p>"The general consensus on Twitter would indicate that this is a bad thing but while there is a scenario where this could go terribly wrong, I haven't found a real world example to back it up"</p>
+<p>Why do we need a real world example to back it up? If the logic is sound then it's sound. I don't need a real world car crash to point to as evidence for a logic flaw possibly being fatal.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64918">20</a></div>
+			<span class="authorname">Isofarro</span> said on May 11, 2010		</div>
+		<div class="quote"><p>Marco, I'm remixing your comment for comparison (this isn't a criticism of your comment):</p>
+<p>I think that the probably reason why Microsoft resorted to such an action is because they realized that a majority of developers of websites have been "ignoring" non-Netscape browsers.</p>
+<p>With Netscape sporting a Mozilla browser that means that a very large percentage of internet users will be using a Mozilla-based browser.</p>
+<p>It's very common for me to go across a site's markup and find that the front-end-dev implements Netscape-specific tags.</p>
+<p>Bottom line: yes, it is a bit "cheap" that Microsoft is implementing another vendor's User Agent String in IE, to get sites to render better on it, but I honestly think that they wouldn't have done it if the devs hadn't forgotten about the future of specification, and other browsers.</p>
+<p>Microsoft is doing this to remain competitive.</p>
+<p>-- 15+ years. Same Microsoft. No difference.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64919">21</a></div>
+			<span class="authorname">Joe Marini</span> said on May 11, 2010		</div>
+		<div class="quote"><p>Hi everyone,</p>
+<p>We've decided against adding support for the -webkit- prefix after hearing everyone's feedback.</p>
+<p>Thanks to all who weighed in on the issue. We've posted a follow-up on the IE Mobile blog for all who are interested.</p>
+</div>
+	</div>
+		<div class="comment" id="c64920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64920">22</a></div>
+			<span class="authorname">Kyle</span> said on May 11, 2010		</div>
+		<div class="quote"><p>By the way, Opera supports "opacity" now, they dropped the -o-opacity. Same goes for the border-radius. Only Mozilla and Webkit do this, which is silly. It's no different than the IE filters and transitions.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64921">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64921">23</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 11, 2010		</div>
+		<div class="quote"><p>Nice work Joe, and thanks for listening and having a good sense of humour too :)</p>
+<p>http://blogs.msdn.com/iemobile/archive/2010/05/11/update-css-and-js-support-in-ie-mobile-for-windows-phone-7.aspx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64922">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64922">24</a></div>
+			<span class="authorname">Joe Marini</span> said on May 12, 2010		</div>
+		<div class="quote"><p>Thanks Matt. Proof positive that we do listen...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64923">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64923">25</a></div>
+			<span class="authorname">Ryan Cannon</span> said on May 12, 2010		</div>
+		<div class="quote"><p>Isn't there a big risk of large-market browsers stagnating innovation of smaller browsers by doing this? An example:</p>
+<ol>
+<li>Browser I has 60% market share. Browser S has 5% market share.</li>
+<li>Browser S implements a selector, -s-cool-new-feature and everyone loves it.</li>
+<li>Browser S increases to 10% market share, Browser I decreases to 58% market share.</li>
+<li>Browser I implements the -s-cool-new-feature selector incorrectly,  causing a browser-exploding bug.</li>
+<li>Web Developers have to remove -s-cool-new-feature because the it borks the vast majority of their users' browsers.</li>
+</ol>
+<p>I think it's just bad form to do that.</p>
+</div>
+	</div>
+		<div class="comment" id="c64924">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64924">26</a></div>
+			<span class="authorname">A reader</span> said on May 15, 2010		</div>
+		<div class="quote"><p>Completely offtopic, but is the software used on this website open source?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64952">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64952">27</a></div>
+			<span class="authorname">TasarÄ±m</span> said on May 18, 2010		</div>
+		<div class="quote"><p>I think it's getting out of control. I agree with Ryan Cannon on this. If it goes on like this, there will be so many prefixes for so many controls (border radius, opacity etc.), that designers won't be able to keep track of them soon tbh.</p>
+<p>I'm just hoping that browsers will sometime start to obey basic css3 selectors all-together without the webkits, so that 10 years from now we won't have another case of IE6.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64965">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64965">28</a></div>
+			<span class="authorname">Wayne Renbjor</span> said on May 26, 2010		</div>
+		<div class="quote"><p>I thought the point of standardization was to eliminate the need for -webkit-X and -moz-X why cant I just type X and it works in all browsers... MS should just quit the browser game and stick to making crappy OS's....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64988">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64988">29</a></div>
+			<span class="authorname">Kyle Mechler</span> said on June 07, 2010		</div>
+		<div class="quote"><p>How far away are we from having browsers that are effectively media-types. Maintaining 5+ CSS files sounds daunting. Then again, if that were the case at least some reasonable group could take hold, let us write ONE, then it would be interpreted in to the other five, and ... wait.</p>
+<p>This is a nightmare.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65008">30</a></div>
+			<span class="authorname">Joe</span> said on June 10, 2010		</div>
+		<div class="quote"><p>come on people.. are you still use IE?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

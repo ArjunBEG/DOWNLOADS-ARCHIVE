@@ -1,0 +1,9 @@
+<p>Calculates the Hamming distance between two values.</p>
+<ul>
+<li>Use the XOR operator (<code>^</code>) to find the bit difference between the two numbers.</li>
+<li>Convert to a binary string using <code>Number.prototype.toString(2)</code>.</li>
+<li>Count and return the number of <code>1</code>s in the string, using <code>String.prototype.match(/1/g)</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hammingDistance <span class="op">=</span> (num1<span class="op">,</span> num2) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  ((num1 <span class="op">^</span> num2).<span class="at">toString</span>(<span class="dv">2</span>).<span class="at">match</span>(<span class="ss">/1/g</span>) <span class="op">||</span> <span class="st">&#39;&#39;</span>).<span class="at">length</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">hammingDistance</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// 1</span></a></code></pre></div>

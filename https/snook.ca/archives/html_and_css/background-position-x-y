@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Background Position X and Y - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/background-position-x-y">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/background-position-x-y">
+	<meta property="og:title" content="Background Position X and Y">
+	<meta property="og:description" name="description" content="Every now and then I look at using background-position-x and background-position-y but can never seem to find a definitive and up-to-date resource. To save myself the trouble in the future, I'm docume...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Background Position X and Y</h1>
+		<p>Every now and then I look at using <code>background-position-x</code> and <code>background-position-y</code> but can never seem to find a definitive and up-to-date resource. To save myself the trouble in the future, I'm documenting it here.</p>
+<p>Positioning via separate X and Y values is a feature that Internet Explorer introduced but never made it into a W3C specification. Any recommendations to add it to the spec <a href="http://www.w3.org/Style/CSS/Tracker/issues/9">have been denied</a>.</p>
+<h2>Why have separate X and Y values?</h2>
+<p>I believe that there are several reasons why you may wish to have separate values. </p>
+<h3>Animation</h3>
+<p>The last time I was frustrated by the lack of consistent cross-browser support for X/Y was when I wrote my article on <a href="https://snook.ca/archives/javascript/jquery-bg-image-animations/">animating background images using jQuery</a>. Having to take a string value, split it into its separate X and Y values, parse the units, and then rebuilding the X/Y value into a single string is a cumbersome experience. Being able to animate just the X or Y value would have been much simpler and would have worked with jQuery &quot;out of the box&quot;, since jQuery already knows how to animate pixel or percentage-based values.</p>
+<h3>Sprites</h3>
+<p><a href="http://www.alistapart.com/articles/sprites/">CSS Sprites</a> have become a popular way to optimize the performance of a page. It's an interesting technique in which you compile numerous background images into a single image and then use background-position to only show the desired part of the image on an element.</p>
+<pre><code>#a { background: url(sprite.png) 0 0 no-repeat; }
+#b { background: url(sprite.png) 0 -30px no-repeat }
+#c { background: url(sprite.png) 0 -60px no-repeat }</code></pre>
+<p>Of course, we could optimize this like so:</p>
+<pre><code>.icon { background: url(sprite.png) 0 0 no-repeat; }
+#a { background-position: 0 0; }
+#b { background-position: 0 -30px; }
+#c { background-position: 0 -60px; }</code></pre> 
+<p>However, given access to separate X and Y values, we could optimize it like so: </p>
+<pre><code>.icon { background: url(sprite.png) 0 0 no-repeat; }
+#a { background-position-y: 0; }
+#b { background-position-y: -30px; }
+#c { background-position-y: -60px; }</code></pre>
+<p>Admittedly, that didn't save us any bytes and for this reason alone, I can  see why the W3C denied the inclusion of this into the specification.</p>
+<h3>Internationalization</h3>
+<p>However, let's take a look at internationalization. Specifically, in having to deal with right-to-left (RTL) environments like Arabic. In these scenarios, where an icon is positioned on the left of some text in a left-to-right environment (LTR), the icon should now be positioned on the right.</p>
+<p>Wouldn't it be great to just add in an extra line in <abbr title="bidirectional">bidi</abbr> environments where we tell the background of all sprites to be positioned on the right instead of the left?</p>
+<pre><code>html[dir=ltr] .icon { background-position-x: 100%; }</code></pre>
+<p>That's it. One line. (<em>And this actually works in IE7+, S3+ and Chrome</em>.) </p>
+<p>Instead, without the ability to separate X and Y values, <strong>all</strong> sprites need to be redeclared for <abbr title="right to left">RTL</abbr> environments.</p>
+<h2>Support Table</h2>
+<p>Finally, here's the support table for which browsers support <code>background-position-x</code> and <code>background-position-y</code>.</p>
+<table width="100%" border="0">
+  <tr>
+    <th>Browser</th>
+    <th>Version</th>
+  </tr>
+  <tr>
+    <td>Opera</td>
+    <td>No Support</td>
+  </tr>
+  <tr>
+    <td>Firefox</td>
+    <td>No Support</td>
+  </tr>
+  <tr>
+    <td>Safari</td>
+    <td>3+</td>
+  </tr>
+  <tr>
+    <td>Internet Explorer</td>
+    <td>4+</td>
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Yes</td>
+  </tr>
+</table>
+<p><del>Opera is the only hold-out at this point and hopefully we'll see it get introduced at this point. It has become a de facto standard and it's exclusion from the W3C specification doesn't diminish it's usefulness.</del></p>
+<p id="apology"><ins>I'm embarrassed. I could've sworn I had it working in the latest version of Firefox but I've re-run my test case and I can't get it working in Firefox at all. My apologies for poor testing. But I'd still like it in all browsers, pretty please!</ins></p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published March 02, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/971</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">34 Comments &middot; <a href="/archives/html_and_css/background-position-x-y.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64623">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64623">1</a></div>
+			<span class="authorname"><a href="http://www.w3conversions.com">Stephanie Sullivan</a></span> said on March 02, 2010		</div>
+		<div class="quote"><p>I completely agree! Estelle and I had a discussion about this just last night as we were reading the specs and realized this didn't make it in. Quite a shame. It's extremely useful. Thanks for writing this up Jonathon. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64624">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64624">2</a></div>
+			<span class="authorname">Rob Glazebrook</span> said on March 02, 2010		</div>
+		<div class="quote"><p>You forgot one selling point: Finally being able to know, without having to look it up for the 4,038th time or guess blindly, where the X-value and Y-value go. I can never remember whether X or Y comes first, and I always resort to guessing randomly. Defying all logic, I'm wrong far more than 50% of the time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64625">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64625">3</a></div>
+			<span class="authorname">Estelle Weyl</span> said on March 02, 2010		</div>
+		<div class="quote"><p>I find background-postition-x and y very useful for sprites. For example, with a rollover background image change, using a sprite, you can just do a :hover {background-position-x: -20px;}, so you only have to declare the default state of the background image. With one line of code, every bg image, on hover, will move over Xpx, showing the hover state in a well laid out sprite. Without background-position-x and y, I have to declare every single hover state separately.... taking many more bites. </p>
+<p>You list FF as supporting, but my grid at http://www.standardista.com/css3/css3-background-properties shows lack of support in FF. I am testing FF 3.5.8.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64626">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64626">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 02, 2010		</div>
+		<div class="quote"><p>@Estelle Weyl: Thank you for pointing out the lack of support in Firefox 3.5. I've updated the support table accordingly. And indeed, hover/active states is another good reason to have X/Y support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64627">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64627">5</a></div>
+			<span class="authorname">jamEs</span> said on March 02, 2010		</div>
+		<div class="quote"><p>Just thought I'd mention that your website makes Firefox 3.6 for Mac crash hard.  Tried loading it twice.  Pretty sure I've tried accessing your site previously and the same has happened.  Using Chromium on my Mac does work though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64628">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64628">6</a></div>
+			<span class="authorname"><a href="http://okb.no">George</a></span> said on March 02, 2010		</div>
+		<div class="quote"><p>I can't count how many times I've wanted to use this when I'm using the sprite technique, not realizing that it's now widely supported (Firefox 3.6 seals the deal).</p>
+<p>Thanks for the info!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64629">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64629">7</a></div>
+			<span class="authorname">Mike</span> said on March 02, 2010		</div>
+		<div class="quote"><p>Completely agree that this should be in the spec.  I was looking at it for a page of logos, would have been perfect for the sprite and it would have cut my CSS code in about half the original way I was coding it (ending up going a different route sans sprite for ease of updating, which saved code bytes as well, just more server requests.)</p>
+<p>Anyways, glad to hear that all of the major browsers now support this (bar Opera) and it's actually one of the few things we don't (shouldn't) have to worry about older versions of IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64630">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64630">8</a></div>
+			<span class="authorname">Helen</span> said on March 02, 2010		</div>
+		<div class="quote"><p>Bob (#2), this is a cosmic law which also applies when inserting a piece of paper in the printer for duplex printing. I always get the two prints on the same side and I always mix up X and Y when positioning backgrounds.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64631">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64631">9</a></div>
+			<span class="authorname">Amber Weinberg</span> said on March 02, 2010		</div>
+		<div class="quote"><p>Background x and y positions are pretty confusing at first, and to this day I still get them mixed up in the shorthand (which one goes vertical and horizontal), however after getting the hang of them, sprites are pretty quick to implement now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64632">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64632">10</a></div>
+			<span class="authorname">philippe</span> said on March 02, 2010		</div>
+		<div class="quote"><p>Mr Snook,<br />
+Do you have a test case that actually shows this as working in Gecko 1.9.2 + (firefox 3.6+) ? Because <a href="//dev.l-c-n.com/CSS3_border-background/background-position-x_position-y.html">my testcases</a> fail for both the -moz-background-position-* and background-position-* â€“ and the error console flags them as errors (tested with both fx 3.6 and the latest Minefield builds).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64633">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64633">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 02, 2010		</div>
+		<div class="quote"><p>@Philippe: I have no idea how I managed to screw that up but I've updated the article to reflect the cold hard fact that I was wrong. Sorry.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64634">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64634">12</a></div>
+			<span class="authorname"><a href="http://l-c-n.com/">philippe</a></span> said on March 02, 2010		</div>
+		<div class="quote"><p>@Jonathan: Errare humanum estâ€¦<br />
+I was already paranoidly afraid that my goldfish had managed to cause all my computers to malfunction in some most bizarre ways. Glad that this is not the case :-).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64635">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64635">13</a></div>
+			<span class="authorname"><a href="http://www.iqmultimedia.com.au">Kit Grose</a></span> said on March 02, 2010		</div>
+		<div class="quote"><blockquote><p>Admittedly, that didn't save us any bytes and for this reason alone, I can see why the W3C denied the inclusion of this into the specification.</p></blockquote>
+<p>I disagree completely. Here's where it saves space:</p>
+<p><code>.icon { background: url(sprite.png) 0 0 no-repeat; }<br />
+#a { background-position-y: 0; }<br />
+#b { background-position-y: -30px; }<br />
+#c { background-position-y: -60px; }</p>
+<p>.icon:hover { background-position-x: -30px; }<br />
+.icon:active { background-position-x: -60px; }<br />
+</code></p>
+<p>Which sure beats:</p>
+<p><code>.icon { background: url(sprite.png) 0 0 no-repeat; }<br />
+#a { background-position: 0 0; }<br />
+#b { background-position: 0 -30px; }<br />
+#c { background-position: 0 -60px; }</p>
+<p>#a:hover { background-position: -30px 0; }<br />
+#b:hover { background-position: -30px -30px; }<br />
+#c:hover { background-position: -30px -60px; }</p>
+<p>#a:active { background-position: -60px 0; }<br />
+#b:active { background-position: -60px -30px; }<br />
+#c:active { background-position: -60px -60px; }<br />
+</code></p>
+<p>Imagine that across an entire spectrum of sprites (usually many more than 3) and at the very least, it's not easy to keep track of the crap you're coding. Making a change (based on a change to the underlying art) is especially frought with danger.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64636">14</a></div>
+			<span class="authorname">petr</span> said on March 03, 2010		</div>
+		<div class="quote"><p>Interesting is, that setting background position in JavaScript using jQuery, background positioning works just fine for me even in Firefox 3.0.10 and also in Opera 10.00. One my <a href="//jquery.vostrel.cz">jQuery plug-in</a> is relying heavily on background positioning and so far it is performing well everywhere I've tested.<br />
+Maybe jQuery performs some kind of magic under the hood to make it happen.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64637">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64637">15</a></div>
+			<span class="authorname"><a href="http://riddle.pl">Piotr Petrus</a></span> said on March 03, 2010		</div>
+		<div class="quote"><blockquote><p>Admittedly, that didn't save us any bytes and for this reason alone, I can see why the W3C denied the inclusion of this into the specification.</p></blockquote>
+<p>I laughed out loud, because â€” sadly â€” this might be true. Thatâ€™s what happens when engineers donâ€™t listen to designers when building a spec.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64639">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64639">16</a></div>
+			<span class="authorname">Andy Kinsey</span> said on March 03, 2010		</div>
+		<div class="quote"><p>Love this explanation of how it works, i've recently experimented with background positioning on my site (click my name) - I find it works in most current browsers but even with the various scripts around nothing will get it to work in older browsers, its pretty much same story with multiple image backgrounds that i'm growing to love so much - by the way IE8 doesn't even support these never mind 7 or 6! Pfft
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64640">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64640">17</a></div>
+			<span class="authorname">Jon Raasch</span> said on March 03, 2010		</div>
+		<div class="quote"><p>Yeah I'm in your corner and have been clamoring for this as well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64641">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64641">18</a></div>
+			<span class="authorname">Ryan Cannon</span> said on March 04, 2010		</div>
+		<div class="quote"><blockquote><p> Admittedly, that didn't save us any bytes and for this reason alone, I can see why the W3C denied the inclusion of this into the specification.</p></blockquote>
+<p>That's certainly true when your selector is <code>#a {}</code>, but when you're doing something like <code>#doc .header .content-navigation li {}</code> adding hover states and selected states then doing three rules each it starts to add up. Plus, managing those sprites is a nightmare.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64647">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64647">19</a></div>
+			<span class="authorname"><a href="http://flexewebs.com/semantix">Jason Grant</a></span> said on March 09, 2010		</div>
+		<div class="quote"><p>I always get the x and y values the wrong way round initially when coding the background image into anything. :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64648">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64648">20</a></div>
+			<span class="authorname">Nicolas Chevallier</span> said on March 09, 2010		</div>
+		<div class="quote"><p>Thanks for this little tips. I never thought about that but it will save me a lot of time for my new project!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64650">21</a></div>
+			<span class="authorname">Niels Matthijs</span> said on March 10, 2010		</div>
+		<div class="quote"><p>"Admittedly, that didn't save us any bytes"</p>
+<p>Hmmm, who cares. The point is that you didn't have to declare the same Y-value three times. If the Y-value changes you have to adapt it in three places, by being able to simply change the X-value, you gain control and there's less room for errors when adapting the css.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64651">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64651">22</a></div>
+			<span class="authorname">Nora Brown</span> said on March 10, 2010		</div>
+		<div class="quote"><p>I'd love to have this feature as well. For large sprites, it would make the CSS much more compact and easier to manage.. C'mon Firefox!</p>
+<p>Nicely implemented comment preview, by the way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64652">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64652">23</a></div>
+			<span class="authorname">Jake</span> said on March 13, 2010		</div>
+		<div class="quote"><p>It does actually work on Firefox, at least for me it does. Try a fresh install?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64662">24</a></div>
+			<span class="authorname">Dena</span> said on March 18, 2010		</div>
+		<div class="quote"><p>I use sprites a lot for web sites with a lot of images so there can be minimal requests. But i think it's currently fine with current background-position property. In fact, i havent heard of this x-y thing before this article Jonathan :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64666">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64666">25</a></div>
+			<span class="authorname">Russell Heimlich</span> said on March 19, 2010		</div>
+		<div class="quote"><p>I wish background-posiiton-x and background-position-y were universal. They are such a good idea. Here is the perfect use case of where such a feature would come in handy. Instead I had to resort to much more bloated code for a card game that utilized sprites http://www.russellheimlich.com/blog/ie-gets-a-css-rule-right/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64711">26</a></div>
+			<span class="authorname">Eva</span> said on March 25, 2010		</div>
+		<div class="quote"><p>I concur Jonathan. So many times I've been frustrated to have to get both the X and Y value when i only need to alter one at a time. Shame it didn't pass w3c specifications. I'd love it to have cross-browser support...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64747">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64747">27</a></div>
+			<span class="authorname">Marton Sari</span> said on March 28, 2010		</div>
+		<div class="quote"><p>+1. We need it. Inexpressibly blind those spec makers are...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64831">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64831">28</a></div>
+			<span class="authorname">Burton Radons</span> said on April 03, 2010		</div>
+		<div class="quote"><p>I'm just banging my head on this issue myself and the very existence of it is absurd. There's no need for a "use case". background-position is a property with multiple values. It should be split, as every other property with multiple values should be, for the same reasons - because sometimes you need to splice CSS in interesting ways that can't be foreseen. If giving all compound properties single-property alternatives isn't policy for the design of CSS, then it must become so. Do not prescript.</p>
+<p>This worthless issue has wasted hundreds of times the man-hours it would take to just put it in the standard and have Firefox implement it properly.</p>
+<p>It doesn't work in FF 3.6.3 for me, and "-moz-background-position-[xy]" don't seem to exist. I'm not going to try a fresh install or anything like that because if it happens to me, it's going to happen to other visitors so I have to assume it's broken. I guess I'll just need to add ... 20x the cases, woo!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65676">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65676">29</a></div>
+			<span class="authorname">Benjamin Cordes</span> said on February 05, 2011		</div>
+		<div class="quote"><p>Thank you so much! I've been cross-browser debugging my site and could not for the life of me figure out why Firefox wasn't honoring the "background-position-y" in my CSS file, and here I come to find it's not supported and all I need to do is remove the "-y" to get things working. Thanks again for inadvertently saving me hours I'd have otherwise spent doing countless Google searches; keep blogging!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65834">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65834">30</a></div>
+			<span class="authorname">Javier Albinarrate</span> said on February 11, 2011		</div>
+		<div class="quote"><p>This feature is SOOOO much wanted, it is a pitty that it is not standard. Basically in my case I have a number of different bar styles (distributed horizontally one next to the other) with different discrete levels vertically stacked (lets say 5% 10% and so on).</p>
+<p>If I could manage X and Y independently, then, one dimension (X) would be the bar style defined by a class, and the other dimension (Y) would be the percent of the bar.</p>
+<p>So right now, I have to manually manage both X and Y as property... every time I want a BLUE bar... I have to lookup, what X corresponds to blue... that sucks.</p>
+<p>Regards!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66343">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66343">31</a></div>
+			<span class="authorname">Julian</span> said on March 02, 2011		</div>
+		<div class="quote"><p>I'm running into a place where I need this - the use case is an element with a background coming from a sprite image. I always want it to hover to
+<pre>background-position: (current) -20px;</pre>
+<p> but I can't see how to just change the Y position!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66625">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66625">32</a></div>
+			<span class="authorname">Kevin Rice</span> said on March 16, 2011		</div>
+		<div class="quote"><p>FIREFOX WORKAROUND (sprite, 1-axis movement):</p>
+<p><code>#a {background-position:0px 0px}<br />
+#a:hover {background-position:inherit -100px}</code></p>
+<p>Use of 'inherit' appears to work fine, and inherits the non-hover position without having to re-write it. Mileage may vary.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66626">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66626">33</a></div>
+			<span class="authorname">Kevin Rice</span> said on March 17, 2011		</div>
+		<div class="quote"><p>FIREFOX WORKAROUND: SCRATCH THAT!!! IT DOES NOT WORK!</p>
+<p>Testing error on my part. Apologies.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67007">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67007">34</a></div>
+			<span class="authorname">Aldo_MX</span> said on March 31, 2011		</div>
+		<div class="quote"><p>Firefox developers are just neglecting to implement it because from their point of view it either breaks sites or breaks the spec, even with a vendor prefixed implementation:</p>
+<p>https://bugzilla.mozilla.org/show_bug.cgi?id=550426</p>
+<p>Please people help adding votes to increase the importance of the bug.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

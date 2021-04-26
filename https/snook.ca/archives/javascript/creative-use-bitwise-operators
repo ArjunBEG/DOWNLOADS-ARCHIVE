@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Creative Use of Bitwise Operators - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/creative-use-bitwise-operators">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/creative-use-bitwise-operators">
+	<meta property="og:title" content="Creative Use of Bitwise Operators">
+	<meta property="og:description" name="description" content="While at the Fronteers conference watching Thomas Fuchs go through his slides, a keen member of the audience noticed his use of  bitwise negation and asked what it was for. Understandable, as there is...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Creative Use of Bitwise Operators</h1>
+		<p>While at the Fronteers conference watching <a href="http://mir.aculo.us/">Thomas Fuchs</a> go through his slides, a keen member of the audience noticed his use of  bitwise negation and asked what it was for. Understandable, as there is so rarely a time where bitwise operators seem necessary. </p>
+<p>It did, however, remind me of a project that I worked on where I ended up using bitwise operators quite heavily in one particular chunk of code. It's a solution that I'm quite particular fond of. </p>
+<p>The project was to build  a calendar and place events on it. Nothing ground breaking; plenty of calendars out there. I probably could have or should have looked at existing implementations to see how they did it and while I think my approach is cool, it's quite possible that there's a better way to solve this problem (and I'd love to hear how other people have solved this).</p>
+<p>The problem with a calendar is that events for a particular week should fit nicely together. If an event overlaps another event then it should go on a separate line. At the same time, when an event doesn't overlap, it should fit nicely into an open spot in the layout and not on a separate line each time.</p>
+<p><img src="https://snook.ca/files/bitwise-calendar.png" alt="Google Calendar" width="500" height="113"></p>
+<p> In thinking about slots, I started seeing things as switches that needed to be flagged on or off and that's what had me think of bitwise operators.</p>
+<p>I looked at a particular week and envisioned it broken up into horizontal rows of 7 blocks (one for each day of the week) and numbered from 0 to 6. All of this fit nicely into a byte of information (not that I really had to worry about that, in this case).</p>
+<p><img src="https://snook.ca/files/bitwise-calendar-02.png" alt="Slots for a week" width="500" height="93" /></p>
+<p>First, I needed to know how many slots that an event would use up. This was the easy part. Just figure out over how many days the event appeared (end date minus start date). Then, I converted this into a binary format.</p>
+<pre><code>var daysdiff = 4; // an event is 4 days long
+var eventmask = Math.pow(2,daysdiff)-1; // 15 or 0001111</code></pre>
+<p>This takes the number 2 and puts it to the power of 4 and shifts it down one because we're working off a zero-based array of bits. A four day difference is converted to 15 or 0001111 in binary (see? four 1s for a four day event). </p>
+<p>Now I needed to figure out on what day of the week it started. Then I shift the bits over the same number of day. (Picture the bits representing the days right to left instead of left to right, with Sunday being the first bit.)</p>
+<pre><code>eventmask &lt;&lt;= startdate.getDay();</code></pre>
+<p>The start date is just a JavaScript date object and getDay is the method that returns what day of the week the date falls on as a number between 0 and 6 to represent Sunday through Saturday respectively.</p>
+<p>The &lt;&lt; performs bitshifting and, combined with the equal sign, the result is assigned   to the mask. If an event started on Monday, the ones would be shifted over 1 day and give us 0011110. </p>
+<p>Now that we know where in the week the event falls, we need to apply this to a mask for the week. An empty week will have zero slots filled.</p>
+<pre><code>var weekmask = 0; // 0000000</code></pre>
+<p>Next, I needed to apply my event mask to the week mask and see if I got a result.</p>
+<pre><code>if ( (~weekmask &amp; eventmask) == eventmask ) { /* apply mask */ }</code></pre>
+<p>The weekmask gets a bitwise NOT (~) applied to it, which flips each bit. If it was a 0, it's now a 1 and if it was a 1, it's now a 0. It then gets the eventmask applied to it with a bitwise AND (&amp;). The AND does a comparison of each bit. If both are 0s, it's a 0. If one is a 1 and one is a 0, it becomes a 0. If both are 1s, it's a 1. </p>
+<p>Breaking this down, the weekmask is flipped to 1111111 and then ANDed with the event mask 0011110, which should leave us with 0011110. Is this the same as the original event mask? Yes, it is. So go ahead and apply the event mask to the week mask and move on to the next event.</p>
+<p>The event mask is applied with a bitwise OR operation. It's like the AND operator but will turn a bit into a 1 if <em>either</em> value has a 1.</p>
+<pre><code>weekmask |= eventmask;</code></pre>
+<p>Let's look at another example where there's an existing event already applied to the week mask for Monday. The week mask would look like 0000010. First it's flipped to 1111101 and then ANDed with the event mask, which creates 0011100. This doesn't match our original event mask so the event mask then tries to apply itself to the next slot for the week. (What I haven't mentioned up until now is that the week mask should actually be an array to represent each row of slots that that week contains. I'll demonstrate this in the final code example.)</p>
+<p>Now we've seen where an event gets applied on an empty week and where an event gets applied when a slot is already taken. What about trying to apply an event on a week that already has an event but where they don't overlap? If I've done a decent job of explaining this, hopefully it'll already be evident. </p>
+<p>If there's an event that has already been applied to the week mask for Friday and Saturday, we have a week mask of 1100000. It's flipped to 0011111. Our event mask of 0011110 is ANDed and gives us 0011110 which does match our original event mask. That means we can apply the event mask to the week mask with the OR operator and we get 1111110. </p>
+<p>Here's essentially what the code would look like put together:</p>
+<pre><code>// looping through all events to map out for a week
+var weekmask = [];
+for (var i=0; i &lt; events.length; i++) {
+    var daysdiff = events[i].daysdiff; // calculated elsewhere
+    var eventmask = Math.pow(2,daysdiff) - 1;
+    eventmask &lt;&lt;= events[i].startdate.getDay();
+    for (var j=0; j &lt; weekmask.length; j++) {
+       if ((~weekmask[j] & eventmask) == eventmask) break; // exit loop if found
+    }
+    weekmask[j] |= eventmask; // commit it
+    /* draw event on calendar... */
+}</code></pre>
+<p>To describe this code block, we loop through the events and then loop through each set of slots for a particular week. If the spot isn't found in a particular row then a new row is created and the eventmask is applied to that row. </p>
+<p>I sometimes wonder if I created a complicated solution to a simple problem but describing this to people is fun, at the very least. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published November 12, 2009 &middot; Updated November 12, 2009</div>
+	<div class="cat">Categorized as <a href="/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/962</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">24 Comments &middot; <a href="/archives/javascript/creative-use-bitwise-operators.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64239">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64239">1</a></div>
+			<span class="authorname">Tyler Gillies</span> said on November 12, 2009		</div>
+		<div class="quote"><p>I love the design of your blog
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64240">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64240">2</a></div>
+			<span class="authorname">Philip Sturgeon</span> said on November 12, 2009		</div>
+		<div class="quote"><p>This looks awesome, but I've read it twice and it will need at least third before I know what the hell is going on. </p>
+<p>Bookmarked for a later read. Thanks dude!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64241">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64241">3</a></div>
+			<span class="authorname"><a href="http://nellen.co.za">Adriaan</a></span> said on November 12, 2009		</div>
+		<div class="quote"><p>wow, this is an excellent explanation...I found it really interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64242">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64242">4</a></div>
+			<span class="authorname">Clinton Montague</span> said on November 12, 2009		</div>
+		<div class="quote"><p>Brilliant use of bitwise ops! Up until around a year ago, I thought they were obscurities for 40 year old bearded nerds who still live with their mum, but I'm seeing more and more uses for them all the time. This I think has to be one of the most elegant. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64244">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64244">5</a></div>
+			<span class="authorname">MySchizoBuddy</span> said on November 12, 2009		</div>
+		<div class="quote"><p>can this technique be used to find the last Monday of the month, or the second Tuesday of an year
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64245">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64245">6</a></div>
+			<span class="authorname">Ethan Dunham</span> said on November 12, 2009		</div>
+		<div class="quote"><p>I have no idea what you just said.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64246">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64246">7</a></div>
+			<span class="authorname"><a href="http://www.jeffleombruno.com/">Jeff L</a></span> said on November 12, 2009		</div>
+		<div class="quote"><p>I echo the comments of Philip and Ethan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64247">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64247">8</a></div>
+			<span class="authorname"><a href="http://jdbartlett.com">jdbartlett</a></span> said on November 12, 2009		</div>
+		<div class="quote"><p>Wow, great post! Thanks!</p>
+<p>myschizobudd: I think a more traditional Date-object based solution would work better to find the last day of a particular month. Snook isn't saying that bitwise operators are a good way to handle all date calculations, he's just using a calendar events as an example of practical application of bitwise operators. Not to get too off-topic, but the code you're looking for would go something like this:</p>
+<pre><code>var i = new Date(2009, 11, 0);
+while (i.getDay() != 2) i.setDate(i.getDate() - 1);</code></pre>
+<p>(At the end of which, <code>i</code> is the last Tuesday of November 2009.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64248">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64248">9</a></div>
+			<span class="authorname">Robert Ames</span> said on November 12, 2009		</div>
+		<div class="quote"><p>Interesting mechanism I saw the other day was in python, overriding the __ror__ (right "or") operator to allow you to use certain objects as if they were pipelines in unix shell.</p>
+<pre><code>class blah:
+    __ror__( self, other ):
+        return self.foo + other.foo
+3 == new blah(1) | new blah(2)
+</code></pre>
+<p>...but it wasn't as simple as addition, instead they used it as filters for HTML: <code>new Template() | strip_html | replace_fields | add_header | add_footer</code></p>
+<p>...very interesting abuse of the language.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64250">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64250">10</a></div>
+			<span class="authorname">Nicolas</span> said on November 12, 2009		</div>
+		<div class="quote"><p>Nice post!</p>
+<p>Since you're dealing with powers of 2 I think you could replace</p>
+<pre>
+    Math.pow(2,daysdiff)-1;
+</pre>
+<p>for</p>
+<pre>
+   (1 &gt;&gt; daysdiff) -1;
+</pre>
+<p>and it should run faster also.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64251">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64251">11</a></div>
+			<span class="authorname">Bruno Daniel</span> said on November 12, 2009		</div>
+		<div class="quote"><p>This, ladies and gentlemen, is code-fu at it's best.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64252">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64252">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 12, 2009		</div>
+		<div class="quote"><p>@Nicolas: The bitshift operator would be &lt;&lt; and not &gt;&gt; but that works perfectly. Thanks for the suggestion!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64253">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64253">13</a></div>
+			<span class="authorname">jero</span> said on November 12, 2009		</div>
+		<div class="quote"><p>Some time ago I tried to do something very similar, but i gave up and used a less sophisticated approach. I'll bookmark this for future reference. thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64254">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64254">14</a></div>
+			<span class="authorname">travisjbeck</span> said on November 12, 2009		</div>
+		<div class="quote"><p>hey Jonathan,  any chance of you posting this project anywhere?  I've been working on the exact same problem.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64255">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64255">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 12, 2009		</div>
+		<div class="quote"><p>@Travis: I wish I could but being a client project, I can't. This article was really just meant to take an abstract look at the problem to demonstrate the use of bitwise operators. You'll still have to figure out how to draw the events on the screen and handle all the fun edge casesâ€”and there are plenty!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64261">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64261">16</a></div>
+			<span class="authorname"><a href="http://www.santhos.nl/">Thomas</a></span> said on November 13, 2009		</div>
+		<div class="quote"><p>Wow impressive piece of code! I really like this approach, as far as I get it lol :-)</p>
+<p>Your blog design looks quite impressive too by the way!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64269">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64269">17</a></div>
+			<span class="authorname">Christopher Penkin</span> said on November 15, 2009		</div>
+		<div class="quote"><p>Great post.  Like the solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64272">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64272">18</a></div>
+			<span class="authorname">Rhys</span> said on November 16, 2009		</div>
+		<div class="quote"><p>It is a complicated solution to a simple problem, but bloody elegant nonetheless. I like it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64274">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64274">19</a></div>
+			<span class="authorname">Alan</span> said on November 16, 2009		</div>
+		<div class="quote"><p>I don't know the language you're using (Ruby?)...it's been years since I wrote any code. Does the  language you're using provide a "do while" loop? It seems it would be a bit more elegant than that "break" you have in your for loop.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64275">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64275">20</a></div>
+			<span class="authorname">Revv Up</span> said on November 17, 2009		</div>
+		<div class="quote"><p>Cool stuff...but most of it gone above my head..<br />
+ll need to do some homework..
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64279">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64279">21</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 17, 2009		</div>
+		<div class="quote"><p>@Alan: the language is JavaScript and breaks work just fine. I could modify the loop test if I wanted but it would mean adding variables to the mix. do/whiles just change where the validation step occurs; it doesn't solve the problem of having to test for something to get out of the loop.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64280">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64280">22</a></div>
+			<span class="authorname">Alan</span> said on November 17, 2009		</div>
+		<div class="quote"><p>Thanks for taking the time to reply. I feel pretty silly having made that post for an assortment of reasons. Anyway, very interesting things you're doing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64294">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64294">23</a></div>
+			<span class="authorname">Caleb</span> said on November 19, 2009		</div>
+		<div class="quote"><p>Geekgasmic!</p>
+<p>I just knew that one day a CompSci degree would be applicable to web development...</p>
+</div>
+	</div>
+		<div class="comment" id="c65650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65650">24</a></div>
+			<span class="authorname">Dinesh</span> said on February 03, 2011		</div>
+		<div class="quote"><p>Elegant and Excellent solution.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Mix'n'mash 2007 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/conferences/mixnmash2007">
+	<meta property="og:url" content="https://snook.ca/archives/conferences/mixnmash2007">
+	<meta property="og:title" content="Mix'n'mash 2007">
+	<meta property="og:description" name="description" content="A couple months ago, I got asked by Microsoft to come out to a little event called Mix'n'mash. The goal of the event is to bring about 10-15 bloggers and &quot;influentials&quot; and see where Microso...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Mix'n'mash 2007</h1>
+		<p>A couple months ago, I got asked by Microsoft to come out to a little event called Mix'n'mash. The goal of the event is to bring about 10-15 bloggers and &quot;influentials&quot; and see where Microsoft is going with a number of their products. More than that, it's a chance to provide feedback to Microsoft as to whether they're on track or if there's anything in particular they should be working on.</p>
+<p>It turned out to be a very intimate affair with only nine of us making the event. Specifically, <a href="http://www.liveside.net">Kip  Kniskern</a>,   <a href="http://www.molly.com">Molly  Holzschlag</a>,  <a href="http://www.jessewarden.com">Jesse  Warden</a>, <a href="http://www.bit-101.com">Keith  Peters</a>, <a href="http://www.gotomobile.com">Kelly Goto</a>, <a href="http://jot.eriknatzke.com">Erik Natzke</a>, 
+<a href="http://www.thedatafarm.com/blog">Julie  Lerman</a>, <a href="http://weblogs.asp.net/rhoward">Rob Howard</a>. </p>
+<p>The day started off with two separate &quot;tracks&quot;: developer and designer. Half the people checked out Visual Studio and the other half (including myself) checked out Expression Web and Expression Blend.</p>
+<h2>Expression</h2>
+<p>Expression Web is essentially Microsoft's answer to Dreamweaver. However, the upcoming version 2 still doesn't have anything compelling over Dreamweaver. There will be support for PHP out of the box with the local web server install including PHP. Unfortunately, it seems that JavaScript isn't really a huge consideration. They contemplated code completion for specific libraries but something more generic like Aptana's support for custom JavaScript completion would have been more compelling. Microsoft is trying to target Expression Web at the front-end developer but I think it misses the mark if it plans to treat JavaScript as a second-class citizen. Also unfortunate, it's too late to see these changes in version 2. We'll have to wait another year or so until version 3 to see Microsoft take a stab at making a splash with Expression Web. </p>
+<p>Expression Blend is for WPF and Silverlight development, which I don't have any experience with. The demos they provided really showed off the potential for some quick and lightweight development. Had I more interest in these technologies, Blend seemed like it would be a great solution.</p>
+<h2>A mixed afternoon </h2>
+<p>After a quick lunch and a quick podcast with some of the Microsoft evangelism team, it was time for the afternoon sessions. </p>
+<p>We got a chance to check out <a href="http://www.microsoft.com/surface/">Microsoft Surface</a>, the multi-touch interactive table. Everybody was having a blast playing with this thing. I think we all saw a great deal of potential for a device like this, for homes, schools and business. </p>
+<p>After that, I started getting a little tired and the presentations on FeedSync, PopFly and Microsoft's web analytics had me struggling to stay awake. </p>
+<h2>Talking with Bill Gates </h2>
+<p>The highlight of the day, however, was meeting Bill Gates at the end of the day. He entered and grabbed a seat at the conference table we were all sitting at. It was a little awkward with the room in a hush. After a quick round of introductons by everybody, Bill spent about 10 minutes talking about general Microsoft stuff. Then, each of us got to ask him a question or two.</p>
+<p>When my turn came to ask him a question, things got interesting. I had originally intended to ask him about corporate culture but Rob Howard beat me to the punch. Instead, I decided to ask him about the culture of innovation (or the apparent lack thereof) within Microsoft. When he prompted for an example, I mentioned Word, recalling WordPerfect's dominance of the market. </p>
+<p>I touched a nerve, apparently. </p>
+<p>What followed was <a href="http://twitter.com/mollydotcom/statuses/470168872">a very passionate response</a>. It was absolutely hilarious to see him get so excited and everybody in attendance was enjoying it, including Bill Gates himself by the looks of things. Here is the transcript from my portion of the Q&amp;A. Keep in mind that some of the dialog got missed, often due to the uproarious laughter. </p>
+<blockquote>
+  <p><strong>Jonathan Snook:</strong>&nbsp; My question is more  regarding (off mike).&nbsp; I've often felt  that Microsoft has certainly been reactionary (off mike).</p>
+</blockquote>
+<p> I believe my original question was, &quot;My question is more regarding the culture of innovation within Microsoft. I've often felt that Microsoft has certainly been reactionary to the market.&quot; (Although it's been a couple days now and my memory isn't all that great to begin with!) </p>
+<blockquote>
+  <p><strong>BILL  GATES:</strong>&nbsp;  Especially when we started the company.&nbsp;  (Laughter.)&nbsp; I knew that three  years later, Apple would come along.&nbsp; It  was (just a reaction ?).&nbsp; (Laughter.)</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; So, like, I mean, think of  like Word (inaudible) or WordPerfect before (off mike).</p>
+</blockquote>
+<p>Bill had asked for an example. The first thing that I thought of was Word. Which I thought came out after WordPerfect. (Which, from what limited research I did after the fact, is actually true but the discussion quickly went in another direction.) </p>
+<blockquote>
+  <p><strong>BILL  GATES:</strong>&nbsp; Oh,  really?&nbsp; (Laughter.)&nbsp; When do you think Microsoft did its first  word processor, just out of curiosity?</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; Apparently it was before my  time.&nbsp; (Laughter.)</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; Way  before WordPerfect, way before Bruce Bastian started school at BYU.&nbsp; Anyway --</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; What year was that?</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; The  myth of all these things.&nbsp; We did 8080  word processors, 8080, eight-bit machine word processors.&nbsp; Every stupid thing we did first.&nbsp; (Laughter.)</p>
+  <p><strong>PARTICIPANT:</strong>&nbsp; Let it be known.</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; I  mean, I'll date myself.&nbsp; Has anybody ever  used a Model 100, Radio Shack Model 100?&nbsp;  Okay, that was the first portable computer.&nbsp; It's a Z80 based system.&nbsp; It had this nice little word processor in  it.&nbsp; You didn't have to give save  commands.&nbsp; It had an eight-line LCD, 8 by  40 character LCD type thing.</p>
+  <p>Why does the IBM character set have all the  characters it has in it?&nbsp; Because I put  the Wang word processing characters in, because I thought, oh, maybe we'll do a  Wang type word processor.</p>
+  <p>Who did Microsoft's word processor?&nbsp; Who?&nbsp; A  guy named Charles Simone.&nbsp; Who is Charles  Simone?&nbsp; Go back to the annals of Xerox  PARC, and look at who wrote the first bitmap graphics word processor, a guy  named Charles Simone, Dr. Charles Simone.&nbsp;  Look at his PhD thesis on the thing.</p>
+  <p>Anyway, he started in 1980, after we'd done  our first word processor.&nbsp; He came in  because he believed in doing bitmap word processors.&nbsp; But anyway --</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; Well, then let me rephrase  my question.</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; I  mean, come on.&nbsp; (Laughter.)&nbsp; Do you guys remember Electric Pencil, do you  remember WordStar?&nbsp; WordPerfect was  late.&nbsp; We were early.&nbsp; The midrange is guys like Electric Pencil and  WordStar.&nbsp; Now, we didn't win in word  processing until people bet against graphics user interface, and we bet on  graphics user interface, and people kind of messed up.&nbsp; There were even some good word processors,  but they got messed up.&nbsp; What was that  one on the Mac that was really good?&nbsp;  FullWrite?&nbsp; FullWrite was actually  a very good word processor, but they never took it anywhere.&nbsp; Anyway. &nbsp;But we were imitating them.&nbsp; (Laughter.)</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; There's a myth that  Microsoft doesn't innovate.&nbsp; How do you  feel that Microsoft can change that attitude?</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; We  can't change it.&nbsp; If you think we just  imitate, then that's -- you just can't change it.</p>
+  <p>Did we do personal computing?&nbsp; Who did that damn personal computing  thing?&nbsp; When I bought that 8008 for $360  down at Hamilton  (Avenue ?), what was that?&nbsp; </p>
+  <p>Anyway, tablet computers, is there somebody  else out there doing tablet computers? &nbsp;IPTV, is there somebody else out there doing  -- by definition what we do is the baseline.&nbsp;  Everything Microsoft does is the baseline, and what we don't do, that's  what's innovative I guess.&nbsp;  (Laughter.)&nbsp; And by that  definition the other guys do all the innovative things.</p>
+  <p>I remember Google invented Web search.&nbsp; No one did it before they did.&nbsp; It's very interesting how they did that.&nbsp; (Laughter.)</p>
+  <p>In the computer industry the person who  does something first and the person who does it successfully, they are rarely  the same, but the memory is -- I mean, people think Apple Computer was an early  personal computer company.&nbsp; Well, let's  see, I had licensed 17 people to do personal computer basics before I did the  Applesoft BASIC, before I went out with Steve Wozniak and did the version that  worked with a cassette tape, because they didn't have the disk yet.&nbsp; But Apple invented personal computing. </p>
+  <p>So, let history be rewritten at all  times.&nbsp; But there's no way to get it  straight, I guess.&nbsp; Go look at what  Microsoft Research is doing, and then decide who are imitating and let me know.</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; Well, I'm sure that (off  mike) Microsoft Research (off mike).</p>
+  <p><strong>BILL  GATES:</strong>&nbsp; I'm  sorry?</p>
+  <p><strong>Jonathan Snook:</strong>&nbsp; The stuff coming out of  Microsoft Research (off mike).</p>
+</blockquote>
+<p>At this point, I wanted to balance the discussion by saying that Microsoft can and has innovated, including the work that Microsoft Research does.  </p>
+<blockquote>
+  <p><strong>BILL  GATES:</strong>&nbsp; All  our products are based -- all our products are based on stuff that came out of  Microsoft Research.&nbsp; We are playing  catch-up in Web search.&nbsp; What things are  we behind in?&nbsp; Some design and usability  things we could be better in, search we could be better in.&nbsp; So, we have categories where we need to match  and exceed what a brilliant company has done.&nbsp;  Adobe has done a great job with Flash, it's a very nice piece of work.&nbsp; Is it good that there's some competitor  trying to make it better?&nbsp; Who knows? &nbsp;But, yes, they were the first mover in many  elements of that.&nbsp; I can talk to you  about people who failed who did it before them, but it doesn't really matter;  they got out there and they drove the very big numbers.</p>
+  <p>So, we always have a few categories like  that, but most of our revenue -- who's revolutionizing management  software?&nbsp; Who's revolutionizing security  software?&nbsp; I mean, seriously, who do you  think?&nbsp; The business computing market,  which is way bigger than the consumer computing market, no one pays attention  to it.&nbsp; Even in the Wall Street Journal,  and you think, oh, this is the paper they're going to tell me about business  computing; no, it's all about consumer computing.&nbsp; It's okay, but thank God for business  computing, because it allows us to price our consumer computing stuff super  cheap, and still pay the salaries of these wonderful researchers who like to be  paid.</p>
+  <p>Anyway, I'm -- (laughter.)&nbsp; It's not the first time I've heard that.&nbsp; I'm not -- (laughter) -- it's a very common  view that if you figure out how I can get rid of it, I will do so.</p>
+</blockquote>
+<p>My intention wasn't to say Microsoft doesn't  innovate because I think they do but rather to open up the discussion to discuss ways that Microsoft could empower those within the organization to innovate (like Google does by allowing employees to work on their own projects).  </p>
+<p>Alas, it seems I put Gates on the defensive. In any case, it was a thoroughly enjoyable to hear him talk. </p>
+<p><a href="http://www.flickr.com/photos/jonathansnook/2088938589/" title="Mix'n'Mash by Jonathan Snook, on Flickr"><img src="https://farm3.static.flickr.com/2172/2088938589_911c64f38d.jpg" width="500" height="333" alt="Mix'n'Mash" /></a></p>
+<p>We finished the day with a group photo with Gates. After which, he made his way out of the building. It was somewhat surreal. </p>
+<p>All in all, I enjoyed my time here at Microsoft. Everybody was very nice, especially Tim Harris from Microsoft who organized the event. I'd definitely enjoy doing this again next year. (Who'd say no to a free trip?) </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published December 06, 2007 &middot; Updated December 06, 2007</div>
+	<div class="cat">Categorized as <a href="/archives/conferences/">Conferences</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/858</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">25 Comments &middot; <a href="/archives/conferences/mixnmash2007.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57051">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57051">1</a></div>
+			<span class="authorname">Chris Gross</span> said on December 06, 2007		</div>
+		<div class="quote"><p>Wow! That was a really neat read.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57052">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57052">2</a></div>
+			<span class="authorname">Brian Gilham</span> said on December 06, 2007		</div>
+		<div class="quote"><p>Nice work! When I first saw reports about this popping up on Twitter, mostly from Molly H., I was excited to see a transcript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57053">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57053">3</a></div>
+			<span class="authorname">Sean McGee</span> said on December 06, 2007		</div>
+		<div class="quote"><p>That is such a cool Experience!</p>
+<p>Did anyone ask him, "Why does Vista suck so much?"</p>
+<p>That's the questions I'd like to know the answer to.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57054">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57054">4</a></div>
+			<span class="authorname"><a href="http://www.jwphill3.com">J Phillips</a></span> said on December 06, 2007		</div>
+		<div class="quote"><p>Definitely a good read. You struck a nerve with Mr. Gates, that was pretty humorous, but I'm sure he's used to being under the gun with those types of questions and defending Microsoft.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57055">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57055">5</a></div>
+			<span class="authorname">Rey Bango</span> said on December 06, 2007		</div>
+		<div class="quote"><p>@Jonathan: LOL. No wonder you're way on the other end of the line and not next to Bill in that pic!! At least you got to meet him. I was invited many, many moons ago to the Microsoft campus (amazing place) but didn't get to meet him.</p>
+<p>BTW, I picked up your book. Good stuff so far! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57056">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57056">6</a></div>
+			<span class="authorname">Scott Schiller</span> said on December 06, 2007		</div>
+		<div class="quote"><p>Congratulations, that's pretty neat. I expect IE to be much better because of your guys' visit. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57057">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57057">7</a></div>
+			<span class="authorname">Tony L</span> said on December 06, 2007		</div>
+		<div class="quote"><p>wow, nice transcript of the discussion. More like a history lesson, but it was still a good reading. I think you can see now that they are trying to keep up the paste where they are not innovating. I can tell that this visit of yours wasn't just for display, but because they really want to be at the same level with other competitors in the market.<br />
+great, once again :P.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57058">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57058">8</a></div>
+			<span class="authorname"><a href="http://www.nuffgigs.com">Henry B.</a></span> said on December 06, 2007		</div>
+		<div class="quote"><p>That's pretty interesting stuff. I always wondered what I would ask Bill Gates if I ever met him. Its funny how he went off like that.</p>
+<p>I think Microsoft does innovate in some areas but the innovations never seem to become truly successful products even in the business world. Windows is successful because they have a choke hold on the industry.</p>
+<p>I guess at the end of the day they are just bad at making good practical products from the innovations those "wonderful researchers" come up with.</p>
+</div>
+	</div>
+		<div class="comment" id="c57059">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57059">9</a></div>
+			<span class="authorname">Brendan Falkowski</span> said on December 06, 2007		</div>
+		<div class="quote"><p>Nice read. I just attended a presentation last week given by Lem Lasher, the Chief Innovation Officer of Computer Sciences Corporation. It was a pretty interesting departure from the usual lecture fare on consulting culture. He spoke about fostering innovation in a large company and the challenges of doing so on a global scale.</p>
+<p>Bill Gates meetup? Very cool.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57060">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57060">10</a></div>
+			<span class="authorname"><a href="http://www.lealea.net/">Lea</a></span> said on December 06, 2007		</div>
+		<div class="quote"><p>Once again, it's the slightly off-kilter questions that get the best responses. Even unintended. Yay Snookums! :-D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57061">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57061">11</a></div>
+			<span class="authorname">Matthew Keefe</span> said on December 06, 2007		</div>
+		<div class="quote"><p>Awesome! This was a great read indeed and it sounds like you had a great time. I actually know a few of the people that attended the event as well so it will be interesting to hear there views on the trip.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57062">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57062">12</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on December 07, 2007		</div>
+		<div class="quote"><p>very interesting read . I generally agree though, In many eyes everything microsoft seems to do is the baseline. All the attention currently goes to vista and IE, while stuff like silverlight and surface get ignored but are really interesting.</p>
+<p>Bill already said it though, it's the company that does it best that get's credited, not the company that does it first. (as it should be, I think)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57064">13</a></div>
+			<span class="authorname"><a href="http://www.davidcubed.com">David</a></span> said on December 07, 2007		</div>
+		<div class="quote"><p>I would love to be able to meet Bill Gates... That's so amazing! Congrats to you and everyone else that were invited.</p>
+<p>A very cool article to read.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57068">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57068">14</a></div>
+			<span class="authorname"><a href="http://usabilityworks.org">Matthew Oliphant</a></span> said on December 07, 2007		</div>
+		<div class="quote"><p>I've often found that asking people to speak about a perception of what they do causes them to think you are asking about what they actually do.  </p>
+<p>Those two things are obviously related, but it's frustrating to me when I want to talk specifically about perceptions (and how to change them) and not about what is actually happening.</p>
+<p>Glad you got the opportunity to go.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57070">15</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on December 07, 2007		</div>
+		<div class="quote"><p>That sounds like a great opportunity. Wish that I could meet Bill Gates. :-/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57071">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57071">16</a></div>
+			<span class="authorname">J. Smith</span> said on December 07, 2007		</div>
+		<div class="quote"><p>Wow, what a great opportunity! I'm glad you asked Bil Gates that question. It was great to read his reaction. I especially like the quote:</p>
+<blockquote><p>Everything Microsoft does is the baseline, and what we don't do, that's what's innovative I guess.  (Laughter.)  And by that definition the other guys do all the innovative things.</p></blockquote>
+<p>I know it's considered cool to hate Microsoft but I have a healthy respect for them. As for Vista, it wasn't an overwhelming success but neither is Apple's Leopard.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57074">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57074">17</a></div>
+			<span class="authorname">Dave Q</span> said on December 08, 2007		</div>
+		<div class="quote"><p>Nice of you to strike Bill Gates' soft spot. But really, the perception is correct. Not necessarily all true but that's what is _perceived_ nonetheless. </p>
+<p>They failed to innovate with things close to our hearts. E.g. IE6... Vista... IIS... their various web services... MSN, Hotmail, Passport just to name a few.</p>
+<p>Funny you had to choose MS Word. In fairness to MS, the Office Suite is still a very good product. Better than everyone else, hands down. Next time tell him IE sucks big time. </p>
+<p>I'd ask a sensitive question if I were in your shoes as well. Nice shot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57075">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57075">18</a></div>
+			<span class="authorname">ChaosKaizÃ©r</span> said on December 08, 2007		</div>
+		<div class="quote"><p>congrats, this is a good reads. </p>
+<blockquote><p>every stupid thing, we did first.</p></blockquote>
+<p>nominated as of the Quotes of the Years.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57077">19</a></div>
+			<span class="authorname">Johan</span> said on December 08, 2007		</div>
+		<div class="quote"><p>is jeans the dresscode for IT pros ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57079">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57079">20</a></div>
+			<span class="authorname">Marc Grabanski</span> said on December 09, 2007		</div>
+		<div class="quote"><blockquote><p>thank God for business computing, because it allows us to price our consumer computing stuff super cheap, and still pay the salaries of these wonderful researchers who like to be paid.<br />
+-Gates</p></blockquote>
+<p>I nominate that for "Quotes of the Years".  What a great way to actually pay people,  without worrying about consumer mention/respect.  The stuff that fuels corporations seems to get very little mention.  I could make something that makes millions for a corporation and not get any respect from the industry, but yet I write a JavaScript widget and the community goes nuts.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57080">21</a></div>
+			<span class="authorname"><a href="http://www.projectdesigns.org">Ben Henschel</a></span> said on December 09, 2007		</div>
+		<div class="quote"><p>Wow! That is a pretty amazing opportunity to be able to meet Bill Gates like that. I have to say it was very entertaining to read the transcript of the conversation you had with him.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57089">22</a></div>
+			<span class="authorname">Nishant Kothary</span> said on December 10, 2007		</div>
+		<div class="quote"><p>Jon - you've earned an invitation from us every year :-)</p>
+<p>I'm new to Microsoft, so I'm still prey to making all sorts of generalizations about the company, especially when it comes to innovation and design. It's too easy. You asked a question that I've heard so often from all sorts of folks (I'm guilty of having asked/asserted the same). I'm glad your question came out the way it did even if you didn't mean it that way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57090">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57090">23</a></div>
+			<span class="authorname">David</span> said on December 10, 2007		</div>
+		<div class="quote"><p>Microsoft puts the statement in their agreement when you buy a computer with their software in/on it: to accept 'Developement tools'. These tools in fact do copy your inputs and do attach them to other programs such as Media Player for additional colors if you have generated your own via photography that you have taken and placed in a folder. There are grounds here for copyright infrigement? Who wants this case? A musician who uses Media Player and does photography can see their own colors on the screen if they have been generated outside of what is provided by Microsoft. And if you copy this song, odds are the colors are copied as well for the next Media Player! Good show MS! It took us this long to find it and now we have blind pages and robots that copy anything in our systems to report them as well. BIG BROTHER has finally made it BIG! bummer...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57108">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57108">24</a></div>
+			<span class="authorname">Alexey Bass</span> said on December 12, 2007		</div>
+		<div class="quote"><p>Also expecting IE to be better. Thanks for the article, Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66022">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66022">25</a></div>
+			<span class="authorname">Ð¿Ñ€Ð¸ÐºÐ¾Ð»Ð¸ÑÑ‚</span> said on February 18, 2011		</div>
+		<div class="quote"><p>Ð¯ Ð½Ð¸ÐºÐ°Ðº Ð½Ðµ ÑÐ¼Ð¾Ð³Ð»Ð° Ð²ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº Ð² ÐºÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹. Ð’ÑÑ‚Ð°Ð²Ð»ÑÑŽ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð° Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº Ð° Ð¾Ð½ Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÐµÐ³Ð¾ ÐºÐ°Ðº Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº. Ð§Ñ‚Ð¾ Ð¼Ð½Ðµ Ð´ÐµÐ»Ð°Ñ‚Ð¬?<br />
+Ð¤Ð¾Ñ‚ÐºÐ¸ Ð±ÐµÑ€Ñƒ Ð¾Ñ‚ÑÑŽÐ´Ð° - images.yandex.ru/yandsearch?text=snook.ca
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

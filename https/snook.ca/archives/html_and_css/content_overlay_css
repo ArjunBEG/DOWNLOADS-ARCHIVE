@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Content Overlay with CSS - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/content_overlay_css">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/content_overlay_css">
+	<meta property="og:title" content="Content Overlay with CSS">
+	<meta property="og:description" name="description" content="Here's the problem: you have a container with some content in it like an image along with some initial descriptive text. Then, when users hover their mouse over the container, a hidden container is re...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Content Overlay with CSS</h1>
+		<p>Here's the problem: you have a container with some content in it like an image along with some initial descriptive text. Then, when users hover their mouse over the container, a hidden container is revealed to present additional information over top of the current information but in a way that retains content from the original container.</p>
+<p>This was essentially the problem presented to me by <a href="http://antonpeck.com/">Anton Peck</a>. He had originally asked for a way to do this with JavaScript. To which I provided the following solution that didn't need to use JavaScript at all.</p>
+<p><a href="https://snook.ca/testing/anton-test.html">Check out the quick demo</a>.</p>
+<p>When you hover over the container, a new container is displayed over the existing content. The trick here is the use of position:relative to allow the static content to appear over absolutely positioned content. </p>
+<p>This is the HTML structure that was used:</p>
+<pre><code>&lt;div class=&quot;infobox&quot;&gt;
+   &lt;img src=&quot;http://example.com/path_to_image.jpg&quot;&gt;
+   &lt;div&gt;Here's what you have.&lt;/div&gt;
+ 
+   &lt;div class=&quot;more&quot;&gt;Here's more of a description of what we have going on here.&lt;/div&gt;
+&lt;/div&gt; </code></pre>
+<p>And this is the CSS I used to pull off the effect:</p>
+<pre><code>.infobox {
+	position:relative;
+    border:1px solid #000; 
+    background-color:#CCC;
+    width:73px;
+    padding:5px;
+    }
+.infobox img {
+	position:relative;
+	z-index:2;
+    }
+.infobox .more {
+	display:none;
+    }
+.infobox:hover .more {
+	display:block;
+    position:absolute;
+    z-index:1;
+    left:-1px;
+    top:-1px;
+    width:73px;
+    padding:78px 5px 5px;
+    border:1px solid #900;
+    background-color:#FFEFEF;
+    }</code></pre>
+
+<p>The <code>infobox</code> is positioned relatively to allow me to position the <code>more</code> container in relation to the <code>infobox</code>. The image is positioned relatively to be able to apply a z-index to it (a number greater than the <code>more</code> container). </p>
+<p>I did a quick test in Firefox and Internet Explorer 7 and 8 and this worked without issue. In IE6, this won't work because of the lack of hover support on anything but links. At which point, some JavaScript would need to step in to replicate this solution (maybe through the use of Dean Edwards' <a href="http://dean.edwards.name/IE7/">IE7 Scripts</a>).</p>
+
+<p><b>Update:</b> Here's <a href="https://snook.ca/testing/anton-test2.html">another example</a> to help demonstrate the idea using a different layout for the additional content. This example would be harder to pull off with just show/hide or any other technique described in the comments so far.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published March 26, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/883</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">28 Comments &middot; <a href="/archives/html_and_css/content_overlay_css.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57650">1</a></div>
+			<span class="authorname">Adriaan Nel</span> said on March 26, 2008		</div>
+		<div class="quote"><p>Hi Jonathan, the idea is rather nice, but how about making it a bit more eye friendly - IE: use a transparent overlay on the image and position the text within this overlay, over the image when hovering.  I've seen what I speak of on some sites (just can't seem to remember exactly where right now) and it's quite nice, but as a basic effect this also works...</p>
+<p>Another problem might be the display:none property of the .more div, google might think you are stuffing keywords in there...not that it should bother you, I just thought it should be mentioned.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57651">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57651">2</a></div>
+			<span class="authorname">Jeena Paradies</span> said on March 26, 2008		</div>
+		<div class="quote"><p>I don't get it, why don't you just use:</p>
+<p>.infobox .more, .infobox:hover div { display: none; }<br />
+.infobox:hover .more { display: block; }</p>
+</div>
+	</div>
+		<div class="comment" id="c57652">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57652">3</a></div>
+			<span class="authorname">Aditya Mukherjee</span> said on March 27, 2008		</div>
+		<div class="quote"><p>@Jeena: Because your first and second declarations clash. You are trying to hide '.infobox &gt; div' on hover, and showing '.infobox &gt; .more' on hover ... which both point to the same thing. It could work, but might behave erratically on different browsers.</p>
+<p>@Jonathan: It will be better not to use the 'position' attribute, but rather put the existing content in a DIV and hide it, while showing the '.more' content - something like what Jeena initially suggests.</p>
+<p>Also, this is not so much of an overlay, as it is extending. Overlay would be to show something on top of an existing info (with transparencies) to give a sense of layers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57653">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57653">4</a></div>
+			<span class="authorname">Ludwig</span> said on March 27, 2008		</div>
+		<div class="quote"><p>Jeena: That wouldn't replace the old text with the new.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57654">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57654">5</a></div>
+			<span class="authorname">Aron</span> said on March 27, 2008		</div>
+		<div class="quote"><p>Adriaan; Instead of using display: none; you could just set a large negative value on a left value:
+<pre><code>
+.infobox .more {position:absolute; left: -900em; }
+.infobox:hover .more {display: block; left: -1px; ...}
+</code></pre>
+<p>Just a thought.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57655">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57655">6</a></div>
+			<span class="authorname">Fouad Masoud</span> said on March 27, 2008		</div>
+		<div class="quote"><p>check this out.<br />
+http://www.some1ne.com/d/slideImage/slideImage.htm</p>
+<p>snook for IE6 you can simple use the csshover.htc<br />
+view-source:http://www.xs4all.nl/~peterned/htc/csshover.htc
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57656">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57656">7</a></div>
+			<span class="authorname">Abhimanyu</span> said on March 27, 2008		</div>
+		<div class="quote"><p>Nice, but for some reason it doesnt work in IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57657">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57657">8</a></div>
+			<span class="authorname">Ed Eliot</span> said on March 27, 2008		</div>
+		<div class="quote"><p>One problem this approach seems to have is with keyboard focus. There is no way to expose the content without a mouse.</p>
+<p>My feeling is that this functionality might best be implemented with JS. With JS disabled the additional content would be default displayed. With JS enabled it would be hidden (preferably off screen rather than with display: none so it's still accessible to screen readers) and displayed on rollover.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57658">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57658">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 27, 2008		</div>
+		<div class="quote"><p>@Jeena: I had a feeling somebody would mention that. I had even written a paragraph but deleted it. Guess I should've kept it in. :) What I would have said was, "This example isn't the best because it could be done by simply hiding the current text while showing the new text. It's the principle that I'm trying to demonstrate, not the example I'm trying to solve."</p>
+<p>@Ed Eliot: the accessibility issue here could be partially resolved by setting a tabindex on the div and setting up a :focus event (I believe that would work). But a nice javascript fade-in would be nice, too. :) but the CSS could still remain the same (which is really the point of this post).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57659">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57659">10</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name">Neal G</a></span> said on March 27, 2008		</div>
+		<div class="quote"><p>You gotta love it when you can solve a problem with CSS that would require some convoluted javascript to create it otherwise, although that makes you wonder if behavior should be part of CSS rather than only javascript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57660">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57660">11</a></div>
+			<span class="authorname">keif</span> said on March 27, 2008		</div>
+		<div class="quote"><p>instead of doing two divs, what about extending the height? i.e. height of 150px with overflow:hidden, and on hover it we have it extended to a height of 200px (or 300, or whatever). (Ignoring the IE implications, at least)</p>
+<p>Just a curious thought...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57661">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57661">12</a></div>
+			<span class="authorname">Jeena Paradies</span> said on March 27, 2008		</div>
+		<div class="quote"><p>@Aditya: No you are wrong, if works because of the specificity. (See the great <a href="//www.stuffandnonsense.co.uk/archives/css_specificity_wars.html">CSS Specificity Wars</a>)</p>
+<p>@Ludwig: Yes it would, try it yourselve.</p>
+<p>@Jonathan: Ok I didn't get that, thanks for clearing things up.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57662">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 27, 2008		</div>
+		<div class="quote"><p>@keif: the problem is displaying an overlay while retaining content from the original container. The look and feel of the overlay in this case could be completely different. Here's <a href="//snook.ca/testing/anton-test2.html">another example</a> to help demonstrate the idea (and would be harder to replicate with any other idea presented here so far).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57663">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57663">14</a></div>
+			<span class="authorname">Aditya Mukherjee</span> said on March 27, 2008		</div>
+		<div class="quote"><p>@Jeena: I missed the first &lt;div&gt; that holds the un-extended content. My comment was a royal waste :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57666">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57666">15</a></div>
+			<span class="authorname">david</span> said on March 28, 2008		</div>
+		<div class="quote"><p>very cool... it's got me thinking where it could be used.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57668">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57668">16</a></div>
+			<span class="authorname">andrej</span> said on March 29, 2008		</div>
+		<div class="quote"><p>Great tip. Is there any restriction which html-elements you can apply the :hover attribute(?) to? Does work for lists, etc.?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57670">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57670">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 29, 2008		</div>
+		<div class="quote"><p>@andrej: technically, the :hover selector works on any element. As mentioned before, IE6 is the lone exception which doesn't support it on any element BUT the &lt;A&gt; element.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57671">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57671">18</a></div>
+			<span class="authorname">Andrew Kumar</span> said on March 30, 2008		</div>
+		<div class="quote"><p>no hover state in iPhone or wii
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57672">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57672">19</a></div>
+			<span class="authorname">George</span> said on March 30, 2008		</div>
+		<div class="quote"><p>How about... Change the parent DIV to an A, change the child DIVs to SPANs. Then add the following to .infobox:</p>
+<pre><code>display:block;
+text-decoration:none; //remove link underline
+color:#000; //reset to the correct text color</code></pre>
+<p>Then add:</p>
+<pre><code>.infobox span {
+	display:block;
+}
+.infobox:hover {
+	zoom:100%; //force IE6 to redraw upon hover correctly
+}</code></pre>
+<p>You'd have to add an href attribute to the A element for this to work, though. Just make it href="#" or href="javascript:return false", or maybe you'd actually like it to link somewhere!</p>
+<p>Anyways, this works (I tested it in IE6 &amp; FF2; don't see any reason it won't work in IE7, Safari 3.1 and Opera) and thus you can run a fully IE6-compatible CSS-only solution to this problem. </p>
+<p>With IE6 still reigning supreme globally at around <a href="//w3counter.com/globalstats.php">40% of market share</a>, we still have to focus on solutions that work efficiently for this abortion of a browser.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57675">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57675">20</a></div>
+			<span class="authorname">Mr.Blue</span> said on March 31, 2008		</div>
+		<div class="quote"><p>Hi Snook, I have been using these kinds of concept to apply on the new lay-out of 9tutorials.com. Actually, I use jQuery to play around with CSS, then it could prevent the cross browser problem.</p>
+<p>Using CSS is a great idea, but it is in short of some visual effect, which we can implement from some popular Javascript framework</p>
+</div>
+	</div>
+		<div class="comment" id="c57679">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57679">21</a></div>
+			<span class="authorname">Bjarni</span> said on April 01, 2008		</div>
+		<div class="quote"><p>Interesting, I like the idea behind it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57681">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57681">22</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn</a></span> said on April 01, 2008		</div>
+		<div class="quote"><p>I love it!!<br />
+I like seeing examples were css can be used instead of JavaScript all the time.</p>
+<p>btw the first example is much nicer than the second example.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57726">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57726">23</a></div>
+			<span class="authorname">RubyShooZ</span> said on April 06, 2008		</div>
+		<div class="quote"><p>Unless I missed it - this does work in IE7.</p>
+<p>Peace, love and understanding to all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59951">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59951">24</a></div>
+			<span class="authorname">Google</span> said on October 28, 2008		</div>
+		<div class="quote"><p>Google<br />
+&lt;img src=&quot;http://google.com/google.jpg&quot; onClick=&quot;alert('Google');&quot;&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61089">25</a></div>
+			<span class="authorname">justin brock</span> said on January 16, 2009		</div>
+		<div class="quote"><p>I get error pages when I click the links your examples. Have they moved?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66800">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66800">26</a></div>
+			<span class="authorname">Vi</span> said on March 24, 2011		</div>
+		<div class="quote"><p>hi im using joomla/virtuamart, i've used this approach to our products, but i need a little help here. how can I have two overlay? options are right or left depends on the position of the product so it would look good with the site. tnx! hope to hear from you soon :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66870">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66870">27</a></div>
+			<span class="authorname">Anita</span> said on March 27, 2011		</div>
+		<div class="quote"><p>Tx for your informative blog. Not finding what I want, I would have to settle for the next best thing.</p>
+<p>I am looking for position the text within the image, when hovering. like Adriaan Nel, I've seen on a site and searching for days to find similar. Ideally, image is still shown but maybe with some opacity but the white text is over the image. Thus info on image is shown within that image real estate and not to intrude on other image.</p>
+<p>I am not strong on front end design and kicking myself for not saving that site. Save the directory site and did not realized the article was  in a blog that changes. One month later when I needed the information could not recall the blog for that directory is over 400 links on web development. tx</p>
+<p>I have look thru jslib and various site. Would take a shot with what I gather and hope to do. tx
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66901">28</a></div>
+			<span class="authorname">Anita</span> said on March 28, 2011		</div>
+		<div class="quote"><p>Found it and disappointed when tested on IE, did not want the degraded method for ie even thou it shows the description. Will look at this blog method since it can handle large description.</p>
+<p>LO, the second best thing becomes the first. Would be nice if the java script is provided as a learning material even thou the author is for non-java script css. It is made clear he favors non-javascript design but it  needs java for ie6. Tx for mentioning Dean Edwards.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

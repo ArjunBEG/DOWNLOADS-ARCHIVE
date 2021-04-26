@@ -1,0 +1,8 @@
+<p>Checks if the provided predicate function returns <code>true</code> for at least one element in a collection.</p>
+<ul>
+<li>Use <code>Array.prototype.some()</code> to test if any elements in the collection return <code>true</code> based on <code>fn</code>.</li>
+<li>Omit the second argument, <code>fn</code>, to use <code>Boolean</code> as a default.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> any <span class="op">=</span> (arr<span class="op">,</span> fn <span class="op">=</span> Boolean) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">some</span>(fn)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">any</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span>]<span class="op">,</span> x <span class="kw">=&gt;</span> x <span class="op">&gt;=</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">any</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

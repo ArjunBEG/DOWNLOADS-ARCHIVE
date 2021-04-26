@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Unsure - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/unsure">
+	<meta property="og:url" content="https://snook.ca/archives/personal/unsure">
+	<meta property="og:title" content="Unsure">
+	<meta property="og:description" name="description" content="
+Getting older is a humbling experience. Watching other people get older is sometimes equally so. I have an older brother who is almost nine years older than I am. When my parents divorced, I was onl...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Unsure</h1>
+		
+<p>Getting older is a humbling experience. Watching other people get older is sometimes equally so. I have an older brother who is almost nine years older than I am. When my parents divorced, I was only 3 years old. My brother moved with my dad and I stayed with my mom. I don't remember the divorce. I don't remember much of anything before the age of 5. As a result, I've considered myself an only child. </p>
+
+<p>Now that I'm a parent with two kids of my own, I find myself trying to remember what it was like growing up with my mother. What was her parenting like? She wasn't overbearing. She wasn't domineering. She wasn't doting or overly affectionate, either. She was consistent. More than anything, she provided. A single mom&mdash;a secretary&mdash;raising a child on her own. It didn't seem like a burden to her. Things just <em>were</em>. </p>
+
+<p>I didn't notice that we didn't have much money. I was fed and clothed. I seemed no worse or better off than any of the other kids. I had an Apple ][e clone. And then an Apple //c. When I was 14, we got a 386sx. I still have the 2400 baud modem that was inside that thing&mdash;a modem that connected me to bigger world. My mom did a great job of setting me on a path, a path that I travelled for years seemingly on auto-pilot.</p>
+
+<p>My mom was a provider. There didn't seem to be any limitations to what she could do and she didn't put any limitations on me. With my kids, I feel that many of my decisions are more conscientious; I impart life experience onto my kids so that they can learn from my mistakes. My mom didn't impart her experience onto me. I know very little of what her perspective is and what it must've been like. She has, in her own way, made me think for myself. (And selfishly, often think of only myself.) </p>
+
+
+<p>My mom never remarried but did find love again. She found a life partner and was with him for about 15 years. I feel bad for not knowing exactly how long it's been. Sadly, he passed away earlier this year. And yet, I did not feel that my mom would be unable to cope.</p>
+ 
+<p>Indeed, she coped. She is still very self-sufficient. She is still a strong and capable woman. She has travelled nearly as much as I have this year, which is saying something. In spending more time with her this year, though, I have noticed that she does have limitations. She doesn't know everything. How did I go 37 years before discovering that she can't do it all? </p>
+
+<p>My life isn't shattered with this newfound realization but it has made me wonder how I'll do things differently with my children. How much direction do I provide them? How much should they see the wizard behind the curtain? Should they know or even care that I'm fallible? ...that I'm not perfect? </p>
+
+<p>For 35 years, I lived my life mostly on auto-pilot. I went through the motions of life without much fore or afterthought. Two years ago, I made a decision to be more in control and to set the direction of where I wanted to go. Having done so, though, I find myself more unsure of myself than I've ever been. What is it that I truly need to be happy? I don't know, yet. (And not sure why I waited so long to start figuring it out.)</p>
+
+<p>I wonder if my mom ever felt this unsure.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published November 01, 2011 </div>
+	<div class="cat">Categorized as <a href="/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1004</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">23 Comments &middot; <a href="/archives/personal/unsure.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68596">1</a></div>
+			<span class="authorname">Steve Fisher</span> said on October 31, 2011		</div>
+		<div class="quote"><p>Jonathan this is a beautiful post. Thank-you for sharing this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68597">2</a></div>
+			<span class="authorname">Odin</span> said on October 31, 2011		</div>
+		<div class="quote"><p>Twenty-one here, I'm sure I'll be back to read this a few more times. I've only just realised my parents are people just like me with the same worries and uncertainties.</p>
+<p>Great post, thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68598">3</a></div>
+			<span class="authorname">Jonathan Sampson</span> said on October 31, 2011		</div>
+		<div class="quote"><p>Very nice thoughts. I had a similar upbringing, only my mother raised three boys, and at times two daughters. She also was, looking back, capable of everything. She worked construction jobs, and just about anything she could get her hands into in order to provide for my brothers and me.</p>
+<p>Two years ago I experienced the birth of my first son; my wife and I were full of joy and fear. A child, what a responsibility. Will he go on to be nobody great, or somebody mankind will remember for a long time to come? Will he be somebody like me, or somebody as impacting as Steve Jobs? It's crazy to think that at this point of his life, I am far larger than Steve ever was.</p>
+<p>I admit to not being a regular here, but I am glad I stumbled in to read this post. Reminds me how much I love my mother, and how blessed I was to have had such a strong woman teach me how to be a good man.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68599">4</a></div>
+			<span class="authorname">Matthew Pennell</span> said on October 31, 2011		</div>
+		<div class="quote"><p>I think your kids' opinion on your own perfection will peak and trough as they grow up, regardless of your actions. When they're little, you can do no wrong. When they're teens, you WILL be the worst parent in history. It's only when they're adults themselves, or even parents themselves, that they'll work out what kind of a parent you really were. Unfortunately, we as parents have to put in the groundwork right from Day 1 to stand any chance of being remembered fondly. </p>
+<p>I'm enjoying being the greatest Dad in the world right now; but also looking forward to when my girls know that I did my absolute best for them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68600">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68600">5</a></div>
+			<span class="authorname">Tanny O'Haley</span> said on October 31, 2011		</div>
+		<div class="quote"><p>Be a parent to your children. You are there to teach them, to help then learn how to make good decisions. It's okay not to be perfect and when you mess up, and you will. Appolligize to your children. Your children will respect you for it. Seems like the older you get, the less you know. Good luck.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68601">6</a></div>
+			<span class="authorname">Mike Hughes</span> said on October 31, 2011		</div>
+		<div class="quote"><p>Hey Jonathon,</p>
+<p>I met you when you were in Arizona and came by to talk at the Tag Soup meetup.  I'm with you about being more in control of your life and finding that the more I dig, the deeper the hole seems to get.  I love money as much as the next person but "money" and "things" never really filled the gaps for me.  I love doing stuff and experiencing new things.</p>
+<p>January of last year I started running because I wanted to get into better shape and I ended up finding something I wasn't expecting.  I started slow, built up to a 5k, then a half marathon, olympic triathlon and in less than 3 weeks I will be doing my first Ironman.  While training, I watched a movie called Bicycle Dreams (awesome docu about the Race Across America, a bike race) and there was a quote in there by a guy named Chris McDonald where he talkes about desire, "there are more people in society now that describe a feeling of missing something.  I'm thinking, 'how can you be missing something if you don't know what it is'.  But yet they describe something very tangible, very close to them and desire, true desire, may very well be what is missing."  Of course, the context of this was why he was doing the Race Across America which is probably the most intense race in the world http://en.wikipedia.org/wiki/Race_Across_America</p>
+<p>I know it's a little out there but for me, it scratches the itch.  I find that I need to fill my life with purpose and desire similar to the days when I was learning HTML by printing out source code on a dot matrix printer and learning how it all worked.  Some days it bums me out that learning new things in regards to the web is really just part of my job now.  Doing something like Ironman is so out of my comfort zone that it has made me feel alive again.  Not saying it is for everyone but sometimes you have to look in the places you least expect to find inspiration.</p>
+<p>I often wonder if my parents ever felt this unsure as well but I know what the answer is.</p>
+<p>Hope you find what you're looking for.</p>
+<p>Mike
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68602">7</a></div>
+			<span class="authorname">Ryan</span> said on October 31, 2011		</div>
+		<div class="quote"><p>This is actually kind of spooky.</p>
+<p> I didn't intend to comment on anything, just continue reading your amazing thoughts on CSS architecture.</p>
+<p>Then, this post caught my eye and I began to read it. The moment you mentioned "thinking back to how your parents were when they were raising you, so you could apply it to them", literally blew my mind because I was just thinking the same exact thing  about 15 mins before reading this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68603">8</a></div>
+			<span class="authorname">Motyar</span> said on November 01, 2011		</div>
+		<div class="quote"><p>Control is an illusion. I don't know more about life, I am 23 yet, but I think you should try to be mindful about life, and it seems the start.<br />
+A beautiful post!!</p>
+</div>
+	</div>
+		<div class="comment" id="c68604">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68604">9</a></div>
+			<span class="authorname">Fraser Pearce</span> said on November 01, 2011		</div>
+		<div class="quote"><p>A lovely bit of writing mate. Thank you. </p>
+<p>I have similar parallels - I'm 34 with a 2 year old, and grew up in a divorced family. I never felt poor but my mother worked hard for what we had and in reality we had a lot less material things that most of my friends - but there was a lot of love and that's something you can't put a price on. Sure I had an Amstrad CPC 464 and then an Amiga A500, but I had to save up and work for every game, memory expansion and bit of software (and later upgrade to the A1200) - but that fuelled my passion and taught me the worth of my craft (to be - I'm a Web Developer now). This was all in the days before the Internet, so information wasn't as free and accessible as it is now. Computer magazines were the medium of choice and I used to swap and borrow them at school.</p>
+<p>Now in my working life I know what it means to sometimes do a job because you need to pay the bills, not because its what you want to do. Thinking about it, it saddens me that my parent have both done jobs because it was a case of having to in order to keep the wolves from the door. That must have been hard - even soul destroying - at times. I hope they know how thankful I am for it. I'm fortunate that so far I've only been in that situation a limited amount of time.</p>
+<p>I'm very lucky - I have a lovely wife, amazing son, a good relationship with both my parents and a close relationship with my brother. Sure, life has its challenges - but I have a hell of a lot to be thankful for.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68605">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68605">10</a></div>
+			<span class="authorname">Ben</span> said on November 01, 2011		</div>
+		<div class="quote"><p>Nice to read something different.</p>
+<p>Happiness is only something you can pursue though, you can never actually have it.</p>
+<p>Jonathan, you sound as though your happy.</p>
+</div>
+	</div>
+		<div class="comment" id="c68606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68606">11</a></div>
+			<span class="authorname">Ramon Lapenta</span> said on November 01, 2011		</div>
+		<div class="quote"><p>I think you mother made a good job by teaching you (doing some things and not doing others) to be a person who is able to realize something like this. Unsure is good.</p>
+<p>I don't think about happiness as something you have to (or can) pursue. You either have it or not. And by "have it" I mean feel it, make it, accept it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68607">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68607">12</a></div>
+			<span class="authorname">Zulema</span> said on November 01, 2011		</div>
+		<div class="quote"><p>Thank you for sharing your thoughts. I don't think anyone is ever sure, I know I'm not. As a recently divorced mom of two I can feel that fear sometimes too. My kids might not remember the fear though and I'm glad for that. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68609">13</a></div>
+			<span class="authorname">Paul</span> said on November 01, 2011		</div>
+		<div class="quote"><p>@Snook Thanks for the good post!</p>
+<p>As Zulema says, I also think that everyone is unsure. You can influence your future a bit, but you can't be sure what will happen later on. And maybe that's also the beauty of it.</p>
+<p>For me (24) it helps me to take decisions like they aren't important at all. Later on I will be surprised with something good or bad. If it's a bad one I know that I have to change something. In both outcomes you will learn a lot and become a stronger person.</p>
+<p>And maybe it's better now you're young to meet a lot of those bad decisions when not everything is at risk. And you can teach your children later on what not to do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68612">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68612">14</a></div>
+			<span class="authorname">tiffehr</span> said on November 01, 2011		</div>
+		<div class="quote"><p>Love this post.  And the responses.  Thank you for sharing, Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68614">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68614">15</a></div>
+			<span class="authorname">mseeley</span> said on November 03, 2011		</div>
+		<div class="quote"><p>Wow snook, great read.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68615">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68615">16</a></div>
+			<span class="authorname">Ol</span> said on November 04, 2011		</div>
+		<div class="quote"><p>Hello !<br />
+I just discover your blog (with the excellent post for text rotating).<br />
+I don't know why, but I feel good since I've learn your message "Unsure"... It's full of peace and intelligence.<br />
+Thank you to be what you are, be unsure is the best way to learn of each others, older and younger too.<br />
+(Forgive me if my english is not perfect... I'm french).</p>
+</div>
+	</div>
+		<div class="comment" id="c68622">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68622">17</a></div>
+			<span class="authorname"><a href="http://nellen.co.za">Adriaan Nel</a></span> said on November 05, 2011		</div>
+		<div class="quote"><p>Hi Jonathan, so very few people realize that family - especially your children are probably the most important aspect of your life.  Life is short, we should make the most of it, and stop wasting time on unimportant things.</p>
+<p>Awesome post, I really enjoyed it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68629">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68629">18</a></div>
+			<span class="authorname">David Ngo</span> said on November 07, 2011		</div>
+		<div class="quote"><p>I was expecting to see another tech-related tip.  And then I read this. </p>
+<p>I enjoyed it a lot more :). </p>
+</div>
+	</div>
+		<div class="comment" id="c68630">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68630">19</a></div>
+			<span class="authorname">nishat</span> said on November 07, 2011		</div>
+		<div class="quote"><p>Hats off to your mom.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68651">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68651">20</a></div>
+			<span class="authorname">Dirk</span> said on November 21, 2011		</div>
+		<div class="quote"><p>One of your feed readers, think I'll never left a comment before. Just came by to appreciate your post. Thank you!<br />
+Regards from Berlin
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68657">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68657">21</a></div>
+			<span class="authorname">belajar forex</span> said on November 23, 2011		</div>
+		<div class="quote"><p>thanks, i would like the post
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68677">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68677">22</a></div>
+			<span class="authorname">Mom</span> said on December 09, 2011		</div>
+		<div class="quote"><p>Thank you, son.  This is beautiful.  You're probably just realizing I don't know everything because I spent so many years telling you 'Moms know everything'.  I'm sure your kids will turn out as good as you did.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68731">23</a></div>
+			<span class="authorname">Ryan</span> said on January 02, 2012		</div>
+		<div class="quote"><p>Very nice. When it comes down to it pretty sure we all feel like children inside. Personally, I've found happiness in a repaired relationship with God through what he did on the cross to repair it with us, his most prized creation. It's not let me down yet--18(?) yrs and counting.<br />
+Hope you find the secret to happiness. Thanks for the post.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

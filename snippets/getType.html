@@ -1,0 +1,8 @@
+<p>Returns the native type of a value.</p>
+<ul>
+<li>Return <code>'undefined'</code> or <code>'null'</code> if the value is <code>undefined</code> or <code>null</code>.</li>
+<li>Otherwise, use <code>Object.prototype.constructor.name</code> to get the name of the constructor.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> getType <span class="op">=</span> v <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  (v <span class="op">===</span> <span class="kw">undefined</span> <span class="op">?</span> <span class="st">&#39;undefined&#39;</span> : v <span class="op">===</span> <span class="kw">null</span> <span class="op">?</span> <span class="st">&#39;null&#39;</span> : <span class="va">v</span>.<span class="va">constructor</span>.<span class="at">name</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">getType</span>(<span class="kw">new</span> <span class="at">Set</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]))<span class="op">;</span> <span class="co">// &#39;Set&#39;</span></a></code></pre></div>

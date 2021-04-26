@@ -1,0 +1,15 @@
+<p>Encodes a set of form elements as an <code>object</code>.</p>
+<ul>
+<li>Use the <code>FormData</code> constructor to convert the HTML <code>form</code> to <code>FormData</code> and <code>Array.from()</code> to convert to an array.</li>
+<li>Collect the object from the array using <code>Array.prototype.reduce()</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> formToObject <span class="op">=</span> form <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="kw">new</span> <span class="at">FormData</span>(form)).<span class="at">reduce</span>(</a>
+<a class="sourceLine" id="cb1-3" title="3">    (acc<span class="op">,</span> [key<span class="op">,</span> value]) <span class="kw">=&gt;</span> (<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">      ...<span class="at">acc</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      [key]<span class="op">:</span> value</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="op">}</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="op">{}</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  )<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">formToObject</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;#form&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// { email: &#39;test@email.com&#39;, name: &#39;Test Name&#39; }</span></a></code></pre></div>

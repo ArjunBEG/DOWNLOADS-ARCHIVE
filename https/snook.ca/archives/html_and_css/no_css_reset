@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>No CSS Reset - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/no_css_reset">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/no_css_reset">
+	<meta property="og:title" content="No CSS Reset">
+	<meta property="og:description" name="description" content="
+When asked recently about using a CSS reset stylesheet, I readily admitted that I don't use them. I don't use them for my blog or for any project that I work on. Admitting such can raise an eyebrow ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>No CSS Reset</h1>
+		
+<p>When asked recently about using a CSS reset stylesheet, I readily admitted that I don't use them. I don't use them for my blog or for any project that I work on. Admitting such can raise an eyebrow or two. Reset stylesheets are definitely becoming commonplace &mdash; as you'd expect with companies like <a href="http://developer.yahoo.com/yui/reset/">Yahoo</a> and industry leaders like <a href="http://meyerweb.com/eric/tools/css/reset/">Eric Meyer</a> actively using them.</p>
+<p>So, why haven't I jumped on board? </p>
+<h2>What is a CSS Reset?</h2>
+<p>In case you've never heard of such a thing, a CSS Reset is designed to set a number of element styles to a specific baseline that creates consistency across various browsers.</p>
+<h3>In the beginning</h3>
+<p>When the idea of a reset style was first introduced, it was very basic. It reset the margin and padding for all elements. The problem with that was it caused havoc with elements that didn't want their margins or padding reset (namely, form elements).</p>
+
+<pre><code>* { margin:0; padding:0; }</code></pre>
+<p> From there, people worked on adding to and fine-tuning the reset stylesheet to be more flexible and to reset more styles. The <a href="http://meyerweb.com/eric/tools/css/reset/">Meyer reset</a> is probably the finest culmination of this effort.</p>
+<h3>Eric Meyer's Reset</h3>
+<p>Eric Meyer's reset took the concept of resetting margin and padding and took it to a whole new level, stripping styles from a number of elements, forcing you to think about what you wanted and add them back in. List items would no longer have bullets, headings would no longer be bolded, and most elements would be stripped of their margin and padding, along with some other changes.</p>
+<h2>Working with Nothing</h2>
+<p>The problem I've had with these resets is that I then find myself declaring much more than I ever needed to just to get browsers back to rendering things the way I want. As it turns out, I'm perfectly happy with how a number of elements render by default. I like lists to have bullets and strong elements to have bolded text. </p>
+<p>And I'm okay if the various browsers show things slightly differently. </p>
+<p>I'm okay if one browser displays an H1 a few pixels larger or smaller than other browsers. If one browser defaults to circle bullets and another to squares, that's usually not a problem. If it is, then I create a style that addresses that specific issue. I don't reset it back to zero and then set it again to what I really want. </p>
+<p>One of the principles I took away from the Web Standards community was the concept that pixel perfect precision across the various rendering engines was impractical and a remnant of the table-based layouts of yesteryear. With CSS and progressive enhancement, it was okay that things might look a little different from one browser to the next because of variations in what they supported.</p>
+<h2>Building up </h2>
+<p>With that said, the idea of developing a base CSS file that defines some common styles that I often want from project to project &mdash; like turning off margin and padding for form elements &mdash; is a good idea. </p>
+<p>We're seeing various CSS frameworks crop up such as <a href="http://code.google.com/p/blueprintcss/">Blueprint</a>, <a href="http://developer.yahoo.com/yui/">YUI</a> and <a href="http://960.gs/">960.gs</a>. Each  breaking the system down only to build it back up again. Each starts with a reset, then adds on typography and a grid system.</p>
+<p>Each of those still seem like more than I need, even though none are that large in size. Blueprint is the heaviest at around 13KB uncompressed but also includes lots of extras like styles for error messages and a print stylesheet.</p>
+<h2>Less is more</h2>
+<p>One of these days I'll put together my own base CSS or maybe I won't. To date, I haven't felt myself being overly repetitive in the styles that I set; and I haven't thought to myself, &quot;oh, the hours I'd save myself if only I had a reset stylesheet.&quot;</p>
+<p>So, while I have nothing against CSS reset stylesheets, I simply don't use them personally and I think that's okay.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published April 17, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/889</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">111 Comments &middot; <a href="/archives/html_and_css/no_css_reset.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57974">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57974">1</a></div>
+			<span class="authorname">mozami</span> said on April 17, 2008		</div>
+		<div class="quote"><blockquote><p>pixel perfect precision across the various rendering engines was impractical and a remnant of the table-based layouts of yesteryear"</p></blockquote>
+<p>Im still getting to grips with that! However, i guess it also depends on one's comfort level of how varied a browser render you can tolerate. In my case, its still close to very low.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57975">2</a></div>
+			<span class="authorname">Jared</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I completely agree. Every time I start a project and attempt to use a pre-made reset (be it Meyers, BP, etc) it always seem to cause more work in the end. I end up canceling out or undoing half the elements from the reset (headers!).</p>
+<p>I think have *some* sort of ground work to start off of be efficient, but unless the project specifically needs it- I just haven't found it beneficial.</p>
+<p>I periodically go back and try using different resets- but I always end up at the same conclusion. Maybe one day my mind will change and my design habits will incorporate a reset file.</p>
+<p>Great write up btw. It's good to know there are still some other designers left out there that don't use resets.</p>
+<p>Cheers!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57976">3</a></div>
+			<span class="authorname">Ross Bruniges</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Resets can certainly be a pain - if you're not sure exactly what it is doing. Once you know the things that it will cancel out (and what it won't) it's not too difficult to specify the styles that YOU want (opposed to the browser).</p>
+<p>Certainly there is a lot of negativity in pixel pushing and it can be many a web dev's nightmare but unfortunately from my experiences people really do want things to look the same across platform/browser and CSS resets can/will/have help with this.</p>
+<p>I've certainly been frustrated with them in the past but now rather like them :&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57977">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57977">4</a></div>
+			<span class="authorname">Andrew Ingram</span> said on April 17, 2008		</div>
+		<div class="quote"><p>The other problem with using reset styles is that they add unneccessary rules to every element on the page which presumably adds processing/rendering overhead.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57978">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57978">5</a></div>
+			<span class="authorname">Ryanr</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I agree with your points, however I still use the reset css. In fact I use quite a heavy reset by default, but instead of adding bits back in (such as making strong text bold again) I just remove those things from the reset. I find this works for me.</p>
+<p>I've also looked at a few of the prebuilt css frameworks and can't say I'd use any, of them all I think the popular Blueprint framework is the worst. Take time to develop your own, not only will it work better but it will help you develop your own skills further.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57979">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57979">6</a></div>
+			<span class="authorname">Tim Fletcher</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I use a very basic reset, literally just for margins and relative font sizes. I've never really seen the necessity to create a fully clean slate. As long as it renders roughly the same in each browser it's fine. If you're constantly adding in CSS that was already there as a default then you're wasting your time. The browser defaults are all very similar anyway.</p>
+<p>It would seem to me that a full reset is merely an attempt to be 'overly semantic' (if there is such a thing) with your code.</p>
+<p>Loving the blog. Consistently good and useful content.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57980">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57980">7</a></div>
+			<span class="authorname">NICCAI</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Whole-heartedly agree.  The last thing I want to do is start from scratch.  I agree on building up a base - such as with font sizing - but brining all elements back to zero seems overkill.  Add in http requests, page weight, maintainability, and I think the cons out weigh the pros.  Migrate the code to a new developer, and you can be in even deeper.  </p>
+<p>Honest post.  Nice work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57981">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57981">8</a></div>
+			<span class="authorname"><a href="http://www.robertnyman.com">Robert Nyman</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>It's an interesting discussion. While I do agree it's sometimes a matter of taking out just to put back in, there are other times when it is very important to be able to give the end user a good user experience.</p>
+<p>While most people are aware that pixel-perfect designs are, more or less, impossible to achieve (it's a living medium, not a poster, folks), there are times where you want to be as accurate as possible when it comes to creating a result which is as consistent as possible across web browsers and platforms.</p>
+<p>I generally use a small reset part in the main stylesheet (not tucked away in a hidden file), and I'm fairly picky about what I reset.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57982">9</a></div>
+			<span class="authorname">justin</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I have a number of gripes with reset stylesheets:</p>
+<p>In Meyers reset styles outlines are removed from focused links, with the rational that you have to put them back in as you want. This is very bad in my opinion - the inverted dotted outline is distinctive and understood as a usability convention - should <em>Never</em> be messed with or altered from the browser default.</p>
+<p>Also removing bold from headings, italic styling from em elements etc. Is overkill. every browser that I've ever seen has the default styles set intuitively in the obvious cases - and they're there to help the authoring process - I certainly appreciate them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57983">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57983">10</a></div>
+			<span class="authorname">Ahulee</span> said on April 17, 2008		</div>
+		<div class="quote"><p>æ²¡æœ‰ä½¿ç”¨è¿‡* { margin:0; padding:0; }è¿™æ ·çš„å†™æ³•ï¼Œä½†æ˜¯ç»å¸¸ä½¿ç”¨div{ margin:0; padding:0; }
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57984">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57984">11</a></div>
+			<span class="authorname">Keith</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Yay! About time somebody (at least somebody with a blog that gets read) mentions the non-essentiality of reset stylesheets. I don't use them and find that when I have, I've spent most of my time re-emboldening header elements and such like. After stripping away the margins and padding I'm then quite happy with how most browsers render my site. Some sites of course may require a little more 'stripping' than others - but once these areas have been identified, then its a two-minute job to set a targeted reset for them.<br />
+Good on ya Snook, for writing about this!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57985">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57985">12</a></div>
+			<span class="authorname">Ryanr</span> said on April 17, 2008		</div>
+		<div class="quote"><p>@justin</p>
+<p>The link outline is only removed from Firefox iiirc, this outline can look pretty nasty at times and can even interfere with the page rendering in some instances. </p>
+<p>Instead use the :focus pseudo class to apply the same styling as :hover, that way there are no issues tabbing through page links and the user still receives feedback.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57986">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57986">13</a></div>
+			<span class="authorname">Su</span> said on April 17, 2008		</div>
+		<div class="quote"><p><i>As it turns out, I'm perfectly happy with how a number of elements render by default. I like lists to have bullets and strong elements to have bolded text.</i></p>
+<p>This is fine, and perfectly valid, but seems to reject the reset sheets from the approach that they are Things Not Edited, which Eric explicitly addresses on the page for his: "It should be tweaked, edited, extended, and otherwise tuned to match your specific reset baseline." If you instead prefer your B tags bolded and ULs bulleted as a starting point, it's trivial to produce your own "fork" of the Meyer reset to make it so. Rather than a final product, I'd just think of them as someone having already done some of the work toward that personal base sheet you're setting aside for the future. With Eric's at least, there's a pretty strict adherence to a single goal, eg. the reset. </p>
+<p>The problem I have with some of these and the frameworks is that they have a tendency to go a few steps too far. Blueprint, for example, defaults to centering your layout, which I don't think it has any business deciding for you. And I'm also questioning of so many colors being specified in the typography module. I don't use that portion at all, but conceptually I'd prefer that it stick to metrics and leave color up to the users rather than require them to repeatedly contradict the Blueprint author's choices.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57987">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57987">14</a></div>
+			<span class="authorname">Peter Wilson</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I, in general, like the idea of <em>a</em> reset spread sheet; itâ€™s the search for the mythical â€˜<em>the</em>â€™ reset style sheet that perplexes me. </p>
+<p>Each developer has their own style of coding, put three developers in a room with a design, and youâ€™ll receive three different products; each product will have its advantages and disadvantages. </p>
+<p>Iâ€™m in the early stages of setting up some base css for myself, Iâ€™ll start with Eric Meyerâ€™s reset.css and remove a few things that â€“ I think â€“ take the reset too far to be practical; this is, as has been said above, what EM intended to be done all along.</p>
+</div>
+	</div>
+		<div class="comment" id="c57988">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57988">15</a></div>
+			<span class="authorname">Craig</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I totally agree that, in most cases, a CSS reset can be overkill. Browsers are fairly consistent in default rendering these days: one or two extra CSS declarations here and there can solve the majority of issues.</p>
+<p>A reset is possibly useful if you're new to CSS or aren't testing in many browsers and don't want to many styling surprises.</p>
+<p>Great blog BTW!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57989">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57989">16</a></div>
+			<span class="authorname">Lou</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Great article - love questioning the 'norm'</p>
+<p>I agree with the fact that the reset stylesheet issue has got a little out of hand. Yes, some elements - such as lists - need their margins and padding standardised to reduce headaches, but I like the idea that headings and form elements should be allowed to display as originally intended across different browsers - the users of those browsers are used to the way these elements look so why confuse them? </p>
+<p>Vive la difference!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57990">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57990">17</a></div>
+			<span class="authorname">Luke</span> said on April 17, 2008		</div>
+		<div class="quote"><pre><code>* { margin:0; padding:0; }</code></pre>
+<p>Thats the only one I use, and thats just out of habit more than anything. I would like to leave it out, but there are a few cross-browser nuances that still get on my nerves involving these two factors.</p>
+<blockquote><p>pixel perfect precision across the various rendering engines was impractical and a remnant of the table-based layouts of yesteryear"</p></blockquote>
+<p>I say this to my designer colleague all the time :) In my eyes, ignore the few pixels difference in width, just be thankful your floats aren't jumping around the page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57991">18</a></div>
+			<span class="authorname">Andy</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I don't use CSS resets either, mainly because I believe it's excessive since I'm probably not gonna use everything that's defined in them, plus the fact that I'll probably be rewriting mostpart of the rules anyway.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57993">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57993">19</a></div>
+			<span class="authorname">Michael Hessling</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Purely ancedotal, but using a reset (edited, of course, and usually Yahoo! or BP) has drastically reduced the amount of time I spend on cross-browser issues. I often don't even need IE-only stylesheets. A reset smooths out those pixel differences, which are frequently the reason for a broken layout.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57994">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57994">20</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com">Brendan Falkowski</a></span> said on April 17, 2008		</div>
+		<div class="quote"><pre><code>* { margin:0; padding:0; }</code></pre>
+<p> This is the only baseline style that I start projects with. Though I bookmarked a slew of reset stylesheets with the intention of comparing them and pulling some useful declarations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57995">21</a></div>
+			<span class="authorname"><a href="http://arapehlivanian.com">Ara Pehlivanian</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>It's easy to say that you don't mind certain elements looking different in different browsers when you have full creative control. But when working in a team environment it's a bit harder, so you give as much as you can (and as much as makes sense) before drawing the line and trying to negotiate a compromise. Especially since a lot of the graphics types are used to the "precision" the table based designs of yesteryear afforded them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57996">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57996">22</a></div>
+			<span class="authorname">Matt</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I agree, I have never understood the popularity of reset style sheets. But, after reading some of the above comments I agree that a custom reset wouldn't be such a bad thing if you took the specific project into consideration and only added resets for the elements you were using... But then, if it's project based targeting only specific elements wouldn't it just be called a style sheet?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57997">23</a></div>
+			<span class="authorname"><a href="http://scarfoo.com">Damjan MozetiÄ</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I am actively using Meyer's reset sheet and I find myself comfy with it. No reason not to use it in my opinion.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57998">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57998">24</a></div>
+			<span class="authorname">Mike Walsh</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I work with designers used to the print medium.  While I've gotten them to make a few concessions, pixel perfect is what they know and resets just make things easier.  They're still frustrated text wraps differently in different browsers and try to get me to use line breaks to fix it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57999">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57999">25</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name">Neal G</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I find myself repeating CSS on just about every project I do. I use most of Eric's reset<br />
+on my <a href="//www.nealgrosskopf.com/designs/guides/css/layout.asp">starter css/html template</a>. I find that this template can almost always meet the needs of any website design. Occasionally I'll need to remove a few elements or add few. Another nice thing to add to your default style sheet is <a href="//www.nealgrosskopf.com/tech/thread.asp?pid=3">css diagnostics</a> which will alert you of any blemishes in your code.</p>
+<p>After it's all said and done, I still like reseting everything. There are just too many inconsistencies between all the browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58002">26</a></div>
+			<span class="authorname">Jesse Gardner</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I'm going to have to respectfully and wholeheartedly disagree.</p>
+<p>One of the greatest hurdles for me when I first started learning CSS was trying to figure out what mystery properties were being applied in order to try to offset them.  So much of my time was spent zeroing out things haphazardly because I wasn't sure where all the mystery margin or mystery padding was coming from.  This becomes even more frustrating when you learn that different browsers come with slightly different "defaults".</p>
+<p>With a reset stylesheet, I no longer have to have all of those different defaults floating around in my head.  I start with a fresh slate and specify just exactly how I want it to look.</p>
+<p>Do I think some go too far?  Sureâ€”why unbold the strong element?  But largely, I think it helps people better wrangle CSS, so I recommend it to all beginners.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58003">27</a></div>
+			<span class="authorname">Niki Brown</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I just recently used a reset for the first time and it caused so many frustrations I just ended up not using it. I'm ok with different browsers displaying things a bit differently. But explaining that to a business person who is dead set on the website looking 100% like the mock up is difficult. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58004">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58004">28</a></div>
+			<span class="authorname"><a href="http://designsbychris.com">Chris Huff</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I've been using the universal reset for awhile, and finally got tired of not being able to style inputs.  So I took Meyer's reset and slimmed it down.  I left in a lot of the defaults such as sizes, spacing, and bullet points.  I do end up writing over what is left, but my reset helps a lot in simple avoiding confusion later in development.  It keeps me from wondering, "Why is that element way over there?  Oh, it's a browser default..."
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58005">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58005">29</a></div>
+			<span class="authorname"><a href="http://paulirish.com">Paul Irish</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p><b>I'm a bit surprised by all this anti-reset sentiment. </b></p>
+<p>Since I've used a reset the amount of browser-targeting hacks in my CSS has dropped by 70%. Not to mention the high level of control I have with font-sizing.</p>
+<p>The complaint of 're-enabling' all seems pretty insignificant. Sure it sucks and it's not often you need to declare <code>b,strong{font-weight:bold;}</code>. But, you really only need to build your baseline stylesheet once, and then you can use it on all subsequent projects.</p>
+<p>So to me, getting that solid consistent cross-browser foundation is absolutely worth the time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58006">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58006">30</a></div>
+			<span class="authorname">Natalie Jost</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Some great comments here. I didn't realize this was all that controversial an idea. I have to say though, I'm a little confused by all the comments saying "I always have to add/remove _____ from Eric's reset.css" Why not just add/remove them once from the reset.css itself instead of undoing his stylesheet in yours?</p>
+<p>The strong/em thing got me too at first. I think I forgot he removed styles on those too so I just went and put them back. I change a few other things too, adding a hr style for a simple line and adding nathan smith's div.clear, and my .hide-for-print class. Things like that which don't have an immediate effect on the design themselves alone, but things which I am typing (or copy/pasting from my other stylesheets), are all things I've added to Eric's. </p>
+<p>I also have a base.css which gives me fonts and margins on headings and paragraphs I use a lot, and even some comment/calendar styles for wordpress but I'm finding myself undoing some of those a lot so I'm thinking of just making a "blog" reset, "corporate" reset, etc. for those different uses.</p>
+<p>And you're right, I haven't saved a ton of <em>time</em>, but I like to think I'm preventing carpal tunnel. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58007">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58007">31</a></div>
+			<span class="authorname"><a href="http://iamdanielmarino.com">Daniel Marino</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>Well obviously it's just a matter of personal preference. My site doesn't use the Meyer reset.css, but I've been using it lately on new projects. I'm still trying to adjust to not having anything set up front, and I admit, I don't always like it.</p>
+<p>Another thing I'll mention is that I got used to coding around browser defaults, and now sometimes when something doesn't work I'll end up spending two hours trying to fix it, only to realize that it wasn't really broken. It was something that was reset in Meyer's reset.css.</p>
+<p>And yeah, the em/strong thing threw me for a loop too...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58008">32</a></div>
+			<span class="authorname">josh</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I'm with you bro.  Never used it, don't care to.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58009">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58009">33</a></div>
+			<span class="authorname">Jake</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Jonathan I too didn't use resets until recently.  I worked for a large marketing firm and having the website render exactly how the comp (design) looked was huge.  I would either hear from account service stating the client approved a certain look or from an art director claiming the padding/margin was off by a pixel from their comp.  I truly now could not live with my css reset, and I'm constantly changing it as I see fit.  BTW anyone who would like to see a copy of my css reset is more than welcome to it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58010">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58010">34</a></div>
+			<span class="authorname">Trevor Davis</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I completely agree. I have my own "reset" that just removes the margin and padding on block level elements. But yes, I am perfectly happy with a lot of the other browser defaults are. The goal for me now is to educate clients that things will not look 100% identical in all browsers. Do they think that their customers will bring up 2 different browsers and compare the site? No way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58012">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58012">35</a></div>
+			<span class="authorname">Joel</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I'm freaking shocked.</p>
+<p>I mean, yes, it's all a matter of preference. Do what you like.  Whatever.</p>
+<p>But I've been on the other side of the reset.css methods/ideas and I don't want to go back.  Hell no.   We're working with layouts that, I would imagine, you want to be *consistent* ... isn't that right?  Being all willy-nilly about "oh I don't care if it's a few pixels off" - will eventually bite you in the ass down the line when a client throws down on some weird inconsistency because their lame "enterprise" throws you a curveball that isn't accounted for, therefore forcing you to hunt down the rabbit hole for all selectors that might touch those elements ... fixing margins, then having to fix more, ad nauseum.</p>
+<p>Madness.  Start off with a consistent baseline, throw out the incongruous variables that can drive you NUTS in the future, and then have a beer.  Or something.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58013">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58013">36</a></div>
+			<span class="authorname"><a href="http://bitsamppixels.com">Fredrik W</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I've found myself use the reset and typography components from BluePrint more and more. Its modular structure pretty much allows me to load or unload the components I do/don't want, which is great. It has saved a lot of time for me since I used to end up writing pretty much the same basic CSS for every project (vertical rhythm etc). I would never dream of using the print stylesheet or their grid system (non-semantic class names that would leave me really puzzled), but whatever's up your alley is fine as long as you get the task done faster :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58014">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58014">37</a></div>
+			<span class="authorname">Jason</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I think this is a very good set of points you are making here. I have been told off by some 'standardistas' for not using a reset, but 8/10 projects worked fine for me without using them. No you might not get exact pixel perfection, but most site designs can handle that quite nicely and do not require surgical precision in terms of layout. I am so glad you have written this, as it gives me some good counter-arguments for people like the ones I just mentioned. Cheers!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58015">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58015">38</a></div>
+			<span class="authorname"><a href="http://meyerweb.com/">Eric Meyer</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I was going to respond here, but ended up <a href="//meyerweb.com/eric/thoughts/2008/04/17/crafting-ourselves/">doing so over at meyerweb</a> instead.  (I got wordy.  Anyone surprised?  Didn't think so.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58018">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58018">39</a></div>
+			<span class="authorname">Zack Katz</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I've so far been resetting what I need as I need it; it seems that a mass reset wastes more time than it saves me in correcting the browser difference problems.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58019">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58019">40</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>For some reason, people seem to read blog posts that say, "this is how I do things, and it works for me," and take them as, "So-and-so says do it this way and if you don't, you're wrong."</p>
+<p>The reality is that we all do things our own way, and that's awesome. If resets and frameworks don't work for you, but they do for me, that's awesome. It doesn't need to be an argument for someone to "win." Try things out, find a workflow that works for you, and more the eff on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58020">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58020">41</a></div>
+			<span class="authorname">hubbers</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I have always thought that reset style sheets were an idea for beginners. </p>
+<p>What would be a better idea for beginners would be to learn the attributes that come with certain XHTML elements and use them where they needed and change them where they aren't needed.</p>
+<p>But when the self styled guru of CSS is arguing against you it is hard to get anyone to buy into what you are saying. </p>
+<p>I also have lots of other crazy ideas like: </p>
+<ul>
+<li>Don't use css hacks</li>
+<li>Put all of your styles in a single cross browser style sheet</li>
+<li>Don't put a font style in the body tag to cover up content that isn't in the correct semantic XHTML tag.</li>
+</ul>
+</div>
+	</div>
+		<div class="comment" id="c58021">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58021">42</a></div>
+			<span class="authorname">Karmadude</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Reset everything approach, I have felt, is for those who have redesigned every single element for their site. Which is not usually the case on most sites, so definitely a technique that should not be a standard way of starting a layout, but unfortunately it has become one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58022">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58022">43</a></div>
+			<span class="authorname">Tim</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I was initially sceptical of the reset, but once I used it I fell in love with it. It just allows for so much more control to fine tune everything without having to worry about what it would do in X or Y.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58023">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58023">44</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>Thanks for putting this conversation out here, Jon. I too am not a fan of reset stylesheets.  I've given them a try, and I often have to work with sites that start out with a reset, but to me it just doesn't matter. Sometimes I start out with <code>* {margin:0; padding:0}</code>, but I usually end up adding margin and/or padding to most layout-specific elements anyway, so it's not a big deal.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58024">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58024">45</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>While I absolutely understand your reasoning (after all, you are defining way less CSS without a reset), and seeing the comments have about the same sentiment, I think you (and most others) would be on the complete other fence when it comes to javascript or HTML.</p>
+<p>Would you want implied behaviour, that's about half of what the browsers thinks it should have, and half of what you define? And have it differ between browsers ever-so-slightly? I think not.</p>
+<p>This is exactly the thing a CSS reset does for CSS: It takes away the <em>implied</em> CSS styles, the styles you <em>can not count on to actually be there</em>. </p>
+<p>Without a CSS reset, you built on top of them without being sure that they're actually defined, let alone defined as you want them to. That seems rather illogical, doesn't it? Sure it works now, but what if the standard CSS of a new browser version differs just slightly enough as to breaking your layout? Then you'd have to go back and rectify it. With a CSS reset there would not have been a problem.</p>
+<p>Having said that, just do what you please. If not using a CSS reset works for you, then that's awesome and don't let anyone but yourself change that :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58025">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58025">46</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on April 17, 2008		</div>
+		<div class="quote"><p>I do think Kilian makes an interesting side point. There does some to be a sort of weird disconnect that I've noticed in that many of the same people who are all for Javascript libraries, microformats, and other co-reuse and standardization seem to hate the idea when its applied to CSS. I'm not sure why that is, but I think it's interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58030">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58030">47</a></div>
+			<span class="authorname">Daniel</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Amen.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58031">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58031">48</a></div>
+			<span class="authorname">Andrew Newland</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Snook, I completely agree with you. I have never been able to use the CSS Reset sheets. I usually would go crazy because it reset something and it would take me a while to remember that it was being reset to go back and override it for small things.</p>
+<p>So, I reset things like the margins and paddings and thats about it. I guess you could say "That's how I roll"
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58032">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58032">49</a></div>
+			<span class="authorname">pedro</span> said on April 17, 2008		</div>
+		<div class="quote"><p>&lt;span onmouseover=&quot;javascript:alert('test')&quot;&gt;test&lt;/span&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58033">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58033">50</a></div>
+			<span class="authorname">pedro</span> said on April 17, 2008		</div>
+		<div class="quote"><p>eheh sorry, I was playing with the live preview. pretty cool btw
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58034">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58034">51</a></div>
+			<span class="authorname">Eric Ferraiuolo</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Seems that people whom do a lot of designs, sites, skins, whatever from sratch would quickly see the value in these CSS frameworks. I know I do!</p>
+<p>I've used both the YUI CSS framework and the Blueprint CSS framework. I have to say both are pretty nice, thought he YUI one doesn't validate which bugs me. I think the Blueprint framework is awesome, has tons of potential and gives you the ability to programmably write mark-up. &laquo; I know people are going to hate that statement, but in the world of web applications not web pages, programmable XHTML output is very beneficial.</p>
+<p>As for the comment about Blueprint adding to your page weight; it's extremely small when compressed and severed via gzip (anyone have numbers on this?).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58037">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58037">52</a></div>
+			<span class="authorname">Kerry Woods</span> said on April 17, 2008		</div>
+		<div class="quote"><p>thanks for this writeup. very useful.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58038">53</a></div>
+			<span class="authorname">Rachel Radford</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I completely agree.  </p>
+<p>I did recently try using Eric Meyer's reset on my blog - thought I should give it another go as it had been a while since trying resetting - but I actually found myself just taking elements out of the reset to return them to their defaults. It was just more than I needed.</p>
+<p>Instead I just tend to have a semi reset rule which removes margins and padding for the elements that I find need it as I go along.  Much lighter!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58039">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58039">54</a></div>
+			<span class="authorname">jive</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I havent used reset styles either because I was thinking the same thing, more work to get back what you want. But I wouldnt rule out not using them for a giant site or for experimenting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58040">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58040">55</a></div>
+			<span class="authorname">Alex</span> said on April 17, 2008		</div>
+		<div class="quote"><p>I agree in part.<br />
+For your average blog, or mid-sized portfolio website or CMS, I don't believe a CSS reset is really needed, or even very useful. After all applying a lot of rules to * is fairly render heavy.<br />
+But, if you have ever worked on a large scale web project, something with a heavy code base and a development team, the qualities of a hard-reset start to come through. I've been working the last year for a company who's product runs into hundreds of thousands of LOCs, and over 10,000 lines of CSS. It's not bloated or heavy, it's just a very big website. We built our own reset from scratch which in turn rebuilds every element in a very specific fashion, most of them fairly differently to browser default, with exact and purposeful spacing and rules. It took a lot of tweaking at the start and takes maybe 300 LOCs. When this is combined with a custom element layout framework the problems it solves when using many many elements over and over in different scenarios is priceless.<br />
+Though the key point there is that everything is hand written for our needs, out-the-box resets or frameworks are one of the worst ideas ever, because as you say, the majority of the code is redundant.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58041">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58041">56</a></div>
+			<span class="authorname"><a href="http://pauldwaite.co.uk/">Paul D. Waite</a></span> said on April 17, 2008		</div>
+		<div class="quote"><blockquote><p>forcing you to think about what you wanted and add them back in</p>
+</blockquote>
+<p>As I’m not much of a designer, I’ll be using a modified version of Eric’s reset styles on my next few personal projects, to force myself to consider what everything should look like. I’ve found it a helpful way to get into the nitty-gritty aspects of design.</p>
+</div>
+	</div>
+		<div class="comment" id="c58045">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58045">57</a></div>
+			<span class="authorname">russ</span> said on April 17, 2008		</div>
+		<div class="quote"><p>You put into words exactly how I feel about pixel perfect precision. Thank you for that.   I haven't been following the "css reset" movement, but I've been working with a client who is using screen shots to check my css layouts.   </p>
+<p>It's hard working with someone like that when *my* main concern is that the site looks reasonably ok in most of the major browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58046">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58046">58</a></div>
+			<span class="authorname">Tom</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Well then you might want to check your javascript. It's throwing an error:</p>
+<pre><code>el.previousSibling has no properties</code></pre>
+</div>
+	</div>
+		<div class="comment snook" id="c58050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58050">59</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 17, 2008		</div>
+		<div class="quote"><p>@Tom: fixed. thanks. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58052">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58052">60</a></div>
+			<span class="authorname">David Hucklesby</span> said on April 17, 2008		</div>
+		<div class="quote"><p>Perhaps you missed this, but Eric says "this is a starting point, not a self-contained black box of no-touchiness."</p>
+<p>Take all of those 'reset' rules, and, for every selector, figure out the margins, padding, etc. you prefer. That way you have your own "framework" to use over and over.</p>
+<p>I am working on such a framework for myself now. I won't need to use the reset after I'm done, because every HTML element selector will have the initial properties I prefer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58063">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58063">61</a></div>
+			<span class="authorname">Rob</span> said on April 18, 2008		</div>
+		<div class="quote"><p>This is really interesting Johnathan. I have been using Eric Meyer's reset.css file on some of my projects for a while now, however I totally agree with you when it comes to rendering lists with bullets rather than resetting it back to no bullets.</p>
+<p>Although I think there is a place for reset.css files to address padding and margin issues across browsers, I feel it is slightly bloated... at least for my needs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58064">62</a></div>
+			<span class="authorname">DameryWorld</span> said on April 18, 2008		</div>
+		<div class="quote"><p>My 2 cents:<br />
+1) Resets are about reaching the global community with a common design rendering. Which doesn't matter for you if you only code for a niche of viewers.<br />
+2) If I hear you right, your mutated viewers are not important enough to get your design to layout for everyone.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58065">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58065">63</a></div>
+			<span class="authorname">Geoserv</span> said on April 18, 2008		</div>
+		<div class="quote"><p>STUMBLED!</p>
+<p>First I ever heard of this, does this effect speed?</p>
+<p>VOTED for you at:<br />
+http://www.newsdots.com/design/no-css-reset-snook-ca/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58069">64</a></div>
+			<span class="authorname">Jon Randahl</span> said on April 18, 2008		</div>
+		<div class="quote"><p>I agree with the use of the correct tools as needed.</p>
+<p>As James stated in <a href="//meyerweb.com/eric/thoughts/2008/04/17/crafting-ourselves/#comment-359138">Eric's response</a>:</p>
+<blockquote><p>As an admitted perfectionist, far from any hope of rehab, I tend to agree with the fact that there are a number of perfectly valid approaches and tools at our disposal as a community to choose from, given the needs of the tasks at hand.</p></blockquote>
+<p>and from a post here which sums my own situation clearly:</p>
+<blockquote><p>...I too didn't use resets until recently. I [work] for a large marketing firm and having the website render exactly how the comp (design) looked was huge. I would either hear from [one person] stating the client approved a certain look or from [another] claiming the padding/margin was off by a pixel from their comp. I truly now could not live with my css reset, and I'm constantly changing it as I see fit. ...</p></blockquote>
+<p>Finally, as it seems everything has already been said for me, thank you to <a href="//meyerweb.com/eric/thoughts/2008/04/17/crafting-ourselves/#comment-359088">Lori</a> for one last citation which struck me as a beautiful way to sum it all up:</p>
+<blockquote><p>Having the right tools matters, sure, but the tool without the craftsman is nothing.</p></blockquote>
+<p>So, heartfelt thanks to everyone in the field, for without our tools we would have nothing!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58072">65</a></div>
+			<span class="authorname">Justin</span> said on April 18, 2008		</div>
+		<div class="quote"><p>I have one that I use, but I just recently started using it.  It does save me a little time, however, as I develop more sites I'm noticing a pattern in how I use styles in relation to my markup.  Because of that, I'm thinking about reworking my reset style sheet.  I've noticted on elements like unordered list, the only time I really want bullets is in an article/post of some sort...  in most other cases it's being used in navigation or something else where I'm not going to have bullets, but rather my own set of styles.  So if in most cases I don't want bullets, it'll be easier on me to go ahead and reset an unordered list rather then basically reseting every separate unordered list on the page as I need it.</p>
+<p>Not only that, but I like the idea of it dealing with different browser issues ahead of time, so I don't have to worry about them nearly as much when writing my styles.</p>
+<p>Some styles, like the p tag, I reset and then set again in my reset style sheet.  This way it will have the spacing between paragraphs without me having to specifiy that everywhere I use a paragraph tag.  All I have to do is include my reset style sheet.  Over all I think it's saved me a considerable amount of time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58073">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58073">66</a></div>
+			<span class="authorname">Steve</span> said on April 18, 2008		</div>
+		<div class="quote"><p>i think the reset css is only half of the equation.  re-enabling as you mention is a lot of work.  this is why i use w3c's sample of what html4's css should be: http://www.w3.org/TR/REC-CSS2/sample.html.  this way, i know that i have the same base across multiple browsers.  but i agree, it's not worth it to worry over a few pixel.  i just want a certain level of consistancy across browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58075">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58075">67</a></div>
+			<span class="authorname">Alan Gresley</span> said on April 18, 2008		</div>
+		<div class="quote"><p>I agree Jonathan. I once said on CSS discuss that someones code was suffering from the universal reset bug. I have never used the universal reset and I never will.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58076">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58076">68</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 18, 2008		</div>
+		<div class="quote"><p>@DameryWorld: </p>
+<blockquote><p>If I hear you right, your mutated viewers are not important enough to get your design to layout for everyone.</p>
+</blockquote>
+<p>That's hardly the case at all and I think you missed the point. The point is that a slight variation between browsers does not take away from the reader's experience and I don't feel the need to strip down all styles only to add them back in. If I need to address something specific, I will create a style addressing that issue.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58077">69</a></div>
+			<span class="authorname">nomadkbro</span> said on April 18, 2008		</div>
+		<div class="quote"><p>The most constructive part of using a reset (for me, anyway) is to have a consistent base from which to start. I haven't found a reset that I consider perfect either, but I have one that I use for every project.</p>
+<p>Pixel-perfect replication across the gamut of browsers <b>is</b> a silly goal, but it is still the goal for a lot of clients, and they get angry if you don't do it that way. Having a standard reset helps to get closer to that goal. Anything aside from what can be explained away by font rendering issues still frustrates clients.</p>
+<p>Until the mindset of clients changes ('the web can do everything that print can do' is part of that mindset), web designers will be frustrated by 'pixel-perfect replication.'
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58078">70</a></div>
+			<span class="authorname">Josh Minnich</span> said on April 18, 2008		</div>
+		<div class="quote"><p>I've done my fair share of picking at CSS Frameworks and I totally agree with you that "less is more."  But being a CSS developer myself, and working with CSS everyday, I created my own CSS Framework that has a reset and base. Since I created it; I understand how to use it and implement it on all my projects and build off that. I can honestly say it has saved me hours of development. It adds and extra 8kb on to the load (uncompressed), but that doesn't bother me at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58080">71</a></div>
+			<span class="authorname"><a href="http://meiert.com/en/">Jens Meiert</a></span> said on April 18, 2008		</div>
+		<div class="quote"><p>Manual trackback: <a href="//meiert.com/en/blog/20080419/reset-style-sheets-are-bad/">Why â€œResetâ€ Style Sheets Are Bad.</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58081">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58081">72</a></div>
+			<span class="authorname">Mohammed</span> said on April 18, 2008		</div>
+		<div class="quote"><p>actually i used the reset CSS of YUI it it is working good for me but i had to change some styles defined in the reset.css...</p>
+<p>However our most challenge is to make sure the website we do look the same on all browsers and all platforms for me everything looks fine in all browsers on PC.</p>
+<p>but the Pain when i check the website on MAC especially Firefox on MAC.</p>
+<p>i still didn't find anything for firefox on mac such as hacks or fixes but i wonder what i should do!</p>
+<p>do you think it's better to start the design on MAC and after that check it on all the browsers on Windows?</p>
+<p>Thanks alot,<br />
+Mohammed Alaa
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58083">73</a></div>
+			<span class="authorname">Martin Sarsini</span> said on April 19, 2008		</div>
+		<div class="quote"><p>In my honest opinion it's the only way to have a nearly pixel perfection website compatible with most of the main web browsers. The absolute perfection is impossible to have, but without css reset, especially building medium-big complex websites, trust me, it uses a lot more code to reset some properties selector by selector.</p>
+<p>But I like what you are saying about web standards, I find it right, it's more important to use less code, the right code, semantically and having a non perfect website, rather than having a 98% perfect website but with so bad messy code.... this is the web, not graphic design for the print!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58084">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58084">74</a></div>
+			<span class="authorname">Jordan Ambra</span> said on April 19, 2008		</div>
+		<div class="quote"><p>I've seen several people mention that they use the star reset:
+<pre><code>* {margin: 0; padding: 0;}</code></pre>
+<p> which I view as bad practice (it has compatibility issues) and really not all that helpful. If you're going to have to rebuild all of the styles in your site, why not just set them in your reset file?</p>
+<p>I think the goal is to turn it into a Base CSS, rather than a Reset CSS. Let it do the basic legwork for you, rather than starting from the ground up for every project. It's worked for me in a variety of situations, from multi-developer teams complete with CSS n00bs, up to large-scale websites with plenty of bad, user-edited HTML.</p>
+<p>If anyone wants to use it, I've published it out on my website: <a href="//labs.zorked.com/lib/base.html">http://labs.zorked.com/lib/base.html</a>. I'd appreciate comments and suggestions. <a href="//www.zorked.com/css/base-css-vs-css-reset/">More info here</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58087">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58087">75</a></div>
+			<span class="authorname">Jessica Schwartz</span> said on April 19, 2008		</div>
+		<div class="quote"><p>This is EXACTLY what I was looking for. Thanks for the writeup.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58094">76</a></div>
+			<span class="authorname">That Canadian</span> said on April 19, 2008		</div>
+		<div class="quote"><p>Maybe I'm a little innocent here, but I _do_ think pixel-perfect layouts are something we should still try to achieve; there are so many possibilities that can be opened design wise and interaction wise that still can't be accomplished with fluid layouts.</p>
+<p>That aside, I think you're bang on when it comes to CSS resets taking too much out. Early on I went through Eric Meyer's CSS Reset and stripped out everything I didn't want explicitly set; the half hour it took me to do so has paid off in spades. Maybe that's the best compromise?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58095">77</a></div>
+			<span class="authorname">XLCowBoy</span> said on April 19, 2008		</div>
+		<div class="quote"><blockquote><p>The concept that pixel perfect precision across the various rendering engines was impractical and a remnant of the table-based layouts of yesteryear.</p></blockquote>
+<p>That is one of the most ridiculous things I have ever read.</p>
+<p>Although I feel that browsers resets are a case-to-case basis, I would find no reason at all to allow site design discrepancies across browsers. The apple website looks the same on every browser. Are we now justifying that "it's ok to be somewhat mediocre and not strive for the same quality most professional websites display"?</p>
+<p>That, IMO, is utter rubbish.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58096">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58096">78</a></div>
+			<span class="authorname"><a href="http://superfluousbanter.org/">Dan Rubin</a></span> said on April 19, 2008		</div>
+		<div class="quote"><p>Let me echo Croft's comment to start with: use what works for <strong>you</strong> and your situation/workflow. Jon certainly isn't saying anything different from that, just explaining how <strong>he</strong> prefers to do things.</p>
+<p>Now, Jon/Steve/Bryan and I have recently discussed the reset topic, and it's interesting to see the pros/cons coming out here in the comments &mdash; as a pixel-anal designer (the same goes for Bryan), I <strong>love</strong> stripping the default styles down to a common base set, and building up from there. True, font rendering can't always be consistent (yet), but just about everything else <strong>can</strong>, and if every pixel counts for you, resets are a great way to reduce some headaches, and though I only recently started using them, I'm already in love.</p>
+<p>To address XLCowBoy's comment above: it isn't "rubbish" to say that minor variances between browsers/platforms are acceptable - if they don't impact the visitor's experience, such discrepancies are part of designing for the web (#1 varience for me: I specify Helvetica before Arial, so many sites I build will have a different typeface on OS X &amp; Windows. Is that a discrepancy? Of course; a problem? Not likely.).</p>
+<p>And Jon's not saying you shouldn't reset styles that don't work for your needs, so if your goal is pixel perfection, go for it (with or without a specific "reset" stylesheet).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58098">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58098">79</a></div>
+			<span class="authorname">pepelsbey</span> said on April 19, 2008		</div>
+		<div class="quote"><p>So, why should i white smth like this:</p>
+<pre><code>#menu {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   }</code></pre>
+<p>â€¦for all list-based menus and other elements builded on semantic markup, instead of using simple lines in reset.css:</p>
+<pre><code>â€¦, ol, ul, â€¦ {
+   padding: 0;
+   margin: 0;
+   }
+ol, ul {
+   list-style:none;
+   }</code></pre>
+<p>If you mean lists, def.listst, strongs and other semantic elements as only content markup â€” you maybe right, but i'm using this elements in various situations, where i don't need browser defaults.</p>
+<p>So, i'm using customized version of reset.css and don't wasting my time for the obvious properties.</p>
+<p>But thanks for starting this discussion.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58103">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58103">80</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 20, 2008		</div>
+		<div class="quote"><blockquote><p>The apple website looks the same on every browser. Are we now justifying that "it's ok to be somewhat mediocre and not strive for the same quality most professional websites display"?</p>
+</blockquote>
+<p>Guess what? Apple's website <a href="//snook.ca/testing/applediff.gif">does NOT look the same in every browser</a> (pardon the oversized animated GIF to prove my point). Maybe Apple <em>is</em> mediocre. In fact, they're most consistent when they use images for text (especially the home page). Even funnier? They DO use a global reset... (the store seems to use *{} and not a variation on Meyer's that the home page uses).</p>
+<p>So, yes, I <em>still</em> don't think a global reset solves the pixel perfect precision issue and will continue to create styles that target my design. No need to demolish the building when all I need to do is rearrange the office.</p>
+</div>
+	</div>
+		<div class="comment" id="c58105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58105">81</a></div>
+			<span class="authorname">Tim</span> said on April 20, 2008		</div>
+		<div class="quote"><p>That's actually nice to see that even Apple isn't pixel-perfect.</p>
+<p>I do use a slimmed down version of Eric Meyer's reset mashed up with Andy Clarke's from <a href="//www.transcendingcss.com/">Transcending CSS</a>, and removed elements that I have never (in 4 or 5 years) used like <code>var</code> and <code>dfn</code>.</p>
+<p>I started resetting styles when I noticed that I was consistently clearing out <code>font-size</code>,<code> margin</code> and <code>padding</code>.<br />
+Ever since then, my browser-specific code (hacks and conditional comments) are pretty much gone. and my CSS is much cleaner and ultimately, lighter.</p>
+<p>I'm not sure that with all the JS libraries we're using now a days that we should be overly concerned with 15 lines of CSS bogging down a web page's performance.</p>
+<p>That's my2cents on it; some people use a reset, some people don't. No biggie.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58109">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58109">82</a></div>
+			<span class="authorname">Jake</span> said on April 20, 2008		</div>
+		<div class="quote"><p>Isn't the site adjusting in size due to the different text rendering used by those browsers.  That is something I do not believe anyone can prevent.</p>
+<p>Once again I will take the opportunity to reiterate my initial comments.....It doesnt matter if you use a reset or not....as long as you or your client is happy with the result then it is all gravy.  I've had clients literally not care what their site looked like as long as it was clean in IE7.  I personally strive to make all sites look good in all browsers without spending too much unnecessary time on it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58110">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58110">83</a></div>
+			<span class="authorname">Alan Gresley</span> said on April 20, 2008		</div>
+		<div class="quote"><p>What is this thing about pixel perfection. Resets results in some authors using CSS repeated line after line like.</p>
+<p><code><br />
+#id #id .class {}<br />
+#id #id .class {}<br />
+#id #id .class {}<br />
+</code></p>
+<p>Which makes style sheets very complex (the universal reset bug). CSS used cleverly is so <a href="//css-class.com/test/delta.htm">simple</a> (best viewed in Safari 3.1). Hopefully the CSS WG will allow empty strings in substring attribute selectors since I see many use cases for them.</p>
+<p>Jonathan, you are part of the CSS eleven. Can you please consider that these (empty string) selectors should keep existing behavior in all browsers that support substring attribute selectors or for the CSS WG allowing me the time to show how they can be used. I begging.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58116">84</a></div>
+			<span class="authorname">Jordan Clark</span> said on April 20, 2008		</div>
+		<div class="quote"><p>My personal preference is to have a "base" style sheet, based on Eric Meyer's "reset.css", which specifies how I want things to look in the first place, rather than resetting then overriding again.</p>
+<p>I then import more specific style sheets for other aspects of the site, such as layout / navigation / typography etc...</p>
+<p>I find this method actually <em>reduces</em> the size of the additional style sheets, as I only need to tweak the properties I want to change, rather than redefining everything again and again. (<em>This is just my personal opinion, <abbr title="by the way">btw</abbr>.</em>)</p>
+<p>I have put up a page on my personal website, <a href="//jdclark.org/">jdclark.org</a>, if anyone wants to take a look:</p>
+<p>&lt;<a href="//jdclark.org/tests/base.css">http://jdclark.org/tests/base.css</a>&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58125">85</a></div>
+			<span class="authorname">Alan Gresley</span> said on April 21, 2008		</div>
+		<div class="quote"><p>@ Jordan</p>
+<blockquote><p>My personal preference is to have a "base" style sheet, based on Eric Meyer's "reset.css", which specifies how I want things to look in the first place, rather than resetting then overriding again.</p></blockquote>
+<p>You say how you want things to look in the first place. So a base style sheet is how you want a page to look?</p>
+<p>You are knocking down margins and paddings and building them back up again. This is adding unnecessary CSS.</p>
+<p>The design shouldn't really be about what you want but rather be open to the needs of the audience of a site. You are trying to have to much control and one reason authors desire such control is due to the expectations of a client or clients seeing the space on a web page as real estate.</p>
+<p>Resize a page on the average site. Two bumps on text resizing and chaos breaks out (overlap).</p>
+<p>Resets may have been of great help in 2001 but now we in 2008. IE8 is in beta and now we have a much improve consistency across browsers concerning margins and paddings. Let resets be a handy tool of the past and lets move forward into the future.</p>
+<p>@Jonathan</p>
+<p>I glad you have such a fantastic preview on this blog (and in real time). Helps me with my grammar. :-)</p>
+</div>
+	</div>
+		<div class="comment" id="c58135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58135">86</a></div>
+			<span class="authorname">Jordan Clark</span> said on April 21, 2008		</div>
+		<div class="quote"><p><a href="#c58125">@Alan</a>:</p>
+<p>Firstly, thank you for taking the time to look at that <a href="//jdclark.org/tests/base.css">example</a> on my <a href="//jdclark.org/">personal website</a>. To answer some of your questions about my <a href="#c58116">previous comment</a>:</p>
+<p>I'm not saying that this is how I want a page to look, rather how I want it to look <em>in the first instance</em>. I am aware that there is some redundancy in the style sheet: this is just to get a consistent starting point. I've never bought into the idea of "expensive" selectors &mdash; I mean, I appreciate a fast-loading and efficient website as much as the next guy, but can anybody seriously say that there is a <em>noticeable</em> difference in rendering times of pages that employ say, for example, the <code>*</code> selector?</p>
+<p>What I've tried to do is build a rock-solid "default" that declares everything explicitly, without leaving anything to chance. The perfectionist in me (and I suppose everyone else in the "vote yes for reset.css" camp) knows that without the user-agent's default styles applied, there will be some gaping holes (although the fear is admittedly irrational). It is just being thorough.</p>
+<p>I think the best thing is for us (<abbr title="that is">i.e.</abbr> the entire web dev community) to agree to disagree on this matter. I respect both sides of the argument, and I believe there is a place for <strong>both</strong> methods &mdash; it's just a matter of taste, and depends on what the project requires.</p>
+</div>
+	</div>
+		<div class="comment" id="c58138">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58138">87</a></div>
+			<span class="authorname">Faruk Ates</span> said on April 22, 2008		</div>
+		<div class="quote"><p>I'm feeling a bit uncomfortable promoting something of my own here, but reading your post made me nod along until I realized that your reasoning is almost EXACTLY the same as I had myself before I created my and Robert Nyman's <a href="//kurafire.net/log/archive/2005/07/26/starting-css-revisited">initial.css</a>. It does a base "reset" that basically just fixes gross inconsistencies between browsers, but leaves all other default styling intact and brings font-sizes as close together as possible. </p>
+<p>The end result is really just about 15 lines of CSS, and not heavy lines at that, but it works very well. I've found it to be all I need in each of my projects so far.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58141">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58141">88</a></div>
+			<span class="authorname">Andreas Lagerkvist</span> said on April 22, 2008		</div>
+		<div class="quote"><p>Well put. I completely agree.</p>
+<p>The only advantage I can see is the (potential) decrease in cross-browsers issues. But after 5 years of CSS:ing I hardly run into them any longer anyway.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58146">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58146">89</a></div>
+			<span class="authorname">About Webdesign</span> said on April 22, 2008		</div>
+		<div class="quote"><p>We tried different reset css style sheets on smaller and bigger sites. Until now we still don’t if we hate them or love them. To some extend it is a personal choice. Our goal was to find a way of styling that works for everybody at our company. We also tried some frameworks. No holy grail yet ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58158">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58158">90</a></div>
+			<span class="authorname"><a href="http://www.smashingred.com">Jay Gilmore (smashingred)</a></span> said on April 23, 2008		</div>
+		<div class="quote"><p>I have worked with Eric Meyer's reset, built a site using Blueprint and reviewed 960.gs. I have stated this elsewhere, that using s CSS framework from a third party in a solo environment is overkill but using some base css that sets up a project starting point for you as an individual web designer makes a tonne of sense. </p>
+<p>I think that if you are always using common elements with the same basic starting point that it is wasted effort to redo it every time. </p>
+<p>Jonathan, I agree completely with the POV that pixel perfection is a waste of energy and that if a person is using browser x they are not going to go check it to see if it looks different in another browser. That is our job. If the site doesn't break or if there are rendering issues we haven't done our job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58161">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58161">91</a></div>
+			<span class="authorname">Ricardo</span> said on April 24, 2008		</div>
+		<div class="quote"><p>I use a basic reset in the projects I do which is enough for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58162">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58162">92</a></div>
+			<span class="authorname">Leon</span> said on April 24, 2008		</div>
+		<div class="quote"><p>I use
+<pre><code>* {margin: 0; padding: 0;}</code></pre>
+<p> simply because it saves me having to hack any browser related problems.  I'm not bothered about pixel perfect matching across browsers, but some quirky behaviour can make your site look plain <em>wrong</em>.</p>
+<p>I like to style my headings according to the the purpose and tone of the site, so specifying colours, sizes, margins etc. will always be a part of the process.</p>
+<p>@Alan Gresley - a lot of users still browse with IE6, so the web is, in a sense, still stuck in 2001.</p>
+</div>
+	</div>
+		<div class="comment" id="c58164">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58164">93</a></div>
+			<span class="authorname">Matthew Hill</span> said on April 24, 2008		</div>
+		<div class="quote"><p>I've been doing CSS builds for about 6 years and am very comfortable reseting whatever I need to on a case by case basis.</p>
+<p>I've recently taken to using Eric Meyer's reset but to be honest I've found it more trouble than it's worth, due to having to re-declare a lot of things later on. Personally, I find the effort of doing that far outweighs the apparent gains that are made in having the 'clean slate' -- chances are that the tweaks you need for differing styles across browsers will be required anyway, regardless if you reset them initially or not.</p>
+<p>So I think I'll be ditching resets on future work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58168">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58168">94</a></div>
+			<span class="authorname"><a href="http://css-class.com/">Alan Gresley</a></span> said on April 25, 2008		</div>
+		<div class="quote"><p>@Jordan</p>
+<p>Of course you wouldn't want your site to look that way. Re-read the part that I quoted ;-)  </p>
+<blockquote><p>Is to have a "base" style sheet, based on Eric Meyer's "reset.css", which specifies how I want things to look in the first place.</p></blockquote>
+<p>I understand where you coming from. Basically the user-agent style sheets of the various browsers are not consisted and mixed with bug behavior we can expect anything to happen (10% inspiration ~ 90% perspiration). But now we have Gecko 1.7~1.9, Safari 3, Opera 9.5 and IE8 all showing greater constancy with CSS2.1. This is happening now and soon (hopefully) we can say bye bye to the magical IE bugs and bye bye to Opera specials bugs (just to make it all the more challenging for us).</p>
+<p>The rock-solid "default" which we all desire is that foundation to build a page on. This rock-solid "default" was first seen in Phoenix (Gecko 0.6) in 2002 since it was also greatly CSS2.1 compliant. It's a shame that it has taken 6 years for all the other browsers to catch up. You say that the web development community should agree to disagree on this matter, but truly what are we disagreeing about?</p>
+<p>@Leon</p>
+<p>2001 is one static point in the past. We have the present (April, 2008) and we have the future. Form the tiny developers, browser implementors and spec writers, there is 'something' sort of happening. It's like some chains and anchors are all holding some of us back in 1996. This is the year <strong>that browser</strong> Internet Explorer was release upon the wold. Some are constancy haunted by this scary though that we may have to be backwards compatibly with IE5 forever.</p>
+<p>What I am suggesting to all the web developed community is to see over the horizon. Now already we have almost compatible behavior in Gecko 1.7, Safari 3, Opera 9.5 and IE8. No time ever in the history of the the web have all major browser versions been in beta. This is the year that the web can break those chains from the past forever.</p>
+<p>The web is not stuck in the past. It's part of a collective mindset that is trapped in the past. The year is 2008 and if you believe it the future is ours for the taking.</p>
+</div>
+	</div>
+		<div class="comment" id="c58212">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58212">95</a></div>
+			<span class="authorname">David</span> said on April 30, 2008		</div>
+		<div class="quote"><p>Did you also participate during the naked CSS day?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58358">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58358">96</a></div>
+			<span class="authorname">Kris</span> said on May 06, 2008		</div>
+		<div class="quote"><p>You guys are off your rocker :)</p>
+<p>But seriously, I can't believe no one's mentioned Tripoli yet. I've used it for several projects, and it's convincing me that reseting is the way to go. Obviously mold the reset to your specific project, but some of us still have to design for IE6 and other atrocities, so resets are a fantastic tool to have.</p>
+<p>If we all used Firefox and Opera, then obviously we wouldn't need them, but to me it seems like a lot of the commenters here are forgetting that certain demographics and audiences still use crap for browsers...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58680">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58680">97</a></div>
+			<span class="authorname">Mike Ritchie</span> said on May 23, 2008		</div>
+		<div class="quote"><p>What I'd really like to see is not a 'css reset', but rather a 'css equalize', which would make my customers using IE see the same thing I see when I build it in Firefox. Specifically to do with body content, such as how IE and Firefox handle lists or headings. If I were more of a CSS expert I might undertake to write such a file.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58731">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58731">98</a></div>
+			<span class="authorname">Alan Gresley</span> said on May 25, 2008		</div>
+		<div class="quote"><p>@Mike</p>
+<p>Currently on the CSS WG list there is some discussion which started with this <a href="//lists.w3.org/Archives/Public/www-style/2008Apr/0474.html">message</a> on <a href="//css-class.com/test/css/defaults/UA-style-sheet-defaults.htm">CSS2.1 User Agent style sheet defaults</a>. The final style will allow implementors to standardize the default style sheet, thus the end for a need for a CSS reset.</p>
+<p>This <a href="//css-class.com/test/css/defaults/default-margins.htm">test case</a> shows all the default margins for in-flow block elements. IE8b has come a lot closer with the other implementations especially with list defaults.</p>
+<p>@Kris</p>
+<p>I still design for IE6 and IE5 (they get the same style). You just have to understand the IE bugs and the possible workarounds if there are any. The same can apply to IE7 and IE8 or any other browser. That is why I call using CSS resets the <strong>universal reset bug</strong> but this bug doesn't affect the browsers but rather the CSS authors. ;-)</p>
+<p>@Jonathan</p>
+<p>Great Blog post. I totally agree with this.</p>
+<blockquote><p>No need to demolish the building when all I need to do is rearrange the office.</p></blockquote>
+<p>Sheer simplicity. That's how CSS is meant to work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58756">99</a></div>
+			<span class="authorname">Ulf</span> said on June 02, 2008		</div>
+		<div class="quote"><p>Great post  - I must admit that I still use a CSS Reset, but I configured it for my own needs.Maybe I should take your advice of "Less is more" into consideration.</p>
+<p>What about teamwork and collaboration. Isn't it more difficult without a Reset CSS?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58759">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58759">100</a></div>
+			<span class="authorname">Levon</span> said on June 03, 2008		</div>
+		<div class="quote"><p>I don't see how anyone could not reset.</p>
+<p>I have a reset I use for building scalable HTML websites:</p>
+<p>* { margin: 0; padding: 0; border: none; font-size: 10px; }<br />
+* * { font-size: 1em; }</p>
+<p>and then you have to set * * { font-size: 10px } for IE6, else it will die.</p>
+<p>Then 1em is equal to 10px on all elements. The * * rule is required to stop inline elements spilling all over the place in FF.</p>
+<p>PS Like your live preview, a classy implementation at last.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58765">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58765">101</a></div>
+			<span class="authorname">Woody</span> said on June 04, 2008		</div>
+		<div class="quote"><p>Your comments about "having to define more when using a reset" is the exact reason that I decided to create <a href="//code.google.com/p/chaoss/">ChaoSS</a>, which starts with Eric Meyer's reset, then builds the styles back up. This creates a "base style" that is much more similar across browsers than a simple reset (or no reset) can provide.</p>
+<p>It's still very much in early development, but I have already used it for a couple of personal projects and have been very happy with how much faster I can develop interfaces.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58774">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58774">102</a></div>
+			<span class="authorname">mbh</span> said on June 09, 2008		</div>
+		<div class="quote"><p>Tell ya... (while I haven't done extensive research) if CSS resets keep you away and/or limit IE hacks and the like then they're a GREAT GREAT thing.  </p>
+<p>I hate hacks period so I tend to dumb down all designs to the point that no HACKS are required.  IE's proprietary crap peeves me to no end!  Hail Firefox... , etc.  We keep having to put all this If IE &gt; 5 or IE 6 or &gt; IE 5 AND 6, ETC.  If IE nothing -- NO HACKS.  Maybe in IE8 they will have finally come on board -- maybe.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58863">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58863">103</a></div>
+			<span class="authorname">Buscador</span> said on June 23, 2008		</div>
+		<div class="quote"><p>Very useful post. Thnx.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59250">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59250">104</a></div>
+			<span class="authorname">Toby</span> said on August 29, 2008		</div>
+		<div class="quote"><p>Jonathan, you are correct. CSS reset is conceptually incorrect. This and other flawed CSS usages will inevitably cost more in development, and lead to inferior user experience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60292">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60292">105</a></div>
+			<span class="authorname">Joshua N Taylor</span> said on November 20, 2008		</div>
+		<div class="quote"><p>Interesting perspective. I think I will continue using some sort of rest, but I'm glad to know that it is not so mandatory, and we are still flexible.<br />
+As a designer, I just can't stand when I put all this time into a design, and it doesn't even look like that when it is rendered. I put a lot of time and thought into every element, so I want my time to pay off.</p>
+</div>
+	</div>
+		<div class="comment" id="c60971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60971">106</a></div>
+			<span class="authorname">Pranshu Arya</span> said on January 12, 2009		</div>
+		<div class="quote"><p>A great debate here with interesting perspectives.  I haven't had occasion to use CSS resetting yet, but overall I agree with your philosophy, that instead of starting everything from scratch, it makes sense to account for variabilities in a secondary stylesheet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61265">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61265">107</a></div>
+			<span class="authorname">Jim Broker</span> said on January 19, 2009		</div>
+		<div class="quote"><p>I use CSS on my websites, but I never knew about CSS reset and how it keeps the consistency throughout different types of browsers, interesting and informative.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62521">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62521">108</a></div>
+			<span class="authorname">gary turner</span> said on February 12, 2009		</div>
+		<div class="quote"><p>I have been completely unable to find any benefit to 'css resets'.  Where, specifically, are there significant differences among browsers' default values that need baselining?</p>
+<p>cheers,</p>
+<p>gary
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66195">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66195">109</a></div>
+			<span class="authorname">montreal canadiens tickets</span> said on February 25, 2011		</div>
+		<div class="quote"><p>Greetings,</p>
+<p>	I have a question for the webmaster/admin here at snook.ca.</p>
+<p>Can I use some of the information from your post above if I provide a backlink back to this site?</p>
+<p>Thanks,<br />
+William
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66298">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66298">110</a></div>
+			<span class="authorname">Nathan B</span> said on March 01, 2011		</div>
+		<div class="quote"><p>&gt;&gt; I then find myself declaring much more than I ever needed to just to get browsers back to rendering things the way I want.</p>
+<p>Exactly. Thanks for summing up my feelings about this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67468">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67468">111</a></div>
+			<span class="authorname">Ben</span> said on April 18, 2011		</div>
+		<div class="quote"><p>After looking at Meyer's site, now I know why I never used css reset! What's the point anyways? It seems to be redundant, and contradicts other styles in place. I cross browser test the hell out of everything, and always make sure when new browsers come out to test those as well. No point in using this css reset everyone speaks of.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

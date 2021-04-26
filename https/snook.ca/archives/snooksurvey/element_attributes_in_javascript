@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>SnookSurvey: Element Attributes in JavaScript - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/snooksurvey/element_attributes_in_javascript">
+	<meta property="og:url" content="https://snook.ca/archives/snooksurvey/element_attributes_in_javascript">
+	<meta property="og:title" content="SnookSurvey: Element Attributes in JavaScript">
+	<meta property="og:description" name="description" content="I'd be interested to hear what the general consensus is on something. Consider this like a SimpleQuiz but not really simple and not really a quiz. More like a survey. SnookSurvey. And survey says... ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>SnookSurvey: Element Attributes in JavaScript</h1>
+		<p>I'd be interested to hear what the general consensus is on something. Consider this like a <a href="http://www.simplebits.com/bits/simplequiz/">SimpleQuiz</a> but not really simple and not really a quiz. More like a survey. SnookSurvey. And survey says... </p>
+<p>I've got an element that I'm working with in JavaScript and I wish to get and set an attribute. How do you do it?</p>
+<ol type="A">
+  <li>Using <code>element.attribute</code> E.g. <code>mylink.src = '/path/to/image.gif'</code></li>
+  <li>Using <code>element.getAttribute('src')</code> E.g. <code>mylink.setAttribute('/path/to/image.gif')</code></li>
+</ol>
+<p>Which do you think is correct and maybe more importantly, which do you prefer? </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 24, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/snooksurvey/">SnookSurvey</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/806</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">42 Comments &middot; <a href="/archives/snooksurvey/element_attributes_in_javascript.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c48574">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48574">1</a></div>
+			<span class="authorname"><a href="http://www.thewatchmakerproject.com/">Matthew Pennell</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>Depends how lazy I'm feeling. If I'm feeling particularly conscientious I'll use getAttribute/setAttribute, but otherwise I use the shorter version.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48575">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48575">2</a></div>
+			<span class="authorname">Dan Webb</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I use element.attribute because they work most predictably across browsers the only exception being creating elements where <code>setAttribute()</code> will set an attribute in a more literal way eg.  <code>element.setAttribute('disabled', 'disabled')</code>  even then in IE you need to revert to <code>element.attribute</code> in some cases.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48576">3</a></div>
+			<span class="authorname">JosÃ© Carlos</span> said on May 24, 2007		</div>
+		<div class="quote"><p>element.attribute would be it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48577">4</a></div>
+			<span class="authorname">malte</span> said on May 24, 2007		</div>
+		<div class="quote"><p>element.attribute only works for some special attributes (except in IE). g/setAttribute works for anything.<br />
+For attributes, I generally use the property if it's available and otherwise the GSetAttribute methods. Properties have the advantage that you get e.g. absolute link uris instead of an relative link in the DOM.<br />
+When I'm just about to store some random data, I'll always use element.property, which won't pollute the DOM with invalid markup and doesn't limit me to strings.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48578">5</a></div>
+			<span class="authorname">steve</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I always prefer foo.setAttribute(), since it is *SUPPOSED* to be a cross-browser supported call... as is anything that calls this outside of the browser world... e.g. Java doing DOM manipulations.</p>
+<p>that said, IE's support for this, is lackluster at best... so I've build stuff to fix IE to behave...</p>
+<p>e.g.</p>
+<p>.setAttribute('class', '...');<br />
+becomes...<br />
+.setAttribute('className', '...');</p>
+<p>.setAttribute('for', '...');<br />
+becomes<br />
+.setAttribute('htmlFor', '...');</p>
+<p>however, if in my code I'm already in the "fixing IE's silly bugs" mode... I may break down and just do...</p>
+<p>iframe.style.frameBorder = 0;//IE is picky about the case of this attribute... ugh...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48579">6</a></div>
+			<span class="authorname"><a href="http://clagnut.com/">Richard Rutter</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I prefer element.attribute cos it's simpler and how I used to do it back in the old DOM 0 days. But I actually use element.setAttribute as it's 'proper DOM' and so may have more longevity. Apart from setting classes when I use element.className because that works for IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48580">7</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com">Nate Klaiber</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I use the get/setAttribute. Makes my conscience feel better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48581">8</a></div>
+			<span class="authorname">Jeff Smith</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I also use get/setAttribute as it's just what I'm used to, and not for really any other reason.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48582">9</a></div>
+			<span class="authorname">Andrew</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I was using element.get/setAttribute() but it just seemed to be a long way round for something that was supported fine by using element.attribute. I didn't consider that one was the correct DOM way and one not; although I usually do.</p>
+<p>I think the better question is: if they get rid of one, which can you live without? element.attribute seems more in tune with OOP so I would prefer to keep that one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48583">10</a></div>
+			<span class="authorname"><a href="http://multiad.com">David Martin</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I believe that get/setAttribute is the correct way.  That being said, I have ran into Internet Explorer not honoring all attributes correctly in this manner.  For instance, try setting the onClick attribute using setAttribute.  If I remember correctly, you'll run into some issues.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48584">11</a></div>
+			<span class="authorname">Daniel F.</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I use element.setAttribute(name, value) and I think this is the right way. But sometimes you donâ€™t have that choise, especially when youâ€™re coding for IE.</p>
+<p>Have you ever tried to add an additional Eventhandler to the existing Eventhandlers of a body attribute like "onload"? It took me hours! Firefox and Opera allow to concatenate these function calls. IE donâ€™t. Now I know that thereâ€™s a function called addEventListener() that is specified in W3C DOM and works well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48585">12</a></div>
+			<span class="authorname">Brendon Kozlowski</span> said on May 24, 2007		</div>
+		<div class="quote"><p>getAttribute() and setAttribute()</p>
+<p>I don't necessarily feel one is more "correct" than the other, but I do prefer to use the DOM methods whenever possible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48586">13</a></div>
+			<span class="authorname"><a href="http://tobielangel.com/">Tobie Langel</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>That's an interesting question. IMHO, it arises solely because of one issue, IE's failure to distinguish between attributes of a DOM node and properties of a JavaScript object.</p>
+<p>Technically, these two things are different. For some reason, IE got them mixed up. (I wrote <a href="//tobielangel.com/2007/1/11/attribute-nightmare-in-ie">an article</a> about that a while ago).</p>
+<p>That's why we had to implement <code>readAttribute</code> and <code>writeAttribute</code> DOM methods in Prototype (the latter is not included in a stable release as for now).</p>
+<p>Honestly, this is typically a situation where I'd favor using a library over using your own code. We went over tremendous testing efforts to ensure these methods were fully compatible in IE, Opera, Firefox and Safari, and trust me, it was a pain!</p>
+</div>
+	</div>
+		<div class="comment" id="c48587">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48587">14</a></div>
+			<span class="authorname"><a href="http://arapehlivanian.com">Ara Pehlivanian</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>element.attribute, but I think there's one or two places where you need to use setAttribute() though I can't remember off the top of my head.</p>
+<p>BTW, I think it's: mylink.setAttribute('src', '/path/to/image.gif');
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48588">15</a></div>
+			<span class="authorname">Rory Fitzpatrick</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I use a library and let it take care of it....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48589">16</a></div>
+			<span class="authorname"><a href="http://novemberborn.net/">Mark Wubben</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>So what IE does is translate any calls to setAttribute into property setters, or in code:
+<pre><code>node.setAttribute("width", "100")</code></pre>
+<p>becomes:</p>
+<pre><code>node.width = "100"; </code></pre>
+<p>When writing IE only code (my work project at the moment) I tend to go for the property, otherwise I prefer to use setAttribute.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48590">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48590">17</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I'm with Tobie: Using element.attribute just causes problems with javascript's object properties.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48591">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48591">18</a></div>
+			<span class="authorname">Rick</span> said on May 24, 2007		</div>
+		<div class="quote"><p>I prefer to use element.attribute for quick and dirty work, but sometimes the setAttribute and getAttribute methods are necessary. When you're using custom attributes for example.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48592">19</a></div>
+			<span class="authorname">Eric Webster</span> said on May 24, 2007		</div>
+		<div class="quote"><p>answer.setAttribute("choice", "b")
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48593">20</a></div>
+			<span class="authorname">molily</span> said on May 24, 2007		</div>
+		<div class="quote"><p>Brendon said: Â»I do prefer to use the DOM methods whenever possibleÂ«</p>
+<p>It's a common misunderstanding that element.get/setAttribute is part of the official DOM and element.attribute is kind of proprietary. That's not entirely right. get/setAttribute is part of basic DOM Core which applies to all XML/SGML-style documents, (X)HTML amongst others. element.attribute is also standardized in DOM HTML, the special, additional DOM for (X)HTML documents.</p>
+<p>We're using the special DOM HTML features all the time (e.g. document.body), they're handy, shorter and often faster (compare this to the DOM Core way: document.getElementsByTagName["body"].item(0)). Thus, I think it's okay to use the special DOM whenever it's possible. If it isn't (for example when dealing with non-(X)HTML nodes), fall back to DOM Core. But both techniques are officially standardized.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48595">21</a></div>
+			<span class="authorname"><a href="http://www.nuffgigs.com">nuffGigs</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I use element.attribute="value";</p>
+<p>I never had a reason to switch to get/setAttribute.</p>
+</div>
+	</div>
+		<div class="comment" id="c48596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48596">22</a></div>
+			<span class="authorname"><a href="http://riddle.jogger.pl">Riddle</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>If I know that I can write 100% standards compliant code (for example Greasemonkey's UserJS), I use proper DOM - <code>set</code>/<code>getAttribute</code>. For industrial use I choose HTML shorthands because they're supported everywhere (try setting <code>class</code> in IE. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48597">23</a></div>
+			<span class="authorname"><a href="http://novemberborn.net/">Mark Wubben</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>Accidentally, because of IE's mapping of attributes to properties you can't use <code>setAttribute("class")</code> or <code>getAttribute("for")</code>. When mapped to properties these attributes are JavaScript keywords, and will therefore cause syntax errors.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48598">24</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>I usually use the element.attribute method, it might not be the *proper* way, but using mutators is just so against the general JavaScript coding style that I prefer to avoid it. I like to stay consistent with my coding style whenever possible. If I have problems with using the hash, I'll revert back to the mutators.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48599">25</a></div>
+			<span class="authorname"><a href="http://hribar.info">Miha Hribar</a></span> said on May 24, 2007		</div>
+		<div class="quote"><p>DOM, for no real reason. Perhaps because it just looks complicated :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48606">26</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on May 25, 2007		</div>
+		<div class="quote"><p>Using elem.attr = val; here as JS doesn't really have public/private datamembers on those objects (not to speak about crossbrowser compatibility). Would be nice though it there were, then we would be forced to use accessors ("getters") and mutators ("setters") making it all a wee bit more consistent with other scripting languages ...</p>
+</div>
+	</div>
+		<div class="comment" id="c48607">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48607">27</a></div>
+			<span class="authorname">Jake Archibald</span> said on May 25, 2007		</div>
+		<div class="quote"><p>In an ideal world, I'd use element.attribute when I'm wanting an attribute of the javascript object and element.getAttribute() when I'm wanting the value of an attribute node within the element.</p>
+<p>The difference is noticeable in cases such as a src of an image, where getAttribute *should* return the content of the attribute src, whereas element.src returns the full path to the image.</p>
+<p>Having said all that, 99% of the time I use element.attribute as it presents the least cross-browser issues.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48609">28</a></div>
+			<span class="authorname">RStankov</span> said on May 25, 2007		</div>
+		<div class="quote"><p>I use get/set Attribute() because I have had problems with some sites  with element.attribute. But for some occasions, like forms (element.value) or some specific attributes(className, id) is better to use direct link.</p>
+<p>p.s. element.style and element.getAttribute('style') have a lot difference !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48610">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48610">29</a></div>
+			<span class="authorname">Luke</span> said on May 25, 2007		</div>
+		<div class="quote"><p>element.attribute</p>
+<p>If I've decorated the element with custom attributes in the markup, I use (g|s)etAttribute for those attributes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48617">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48617">30</a></div>
+			<span class="authorname"><a href="http://www.thefutureoftheweb.com/">Jesse Skinner</a></span> said on May 25, 2007		</div>
+		<div class="quote"><p>I've always used element.attribute. I find it more readable, I've never ran into a problem with it, and I don't foresee a day when a browser <b>won't</b> support it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48629">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48629">31</a></div>
+			<span class="authorname">Tadeusz Szewczyk</span> said on May 26, 2007		</div>
+		<div class="quote"><p>I always prefer the clean DOM version. You can nevertheless merge those two creating a function of your own if you want.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48689">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48689">32</a></div>
+			<span class="authorname">Christoph Hautzinger</span> said on May 28, 2007		</div>
+		<div class="quote"><p>i use the getter/setter if i created the attribute for myself i want to manipulate.<br />
+and the direct access if it's a real html element-attribute as defined by w3c.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48713">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48713">33</a></div>
+			<span class="authorname"><a href="http://www.christianmontoya.net">Montoya</a></span> said on May 29, 2007		</div>
+		<div class="quote"><p>I use the second because it behaves like a proper object method, which is natural to me since I learned object oriented programming as a practice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48717">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48717">34</a></div>
+			<span class="authorname">ppk</span> said on May 30, 2007		</div>
+		<div class="quote"><p>A</p>
+<p>My general rule is: never use setAttribute and getAttribute when you can avoid them. There are just too many things wrong with their implementation. That said, I must admit that img.setAttribute('src','value') seems to have no bugs ... yet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48720">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48720">35</a></div>
+			<span class="authorname">Anne van Kesteren</span> said on May 30, 2007		</div>
+		<div class="quote"><p>Note that element.attribute only works if the element (well, object) exposes an interface that has that attribute as member. This will not be the case for arbitrary XML nodes for instance or unknown attributes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48721">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48721">36</a></div>
+			<span class="authorname">Koen Eelen</span> said on May 30, 2007		</div>
+		<div class="quote"><p>I always use element.attribute, but when I add an non-valid attribute to a node by JS, I noticed that you have to use .setAttribute. That's the only time I use it.</p>
+<p><em>Btw: Neat website, add it to my feeds. Nice JS and layout.</em>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48722">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48722">37</a></div>
+			<span class="authorname">tiffany</span> said on May 30, 2007		</div>
+		<div class="quote"><p>I use setAttribute/getAttribute except where IE doesn't cooperate -- like with getting/setting class names.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48735">38</a></div>
+			<span class="authorname">Tino Zijdel</span> said on May 30, 2007		</div>
+		<div class="quote"><p>I agree with PPK here, since some browsers (well, IE mainly) have poor/incorrect support for get/setAttribute I still mostly use element.attribute. This shouldn't be considered 'a rule' though, it's just practicing to the reality...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48756">39</a></div>
+			<span class="authorname">liorean</span> said on May 31, 2007		</div>
+		<div class="quote"><p>The element.attribute syntax is more in line with JavaScript and also has better support, so that's my preferred way in HTML. In XHTML or XML I of course use the namespaced functions though.</p>
+<p>By the way, having document.createAttribute as well as document.createAttributeNS is just about as foreign an interface as you can get from JavaScript - the idea that we'd have two different functions when there is no clash in the semantics for when the functionality is called with one or two arguments respectively is just not very JavaScript -like.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48809">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48809">40</a></div>
+			<span class="authorname">Scott</span> said on June 01, 2007		</div>
+		<div class="quote"><p>These two methods are not equivalent.</p>
+<p>For example, URI values such as a.href, img.src or form.method return absolute paths, while their DOM equivalents are strings that may represent relative or empty values. Also consider <code>input.checked == true</code> whereas <code>input.getAttribute("checked") == "checked"</code>.</p>
+<p>The right answer is that you should use different techniques based on the circumstances. The getter/setter properties a.href and img.src were around long before the DOM Level 1 spec, so these are sound to use for backwards compatibility. However, it is up to the browser vendor to implement these getters/setters for arbitrary DOM attributes, so you may find that obscure ones like <code>th.getAttribute("scope") != th.scope</code> in some browsers (hint: Safari 1.2).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53339">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53339">41</a></div>
+			<span class="authorname">Guilherme</span> said on August 08, 2007		</div>
+		<div class="quote"><p>Well I just HATE the get/setAttribute. It is bigger and uglyer. And it is so limitating, one has to use strings. Actually I see this as a big mistake they've putted the get/setAttribute as the 'new default right way'. Why is it? Why should I call a function and pass string parameters to it, when I can just point directly to the property I want and change it?<br />
+I mean, the whole object oriented programming is about Object.subObject.property...<br />
+You just go deeper in the object using dots, it is perfect!<br />
+If you think about it, the get/setAttribute looks like it is the actual older way, and that the .property is the new simpler improved way.<br />
+I dont really get what is the point of this setAttribute thing...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66427">42</a></div>
+			<span class="authorname">MoiDave</span> said on March 07, 2011		</div>
+		<div class="quote"><p>Hey everybody! Cool forum! Iâ€™ve found so much helpful advice here.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

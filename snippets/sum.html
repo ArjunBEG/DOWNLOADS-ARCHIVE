@@ -1,0 +1,7 @@
+<p>Calculates the sum of two or more numbers/arrays.</p>
+<ul>
+<li>Use <code>Array.prototype.reduce()</code> to add each value to an accumulator, initialized with a value of <code>0</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> sum <span class="op">=</span> (...<span class="at">arr</span>) <span class="kw">=&gt;</span> [...<span class="at">arr</span>].<span class="at">reduce</span>((acc<span class="op">,</span> val) <span class="kw">=&gt;</span> acc <span class="op">+</span> val<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">sum</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span> <span class="co">// 10</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">sum</span>(...[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span> <span class="co">// 10</span></a></code></pre></div>

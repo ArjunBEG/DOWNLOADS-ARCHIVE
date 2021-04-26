@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Snoto Photo - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/adobe_air/snoto_photo">
+	<meta property="og:url" content="https://snook.ca/archives/adobe_air/snoto_photo">
+	<meta property="og:title" content="Snoto Photo">
+	<meta property="og:description" name="description" content="In my tradition of coming up with application names that start with &quot;sn&quot;, I introduce to you, Snoto Photo. 
+Snoto Photo is a Flickr application built on Adobe AIR using Mootools. It loads u...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Snoto Photo</h1>
+		<p>In my tradition of coming up with application names that start with &quot;sn&quot;, I introduce to you, <a href="https://snook.ca/snoto/">Snoto Photo</a>. </p>
+<p>Snoto Photo is a Flickr application built on <a href="http://www.adobe.com/products/air/">Adobe AIR</a> using <a href="http://mootools.net/">Mootools</a>. It loads up your latest photos, allowing you to view larger versions of them, do a slideshow, or load up the photos from any of your contacts.</p>
+<p>The goal of this is not to create a Flickr client that &quot;does it all&quot;. It was put together as a reference application for anybody interested in learning more about Adobe AIR. Snoto has been released under a Creative Commons license, so it's available for you to take and extend how you wish. The link to the source code is included at the bottom of the Snoto page.</p>
+<h2>Mootools</h2>
+<p>As it turns out, Mootools was, for the most part, a pleasure to use within AIR. The latest version works fine without needing to create child sandboxes (as does jQuery, ExtJS and most of YUI).</p>
+<p>I modularized the application which, after some initial hurdles figuring things out with the API and authentication, made the application fairly straightforward to put together. It's at a stage now where photosets and groups could be added quite easily within a few hours.</p>
+<p>Probably the biggest hurdle in taking a modularized approach is ensuring that objects are bound properly to event handlers and callback functions. Browsing through the code, you'll see I've made heavy use of <code>bind</code>. </p>
+<h2>Adobe AIR</h2>
+<p>From the AIR API, I haven't gone hogwild but rather kept it simple. You can see use of nativeWindow, context menu and EncryptedLocalStore. </p>
+<p>Having access to Webkit made styling the interface very straightforward. Like Snitter, it's a combination of background images, PNG images, and some CSS3/border-radius to round things out.</p>
+<p>I learned from my mistakes with Snitter and went with the standard OS chrome instead of trying to build something custom. As a result, the application feels performant, even at larger sizes.</p>
+<h2>Take a spin</h2>
+<p>Even if you don't have any plans to build an AIR app, feel free to give the application a try. I'll be adding some features when I have time.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 29, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/adobe_air/">Adobe AIR</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/879</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">22 Comments &middot; <a href="/archives/adobe_air/snoto_photo.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57538">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57538">1</a></div>
+			<span class="authorname">Wilfred Nas</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Thanx in advance for providing the source code, this will help starting AIR developers like meself a lot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57539">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57539">2</a></div>
+			<span class="authorname">Christopher Hill</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Always good to see another Flickr application. I have yet to find time to look into AIR, so I make take a nose at the source some time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57540">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57540">3</a></div>
+			<span class="authorname">Matthew Keefe</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Awesome application Jon, I am equally amazed at sending the source out too :) We developers thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57541">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57541">4</a></div>
+			<span class="authorname">Keeto</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Snoto Photo?.. I thought you'd go for something like Snicker.. Hahaha.. Great work! You're lucky AIR 1.0 is already out. Beta 3 was a headache when it comes to using the Mootools Fx bundles.. Glad it's all fixed now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57542">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57542">5</a></div>
+			<span class="authorname"><a href="http://www.unintentionallyblank.co.uk">Phil Nash</a></span> said on February 29, 2008		</div>
+		<div class="quote"><p>I have been planning on looking into AIR, particularly combined with Flickr as it happens, so this is brilliant. I just have to make sure I don't lose the whole weekend diving into this code and trying stuff myself!</p>
+<p>Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57543">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57543">6</a></div>
+			<span class="authorname"><a href="http://cheeaun.phoenity.com/weblog/">Lim Chee Aun</a></span> said on February 29, 2008		</div>
+		<div class="quote"><p>Nice app.. 'document.onmousemove' seems like a hack? :D<br />
+And also, for some reasons, the image loading seems buggy for slow connections..
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57544">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57544">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 29, 2008		</div>
+		<div class="quote"><p>@Keeto: dang, that is good. :) Ahwell, maybe next time!</p>
+<p>@Lim Chee Aun: a hack? bah! I would like to improve the image loading. Right now it just uses an image.onload but I'd like to switch it up to using the FileStream, especially to cache images locally. The slideshow especially would benefit from this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57545">8</a></div>
+			<span class="authorname"><a href="http://www.bogglethemind.com/">Jeff L</a></span> said on February 29, 2008		</div>
+		<div class="quote"><p>First thing I though too...."Snoto Photo?  Shouldn't it be Snickr?"  </p>
+<p>Awesome that you are doing this stuff and releasing it to the wild, though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57546">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57546">9</a></div>
+			<span class="authorname">Jim Amos</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Should there not be a link to download a .air application file?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57547">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 29, 2008		</div>
+		<div class="quote"><p>@Jim Amos: you should be able to download the application via the Flash badge. Otherwise, you can grab it <a href="//snook.ca/files/snoto/snoto.air">directly from here</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57548">11</a></div>
+			<span class="authorname"><a href="http://tim-adler.com">Tim</a></span> said on February 29, 2008		</div>
+		<div class="quote"><p>A little bug-report already: You can't change the user, if you've authorized one already. Tried that today, but it doesn't recognized my different username, when I typed it in. It ends up at the first one I entered...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57549">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57549">12</a></div>
+			<span class="authorname">Arthur</span> said on February 29, 2008		</div>
+		<div class="quote"><p>Thanks a lot for releasing the source code. I've just recently started with AIR and the snitter source helped me much more than those Adobe Developer Connection articles.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57550">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 29, 2008		</div>
+		<div class="quote"><p>@Tim: right now, there's no way to untie a Snoto username from a Flickr account except to un-authorize the app at the Flickr level. However, in trying to replicate your bug, I did find that it won't let you complete the authentication of a new account under a certain circumstance. It actually requires the app to be closed, restarted and the authentication process to be redone in order for it to work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57553">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57553">14</a></div>
+			<span class="authorname">Rinaldo</span> said on February 29, 2008		</div>
+		<div class="quote"><p>As others said previously, thank you for releasing this project!. I suppose that you used Mootools because you already tested AIR with the other frameworks that you mentioned in the post :).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57555">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57555">15</a></div>
+			<span class="authorname">Shawn</span> said on March 01, 2008		</div>
+		<div class="quote"><p>Big thanks. This is encouragement enough to help me dive into AIR.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57556">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57556">16</a></div>
+			<span class="authorname">Phim Online</span> said on March 02, 2008		</div>
+		<div class="quote"><p>Thanks for the great tip.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57557">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57557">17</a></div>
+			<span class="authorname">minute44</span> said on March 04, 2008		</div>
+		<div class="quote"><p>AIR is really looking like a huge thing now. The ability to update your flickr from the desktop could be very handy. Obviously there are things like picassa but this has beauty in its simplicity. Drag and drop goodness.</p>
+<p>A cool feature would be a keyboard shortcut that is used when snoto is in the system tray that opens up a small box that you can drag a photo into quickly.</p>
+<p>This could also be useful in Snitter. A keyboard shortcut that opens a simple text box above the system tray. You type, hit return and you're done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57578">18</a></div>
+			<span class="authorname">Jasja ter Horst</span> said on March 11, 2008		</div>
+		<div class="quote"><p>Yeah this is getting really interesting. To bad I'm not a code lover, but I will keep track of these developments.  The ability to communicate form your local environment (desktop) to web applications still has a huge potential.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57580">19</a></div>
+			<span class="authorname">Milwaukee, WI Web</span> said on March 13, 2008		</div>
+		<div class="quote"><p>Looks great- I'm looking at creating something very similiar for a "photoblog" site we're working on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57683">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57683">20</a></div>
+			<span class="authorname">Aron</span> said on April 02, 2008		</div>
+		<div class="quote"><p>great app
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57754">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57754">21</a></div>
+			<span class="authorname">Max</span> said on April 08, 2008		</div>
+		<div class="quote"><p>Thank you very much I liked the application it really makes a difference in viewing with snotophoto.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59539">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59539">22</a></div>
+			<span class="authorname">Jim</span> said on September 20, 2008		</div>
+		<div class="quote"><p>Great feature John, thanks very much, I just love this application
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

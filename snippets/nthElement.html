@@ -1,0 +1,10 @@
+<p>Returns the nth element of an array.</p>
+<ul>
+<li>Use <code>Array.prototype.slice()</code> to get an array containing the nth element at the first place.</li>
+<li>If the index is out of bounds, return <code>undefined</code>.</li>
+<li>Omit the second argument, <code>n</code>, to get the first element of the array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> nthElement <span class="op">=</span> (arr<span class="op">,</span> n <span class="op">=</span> <span class="dv">0</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  (n <span class="op">===</span> <span class="dv">-1</span> <span class="op">?</span> <span class="va">arr</span>.<span class="at">slice</span>(n) : <span class="va">arr</span>.<span class="at">slice</span>(n<span class="op">,</span> n <span class="op">+</span> <span class="dv">1</span>))[<span class="dv">0</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">nthElement</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;c&#39;</span>]<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// &#39;b&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">nthElement</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;b&#39;</span>]<span class="op">,</span> <span class="dv">-3</span>)<span class="op">;</span> <span class="co">// &#39;a&#39;</span></a></code></pre></div>

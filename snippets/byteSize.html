@@ -1,0 +1,8 @@
+<p>Returns the length of a string in bytes.</p>
+<ul>
+<li>Convert a given string to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob"><code>Blob</code> Object</a>.</li>
+<li>Use <code>Blob.size</code> to get the length of the string in bytes.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> byteSize <span class="op">=</span> str <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="at">Blob</span>([str]).<span class="at">size</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">byteSize</span>(<span class="st">&#39;😀&#39;</span>)<span class="op">;</span> <span class="co">// 4</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">byteSize</span>(<span class="st">&#39;Hello World&#39;</span>)<span class="op">;</span> <span class="co">// 11</span></a></code></pre></div>

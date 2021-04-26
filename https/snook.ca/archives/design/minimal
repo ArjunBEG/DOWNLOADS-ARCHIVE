@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Minimal - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/design/minimal">
+	<meta property="og:url" content="https://snook.ca/archives/design/minimal">
+	<meta property="og:title" content="Minimal">
+	<meta property="og:description" name="description" content="I need to document all the stuff that went into this design but for now, I'm happy just to have it launched.
+Why did I redesign so quickly after the last one? Because I wanted to! Inspiration struck ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Minimal</h1>
+		<p>I need to document all the stuff that went into this design but for now, I'm happy just to have it launched.</p>
+<p>Why did I redesign so quickly after the last one? Because I wanted to! Inspiration struck and I ran with it. In the end, I'm much happier with this iteration over the last one and  I'll be happy to keep this around for awhile.</p>
+<p>Like the last version, I used HTML5 sparingly. Simple doctype, cleaner syntax for some elements like script and link tags. There's lots of graceful degradation going on here (or progressive enhancement, if you're a glass-half-full kind of person). I checked it out quickly in Firefox 3.5, Safari 4, Opera 10, and Internet Explorer 6 and 7. Everything else, I'll just assume looks okay.</p>
+<p>No, I still don't use a CSS reset. I didn't use a separate stylesheet for IE. My single CSS file comes in at a reasonable 8k. </p>
+<p>This has been a year of change for me in many aspects and this design is a reflection of my continuing metamorphosis. This redesign will hopefully kick off a renewed enthusiasm in myself for design and development and blogging about it every step of the way as I had once done before.</p>
+<p>Enjoy.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 28, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/design/">Design</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/955</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">108 Comments &middot; <a href="/archives/design/minimal.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63861">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63861">1</a></div>
+			<span class="authorname">Dan Schulz</span> said on September 27, 2009		</div>
+		<div class="quote"><p>It looks nice, Snook.  If you don't mind me asking, what inspired you to go with a minimalist design?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63862">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63862">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 27, 2009		</div>
+		<div class="quote"><p>One site in particular that kicked off the whole desire to redesign was <a href="//seansperte.com/">Sean Sperte</a>. I've also been inspired a bit by <a>Jina Bolton</a>. It was also a chance for me to try something that looked simple but has some layers of complexity to it and I feel this design comes close to that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63863">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63863">3</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris Wallace</a></span> said on September 27, 2009		</div>
+		<div class="quote"><p>Feeling a bit inspired by one of your sidebar buddies to go minimalist?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63864">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63864">4</a></div>
+			<span class="authorname">Johan</span> said on September 27, 2009		</div>
+		<div class="quote"><p>It is more newspaper-like. It has a Shaun Inman touch from one of his previous iterations. It is calmer ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63865">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63865">5</a></div>
+			<span class="authorname">Michael Dick</span> said on September 27, 2009		</div>
+		<div class="quote"><p>Nice work...wasn't expecting *this* minimal of a site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63866">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63866">6</a></div>
+			<span class="authorname">Yan</span> said on September 27, 2009		</div>
+		<div class="quote"><p>Love this design. Much better than previous versions I feel.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63867">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63867">7</a></div>
+			<span class="authorname">Indranil</span> said on September 27, 2009		</div>
+		<div class="quote"><p>I am liking this very much! The caps treatment to the header looks lovely, and the fixed logo seems nice! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63868">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63868">8</a></div>
+			<span class="authorname">Darice de Cuba</span> said on September 27, 2009		</div>
+		<div class="quote"><p>I'm a fan of minimalist and absolutely love this design. The small details like the worn lines, the icons beside each post title and the header/logo. Nice job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63869">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63869">9</a></div>
+			<span class="authorname">Jakup</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Great job. Love this new layout.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63870">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63870">10</a></div>
+			<span class="authorname"><a href="http://www.madwebskills.com">Mikey McCorry</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice work as usual. I feel everything gets a chance to breathe a bit in this design, and I like the hide-away archives links in the side-bar.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63871">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63871">11</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com">Brendan Falkowski</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Feels a bit WWII militaristic, though I just finished watching Valkyrie and saw your tweet-announcement. Think it's a combo of the condensed capitals, typewriter-style uneven pressure on the gridlines, and non-bleached texture. Could seal the deal and make the copy monospaced &ndash; or not. Looking good nonetheless.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63872">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63872">12</a></div>
+			<span class="authorname">sorin</span> said on September 28, 2009		</div>
+		<div class="quote"><p>clean, nice and easy on the eyes.. congrats'!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63873">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63873">13</a></div>
+			<span class="authorname"><a href="http://ivanbernat.com">Ivan</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Oh, no, Snook! I actually LOVED the last design, is there a PSD or JPG just to remember the good old times? :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63874">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63874">14</a></div>
+			<span class="authorname">Tjobbe</span> said on September 28, 2009		</div>
+		<div class="quote"><p>ooh this is pretty.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63875">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63875">15</a></div>
+			<span class="authorname">Nikola</span> said on September 28, 2009		</div>
+		<div class="quote"><p>... love it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63876">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63876">16</a></div>
+			<span class="authorname">Bodog</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I'm always a fan of content over clutter. Very nice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63877">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63877">17</a></div>
+			<span class="authorname">Markus</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice, I like it! Interestingly, when I first saw the site I instinctively tried to scroll upwards, following a subconscious urge to uncover the upper part of the logo in the background ;-)</p>
+<p>Two suggestions:</p>
+<ol>
+<li>Right now the links in your navigation have a very small clickable area; I think a little padding-top would do them good. Maybe the font you're using has funny metrics?</li>
+<li>Also, their text doesn't need to be all-caps in the HTML code since you're giving it <code>text-transform: uppercase</code>.</li>
+</ol>
+</div>
+	</div>
+		<div class="comment" id="c63878">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63878">18</a></div>
+			<span class="authorname">Jamie </span> said on September 28, 2009		</div>
+		<div class="quote"><p>Really liking the new design, everything now has a lot more space round it and I like the fixed logo.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63879">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63879">19</a></div>
+			<span class="authorname">Allen Pike</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I like it a lot! I see that article dates have returned, good call.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63880">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63880">20</a></div>
+			<span class="authorname">Barry Wardrop</span> said on September 28, 2009		</div>
+		<div class="quote"><p>First less of you!..then less of your website, a case in showing that more isn't always better. </p>
+<p>By the way it was a plesent short read about your weightloss in your previous post, something i seem to be piling on at the minute due to the leaving a fulltime physically active job for full time sitting behind this screen all day!</p>
+<p>The site looks great, clean simple nice use of  League Gothic by a good company. and as always the content is king! </p>
+<p>@markus I actually like the fact that the link has states as opposed the the space around it! and the use of text-transform to me is really a backup not a problem! ;)</p>
+</div>
+	</div>
+		<div class="comment" id="c63881">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63881">21</a></div>
+			<span class="authorname">Matt Robin</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I really like it, lightweight, subtle (but with some nice touches)...it's good, clean design. </p>
+<p>I sort of miss the widespread use of green though, something that has become associated with the snook.ca site image. That's just a small thing though right? ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63882">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63882">22</a></div>
+			<span class="authorname">Scott Radcliff</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice look. I am big fan of the minimalist look. Looks great on my Android powered phone.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63883">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63883">23</a></div>
+			<span class="authorname">Vladimir Carrer</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I simply love it.</p>
+<p>Maybe the Category is little hidden and you can use the footer to display more info.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63884">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63884">24</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63877">Markus</a>: The navigation does need to be tweaked and padding-top should do the trick. The reason for <code>text-transform:uppercase</code> is actually a technical one. Both Opera and Internet Explorer don't use the uppercase letters from the subsetted font. As a result, I had to literally type the letters as all uppercase. </p>
+<p>@<a href="#c63883">Vladimir</a>: I wanted the categories to be hidden. It's all part of the minimalism. Hopefully the heading is enough for people to see how to dig in. If not, I may tweak it. As for the footer, yes, my intention is to beef it up with a lot more info but wanted to push the site up live.</p>
+<p>@All: if you want to reminisce over the old design, there's thankfully Flickr to the rescue: <a href="//www.flickr.com/photos/booyant/3834338130/">Version 9</a>, <a href="//www.flickr.com/photos/solarfrog/492096844/">Version 8</a>, <a href="//www.flickr.com/photos/clivewalker/334947411/">Version 7</a>, <a href="//www.flickr.com/photos/digerati/141844160/">Version 6</a> and finally <a href="//www.flickr.com/photos/the-owens/137520026/">Version 5</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63885">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63885">25</a></div>
+			<span class="authorname"><a href="http://www.nkbookreviews.com">Nate Klaiber</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>I am definitely a fan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63886">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63886">26</a></div>
+			<span class="authorname"><a href="http://brandingdavid.com">David Peralty</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>I think the only thing I'd like to see changed is admin comment highlighting. It was not only your articles, but your responses to comments that made your blog interesting to me. Without the admin comment highlighting, I had to search. </p>
+<p>Other than that, bravo as usual.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63887">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63887">27</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very clean, very nice looking Jon! Are you planning on adding a style for your own (author) comments? I think that adds much to the comments section :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63888">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63888">28</a></div>
+			<span class="authorname">Mike Crittenden</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Would be great if you could post a tutorial on your usage of @font-face in the headings. Haven't seen your src: local() syntax before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63889">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63889">29</a></div>
+			<span class="authorname">Chris Pacheco</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very nice &amp; simple, Good job :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63890">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63890">30</a></div>
+			<span class="authorname">Nathan Ziarek</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Agreed that the new design is very nice. If ever I get my act together and re-create my page, I think this will be a design that will influence my aesthetic.</p>
+<p>On to being a semantic jerk, I consider "progressive enhancement" and "graceful degradation" two different things, as they explain how you tackle the problem. Do you start with the basics and then enhance or do you create the end product and then figure out where things need to fail "gracefully". I think PE is the way to go right now, since IE is in the mix. As HTML5, &lt;CANVAS&gt; and &lt;VIDEO&gt; get some major traction, though, I think we'll be able to reduce our reliance on legacy cruft and design just for modern systems. Or I hope.</p>
+<p>In any case, great design!</p>
+<p>nz
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63891">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63891">31</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake Smith</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Great design Jonathan.  Do you have all your other designs archived?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63892">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63892">32</a></div>
+			<span class="authorname">Eric Martin</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Looks really nice!</p>
+<p>I just redesigned my site last month and am already planning a new one. I am planning on going with a more minimalistic design as well.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63893">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63893">33</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I just added author comment styles so that my comments stand out from the rest. I tried just a green comment icon but it was too subtle and easy to miss. The flag gives it some extra prominence but hopefully not so much that it's distracting.</p>
+<p>Thanks everybody for all the kind words on the redesign!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63894">34</a></div>
+			<span class="authorname">Yan</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very nice! Although I liked your last design, I prefer this one a lot more.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63895">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63895">35</a></div>
+			<span class="authorname">Francis</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Why are we bombing West Osgoode? Stop directing ICBM's there. ;-)</p>
+<p>I haven't seen a "missile address" in a long time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63896">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63896">36</a></div>
+			<span class="authorname">Thomas Britton</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very nice re-design!</p>
+<p>I prefer it to the previous version also
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63897">37</a></div>
+			<span class="authorname">Chris Johnson</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Excellent use of texture in the background. Very calming.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63898">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63898">38</a></div>
+			<span class="authorname">prisca</span> said on September 28, 2009		</div>
+		<div class="quote"><p>wow - what a change and how gorgeous ;)<br />
+Really love the change, though I did like your previous design as well - this one is an instant winner for me, love the light and airy feel of it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63899">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63899">39</a></div>
+			<span class="authorname"><a href="http://davidwalsh.name">David Walsh</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>I'm not a designer so my opinion is next to meaningless but I really like what you've done.  My only criticism is that the site doesn't encourage multiple pageviews -- you aren't trying to keep people at the site.  Of course you have no advertisers either so pageviews could be meaningless to you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63900">40</a></div>
+			<span class="authorname">Trent Walton</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I like it a lot &amp; agree with chris J... nice subtle texture &amp; the right amount of content without being overwhelming.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63901">41</a></div>
+			<span class="authorname">Edward Rayne</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I really like the new design, much cleaner and more elegant than before.  A+
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63902">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63902">42</a></div>
+			<span class="authorname"><a href="http://komodomedia.com">Rogie King</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice work Jonathan! I like it MUCH better than your previous design. The minimalism makes for a much more usable and readable blog. I love that your @replies link to the user's comment. How'd you do that?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63903">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63903">43</a></div>
+			<span class="authorname">Kenji Tani</span> said on September 28, 2009		</div>
+		<div class="quote"><p>nice:)</p>
+<p>i like this new design.<br />
+but i like former design too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63904">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63904">44</a></div>
+			<span class="authorname">Travis Isaacs</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I definitely prefer this to the previous snook.ca. However, the footer feels unfinished in my opinion. The green link color feel like a left over from the previous site, and doesn't have enough contrast. </p>
+<p>I also wonder the value of having your last 4 delicious links. They'll be random, and probably of no value to a casual snook.ca reader.</p>
+<p>Of course, everyone is an editor :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63905">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63905">45</a></div>
+			<span class="authorname">Craig Forsyth</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I like it a lot! It's more "grown up" than the previous version, and really lets the content stand on its own. Well done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63906">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63906">46</a></div>
+			<span class="authorname">Danny</span> said on September 28, 2009		</div>
+		<div class="quote"><p>WOW! Much nicer design than the previous one. I have to be honest, I was a fan of the content you provided but not much with web design. I felt it was cluttered. I will frequent this website now!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63907">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63907">47</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63902">Rogie</a>: The number on each comment is a hyperlink, so I just copy the link. Someday I'll see about automating that process with a little JavaScript. :)</p>
+<p>@<a href="#c63904">Travis Isaacs</a>: The delicious links are hand-selected specifically for the blog so they are hopefully relevant to the people who come here. However, the footer is somewhat unfinished. I have more content that I'd like to include there but haven't integrated it yet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63908">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63908">48</a></div>
+			<span class="authorname">J Cornelius</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice work Jonathan! You know me, I like minimalism. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63909">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63909">49</a></div>
+			<span class="authorname">Marco Jardim</span> said on September 28, 2009		</div>
+		<div class="quote"><p>It's definitely less intimidating than your previous design. I like it quite a lot :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63910">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63910">50</a></div>
+			<span class="authorname">Wiras Adi</span> said on September 28, 2009		</div>
+		<div class="quote"><p>A bit less readable than the previous version I would say Snook. Maybe you should try a sans-serif typeface family with this design.</p>
+<p>Overall, it's simply great, I like it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63911">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63911">51</a></div>
+			<span class="authorname">Garth Braithwaite</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Fantastic.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63912">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63912">52</a></div>
+			<span class="authorname"><a href="http://sputnik.pl">Pies</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very nice. I'd get rid of the static page background, it feels weird while scrolling.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63913">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63913">53</a></div>
+			<span class="authorname"><a href="http://kmpstr.com">Matthew Kempster</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>I like it!</p>
+<p>Kinda reminds me of Daring Fireball and even more of Shaun Inman's current design.</p>
+<p>I love the textures and little details such as post header grid lines and body background.</p>
+<p>Was surprised to see you redesign so quickly though - nothing at all wrong with that however!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63914">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63914">54</a></div>
+			<span class="authorname">Tom Watson</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Nice work sir. I, obviously, am a fan of the clear, clean minimal look.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63915">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63915">55</a></div>
+			<span class="authorname">Chris</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Looks good to me. It focuses on the content, which is should, and none of the design elements detract from that content. My only "complaint" is the background image that scrolls with the background. I would just keep that fixed at the top because I find it annoying when it interferes with content, but that's just me and my first impressions. Great work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63916">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63916">56</a></div>
+			<span class="authorname">Aaron Irizarry</span> said on September 28, 2009		</div>
+		<div class="quote"><p>looking great man... I totally relate to the running with inspiration when it hits.</p>
+<p>The last iteration was cool but so far I am favoring this one more. I really like the little flags, and the subtle textures.</p>
+<p>~ Aaron I
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63917">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63917">57</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com">Jason Beaird</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Looks great, Jonathan! You've eliminated everything but the essential and what's left is tastefully styled.</p>
+<p>Contrary to some of the previous comments, I really like that the body background is fixed. It reinforces your brand and looks good as the content scrolls past the left edge of the s.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63918">58</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="//snook.ca/archives/design/minimal#c63917">Jason Beaird</a>: I'm really glad you noticed the positioning of the S on the background image. It was on purpose. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63919">59</a></div>
+			<span class="authorname">Josh Walsh</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I think this is fantastic.  Simple and minimal, but still very clean lined.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63920">60</a></div>
+			<span class="authorname">Chris Pederick</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Really liking this design - nicely done sir.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63921">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63921">61</a></div>
+			<span class="authorname">Simon Hamp</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Well done sir!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63922">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63922">62</a></div>
+			<span class="authorname"><a href="http://mcarthurgfx.com">Sean McArthur</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>I actually prefered the previous. Felt more branded. I don't recognize the Snook brand in this design.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63923">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63923">63</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63922">Sean McArthur</a>: Go figure. When I launched the last design, I didn't even have my logo on the site. (I eventually stuck it in the circle). This is definitely a larger departure from my style than previous iterations so I can see why you might think that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63924">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63924">64</a></div>
+			<span class="authorname">Nathan</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Did you have any licensing issues with the fonts?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63925">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63925">65</a></div>
+			<span class="authorname">Erik Vorhes</span> said on September 28, 2009		</div>
+		<div class="quote"><p>I loved the faux-3D of the previous version, but this minimal design is beautiful. I remain envious of your ability to crank out redesigns, etc., at such a clip!</p>
+<p>That said, it'd be neat if the little ribbons, stars, etc., <em>did</em> something. I half-expected the one next to the post title to function as a permalink (since it looks like a bookmark); the same goes for the one by the "Conversation" heading. Maybe some <code>:hover</code> and <code>:focus</code> trickery, such as the ribbon being colorized (or in the case of previous entries on the main page, the ribbon fading in to replace the star) would add a little bit of interactive pizazz?</p>
+<p>That's just a suggestion, though--I've noticed that you use the ribbons, etc., in the design in ways that don't lend themselves quite so easily to the bookmark metaphor. And even as-is, the design is no less lovely!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63926">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63926">66</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63924">Nathan</a>: The headings use LeagueGothic which is an open-source font and allows embedding. (Although, the license was a little confusing to find. Hopefully I understood it correctly.) I was also pleased as punch that the file was only 20k as some fonts can really be quite sizable. As for the other one, I went to extreme measures to create a subsetted font file which contains only about 30 characters. There's not a full alphabet and there's only 4 lower case characters being used. This kept the file nice and small (only 8k) and is hopefully enough to avoid any issues (but will be understanding if I have to change it).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63927">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63927">67</a></div>
+			<span class="authorname">RussellUresti</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Awesome redesign. I like the minimal look, and I really like that you went with League Gothic as your font choice. You are correct that it allows web embedding. Though, I could only find an .otf file with the download, and not an .eot. Did you create one, or was I just missing something?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63928">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63928">68</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63927">RussellUresti</a>: Yes, I had to make the EOT. I have a blog post I'll be putting together on the matter but to sum it up: I used FontForge to convert the font to TTF and then use TTF2EOT. There are some important changes to be made in FontForge when exporting, though, to ensure that the conversion to EOT goes smoothly.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63929">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63929">69</a></div>
+			<span class="authorname">Sally Carson</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Deg Snook, you're putting me to shame. For my biz site, I was strapped for time and had a Woo Theme running on Wordpress. Last week, I finally got around to at least customizing the look of it, but the underlying html I'm still riding on is woefully ...presentational. </p>
+<p>Your redesign looks great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63930">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63930">70</a></div>
+			<span class="authorname">Henry</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Hey Mr. Snook,<br />
+The video I wanted to watch which is the Screencast about Lighting in Fireworks gives me a 404 page?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63931">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63931">71</a></div>
+			<span class="authorname">Jacob Western</span> said on September 28, 2009		</div>
+		<div class="quote"><p>How did you create the background image (the one that looks like construction paper) I like it a lot and have been trying to do something like that in photoshop but keep failing.</p>
+<p>Kudos on the new design
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63932">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63932">72</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 28, 2009		</div>
+		<div class="quote"><p>@<a href="#c63930">Henry</a>: Problem should be fixed. Enjoy the screencast.</p>
+<p>@<a href="#c63931">Jacob Western</a>: I use Fireworks and the background is super easy. Create a shape and give it a colour. I chose a grey with a little less blue in it to give it more of a brownish/yellow colour. Then I added the Noise filter set to 1%. That's it. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63933">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63933">73</a></div>
+			<span class="authorname"><a href="http://bradt.ca/">Brad Touesnard</a></span> said on September 28, 2009		</div>
+		<div class="quote"><p>Have you had a look at YUI Reset CSS? http://developer.yahoo.com/yui/reset/#code</p>
+<p>It's more compact than others and I've found it works just as well. I usually just put it at the top of my single stylesheet.</p>
+<p>Love the new design. Great work!</p>
+</div>
+	</div>
+		<div class="comment" id="c63934">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63934">74</a></div>
+			<span class="authorname">the bacon man</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Hey Jonathon, love the new site. The new simp...hey whoa, wait a minute....the preview of my comments as I'm typing this out is unexpecting, creepy, and awesome. </p>
+<p>Good job, always look forward to your designs and once again, it's original and doesn't remind me of 90% of the "web developer" sites. </p>
+<p>nice to see you're using some sort of custom cms of your own too</p>
+<p>p.s. h2 font on the article headings are huge in Chrome</p>
+</div>
+	</div>
+		<div class="comment" id="c63935">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63935">75</a></div>
+			<span class="authorname">the bacon man</span> said on September 28, 2009		</div>
+		<div class="quote"><p>re: Brad Touesnard asking Jonathon Snook if he's heard of Yahoo's reset? </p>
+<p>Seriously?</p>
+<p>That's like asking Hugh Hefner if he's ever seen a girl naked.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63936">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63936">76</a></div>
+			<span class="authorname">Martin</span> said on September 28, 2009		</div>
+		<div class="quote"><p>Very nice redesign Jonathan - I like your approach towards minimalism. I have to say though, I really liked the previous design too. Are you going to sell it or just keep it in the drawer? I think it would be of interest to quite a few people.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63937">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63937">77</a></div>
+			<span class="authorname">John</span> said on September 29, 2009		</div>
+		<div class="quote"><p>Like the new design, especially the sort of finger-printy bit. Minimalism will always keep coming back as no design ever remains untouched - you always end up adding a bit here and a bit there, until one day your realize that you've ruined it and need to start again - of course that's also half the fun of making websites.</p>
+<p>Thanks for the tip about the noise filter too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63938">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63938">78</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com">Michael Kozakewich</a></span> said on September 29, 2009		</div>
+		<div class="quote"><p>Nice!</p>
+<p>I came in here with images disabled, so I'm seeing the <em>really</em> minimal look. I'll have to take another when I put images back on.</p>
+<p>It works great! The last one had issues on small screens, but I haven't had any problems with this one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63939">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63939">79</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris Wallace</a></span> said on September 29, 2009		</div>
+		<div class="quote"><p>Jonathan, I know you don't run WordPress but there is a WP plugin that handles @replies for you: <a href="//wordpress.org/extend/plugins/reply-w-comment-preview/">@Reply \w comment preview</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63940">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63940">80</a></div>
+			<span class="authorname">Jina Bolton</span> said on September 29, 2009		</div>
+		<div class="quote"><p>Just now seeing this. Wow, nice update! And I'm flattered you mentioned me as an inspiration for the redesign. I love that you went minimal. It's really nice. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63941">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63941">81</a></div>
+			<span class="authorname">Helen</span> said on September 29, 2009		</div>
+		<div class="quote"><p>Very good! Good to see that some people have own ideas!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63942">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63942">82</a></div>
+			<span class="authorname">Cyprian GwÃ³ÅºdÅº</span> said on September 30, 2009		</div>
+		<div class="quote"><p>Haha, this is completely new direction snook!!!<br />
+G8 - I like it more. In this case - less means better!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63943">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63943">83</a></div>
+			<span class="authorname">Jesse C.</span> said on September 30, 2009		</div>
+		<div class="quote"><p>Love it.</p>
+<p>And reading through the comments, it's fascinating how polarizing a design can be - there are more than a few people that felt the previous, busier design was nicer â€” and that's more than valid. But personallyâ€”as someone who pours over design sites way too muchâ€”I often feel so inundated with busy, bright, <em>designed</em> sites that seeing something so spare and clear feels like a long, cool drink of water: refreshing and sustaining.</p>
+<p>I remember once reading an interview with John Cougar (Mellancamp, at the time) when a question about the simplicity of his song structure prompted him to say that if he ever found a way to tell his story using only one chord, he would do it.</p>
+<p>On a final note, you beat me to the punch. Ever since seeing it on the <a href="//www.theleagueofmoveabletype.com/">League of Moveable Type</a> site, I've been longing to do a redesign with League Gothic.</p>
+<p>Looking forward to reading your posts here, Snook. Cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63944">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63944">84</a></div>
+			<span class="authorname"><a href="http://www.csskarma.com">Tim Wright</a></span> said on September 30, 2009		</div>
+		<div class="quote"><p>Love the new design, it's 100% better than the last one (I was never a fan)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63945">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63945">85</a></div>
+			<span class="authorname">Clinton</span> said on September 30, 2009		</div>
+		<div class="quote"><p>Nice redesign. Very much prefer this than the last.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63946">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63946">86</a></div>
+			<span class="authorname">Prashant</span> said on September 30, 2009		</div>
+		<div class="quote"><p>It looks great, nice work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63948">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63948">87</a></div>
+			<span class="authorname">Saurooon</span> said on October 01, 2009		</div>
+		<div class="quote"><p>Hi there,<br />
+Thanks for article. Everytime like to read you.<br />
+Have a nice day</p>
+</div>
+	</div>
+		<div class="comment" id="c63949">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63949">88</a></div>
+			<span class="authorname">boo</span> said on October 01, 2009		</div>
+		<div class="quote"><p>my least favorite thus far.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63950">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63950">89</a></div>
+			<span class="authorname">Laboratik</span> said on October 02, 2009		</div>
+		<div class="quote"><p>Oh nice... The footer is missing something though... can't pinpoint it but it seems to me that the contrast between the colors could be a bit more subtle... but that might also be the side effect of a low end monitor to view your website...</p>
+<p>I LOVE the background. The texture is so subtle that you can't miss it :-) want to share how you created it?<br />
+Noise filter in photoshop and playing around with colors I would assume?</p>
+<p>Keep up the good work and have fun tweaking!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63951">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63951">90</a></div>
+			<span class="authorname">tom-c</span> said on October 02, 2009		</div>
+		<div class="quote"><p>Hi, </p>
+<p>The minimal design is lovely â€” great improvement â€” @font-face usage too, very snazzy...</p>
+<p>How did you manage to subset to only some charaters in Gotham? Seems like a good half way, I've seen some demo versions of expensive fonts distributed this way so perhaps it's ok? Or a least worth trying on a non commercial site.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63952">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63952">91</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 02, 2009		</div>
+		<div class="quote"><p>@Tom-c: I used FontForge to delete any unused glyphs and then exported as TTF, which I then used to create an EOT. I wanted to use font-face, keep file size down (Gotham is 160k in a single weight), and try to prevent it from being used on other sites. Hopefully they'll be okay with this non-commercial usage of it and the steps I went through to protect it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63953">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63953">92</a></div>
+			<span class="authorname">tom-c</span> said on October 02, 2009		</div>
+		<div class="quote"><p>Thanks for the reply Jonathan,</p>
+<p>Guess i'd better get brushed up on FontForge then, is there anywhere in particular you learnt about the specific options you mentioned for successful .eot files?</p>
+<p>I've tried using the online converters with League Gothic and had little luck so I guess FontForge will have my answer.</p>
+<p>Also did you install CLI only on OSX? If so any particular ./configure options?</p>
+<p>Sorry about all the questions,</p>
+<p>Tom
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63954">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63954">93</a></div>
+			<span class="authorname">All for Design</span> said on October 02, 2009		</div>
+		<div class="quote"><p>Hey John !<br />
+Congratulation for this new design !<br />
+I love minimalism and I'm sure this new one will show the way to other web designers.<br />
+Just keep your inspiration running man !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63955">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63955">94</a></div>
+			<span class="authorname">choen</span> said on October 03, 2009		</div>
+		<div class="quote"><p>I love simple design, especially the use of a line that I liked.<br />
+but why not use 'element' HTML 5?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63957">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63957">95</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 03, 2009		</div>
+		<div class="quote"><p>@tom-c: I'll try and document my success with FontForge soon, as it isn't very obvious. No, I didn't install CLI.</p>
+<p>@choen: I avoided any new HTML5 tags because I still wanted things to render fine in Internet Explorer without having to use JavaScript shims.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63958">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63958">96</a></div>
+			<span class="authorname">SigurÃ°ur Ãrni</span> said on October 05, 2009		</div>
+		<div class="quote"><p>Great work. Clean and minimal.<br />
+I also really like the hover/active effect on the titles.</p>
+<p>I will have to "borrow" that and the comment preview from you sometime
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63969">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63969">97</a></div>
+			<span class="authorname">Steve Shedden</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I love this design. You can't beat a clean layout
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63972">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63972">98</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 06, 2009		</div>
+		<div class="quote"><p>I just switched up the font from Gotham to Museo Sans for the top header. I don't love the K but it was as close as I could come. That is until I break down completely and design my own font. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63974">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63974">99</a></div>
+			<span class="authorname">Squaregirl</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Very nice! I've always envied those that can keep it minimal â€” I've had a design crush on Shaun Inman's site for ages. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63977">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63977">100</a></div>
+			<span class="authorname">Bengacreative</span> said on October 06, 2009		</div>
+		<div class="quote"><p>Wow, this new design is incredible. I love the cleanness, the simplicity and the ways that everything flows together. I'm definitely a big fan. Really like the idea of highlighting your comment in the pool of all the other comments, by giving your comment numbers text color. </p>
+<p>I'm just seeing for the first time, the type and see on the screen as you go idea on your site, and i must say i'm  liking the idea a lot and the thought behind it.</p>
+<p>Thanks for the inspiration to work harder.<br />
+Benga creative
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63987">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63987">101</a></div>
+			<span class="authorname">Jen Germann</span> said on October 07, 2009		</div>
+		<div class="quote"><p>It's beautiful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64017">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64017">102</a></div>
+			<span class="authorname">Tomaz Zaman</span> said on October 08, 2009		</div>
+		<div class="quote"><p>Can't argue with others, love it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64038">103</a></div>
+			<span class="authorname">Brade</span> said on October 09, 2009		</div>
+		<div class="quote"><p>I approve! Nice colors... The only problem I see is that "Snook.ca" is so close to the contact link, and that it is not clickable to the home page. Took me a few seconds to realize that your slogan on the left was actually the link to Home. The sidebar is also quite naked at the moment. I don't think I'd mind having the archives be open by default. But to each their own. Overall a deluxe job!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64040">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64040">104</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 09, 2009		</div>
+		<div class="quote"><p>@Brade: Too bad you didn't visit the site 5 minutes later. :) The sidebar is now a little beefier with the illustrationâ€”and really completes my original vision for the site.</p>
+<p>I debated about whether to link of the Snook.ca but decided against it because of how close it was to the line below. I wanted to avoid people accidentally clicking on the wrong link. That may be a premature optimization but it seemed like the right thing to do. I may switch it up at some point just to see what happens. Maybe some click-tracking is in order. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64045">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64045">105</a></div>
+			<span class="authorname"><a href="http://www.bradezone.com/">Brade</a></span> said on October 09, 2009		</div>
+		<div class="quote"><p>Yep, that instantly gave the sidebar more oomph. Good times!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64052">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64052">106</a></div>
+			<span class="authorname">Chandra</span> said on October 11, 2009		</div>
+		<div class="quote"><p>Great work. I always admired your work. This design surely inspired me. After a recent redesign with my blog, I am planning to redesign it again. This time I am going with minimal design.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64068">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64068">107</a></div>
+			<span class="authorname">Polprav</span> said on October 16, 2009		</div>
+		<div class="quote"><p>Hello from Russia!<br />
+Can I quote a post in your blog with the link to you?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64069">108</a></div>
+			<span class="authorname"><a href="http://www.webdesign-gm.co.uk">Martyn - Bristol Wesite Design</a></span> said on October 16, 2009		</div>
+		<div class="quote"><p>Great Design, minimal grunge... reminds me of elliot jay stocks which is no bad thing.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<p>Calculates the midpoint between two pairs of (x,y) points.</p>
+<ul>
+<li>Destructure the array to get <code>x1</code>, <code>y1</code>, <code>x2</code> and <code>y2</code>.</li>
+<li>Calculate the midpoint for each dimension by dividing the sum of the two endpoints by <code>2</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> midpoint <span class="op">=</span> ([x1<span class="op">,</span> y1]<span class="op">,</span> [x2<span class="op">,</span> y2]) <span class="kw">=&gt;</span> [(x1 <span class="op">+</span> x2) / <span class="dv">2</span><span class="op">,</span> (y1 <span class="op">+</span> y2) / <span class="dv">2</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">midpoint</span>([<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span> <span class="co">// [3, 3]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">midpoint</span>([<span class="dv">4</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">6</span>])<span class="op">;</span> <span class="co">// [5, 5]</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">midpoint</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span> <span class="co">// [1.5, 3.5]</span></a></code></pre></div>

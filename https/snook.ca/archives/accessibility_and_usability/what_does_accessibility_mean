@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>What does Accessibility mean? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/accessibility_and_usability/what_does_accessibility_mean">
+	<meta property="og:url" content="https://snook.ca/archives/accessibility_and_usability/what_does_accessibility_mean">
+	<meta property="og:title" content="What does Accessibility mean?">
+	<meta property="og:description" name="description" content="If you were to ask people that question, I suspect most would say that accessibility is about making sure  something &mdash; in our context, a web site or web application &mdash;  that works for those...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>What does Accessibility mean?</h1>
+		<p>If you were to ask people that question, I suspect most would say that accessibility is about making sure  something &mdash; in our context, a web site or web application &mdash;  that works for those who are physically disabled. Maybe they're blind or maybe they're a quadriplegic and unable to use a keyboard or mouse in the traditional sense. </p>
+<h2>Accessibility is a spectrum</h2>
+<p>That definition of accessibility is pretty narrow and I'm sure plenty of people would argue otherwise (including me). But my point is that many people see accessibility as affecting a small group of people &mdash; a group of people that can be ignored. In actuality, <strong>accessibility is a spectrum</strong>. On one end, there are those with the most extreme mental or physical disabilities that I couldn't even begin to assume I know how to accomodate for. And on the other end... well, what is the other end?</p>
+<p>Is accessibility a concern for perfectly abled people? What about those who need to wear glasses, or are colour-blind, or just like to use the keyboard instead of a mouse on occasion? Where do they fall on the spectrum and what issues should you, as a developer or designer, choose to contend with?</p>
+<h2>Accessibility as Usability </h2>
+<p>I recently spoke at the Future of Web Design and my presentation, Ajax and Design, didn't talk about code. It was about the usability concerns that you have to consider when implementing Ajax. </p>
+<p>I argued that <strong>the web is founded on a limited set of interactions</strong>: <em>links</em>, <em>buttons</em> and <em>forms</em>. </p>
+<p>And because these interactions are limiting rich experiences, we constantly try to extend how those controls behave (like providing a tri-state checkbox) or creating new interactions all together (like drag and drop). Anytime we add interactions or change how the default interactions behave, we create barriers. </p>
+<p><strong>Once we've created a barrier to usability, either through understanding or technology, we have to work to eliminate those barriers while still maintaining the new interaction. </strong></p>
+<p>At the end of my presentation, I was asked why I didn't mention accessibility after having talked for almost a half hour on Ajax &mdash; a technology that has been derided by many for hindering accessibility. </p>
+<p>My response to that was that all things that apply to making a site usable apply to making a site accessible.  </p>
+<p>Conclusion, accessibility is just usability  but marketed to a particular segment of the population. </p>
+<h2>Accessibility is hard? </h2>
+<p>How do you make a site usable/ accessible? The best advice I can give is this: get people to use it. I often get people to see my design at various stages, especially people who've never seen it before. I might ask my wife to look at a design I've done and will ask for first impressions. &quot;If you were looking to find widgets, what would you do?&quot; Or maybe, &quot;You've arrived at this page, what do you think it's about and what would you do first?&quot; I'll send designs to friends and colleagues and see if I've missed any glaring issues. </p>
+<p>So, I design and build a site based on my breadth of experience as a fairly abled individual and I show my work to people who also happen to be fairly abled individuals. Essentially, I'm dealing with a limited set of testers. The next obvious step is to get it in front of a wider variety of people to test, including those who may have a different set of limitations when using the web. </p>
+<p>But guess what... I don't really know anybody that really falls under that &quot;accessibilty&quot; umbrella. I don't have anybody I can ask to test something out (without paying hundreds, if not thousands, of dollars for actual usability or accessibility testing). I suspect this is the case for most people. </p>
+<p>I can see why people might not want to take the extra step to support a seemingly small group of people. Jeremy Keith's <a href="http://adactio.com/journal/1359/">selection of quotes</a> in response to the Target lawsuit seems to not only affirm that but demonstrate some downright ignorance. It'd be easy to think that accessibility is hard and simply not worth the effort.  </p>
+<h2>Remove limitations</h2>
+<p>However, what's interesting is that covering the majority of the usability/accessibility spectrum can actually be pretty easy: just use semantic HTML. Of course, there are plenty of considerations when adding layers of technology on top of that like CSS, JavaScript or Flash, each of which has its own usability and accessibility concerns. Those layers of interactivity create increasingly complex barriers to overcome. </p>
+<p>The Target site is, for the most part, an example of a typical web site. There's no reason it couldn't be made accessible to a larger market of people, including blind people. Just use recommended coding practices (recommended by the W3C's <a href="http://www.w3.org/WAI/">WAI</a> and the standardistas among us). Even simple things like proper alt-text can go a long way to providing a superior experience </p>
+<p>Read through the <a href="http://www.dralegal.org/downloads/cases/target/nfb_v_target_complaint.pdf">legal complaint</a> and you'll see that the highlighted complaints are relatively easy to solve: &quot;alt-text on graphics, inaccessible image maps, [and] the lack of adequate prompting and labeling.&quot; This isn't complex stuff. It's not drag and drop, it's not tri-state checkboxes. These are things that any professional web developer worth his salt should be able to do.  </p>
+<p>Now I'm not trying to be elitist or snobby and scold the bad web monkies. We, as a community, should continue to spread the message of professionalism and quality. </p>
+<p><strong>If we can make the effort to care about cross-browser compatibility then we can make the effort to care about cross-person compatibility. </strong></p>
+<p>There are sites, however, that are much more complex than a Target site. Sites like Gmail or Google Docs. Applications using Flash and heavy uses of Ajax are more complicated. You're adding in multiple layers of interactivity that override or add to those default interactions. </p>
+<p>A company like Google might be able to afford the usability/accessibility testing but I know I can't. And I'm not going to stop developing these types of applications. In these cases, I don't ignore accessibility. I continue to build with the core that I know works: semantic HTML. Then each layer is added on in hopes that it doesn't create too much havoc for people. Am I limiting my audience? Potentially. I know that might happen. </p>
+<p>That doesn't mean it has to be perfect. I can tell you right now that this site isn't perfect in every browser. But when I learn that something is broken, I try and fix it. And that's the way I approach accessibility. </p>
+<p>I remember way back when I first learned about alt-text. To help out those who relied on alt-text, we added &quot;Link to&quot; to the beginning of any images that were linked. If it was a help button, it'd say, &quot;Link to Help&quot;. What was enlightening was seeing somebody with a screen reader trying to use this. </p>
+<p>Two main issues were discovered: First was that the software was announcing that it's a link. That meant the person was hearing, &quot;Link, Link to...&quot;. Yeah, you can imagine how annoying that'd be. The second issue was that the person was able to bring up a list of all links on the page (a useful feature for even sighted users, in my opinion). Problem there was that all the links started with &quot;Link to&quot; so the person couldn't even navigate the list alphabetically.</p>
+<p>This goes back to my earlier point. Build something and get it in front of people. And learn from your mistakes. Web development techniques change. Usability problems change. Tools change (be they the browsers or content management systems or whatever else we use to build sites). As a result, we have to re-evaluate things. And best of all, we don't have to re-invent the wheel. There are plenty of people who've done the usability testing and the accessibility testing and we can incorporate those findings into our own work.</p>
+<p>As a web professional, I try to build sites that reach the largest audience possible. Every design decision has a consequence and those consequences have to be weighed against the goals of the site. Accessibility is just usability after all. We're not designing and building these sites for ourselves, we're doing it for other people, too. While it may seem easier to just ignore whole segments of the population, for the vast majority of us building web sites, we already have the tools and knowledge out there.. </p>
+<h2>Boiling it down</h2>
+<p>So, let me try and boil this down into some bullet points:</p>
+<ul>
+  <li><strong>Accessibility is usability. </strong>We're all just trying to make things that people can use. </li>
+  <li><strong>Basic accessibility isn't hard.</strong> We should be doing stuff like alt-text, making sure form fields are labelled, etc.</li>
+  <li><strong>Don't expect perfection.</strong> It's possible to get it wrong, especially as more layers of interactivity is added. It's not a bad thing. Just learn from it. </li>
+  <li><strong>Just because we can't, doesn't mean we shouldn't. </strong>By this I mean, just because we might not be able to cater to everybody doesn't mean we shouldn't do it at all. </li>
+</ul>
+<p>When it comes down to it, I'm a pragmatic individual. I don't 'preach' accessibility. I just do what I know works. I use the tools made available to me and use what I've learned from others as the best possible way to wield those tools to build sites and applications that people will use. I won't shy away from using Flash or Ajax but I will try to use those tools in the best way I know how to reach the most people I can. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published November 27, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/accessibility_and_usability/">Usability</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/855</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">25 Comments &middot; <a href="/archives/accessibility_and_usability/what_does_accessibility_mean.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c56972">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56972">1</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on November 27, 2007		</div>
+		<div class="quote"><p>Nice post, Jonathan. I agree completely.</p>
+<p>On the topic of "accessibility is hard": Like many things in web design, accessibility is definitely an 80/20 problem. It's really quite easy to get 80% of the way down the "how accessible are you?" continuum. But, that last 20% can be a lot more work and truly isn't worth it, in some cases. It all depends on your needs. But, there's almost never an excuse for not getting taking care of that first 80% -- it's low-hanging fruit, as they say.</p>
+<p>:)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56974">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56974">2</a></div>
+			<span class="authorname"><a href="http://www.dustindiaz.com">Dustin Diaz</a></span> said on November 27, 2007		</div>
+		<div class="quote"><p>I knew it. Accessibility is putting alt attributes on images. Done! Ok, not really. But it was worth a shot.</p>
+<p>I can definitely relate with your experience Jon. I don't preach accessibility either, but there are a few outlying simple tasks that are easy to implement, and have been known to work. I think the best form of accessibility for anyone is to make markup as semantic as we can make it. If you're even making a small amount of effort to use headers, paragraphs, and tableless layouts, you're most definitely better off than before.</p>
+<p>I'd also like to discourage people thinking that accessibility is "making sure a webpage will work when JavaScript is turned off." That's simply inaccurate, but with your definition Jon, it makes it possible for web applications to contain accessibility enhancements. For example, Gmail and its keyboard shortcuts definitely aid in accessing various components to managing your email. In turn, it creates a more usable workflow. Therefore, in one sense, accessibility == usability.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56975">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56975">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 27, 2007		</div>
+		<div class="quote"><p>@Jeff Croft: yes, the low-hanging fruit. Thanks for making that point clearer than I could make it.</p>
+<p>@Dustin Diaz: your Gmail example is a good one. Adding keyboard shortcuts is a great way to enhance the usability (and hence the accessibility) of the application. I use the keyboard shortcuts all the time. And it is an example of where they've worked around the limitations to provide a better experience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56976">4</a></div>
+			<span class="authorname">prisca</span> said on November 27, 2007		</div>
+		<div class="quote"><p>what a great article ;)  love your pragmatic attitude towards this issue. </p>
+<p>Teaching webdesign means I want to encourage my students to take the right approach here, at times I have to try to do this by justifying / defending the importance of user-friendly and accessible design.<br />
+I myself approach my own site designs as freelancer from a very practical point of view, in many ways similar to yours, and try to convey this to my students. And your post is just so well written and clear that I will have to share it with my class tomorrow ;) thanks ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56977">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56977">5</a></div>
+			<span class="authorname">Patrick</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Jon, excellent article. I know the accessibility community can be quite zealous in their arguments; I'm in that community. It's nice to see the points raised by you, Dustin, and Jeff. I've had a hard time with many designers/developers who just don't see the return on working in accessibility features to their work. I think the perception is that being accessible means not having the whiz-bang, enhanced features or good design and that's in large part the fault of the accessibility community. I don't think we've delivered our message well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56978">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56978">6</a></div>
+			<span class="authorname"><a href="http://www.projectdesigns.org">Ben Henschel</a></span> said on November 27, 2007		</div>
+		<div class="quote"><p>Great Article Jon, a lot of people just make their sites accessible to a variety of web browser and resolutions (actually some people don't even do that). But just like you said, it most certainly doesn't stop there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56979">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56979">7</a></div>
+			<span class="authorname"><a href="http://dustinbrewer.com">Dustin Brewer</a></span> said on November 27, 2007		</div>
+		<div class="quote"><p>Awesomely thorough article, I like the relationship between accessibility and usability. It puts things into a new perspective that I may not have fully considered. That "link to" thing is hilarious, I can only imagine what the end user would think.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56981">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56981">8</a></div>
+			<span class="authorname">Joe Clark</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Typical text-and-graphics Web sites can be much more than Jeff Croft â€œ80%â€ accessible with little effort. Jeff is getting craftier at restating his â€œReal code isnâ€™t all that importantâ€ ideology.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56982">9</a></div>
+			<span class="authorname">Johan</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Accessible should be catering content for anyone but we need different solutions to make the internet an accessible medium (translate the chunks of content in the form we need), usability is more *how do I find access to the controlsof the user interface the easiest way"?, and "How do I make everything readable<br />
+and understandable=the content, actions eg 'find stuff, list stuff, complete a form, buy)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56983">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56983">10</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on November 27, 2007		</div>
+		<div class="quote"><p>@Joe Clark: You may be right. It might be more than 80%. There are two simple reasons I chose 80/20 over some more precise percentages:</p>
+<p>1. I don't know the precise percentage (and neither do you).<br />
+2. 80/20 is a well-known, widely accepted <a href="//en.wikipedia.org/wiki/Pareto_principle">principle</a>.</p>
+<p>As I said, you may well be right. What can be done with relatively little effort (beyond what any good HTML author would do by default) may be more than 80%. I really don't know. I do know it's not 100%, though. Sorry for the confusion.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56984">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56984">11</a></div>
+			<span class="authorname">Tom Watson</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Great article Jonathan and I completely agree as well.  It's always a tough balance pushing the envelope and making sure you're doing it in a way that helps keep things accessible to as many users as possible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56985">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56985">12</a></div>
+			<span class="authorname">David Bolter</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Yup, accessibility is usability. I played a little with these concepts here: http://mindforks.blogspot.com/2006/12/solving-disability.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56986">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56986">13</a></div>
+			<span class="authorname">Mike Cherim</span> said on November 27, 2007		</div>
+		<div class="quote"><p>Well said, Jonathan. You'll get no arguments from me. Much of it is similar in sentiment if not in words to some stuff I've written on my blog and at Accessites. It's nice to see an article like this sending a like message.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56987">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56987">14</a></div>
+			<span class="authorname">Rob Enslin</span> said on November 28, 2007		</div>
+		<div class="quote"><p>I like your post because you are being honest and reasonable. It could be quite easy for you to preach how complex accessibility can be, but you haven't. I guess from your post you could say that by designing websites and (and html emails) based on web standards all the other *important* aspects are inherently covered (slight generalisation here). Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56989">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56989">15</a></div>
+			<span class="authorname"><a href="http://www.hotpepper.ca/">Kim Siever</a></span> said on November 28, 2007		</div>
+		<div class="quote"><blockquote><p>Conclusion, accessibility is just usability but marketed to a particular segment of the population.</p>
+</blockquote>
+<p>I don't know that I agree with this statement. I was under the impression that accessibility was about making a website accessible to all. I think it is important to point out that accessibility isn't just about making content available to persons with physical impairments. It's also about making content available to persons independent of browser, device or medium to viewing that content. Whether a person listens to the content, reads it on a cellphone, pr prints it out, it should be easily accessible.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c56990">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56990">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 28, 2007		</div>
+		<div class="quote"><p>@Kim, you've described what you feel accessibility is, but what in your mind is usability and how does it differ from accessibility?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56991">17</a></div>
+			<span class="authorname">stef</span> said on November 28, 2007		</div>
+		<div class="quote"><p>great article jon. thanks - stef
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56992">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56992">18</a></div>
+			<span class="authorname"><a href="http://www.hotpepper.ca/">Kim Siever</a></span> said on November 28, 2007		</div>
+		<div class="quote"><p>In my mind usability describes how ones uses the website. Accessibility describes how a user accesses content. I do think there is a lot of overlap between the two.</p>
+<p>The point of my comment was that accessibility is more than catering to a specific group of people, not whether there is any difference between accessibility and usability.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56993">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56993">19</a></div>
+			<span class="authorname">Dusan Smolnikar</span> said on November 28, 2007		</div>
+		<div class="quote"><p>Great article, Jonathan!</p>
+<p>I've always wondered myself, where the line between usability and accessibility was. My simple definition of the two terms is:
+<dl>
+<dt>Usability</dt>
+<dd>Making sure someone visiting my site for the first time will know how to use it. It targets a majority of people, everyone that isn't familiar with my website.</dd>
+<dt>Accessibility</dt>
+<dd>Making sure people with any special needs (being blind, having a non-perfect eyesight or maybe just using a different kind of browser, say mobile phone, etc.) will be able to read my website. This means people who see my website in a different way that I do.</dd>
+</dl>
+<p>But the two do overlap many times. Will a, let's say, small font harm usability or accessibility? Probably both.</p>
+<p>Here are the steps I usually take to assure a website is as accessible as I can make:</p>
+<ul>
+<li>Enlarge the font - is all the content still displayed correctly? Is it readable?
+</li>
+<li>Try viewing the page with css disabled
+</li>
+<li>Try it without the images (I just remove the img folder)
+</li>
+<li>Try to view the website in lynx. This is probably the closest you can get to using a screen reader (Besides, of course, actually getting one)</li>
+</ul>
+<p>Now, what I can't understand is how some people tend to prioritize "accessibility" too much. They end up with a website which is very accessible in theory, but doesn't work on some less standards compliant browsers, such as, say IE6. Great, you've covered the 5% of people with disabilities but forgot about 50% of people using Internet Explorer. Well done there. Do take care about accessibility, but don't let this mean the other 95% of users are going to have a less pleasant experience. Jonathan hinted this a couple of times as well with javascript and flash - don't be afraid to use them, just take care.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56994">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56994">20</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on November 28, 2007		</div>
+		<div class="quote"><p>Jon, great article!</p>
+<p>I understand your reasoning begin accessibility = usability, though I prefer Kim's variation. Making that difference makes it easier to finding a solution to a particular problem, i.e. does the user have a problem getting to info in the first place (usability), or does the user have a problem doing something with it? (accessibility).</p>
+<p><a href="//www.abilitynet.org.uk/">Abilitynet</a> (U.K. based) held a survey and found that sites with high accessibility are 35% more liked by visitors (paraphrasing Robin Christopherson of Abilitynet at FOWA London). </p>
+<p>I think the best advice is: <strong>don't make assumptions.</strong> Like you showed with your 'link to', I've found that it goes wrong more often than not. Stick to what you know and use simple html to just describe the data, and don't "add" accessibility features, just remove culprits.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56997">21</a></div>
+			<span class="authorname">Stas</span> said on November 29, 2007		</div>
+		<div class="quote"><p>Accessibility is usability - well said. Hope that will understand so called "designers" and start to make sites for people not for themselves.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57003">22</a></div>
+			<span class="authorname"><a href="http://sitetruck.com">Oliver</a></span> said on December 01, 2007		</div>
+		<div class="quote"><p>It's the same story about everything nowadays, people get clued up over the little nitty gritty things when they should just be designing the site. You code it well enough and take your time while doing it them people are going to be able to access it through your thoughtfulness of how you've coded things.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57034">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57034">23</a></div>
+			<span class="authorname">patrick h. lauke</span> said on December 03, 2007		</div>
+		<div class="quote"><p>@Kim: you're describing what some would term "universal access". browsers, operating systems, even individual settings and preferences (e.g. somebody browsing with CSS on but images off) are all things that can potentially be changed by the user. however, jonathan is taking the narrower definition of accessibility as "for users with disabilities" - the barriers they face are not something that they can change easily.</p>
+<p>universal access, in my mind, is more often than not a byproduct of accessibility...but not its underlying reason/purpose.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57038">24</a></div>
+			<span class="authorname">Jesse Rodgers</span> said on December 03, 2007		</div>
+		<div class="quote"><p>Usability *is* accessibility for that huge segment of cognitive disabilities that always seem to come second to those with more obvious disabilities. In Canada there are over 600 000 people with learning disabilities (likely more, and certainly all of our politicians)... spending some time on usability makes it better for a lot of people.</p>
+<p>A technically accessible site can be totally unusable... which might have been said already ;) Just saying it again.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57116">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57116">25</a></div>
+			<span class="authorname">Damjan MozetiÄ</span> said on December 13, 2007		</div>
+		<div class="quote"><p>This article is a nice eye-opener, because for many people accessibility simply means big fonts and high contrast. Thumbs up!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

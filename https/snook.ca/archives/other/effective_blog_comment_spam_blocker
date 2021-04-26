@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>How I built an effective blog comment spam blocker - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/effective_blog_comment_spam_blocker">
+	<meta property="og:url" content="https://snook.ca/archives/other/effective_blog_comment_spam_blocker">
+	<meta property="og:title" content="How I built an effective blog comment spam blocker">
+	<meta property="og:description" name="description" content="Mention comment spam and most people, in particular those crazy WordPress users, mention Akismet. Great tool and I have nothing against it but I wanted to build my own, avoiding the external call to t...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>How I built an effective blog comment spam blocker</h1>
+		<p>Mention comment spam and most people, in particular those crazy WordPress users, mention Akismet. Great tool and I have nothing against it but I wanted to build my own, avoiding the external call to the Akismet service. What has been interesting to see, is just how effective it is. Turns out, my spammers are quite obvious.</p>
+<p>As you might see, I don't use CAPTCHAs and I don't use JavaScript detection. I just use a number of rules that validate each comment on the server. Oh, and I don't use <a href="http://en.wikipedia.org/wiki/Nofollow">nofollow</a>.</p>
+<h2>Points System</h2>
+<p>I use a points system, which I got the idea from Movable Type, whose spam protection is also based on a points system. For everything in a comment that I like, you get a point. For everything I don't like, you lose a point (or two, or three). If you get a 1 or higher, you've made it on the site as a valid comment. If you get a 0, it's set for moderation and I'll take a look at it. If it's below 0, it's marked as spam and I'll never see it (although I check every couple weeks just in case a legitimate comment needs to be unflagged). If it falls below -10, I don't even bother saving it to the database since it is so obviously spam.</p>
+<h2>Types of Spam</h2>
+<p>There are two main types of spam: <em>automated</em> and <em>manual</em>. </p>
+<p>Automated spam is the most obvious. There are a number of tricks they try to pull and stands out when you see the same message a dozen times posted within seconds of each other. Automated spam is also the easiest to catch. So insanely simple that just a few rules would catch about 95% of all comment spam hitting a server. (That percentage may even be higher...I'm just guessing).</p>
+<p>Manual spam, on the other hand, is more devious. People actually try and respond to the article at hand, which makes it slightly harder to catch. I say slightly because the vast majority of manual spammers do such a poor job at leaving a comment that they stand out like a sore thumb. The remaining few are usually the ones you end up filtering by hand.</p>
+<h2>Quick Solution</h2>
+<p>The quickest solution to reducing the amount of comment spam you get, and doesn't require any server-side programming and is built into almost all blogging tools, is to simply turn off the comments on a post after a certain amount of time. It works quite well and here are the two major reasons why:</p>
+<ol>
+  <li>Automated spam has a database of pages to which they try to submit to. If the form is no longer there then you don't get spam. Spammers are forced to discover new pages in which to spam.</li>
+  <li>Manual spam often tries to hit pages that have higher page ranks. There's plenty of search engine tools to help people look this information up. (I'd actually see referrers from these search tools, followed shortly by a new blog comment.) Higher page ranks will happen on older and popular posts. By shutting down the comment form, manual spammers are left to target newer pages in the hopes of getting missed until the page gets a higher ranking.</li>
+</ol>
+<p>I've had old posts that I left the comments open for years and would still see users come across it and add to the discussion in meaningful ways. I loved that. However, that almost never happens now. So, I finally gave in and just close comments.</p>
+<h2>The Rules</h2>
+<p>In a blog comment, there are 5 fields and I test each one separately and in various combinations for various rules. The fields are: body, email, author name, url, and ip.</p>
+<p>Here now are my rules for filtering blog comments. </p>
+<table width="500" border="1">
+  <tr>
+    <td rowspan="2">How many links are in the body</td>
+    <td>More than 2</td>
+    <td>-1 point per link</td>
+  </tr>
+  <tr>
+    <td>Less than 2</td>
+    <td>+2 points</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><a href="#bodylength">How long is the body</a></td>
+    <td>More than 20 characters and there's no links</td>
+    <td>+ 2 points</td>
+  </tr>
+  <tr>
+    <td>Less than 20 characters</td>
+    <td>-1 point</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Number of previous comments from email</td>
+    <td>Approved comments</td>
+    <td>+1 point per</td>
+  </tr>
+  <tr>
+    <td>Marked as spam</td>
+    <td>-1 point per</td>
+  </tr>
+  <tr>
+    <td>Keyword search </td>
+    <td>Levitra, viagra, casino, etc.</td>
+    <td>-1 point per</td>
+  </tr>
+  <tr>
+    <td><a href="#urlmatches">URLs that have certain words or characters in them</a></td>
+    <td>.html, .info, ?, &amp; or free</td>
+    <td>-1 point per</td>
+  </tr>
+  <tr>
+    <td>URLs that have certain TLDs</td>
+    <td>.de, .pl, or .cn (sorry guys)</td>
+    <td>-1 point</td>
+  </tr>
+  <tr>
+    <td><a href="#urllength">URL length</a></td>
+    <td>More than 30 characters</td>
+    <td>-1 point</td>
+  </tr>
+  <tr>
+    <td><a href="#bodymatches">Body starts with...</a></td>
+    <td>Interesting, Sorry, Nice or Cool.</td>
+    <td>-10 points</td>
+  </tr>
+  <tr>
+    <td>Author name</td>
+    <td>has http:// in it</td>
+    <td>-2 points per</td>
+  </tr>
+  <tr>
+    <td>Body used in previous comment</td>
+    <td>&nbsp;</td>
+    <td>-1 point per</td>
+  </tr>
+  <tr>
+    <td><a href="#randomchar">Random character match</a></td>
+    <td>5 consonants</td>
+    <td>-1 point per</td>
+  </tr>
+</table>
+<p>Once you have a database of spam messages, you can observe certain patterns. In checking some information from time to time, I discovered some interesting stats:</p>
+<h3 id="bodylength">Body length</h3>
+<p>Write something of consequence. If it's less than 20 characters, you obviously don't have much to say. </p>
+<h3 id="urlmatches">URL matches</h3>
+<p>Most people who include a URL usually have a top level domain or a subdomain that they use. They're not using querystring parameters or any other crazy URL structures. And I'm sorry for all the German, Polish or Chinese but a few of your fellow countrymen aren't being very nice. </p>
+<h3 id="urllength">URL Length</h3>
+<p>URLs that are longer than 30 characters are almost always spam. This ties in with the last filter. If you've got a URL, it's short, sweet and sexy. It's not crazy long &mdash; although I have seen some crazy long, perfectly legitimate URLs.</p>
+<h3 id="bodymatches">Body matches</h3>
+<p>It may seem like I'm being overly severe on people who start their comments like this but it's a very specific pattern that I'm matching. I was getting 10 to 20 hits of the same message coming in. It was just easier to match the messages and essentially ban them.</p>
+<h3 id="randomchar">Random character matches</h3>
+<p>The other thing I noticed was email addresses or author names that were just a random string of characters. If there's no vowels, sure you might be Polish but more likely that you're spam. Rarely do even the Polish have 5 consonants in a row!</p>
+<h2>Effective?</h2>
+<p>How effective has it been? These days, I only see a new spam message get through maybe once every week or two. It's usually a message that somebody has handtyped to be relevant to the page but the comment is near useless and their author name is most evidently spam.</p>
+<p>I've also reworded the disclaimer text under the submit box to let people know that I'm actively on the look out for spam and even legitimate comments will get edited or marked as spam if they plan to abuse the system. This lets those people know &mdash; like those who like to leave signatures on a blog comment or who like to use their company name as their author name &mdash; that being underhanded will not be rewarded.</p>
+<p>Despite my <a href="https://snook.ca/archives/other/death_of_comments/">past frustration with spam</a>, things are at a point now where I'm happy to leave comments open on recent posts for a couple weeks and then just close them up and never have to worry about them again. It certainly isn't the death of comments I thought it might need to come to.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 05, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/875</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">92 Comments &middot; <a href="/archives/other/effective_blog_comment_spam_blocker.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57388">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57388">1</a></div>
+			<span class="authorname">chrispian</span> said on February 05, 2008		</div>
+		<div class="quote"><p>Very cool. I wonder how hard it would be to hook into spamaassin's bayesian filter to add some additional checks. Still, I love the idea.</p>
+<p>I wrote a text based challenge/response. It asks questions like what's 2+2, etc. I wrote it for nucleuscms and added it to php form mail. I'm currently adapting it to WP as well. It uses a rotating key for the question id, so that every time a question is answered a new key is generated and are never the same twice. I only have 4 questions and in a year of running it stopped 100% of the automated spam. I'd love to add some rules to catch the hand written stuff. I'll certainly be looking at your idea here for that.</p>
+</div>
+	</div>
+		<div class="comment" id="c57389">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57389">2</a></div>
+			<span class="authorname">chrispian</span> said on February 05, 2008		</div>
+		<div class="quote"><p>I almost tripped your filter, I think with "very cool", lol. Great, now I'm paranoid!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57390">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57390">3</a></div>
+			<span class="authorname">kyle</span> said on February 05, 2008		</div>
+		<div class="quote"><p>so, if i were to start a comment with "interesting post, but i disagree that..." i would be permabanned from commenting again and my comments wouldn't even go to the database in the future?  that hardly seems fair.</p>
+<p>also, by posting this aren't you helping the spammers learn what type of comments they need to post in order to become trusted users?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57391">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57391">4</a></div>
+			<span class="authorname">J Richmond</span> said on February 05, 2008		</div>
+		<div class="quote"><p>I hope the manual spammers don't see this article ;)</p>
+<p>Great article... thanks!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57392">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57392">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 05, 2008		</div>
+		<div class="quote"><p>@kyle: I tried to qualify the word filter by saying "there's a very specific pattern I'm matching." Suffice it to say, 99.9% of average users will not set it off. As to whether I make it easier for spammers, it's possible but very few of the rules would really make much of a difference. There's only a couple and they were added to handle edge cases (like URLs longer than 30 characters). </p>
+<p>The keyword matching is probably the easiest to catch and the hardest for spammers to get around since they need to use keywords to gain google juice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57393">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57393">6</a></div>
+			<span class="authorname">Aaron B</span> said on February 05, 2008		</div>
+		<div class="quote"><p>Wait, but there's no mathematical thesis accompanying your anti-spam efforts! You mean you can just block comments that seem obnoxious and you've destroyed almost all spam? Way too easy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57395">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57395">7</a></div>
+			<span class="authorname">James Finley</span> said on February 05, 2008		</div>
+		<div class="quote"><p>I find this very interesting. I have been looking for a method to block comment spam for a while, and though my developer partner and I have had some success, it is relatively limited. Our new CMS, Ministry(Starter), will have an Akismet plug-in, but it would be nice to have an in house system too. Thank you for your relevant articles, Snook.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57396">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57396">8</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on February 05, 2008		</div>
+		<div class="quote"><p>I've got a pretty effective system I built (which includes Akismet, but also some local stuff), but this is freaking great. I think I'll definitely build a very similar scoring system into my Django-powered CMS. Thanks so much for the inspiration, Snookums! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57399">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57399">9</a></div>
+			<span class="authorname">Philip</span> said on February 05, 2008		</div>
+		<div class="quote"><p>I knew there was reason for keeping a subscription to your feed! Awesome post, thanks :) I'll be looking to implement something similar soon, your write-up will be a great help when I do. Nice one.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57400">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57400">10</a></div>
+			<span class="authorname">Olivier D.</span> said on February 05, 2008		</div>
+		<div class="quote"><p>A simple way is to add a field in your form like this one :<br />
+ input class=hfrm type=text name=body_2 value=</p>
+<p>After you add in your CSS those class :<br />
+.hfrm { display:none; }<br />
+(it will hide the field, for normal user)</p>
+<p>When you make data validation, you simply have to check that the field 'body_2' is empty. Most of the current robots will fill it.</p>
+<p>This trick eliminate robot posts in my blog.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57401">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57401">11</a></div>
+			<span class="authorname"><a href="http://sonspring.com/">Nathan Smith</a></span> said on February 05, 2008		</div>
+		<div class="quote"><p>"Interesting" post. :) I've always been curious about the inner workings of your hand-built CMS. I'd love to hear more about the Admin interface, how you manage dynamic vs. static pages, and/or anything else you'd like to divulge!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57402">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57402">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 05, 2008		</div>
+		<div class="quote"><p>@Olivier: I don't like to do that for accessibility and aesthetic reasons. This page is still just as perfectly usable without CSS or JavaScript. Basically, I never put the onus on the user to solve the spam problem, I put it on myself as the operator of this site.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57403">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57403">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 05, 2008		</div>
+		<div class="quote"><p>@Nathan: It's pretty hodge-podge, actually. Not as fancy as it could be or even should be. I've been meaning to set up a proper admin but just never got around to it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57404">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57404">14</a></div>
+			<span class="authorname">Voyagerfan5761</span> said on February 06, 2008		</div>
+		<div class="quote"><p>I like this post. The algorithm you've put together here is quite intriguing, though I'm a bit worried about a couple of the filter rules.</p>
+<p>For instance, my URL is more than 30 characters, simply because I'm using a subdomain at a free blog host. Does that necessarily mean I'm a spammer? No. I've been thinking about getting my own domain, but -- and this is where it gets interesting -- my ideal registered domain would be 7+3+1+14+1+3+1=30 characters exactly, including http:// and a trailing slash.</p>
+<p>I suppose I should be thankful that you don't seem to be filtering out *.blogspot.com completely, as I've seen suggested elsewhere on the 'Net.</p>
+<p>Regarding your filtering URLs containing .html, ?, or &amp;, does that apply to the comment body or just the URL field? Some blog platforms and content sites (PC World for example) end their pages in .html, and/or use query strings to retrieve the correct page, so I'm just curious about that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57405">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57405">15</a></div>
+			<span class="authorname">Voyagerfan5761</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Yep, and my comment got sent into moderation, after all that. Oh, well...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57406">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57406">16</a></div>
+			<span class="authorname">Michael Siebert</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Great Article, this should be a library :)</p>
+<p>But I disagree with your blocking of .de TLDs (maybe since I am german?), I never saw .de URLs in my Blog's comments... But this is like it is, because if you saw spammers like this, its perfectly OK and the rest of your rules seems is a great point to start with.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57407">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57407">17</a></div>
+			<span class="authorname">Luke L</span> said on February 06, 2008		</div>
+		<div class="quote"><p>I used to have terrible problems with comment spam (upwards of 400 messages a day on my homebrew CMS). Askimet didn't help, flagging as many genuine messages as spam as spam that got through. I've been slowly tweaking my own system that uses local page elements, which I know you didn't want to use. Having said that, in the past 6 months I've had over 25,000 spam attempts and 12 have gotten through (http://hybridlogic.co.uk/journal/63/comment-spam-follow-up). The only spam that gets through now are the really short messages, however I have a lot of visitors leaving short, often one word, replies so I didn't want to add a character count limit.</p>
+<p>I like your filter combinations though, I'm tempted t update mine to assign points to each check now. Thanks for the article.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57408">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57408">18</a></div>
+			<span class="authorname">Michael Siebert</span> said on February 06, 2008		</div>
+		<div class="quote"><p>What? my comment's gone into moderation? Even though I know the rules? Slick...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57409">19</a></div>
+			<span class="authorname"><a href="http://twitter.com/riddle">Riddle</a></span> said on February 06, 2008		</div>
+		<div class="quote"><blockquote><p>If there's no vowels, sure you might be Polish but more likely that you're spam. Rarely do even the Polish have 5 consonants in a row!</p></blockquote>
+<p>Polish? Never heard of a word with 5 consonants in a row!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57411">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57411">20</a></div>
+			<span class="authorname">Paul Decowski</span> said on February 06, 2008		</div>
+		<div class="quote"><blockquote><p>Polish? Never heard of a word with 5 consonants in a row!
+</p></blockquote>
+<p><strong>Wstrz</strong>yknÄ…Ä‡ &mdash; to inject.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57412">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57412">21</a></div>
+			<span class="authorname">Eugene Sutula</span> said on February 06, 2008		</div>
+		<div class="quote"><p>You know it's a really great idea to use points system. But I think it can be even better if rules won't be so simple. For example: if comment contains 2 spam-keywords it will reduce not 2 points but already 3. The more rules are broken the bigger is a coefficient.<br />
+You know, it's like 2+2=5 (synergy), but in opposite way.<br />
+Maybe fuzzy logic can be good for that purpose too.<br />
+Well... thanks for great article. Now I know what will be my first thing to do after passing exams :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57413">22</a></div>
+			<span class="authorname">Jacek Becela</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Cool. I'm Polish but I will try to pass thru. We use Akismet and so far it works as advertized. I know it doesn't work for some people. I'm curious how it is possible for a company which specializes in fighting spam to develop a product which is worse than one man's work.</p>
+<p>On the other hand, there is no way to build 100% effective automated spam filter. Building an automated bot which bypasses any (even unknown for the bot) filter with say 10% efficiency is not a hard task. And 10% is ok for spammers these days (take a look at email spam which has circa 1% or less). The key is (and always was) to mimic a real person. There are generally two things you have to consider:</p>
+<p>1. Using a browser engine (you have to be able to execute js in order to bypass filters based on execution of js), all the bad guys should learn WatiR / Selenium and similar testing tools.</p>
+<p>2. Writing a message that is statistically legit.</p>
+<p>There are not a lot of these advanced bots in the wild now and the only reason is that old-school one-file .php bot-scripts are still effective.</p>
+<p>My conclusion is that, no matter what, we will spend some time in our life marking those viagra and levitra messages as spam by hand and mark messages like this humble as non spam. How many points did I get? -9? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57414">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57414">23</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik W</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>I came to think. If a certain e-mail adress has made lots of comments (like yourself, maybe you don't even run your own comments through the filter) wouldn't the hit on the db be fairly noticeable (at least if you're using active record, if you manually search for it and use mysql_num_rows() I would assume the effect gets smaller). </p>
+<p>If you were to expand this idea you could set up a database with emails and a karma score where you add the total karma for a certain e-mail adress. If you aren't in the database and make a spam comment you instantly get ip-banned.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57415">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57415">24</a></div>
+			<span class="authorname">minute44</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Nice work Jon! I'm one of those "Crazy wordpress users" you talk about and at the moment I don't use any spam blocking but am looking around for the best option. I only get a couple of pieces a week but it is on the rise. </p>
+<p>What's wierd is, on my site, it seems like only one or two posts attract 99% of the spam. There's nothing special i can see about those posts... I've looked and they're not fundamentally different from all my others. It must be the subject matter.</p>
+<p>Oh well. Hope this spam filter works out for you. I'm sure it will.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57416">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57416">25</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 06, 2008		</div>
+		<div class="quote"><p>@Voyagerfan5761: Yeah, the lengthy blogspot domain did get you moderated. :) A lot of spam comes from blogspot, which is unfortunate but that's why I try not to outright ban. On the plus side, now you won't get moderated.</p>
+<p>@Michael Siebert: most spammers coming from a .de domain were manual spammers who were targetting the site. I know 456bereastreet.com has a similar .de rule. Admittedly, I haven't noticed it to be much of a problem as of late so it might be something I reconsider.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57417">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57417">26</a></div>
+			<span class="authorname">Yaggs</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Looks like a good approach too me, although being German I find it sad that a .de Domain lowers the score. Plus, I think -10 points for a body starting with the wrong words seems a little extreme. Anyway, I was looking for a good scoring system, might give this a try with some minor modifications.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57418">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57418">27</a></div>
+			<span class="authorname">Neil</span> said on February 06, 2008		</div>
+		<div class="quote"><blockquote><p>Never heard of a word with 5 consonants in a row!</p></blockquote>
+<p>Rhythm?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57419">28</a></div>
+			<span class="authorname"><a href="http://iamacamera.org">Carl Camera</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>Jonathan, these seem to be good heuristics -- and they must be if they're working so well on your site.  Phil Haack has written several articles about invisible captcha techniques including a <a href="//haacked.com/archive/2007/09/11/honeypot-captcha.aspx">honeypot captcha</a> technique that hides an input field to visitors via CSS then catches bots when they fill it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57420">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57420">29</a></div>
+			<span class="authorname">rb</span> said on February 06, 2008		</div>
+		<div class="quote"><p>interesting, actually the whole first thing about time constrained comment periods does in fact eliminate 95% of it I have found. I would also like to add that if you can restrict the number of comments that an IP can make in to 1 per 5 minutes also helps alot too.</p>
+</div>
+	</div>
+		<div class="comment" id="c57421">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57421">30</a></div>
+			<span class="authorname"><a href="http://mislav.caboo.se">Mislav</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>Great writeup, Jonathan. I really like the +1 per previously approved comment rule. However, don't you fear that being a potential backdoor for manual spammers? They could use the frequent commenter's email address.</p>
+<p>Carl, Snook has already express dislike for that technique in his 2nd comment.</p>
+<p>rb, I strongly oppose that rule. Often visitors make 2 comments in a row to add something they've forgotten or to correct themselves if they notice something after they posted.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57422">31</a></div>
+			<span class="authorname">Robin</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Hey, great article you wrote here! It was certainly worth reading and I will keep following your blog for more great posts like this one in the future. In the meantime, check out <a href="//www.moox.nl/guide/">my site</a>. (*grin*)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57423">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57423">32</a></div>
+			<span class="authorname">Robin</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Thank you for sharing this. Keep up the great work! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57424">33</a></div>
+			<span class="authorname">Robin</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Ok, now for real: my previous two comments went into moderation. This method is pretty effective, although I think you still have quite a lot of comments to moderate, especially when you post something that attracts a lot of new users.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57425">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57425">34</a></div>
+			<span class="authorname">Mohammad Arfeen</span> said on February 06, 2008		</div>
+		<div class="quote"><p>ZOMG
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57426">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57426">35</a></div>
+			<span class="authorname"><a href="http://iamacamera.org">Carl Camera</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>@Mislav Oops. I didn't catch that. Honeypot captcha works without CSS as long as you place a "leave this blank" message next to the field.  I don't see that as placing an onus on the user, but since brain cells are actually invoked to bypass the field I suppose that counts as an onus to some.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57427">36</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 06, 2008		</div>
+		<div class="quote"><p>@Neil: I think the Y technically counts as a vowel. (you know, "sometimes Y") I don't include Y as a consonate in my checks.</p>
+<p>@Mislav: An email address of a popular poster could be used as a backdoor attack but a spammer would need to know a popular email address being used specifically on this site. A spammer could post a couple valid messages and then use that but they're still limited based on a number of the other rules. And once I see a spam message and flag it as spam, they're done. Basically, it's a lot of work for little gain.</p>
+<p>@Robin: Generally i don't have to moderate many messages. With this post, of course, some people are trying to check the filter and are getting moderated accordingly but for the most part, it's pretty reliable.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57428">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57428">37</a></div>
+			<span class="authorname"><a href="http://neal.grosskopf.name">Neal G</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>Snook, I have a few methods of my own which have been really successful (some which you aren't currently using) but I'm afraid to reveal my methods in fear that the spammers will "learn".</p>
+<p>Over the past year I have successfully blocked over 16,000 attempts at comment spam on my website.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57429">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57429">38</a></div>
+			<span class="authorname">Daniel Marino</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Your method seems so simple, but it makes so much sense. As a TextPattern user, I've always relied on spam blacklists (such as Askimet or Spamhaus). For the most part they seem to work alright, but every once in a while I find a domain blocked (such as my workplace off and on) that seems like it shouldn't. I don't receive nearly as much traffic as you do so it's rarely a problem, but with a method like this, I'd no longer have to rely on other black lists to take care of the situation. Can someone say TXP Plugin...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57430">39</a></div>
+			<span class="authorname">Matthew Keefe</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Very insightful article Jon. I always have been using Akismet but may have to work on my own version for the pure enjoyment of learning and experimentation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57431">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57431">40</a></div>
+			<span class="authorname"><a href="http://www.hamstu.com">Hamish M</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>DIY Spam-prevention. I like it.</p>
+<p>I must admit, I've only used Akismet, but it's always worked well for me. Of course, my site is fairly low-traffic, so I imagine my conditions aren't as intense as some.</p>
+<p>Well, I'm glad you've come to this resolution, especially if the alternative was no comments at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57432">41</a></div>
+			<span class="authorname">Joe</span> said on February 06, 2008		</div>
+		<div class="quote"><p>I don't know if it's really possible to eliminate human generated spam (since they could just tweak a comment until it passes), but I've had similar success against bot generated spam, with a <a href="//tantannoodles.com/toolkit/spam-filter/">WordPress plugin I wrote</a> that uses a similar set of rules.</p>
+<p>At the moment, I'm trying out a slightly different methodology to blocking the spam, and that is to be slightly more aggressive in blocking the comment spam. Then if a comment gets flagged as spam, a <a href="//farm3.static.flickr.com/2196/2199237860_3448879190.jpg">"second chance"</a> screen is presented with a captcha that allows the comment to be verified. So far, it seems to be working quite well, and it basically eliminates false positives (tho not necessarily human generated spam).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57433">42</a></div>
+			<span class="authorname">Brad Touesnard</span> said on February 06, 2008		</div>
+		<div class="quote"><p>I'm a crazy Wordpress user/developer myself and although Akismet works great for my own blog, I can imagine with a higher volume of SPAM an annoying number of SPAM comments would still get through.  However, you could always write a Wordpress plugin that hooks after Akismet and applies further filters to comments that pass Akismet.  Or if you'd rather not reinvent the wheel, you could use an existing strike-counting plugin like <a href="//wordpress.org/extend/plugins/spaminator/">Spaminator</a>.</p>
+<p>If you wanted to get really crazy, you could feed comments to <a href="//spamassassin.apache.org/">Spamassassin</a> and you could just tweak Spamassassin's settings to work against your SPAM.  In fact, I wouldn't be surprised if Automattic leverages Spamassassin for Akismet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57434">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57434">43</a></div>
+			<span class="authorname">Jos Hirth</span> said on February 06, 2008		</div>
+		<div class="quote"><p>Without knowing the rules I would have triggered the -10 points "starts with" rule. Heh.</p>
+<p>The honeypot thing Oliver D. mentioned works pretty well. In order to keep it accessible you can label it accordingly. You can also do it the other way around (i.e. one field which contains some random garbage to begin with and shouldn't be changed).</p>
+<p>The ".de" rule surprised me a bit. With a German domain everyone can look up who you are and where you're living. I would just give em a call (it's almost 2 am right now haha). Additionally, I would file a complaint.</p>
+<p>Another thing you can check is the existence of invalid markup. They will often try to use bb code and html at the same time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57436">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57436">44</a></div>
+			<span class="authorname"><a href="http://omnibuscreative.com">Ben Hirsch</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>Snook, thanks for the nice solution. Any chance you'd be willing to open-source this ranking system as a php class? I've been trying to get off Akismet now for awhile.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57437">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57437">45</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 06, 2008		</div>
+		<div class="quote"><p>@Ben Hirsch: my class is tied into my own blog structure and CakePHP since it makes a few DB calls to determine things like previous email usage counts so I have no plans to open this up beyond what I have detailed here. Sorry.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57438">46</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn</a></span> said on February 06, 2008		</div>
+		<div class="quote"><p>Interesting read! Oh hang on, I cannot use that word!!<br />
+Jokes aside it was good to read your rules and also that I was not the only special person who has spammers targeting specific posts :)</p>
+<p>You going to release this spam filter or keep the goodness to yourself?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57439">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57439">47</a></div>
+			<span class="authorname">John</span> said on February 06, 2008		</div>
+		<div class="quote"><p>What exactly are you giving the points to? Their IP, name, e-mail address they submitted?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57440">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57440">48</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 07, 2008		</div>
+		<div class="quote"><p>@John: The points are tallied for the comment as a whole, and only to that single comment. Points aren't tallied across multiple comments.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57441">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57441">49</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com">Jason Beaird</a></span> said on February 07, 2008		</div>
+		<div class="quote"><p>Pure, unadulterated, Snook Genius. :) I see you've put a lot more thought into blocking spam than I have.  When the classic MT-Blacklist started to fail for me (and I got tired of adding variations of the word v1agra) I set up my silly "Type the following letter" captcha - if you can call it that.  Somehow that simple trick has almost completely eliminated spam for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57446">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57446">50</a></div>
+			<span class="authorname"><a href="http://www.reinspire.net">Jonathan E</a></span> said on February 08, 2008		</div>
+		<div class="quote"><p>I know we've briefly traded emails about this before, but it's really nice to get a breakdown on the specifics of the scoring system you're using now - thanks for the insight!</p>
+<p>I've personally been using a combination of the Akismet library, but I think I may have to use your system as some inspiration to create my own filter... thus negating the need to connect to the Akismet server.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57447">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57447">51</a></div>
+			<span class="authorname">Bryan Migliorisi</span> said on February 08, 2008		</div>
+		<div class="quote"><p>I kinda like this idea, but it seems like it would take quite a bit of work to keep up to date on all the different ways people spam you - different domains, keywords, etc.  I enable Akismet on all client blogs and websites because I know it works, and requires no work on my part of the clients.  It is just easier for the clients and that means i have less to deal with.</p>
+<p>However, your idea is still rather interesting to me and I wonder if such an algorithm could ever become public.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57448">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57448">52</a></div>
+			<span class="authorname">Eddie</span> said on February 08, 2008		</div>
+		<div class="quote"><p>This is probably the most efficient looking system of blocking spam I have ever seen. On my site right now, I have gotten over 3000 spam messages left in my comments on one day.</p>
+<p>In my current redesign of my site, I am going to incorporate your method for blocking spam bots. That is a brilliant idea to look at the patterns to, I never would have thought of something like this!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57452">53</a></div>
+			<span class="authorname">Steve</span> said on February 10, 2008		</div>
+		<div class="quote"><p>I thought I've seen all the ways of dealing with spam but this is definitely a new one to add to the list. On my blog I've been using reCAPTCHA, yeah it makes the user type the captchas but it also contributes to digitizing books so I don't feel as bad about using it.</p>
+<p>I want to commend you on all the custom solutions you create, it's very easy to get caught up in all the plugins and frameworks out there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57454">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57454">54</a></div>
+			<span class="authorname">Greg K Nicholson</span> said on February 10, 2008		</div>
+		<div class="quote"><p>Never mind the Polishâ€”the Welsh (bless 'em) use <b>w</b> and <b>y</b> as vowels, so what looks like a string of five vowels is actually perfectly sensible. ...so they say.</p>
+<p>Also, the prevalence of â€œcaptchasâ€ (a misnomer: if it were a real Turing test, there'd be no accessibility problems)â€”amongst other thingsâ€”makes me glad I'm not deafblind.</p>
+<p>(Do I get bonus points for discussing both the Welsh language <em>and</em> Turing tests in one comment?)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57456">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57456">55</a></div>
+			<span class="authorname">Eric Meyer</span> said on February 11, 2008		</div>
+		<div class="quote"><p>Kind of a like a home-brewed SpamAssassin, eh?  Love it.  I might've done something like this in my WordPress install (yes, I'm one of the crazy ones)  as a followup to <a href="//meyerweb.com/eric/tools/wordpress/wp-gatekeeper.html">WP-Gatekeeper</a> but I've had phenomenal results with a combination of Akismet (which has blocked, as of the moment I post this, 678,928 bits of spam), a plugin that wanrs users when their comment is Akismetted, and the "hold posts from new e-mail addresses" setting built into WordPress.  The convenience is worth the external call to the Akismet service for me.  It's worked so well that I don't even use Gatekeeper on my own blog any more.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57457">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57457">56</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on February 11, 2008		</div>
+		<div class="quote"><p>This is definitely some cool stuff that I might look at integrating into my own blog platform (it would be interesting to see a low level design since you have decided not to release it though ;-).</p>
+<p>I've been looking at a custom solution for a while now, mainly because I think that my own email address might be blacklisted in Akismet. After posting on 37signals on a regular basis, my comments stopped showing up there (I'm guessing because I'm pro-Microsoft, I can't think of any other reason that they might have blocked me since my comments usually contribute to the discussion), and after that happened my comments stopped showing up on other blogs too (I think one of them was Jeff Croft's) leading me to believe that I got blacklisted for no apparent reason.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57458">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57458">57</a></div>
+			<span class="authorname"><a href="http://julianschrader.de">Julian Schrader</a></span> said on February 11, 2008		</div>
+		<div class="quote"><p>This seems to be a very nice set of rules, maybe I'll incorporate this into the blog/CMS I'm going to build for my website. Thanks!</p>
+<p>But I have to support Michael Siebert (#16) â€” I also do not know much spam coming from .de-TLDs ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57460">58</a></div>
+			<span class="authorname">Robin Fisher</span> said on February 12, 2008		</div>
+		<div class="quote"><p>I've just built my own custom CMS in Rails for my own site and have been thinking about preventing comment spam.  I had seen an article on integrating Akismet with Rails but this has inspired me to develop my own filter.</p>
+<p>Is there any rationale behind the points you've assigned to each rule or is it nothing beyond analysis of spam you've received previously?  (Not to demean the time and effort that went into such analysis of course!)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57461">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57461">59</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 12, 2008		</div>
+		<div class="quote"><p>@Robin: the points were tweaked based on spam analysis. It's nice when you get a large collection of data and can perform various queries on it to see what comes of it. The less than 20 characters and the URLs longer than 30 came out of that analysis. I could count how many comments would get flagged based on that criteria. If a particular pattern was almost likely to be spam, then I can give it more weight by increasing the points. If it's more of a grey area, it uses less points.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57462">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57462">60</a></div>
+			<span class="authorname">Jim Whitesell</span> said on February 12, 2008		</div>
+		<div class="quote"><p>This is the most enlightening post I've read in quite a while. I'm still in the middle-ages since I don't keep an active blog, but I have several contact forms on sites that get hit by spammers.</p>
+<p>Jon, between your original post and many of the responses I've come up with some really great ideas for my own uses. Thanks so much!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57463">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57463">61</a></div>
+			<span class="authorname">Andreas</span> said on February 12, 2008		</div>
+		<div class="quote"><p>Amazingly cool. Been thinking about how to do this best and this is just so... simple yet genius. Impressive. Would also love to see some of the code =)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57464">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57464">62</a></div>
+			<span class="authorname"><a href="http://weth2o.com">EJ</a></span> said on February 12, 2008		</div>
+		<div class="quote"><p>A very interesting read.  I love the simplicity of the rule set you've laid out, although I'm a bit wary of the body match rule: I feel that might falsely trash good comments.  I don't know if someone has mentioned this or not (don't have the time to read all 60 previous comments - you're becoming so popular snook!) but what would be cool is if your blog you've built from CakePHP could keep a record of a user's accumulated points, so a less strict rule set could be applied against them for previous good behavior.  In any case you've got me thinking! Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57467">63</a></div>
+			<span class="authorname">Maikel GonzÃ¡lez</span> said on February 13, 2008		</div>
+		<div class="quote"><p>Thanks by yours Ideas.<br />
+ Others points to take:<br />
+- First, make sure the form was posted from a browser.<br />
+- Make sure the form was indeed POST.<br />
+- Host names from where the form is authorized<br />
+- Attempt to defend against header injections "Content-Type:",                     "MIME-Version:",     "Content-Transfer-Encoding:",  "bcc:",     "cc:"</p>
+</div>
+	</div>
+		<div class="comment" id="c57469">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57469">64</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on February 13, 2008		</div>
+		<div class="quote"><p>@EJ<br />
+Jonathan has that already, see "Number of previous comments from email: approved comments = +1 per".
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57471">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57471">65</a></div>
+			<span class="authorname">Alexander</span> said on February 13, 2008		</div>
+		<div class="quote"><p>And I who thought of start to use a new email (Since the old one is quite outdated) ;) Well, the algorithm for catching spam is really intresting - it's quite different from getting the CAPTCHA's to work for you (like the 2+2 or the enter the characters on the image) but I am a bit thoughtful about the length of the links as well the intro text. I find it quite unfair to entirely ban "Interesting, sorry, cool" because I feel that soon spammer would skip the word and just to "I think..." - maybe -5 instead?</p>
+<p>I like the idea of the approved comments +1/per; because thats what internet has become more about, earn trust/fame/etc. instead of get everything instantly for a couple of days and either your fame continues well earned or it sinks. Great system overall though!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57474">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57474">66</a></div>
+			<span class="authorname">gurde</span> said on February 14, 2008		</div>
+		<div class="quote"><p>I had the same problem with spam comments. I have a good solution for automated spam... AJAX.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57475">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57475">67</a></div>
+			<span class="authorname"><a href="http://www.kartooner.com">Erik Sagen</a></span> said on February 14, 2008		</div>
+		<div class="quote"><p>Okay, I just need to make this longer than 20 words and I'll deflect Snook's spam patrol. Let me just put on this deflection suit (with +5 agility and defense).</p>
+<p>The point-based system of moderating comments is great, especially the way in which you've broken it down; clear as salt water. As for spammers becoming smarter, sure they will, they do every day and I wonder if they'll ever create a script that'll add up the mathematical captchas to push the comment through? Those are easier to break (maybe) than your run-of-the-mill captcha.</p>
+<p>I am still in love with <a href="//recaptcha.net/">reCaptcha</a>.</p>
+<p>Whatever the case you've built some great tools to circumvent the issue and every day someone keeps at it means sending these goldminers to the hills, not permanently but better than what we were dealing with just 2 years ago.</p>
+<p><strong>Fight the power!</strong>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57484">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57484">68</a></div>
+			<span class="authorname">David Racho</span> said on February 15, 2008		</div>
+		<div class="quote"><p>Okay, so let me give this a try. I have opted not to use my blogger's address as that's a possible filter. This is longer than it should be.</p>
+<p>But I really honestly like the idea and am considering stuff like this to put into my own site - which right now is nothing, really, it's nothing, I just got the domain and sat on it for a few years - I'm still sitting on it.</p>
+<p>I'm a programmer at heart but I've been trying to learn php and cms since, maybe, 5 to 10 years ago. And I like "english-code" like this, or pseudo-code so a human being can understand it, and use whatever server side thing to actually implement it.</p>
+<p>Math captchas are funny though. You should have Jeopardy style captchas or "Are you smarter than a 5th grader" questions. Sorry, you need a higher IQ to make a comment.</p>
+<p>The intelligent spammers will figure out your database of questions, but it will take them awhile.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57514">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57514">69</a></div>
+			<span class="authorname">george</span> said on February 22, 2008		</div>
+		<div class="quote"><p>Just a question Jonathan:  Is it really worth it?  Maybe I'm missing something, but why in the world would you need to go through all of this to keep some "spam" comments out?  If it is manual comments, on recent blogs, why would you feel the need to make sure that "nobody slips though"?  I'm not asking this to be a jerk.  Obviously I don't understand something.  There must eb a good reason for people spending hours every day to keep spam out.  What is that reason??
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57524">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57524">70</a></div>
+			<span class="authorname">Chris Amini</span> said on February 23, 2008		</div>
+		<div class="quote"><p>This is awesome, John.</p>
+<p>I am going to implement a similar item into the custom CMS that I and a few co-workers are making. Obviously crediting you with the idea.</p>
+<p>Keep up the awesome job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57525">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57525">71</a></div>
+			<span class="authorname">thorsten</span> said on February 23, 2008		</div>
+		<div class="quote"><p>You forgot some very typical words. If the words cheap, cheapest or buy in the URL the  score must be -20. I delete them all without reading. But you are right with the german guys. It is very sad whats going on here.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59730">72</a></div>
+			<span class="authorname">James</span> said on October 06, 2008		</div>
+		<div class="quote"><p>While I must admit closed comments is annoying I totally understand why you do it now. I think the way you rate spam is quite logical although, dependent on the blog and it's topics, a few of the rules would have to be altered (such as the amount of links in a post).</p>
+<p>I currently use Akismet for my wordpress blogs - it's okay but sometimes a couple of legitimate posts get in there somehow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61002">73</a></div>
+			<span class="authorname">Gary Adams</span> said on January 13, 2009		</div>
+		<div class="quote"><p>You are god! My blog used to be flooded with spam like you wouldnt believe! Thanks for this very interesting article! Much appreciated! Gary
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61126">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61126">74</a></div>
+			<span class="authorname"><a href="http://suedehandbag.co.cc">Slone</a></span> said on January 16, 2009		</div>
+		<div class="quote"><p>Excuse me. What more felicity can fall to creature, than to enjoy delight with liberty.<br />
+I am from Canada and now study English, tell me whether I wrote the following sentence: "The independent service for resolving disputes between consumers and financial firms."</p>
+<p>With respect :o, Slone.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61127">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61127">75</a></div>
+			<span class="authorname">Oakes</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Hey. If you really do put a small value upon yourself, rest assured that the world will not raise your price.<br />
+I am from Ukraine and learning to write in English, give true I wrote the following sentence: "Resume? Learn about effective design and layouts, what to include and what to leave off your resume."</p>
+<p>With love :D, Oakes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61235">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61235">76</a></div>
+			<span class="authorname">Mark</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Y'know, I actually had to build a sort of spam filter for my Machine Learning class at school. We had a big sample of spam messages and non-spam messages, with word frequencies (like, how many times the v-word appears -- I'm afraid to write it here). We then used an SVM (http://en.wikipedia.org/wiki/Support_vector_machine -- oh God, am I over the 30 char limit? :p) to split the messages into spam and non-spam. Using your idea for moderation, you can flag things close to the line as awaiting moderation, and things further from the line as clearly spam or non-spam. I'd also use other dimensions like the ones you mentioned -- author's name, and URLs and the characters within... you just to collect a bunch of spam, and then you can train it off-line. You might have a little fun writing a classifier in PHP though. Would be a fun little project for me to try some day....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62035">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62035">77</a></div>
+			<span class="authorname">Miles Johnson</span> said on February 06, 2009		</div>
+		<div class="quote"><p>I just built a CakePHP Behavior, that checks/processes and deletes the comment during an afterSave(). </p>
+<p>The only point system I didn't add is the "5 consonant" one. How did you do that, regex?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62254">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62254">78</a></div>
+			<span class="authorname">Vivek</span> said on February 08, 2009		</div>
+		<div class="quote"><p>Point system given is good I think but anyone till now planned to offer some API based access to this? (apart from Akismet).</p>
+<p>because manual approval of comments takes lots of time and auto approval will kill your site.</p>
+</div>
+	</div>
+		<div class="comment" id="c62704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62704">79</a></div>
+			<span class="authorname">SammyTerO</span> said on February 16, 2009		</div>
+		<div class="quote"><p>:) Wow. nice arcticle
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62832">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62832">80</a></div>
+			<span class="authorname">HomlallAmax</span> said on February 18, 2009		</div>
+		<div class="quote"><p>Create pure drinking water with our Atmospheric Water Generators<br />
+http://tinyurl.com/aerl6u
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62849">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62849">81</a></div>
+			<span class="authorname">Belajar Blogging</span> said on February 18, 2009		</div>
+		<div class="quote"><p>Thanks for sharing this Snook.</p>
+<p>Now I can learn a lot that there's another way to fight against spam than just installing akismet plugin.</p>
+<p>Recently, I just don't think that akismet work efficiently. Several spam comments with 5-6 paragraphs keep coming in to my blog everyday and I have to delete them manually.</p>
+<p>Will try to use your method.<br />
+Thanks.. :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65722">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65722">82</a></div>
+			<span class="authorname">Taudiazepam</span> said on February 07, 2011		</div>
+		<div class="quote"><p><b>cheap diazepam, ERIDAN, SEDUXEN, VALIUM, buy online</b>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65723">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65723">83</a></div>
+			<span class="authorname">sohbet </span> said on February 08, 2011		</div>
+		<div class="quote"><p>Bu sohbet sitesi tek kelimeyle Muhtes. Sohbet Etmek ve Arkadas, Olmak iÃ§in Arad? SeÃ§menin Faydalar?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65893">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65893">84</a></div>
+			<span class="authorname">download sRs Trend Rider FREE</span> said on February 14, 2011		</div>
+		<div class="quote"><p>This really solved my problem, thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65948">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65948">85</a></div>
+			<span class="authorname">download Forex MegaDroid FREE</span> said on February 15, 2011		</div>
+		<div class="quote"><p>Weâ€™re a group of volunteers and starting a brand new initiative in a community. Your weblog supplied us valuable information to work on. You have done a marvellous work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66143">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66143">86</a></div>
+			<span class="authorname">dirt bike parts</span> said on February 23, 2011		</div>
+		<div class="quote"><p>I wanted to make public in to repulse you in quittance looking tailored this capacious look during the course of!! I some conditions ago enjoying every dialect trig soupå™Šn of it I gomerel you bookmarked to juxtapose turn up broken of the closet far-off pronounced screw up you recording
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66197">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66197">87</a></div>
+			<span class="authorname"> Hello! dcdecbe interesting dcdecbe site!</span> said on February 25, 2011		</div>
+		<div class="quote"><p> Hello! dcdecbe interesting dcdecbe site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66199">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66199">88</a></div>
+			<span class="authorname">Very nice site!</span> said on February 25, 2011		</div>
+		<div class="quote"><p>Very nice site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66409">89</a></div>
+			<span class="authorname">Plavuse</span> said on March 06, 2011		</div>
+		<div class="quote"><p>Ues, but not everthing black and white, something is gray :)   </p>
+<p>Miranda
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66615">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66615">90</a></div>
+			<span class="authorname">Theceiciape</span> said on March 15, 2011		</div>
+		<div class="quote"><p>Ð”Ð°, Ð²ÐµÑ€Ð¾ÑÑ‚Ð½Ð¾ Ñ‚Ð°ÐºÐ° Ñ‡Ðµ Ðµ</p>
+</div>
+	</div>
+		<div class="comment" id="c66860">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66860">91</a></div>
+			<span class="authorname">Janoszen</span> said on March 27, 2011		</div>
+		<div class="quote"><p>To address the SpamAssassin question: SA is made for e-mail. A lot of checks are only valid for e-mail, so even if you'd use it, you'd have to handpick your ruleset. You'll end up with a handful of rules the most powerful being the Bayesian classifier, which can be very easily implemented in any web programming language as well. Drupal even has a module for it.</p>
+<p>Anyway, the ruleset is very nice, creating an update service for such rules (like sa-update) would be nice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67869">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67869">92</a></div>
+			<span class="authorname">Noor</span> said on May 05, 2011		</div>
+		<div class="quote"><p>from where did you get the database of spam messages?<br />
+Did u collect them yourself?<br />
+I need a dataset of spam and non-spam comments any idea from where I can get it?</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<p>Finds the last element for which the provided function returns a truthy value.</p>
+<ul>
+<li>Use <code>Array.prototype.filter()</code> to remove elements for which <code>fn</code> returns falsy values.</li>
+<li>Use <code>Array.prototype.pop()</code> to get the last element in the filtered array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> findLast <span class="op">=</span> (arr<span class="op">,</span> fn) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">filter</span>(fn).<span class="at">pop</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">findLast</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">,</span> n <span class="kw">=&gt;</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// 3</span></a></code></pre></div>

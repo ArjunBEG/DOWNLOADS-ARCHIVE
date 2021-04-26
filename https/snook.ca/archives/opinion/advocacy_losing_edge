@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>When Advocacy Loses its Edge - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/advocacy_losing_edge">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/advocacy_losing_edge">
+	<meta property="og:title" content="When Advocacy Loses its Edge">
+	<meta property="og:description" name="description" content="In our society, I believe we tend to put greater value into the opinions of those who have a neutral standing in the matter. It's why film critics have the careers they do. They are impartial to the e...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>When Advocacy Loses its Edge</h1>
+		<p>In our society, I believe we tend to put greater value into the opinions of those who have a neutral standing in the matter. It's why film critics have the careers they do. They are impartial to the entire film-making process. If comments of disdain come from a competing studio, you cast the opinions aside. &quot;Of course they think it's crap. They don't want the competition to be successful,&quot; you might think to yourself. </p>
+<h2>Reputation</h2>
+<p>In our little world of blogging, entire reputations can be built on our impartiality. For the most part, this is fairly easy. We talk about the things we like and don't like without thinking twice about it. Because we have a separation from the development and prosperity of the products, sites and services we review, our opinions have power. And that power grows the longer we maintain that neutrality. </p>
+<p>Sometimes, though, that reputation comes into question when we introduce money into the equation. Is a glowing review of a book as powerful when using <a href="https://affiliate-program.amazon.com/">Amazon referral links</a>? Is a glowing review of a product as exciting when it's paid for by a service like <a href="http://payperpost.com/">PayPerPost</a>? When writing a review under these conditions, I feel like I would have to offer up at least some negative feedback just to balance the review and maintain some air of impartiality. Is that fair? </p>
+<h2>Advocacy</h2>
+<p>Then there are situations where  we become advocates for something because it solves a common problem. As an advocate, there's no direct ties. We're sitting in the neutral zone. But are we safe in the neutral zone? </p>
+<p>For example, I like <a href="http://cakephp.org/">CakePHP</a>. I use CakePHP on various projects and talk about it here on a regular basis. When I talk about other frameworks, I compare it to CakePHP. All of this talk for one framework can come across like I think CakePHP is the best framework in the world and nothing can touch it. Suddenly, that impartiality is gone and my opinion holds less weight. It's not from a lack of respect but there's a sense that what is being said is tainted. The power of my opinion is lost. </p>
+<p>How do I get that  sense of neutrality back? </p>
+<p>The balance needs to be re-introduced. Be aware of not only the discussion at hand, but keep in mind everything you've put out in the world and balance the current article against the overall voice.</p>
+<p>Using my love for CakePHP as an example, the fact is, I don't use it on every project. I've used PEAR and the Zend  Framework with no CakePHP in sight. But I haven't talked about those projects. My public voice hasn't held the same pragmatic stance that I have with my projects and with my clients. </p>
+<p>As a freelancer, whose livelihood depends on a consistent flow of client work, I believe that being impartial is an important skill when it comes to consulting with clients. Naturally, we want to steer clients to use products and services that we know best, so that we get the work.  Many companies build their own products and pitch those products, even if they may not always be the best solution for the clients. That's where consultants are supposed to come in. They evaluate a number of products or services and recommend the best one. But partnerships and referral programs can once again skew that relationship. </p>
+<h2>Balancing Act </h2>
+<p>In the end, there will always be forces that influence our opinion of things. Expressing our opinion on an issue burns that position into the minds of readers. If you never provide an alternate view, you run the risk of becoming typecast and losing the power of opinion we so desperately want to share. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published September 18, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/843</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">17 Comments &middot; <a href="/archives/opinion/advocacy_losing_edge.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c55297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55297">1</a></div>
+			<span class="authorname">MikePearce</span> said on September 18, 2007		</div>
+		<div class="quote"><p>Good post, when I think about what you've said, it occurs to me that I may have lost some neutrality on things that I use regularly, although no one gives a hoot about my opinion (except my mum!). Glad I could be your muse for a day though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55298">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55298">2</a></div>
+			<span class="authorname">George Huff</span> said on September 18, 2007		</div>
+		<div class="quote"><p>I remember you saying something along these same lines at sxsw.  As a blogger can you advocate for anything?  This is a really good read for anyone who blogs or has thought of getting into it.  Cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55299">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55299">3</a></div>
+			<span class="authorname"><a href="http://gamemakker.co.uk/">Darren</a></span> said on September 18, 2007		</div>
+		<div class="quote"><p>Thought provoking... I love it. Finding a common ground is an aim in everything. You don't want to single others out whilst isolating the rest. Everyone wants the best of both worlds :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55301">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55301">4</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com/">Jeff Croft</a></span> said on September 18, 2007		</div>
+		<div class="quote"><p>I've discovered another problem with advocacy: people can mistake you for an authoritative figure. As you know, I've been an advocate for Django, another web application framework. Although I do know the creators and lead developers of Django personally, I myself have never been a part of the project. I've not contributed code, I've not worked on the project's website, and I've not done any design work for the project or it's documentation. I'm simply a Django user -- I tried it, liked it, and wanted to tell people about it.</p>
+<p>But I've had people assume lots of things. They've assumed I am a develoepr of Django. They've assumed I am the sole creator of Django. They've assumed I am some kind of official evangelist for Django. They've assumed I get paid by Django to talk about it publicly. They've assumed...well, you get the idea.</p>
+<p>Some discloure is probably good, when you find yourself being an advocate. I think I need to add a message to my site that lets people know that I'm simply  Django user, and not a member of it's development community. </p>
+<p>Just another thing to keep in mind with advocacy.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55302">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55302">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 18, 2007		</div>
+		<div class="quote"><p>@Jeff Croft: That's very true. I get that with CakePHP, too. While I use the framework, many have come to me as an expert in the framework, which I don't necessarily consider myself as. But, I'm sure like you, we have people to which we can defer and that in itself is often a bonus in the eyes of a client.</p>
+<p><em>(Freelancer note: have a list of contacts to whom you can refer people to. Even if you can't take the work on yourself, people will appreciate the connections.)</em>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55307">6</a></div>
+			<span class="authorname">Sean Fraser</span> said on September 18, 2007		</div>
+		<div class="quote"><p>Neutrality has its place but it is the opinions of the authors that I prefer; and, it is those authors I will continue to read. Advocacy or not. And, it doesn't matter if I agree with them or not. When an article compares services, platforms or methods of coding, it is - Usually - an opinion, isn't it. When an article discusses a philosophy or doctrine, e.g., Web Standards, it is an advocacy.</p>
+<p>I tend to give a higher reputation to those who express their opinions (or, advocations) sans neutrality.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55308">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55308">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 18, 2007		</div>
+		<div class="quote"><p>@Sean Fraser: to be clear, I'm not saying that bloggers shouldn't offer up opinion. Indeed, we all have our opinions and that's part of why we blog. By advocacy, I mean a long standing stance of opinion or support and doing so when not realizing that people are perceiving you at a further extreme than you really are.</p>
+<p>Indeed, people want to hear opinions on things but I believe we expect people to be impartial. Who's opinion about a product would you trust more...the CEO of said product or an average user?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55310">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55310">8</a></div>
+			<span class="authorname"><a href="http://www.yellowhat.ca">Andrew Kumar</a></span> said on September 18, 2007		</div>
+		<div class="quote"><p>Haha the price to pay for being famous =P I've been reading your posts for some time and I tend to think you are generally neutral, and definitely fair in your posts. Especially your CakePHP vs. CI article... there was more than enough disclaimer of your preferences. My english teacher once told me that if you don't have an opinion, you're not worth reading... with that atleast your writing is not chock full of sidebar creative fanfair =P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55319">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55319">9</a></div>
+			<span class="authorname"><a href="http://www.contentblog.net">Amrit Hallan</a></span> said on September 19, 2007		</div>
+		<div class="quote"><p>Hi Jon.</p>
+<p>I myself have been planning to start my own pet project and was wondering whether I should use CakePHP. I know functional PHP and I have no time constraint so I'm perfectly OK with experimenting with new tools and technologies. Where does CakePHP score, features or ease of use? My preference is ease of use and I'm not too crazy about features because my application won't need intricate features: just some CMS and database handling routines.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55322">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55322">10</a></div>
+			<span class="authorname"><a href="http://pauldwaite.co.uk/">pauldwaite</a></span> said on September 19, 2007		</div>
+		<div class="quote"><blockquote><p>All of this talk for one framework can come across like I think CakePHP is the best framework in the world and nothing can touch it. Suddenly, that impartiality is gone and my opinion holds less weight.</p>
+</blockquote>
+<p>If your aim is to set yourself up as an impartial commentator on web frameworks, then yeah, this is a problem.</p>
+<p>But lots of talk about CakePHP has probably resulted in lots of really useful information about CakePHP for people trying to use it. (I say probably as Iâ€™m not interested in it myself, hence I havenâ€™t read your writing on it.)</p>
+<p>If your aim is to share useful information about CakePHP, then when people mistake you for an expert, youâ€™ve succeeded in spades.</p>
+</div>
+	</div>
+		<div class="comment" id="c55332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55332">11</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik W</a></span> said on September 19, 2007		</div>
+		<div class="quote"><p>If you want to be able to be more neutral then I'd recomment you to look into other frameworks for other languages. For example Django and Rails (I know you've tried rails [http://snook.ca/archives/ruby/entering_the_wo/] but maybe you didn't give it a fair enough chance because you don't know Ruby?). </p>
+<p>To really be able to see the strengths and weaknesses of different frameworks you have to learn the languages, otherwise you have no idea what's going on. Learning a bit more than basic Ruby or Python shouldn't be too hard either.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55333">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55333">12</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik W</a></span> said on September 19, 2007		</div>
+		<div class="quote"><p>You can add this to my comment above.</p>
+<p>This is something that makes your opinion less valuable for me, since I'm not that fond of php. Learning new languages is always a good thing in my opinion, since it gives you a fresh perspective on old problems! :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c55334">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55334">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 19, 2007		</div>
+		<div class="quote"><p>@Fredrik W: I think that's unfair as I've never compared CakePHP or any other PHP framework to Django or Rails. I've only ever compared within PHP frameworks. If you don't work within PHP then I could see my opinion simply being irrelevant to you (and in that sense, less valuable). </p>
+<p>Jeff Croft alluded to it, which is that as readers, we make certain assumptions based on what we read. As bloggers and writers, we have little control over what people assume. But realizing that people can take things the wrong way, we can work towards filling in the whole picture for our readers.</p>
+<p>My opinion on Django and Rails: I want to try them out more but I simply haven't had time. I love the more succinct syntax (I heavily dislike PHP's syntax).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55336">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55336">14</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik W</a></span> said on September 19, 2007		</div>
+		<div class="quote"><p>Maybe that come off the wrong way, if so I apologize. What I meant to get across what that if you want your writing and standpoint to be more neutral/nuanced then giving frameworks for other languages a go, since you gain perspective. </p>
+<p>I also heavily dislike PHP (mostly because of the syntax, but also some things related to the language itself) and have worked a bit with rails, but I'd love to try CakePHP (or maybe OnTrax, haven't heared anything about that in a long time) just to see how things are done in that particular framework.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55338">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55338">15</a></div>
+			<span class="authorname">Johan</span> said on September 19, 2007		</div>
+		<div class="quote"><p>Snook likes to look at things and cook with them. That is his secret recipe.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55399">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55399">16</a></div>
+			<span class="authorname">Sean Fraser</span> said on September 21, 2007		</div>
+		<div class="quote"><p>@Jonathan Snook:</p>
+<blockquote>
+<p>By advocacy, I mean a long standing stance of opinion or support and doing so when not realizing that people are perceiving you at a further extreme than you really are.</p>
+</blockquote>
+<p>Thanks for the clarification. My original comment was made in reply to the very - for me - evocative title of this article. Specifically, as regards Web Standards. One of the better titles I've read this month.</p>
+<p>And, Yes. I trust opinions of informed users who are slightly impartial.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55413">17</a></div>
+			<span class="authorname">Jacob</span> said on September 21, 2007		</div>
+		<div class="quote"><blockquote><p>But partnerships and referral programs can once again skew that relationship</p></blockquote>
+<p>Yep! you said it!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

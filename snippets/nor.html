@@ -1,0 +1,8 @@
+<p>Checks if none of the arguments are <code>true</code>.</p>
+<ul>
+<li>Use the logical not (<code>!</code>) operator to return the inverse of the logical or (<code>||</code>) of the two given values.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> nor <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> <span class="op">!</span>(a<span class="op">||</span>b)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">nor</span>(<span class="kw">true</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">nor</span>(<span class="kw">true</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">nor</span>(<span class="kw">false</span><span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

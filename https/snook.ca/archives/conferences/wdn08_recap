@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Web Directions North 2008 Recap - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/conferences/wdn08_recap">
+	<meta property="og:url" content="https://snook.ca/archives/conferences/wdn08_recap">
+	<meta property="og:title" content="Web Directions North 2008 Recap">
+	<meta property="og:description" name="description" content="Web Directions North has wrapped up its second year and I think the lineup this year was even better than the last (and not because I was in it...I'm not that egotistical!). 
+I was impressed by the p...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Web Directions North 2008 Recap</h1>
+		<p>Web Directions North has wrapped up its second year and I think the lineup this year was even better than the last (and not because I was in it...I'm not that egotistical!). </p>
+<p>I was impressed by the presentations, especially Indi Young's <a href="http://www.slideshare.net/indi/innovation-with-mental-models">Mental Models</a>. For her session, I started somewhat disinterested but the more I listened, the more I became engaged. So much so, that now I want to buy her book on the subject.</p>
+<p>Douglas Crockford presented on Ajax Security, which I originally expected to have more immediately practical advice, turned out to more of a call to arms to revisit the web stack to address security. Interesting thoughts he brought up included the ability to isolate code into vats instead of having all code in the global context, and having any DOM element be able to access any other DOM element. It would seem that either of these cases could be solved or at least minimized by changing how the current system works without needing to redesign it from scratch. </p>
+<p>I would have liked to have seen more and also to have joined in on more of the activities. First, I started getting a cold before I made my trip out to Vancouver but it got even worse while I was there. With no medication (mostly due to laziness in finding the nearest drug store), I suffered through what I could. Luckily, my presentation went off fairly well but by the middle of the second day, my sinuses were so congested I could barely breathe. Even eating became a chore. Then, hearing the news of up to 30cm of snow about to hit home, I decided to bail early and miss out on both the Mediatemple closing party and the Whistler festivities. </p>
+<p>The trip home wasn't much fun either. The flight from Vancouver to Toronto went off without a hitch but the storm had just hit Toronto and it created some havoc trying to get out. Our first plane had an engine that wouldn't start so the flight was cancelled and I got redirected to a later flight. That flight ran into delays just trying to get de-iced so that we could make the 45 minute trip to Ottawa. It took 5 hours sitting on the plane before we got off the ground. It was great to be home, although, shovelling a foot of snow this morning &mdash; while still sick &mdash; was no picnic.</p>
+<p>Anyways, despite the cold and the troubles getting back home, I thoroughly enjoyed my time in Vancouver. WDN is probably one of the most well organized conferences I've been to. And with about 300 attendees, it's a super accessible group to talk to. I chatted up Alex Mogilevsky of Microsoft (he's been doing a bunch of the layout work on IE8) and when I asked him of grid positioning finding its way into IE8, he just gave me a big grin and said, &quot;I'd like it to be in there.&quot; So, no scoops there. I should have tried more alcohol, I think. There were plenty of Microsoft employees there, many directly on the IE team but I didn't have a chance to talk to them more about the versioning and  long term plans. Not that they likely would have said anything more than has already been said; they're a pretty tight-lipped group.</p>
+<p>It was also great to see old friends again and meet people in person that I had up until then only met online. Some highlights include meeting Douglas Crockford (with whom my somewhat awkward exchange nearly rivals the first and only time I met Chris Wilson of Microsoft) and chatting up <a href="http://www.ngenworks.com/">the ever hilarious nGen guys</a> (yes, more <a href="http://happywebbies.com/">Happy Webbies</a>, please. Oh and thanks for the shirt (I got me <a href="https://store.happywebbies.com/product/eric_meyer">an Eric Meyer</a>)). </p>
+<p>I hope to see many of them again at SXSW. (I mean, I hope to see ALL of them again but I know many won't be able to make it!)</p>
+<p>If you get a chance to hit up Web Directions North next year, I definitely recommend it. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 02, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/conferences/">Conferences</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/872</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">5 Comments &middot; <a href="/archives/conferences/wdn08_recap.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57376">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57376">1</a></div>
+			<span class="authorname">Joe Clark</span> said on February 03, 2008		</div>
+		<div class="quote"><p>Breathe, not breath.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57378">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57378">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 03, 2008		</div>
+		<div class="quote"><p>Fixed. Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57381">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57381">3</a></div>
+			<span class="authorname">Greg</span> said on February 04, 2008		</div>
+		<div class="quote"><p>Your assessment of Indi Young's presentation is bang on-- I was trying to figure out what the rock soup (is that right?) was all about but by the end of it she'd totally opened my mind to a new way of thinking about what innovation means. I too will be buying her book. It would be fantastic if she did a day-long workshop next year on the same topic. I really enjoyed Eric Rodenbeck on data visualization, Zeldman's opening keynote was a blast and Matt Webb's closing keynote was quite interesting. Your session was great, too!</p>
+<p>Bummer about missing Whistler (it was awesome!) and the 5 hours on the runway in Toronto... Hope you're feeling better, Jon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57444">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57444">4</a></div>
+			<span class="authorname">Kenton</span> said on February 07, 2008		</div>
+		<div class="quote"><p>I had high hopes that this Web Directions North 2008 would be a great conference after the quality of the last one, and I certainly wasn't disappointed. Just like last year (2007), it was fun, informative, and had a great vibe.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57465">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57465">5</a></div>
+			<span class="authorname"><a href="http://www.sfu.ca/~kumar">Andrew Kumar</a></span> said on February 12, 2008		</div>
+		<div class="quote"><p>Yay it was great to finally meet you "in person!"
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

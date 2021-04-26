@@ -1,0 +1,1 @@
+Invalid URL. The URL structure is /project/version/file.js

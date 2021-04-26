@@ -1,0 +1,8 @@
+<p>Checks if the given <code>year</code> is a leap year.</p>
+<ul>
+<li>Use <code>new Date()</code>, setting the date to February 29th of the given <code>year</code>.</li>
+<li>Use <code>Date.prototype.getMonth()</code> to check if the month is equal to <code>1</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isLeapYear <span class="op">=</span> year <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="at">Date</span>(year<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">29</span>).<span class="at">getMonth</span>() <span class="op">===</span> <span class="dv">1</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isLeapYear</span>(<span class="dv">2019</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isLeapYear</span>(<span class="dv">2020</span>)<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

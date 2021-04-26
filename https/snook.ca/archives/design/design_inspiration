@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Design Inspiration - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/design/design_inspiration">
+	<meta property="og:url" content="https://snook.ca/archives/design/design_inspiration">
+	<meta property="og:title" content="Design Inspiration">
+	<meta property="og:description" name="description" content="There's the old saying, &quot;Good artists copy, great artists steal.&quot; I still don't know what the difference is but I steal ideas all the time. 
+More and more, I've been looking to architecture...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Design Inspiration</h1>
+		<p>There's the old saying, &quot;Good artists copy, great artists steal.&quot; I still don't know what the difference is but I steal ideas all the time. </p>
+<p>More and more, I've been looking to architecture for inspiration. Buildings, skyscrapers in particular, share characteristics with the common web page. They're built and designed for a vertical space. As a result, many of the design elements that go into architecture can be quite appropriate for site design. </p>
+<h2>Inspiration for Snook.ca </h2>
+<p>When I did the redesign of Snook.ca a few months back, I had gone through a number of revisions, none of which seemed to hit the mark. </p>
+<p>To give you some backstory , I'm actually a big fan of the Art Deco style. I love hitting up Miami's South Beach and just soaking it all in. When I came across a photo from 1950 of the <a href="http://flickr.com/photos/jonathansnook/987897157/">Waffle Shop</a> in Washington, D.C., I was instantly inspired and felt the need to integrate that style into my work. </p>
+<p>There are three particular elements that I took to implement into my design: the wrap, the overlap, and the 3 column grid. </p>
+<h3>The wrap</h3>
+<p><img src="https://snook.ca/files/inspiration-1.jpg" alt="the wrap" width="500" height="114" /></p>
+<p>This design element actually appeared in the previous version of the site design but only on the comment box. I decided to take it to a whole new level by using this wrap everywhere. It really helped soften the design and create more visual interest. I tried to implement a lot of &quot;visual motion&quot; into the  design. There are the lines behind the logo, the subtle S in the header goes from the tagline (&quot;<em>tips, tricks...</em>&quot;) to the navigation, and the dimple accent that appears just below the tagline. </p>
+<h3>The overlap</h3>
+<p><img src="https://snook.ca/files/inspiration-2.jpg" alt="the overlap" width="500" height="114" /></p>
+<p>The overlap on the Waffle Shop sign is highly pronounced and I tried to come up with a way to accomplish the same thing. The tagline was originally supposed to be entirely uppercase but because it appeared over the line, I didn't have any descenders. So, I switched it to lowercase to at least get the P to cross the line. </p>
+<h3>The grid</h3>
+<p><img src="https://snook.ca/files/inspiration-3.jpg" alt="the grid" width="500" height="114" /></p>
+<p>When I was working on the design, I was trying to work within two columns. But the sidebar just never felt right. There was too much information that I felt was relevant and needed some added attention. Noticing the 3 window panes, I decided to go with a 3 column layout.</p>
+<h2>Don't go overboard </h2>
+<p>My advice in taking inspiration from other places is to not go overboard. In other words, don't copy it verbatim. This is where people get all uppity. Grab the elements that you like and build it into what you're doing. Take elements from any number of places. Another example where I've done this is the books and speaking engagements listed in the left sidebar. The design approach is the same as <a href="http://www.cameronmoll.com/archives/">Cameron Moll's</a> (see books in right sidebar).</p>
+<p><img src="https://snook.ca/files/inspiration-4.jpg" alt="cameron moll's book layout" width="500" height="114" /></p>
+<p> There is an image with a border with some text beside it. I changed the style to fit my site but it's still the same basic approach. </p>
+<p>All the gallery sites and Flickr inspiration groups are great, and you can definitely find some great design elements but take some time to get walk around and see how other things are designed. Architecture, magazines, books, and signage are just a few good places to find some design inspiration. </p>
+<p>For more information on the Waffle Shop and Art Deco check out:</p>
+<ul>
+  <li><a href="http://www.shorpy.com/node/79">Waffle Shop: 1950</a>   a vintage photo of the restaurant</li>
+  <li><a href="http://www.washingtonpost.com/wp-dyn/content/article/2006/12/11/AR2006121101391.html"><em>Fast-Order Classic</em></a><em> </em>from the Washington Post </li>
+  <li><a href="http://en.wikipedia.org/wiki/Streamline_Moderne">Streamline Moderne</a> is a branch of the <a href="http://en.wikipedia.org/wiki/Art_Deco">Art Deco</a> style</li>
+</ul>	
+</div>
+<div class="meta">
+	<div class="dt">Published November 23, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/design/">Design</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/854</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">16 Comments &middot; <a href="/archives/design/design_inspiration.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c56917">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56917">1</a></div>
+			<span class="authorname">Jeff Smith</span> said on November 23, 2007		</div>
+		<div class="quote"><p>I'm also one to find visual inspiration from architecture.  I've got an element similar to the "wrap" you used in your design that I use on my site.  My inspiration came from the awnings over the windows on a house across the street from me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56918">2</a></div>
+			<span class="authorname">Phil Palmieri</span> said on November 23, 2007		</div>
+		<div class="quote"><p>just a comment to let you know we arn't ignoring you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56919">3</a></div>
+			<span class="authorname">prisca</span> said on November 23, 2007		</div>
+		<div class="quote"><p>great post - thanks :)<br />
+I always find it interesting to see where people get their inspiration from ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56920">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56920">4</a></div>
+			<span class="authorname">Oliver</span> said on November 23, 2007		</div>
+		<div class="quote"><p>I like it. I like it a lot. I'm now going to find all the photos in my house and look at them all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56921">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56921">5</a></div>
+			<span class="authorname">Carlos Bernal</span> said on November 23, 2007		</div>
+		<div class="quote"><p>I have loved this design since it's opening and thought it looked like a mini-jukebox music menu from a 50's diner. The sort of mini-jukebox that would be found on each table...great work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56928">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56928">6</a></div>
+			<span class="authorname"><a href="http://incoherentbabble.com">Chris Meller</a></span> said on November 24, 2007		</div>
+		<div class="quote"><p>Leave it to you to turn a Waffle House from 50 years ago into a beautiful website design... I bow before the master. :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56929">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56929">7</a></div>
+			<span class="authorname">Dinu</span> said on November 24, 2007		</div>
+		<div class="quote"><p>Very nice. Great to see offline web design inspiration. I've been a fan of your design for a long time as well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56940">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56940">8</a></div>
+			<span class="authorname">Johan</span> said on November 25, 2007		</div>
+		<div class="quote"><p>I get inspiration from advertising in any form, leaflets, giant ads on the street etcetera.<br />
+And other websites, but not architecture.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56953">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56953">9</a></div>
+			<span class="authorname">Dustin Brewer</span> said on November 25, 2007		</div>
+		<div class="quote"><p>For your site I really enjoy the subtle shadows and the comments area. I like how it is separated out and 3dish. It really takes the site to a different level.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56962">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56962">10</a></div>
+			<span class="authorname">Nelson</span> said on November 26, 2007		</div>
+		<div class="quote"><p>One of the best features in your site, is a definitive footer.  Sites that just end, are awkward for the user, as you don't know if you have returned all results/data from the server.  The padding is important too, because it visually shows there is nothing more, and also helps move the content the user cares about (e.g. the final thing) up towards the middle of their view.</p>
+<p>As for the Art Deco thing, yeah, South Beach Miami is quite something... you just can't be grumpy there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56971">11</a></div>
+			<span class="authorname">Defektive</span> said on November 27, 2007		</div>
+		<div class="quote"><p>I've often visited your site and wondered how someone, anyone, could come up with such a great design for such a common technology (blog). It's nice to know where your inspiration came from.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57008">12</a></div>
+			<span class="authorname">Jordan Kasteler</span> said on December 01, 2007		</div>
+		<div class="quote"><p>It's harder for me to look at building architecture and see how to incorporate that into design. I guess, perhaps, it takes some practice or I'm just not creative enough. Nevertheless, inspirations is EVERYWHERE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57048">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57048">13</a></div>
+			<span class="authorname">Antoine of MMM/Brighthand</span> said on December 05, 2007		</div>
+		<div class="quote"><p>Greetings Jonathan;<br />
+I used to be a constant reader of your blog, but work and moving has slowed that down. While looking towards the net for a new avenue to apply some new techniques I am learning, I came again across your site and specifically how you would explain this design.<br />
+Its impressive. Not just because of how you've integrated the various archecture elements, but in how you personalized it in the process. I came to your site and recognized it as yours despite not having been here in a long time. And at the same time the look is refreshing. Thanks for doing a design that takes a chance, and at the same time is already accepted for its consistancy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57083">14</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn Parker</a></span> said on December 09, 2007		</div>
+		<div class="quote"><p>Good to see some inspiration from a source besides other websites. I believe that most of the time as web designers we just focus on the web for inspiration, which can get boring really quick.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57150">15</a></div>
+			<span class="authorname">Robert Marbun</span> said on December 17, 2007		</div>
+		<div class="quote"><p>Well, good eyes may bring tons of inspiration. But, some use that inspiration only for craps. You use them in the good way. God Bless You!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61117">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61117">16</a></div>
+			<span class="authorname">Perfecta</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Hey. You can't just ask customers what they want and then try to give that to them. By the time you get it built, they'll want something new.<br />
+I am from Japan and learning to read in English, give please true I wrote the following sentence: "The twists and turns of sentences, the difficulty of finding just the right wordsâ€”we all could use."</p>
+<p>Best regards 8), Perfecta.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

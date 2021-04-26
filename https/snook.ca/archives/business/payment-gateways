@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>My Notes on Payment Gateways - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/payment-gateways">
+	<meta property="og:url" content="https://snook.ca/archives/business/payment-gateways">
+	<meta property="og:title" content="My Notes on Payment Gateways">
+	<meta property="og:description" name="description" content="I wrote a book. I needed to accept money in exchange for said book. How did I do that? This post goes into how I did it. This isn't a surefire way to make sure you won't get scammed, won't get your ac...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>My Notes on Payment Gateways</h1>
+		<p>I wrote a book. I needed to accept money in exchange for said book. How did I do that? This post goes into how I did it. This isn't a surefire way to make sure you won't get scammed, won't get your account locked, or can make millions by following a few easy steps. Like <a href="https://snook.ca/archives/writing/ebook-notes" target="_blank" title="Link: https://snook.ca/archives/writing/ebook-notes">my notes on writing an e-book</a>, these are my notes on what I did and why I did it and how I did it.</p><h2>PayPal</h2><p>I started off with a PayPal account since I already had one. I was quite hesitant to sell too many books too quickly because of all the bad press that PayPal had been having. I didn't want to see my account locked or suddenly be found unable to accept payments.</p><p>To start off with, my account is Premier, verified, and I've had it for years. I used to (or rather my ex-wife used to) use it for selling and buying stuff on eBay. Setting up a new account with no history may have an impact when you start going gangbusters.</p><h3>Using IPN</h3><p>I used <a href="https://www.paypal.com/ipn" target="_blank">IPN</a> to verify transactions on my server before giving people access to the book. After a transaction is processed by PayPal, PayPal hits my server to let me know that a sale has gone through. This works 99% of the time. For the times it doesn't work, it is a simple matter of going into PayPal and requesting the IPN be resent.</p><h2>Moneris</h2><p>PayPal is by far not the only payment processor on the block. It is, however, one of the easiest to get set up with&mdash;especially for those like myself who live outside of the United States and don't have access to services like Stripe.</p><p>With my fear of suddenly seeing my account locked and unable to get access to my funds for the book or for the workshops, I looked elsewhere. I was familiar with Moneris through some freelance work I had done years before. It's also the payment processor my bank recommends when I had set up my business account with them.</p><p>Getting an account wasn't a timely process. From beginning to end, it took about a month to get set up. Once set up, in order to gain access to anything online, you have to set up an account for it. Want access to documentation? Need to create an account. Want access to the online gateway? Need to create an account. Want access to reporting? Need to create an account. That's right, I have three user accounts&mdash;one for each system.&nbsp;</p><p>Moneris also isn't the most intuitively designed interface. It's confusing to know where to go and the documentation isn't very helpful. However, I did manage to get it set up using a similar hosted solution as PayPal. I wanted to avoid collecting credit card information personally if I could at all help it.&nbsp;</p><p>From an accounting perspective, I'm also frustrated that Moneris doesn't break down transactions. Despite the fact that I provide tax amounts in the transaction, Moneris only tracks the final amount charged to the credit card (and, of course, tracks the credit card fees paid). I now have to go through all my transactions and determine how much tax were paid on those. (Not a monumental task but annoying, nonetheless. PayPal, thankfully, tracks this information.)</p><p>Moneris is, however, cheaper than PayPal. Instead of 2.9%+30&cent; per transaction, it averages about 2%+5&cent; per transaction. On the other hand, Moneris has a $30 monthly fee. If you don't expect to sell very much, this $30 fee could very well take a large chunk out of your monthly earnings.</p><h2>Pricing</h2><p>The difference in fees likely doesn't seem like a big deal. On a $30 purchase, PayPal's fees come to $1.17. Moneris is $0.65. On a $15 purchase, it's 74&cent; and 35&cent; for PayPal and Moneris, respectively. Saving 50&cent; on a transaction might not seem like it's a big deal but if you end up selling 1000 items, that's $500 that's in your pocket and not someone elses.</p><h3>Lowering Fees</h3><p>I had been running the book sales for a few months before I uncovered something really surprising: PayPal allows you to ask for lower fees. With a click of a button, I was able to drop my fees from 2.9% to 2.2%. Not everybody can get the lower fees. It depends on how much you're doing in the way of sales.<br></p><p>As of this writing,&nbsp;go to <a href="https://cms.paypal.com/cgi-bin/marketingweb?cmd=_render-content&amp;content_ID=merchant/merchant_fees" target="" title="Link: https://cms.paypal.com/cgi-bin/marketingweb?cmd=_render-content&amp;content_ID=merchant/merchant_fees">this page</a>, click on View All Discounts and then Apply Now.</p><h2>Getting money into your account</h2><p>The last thing I wanted to mention was getting money into your account. With Moneris, the money is in your bank account at the close of every business day. With PayPal, however, the money stays with PayPal until you take it out.&nbsp;</p><p>Thankfully, there's a way to configure PayPal to automatically withdraw all funds within your account at the end of the day and have it deposited in your account. Similar to the lowering of fees, this setting might not be available for your account. I've turned it on for mine and PayPal now pushes all funds into my account.&nbsp;</p><p>This setting was located on the Withdraw page. Near the bottom of the page is a link that says "Settlement Withdrawal Preferences". From there, I was able to link a bank account to withdraw funds into.</p><p>For those outside of the US, I want to add one small thing: PayPal will only sweep funds if the PayPal account is in the same currency as your bank account. I originally sold books in US dollars and switched everything over to Canadian dollars when I got Moneris up and running. (Thankfully, the dollar was at par.) Having everything in my local currency makes things easier and saves me the cost of currency conversion, too, which can add another 1-3% cost&nbsp;upon conversion.</p><h2>Other Services</h2><p>There are other services out there, like <a href="https://stripe.com/help/pricing" target="" title="Link: https://stripe.com/help/pricing">Stripe</a>&nbsp;and <a href="http://checkout.google.com/" target="" title="Link: http://checkout.google.com/">Google Checkout</a>. I have not tried them. If I were to, I know the key things that I'd be on the lookout for:&nbsp;</p><ul><li>can it notify my server for a transaction?&nbsp;</li><li>what are the fees?</li><li>can it deposit funds straight into my bank account?</li></ul><p>It's also nice to come across third-party services that integrate well with a payment gateway. I used <a href="http://www.regonline.com/" target="_blank" title="Link: http://www.regonline.com/">Regonline</a> for workshop sales and now use <a href="http://shopify.com/" target="" title="Link: http://shopify.com">Shopify</a> for book sales and it is&nbsp;a simple matter of setting a couple options to use the API.&nbsp;</p><p>It's been another great learning experience going through the joys and pains of payment gateways.&nbsp;</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 16, 2012 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1021</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">7 Comments &middot; <a href="/archives/business/payment-gateways.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c69086">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69086">1</a></div>
+			<span class="authorname">Jonathan Lane</span> said on June 16, 2012		</div>
+		<div class="quote"><p>Might want to also check out 2checkout.com. I've had great luck with them, the fees aren't too bad and you can run reports that break out sales tax.  Changing payment processors can be a pain though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69087">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69087">2</a></div>
+			<span class="authorname">Ben</span> said on June 16, 2012		</div>
+		<div class="quote"><p>A not-for-profit organisation I volunteer for is having issues with PayPal at the moment. Our account has been locked in it's taking a huge amount of time to communicate with a liaison in the US (we are in Australia) to try and fix the issue.  A month later and we still don't have access to thousands of dollars of sales sitting in the account.</p>
+<p>I like that PayPal is so easy to use and has a powerful(ish) API to plug into, but there seems to be a bit of overzealousness when it comes to locking accounts. Their requirements to unlock them are restrictive, especially for a business outside of the U.S.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69089">3</a></div>
+			<span class="authorname">Graham B</span> said on June 18, 2012		</div>
+		<div class="quote"><p>I've found PayPal's IPN can be a very hit-and-miss affair. The other downside of PayPal (and quite possibly other services too) is the inability to fully integrate analytics into the checkout flow, making it hard to identify conversions.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69092">4</a></div>
+			<span class="authorname">Don J</span> said on June 18, 2012		</div>
+		<div class="quote"><p>Stripe has a killer API and webhooks. The only downside to Stripe is the 7 day deposit time, but many do not see that as an issue.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69093">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69093">5</a></div>
+			<span class="authorname">Jesse Storimer</span> said on June 18, 2012		</div>
+		<div class="quote"><p>Thanks for sharing. I learned a couple of useful takeaways I will definitely put to use :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69094">6</a></div>
+			<span class="authorname">Michael Warkentin</span> said on June 18, 2012		</div>
+		<div class="quote"><p>Have you seen Gumroad (https://gumroad.com)?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69095">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 18, 2012		</div>
+		<div class="quote"><p>@Michael: I hadn't seen Gumroad but at 5%+25Â¢ a transaction, it's rather pricey.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

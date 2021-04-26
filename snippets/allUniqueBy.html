@@ -1,0 +1,9 @@
+<p>Checks if all elements in an array are unique, based on the provided mapping function.</p>
+<ul>
+<li>Use <code>Array.prototype.map()</code> to apply <code>fn</code> to all elements in <code>arr</code>.</li>
+<li>Create a new <code>Set</code> from the mapped values to keep only unique occurrences.</li>
+<li>Use <code>Array.prototype.length</code> and <code>Set.prototype.size</code> to compare the length of the unique mapped values to the original array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> allUniqueBy <span class="op">=</span> (arr<span class="op">,</span> fn) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">length</span> <span class="op">===</span> <span class="kw">new</span> <span class="at">Set</span>(<span class="va">arr</span>.<span class="at">map</span>(fn)).<span class="at">size</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">allUniqueBy</span>([<span class="fl">1.2</span><span class="op">,</span> <span class="fl">2.4</span><span class="op">,</span> <span class="fl">2.9</span>]<span class="op">,</span> <span class="va">Math</span>.<span class="at">round</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">allUniqueBy</span>([<span class="fl">1.2</span><span class="op">,</span> <span class="fl">2.3</span><span class="op">,</span> <span class="fl">2.4</span>]<span class="op">,</span> <span class="va">Math</span>.<span class="at">round</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

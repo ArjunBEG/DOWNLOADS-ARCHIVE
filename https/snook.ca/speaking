@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Speaking</title>
+	<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Snook.ca - Life and Times of a Web Developer">
+ <link href="https://micro.blog/snookca" rel="me">
+		<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+<h1>Speaking Engagements</h1>
+
+<style>
+table { table-layout:fixed; width:100%; }
+td { vertical-align:top; }
+</style>
+<p>Over the last decade, I have presented talks and workshops on multiple facets of web design and development. </p>
+<h2>Biography</h2>
+<p>Jonathan Snook is a designer and developer from Ottawa, Canada. Snook's 20+ year career includes working at agencies, product companies, and his own business. Currently working for Abstract, he has also worked with Yahoo!, Shopify, Apple, Delta Airlines, AOL, Squarespace, and Xero. He writes at Snook.ca. He has also written for A List Apart, 24ways, and .net magazine, and has co-authored two books, The Art and Science of CSS and Accelerated DOM Scripting. Snook has also authored and received world-wide acclaim for the self-published book, Scalable and Modular Architecture for CSS, sharing his experience and best practices on CSS architecture.</p>
+
+<h3>Mini-bio</h3>
+<p>Snook is a designer and developer from Ottawa, Canada, working at Abstract. Previously at Shopify and Yahoo!. He writes at Snook.ca and has written the successful, self-published book, Scalable and Modular Architecture for CSS.</p>
+<h3>Photos</h3>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/jonathansnook/5513941344/in/album-72157625347054151/" title="Just a little crazy copy"><img src="https://farm6.staticflickr.com/5098/5513941344_de2439230b_q.jpg" width="150" height="150" alt="Just a little crazy copy"></a>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/90741600@N03/14110917208/in/photolist-nuW951-nKo9Nh-nPd8tg-nMnNau-ntHcm4-ntHbMt-nL2vab-hZ7qHj-hy1FUq-hy3dzP-hy3dse-g3o9En-dR9M4m-dfxSVc-cxaJtm-cxaJk1-cxaGoJ-cxaG8m-cxaATU-cxaAu3-c3YJVE-bucqgn-b3oXEZ-b3oX8F-b3oVH4-b3oUGr-b3oUdT-b3oTKB-b3oSGD-b3oQse-b3oKLR-b3oHV6-b3oH7v-b3ozuv-b3ovWx-b3ohFx-b3ogWX-b3ogck-b3o1M2-b3o1or-b3nZTa-b3nX8Z-aDbGfB-aDbG7v-azYSHg-axeGCF-axhnM3-axeFn6-a7xnKX-9QPr85" title="MK12087_BeyondTellerand_Jonathan_Snook"><img src="https://farm3.staticflickr.com/2919/14110917208_82fbc077eb_q.jpg" width="150" height="150" alt="MK12087_BeyondTellerand_Jonathan_Snook"></a>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/placenamehere/22509832497/in/photolist-Ai7LYi-Ai7LPv-AX52S8-Ai7VkE-AW5Pea-nuWF5r-nMqMnH-nuW951-nKo9Nh-nPd8tg-nMnNau-ntHcm4-ntHbMt-nL2vab-hZ7qHj-hy1FUq-hy3dzP-hy3dse-g3o9En-dR9M4m-dfxSVc-cxaJtm-cxaJk1-cxaGoJ-cxaG8m-cxaATU-cxaAu3-c3YJVE-bucqgn-b3oXEZ-b3oX8F-b3oVH4-b3oUGr-b3oUdT-b3oTKB-b3oSGD-b3oQse-b3oKLR-b3oHV6-b3oH7v-b3ozuv-b3ovWx-b3ohFx-b3ogWX-b3ogck-b3o1M2-b3o1or-b3nZTa-b3nX8Z-aDbGfB" title="CSS Architecture #CSSArch - Jonathan Snook #cssdevconf 2015"><img src="https://farm6.staticflickr.com/5637/22509832497_12abee871f_q.jpg" width="150" height="150" alt="CSS Architecture #CSSArch - Jonathan Snook #cssdevconf 2015"></a>
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/danrubin/3531790139/in/dateposted/" title="Snook"><img src="https://farm4.staticflickr.com/3369/3531790139_bc59f0a030_q.jpg" width="150" height="150" alt="Snook"></a>
+
+<h2>History of Events</h2>
+
+<h3>Responsive Web Applications with Container Queries</h3>
+<p>How do you take a complex web application, with a myriad of components and interactions, and make it fully responsive without pulling your hair out for a year?</p>
+
+<p>With a focus on Container Queries, we’ll look at the approach the Shopify Admin team used, from design to development, to manage the intricate interactions between all the application’s components, pulling off a fully fluid responsive design in under a month.</p>
+
+<p>We’ll also look at how this approach is currently being used at Xero to achieve unity between disparate tech stacks and to speed up the development process.</p>
+
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>2017, Nov 30-Dec 1</td>
+		<td><b><a href="https://www.dotcss.io">dotCSS</a></b> Paris, France</td> </tr>
+	<tr>
+		<td>2017, Oct 9-11</td>
+		<td><b><a href="http://2017.cssdevconf.com">CSS Dev Conf</a></b> New Orleans, LA</td> </tr>
+	<tr>
+		<td>2017, May 26-27 </td>
+		<td><b><a href="https://frontendunited.org">Frontend United</a></b> Athens, Greece</td> </tr>
+	<tr>
+		<td>2017, April 26–28</td>
+		<td><b><a href="http://squaresconference.com">Squares</a></b> Grapevine, Texas</td> </tr>
+	<tr>
+		<td> 2016, October 25–26</td>
+		<td><b><a href="http://smashingconf.com/barcelona-2016/">Smashing Conf</a></b> Barcelona, Spain</td> </tr>
+	<tr>
+		<td>2016, October 17-19</td>
+		<td><b><a href="http://2016.cssdevconf.com">CSS Dev Conf</a></b> San Antonio, Texas</td> </tr>
+	<tr>
+		<td> 2016, September 5</td>
+		<td><b><a href="http://www.generateconf.com/sydney-2016/">Generate</a></b> Sydney, Australia</td> </tr>
+	<tr>
+		<td> 2016, May 11</td>
+		<td><b><a href="http://cssconfbp.rocks">CSSConf Budapest</a></b> Budapest, Hungary</td> </tr>
+	</tbody>
+</table>
+<h3><em>Workshop:</em> Scalable and Modular Architecture for CSS</h3>
+<p>This workshop will shift how you think about writing CSS. It will simplify your code, making your project easier to manage, and allowing it to grow without creating an increasingly brittle system of dependencies. Your code will also be more portable, making it easier to use components in various contexts and in other projects.</p>
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+  <tbody>
+    <tr> <td> 2012, March 1</td><td>Ottawa, Canada</td> </tr>
+    <tr> <td> 2012, March 15</td><td>Essen, Germany </td> </tr>
+    <tr> <td> 2012, May 18</td><td>Atlanta, Georgia </td> </tr>
+    <tr> <td> 2012, June 1</td><td>Philadelphia, PA</td> </tr>
+    <tr> <td> 2012, June 14</td><td>Vancouver, BC </td> </tr>
+    <tr> <td> 2012, June 21</td><td>Portland, Oregon </td> </tr>
+    <tr> <td> 2012, September 6</td><td>dConstruct in Brighton, England</td> </tr>
+    <tr> <td> 2012, September 19</td><td>Smashing Conference in Freiburg, Germany</td> </tr>
+    <tr> <td> 2013, January 21</td><td>Online</td> </tr>
+    <tr> <td> 2013, January 22</td><td>Online</td> </tr>
+    <tr> <td> 2013, July 24</td><td>Breaking Development in San Diego, California</td> </tr>
+    <tr> <td> 2013, October 1</td><td>Smashing Workshops in Berlin, Germany</td> </tr>
+    <tr> <td> 2013, October 23</td><td>CSS Dev Conf in Estes Park, Colorado</td> </tr>
+    <tr> <td> 2014, February 10</td> <td>Webstock in Wellington, New Zealand</td> </tr>
+    <tr> <td> 2014, May 1</td> <td>ConvergeSE in Columba, SC</td> </tr>
+    <tr> <td> 2014, June 16</td> <td>Smashing Conference in New York, New York</td> </tr>
+    <tr> <td> 2014, October 13</td> <td>CSS Dev Conf in New Oreans, LA</td> </tr>
+    <tr> <td> 2015, May 20</td> <td>Frontend Design Conf in St. Petersburg, FL</td> </tr>
+    <tr> <td> 2015, June 10</td> <td>BDConf in Nashville, TN</td> </tr>
+    <tr> <td> 2015, October 21</td> <td>FrontPorch.io in Dallas, TX</td> </tr>
+    <tr> <td> 2015, October 28</td> <td>CSS Dev Conf in Long Beach, CA</td> </tr>
+    <tr> <td> 2016, October 19</td><td>CSS Dev Conf in San Antonio</td> </tr>
+    <tr> <td> 2016, October 27</td><td>Smashing Conf in Barcelona</td> </tr>
+    <tr> <td>2017, November 6</td> <td>Beyond Tellerrand in Berlin, Germany </td> </tr>
+	</tbody>
+</table>
+
+<h3>The Future is in Pieces</h3>
+<p> In the last few years, we've seen an emergence of a modular way of thinking about code and design. We've seen the rise of SMACSS, BEM, and Atomic Design. This talk will look at those modular concepts and how they can streamline development for large and long-running projects. We'll also look at how these approaches can ease responsive design and development. Lastly, we will look at where the modular approach is going in the future as Web Components slowly make their way into browsers and application frameworks. </p>
+
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+  <tbody>
+    <tr><td> 2015, Aug 28</td>
+        <td><b>Frontend Conference</b> Zurich, Switzerland</td> </tr>
+    <tr><td> 2015, Sep 16</td>
+        <td><b><a href="http://fitc.ca/event/webu15/">Web Unleashed</a></b> Toronto, Ontario</td> </tr>
+    <tr><td> 2015, Nov 3</td>
+        <td><b>FOWD</b> New York, New York</td> </tr>
+    <tr><td> 2015, Dec 5</td>
+        <td><b><a href="http://2015.cssday.io">CSSDay.io</a></b> Chandler, Arizona</td> </tr>
+</tbody>
+</table>
+
+<h3>Your CSS is a Mess</h3>
+<p>CSS is easy? CSS is messy! And as a project grows, it only gets messier. You find yourself throwing !important at everything or fighting with long selectors just to get a style to overrule another. This session looks at a few quick tips to help bring things under control.</p>
+
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+  <tbody>
+    <tr><td> 2013, April 8–11</td>
+        <td><b><a href="http://anglebrackets.org/">Anglebrackets</a></b> Las Vegas, Nevada</td> </tr>
+    <tr><td>2013, April 21–23</td>
+        <td><b><a href="http://fitc.ca/event/to13/">FITC</a></b> Toronto, Ontario</td> </tr>
+    <tr><td>2013, May 3</td>
+        <td><b><a href="http://rustbeltrefresh.com/">Rustbelt Refresh</a></b> Cleveland, Ohio</td> </tr>
+    <tr><td>2013, May 13–14</td>
+        <td><b><a href="https://atmosphere-conference.com/en/">Atmosphere</a></b> Krakow, Poland</td> </tr>
+    <tr><td>2013, May 20–23</td>
+        <td><b><a href="http://portland2013.drupal.org/">DrupalCon</a></b> Portland, Oregon</td> </tr>
+    <tr><td>2013, May 22–24</td>
+        <td><b><a href="http://www.webvisionsevent.com/portland/">WebVisions</a></b> Portland, Oregon</td> </tr>
+    <tr><td>2013, June 7</td>
+        <td><b><a href="http://gobeyondpixels.com/">Go Beyond Pixels</a></b> St. Johns's, Newfoundland</td> </tr>
+    <tr><td>2013, June 17</td>
+        <td><b><a href="http://www.meetup.com/HTML5-Denver-Users-Group/events/93212582/">HTML5 Denver Users Group</a></b> Denver, Colorado</td> </tr>
+    <tr><td>2013, September 24</td>
+        <td><b><a href="http://www.smartwebconf.com/">SmartWeb</a></b> Bucharest, Romania</td> </tr>
+    <tr><td>2013, September 27</td>
+        <td><b><a href="http://2013.shropgeek-revolution.co.uk/">Revolution</a></b> Shrewsbury, UK</td> </tr>
+    <tr><td>2013, October 21-23</td>
+        <td><b><a href="http://2013.cssdevconf.com/">CSS Dev Conf</a></b> Estes Park, Colorado</td> </tr>
+    <tr><td>2014, April 8–11</td>
+        <td><b><a href="http://beyondtellerrand.com/">Beyond Tellerrand</a></b> Düsseldorf, Germany</td> </tr>
+    <tr><td>2014, April 8–11</td>
+        <td><b><a href="http://softwaregr.org/blog/2015/03/19/software-gr-presents-jonathan-snook-css-is-a-mess">Software GR</a></b> Grand Rapids, MI</td> </tr>
+  </tbody>
+</table>
+
+<h3>Becoming a Deep Generalist</h3>
+<p>A jack of all trades and master of none. We’re told that we can either go deep on a particular topic or go general. After all, how can someone actually know everything about everything? However, with the right focus and plenty of time, we can become magical unicorns of design and development.</p>
+
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+  <tbody>
+    <tr><td>2013, November 9</td>
+        <td><b><a href="http://uxcampottawa.org/ottawas-own-jonathan-snook-joins-the-2013-lineup/">UXCamp</a></b> Ottawa, Canada</td> </tr>
+    <tr><td>2014, December 11</td>
+        <td><b><a href="http://smashingconf.com/whistler-2014/">Smashing Conf</a></b> Whistler, BC, Canada</td> </tr>
+    <tr><td>2015, May 21</td>
+        <td><b><a href="http://frontenddesignconference.com/2015/">Frontend Design Conf</a></b> St. Petersburg, FL</td> </tr>
+  </tbody>
+</table>
+<h3>How to Write a Book</h3>
+<p>For many people, as it was for me, writing a book is a feather in their cap. It’s a moment of pride to hold your work in your hands. How to Write a Book looks at the hurdles—technical and otherwise—in writing a tech book including how and why you might self-publish. By the end of the session, maybe you’ll be inspired to write your own book.</p>
+
+<table>
+	<thead>
+	<tr>
+		<th width="35%">Date</th>
+		<th>Location</th>
+	</tr>
+	</thead>
+  <tbody>
+    <tr><td>2013, June 17</td>
+        <td><b><a href="http://www.meetup.com/HTML5-Denver-Users-Group/events/93212582/">HTML5 Denver Users Group</a></b> Denver, Colorado</td> </tr>
+    <tr><td>2013, June 18</td>
+        <td><b><a href="http://www.idofnashville.com/">Interactive Developers of Nashville</a></b> Nashville, Tennessee</td> </tr>
+  </tbody>
+</table>
+
+
+<h3>And More</h3>
+<table>
+	<thead>
+	<tr>
+		<th width="25%">Date</th>
+		<th>Session</th>
+	</tr>
+	</thead>
+    <tbody>
+
+
+       <tr>
+			<td><p><b><a href="http://2015.cssdevconf.com/">CSS Dev Conf</a></b><br>
+				2015, October 26-28<br>
+				Long Beach, California</p></td>
+			<td><p><b>CSS Architecture</b> Between frameworks, preprocessors, and package managers, getting a web project off the ground seems to require a lot of tools. Have the days of opening up a single CSS file in a text editor disappeared? This session will look at workflows that can help us work quickly and easily to build a performant and scalable site.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://archive.generateconf.com/new-york-2015/">Generate Conf</a></b><br>
+				2015, April 17<br>
+				New York, NY</p></td>
+			<td><p><b>CSS Workflows from the Ground Up</b> Between frameworks, preprocessors, and package managers, getting a web project off the ground seems to require a lot of tools. Have the days of opening up a single CSS file in a text editor disappeared?
+This session will look at workflows that can help us work quickly and easily to build a performant and scalable site.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://environmentsforhumans.com/2015/css-summit/">CSS Summit</a></b><br>
+				2015, July 7-9<br>
+				Online</p></td>
+			<td><p><b>CSS Workflows from the Ground Up</b> Between frameworks, preprocessors, and package managers, getting a web project off the ground seems to require a lot of tools. Have the days of opening up a single CSS file in a text editor disappeared?
+This session will look at workflows that can help us work quickly and easily to build a performant and scalable site.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://2014.cssdevconf.com/">CSS Dev Conf</a></b><br>
+				2014, October 13-15<br>
+				New Orleans, LA</p></td>
+			<td><p><b>CSS Architecture</b> Between frameworks, preprocessors, and package managers, getting a web project off the ground seems to require a lot of tools. Have the days of opening up a single CSS file in a text editor disappeared? This session will look at workflows that can help us work quickly and easily to build a performant and scalable site.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="https://cssdevconf2013.sched.com/speaker/jonathansnook1">CSS Dev Conf</a></b><br>
+				2013, October 20-23<br>
+				Estes Park, Colorado</p></td>
+			<td><p><b>Getting your CSS Under Control</b> CSS is easy? CSS is messy. And as a project grows, it only gets messier. This session looks at a few quick tips to help bring things under control.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://webaquebec.org/">LE WEB À QUÉBEC</a></b><br>
+				2013, February 20–22<br>
+				Québec City, Québec</p></td>
+			<td><p><i>Conference Keynote:</i><br><b>CSS Grows Up</b> A look at how CSS development has evolved—much like JavaScript and server-side languages. From modular architecture to preprocessors and other considerations, we'll see how many teams are managing complex projects.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://diglondon.ca/">DIGlondon</a></b><br>
+				2012, November 14<br>
+				London, Ontario</p></td>
+			<td><p><i>Conference Keynote:</i><br> <b>Proliferation</b> The web development industry has gone from simple to complex in less than twenty years. Long gone are the days of being a webmaster uploading HTML files via FTP. From front-end to back-end, every facet is filled with a plethora of technologies and skills to understand. Newcomers are overwhelmed. Testing is daunting. Is there an easier way?</p>
+			</td>
+		</tr>
+    <tr>
+			<td><p><b><a href="http://2012.fromthefront.it/">From the Front: The Treasure of Frontend Island</a></b><br>
+				2012, September 21<br>
+				Italy, Bologna</p></td>
+			<td><p><b>State-based Design</b> State-based design is a facet of Scalable and Modular Architecture for CSS that examines how we write the CSS for our projects. We’ll look at what a state is and the various ways we can represent and change those states via CSS and JavaScript.</p>
+        <ul>
+        <li><a href="https://vimeo.com/55663887">Video</a></li>
+        </ul>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://smashingconf.com/">SmashingConf</a></b><br>
+				2012, September 17-18<br>
+				Germany, Freiburg</p></td>
+			<td><p><b>Your CSS is a Mess</b> CSS is easy? CSS is messy. And as a project grows, it only gets messier. This session looks at a few quick tips to help bring things under control.</p>
+        <ul><li><a href="http://vimeo.com/channels/smashingconf/61755493">Video</a></li></ul>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://www.creuna.se/nyheter/senaste-nytt/creuna-hostar-geek-meet/">Geek Meet</a></b><br>
+				2012, September 13<br>
+				Stockholm, Sweden</p></td>
+			<td><p><b>Your CSS is a Mess</b> CSS is easy? CSS is messy. And as a project grows, it only gets messier. This session looks at a few quick tips to help bring things under control.</p>
+			  <p><b>How to Write a Book</b> A look into why you might write a book and how you can do it, based on my experience on writing books with publishers and self-publishing.</p>
+        <ul><li><a href="http://geekmeet.creuna.se/">Video</a></li></ul>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://environmentsforhumans.com/2012/css-summit/">CSS Summit</a></b><br>
+				2012, July 31-August 2<br>
+				Online</p></td>
+			<td><p><b>Scalable and Modular Architecture for CSS</b> Find yourself throwing !important at everything? Or fighting with long selectors just to get a style to overrule another?
+As a project (and team) grows, we fight against the growing complexity of the CSS in our projects.
+This hour of power will bring you an exploration of the common pain points in CSS development and the techniques that can be used to avoid them.
+Your CSS will be leaner, meaner, and modular, allowing it to scale to new heights! </p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://openwebcamp.org/">Open Web Camp IV</a></b><br>
+				2012, July 14th<br>
+				California, San Jose</p></td>
+			<td><p><b>Getting your CSS Under Control</b> CSS is easy? CSS is messy. And as a project grows, it only gets messier. This session looks at a few quick tips to help bring things under control.</p>
+			</td>
+		</tr>
+       <tr>
+			<td><p><b><a href="http://convergese.com/">ConvergeSE</a></b><br>
+				2012, April 27-28<br>
+				Columbia, South Carolina</p></td>
+			<td><p><b>Your CSS is a Mess</b> CSS is easy? CSS is messy. And as a project grows, it only gets messier. This session looks at a few quick tips to help bring things under control.</p>
+			</td>
+		</tr>
+	<tr>
+       <tr>
+			<td><p><b><a href="http://a11yyow.ca/">a11yyow</a></b><br>
+				2011, December 2<br>
+				Ottawa, Ontario</p></td>
+			<td><p><b>Yahoo! Mail</b> A look into how keyboard access was handled on the latest version of Mail.</p>
+			</td>
+		</tr>
+	<tr>
+			<td><p><b><a href="http://www.startechconf.com/">StarTechConf</a></b><br>
+				2011, November 4-5<br>
+				Santiago, Chile</p></td>
+			<td><p><b>Fake it 'til you make it: creating mobile apps that feel like native apps</b></p>
+			</td>
+		</tr>
+
+        <tr>
+			<td><p><b><a href="http://max.adobe.com/">Adobe MAX</a></b><br>
+				2011, October 1-5<br>
+				Los Angeles, CA</p></td>
+				<td><p><b>CSS Takes on the World.</b> In the war chest of the web developer, there is Photoshop, HTML, JavaScript, and, of course, CSS. While CSS started off with a minor role, it is increasingly taking over. This session will review the latest and greatest; how we can apply it to projects right now; and what we can expect to have available to us in the future as CSS continues to take over the world!</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td><p><b><a href="http://sidebarworkshops.com/">Sidebar Workshops</a></b><br>
+				2011, August 16<br>
+				Los Angeles, CA</p></td>
+			<td><p><b>Web Design Master Class</b></p>
+                <p>Join us as we step through a sample project from design through to implementation, touching on HTML, CSS and JavaScript along the way.</p>
+			</td>
+		</tr>
+
+         <tr>
+            <td><p><b><a href="http://environmentsforhumans.com/2011/css-summit/">CSS Summit 2011</a></b><br>
+                2011, July 26-27<br>
+                Online!</p></td>
+            <td><p><b>CSS3 vs jQuery</b></p>
+<p>Maybe it started off innocently with the hover pseudo selector, but CSS has been slowly creeping onto JavaScript's turf.
+Now CSS has become much bigger now and is increasingly doing things that we used jQuery for.
+Jonathan Snook's session will take a look at what CSS3 has to offer and how it compares to using jQuery.
+</p>
+            </td>
+        </tr>
+
+
+       <tr>
+			<td><p><b><a href="http://www.mosoconf.com/">MoSo Conference</a></b><br>
+				2011, June 16-17<br>
+				Saskatoon, SK</p></td>
+			<td><p>Participated in group discussions on development within large organizations.</p>
+			</td>
+		</tr>
+
+       <tr>
+			<td><p><b><a href="http://sidebarworkshops.com/">Sidebar Workshops</a></b><br>
+				2011, June 14<br>
+				Philadelphia, PA</p></td>
+			<td><p><b>Web Design Master Class</b></p>
+                <p>Join us as we step through a sample project from design through to implementation, touching on HTML, CSS and JavaScript along the way.</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td><p><b><a href="http://interlinkconference.com/">Interlink Conference</a></b><br>
+				2011, June 2-4<br>
+				Vancouver, BC</p></td>
+			<td><p><b>CSS Takes on the World.</b> In the war chest of the web developer, there is Photoshop, HTML, JavaScript, and, of course, CSS. While CSS started off with a minor role, it is increasingly taking over. This session will review the latest and greatest; how we can apply it to projects right now; and what we can expect to have available to us in the future as CSS continues to take over the world!</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://www.breakingdc.com/">Breaking Development</a></b><br>
+				2011, April 11-12<br>
+				Dallas, Texas</p></td>
+			<td><p><b>Fake it 'til you make it: creating mobile apps that feel like native apps</b></p>
+			</td>
+        </tr>
+		<tr>
+			<td><p><b><a href="http://sidebarworkshops.com/">Sidebar Workshops</a></b><br>
+				2011, April 7<br>
+				Austin, Texas</p></td>
+			<td><p><b>Web Design Master Class</b></p>
+                <p>Join us as we step through a sample project from design through to implementation, touching on HTML, CSS and JavaScript along the way.</p>
+			</td>
+		</tr>
+        <tr>
+			<td><p><b><a href="http://www.letsgoexpo.com/event/index.cfm?EID=80000300">CSUN</a></b><br>
+				2011, March 14-19<br>
+				San Diego, California</p></td>
+			<td><p><b>Yahoo! Mail</b> A look into how keyboard access was handled on the latest version of Mail.</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td><p><b><a href="http://www.awdg.org/">Atlanta Web Design Group</a></b><br>
+				2010, November 18<br>
+				Atlanta, Georgia</p></td>
+			<td><p><b>CSS3.</b> Browsers have been making leaps and bounds to support CSS3 but what does that mean exactly? CSS3 is a deep and still-evolving standard that is made of multiple parts. We'll take a look at what those parts are, what browsers currently support, and what we can expect in the future.</p>
+			    <ul>
+    				<li><a href="http://snook.ca/presentations/view/css3">Slides</a></li>
+    			</ul>
+			    <p><b>jQuery vs CSS.</b> Maybe it started off innocently with the hover pseudo selector, but CSS has been slowly creeping onto JavaScript's turf.</p>
+                <p>Now CSS has become much bigger now and is increasingly doing things that we used jQuery for. This session will take a look at what CSS has to offer and how it compares to using jQuery.</p>
+			    <ul>
+    				<li><a href="http://snook.ca/presentations/view/css-v-jquery">Slides</a></li>
+    			</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://jquerysummit.com/">jQuery Summit</a></b><br>
+				2010, November 16<br>
+				The Internet</p></td>
+			<td><p><b>jQuery vs CSS.</b> Maybe it started off innocently with the hover pseudo selector, but CSS has been slowly creeping onto JavaScript's turf.</p>
+                <p>Now CSS has become much bigger now and is increasingly doing things that we used jQuery for. This session will take a look at what CSS has to offer and how it compares to using jQuery.</p>
+                <ul>
+    				<li><a href="http://snook.ca/presentations/view/css-v-jquery">Slides</a></li>
+    			</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://futureofwebdesign.com/new-york-2010/">Future of Web Design</a></b><br>
+				2010, November 15-16<br>
+				New York City, USA</p></td>
+			<td><p><b>The Future of Cross-Platform Front-end Development.</b>
+				Remember when building a site meant only having to worry about Internet Explorer? Now we have multiple browsers, desktop application platforms, and the mobile web to build for. We'll take a look at how we can approach large-scale development to ease the burden of supporting multiple components across multiple platforms while still providing an optimized experience for our users.</p>
+			</td>
+		</tr>
+	    <tr>
+			<td width="25%"><p><b><a href="http://oredev.org/2010">Øredev</a></b><br>
+				2010, November 8-12<br>
+				Malmö, Sweden</p></td>
+			<td><p><b>The Type We Want.</b> Recently, custom type on the web has gone from a slow evolution to a rapid succession of new technologies, and new services. This session will cover the history of embedding fonts, diving into the options available to us today and finally taking a look at the hurdles still ahead.</p>
+				<p><b>CSS3.</b> Browsers have been making leaps and bounds to support CSS3 but what does that mean exactly? CSS3 is a deep and still-evolving standard that is made of multiple parts. We'll take a look at what those parts are, what browsers currently support, and what we can expect in the future.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://refreshrochester.org/">Refresh Rochester</a></b><br>
+				2010, November 5<br>
+				Rochester, New York</p></td>
+			<td><p><b>CSS3.</b> Browsers have been making leaps and bounds to support CSS3 but what does that mean exactly? CSS3 is a deep and still-evolving standard that is made of multiple parts. We'll take a look at what those parts are, what browsers currently support, and what we can expect in the future.</p>
+			    <ul>
+    				<li><a href="http://snook.ca/presentations/view/css3">Slides</a></li>
+    			</ul>
+			</td>
+		</tr>
+	    <tr>
+			<td width="25%"><p><b><a href="http://tech4africa.com/">Tech4Africa</a></b><br>
+				2010, August 12-13<br>
+				Johannesburg, South Africa</p></td>
+			<td><p><b>Rocking iPhone and Android development.</b> Smartphones are here to stay, and with them come many opportunities for creating engaging applications that are both profitable and useful. Learn how to get started, and discover tips, tools and tricks to stay ahead of the curve.</p>
+				<p><b>Workshop: A Masterclass in Architecting applications and Advanced Javascript.</b> Learn best practice for developing applications that enable you to work fast and agile, whilst being robust and secure; and learn advanced features of the JavaScript language to create complex applications. (Split day with John Resig.)</p>
+				<ul>
+    				<li><a href="http://www.slideshare.net/jonathansnook/mobile-web-development">Slideshare</a></li>
+    				<li><a href="http://www.zoopy.com/video/4wdm/an-interview-with-yahoo-s-jonathan-snook-at-tech4africa-2010?rv">Interview with Zoopy.tv</a></li>
+    			</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><p><b>TeamCamp</b><br>
+				2010, July 15<br>
+				Ottawa, Canada</p></td>
+			<td><p><b>HTML5 and CSS3.</b> Held an informal session to cover many of the interesting things that browsers are implementing. </p></td>
+		</tr>
+		<tr>
+			<td><p><b>MIX10</b><br>
+				2010, March 15-16<br>
+				Las Vegas, USA</p></td>
+			<td><p><b>The Type We Want.</b> After a slow evolution, the landscape for custom type on the web has been changing quickly. This session will cover the history of embedding fonts, diving into the options available to us today and finally taking a look at the hurdles before us.</p>
+			<ul>
+				<li><a href="http://live.visitmix.com/MIX10/Sessions/DS15">MIX10 Video</a></li>
+				<li><a href="http://www.slideshare.net/jonathansnook/the-type-we-want-mix10">Slideshare</a></li>
+			</ul></td>
+		</tr>
+		<tr>
+			<td><p><b>uOttawa</b><br>
+				2010, January</p></td>
+			<td><p><b>A Presentation on Presentations</b></p>
+				<ul>
+					<li><a href="http://www.slideshare.net/jonathansnook/presentation-on-presentations-2951409">Slideshare</a></li>
+				</ul></td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://aneventapart.com/2009/sanfrancisco/">An Event Apart: San Francisco</a></b><br>
+				2009, December</p></td>
+			<td><p><b>Integrating JavaScript Effectively.</b> Whether we're seeking to create an effective dynamic UI, or to satisfy clients in search of the latest whiz-bang effect, JavaScript and the multitude of ready-made libraries and plug-ins have become the preferred tools of choice. We’ll look at common interface problems and solutions and examine how to structure our HTML and CSS to implement JavaScript into our projects effectively.</p></td>
+		</tr>
+		<tr>
+			<td><p><b>jQuery Summit</b><br>
+				2009, November</p></td>
+			<td><p><b>RIAs: Building for the Desktop with the Web.</b> This session will take a look at two prominent desktop platforms, AIR and Titanium, and examine some of the pros and cons of developing with that environment. We'll also take a look at ways to speed up development using rich components like jQuery UI and take advantage of the features of HTML5 and CSS3 that can be used right away.</p>
+				<ul>
+					<li><a href="http://www.slideshare.net/jonathansnook/rias">Slideshare</a></li>
+				</ul>
+				</td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://fronteers.nl/congres/2009">Fronteers</a></b><br>
+				2009, November</p></td>
+			<td>	<p><b>The Type We Want.</b> Using your choice of fonts on the web is coming of age. Historically, we've had to make do with a small, safe list of font choices or use images to get more imaginative. From there, we've seen the rise of Flash-based and canvas-based font embedding. CSS3 holds new promise and browsers are implementing the features we need to accomplish easier font embedding on the web. There's still plenty of obstacles and confusion and this session will shed some light on the dark art of font embedding on the web.</p>
+					<ul>
+						<li><a href="http://fronteers.nl/congres/2009/sessions/the-type-we-want-using-fonts-on-the-web">Video</a></li>
+						<li><a href="http://www.slideshare.net/jonathansnook/the-type-we-want-2438381">Slideshare</a></li>
+					</ul>
+					
+				
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>OFPUG (Ottawa Flash Platform User Group)</b><br>
+				2009, July</p></td>
+			<td><p><b>HTML in a Flash World.</b> Taking a look at developing with HTML and JavaScript within the Flash environment of Adobe AIR.</p>
+				<ul>
+					<li><a href="http://snook.ca/archives/adobe_air/html-flash-air">Recap including links and slides</a></li>
+				</ul>
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>Adobe MAX</b><br>
+				2008, November</p></td>
+			<td><p><b>Building Adobe AIR Applications with Dreamweaver CS4.</b> Join me as I shows you how to use existing web and Ajax development skills to build AIR applications using Adobe Dreamweaver CS4 and the Adobe AIR Extension for Dreamweaver.</p>
+				<ul>
+					<li><a href="http://tv.adobe.com/watch/max-2008-design/building-adobe-air-applications-with-dreamweaver-cs4/">Audio and Slides</a></li>
+				</ul>
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>jQuery Camp</b><br>
+				2008, September</p></td>
+			<td><p>Case Study: Snitter</p></td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://www.vivabit.com/atmedia2008/london/">@Media</a></b><br>
+				2008, July</p></td>
+			<td><p><b>Building on the Shoulders of Giants.</b>	Even in the early days, developers had libraries of code that they could bring into their project. Today, this level of sharing has proliferated to every level of development from frameworks, to APIs, from client-side to server-side. Companies such as Google, Yahoo, AOL are opening up their data.
+
+				This session will examine the pros and cons to building on top of these giants, delve into the tools that are available, and look at how quickly applications can be deployed.</p>
+				<ul>
+					<li><a href="http://www.slideshare.net/jonathansnook/building-on-the-shoulders">Slideshare</a></li>
+				</ul>
+						
+						
+				
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>nurun</b><br>
+				2008, March</p></td>
+			<td><p>Adobe AIR for Developers/Managers</p></td>
+		</tr>
+		<tr>
+			<td><p><b><a href="http://www.webdirections.org/events/#north08">Web Directions North</a></b><br>
+				2008, February</p></td>
+			<td>	<p><b>Working with Ajax Frameworks.</b> 	It seems like there’s a new Ajax library or JavaScript frame­work com­ing out every week, and there prob­a­bly is! Which is the best one to pick? Will you be up the creek with­out a pad­dle if you choose the wrong one?
+
+				“Working with Ajax Frameworks” will delve into some com­mon Ajax design pat­terns and how var­i­ous frame­works can be used to meet those needs. We’ll also take a look at how we can keep our own code flex­i­ble as we bridge the gap between it and the var­i­ous frameworks.</p>
+					<ul>
+						<li><a href="http://www.webdirections.org/resources/wdn08-jonathan-snook/">Audio</a></li>
+						<li><a href="http://www.slideshare.net/jonathansnook/working-with-ajax-frameworks">Slideshare</a></li>
+					</ul>
+			
+				
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>Webmaster Jam Session</b>
+				<br>2007, October</p></td>
+			<td><p>Pile it on with CSS</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Future of Web Design</b><br>
+				2007, September<p></td>
+			<td><p><b>Ajax and Design.</b> It's time to add some polish to AJAX, a part of the web that has become so popular that everybody wants to get their hands on a piece of its sleek nature. This is a session that focuses on using AJAX effectively in your designs, adding more meaning to the term than just the superfluous effects it's known for. </p>
+				<ul>
+					<li><a href="http://cdevroe.com/fowd/">Video, Audio and Slides</a></li>
+				</ul>
+				</td>
+		</tr>
+		<tr>
+			<td><p><b>SXSW</b><br>
+				2007, March</p></td>
+			<td><p><b>The Holy Trinity of Web Design.</b> A panel with Sally Carson, Dustin Diaz, myself and moderated by Cameron Adams. We talked about working within web development teams and having to be able to bridge that gap with sales/managers and the clients.</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Webvisions</b><br>
+				2006, July</p></td>
+			<td><p>Rapid DOM Scripting</p></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<p>Checks if the given value is equal to negative zero (<code>-0</code>).</p>
+<ul>
+<li>Check whether a passed value is equal to <code>0</code> and if <code>1</code> divided by the value equals <code>-Infinity</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isNegativeZero <span class="op">=</span> val <span class="kw">=&gt;</span> val <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="dv">1</span> / val <span class="op">===</span> <span class="op">-</span><span class="kw">Infinity</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isNegativeZero</span>(<span class="op">-</span><span class="dv">0</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isNegativeZero</span>(<span class="dv">0</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

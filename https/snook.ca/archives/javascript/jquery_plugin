@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Developing a jQuery Plugin - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/jquery_plugin">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/jquery_plugin">
+	<meta property="og:title" content="Developing a jQuery Plugin">
+	<meta property="og:description" name="description" content="Sometimes we get it in our heads that a task is too complex that we just ignore doing it. That's been my mindset when thinking about developing a plugin for jQuery. I've always thought that some of th...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Developing a jQuery Plugin</h1>
+		<p>Sometimes we get it in our heads that a task is too complex that we just ignore doing it. That's been my mindset when thinking about developing a plugin for jQuery. I've always thought that some of the code I developed would make more sense as a plugin but I just didn't have time to figure it out. </p>
+<p>After finally pushing myself into learning about jQuery plugins, I was left saying, &quot;That's it?!&quot; It turns out it's ridiculously easy and I have no idea why I haven't been doing this from day one.</p>
+<h2>Why a plugin? </h2>
+<p>First of all, you might ask yourself why you'd want to develop a plugin. The first and best reason is the ability to maintain chainability. When people ask me the best feature of jQuery, I'd probably mention the chainability. It allows you do do things like:</p>
+<pre><code>$('.className').addClass('enabled').append('&lt;a href=&quot;#&quot;&gt;Click here&lt;/a&gt;').click( func );</code></pre>
+<p>This would take every element with a class name of 'className', add a new class name to it, append some HTML, and set a click event handler. When you develop a plugin, you have the ability to intject your own functionality while still maintaining the chain. </p>
+<p>Another reason to develop a jQuery plugin is simply to be consistent with the jQuery ethos. The jQuery ethos, in my opinion, is that the HTML element is king (or queen &mdash; lest I be mysoginistic about my HTML elements). It's all about getting elements and then performing actions on those elements. </p>
+<p>Now, let's take a look at how to create a plugin, of which there are two possible approaches. </p>
+<h2>Approach 1: The Function </h2>
+<p>The <a href="http://docs.jquery.com/Plugins/Authoring">documentation has a good example</a> of the functional approach. </p>
+<pre><code>jQuery.log = function(message) {
+  if(window.console) {
+     console.debug(message);
+  } else {
+     alert(message);
+  }
+};</code></pre>
+<p>In this example, a log function has been attached to the jQuery object. You can then call this in your code using <code>jQuery.log('my message')</code> or <code>$.log('my message')</code>. There's no chainability or HTML elements involved (unless you add that into your code). </p>
+<h2>Approach 2: The Method </h2>
+<p>The method approach, gives you access to the current set of HTML elements and allows you to continue the chain. (<a href="http://youtube.com/watch?v=YARxccf0Uno">Cue up the Pretenders</a>, if you must.) Once again, the code is really simple... add the new function to <code>jQuery.fn</code> and make sure to return <code>this</code>. </p>
+<pre><code>jQuery.fn.newMethod = function(){
+    return this;
+}</code>;</pre>
+<p>The <code>this</code> keyword refers to the current jQuery object. You'll have access to jQuery's methods and functions. If you need to perform an action on each element then you can do something like this:</p>
+<pre><code>jQuery.fn.newMethod = function(){
+    return this.each(function(){
+        alert(this);
+    });
+}</code>;</pre>
+<p>The <code>this</code> keyword within the inner function refers to the current HTML element, which won't have access to the jQuery methods (although, it's as easy as wrapping it in the jQuery object to get those methods back).</p>
+<h2>Don't use $  </h2>
+<p>When developing a plugin, you'll want to avoid using the familiar dollar function, $, to avoid any conflicts. jQuery has a no-conflict mode for turning the alias on and off. If you want, you can alias the jQuery function within your plugin. It'll be self-contained and avoid any outside conflicts. </p>
+<h2>Jump in</h2>
+<p>Check out the <a href="http://docs.jquery.com/Plugins/Authoring">jQuery documentation on plugins</a> for more information. Sometimes the most difficult part is just taking the first step! </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 24, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/869</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">12 Comments &middot; <a href="/archives/javascript/jquery_plugin.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57323">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57323">1</a></div>
+			<span class="authorname">Remy Sharp</span> said on January 24, 2008		</div>
+		<div class="quote"><p>If you do want to use $ in your plugin, the best was is as such:</p>
+<pre><code>(function ($) {
+  $.fn.newMethod = function () {
+    return this.each(function () {
+      alert(this);
+    });
+  };
+})(jQuery);</code></pre>
+</div>
+	</div>
+		<div class="comment snook" id="c57324">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57324">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 24, 2008		</div>
+		<div class="quote"><p>@Remy Sharp: thanks for demonstrating the aliasing. I should have included that snippet in the main article.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57328">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57328">3</a></div>
+			<span class="authorname"><a href="http://marcgrabanski.com">Marc Grabanski</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>@Remy Sharp: You beat me to it. I always use $, but I wrap it with the method you described.</p>
+<p>John, thanks for the quick low-down.  I started posted a comment and then it turned into a full article.  I just wanted to explain the two types of plugins:<br />
+<a href="//marcgrabanski.com/article/103/jQuery-Plugin-Actions-vs-Utilities">jQuery Plugin Actions vs Utilities</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57332">4</a></div>
+			<span class="authorname">Brian Layman</span> said on January 24, 2008		</div>
+		<div class="quote"><p>Excellent Jonathan!  Thanks for this post!</p>
+</div>
+	</div>
+		<div class="comment" id="c57334">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57334">5</a></div>
+			<span class="authorname"><a href="http://www.scarfoo.com">Damjan MozetiÄ</a></span> said on January 24, 2008		</div>
+		<div class="quote"><p>I never thought this could be so simple and I'd probably never take the time to look into it myself :) Thanks for the tip!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57338">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57338">6</a></div>
+			<span class="authorname">Liu Leren</span> said on January 25, 2008		</div>
+		<div class="quote"><p>I am getting better and better with jquery (and that is not just because of me :) thanx!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57341">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57341">7</a></div>
+			<span class="authorname"><a href="http://erraticwisdom.com/">Thame</a></span> said on January 26, 2008		</div>
+		<div class="quote"><p>For times when you need something in between a basic method and a full-fledged plugin, it can be handy to extend jQuery directly.</p>
+<p>For example:</p>
+<pre><code>
+jQuery.fn.extend({
+	sample : function() {
+		// do something and keep chaining
+		return this;
+	},
+});
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c57343">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57343">8</a></div>
+			<span class="authorname">Christopher Hill</span> said on January 27, 2008		</div>
+		<div class="quote"><p>Nice article. Generally speaking, there always seems to be a plugin of what I want to do, so I haven't had the need to jump into developing a plugin.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57354">9</a></div>
+			<span class="authorname">Ariel Flesler</span> said on January 29, 2008		</div>
+		<div class="quote"><p>Good article, Mike Alsup made an excellent article on jquery plugins some time ago. http://www.learningjquery.com/2007/10/a-plugin-development-pattern</p>
+<p>About "Approach 1"... I usually use the static name for a function that internally calls the method with some specific values. Sometimes the other way around too. That's the case of ScrollTo, LocalScroll and Preload.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59693">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59693">10</a></div>
+			<span class="authorname">Blake</span> said on October 01, 2008		</div>
+		<div class="quote"><p>Very good and clear article. Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60789">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60789">11</a></div>
+			<span class="authorname">Luis</span> said on December 30, 2008		</div>
+		<div class="quote"><p>great article, thx! I'm going to give it a try!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65674">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65674">12</a></div>
+			<span class="authorname">sepide</span> said on February 05, 2011		</div>
+		<div class="quote"><p>hi<br />
+thank you for your article,<br />
+please help me,i have added class to website and have written some public static method in class.<br />
+now i want to call them with jquery,without webservice,<br />
+is there any solution for this work?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

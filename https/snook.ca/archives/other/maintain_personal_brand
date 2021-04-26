@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Maintaining your Personal Brand Online - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/maintain_personal_brand">
+	<meta property="og:url" content="https://snook.ca/archives/other/maintain_personal_brand">
+	<meta property="og:title" content="Maintaining your Personal Brand Online">
+	<meta property="og:description" name="description" content="This seems like a really subtle thing but it's something that I've tried to do and that is establish a personal brand and maintain it throughout all of my online activities.
+Maintaining a personal br...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Maintaining your Personal Brand Online</h1>
+		<p>This seems like a really subtle thing but it's something that I've tried to do and that is establish a personal brand and maintain it throughout all of my online activities.</p>
+<p>Maintaining a personal brand using your own name or alias can actually be easier than maintaining a corporate brand, especially when it comes to social networks or blog comments. Using a company name within blog comments or setting up Facebook groups for a company often has that &quot;spammy&quot; feel to it. You look like your trolling for links instead of being an unbiased contributor to the conversation. </p>
+<p>I've been lucky in that my last name, Snook, is relatively unique and memorable. Ironically, as a teenager and with my desire to fit in with the crowd, I didn't want that uniqueness. I even thought changing my last name might be an option. Luckily, I didn't make that mistake and have finally in recent times come to embrace the name. I've been slowly expanding on that to the point where people just call me &quot;Snook&quot; (or Snookums, affectionately). And that's a good place to be.</p>
+<p>Here's a quick list of things you can do to help maintain your personal brand online:</p>
+<h2>Use your real name, especially if unique</h2>
+<p>Because it's your personal brand, it should be personal and there's very little that's more personal than your real name. When you meet people in person, you normally tell them your name. When you give people a business card, you normally have your name on it. When people do a search for your name, you want them to be able to find your name. Using a pseudonym can make it more difficult to be found. </p>
+<p>If privacy is a concern, and I understand that it can be, especially for women, then I certainly I understand using a pseudonym. Be sure to be consistent and be professional &mdash; whether that's on your site, your business cards, or any forums you may participate on.</p>
+<h2>Create a logo or wordmark and stick with it</h2>
+<p>Since I've gone freelance over two years ago, I've been using the same logo. It's recognizable and readily associated with me and what I do. It doesn't have to be a fancy logo. It could even just be your name with a nice font face. It should have some character and over time, it will be part of your brand. </p>
+<p>You may be tempted to change the logo with every redesign but I recommend that you be consistent. Changing up your brand can confuse people and make it harder for people to remember who you are.</p>
+<h2>Use the same avatar everywhere</h2>
+<p>Admittedly, I tend to fall down when it comes to my avatar. I use a photo for IM, Twitter and Skype but use my site logo on forums and blog posts (via <a href="http://www.gravatar.com/">Gravatar</a>). Using a consistent avatar makes it easier for others to identify who you are. </p>
+<p>A possible compromise between using an image and a logo is to combine the two into a single image. For example, you could use your photo but have your logo in a corner. The real estate of an avatar is usually quite limited so your mileage may vary.</p>
+<h2>If you have an established brand, stick with it</h2>
+<p>I don't necessarily mean that you can never redesign your site but there are usually elements of a design that people remember or identify with your brand. Take my site, for example, and the colour green would probably be one of the key things you might remember. </p>
+<p>If you remember the fixed comments I had, they too were a part of my brand. It was a tough decision to remove the fixed comments from the site because it was part of what people remembered when using the site.</p>
+<h2>Use an image for your RSS feed</h2>
+<p>Although the impact that <a href="https://snook.ca/archives/rss/add_logo_to_feed/">an RSS image</a> has is minimal, it's seen in enough places to make it another point to enforce your brand. </p>
+<h2>Use a favicon</h2>
+<p>Using <a href="https://snook.ca/archives/design/making_a_good_favicon/">a favicon</a> for your site is, in my opinion, a must. Not only does it improve usability making it easier to identify your site in a sea of tabs, it's easier to identify in bookmarks, and people often use them in blogrolls.</p>
+<h2>Social Networks</h2>
+<p>When it comes to social networking sites like Facebook, MySpace, or LinkedIn, I don't have any hard rules. Many of the previously mentioned ideas can apply just as well to social networks like using your name, and using a logo or photo for your profile image. </p>
+<p>Some people even go as far as signing up for every new service before it gets popular just to lock up a particular user name. I haven't gone to that degree and have even disabled my account on various services simply from lack of use.</p>
+<p>The important part is that if you use the service, be consistent and be professional. For every service that I use I think about the clients and family who might be reading it. Be careful to only share what you'd feel comfortable sharing in person.</p>
+<h2>Why maintain a personal brand?</h2>
+<p>For many people employed within a larger organization may wonder if these steps are important. For me, it is important to maintain my own sense of self outside of any organization that I work with. Our society is very transient and the idea of working for a single company for more than five years is foreign to many of my generation (and younger). When working for a company, you still raise the awareness of the company as a whole. You become a conduit for increased awareness of the company you work for. That makes you a stronger asset to the company while also maintaining your own individualism. I've certainly gained a greater respect and understanding for a company when I know the people that work for that company.</p>
+<p>Maintaining a personal brand isn't complicated. In the end, it's about consistency. Be consistent in how you present yourself and it'll pay off in spades.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published March 17, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/881</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">35 Comments &middot; <a href="/archives/other/maintain_personal_brand.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57583">1</a></div>
+			<span class="authorname"><a href="http://mkeefedesign.com">Matthew Keefe</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>Excellent points. This is the main reason I use my full name on some sites (this one) and "mkeefe" on pretty much any username based forum, blog, site or service. Not to spam, in fact its not linked, but I even secured mkeefe(dot)com way back in the beginning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57585">2</a></div>
+			<span class="authorname">PersoNatalie</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Great stuff, Snookie! And what a fabulous brand you have. If I ever go back to web design full time, I may just take my branding a little more seriously. Although, if fixed comments were your brand, maybe part of my brand is my inability to stick with one design for too long. :)</p>
+<p>Thanks for the tip on adding a logo to a feed too, I missed that post, I think.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57586">3</a></div>
+			<span class="authorname">Sebastien B.</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Good points. Even though I read your articles through my RSS reader (which doesn't seem to show your RSS image), I indeed remember the color green when I "think" about your name brand. Stick to it, this is working :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57588">4</a></div>
+			<span class="authorname"><a href="http://cheeaun.phoenity.com/weblog/">Lim Chee Aun</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>Alright. Use your real name, even if it's hard to be pronounced or memorized? :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57589">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57589">5</a></div>
+			<span class="authorname">Alex Jones</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Great post, though sadly for some of us, the whole "unique name" part is a bit out of reach; not only am I a Jones (proudly), but there are at least three guys names Alex Jones in Austin. Oh, and one of them is a syndicated conspiracy theorist. Yay.</p>
+<p>So I use my real name on comments like this one, but try to use BaldTechnologist for most services, as it's unique. But after migrating a bunch of accounts to that handle, I hit a couple of sites that allow less than 16 characters, hence, I am BaldMan in some spots. Annoying, but there it is. I try to keep my avatars aligned across the board to mitigate the issue and improve association and recognition. </p>
+<p>I'm about to redesign my personal site, making use of a new logo (my first personal logo), and now I'm wondering how I can (re)unite these various personal brands. Again, great article, you got my brain gears turning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57591">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57591">6</a></div>
+			<span class="authorname"><a href="http://cgi.sfu.ca/~kumar">Andrew Kumar</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>What if I have split / multiple personalities? Then what do you suggest? =D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57592">7</a></div>
+			<span class="authorname">Josh Bryant</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Who is this "Jonathan Snook" guy?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57593">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57593">8</a></div>
+			<span class="authorname">David Mead</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Great points.  I found myself using DMWebsites when I was freelancing but I'm trying to use David Mead (similar situation to Alex's where there is a singer by the same name) a lot more now.</p>
+<p>I've found good traction getting an OpenID and using sites such as ClaimID to pull all the places that are mine together, whichever name I used to sign up for.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57594">9</a></div>
+			<span class="authorname">Rob Wilkerson</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Very topical.  Over the last few months, I've been working to migrate my online presence (comments, site, email addresses, etc.) to my real name.  Sadly, my name's not as unique as yours, but I think it'll serve the need over time.</p>
+<p>Appreciate the insight.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57595">10</a></div>
+			<span class="authorname">Vero Pepperrell</span> said on March 17, 2008		</div>
+		<div class="quote"><p>One reason to be careful using your name as brand is when you've got a bloody impossible-to-spell name like mine. ;)</p>
+<p>Also, great meeting you at SXSW!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57596">11</a></div>
+			<span class="authorname"><a href="http://www.bogglethemind.com/">Jeff L</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>Nice article Snook - I really enjoyed talking w/ you at SxSW about this stuff.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57597">12</a></div>
+			<span class="authorname"><a href="http://andrewdupont.net">Andrew Dupont</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>Jon, this is all great advice. I must admit, though, that I recoiled upon first considering the idea of "personal brand." For a moment I thought I'd wandered into an airport bookstore.</p>
+<p>Brand is important, I'll admit, but I think my subconscious has lumped this post in with a disturbing cultural trend: framing humanity (in all its beauty) within the vitality-sapping confines of a particular lexicon. (For example: Chris Matthews's recent book entitled <cite>Life's a Campaign</cite>. No, you cackling albino â€”Â life is <em>life</em>. Campaigns are <em>campaigns</em>.)</p>
+<p>I'm not critiquing your writing; I'm critiquing my own reading. But in case there are other people like me whose eyes glaze over when they hear words used in marketing: "personal brand" means being memorable. Having a hook. Keeping the lines of communication open.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57598">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57598">13</a></div>
+			<span class="authorname"><a href="http://andrewdupont.net">Andrew Dupont</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>As a warning to future commenters: Jon's comment system escapes the CITE tag. Why do you hate semantic markup, Jon? Why do you hate <em>freedom</em>?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57599">14</a></div>
+			<span class="authorname">ia</span> said on March 17, 2008		</div>
+		<div class="quote"><p>I found a great idea for a personal logo several years ago, but I don't think it's "me" (that, or it just isn't a good idea for a logo). And consistency is really important, whether it's images or online handles. Unfortunately that's tough to achieve especially if you don't want to waste time coming up with a <a href="//stellify.net/really-long-names-short-nicknames-and-the-consequences-of-your-online-identities/">really unique username</a>. :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57600">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57600">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Regarding generic names: Generic names can often be made more unique by including initials or other slight variation. Ultimately, you just need to be better at getting your generic name out there than anybody else. Blogging is a great part of that.</p>
+<p>Lim Chee Aun: Absolutely! Even if people get it wrong some of the time, I suspect it's more memorable.</p>
+<p>Vero Pepperrell: the trick to your name is the double letters. "Double the consonants for double the fun." There, I just came up with your new tagline. ;) (a pleasure meeting you at SXSW, too!)</p>
+<p>Andrew Dupont: the CITE tag has been added to the acceptable HTML list. And yes, I hate semantic markup, you commie. </p>
+<p>I understand the hesitation to use a term like "personal branding" and I definitely don't think it needs to be an overly overt thing. It just needs to be something that someone thinks of just a little bit when they live and work in an online world.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57601">16</a></div>
+			<span class="authorname"><a href="http://www.brendanfalkowski.com">Brendan Falkowski</a></span> said on March 17, 2008		</div>
+		<div class="quote"><p>Solving the "difficult to spell last name" problem, you could take the method of Paul Stamatiou of paulstamatiou.com. Simply use the extended version as your primary domain and redirect the curtailed version <a href="//pstam.com">pstam.com</a> to it. Saves some typing and it's easy to remember.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57602">17</a></div>
+			<span class="authorname">Digidave</span> said on March 17, 2008		</div>
+		<div class="quote"><p>Curious what you think of my "personal branding." "Digidave." </p>
+<p>My real name "David Cohn" is not that unique. In fact, I feel like I meet other David Cohn's on a regular basis. The name "Digidave" suited me for a long time - as I was trying to mark myself as a web-native journalist, but I wonder now, as I get older, if I've cornered myself into a branding that sounds too young? </p>
+<p>When I was 22 I thought Digidave was great personal branding, but it's a bit like a Tattoo now, huh? I feel I'm stuck with it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57603">18</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on March 18, 2008		</div>
+		<div class="quote"><p>These are all very good points Jon! I too, am blessed with a rather unique name. Even if it gets misspelled quite often (Killian, Kylian, Kyllian). But I'll be damned before I register those domain names as well!</p>
+<p>For everyone that doesn't like "branding", just think of it as your percieved (online) identity :)</p>
+<p>A question to you, Jon. How well thought out is your identity? Did you make it all at the beginning for it to stay 'forever' or did you just create stuff along the line and decide to stick with it? How has that fared for you?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57604">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57604">19</a></div>
+			<span class="authorname">justin</span> said on March 18, 2008		</div>
+		<div class="quote"><p>Thanks - good article. </p>
+<p>Everyone has to self-brand these days but not many people actually bring it up in conversation, it's just taken for granted. </p>
+<p>Personally I wanted to use my name as my brand, but with the surname 'boere' it doesn't really work :) as no-one English can say it or spell it!</p>
+</div>
+	</div>
+		<div class="comment" id="c57605">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57605">20</a></div>
+			<span class="authorname"><a href="http://antonpeck.com">Anton</a></span> said on March 18, 2008		</div>
+		<div class="quote"><p>Sometimes (just sometimes), being different can help you stand out more than anything else.  Be unique.  Be yourself. Be unexpected and take people off-guard.</p>
+<p>Step to the left and a look to the right, you'll catch the mirror way out west!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57606">21</a></div>
+			<span class="authorname">Tanny O'Haley</span> said on March 18, 2008		</div>
+		<div class="quote"><p>I also didn't like my name in school, but as an adult it is unique for a man and gives me an entrance to a conversation. Do you have any good references or people you trust to create a logo?</p>
+</div>
+	</div>
+		<div class="comment snook" id="c57608">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57608">22</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 18, 2008		</div>
+		<div class="quote"><p>@Kilian: it hasn't been planned out until the end of time. Often, you'll never know what sticks in the minds of people until you play with a few different things. I never would have guessed the fixed comments would be part of the brand but it was different and stood out. Same with the green. Sometimes you fall into it by chance but when it works, I think it's good to continue with it. Things like the logo were more thought out and intended to be long term.</p>
+<p>@Tanny: check out Logo Pond and see if any of the designers there are willing to take on another project.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57609">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57609">23</a></div>
+			<span class="authorname"><a href="http://germworks.net/blog">Jermayn</a></span> said on March 18, 2008		</div>
+		<div class="quote"><p>Agree with the points and defiantly the point about using your name if its different. I know as a kid I was fairly known because of my name 'Jermayn' while its a black name im white and I lived in a predominantly white area. However I did not like "Jeerr, err jeramiah" at first day of school...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57622">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57622">24</a></div>
+			<span class="authorname">Eric Gelinas</span> said on March 19, 2008		</div>
+		<div class="quote"><p>I am working on building my brand http://standardpixel.com</p>
+<p>Though it is going well, it has not been easy. I scrutinize every change I make so closely that it almost seems like another job. Mostly this is because I am challenging myself to do every aspect of the page from the design to the editorial. I am a developer and sometimes I think I should just do that and farm out the other stuff. Other times I think this is a great opportunity to grow. I would love some constructive feedback where possible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57629">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57629">25</a></div>
+			<span class="authorname"><a href="http://www.terryapodaca.com/">Terry Apodaca</a></span> said on March 20, 2008		</div>
+		<div class="quote"><p>LogoPond is a great place to get ideas, I have several friends that post their logos there.</p>
+<p>As for this post, I have been on the fence about this for oh...5 years now.  I have tried to come up with catchy names, phrases, etc and even if some of them turn out to be good, they are usually taken in some form or fashion.  So......after reading this <a href="//www.terryapodaca.com/2008/03/20/personal-branding/">I have decided</a> to use personal branding from here on out.</p>
+<p>I think my name is 'unique' enough with both first and last name (Terry is a common first name though) and the initials of TA or TWA could also become catchy enough as well.  Do I just use text?  not sure!  should I add some sort of graphic logo?  Not sure either...but I do know that what ever comes of this...it's involve my name from here on out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57635">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57635">26</a></div>
+			<span class="authorname"><a href="http://www.mattrobin.com">Matt Robin</a></span> said on March 22, 2008		</div>
+		<div class="quote"><p>Better keep my logo then - the one that nobody likes!! Haha .....(And I was going to ditch it for my forthcoming site redesign because it didn't match with anything else!)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57639">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57639">27</a></div>
+			<span class="authorname">David Cohen</span> said on March 23, 2008		</div>
+		<div class="quote"><p>Great practical advice for those who want to be participants in their own personal brand.  I say "participants" because I don't think we can control our brands as much as we might like to anymore.  Brands (personal or otherwise) get their meaning from the community they exist in.  You can certainly up your recognizability with the steps suggested here, but your reputation is in the hands of your community, and all one can do is suggest what you want your brand to mean, and then try to act accordingly.</p>
+<p>On a separate note, I love the layout for this site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57646">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57646">28</a></div>
+			<span class="authorname">Howard A Brown</span> said on March 26, 2008		</div>
+		<div class="quote"><p>What an excellent post! And thanks for these great comments.  But for all those concerned about the length, the commonality or lack thereof, spelling, mispelling, or any other matter concerning branding your rightful name, listen up:</p>
+<p>While perhaps for me this is among the most insightful, most practical and useful piece of news and advice I've just bucked into online all winter, it isn't an edict from the papacy.</p>
+<p>Being consistent is critical to your credibility regardless your name.  You should default to using your legal name when it's right for you and it's right for your markets.</p>
+<p>And yet you could use up your full legal name, buy up all "bad spells &amp; negativity" [plot to redirect them], dolly up in christmas and logos and everything right through the Second Coming, when who you're being is something other than a person of integrity, what's your brand?</p>
+<p>Can you at the same time at once be a person of integrity and also be unprofessional?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57684">29</a></div>
+			<span class="authorname">paperless</span> said on April 02, 2008		</div>
+		<div class="quote"><p>The problem is..imagine you go to some irc room and you act differently there, you know everyone in there and you like to have fun around calling them names (not to offend but just beacuse you know each other and its harmless) or just relax and say weird things, things that could easily be misinterpreted therefore leading you to lose credibilit. The reader for any reason wasn't aware of the context in which you said what you said.</p>
+<p>I have thought about what is said on this post and honestly that's exactly how i have been looking at my case.</p>
+<p>Ive been in kind of a dilemma though, also because of something that is mencioned in that post.<br />
+My name is very unique, specially my surname im nearly sure theres no one else with my first and last name at the same time.</p>
+<p>Well, if i used it online i'd be identified very easily which would bring some advantages and some disadvantages as well.</p>
+<p>I decided not to use my real name but stick with a nickname instead which i have been using nearly every single place i register in (except in some places i have no interest in being recognized).<br />
+You never know what the future may bring..you know enemies or whatsoever could use that information to hurt you.</p>
+<p>Since my name is unique it would be like showing everyone what is my national identification number, if they had access to any database where they could search for my name, they would find me easily.</p>
+<p>http://www.pai.pt</p>
+<p>Anyone that searched my last name in that site would very easily know my address :)</p>
+<p>Yeah i know it's not exactly my address (it's my parents', i live with them) and they could have it removed from there but i still hope you get the point.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57685">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57685">30</a></div>
+			<span class="authorname">paperless</span> said on April 02, 2008		</div>
+		<div class="quote"><p>Two more examples:</p>
+<p>By searching for my name on google you would easily find some of the grades i have been taking on university lately (PDF files).</p>
+<p>Also, i once said my real name in a chatroom, people found it very funny and it went around from "mouth to mouth" until it reached a channel topic and now it's stored on Gogloom (they track some IRC channels' topics).</p>
+<p>It's harmless, sure but once you put your real name (or any kind of information) in the wild you never know where it could end in.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57719">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57719">31</a></div>
+			<span class="authorname">Jonathan Drain</span> said on April 06, 2008		</div>
+		<div class="quote"><p>I like this idea. Although I used to go by aliases on internet forums, I started posting under my real name when my writing began to be published in a magazine and I wanted to be associated with that on certain forums. It's reasonably distinctive and uncommon name, although not unique - I've had an e-mail from an alter self who eerily has similar interests to my own.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57772">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57772">32</a></div>
+			<span class="authorname">Malcolm Almeida</span> said on April 08, 2008		</div>
+		<div class="quote"><p>Thanks for the tips, they sure are helpful. I am just starting to get into this 'brandwagon' and your tips would definitely get me there :D</p>
+<p>by the way, how is 'mloclam' for a brand name - its my name spelt backwards
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58136">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58136">33</a></div>
+			<span class="authorname">Kaanon</span> said on April 21, 2008		</div>
+		<div class="quote"><p>Re: malcolm - It's probably too hard to spell.</p>
+<p>I'm actually mulling of this myself, as I am gearing up to more side work. Shall I go with what I already have "Kaanon.com", or shall I create a company name which I will then have to maintain. I'm a little apprehensive, because the spelling of my name is unique, and most people get it wrong the first time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59480">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59480">34</a></div>
+			<span class="authorname">Trace Cohen</span> said on September 15, 2008		</div>
+		<div class="quote"><p>These are great tips for anyone starting to establish and create their personal brand. As you said, it is all about consistency. You have to use the same name, avatar and/or logo on any website you contribute to so that you can easily be found under that alias by anyone who wants to get in contact with you. Social networks though are the best way to be found and heard. There are millions of people out there looking for someone else to interact with, so you dont need to be a hero to become famous, you just need to be able to do something better than the next guy.At http://www.Brand-Yourself.com we aim to establish a studentâ€™s personal brand early so they can get the job of their dreams and love what they do. By establishing an online presence to control what comes up in Google while staying true to their brand, they should have no problem getting the job they want and deserve. For more actionable tips to strengthen your personal brand on the web please go to our blog at http://blog.brand-yourself.com.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62700">35</a></div>
+			<span class="authorname">Smith</span> said on February 16, 2009		</div>
+		<div class="quote"><p>I think maintaining your real identity is important. How can you be your own brand without being you? But in regards to all the different social networking sites, who wants to maintain all those? I have found that www.personavita.com is everything Jon suggested in this article in one place.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

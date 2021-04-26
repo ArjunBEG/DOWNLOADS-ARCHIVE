@@ -1,0 +1,8 @@
+<p>Initializes and fills an array with the specified values.</p>
+<ul>
+<li>Use <code>Array.from()</code> to create an array of the desired length, <code>Array.prototype.fill()</code> to fill it with the desired values.</li>
+<li>Omit the last argument, <code>val</code>, to use a default value of <code>0</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> initializeArrayWithValues <span class="op">=</span> (n<span class="op">,</span> val <span class="op">=</span> <span class="dv">0</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="op">{</span> <span class="dt">length</span><span class="op">:</span> n <span class="op">}</span>).<span class="at">fill</span>(val)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">initializeArrayWithValues</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// [2, 2, 2, 2, 2]</span></a></code></pre></div>

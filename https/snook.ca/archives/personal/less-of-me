@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Less of Me - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/less-of-me">
+	<meta property="og:url" content="https://snook.ca/archives/personal/less-of-me">
+	<meta property="og:title" content="Less of Me">
+	<meta property="og:description" name="description" content="I fear actually saying this out loud. I certainly don't want to jinx the progress I've made but, at the same time, I'm excited by the change. 
+I'm trying to lose weight.
+I used to be slim. In my ear...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Less of Me</h1>
+		<p>I fear actually saying this out loud. I certainly don't want to jinx the progress I've made but, at the same time, I'm excited by the change. </p>
+<p>I'm trying to lose weight.</p>
+<p>I used to be slim. In my early twenties, I worked on my feet all day. I also didn't have a car. Therefore, I walked to and from work. And to the store. And to anywhere I needed to go. If I wasn't walking, I was on my inline skates, or on my bike. My diet was atrocious but it didn't matter. I burned off the calories without concern.</p>
+<p>Then I got into the web as a career&mdash;a career that put me behind a desk for eight hours a day. The weight continued to be packed on. However&mdash;and this might sound odd&mdash;but when I look at myself in the mirror, I see slim. Even at my heaviest, I never really felt fat. Oh, but I knew it. I knew it whenever somebody called me &quot;big guy&quot; or, and I'll never forget this, asking when my baby was due. Okay, I'm fat. I could see it in the photos taken of me and I wasn't proud of it. </p>
+<p>&nbsp;</p>
+<p>I've tried at various times throughout the last 10 years to try and lose the weight. There were the short stints of going to the gym. I even tried Weight Watchers for awhile. I couldn't build up enough interest to stick with either of them. As my weight continued to climb, I kept saying to myself that I'd go back to the gym but I never did. Maybe I'd buy a bike or get back on my skates, but I never did.</p>
+<p>Then, back in June of this year, on a trip to New York City, it changed. I found myself walking everywhere. I had to climb the stairs to get to the office. We had Mario Kart lunch time competitions that resulted in push-ups. And upon my return from that trip, I felt like that was something I wanted to maintain. </p>
+<p>I started tracking my weight from day to day. I also started to be more careful about what I eat. But here's the kicker: I knew that I still wanted to enjoy the foods that I love. I love pasta, cake, pie, Coke, chips, and all sorts of delicious, buttery, greasy food. Can I lose weight while still enjoying the foods that I love? Absolutely. I don't need to eat a large bag of chips in one sitting. Having a bowl when I have a craving will do. I also don't need the bowl to be overflowing. When I go to a restaurant, I don't need to clear my plate. I can eat half and take the rest home. I still get to enjoy all the foods I did before. I just do it in moderation. Go figure.</p>
+<p>The other key step has been exercise. Over the course of the summer, I've made it a point to get outside, especially with my two boys whenever I could. Lots of trips to the park. And I don't just sit there. I'll chase my boys around and play tag and interact. Wow, I get to have fun with my kids <em>and</em> lose weight. I like this. </p>
+<p>And so I was. I was losing weight. </p>
+<p>This past weekend, I actually got my inline skates out. After a couple years hiatus, I finally got to skate. I have a crazy blister to show for it but I'm proud of that blister. I'm proud of what it represents. It represents an excitement in seeing the change in me.</p>
+<p>&nbsp;</p>
+<p>Having been overweight for over 10 years, I also don't expect the weight to disappear overnight. I don't want to rush this. I don't want to be over-zealous. And so I haven't. And after 3 months of working at it, I'm thrilled at the progress I've made. I'm thrilled when people notice that I've lost weight. It pushes me to continue with the changes I've made and to be consistent.</p>
+<p>Of course, I'm a geek. Along the way, I've been usng <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293642937&amp;mt=8">Weightbot</a> (links to iTunes), an iPhone app, to help me track my progress and help predict where I might be a few months down the line. I look forward to using it every day. Weighbot has kept me on track when I felt like I was slipping but also has shown me that I'm still on track, even when it feels like the weight isn't falling off fast enough.</p>
+<p><a href="http://www.flickr.com/photos/jonathansnook/3899675657/" title="Progress by Jonathan Snook, on Flickr"><img src="https://farm3.static.flickr.com/2481/3899675657_c6739d1b57_o.jpg" width="480" height="320" alt="Progress" /></a></p>
+<p>I'm definitely not rushing this. I started at 285 pounds at the beginning of the year. I hovered around 280 until June. Since then, I've consistently been able to lose weight week after week and month after month. I'm currently just shy of 250lbs. My target is 200lbs. I don't need to be skinny. I just want to be slim. And that's where I hope to be when next March rolls around.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published September 08, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/954</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">55 Comments &middot; <a href="/archives/personal/less-of-me.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63800">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63800">1</a></div>
+			<span class="authorname">Jeff</span> said on September 08, 2009		</div>
+		<div class="quote"><p>That awesome! I just got the motivation to not let it get that far. I've steadily added weight over the last few years as well. I love the work I do but it's horrible for your health since it's so easy to pass 10+ hours in a chair when you're busy or motivated on a project. I've decided to train for a marathon next year. Good job and keep it up!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63801">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63801">2</a></div>
+			<span class="authorname">Andy Stratton</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Nice, Snook! This is awesome and you have my positive thoughts and energies behind you now, sir! (if that helps in anyway)</p>
+<p>I was a heavy kid (actually, a good 25lbs on your heaviest when I was 16). Drop me a line if you ever want to talk shop about diet/workout/being active and stuff. </p>
+<p>It was a total lifestyle shift that was amazing. It's one of my biggest passions actually.</p>
+<p>Good luck (looks like you're already doing well though)!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63802">3</a></div>
+			<span class="authorname"><a href="http://www.slimkiwi.com/blog">Mark</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>I'm not a "big guy" by any means, but I do try to be in decent shape and keep cholesterol down. An office outside of the house is a must for me (our home is a condo, now with 2 kids) and so I have one that's a 10-minute walk from my home. It's a big help when you're someone who spends hours each day chained to the computer. Driving every day in these parts doesn't do much for your health either.</p>
+<p>When we moved into our condo 4 years ago, and I had an employer in the city, I walked to a train stop, then from the train to the subway, and the subway to the office. Now that I'm solo/local, somehow maintaining a walk became important.</p>
+<p>Good luck sticking with it! I'm always trying to devise some sort of exercise that will actually work itself into my routine sufficiently to stick. I think incorporating it with activities for the kids would help. My 2 year old and I had swimming lessons one morning a week for 5 weeks this summer. It was a great start to the day.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63803">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63803">4</a></div>
+			<span class="authorname">dave rupert</span> said on September 08, 2009		</div>
+		<div class="quote"><p>well... you shaved the goatee, so that must account for like 30lbs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63804">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63804">5</a></div>
+			<span class="authorname">Eric Guess</span> said on September 08, 2009		</div>
+		<div class="quote"><p>wow, 35 pounds this year. nicely done! best of luck losing the rest.<br />
+maybe adding the graphic to the sidebar of the site and updating it monthly would help keep you stay on track (and possibly motivate some of us to do the same).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63805">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63805">6</a></div>
+			<span class="authorname">Geof Harries</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Way to go, dude! In my experience, one of the hardest parts of losing weight is simply just to get rolling: to just start doing it. You've already conquered that obstacle. Next, is to stay committed: which you're also doing.</p>
+<p>The other difficult part is at the end: dropping that last 5 pounds, which is where I'm presently stuck. No matter, it'll happen.</p>
+<p>But, once again, congratulations. Not only do you obviously feel better about yourself, but I bet your kids are loving that extra time with their dad.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63806">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63806">7</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>Keep up the good work! We've been doing pushups at the Wakoopa office for a while now, just for kicks (and for building muscle) and that's been a lot of fun. </p>
+<p>Before that I went the other way around, doing <a href="//hundredpushups.com">100 pushups</a> in 6 weeks. In my experience, the more you progress, the more motivated you are to progress even more. You just need to kickstart it. and it seems you did :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63807">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63807">8</a></div>
+			<span class="authorname">Tracy Osborn</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Congratulations! I'm going through something similar; I went through a period of about three years when I went essentially sedentary... and gained 50 lbs (155lbs - 205lbs). I'm now to 172lbs, and working my way back southward, though in the last two weeks I've completely fallen off the wagon. Thanks for inspiring to jump back on and start exercising again!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63808">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63808">9</a></div>
+			<span class="authorname">Sally Carson</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Way to go Jonathan! I did notice your Twitter avatar getting slimmer...and slimmer, I'm so stoked for you! And, you know me, of course I'm stoked that you mentioned bikeys in this post!  :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63809">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63809">10</a></div>
+			<span class="authorname">mike</span> said on September 08, 2009		</div>
+		<div class="quote"><p>keep up the good work jon! i started out about where you were - 285. over the years, after various health issues and wake-up calls, i've lost a lot of that. 177 was my smallest, but it was during an unsustainable bout home improvement projects and activity. i am now hovering around 200.</p>
+<p>really the equation is as you've outlined: eat less, move around more. our bodies are a system--we take in calories, then we either burn them or store them. there are tweaks and cheats to try and circumvent this rule, but they are just that--cheats.</p>
+<p>the only sustainable way to lose weight is to understand the system and keep the balance of intake/burn in check.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63810">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63810">11</a></div>
+			<span class="authorname">Paul Taylor</span> said on September 08, 2009		</div>
+		<div class="quote"><p>You have the best view and probably right view on weight loss. A lot of people (or at least those I know) are too ambitious with their loss expectancy and think they are going to be at their ideal weight in weeks. They don't seem to understand it takes a lot of effort, determination and patience to do it. So a big kudos to you for sticking with it this far despite the slow start.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63811">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63811">12</a></div>
+			<span class="authorname">Antoine Butler</span> said on September 08, 2009		</div>
+		<div class="quote"><p>congrats! I too, once a manual laborer was pretty thin, in shape and dare a say it god like ;)</p>
+<p>But now, 7 years into my sedentary career as a web designer / developer I too have gained a lot of weight. I've recently started using the hash tag #fatbastard on twitter. Since I'm too lazy to blog, that is my public announcement that one day there will be "less of me" too.</p>
+<p>If your in the market for other iPhone based tools, I've found 100 pushups and 200 sit-ups (separate apps for 1.99 each) to be very helpful. Their 6weeks programs to help you reach their title implied goals. Not necessarily about losing weight but building strength and endurance. Which is equally important in the road to healthiness.</p>
+<p>I wish you luck. As parents we have all too many reasons to get and stay healthy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63812">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63812">13</a></div>
+			<span class="authorname">Justin</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Good on you sir! I can call myself a skinny guy, but I can relate to the general need to exercise. I finally started going back to the gym this year, and it's been really rewarding. Starting is the hardest part, I think once you know how much better you feel when you are more active it's easier to keep it up. </p>
+</div>
+	</div>
+		<div class="comment" id="c63813">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63813">14</a></div>
+			<span class="authorname">Bryan Beaudreault</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Congrats on the change in lifestyle, Jonathan.  It will really pay off, I'm sure.</p>
+<p>Although I am only 24, I have always been into the computer.  And with that came the natural tendency to spend a lot of time on it.  Time not spent being active.  Luckily I was blessed with a really fast metabolism, because I'm sure I would be pretty large too, by now.  However, I have always hovered around 165-170 at 5'10".  Certainly not a big guy.  Unfortunately I was not that well proportioned.  From the outside, fully clothed, I looked rather skinny.  With my shirt off was another story. ;)</p>
+<p>This summer my girlfriend and I decided to start the P90 (Power 90, by Beachbody) workout routine.  Neither of us were ready for the more popular P90X, but this was a good start for us.  The program has been going great and we are both a lot more healthy now.  However, I would say the biggest thing we could have changed was our diet.  Like you, we love the delicious foods of the world. :)  Unfortunately I think there is a general inverse relationship between deliciousness and healthiness.</p>
+<p>Like you said, it's all about moderation.  However, it is also about knowing the facts.  Once we learned all about how many calories we need in a day, and how 3500 calories = 1lb of fat, the light bulb started to turn on.  Looking at the nutrition facts of places like Chile's Bar &amp; Grille, which is popular in our area, many of their entrees are over 2000 calories just on their own.  Woah!  Since learning all of this information it has made it a lot easier to be able to temper our "cravings" if just for the thought of taking in our entire daily caloric intake in one sitting.</p>
+<p>Anyways, good luck with your goals, I'm sure you'll hit them.  If you are looking for a rather fun, in-home program to follow that really gets results, try googling for P90X (That stands for Power 90 Extreme).  It is by a company named Beachbody, and despite their rather... direct name, the product is actually really good.  I know a lot of real life friends who have had great success with it, and if you search YouTube their are tons of "real people" who show their results.  Just beware that P90X is not for the faint of heart. It really is an "extreme" workout, packaged into 35-60 minute workouts.  If your stamina is not entirely up there yet you may want to try the normal P90 first.  It is a lot less extreme, but still good.  The P90 program gets a bit repetitive, especially towards the end of the 90 days, but you could easily "upgrade" to the P90X once you felt ready.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63814">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63814">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Thanks for the well-wishes everybody.</p>
+<p>@Bryan: I've seen P90X mentioned quite a bit and it sounds cool. I might give it a try but for now, I'm still happy with my low-impact approachâ€”even if it means taking longer to get to my goal.</p>
+<p>One thing I didn't mention was how much I like the fact that I can climb stairs without feeling severely out of breath by the time I reach the top. Being active and not feeling winded is a great feeling.</p>
+<p>To anybody on the fence, getting started is definitely the hardest part. Seeing results, however small, is the best reward. I always set small goals along the way and work to achieve them. Next goal: 250. I'm only a pound away so I'm determined to get there. After that, 242.5 as it's my half-way point. After that, 240 (I like even numbers). And so on...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63815">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63815">16</a></div>
+			<span class="authorname">Chris J. Davis</span> said on September 08, 2009		</div>
+		<div class="quote"><p>I know how you feel man. I have long been "proud" of the look I get when I tell people I am ~300 pounds. They can't believe it since I don't look like I am that fat. </p>
+<p>Lately though I have been thinking that being the surprisingly heavy guy in the room isn't as fun as it used to be. I have an almost 4 year old who loves to run and jump and I need to be able to run and jump with him.</p>
+<p>Looks like this is the year for fat web developers to slim up. Thanks for sharing Snookums.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63816">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63816">17</a></div>
+			<span class="authorname">Pat</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Hey Jonathan, </p>
+<p>As a fellow desk-bound professional, I have been struggling a lot with continuing in my weight loss. A year and a half ago, I weighed about 275lbs. At 6'1", that put me well in the "obese" category. Through a heavy regimen of diet and exercise I was able to lose around 60lbs. I have since put about 10lbs back on, and hover somewhere between 224-228lbs. </p>
+<p>I've been here for almost 4 months now, and it's driving my crazy. My life is considerably all over the place, which doesn't leave much for a good day-to-day schedule. Hopefully that changes soon. </p>
+<p>Great to hear you're having success with some pretty basic, simple changes to your lifestyle! Can't wait to hear that you've reached your goal.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63817">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63817">18</a></div>
+			<span class="authorname">George</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Although I'm definitely not in the territory you were six months ago, I'm well above the weight I'd like to be, and have started not fitting into some of my favorite clothes.</p>
+<p>I've been tracking my weight with DailyBurn, although I haven't made it past the critical step of exercising regularly. Moderating my intake has been step number one, and from there I hope to get the exercise in. My biggest problem is time: I have so much stuff I want to get done that I simply can't make any time for exercise!</p>
+<p>Good luck, and I hope to join you in your success!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63818">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63818">19</a></div>
+			<span class="authorname">Brent | RedSpark Labs</span> said on September 08, 2009		</div>
+		<div class="quote"><p>That is awesome.  Congrats Jonathon.</p>
+<p>I have always been "thick", but slowly become much more than thick.  I finally had enough and changed my diet and focused on moving more, not specific exercise, just moving more.  </p>
+<p>That was last September and I weighed 288.  Today I weigh 209.5 and feel amazing.  I strongly encourage anyone who has weight to lose, to just make the commitment and do it.  A year or two is going to go by whether you lose weight or not, so why not lose the weight, be healthier and feel better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63819">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63819">20</a></div>
+			<span class="authorname">Pascal LalibertÃ©</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Really happy for you!</p>
+<p>I know what you mean about looking in the mirror and not seeing the obvious.  Not sure if you've experienced the same, but at one point I was able to visualize myself with the body that I wanted, and essentially know that it was attainable, but mostly that what I was seeing in the mirror today was not the person I was, but the person I was with too much on top.</p>
+<p>That Weightbot graph of yours is quite impressive, and it's definitely something to be proud of.  Congratulations.  Thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63820">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63820">21</a></div>
+			<span class="authorname">Steve Rydz</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Great post Jonathan,</p>
+<p>That story sounds so similar to mine. I'm 26 now and didn't start to put on weight until I was about 23. Like you, my diet was bad but due to the nature of my job at the time and the fact that I walked everywhere I never gained a single pound.</p>
+<p>As much as I love web development it did lead me to become a lot less active and over the past few years I have put on somewhere in the region of 60lbs.</p>
+<p>I have dieted a couple of times to some success but I always cave. I also tried weight training, jogging, cycling etc. It all works whilst I'm doing it but inevitably I stop.</p>
+<p>It's getting to the point where I am admitting that I am fat, not just carry a bit extra that I can easily lose anymore.</p>
+<p>I think your approach sounds great, after all, I wouldn't be happy if I completely cut out all these foods that I enjoy.</p>
+<p>I am used to finding your posts inspiring in regards to web design however I find this post very inspiring.</p>
+<p>Thank you,</p>
+<p>- Steve
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63821">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63821">22</a></div>
+			<span class="authorname">Marcus</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Good Deal Snook. I'm actually in a similar situation as you, being that I'm stuck behind a desk in a web design job. Im also in a similar weight range as you and I've made a resolve to cut down the weight as well. Thanks for this post. It's inspirational for me.</p>
+<p>We can do it!</p>
+<p>- Marcus
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63822">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63822">23</a></div>
+			<span class="authorname">Chris</span> said on September 08, 2009		</div>
+		<div class="quote"><p>I had an experience similar to yours when I lived in DC for a brief stint. I walked nearly everywhere and ended up losing nearly 50 lbs by the time I returned to Houston.</p>
+<p>Unfortunately, Houston doesn't lend itself to nearly as much walking (almost nothing is within walking distance), and since that time, I've taken on a desk job and all the old weight to go along with it.</p>
+<p>I've always hated "normal" exercise (jump on a treadmill and jog for 20 minutes). So, recently, I decided to use what I've coined as the "no-cardio" regimen. I'm simply doing weight training, mostly focused on upper body since carrying extra pounds tends to take care of the lower body for the most part. I supplement that weight training with overall better diet and protein-rich foods (to aid in building muscle).</p>
+<p>So far, I feel like this approach is really working for me. I've stuck with it, which alone beats anything else I've tried, and although I haven't lost much weight on the scale, I'm already starting to look more slim (I'm thinking the additional muscle mass is canceling out weight loss at the moment). Another benefit to this approach (and I think what's kept me faithful to it) is that you can get quick noticeable results. Fat loss is slow, and the scale doesn't always communicate your actual gains (or losses as the case may be). Water weight, time of day, how long since your last meal, the list goes on: all of these can give you a depressing scale reading that can potentially demotivate you.</p>
+<p>It's because of this, also, that I've implemented the "I don't care what the scale says" policy. A number on a scale is not important. What is important is how you look and how you feel. If you feel healthier and find your visage in the mirror more flattering than the day before, then you're succeeding. Simple as that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63823">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63823">24</a></div>
+			<span class="authorname">Nikola</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Good luck Snook!  Just keep tabs on your calories, fat and carb intake each day and make sure you get 20-40 minutes of aerobic exercise at least twice a week.  It takes the body about 20 minutes to get 'warmed' up aerobically so every minute your exercise after the first twenty is in the 'fat burning zone'.  Try a 'Climber' or maybe a stationary bike.  Also, if your so inclined, lifting weights is a great fat burner and you feel great when our done..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63824">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63824">25</a></div>
+			<span class="authorname"><a href="http://5thirtyone.com">Derek</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>I was in a similar position - looking at the mirror and seeing nothing wrong with myself. Then the comments started to irritate me. Especially from friends and family who would see my vacation pictures online. &quot;Derek, your stomach is sticking out..&quot; For the longest time I denied it all. One day, I noticed that I was rubbing my belly like a jolly animated character. I had finally realized that I couldn't go on thinking that I could eat or drink whatever and whenever I wanted. </p>
+<p>Fortunately, there is a full gym across the street from where I work. I joined with a couple friends and we push each other to continue going on a regular basis. I'm using the same Weightbot app to track my progress. So far I've lost a solid 6 lbs. in the last two months. I no longer stuff my face or feel as though no morsel of food should go un-wasted. Not to say I throw food away - I take the leftovers home for a lunch.</p>
+<p>It doesn't help when the office always has a full commercial fridge full of beer and soda. It doesn't help that I have a serious weakness for anything gummi (damn you Haribo) or peanut butter.</p>
+<p>Seven years ago I would have never thought sitting in front of a computer could add the pounds...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63825">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63825">26</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>Congrats Jonathan.  I too have been on a weight loss kick.  I played college football and when I left college I was 293, Defensive Tackle.  I soared to 305, and this past January....I said enough.  I'm down to 275, and I workout 3 - 4 times a week.  I also play many sports.  I know how hard it is to stay focused, but good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63826">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63826">27</a></div>
+			<span class="authorname">Aaron Irizarry</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Hey Jonathan congrats on your progress man... I am sure you are gonna reach your goals!</p>
+<p>~ Aaron I
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63827">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63827">28</a></div>
+			<span class="authorname"><a href="http://antonpeck.com">Anton</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>Congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63828">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63828">29</a></div>
+			<span class="authorname"><a href="http://www.madwebskills.com">Mikey McCorry</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>Way to go, Jon. I'm in pretty much the same boat as you at the moment, however I'm going the gym route at the moment. I try to go three days a week, and my aim is not to lose weight, but to reduce my percentage of body fat and improve my overall fitness. In the last 10 weeks I've gone from 55% body fat to about 35-40%, but I weigh the same amount from the muscle I've put on. I look slimmer, feel stronger and healthier, but I've still got a long way to go.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63829">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63829">30</a></div>
+			<span class="authorname">Craig</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Hi Jonathan, </p>
+<p>Great to hear about your decision to get fit. Two years ago I did some research and ended up buying a book by the editor in chief at Mens Health Mag. The book is called "The Abs Diet" but don't let the name fool you. It teaches you all about how your body reacts to certain foods as well as why certain foods are better or worse for you.</p>
+<p>It teaches you to eat smaller more frequent meals that are both healthy and taste great. Once a week you have a cheat meal where you eat anything you want, seriously I mean anything. </p>
+<p>This book isn't about eating food like some diets recommend, foods that you can barely stomach. Every day for breakfast I ate 2 eggs, a piece of whole wheat toast and a piece of fruit. It also shows you how to make some great tasting smoothies/shakes.  </p>
+<p>Following only this book, I managed to go from 230ish to 200 lbs in 6 weeks, and that was all based around eating better. In fact I barely worked out at all, occasionally twice a week, usually once a week and there was even some weeks I didn't do anything.  </p>
+<p>So am I still 200 lbs? Well not exactly, at the time I started this we had a newborn which made the total # of kids 5, yes that's a 5. Things were a little more crazy with the new baby, and in the end I stopped following this routine.  However parts of it have stuck with me and just recently I decided to get back on track. I haven't completely jumped back on track yet, but just following a few simple things I have lost around 12 lbs since July. </p>
+<p>The abs diet is a pretty cheap book, I also bought the companion book called "eat right everytime" guide and both were worth every penny. </p>
+<p>Check it out and I'm sure you be amazed.  </p>
+<p>Craig
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63830">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63830">31</a></div>
+			<span class="authorname">Michael Dick</span> said on September 08, 2009		</div>
+		<div class="quote"><p>I'm skinny and in my middle twenties; I'm gaining weight pretty quick. You've inspired me to not let myself slip.</p>
+<p>Thanks for this post!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63831">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63831">32</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com">Brendan Falkowski</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>My current life may be a blatant ripoff of your backstory. You should look into filing a copyright dispute.</p>
+<p>This is me: slim in early twenties, don't have a car, walk wherever I need to, awful diet based on Mountain Dew, and the only person I know that still inline skates. And I copied your day job: I make things on the Internet.</p>
+<p>I'm still skinny, but since I finished school (and lost gym access) I haven't maintained the exercise level that I once did. I looked at joining a local gym but never made a commitment. I'm glad you posted this. It reminds me to get that part of my life back.</p>
+<p>Also, the WeightBot screengrab is quite impressive.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63832">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63832">33</a></div>
+			<span class="authorname"><a href="http://rez-sa.blogspot.com/">Chris Lienert</a></span> said on September 08, 2009		</div>
+		<div class="quote"><p>Nice work Jon! One key thing to remember is weight isn't everything - how you feel is most important.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63833">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63833">34</a></div>
+			<span class="authorname">jeff </span> said on September 08, 2009		</div>
+		<div class="quote"><p>Hey good luck, I too am a developer who is fatter than I'd like to admit, I used to be 180 just 3 years ago and am now 240.  Not good to say the least.  Anyway I made a site a while back that some people use for weightloss http://www.flickaday.com.  They basic idea is that you take a picture of yourself everyday then it makes one of those time lapse videos.  It has a widget that you can embed on your blog to show your progress as well.  Send me a link if you decide to use it I'd like to see how your progress charts.  Still working on an iphone app btw (not enough hours in the day).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63834">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63834">35</a></div>
+			<span class="authorname">Ken</span> said on September 08, 2009		</div>
+		<div class="quote"><p>Good luck with your weight loss!</p>
+<p>It's refreshing to see a practical, down-to-earth post. No more talking about finer points like "no eating before sleeping" or "transfat or no transfat", but just lots of exercising and a moderation on calories intake.</p>
+<p>Hope you reach your target! I, like the others here, will be looking forward to you reaching your goal!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63835">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63835">36</a></div>
+			<span class="authorname">Josh</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Jon,</p>
+<p>I'm so proud of you! It takes a lot of self-reflection and determination to get to where you are today, and where you hope to be tomorrow and in the future. Best of luck!</p>
+<p>In terms of "what exercise works best", as a fitness enthusiast myself who is well on his way to becoming a personal trainer, I have to say that I like what you said in comment #15 about taking things slow. Many people try to get to euphoria by just killing themselves with little to no forethought on the process, and it seems that you've taken that approach. Great!</p>
+<p>Here are a few pieces of advice, if I may, that could help accelerate things for you:</p>
+<p>1. Try to do as much cardio as possible. I see a lot of guys dying to lose weight in the gym, but they hate doing cardio. Unfortunately, that's really the golden ticket. Even thirty minutes of cardio, along with mild weight lifting (which brings your resting heart rate down) and a healthy diet, will move things along at the speed of C#!</p>
+<p>2. I love the soda, carbs, chocolate, pizza, etc. as well! Who doesn't? I'd recommend perusing this site, and picking up their book for healthier substitutes for life's little indulgences: http://eatthis.menshealth.com/home</p>
+<p>3. Forget cheat days. They are a waste of time! If someone has told you before "oh, eat whatever you want on Friday. It's your cheat day," then you may want to take a second to think about all the work you put into the entire week. Why spoil it with 1-3 heavy meals which will just set you back?</p>
+<p>Please feel free to email me, and I'd be happy to offer any advice possible to help you out. You're one of my favorite blog authors on the 'net ;) Look forward to seeing the weekly Facebook shots of progress! :-D</p>
+<p>Best,<br />
+Josh
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63836">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63836">37</a></div>
+			<span class="authorname">Josh</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Sorry -- one more thought:</p>
+<p>"As much cardio as possible" means about 30-60 minutes three or four times per week. More than an hour and you're just worn out. Switch the cardio up between biking, elliptical (which is best, and will burn the most calories from fat per session), treadmill, rowing, etc. I like to break it up into three machines at 20 minutes each. You could do 10-20 each, if you'd like!</p>
+<p>Best of luck again! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63837">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63837">38</a></div>
+			<span class="authorname">imroz</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Very nice article. Get slim and slim. I notice that i am taking some weights 8 hours per day and no sports. So reading your blog here makes me realise i need to get out for some sports else i will be called big guy like you :)</p>
+</div>
+	</div>
+		<div class="comment" id="c63838">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63838">39</a></div>
+			<span class="authorname">Leesy</span> said on September 09, 2009		</div>
+		<div class="quote"><p>I personally would say you can certainly notice a difference. I was on Twitter the other day and actually thought "Who's that?" when I saw your Twitter avatar.  I would say the difference shows on there.</p>
+<p>But it is a subject we all need to pay attention to.  Our sedentary jobs can be a big problem.  Not just for weight gain but also things like back troubles.  So it's great to see a well respected designer like you blogging on something like this. Hopefully it'll inspire a few more people to get off their backsides and try some exercise!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63839">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63839">40</a></div>
+			<span class="authorname"><a href="http://twitter.com/undefined">Adam</a></span> said on September 09, 2009		</div>
+		<div class="quote"><p>Congrats sir :) I'm on a similar journey</p>
+<p>I've lost a total of 63lbs since feburary, I've gone from a total of 309lbs to around 248lbs. I've got about another 25lbs to go before I'm at my goal (from 140kg -&gt; 100kg) which should be by the end of the year. </p>
+<p>Thats been acheived by working out 5 times a week and eating a diet of dead animals (protein) and low carb. I've got myself a personal trainer/nutritionist and I just do as he tells me. To lose 90lbs will cost me about 2000 pounds but will be the best 2k I've ever spent. </p>
+<p>"Aint nothing to it but to do it"
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63840">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63840">41</a></div>
+			<span class="authorname"><a href="http://www.schillmania.com/">Scott</a></span> said on September 09, 2009		</div>
+		<div class="quote"><p>Thanks for chewing the fat (zing) with us. Jokes aside, I applaud your motivation and willingness to share the story; it's a motivator for people who are on the fence.</p>
+<p>Years ago, my Dad would usually ask me to make a print-out chart for tracking his weight around new years', with the heading "Nothing tastes as good as being thin feels". I kind of like the sound of that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63841">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63841">42</a></div>
+			<span class="authorname">Chelsea</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Congrats Snook!  I haven't read many of your personal entries and love your content - but this is truly inspiring.  Congrats and keep up the great work, you have so much to be proud of.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63843">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63843">43</a></div>
+			<span class="authorname"><a href="http://resistmedia.net">Beth</a></span> said on September 09, 2009		</div>
+		<div class="quote"><p>I applaud you for talking about this publicly, this isn't an easy topic to open up about. I made a committment to getting healthier last year, and did really well and lost a lot of weight, and then got depressed and gained most of it back. </p>
+<p>Now I'm trying to get myself back on track and it's very motivating to hear about other people's efforts, so thanks :)  </p>
+<p>What was most amazing to me is that it really wasn't that hard, I didn't have to give up food I liked. I just had to be committed to going to the gym every day, and not overeating. The hard part is actually making yourself get to the gym after an absence. I wish you the best of luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63844">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63844">44</a></div>
+			<span class="authorname">Asrar</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Congratulations, Jon!</p>
+<p>I like what you said about moderation. Moderation is the key! Moderation leads to balance. Balance leads to health. Health leads to happiness.  </p>
+<p>It's the Islamic month of Ramadan right now so I'm fasting these days... I lost 10 lbs in the past 2 weeks. I'm now 143 lbs. </p>
+<p>Lucky me!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63845">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63845">45</a></div>
+			<span class="authorname">Marcel</span> said on September 09, 2009		</div>
+		<div class="quote"><p>Congratulations and keep it up! I'm cheering for you :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63846">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63846">46</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com">Michael Kozakewich</a></span> said on September 09, 2009		</div>
+		<div class="quote"><p>Congrats! It's always great to hear about people being inspired.</p>
+<p>I find the best way to handle those weighty foods is to never eat them while you're busy. You'll end up mechanically engulfing it all without really tasting it. Instead, make sure you take some time to yourself to really enjoy the treat, so you need less of it before you've had 'enough'.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63847">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63847">47</a></div>
+			<span class="authorname">Gaurav M</span> said on September 10, 2009		</div>
+		<div class="quote"><p>Snook i also follow on your twitter<br />
+after reading your tweets i though may be the kid is teasing and helping you to loose weight</p>
+<p>after the shaved face finish and losing weight transformed you and turned you 10 yrs younger. Carry on carry on :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63848">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63848">48</a></div>
+			<span class="authorname">Joshua Allen</span> said on September 10, 2009		</div>
+		<div class="quote"><p>That's some very respectable progress!  </p>
+<p>That's the perfect pace, IMO.  It's not too slow, but not so fast that you start thinking, <i>"I could easily take of 50 pounds again, so I might as well binge for a few months"</i>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63849">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63849">49</a></div>
+			<span class="authorname">Bryant Smith</span> said on September 11, 2009		</div>
+		<div class="quote"><p>Nice work man, stick with it.  I know how it can be, I lost around 75 pounds two years ago.  It was just a matter of creating some new habits, and it ended up not being a big deal at all.   Best of luck in the future!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63851">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63851">50</a></div>
+			<span class="authorname"><a href="http://www.lealea.net/">Lea</a></span> said on September 12, 2009		</div>
+		<div class="quote"><p>Awesome, Jonathan. I had noticed in your recent avatars a more streamlined you. :) I think a lot of people struggle with this in our profession. I think everyone and their dog has an opinion on how to go about losing weight/getting in shape so I'm not going to bother with tips, except that if it's working, keep at it. Half the battle is finding something that you can stick to and works for you. I'm still playing around with an ideal setup myself. Go Jon GOOOO! :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63853">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63853">51</a></div>
+			<span class="authorname">shin</span> said on September 13, 2009		</div>
+		<div class="quote"><p>Aha, I started jogging from this June as well. And I lost 5kg. I jog every day for 30 min and it is great. I eat normally and still I lost weight too. It is slow process but it makes me feel good.<br />
+Good luck with your weight loss.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63854">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63854">52</a></div>
+			<span class="authorname">brian fidler</span> said on September 14, 2009		</div>
+		<div class="quote"><p>Great! This is awesome. I'd recommend getting a personal trainer for between 20 and 40 sessions. A trainer will show you how to optimize your exercise routine to get the most out of it. Seriously, 4 weeks with a trainer and you'll begin to feel like Superman. 8 weeks with a trainer and you'll begin to look like Superman. </p>
+<p>good luck. losing weight is one of the hardest and most rewarding things you can do for yourself.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63857">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63857">53</a></div>
+			<span class="authorname">Pascal Altena</span> said on September 17, 2009		</div>
+		<div class="quote"><p>Great!</p>
+<p>I used to be thin too but got really fat when I started working as a webdesigner about 10 years ago.</p>
+<p>A few years ago I decided I had to lose weight and today my BMI is in the green zone. I still have too much stomach fat but I hope to burn that away with exersize, which I started doing a few weeks ago :).</p>
+<p>The funny thing is that I only started eating more healthy and did not exersize more (didn't exersize at all actually). I do ride my bike a lot which is around 20 - 30 minutes a day.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63858">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63858">54</a></div>
+			<span class="authorname"><a href="http://www.stookstudio.com">Erwin Heiser</a></span> said on September 17, 2009		</div>
+		<div class="quote"><p>Just make sure your goals are realistic, your weight loss will slow down the closer you get to your goal... but it's much better to slowly, but gradually lose weight.<br />
+Oh, and lose the Coke, man. Seriously, cut out all high-sugar over-caffeinated drinks, you'll notice the difference.<br />
+Good luck and keep at it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63859">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63859">55</a></div>
+			<span class="authorname">Andrew Cornett</span> said on September 18, 2009		</div>
+		<div class="quote"><p>You can do it Snook!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

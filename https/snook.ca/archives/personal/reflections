@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Reflections - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/reflections">
+	<meta property="og:url" content="https://snook.ca/archives/personal/reflections">
+	<meta property="og:title" content="Reflections">
+	<meta property="og:description" name="description" content="It's that time of year when people see the big number roll over and decide to reminisce over good times and bad, and talk of where they plan to go until the big number rolls again. This blog post will...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Reflections</h1>
+		<p>It's that time of year when people see the big number roll over and decide to reminisce over good times and bad, and talk of where they plan to go until the big number rolls again. This blog post will be no exception.</p>
+<h2>On the Personal Front</h2>
+<p>It's interesting to look at <a href="https://snook.ca/archives/personal/evaluating_2007/">last years pontificating</a>. In some ways, things haven't changed. </p>
+<p>I am getting better at managing my time but in a weird sort of way. I still often stay up until 3 or 4 in the morning but I've offset things by allowing myself more leisure time throughout the day, whether it be going out to lunch with friends or just playing a game or two at home. On my to-do list for 2009, I'm hoping to expand my hobbies by learning to draw or paint, or maybe learn to play guitar or piano. My hobby right now is building web applications and even then, I spend more time on sites like Delicious.com and Reddit than I do working on my own projects. That's definitely something I want to change.</p>
+<p>I still want to get more exercise but haven't made any steps to accomplish that goal. Maybe this is the year I get it done.</p>
+<h2>On the Freelancing Front</h2>
+<p>Last year, I hinted that I wanted a change but hadn't really decided what that meant. That feeling has settled a bit as I've come to accept my life as a freelancer. I've learned a lot about who I am, what my strengths and weaknesses are, and how I can manage that. </p>
+<p> I wanted to jump back into full-time employment and interviewed at <a href="http://76design.com/">76design</a> here in Ottawa and  flew out to interview at Yahoo!, specifically to join the <a href="http://flickr.com/photos/equanimity/2126487011/">YUI team</a>. In the case of 76design,  it just wasn't what I was looking for. In the case of Yahoo, it was actually a great opportunity and I would've accepted but the tide turned. They went into a hiring freeze (along with subsequent layoffs) and so, here I am, still freelancing.</p>
+<p>Through this process, though, I've come to learn what it is that I want: I want to work from home, to have the freedom to work under my own schedule, to be able to travel whenever I want. I've got that in what I do now.</p>
+<h3>Growing the Company</h3>
+<p>One of the other important things that I've learned is that I'm not a manager. I don't want employees. I've skirted the possibility a number of times but I don't want a big company with people that rely on me. I'm too unreliable and  I just don't have the confidence to pull that off.</p>
+<p>I'll definitely be re-evaluating the &quot;corporation&quot; and whether it's necessary. It's cool to have a business name to operate under but definitely not necessary. </p>
+<h2>New Projects</h2>
+<p>A primary goal in 2008 was to get some commercial projects launched and... that never happened. As always, I've put client work before personal work and my personal projects languished. </p>
+<h3>SidebarAds</h3>
+<p><a href="http://inthesidebar.com/">SidebarAds</a> is the only project that got off the ground, and it wasn't even conceived at the beginning of the year. Things have been going well, albeit not as well as originally planned. We've had to change things up internally a couple times already and brought on Matthew Oliphant to manage the network to free up my time to work on other things. </p>
+<p>I've very proud of the attention it has gotten and I'm looking forward to seeing this grow and expand over 2009.</p>
+<h3>Haylia</h3>
+<p><a href="http://haylia.com/">Haylia</a> is the one project I wanted to get done, but never did. Now I want to scrap the whole thing and start from scratch. Either way, 2009 better be the year I get it done. </p>
+<h3>PHP Framework</h3>
+<p>I haven't decided whether I'm serious about this or not. I <a href="http://twitter.com/snookca/statuses/1044327849">jokingly commented on Twitter</a> that I wanted to build my own PHP framework, something that would be a blend of all the frameworks out there currently (hopefully the best of all of them). However, it's an immense level of work, well beyond what I could really accomplish on my own. </p>
+<p>My vision for this is to go with PHP 5.2+ support, take the routing of CakePHP (and make prefix routing easier), create a blend of the Symfony and CakePHP data modeling, and really think through the relationship between routing, controllers, views, and models to simplify things where I can.</p>
+<p>Then again, maybe I'm barking up the wrong tree. Anyways, don't be surprised if by the time my 2009 retrospective rolls around and this is no further ahead.</p>
+<h3>FontSmack</h3>
+<p>Finally, this is a project I've been mulling for awhile now. I really like the idea and have chatted about it with a few people. Right now, it's a repository for prebuilt sIFR fonts but the time and energy to maintain was too high. As a result, it's sat there undisturbed for quite some time (and as I look at it now, it doesn't even seem to be rendering the sIFR fonts correctly; how sad).</p>
+<p>I describe my intended revamp, &quot;Flickr meets fonts.&quot; Now, I hate it when people come to me with project ideas and describe it as &quot;Facebook meets Twitter meets Flickr meets every cool web site you've seen out there&quot; but it's the closest I've come to be able to summarize what I'm looking to accomplish.</p>
+<p>I'll leave it at that and, if this moves forward, I'll be sure to talk more about it.</p>
+<h2>Travel, Conferences and Speaking</h2>
+<p>2008 was a good year for me, travel-wise. </p>
+<p>I got to go to London, England for the first time &mdash; and brought my wife along for the trip. She got to see me speaking in action at <a href="http://www.vivabit.com/atmedia2008/london/">@media</a>, which was nice. </p>
+<p>We took the family on a Disney Cruise through the Caribbean &mdash; a nice break from work (I didn't bring my laptop). We're already booked for another cruise for the fall of 2009. It helps when a friend is a travel agent who plys us with great deals (we're also tentatively booked  another cruise in 2010).</p>
+<p>I hit up <a href="http://sxsw.com/">SXSW</a> for the third year, but didn't speak, just partied. I'll likely do the same in 2009! </p>
+<p>I managed to squeak in a trip to Boston for <a href="http://ajaxexperience.techtarget.com/html/index.html">The Ajax Experience</a> (TAE). I spoke at the jQueryCamp the day before TAE but didn't speak at TAE itself. The couple days I was able to spend in Boston were great fun and met and hung out with a great bunch of smart folks. I'd like to add this to my yearly routine as it was plenty fun and the sessions offered up plenty of opportunity to learn outside my normal comfort zone.</p>
+<p>I hit up <a href="http://max.adobe.com/">Adobe MAX</a> in San Francisco and even squeezed in a little personal time to meet up with some fine folks while I was there. My session there went well. </p>
+<p><a href="http://sidebarworkshops.com/">Sidebar Workshops</a> kicked off its first session to great success. We're working on putting together a few sessions for 2009, which I'm really looking forward to.</p>
+<p>The family vacation actually put a dent on speaking engagements and I had to decline a few happening at the same time, and even dropped out of An Event Apart when my brother, who I hadn't seen in about 10 years, decided to make the trip down for Thanksgiving (we Canadians celebrate it in October). Thankfully, I've been asked back to<a href="http://aneventapart.com/2009/sanfrancisco/"> AEA for 2009</a>.</p>
+<p>Also slated for 2009 is a conference I'll be speaking at that I hadn't heard about before being asked: the <a href="http://www.aimconference.com/">Atlantic Internet Marketing</a> conference in the great city of Halifax. I'm looking forward to this as it's Canadian and it's been awhile since I've been to Halifax. (Ooh, and I get to hang with Daniel Burka and Molly again.)</p>
+<p>Overall, I'm keeping the speaking engagements to a minimum this year. I haven't been going out of my way to line up events as I've tried to do in previous years. I'm simply waiting for the opportunities to come to me. I'm  on the fence as to whether I want to continue going after speaking engagements or whether I want to shift into doing workshops. I love to travel and meet lots of smart, like-minded people but I also need to focus on a specific type of presentation and hone it, which is something we're doing with Sidebar Workshops.</p>
+<h2>Writing and the Blog</h2>
+<p>It's been a quieter year for writing. I did manage to get a couple things in <a href="http://www.netmag.co.uk/">.net magazine</a>, which was fun. As great as writing for online magazines can be, there's still something about seeing your words in print. I also did <a href="http://www.sitepoint.com/article/tomorrows-web-today-air-css3/">an article for Sitepoint</a> (and had my chapter from the Art &amp; Science book republished online). </p>
+<p>I had originally intended to participate in writing another book: <a href="http://javascript-frameworks.wrox.com/wiki">Professional JavaScript Frameworks</a> where I was going to cover Prototype. Instead, my summer filled up with client projects and I never got anywhere with it. As a result, I dropped out. </p>
+<h3>Another Book?</h3>
+<p>I do have a couple things I'm contemplating on for 2009. One is another JavaScript book  that, I think, will be quite practical. It's still in the planning stages and we'll see if I find time to work on this one (although I already feel some excitement to work on it, which is half the battle).</p>
+<h3>E-books?</h3>
+<p>The other project I've been thinking of putting together is a series of mini e-books on CSS, starting from intro and working up to advanced techniques. The idea being, upon completion of all the e-books in the series, it can be bundled up into one large book that can be published in print. This is more of a long-term idea and one I'll need some collaboration on with someone print-minded.</p>
+<h3>Posting Pace</h3>
+<p>Of course, the blog continues on. I've been happy with the year, having been fairly consistent in posting, albeit not at the same pace as previous years. Taking a quick look at post counts, it was actually the slowest year  since I started actively blogging in 2003. <strong>As an FYI, 2003: 47 posts, 2004: 94 posts, 2005: 131 posts, 2006: 203 posts, 2007: 117 posts, and 2008: only 62 posts.</strong> That's still at least one post a week, though!</p>
+<p>The last post of 2008 ended up being a screencast and it's something I plan to do more of, especially quick things since they're easier to put together and easier for others to digest. I keep contemplating a podcast but that hasn't come to be, either.</p>
+<h2>Happy 2009</h2>
+<p>With the financial meltdown of 2008, the fact is, things have been pretty good in my world and I only see things getting better. I live a great life with a roof over my head, lots of food in the fridge, a great family that makes me so proud, and I get to travel the world.  I get to meet new friends and learn new things. I'm a very lucky man. Here's to 2009!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published January 01, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/924</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">17 Comments &middot; <a href="/archives/personal/reflections.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c60801">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60801">1</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris W.</a></span> said on January 01, 2009		</div>
+		<div class="quote"><p>I think screencasts would be a great addition to your blog. It's always great to see other developers' processes and tools. Looking forward to 2009! I think it will be a great year.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60802">2</a></div>
+			<span class="authorname">Aaron McCall</span> said on January 01, 2009		</div>
+		<div class="quote"><p>Jonathan,</p>
+<p>I look forward to following your progress through the year.  Here's to a 2009 that is both productive and fulfilling.</p>
+<p>Peace,<br />
+Aaron
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60803">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60803">3</a></div>
+			<span class="authorname">Mark Bowen</span> said on January 01, 2009		</div>
+		<div class="quote"><p>I can whole-heartedly recommend taking up the Piano. I have been playing since I was 4 (quite a while now!! ;-) ) and it is a great thing to do.</p>
+<p>I really need to get more practice in this year though!</p>
+<p>Nice read this one so thanks for that.</p>
+<p>Best wishes,</p>
+<p>Mark
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60810">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60810">4</a></div>
+			<span class="authorname">Mike Taylor</span> said on January 01, 2009		</div>
+		<div class="quote"><p>I really like the idea of mini e-books. Heck, I'd be glad to pay four or five bucks for a mini-ebook--like picking and choosing chapters out of a book.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60812">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60812">5</a></div>
+			<span class="authorname">Pete</span> said on January 02, 2009		</div>
+		<div class="quote"><p>New year and the new year's resolutions but are we consistent enough to make them work?<br />
+I have been catching  myself doing things other  than work recently too ;)<br />
+These mini-ebooks idea sounds tempting.<br />
+Regards<br />
+Pete
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60813">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60813">6</a></div>
+			<span class="authorname">Elliot Jay Stocks</span> said on January 02, 2009		</div>
+		<div class="quote"><p>Happy New Year, Jonathan!</p>
+<p>This was a really interesting read; especially when you said that you don't have any plans to grow the company. This really resonates with my own thoughts on why I'm choosing not to expand, and to be honest, I think we solo freelancers are in a much safer position that business owners with employees in the current financial climate!</p>
+<p>Looking forward to having some beers an event or two this year. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60814">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60814">7</a></div>
+			<span class="authorname">Kris Jordan</span> said on January 02, 2009		</div>
+		<div class="quote"><p>Just wanted to give you a heads up on a PHP framework I've spent the 3 months working on full-time. The Recess Framework is a full-stack, RESTful PHP framework that draws inspiration from a number of sources and is built for 5.2. Routing is one of its interesting features: http://www.recessframework.org/page/routing-in-recess-screencast</p>
+<p>A week ago I opened the doors to the public preview release. Thought you might be interested.</p>
+<p>Best wishes in the New Years! -Kris
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60816">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60816">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 02, 2009		</div>
+		<div class="quote"><p>@Kris: I took a look at the routing screencast and your approach is definitely interesting. It's an interesting approach with some definite advantages, such as the fact that routing information for a particular controller method is easily seen in the same place it's called. I look forward to picking apart the code. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60820">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60820">9</a></div>
+			<span class="authorname">jeff white</span> said on January 03, 2009		</div>
+		<div class="quote"><p>Looking forward to meeting you at the Atlantic Internet Marketing Conference. I was the one that passed your name along to Rob, as I've been following your blog for a long time and think that you will bring an interesting perspective to the conference that we haven't had in years past.</p>
+<p>Have a great 2009!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60821">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60821">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 03, 2009		</div>
+		<div class="quote"><p>@jeff white: Thank you for the recommendation! I'm really looking forward to it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60837">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60837">11</a></div>
+			<span class="authorname"><a href="http://bitsamppixels.com">Fredrik W</a></span> said on January 05, 2009		</div>
+		<div class="quote"><p>Rolling your own framework sounds fun. Not sure I'd ever do it in PHP though. I've tried doing some relatively simple ORM in php and to be honest, the lack of late evaluation (even though I think it's fixed in 5.2) always forces you to state things explicility that are already defined by the context you're in (CakePHP setting $tableName vs ActiveRecord just deriving it from the class name).</p>
+<p>My recommendation to you is to look at Merb (which will basically become Rails 3 in a year or so since both projects has merged), I think you'd like it. Ruby is actually quite easy to learn and a fantastic language packed with meta programmings goodness (great if you're building a frame work) that PHP just seems to lack.</p>
+<p>If you're serious about building your own framework reading up on DSLs will probably benefit you greatly as well.</p>
+<p>Good luck!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60841">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60841">12</a></div>
+			<span class="authorname">Kris Jordan</span> said on January 05, 2009		</div>
+		<div class="quote"><p>@Jonathan - Enjoy picking apart the code, I think the Recess Framework source code is for the most part really solid. But being the author I suppose I've got a tiny bias :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60852">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60852">13</a></div>
+			<span class="authorname">Andy Gongea</span> said on January 05, 2009		</div>
+		<div class="quote"><p>Yahoo! YUI team sounds great.<br />
+Good luck in 2009!</p>
+</div>
+	</div>
+		<div class="comment" id="c60894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60894">14</a></div>
+			<span class="authorname">Fabian</span> said on January 08, 2009		</div>
+		<div class="quote"><p>Great post! It actually got me motivated to get back onto my personal stuff too. Thanks.</p>
+<p>Happy new year, back at ya :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60991">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60991">15</a></div>
+			<span class="authorname"><a href="http://www.slidemap.com">Maikel</a></span> said on January 13, 2009		</div>
+		<div class="quote"><p>I think in a similar way:<br />
+- I don't want a big company with people that rely on me.<br />
+- My hobby right now is building web applications<br />
+- I want to work from home, to have the freedom to work under my own schedule, to be able to travel whenever I want. </p>
+<p>Have a great 2009!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61542">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61542">16</a></div>
+			<span class="authorname">brian fidler</span> said on January 26, 2009		</div>
+		<div class="quote"><p>you could call it fonyCake. I agree that 2009 will be a great year! keep up the good work and here's to a great 4 more years until the Aztec calendar runs out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61775">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61775">17</a></div>
+			<span class="authorname">Pat Collins</span> said on January 31, 2009		</div>
+		<div class="quote"><p>I think there's a lot of ways to improve upon the dispatching and controller levels of all PHP frameworks out there. I do like Kris' technique of keeping routing in the controller. Really interesting. If you're going to write your own framework, I'd concentrate your energies there and try to make that layer loosely coupled to allow many Model and View solutions to be plugged in.</p>
+<p>IMHO, there are plenty of excellent solutions out there for ORM (Doctrine is a great example) and management of views (Smarty, etc.) I'd actually love to see a fully thought through PHP implementation of Django's template rendering engine. PHP 5.2+ would put some power behind that.</p>
+<p>Love the blog. Keep up the good writing.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

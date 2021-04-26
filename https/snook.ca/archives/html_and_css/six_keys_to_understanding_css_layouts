@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>6 Keys to Understanding Modern CSS-based Layouts - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/six_keys_to_understanding_css_layouts">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/six_keys_to_understanding_css_layouts">
+	<meta property="og:title" content="6 Keys to Understanding Modern CSS-based Layouts">
+	<meta property="og:description" name="description" content="Much of CSS is pretty straightforward and, I suspect, quite easy for most people to grasp. There's font styles, margin, padding, color and what not. But there's a wall that people will run into... tha...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>6 Keys to Understanding Modern CSS-based Layouts</h1>
+		<p>Much of CSS is pretty straightforward and, I suspect, quite easy for most people to grasp. There's font styles, margin, padding, color and what not. But there's a wall that people will run into... that point where a number of key elements need to come together to create a solid CSS-based layout that is consistent cross-browser. </p>
+<p>These are the six things that will help people get over the hump.  </p>
+<h2>Box Model </h2>
+<p>At the very core of it, is an understanding of the box model within CSS. Sure, you may know your margin and padding but what happens when elements start to interact with each other. Suddenly things that look good in one browser go all to hell in the other. Consistently in working with the box model comes from understanding the difference between quirks mode and strict mode. It's also a good idea to know how to hack it up for older browsers. </p>
+<ul>
+  <li><a href="http://www.w3.org/TR/REC-CSS2/box.html">W3C CSS2.1 Spec</a> </li>
+  <li><a href="http://www.addedbytes.com/css/box-model/">The Box Model</a></li>
+  <li><a href="http://tantek.com/CSS/Examples/boxmodelhack.html">Tantek's Box model hack</a></li>
+  <li><a href="http://www.quirksmode.org/css/quirksmode.html">Quirks mode and strict mode</a> </li>
+  <li><a href="http://hsivonen.iki.fi/doctype/">Activating the Right Layout Mode Using the Doctype Declaration</a> </li>
+</ul>
+<h2>Floated Columns</h2>
+<p>While absolute positioning was one of the first approaches that people took when attempting to replace table-based layouts, it was floating content that opened the doors of possibility. Along with learning how to float, you must also learn how to clear floats so that content that follows or backgrounds will appear correctly. </p>
+<ul>
+  <li><a href="http://css.maxdesign.com.au/floatutorial/">Floatorial</a></li>
+  <li><a href="http://www.quirksmode.org/css/clearing.html">Clearing floats</a></li>
+  <li><a href="http://www.alistapart.com/articles/fauxcolumns/">Faux Columns</a></li>
+  <li><a href="http://www.communitymx.com/content/article.cfm?cid=afc58">Creating Liquid Faux Columns</a> </li>
+</ul>
+<h2>Sizing Using Ems</h2>
+<p>There are two different issues at play here when it comes to sizing  with ems: fonts and layouts. </p>
+<p>With fonts, Internet Explorer 6 and lower don't allow you to resize the text when specified using pixels (px). Those with vision issues may wish to set their font size larger in order to more readily read what you've written. Specifying your font sizes using ems has proven to be the popular approach to this problem. The importance of sizing text using ems is waning as users move on to better browsers.  </p>
+<p>Sizing layouts with ems can also offer up a whole other avenue of flexibility. When playing with text size, it can often throw an entire design out of whack. Styling elements using ems allow the containers of content to grow along with the text, maintaining the consistency of the design. </p>
+<ul>
+  <li><a href="http://clagnut.com/blog/348/">How to size text using ems</a></li>
+  <li><a href="http://www.alistapart.com/articles/elastic/">Elastic Design</a></li>
+  <li><a href="http://www.456bereastreet.com/archive/200504/fixed_or_fluid_width_elastic/">Fixed or fluid width? Elastic!</a></li>
+</ul>
+<h2>Image Replacement</h2>
+<p>Boring text elements dont' excite us. We want to use lots of graphical flair along with gradients and glass effects. And we want to use custom fonts; fonts that browsers just can't offer us yet. Image replacement techniques allow us to replace the existing content-rich and <abbr title="search engine optimization">SEO</abbr>-friendly text with stylish images or Flash files with embedded fonts.</p>
+<ul>
+  <li><a href="http://www.mezzoblue.com/tests/revised-image-replacement/">Revised Image Replacement</a> <br />
+  Sums up most, if not all, of the image replacement techniques currently in use </li>
+  <li><a href="http://www.mikeindustries.com/sifr/">sIFR 2</a> with <a href="http://wiki.novemberborn.net/sifr/">documentation</a> and <a href="http://novemberborn.net/sifr3/look-into-the-future">sIFR 3 is in development </a></li>
+</ul>
+<h2>Floated Navigation  </h2>
+<p>If you've mastered floating columns, the other tricky piece to the puzzle and one that is heavily used, is floated navigation. The web-standards-lovin' folk love their unordered lists of navigation and there are a myriad of ways to style them up. </p>
+<ul>
+  <li><a href="http://css.maxdesign.com.au/listamatic/">Listamatic</a></li>
+  <li><a href="http://www.alistapart.com/articles/slidingdoors/">Sliding Doors</a> </li>
+</ul>
+<h2>Sprites</h2>
+<p>Like video games of yore, packing multiple images into one single image has become a popular technique to solve a couple problems. The first is CSS-based rollovers. More recently, it's been proven to be advantageous to combine multiple images &mdash; in particular background images used in image replacement techniques &mdash; into a single file. This reduces the number of requests your browser has to make, improving the time required to download all files from your server. </p>
+<ul>
+  <li><a href="http://wellstyled.com/css-nopreload-rollovers.html">Fast Rollovers without Preload</a> </li>
+  <li><a href="http://www.alistapart.com/articles/sprites/">CSS Sprites: Image Slicing's Kiss of Death</a> </li>
+  <li><a href="http://www.fiftyfoureleven.com/weblog/web-development/programming-and-scripts/reducing-http-requests">Reducing HTTP Requests</a> </li>
+</ul>
+<h2>What do you got? </h2>
+<p>Of course, there's always more to learn and if you think there's a technique that you think is especially important for the beginner, be sure to add it to the comments. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published August 08, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/839</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">58 Comments &middot; <a href="/archives/html_and_css/six_keys_to_understanding_css_layouts.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c53427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53427">1</a></div>
+			<span class="authorname"><a href="http://germworks.net">Jermayn Parker</a></span> said on August 09, 2007		</div>
+		<div class="quote"><p>mmm defiantly some links there worth reading and keep bookmarked for later reference, thanks for that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53430">2</a></div>
+			<span class="authorname">Darren</span> said on August 09, 2007		</div>
+		<div class="quote"><p>Lots of resources worth checking out thank you. I hadn't even thought about liquid faux columns so a big thank you for that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53438">3</a></div>
+			<span class="authorname"><a href="http://hribar.info">Miha Hribar</a></span> said on August 09, 2007		</div>
+		<div class="quote"><p>Great article Jonathan, as usual. The thing that I think causes the most problems to newcomers is cascade. I've seen folks use the most elaborate hacks and load of !important nonsense to circumvent such an easy principle. It's not that they don't get it, its just that they don't know about how cascade works.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53441">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53441">4</a></div>
+			<span class="authorname">Lee</span> said on August 09, 2007		</div>
+		<div class="quote"><p>You forgot about IE hacks! HTML Comments causing problems in some instances (last character repeat bugs) fixing problems in others (fixing foated images) setting height to 0.001% to stop things disappearing etc.</p>
+<p>Also, the issues related to relatively positioned elements in floated containers, ie unclickable items etc.</p>
+<p>Love the redesign btw, I haven't checked back here in a while!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53443">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53443">5</a></div>
+			<span class="authorname">Christopher Schmitt</span> said on August 09, 2007		</div>
+		<div class="quote"><p>All good points! But sometimes even the basic parts of CSS can be tricky for Web designers. I agree with Miha Hribar on the cascade including specificity is hard for new CSS users to use well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53459">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53459">6</a></div>
+			<span class="authorname"><a href="http://feedmeplz.com">Montoya</a></span> said on August 09, 2007		</div>
+		<div class="quote"><p>Let's not forget liquid layouts, which are still a bane for most people. I keep a lot of resources at <a href="//www.cssliquid.com">Liquid Designs</a> for anyone who needs help.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53460">7</a></div>
+			<span class="authorname">Luke Visinoni</span> said on August 09, 2007		</div>
+		<div class="quote"><p>How about IE conditionals? </p>
+<p><a href="//www.quirksmode.org/css/condcom.html">http://www.quirksmode.org/css/condcom.html</a></p>
+<p>Learning about those saved me from having to apply a million hacks to make IE happy within my base css file. Now I can serve IE its own css file if it needs special attention.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53461">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53461">8</a></div>
+			<span class="authorname">Jay Luker</span> said on August 09, 2007		</div>
+		<div class="quote"><p>A great set of links, but I agree with Miha that you're missing what I think is the most crucial concept necessary to "get over the hump", and that's cascading/inheritance. (OK, maybe the box model is more important.) </p>
+<p>I mean, it's called <em><strong>Cascading</strong> Style Sheets</em>, and yet how many stylesheets have you seen where the author has created an endless number of class specifications, each of which sets the same font-family, font-size, etc., each delegating to it's own small set of elements.</p>
+<p>I think most CSS "dabblers" don't understand the power of the various types of selectors (or they're still afraid of sketchy browser implementation), and they don't understand how to utilize cascading. Those are the things necessary to get over the hump.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53462">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53462">9</a></div>
+			<span class="authorname">David Brooks</span> said on August 09, 2007		</div>
+		<div class="quote"><p>This is a great reference article, thanks for writing it.</p>
+<p>One thing that comes to mind is the idea of <a href="//www.alistapart.com/articles/fauxcolumns/">false columns,</a> that's something that continues to come up when I'm teaching new people about CSS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53466">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53466">10</a></div>
+			<span class="authorname">George Huff</span> said on August 09, 2007		</div>
+		<div class="quote"><p>I've never seen (nor thought of) anyone doing their rollover images in the way mentioned.  A technique I used to address the issue is to put the "hover image" as the background of the containing list item, and then the "off image" on the a.  Upon a:hover, background:none.</p>
+<p>Seems like it would be a pain to setup every button like that, especially if they have unique text.  Good post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53467">11</a></div>
+			<span class="authorname"><a href="http://www.tareeinternet.com">Carly</a></span> said on August 09, 2007		</div>
+		<div class="quote"><p>Great article, and yes alot of great resources in there. This is the great thing about programming, is finding more efficient ways to do things that your currently doing in a less then optimal fashion.</p>
+<p>Sprites, takes me back to the Commodore 64 days and full screen scrollers. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53468">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53468">12</a></div>
+			<span class="authorname">Ruud Welten</span> said on August 09, 2007		</div>
+		<div class="quote"><p>Ah, well, a great article! If only I had found one of these before I was finding all of this out by trial-and-error.</p>
+<p>Still, some of these links did provide me with something new to work with!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53469">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53469">13</a></div>
+			<span class="authorname">Someones Ex GF</span> said on August 09, 2007		</div>
+		<div class="quote"><p>Article was a bit above my head, but I understood enough of it to learn that I should brush up on my CSS skills!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53470">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53470">14</a></div>
+			<span class="authorname">Joseph Oster</span> said on August 09, 2007		</div>
+		<div class="quote"><p>bad link?  "Listamatic" goes to http://www.alistapart.com/articles/fauxcolumns/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53478">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53478">15</a></div>
+			<span class="authorname">oral seymour</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Thanks. I haven't designed a site in years and now I'm having to relearn all this new css layout. The article provided a lot of help to me....but I still miss tables....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53484">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53484">16</a></div>
+			<span class="authorname">Ta4ka</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Very cool stuff
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53493">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53493">17</a></div>
+			<span class="authorname">Harry Roberts</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Some good links there! Well worth a read, nice artice.</p>
+<p>Harry
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c53494">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53494">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 10, 2007		</div>
+		<div class="quote"><p>@Joseph Oster: thanks. Fixed the link to Listamatic.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53495">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53495">19</a></div>
+			<span class="authorname">Shycon</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Some good info here for dealing with CSS.  Marked for reference.  Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53496">20</a></div>
+			<span class="authorname">Chris Coyier</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Great article. I totally agree there is a "hump" in the learning curve right before it all comes together in peoples minds. I like that you mentioned DOCTYPE as well. People can avoid a lot of confusion and achieve consistent behavior if those are understood.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53504">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53504">21</a></div>
+			<span class="authorname">Dan</span> said on August 10, 2007		</div>
+		<div class="quote"><p>Wow very nicely written :)  Going to share this with my readers on P2L, thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53659">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53659">22</a></div>
+			<span class="authorname">john</span> said on August 12, 2007		</div>
+		<div class="quote"><p>great resources for css beginners and advanced too. I bookmarked the page ...I know I will need the tips sooner or later. Cheers,
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53662">23</a></div>
+			<span class="authorname"><a href="http://www.chrispalle.com">Chris PallÃ©</a></span> said on August 12, 2007		</div>
+		<div class="quote"><p>I have a tip that's more geared towards effective layout. It's a mash up of Jason Santa Maria's gray boxes wireframe approach and traditional newspaper column layouts, but I basically made a fluid layout with a transparent PNG grid overlay. It knocks out the links when viewing, but during production, it's okay. </p>
+<p>Warning not suitable for IE viewers. :-) Best for FF. (It's just production stuff!)</p>
+<p>Go ahead change the size of the window and watch the scaling of columns and elements:</p>
+<p>http://bfiprotos.blueflameinteractive.com/</p>
+<p>Same with wireframes:<br />
+http://bfi.blueflameinteractive.com/</p>
+<p>-CP</p>
+</div>
+	</div>
+		<div class="comment" id="c53696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53696">24</a></div>
+			<span class="authorname">Casper</span> said on August 12, 2007		</div>
+		<div class="quote"><p>One technique I myself employ each and every time, is the global whitespace reset..</p>
+<p>Simply put, start off your stylesheet at the very top, like this;</p>
+<pre>* {margin: 0; padding: 0; border: 0;}</pre>
+<p>The asterisk (*) is a universal selector, ie. affecting every single element throughout your (x)HTML.<br />
+What it really does is zeroing out differences between browsers, and keeping everything in check.<br />
+Of course, you'll have to apply margin, padding and borders yourself, to elements that'd otherwise have these properties set by default, eg. paragraphs, lists and especially the body tag itself (opera applies padding, IE margin).</p>
+<p>Get used to this method, and you'll quickly become a master of the grid, not a slave ;)</p>
+<p>Cheers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53753">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53753">25</a></div>
+			<span class="authorname">Graham Wheeler</span> said on August 13, 2007		</div>
+		<div class="quote"><p>&lt;h3&gt;When a (Microsoft) Problem Comes Along, You must ZOOM it!&lt;/h3&gt;<br />
+Many, many coded designs ago, I too discovered the virtues of 'overflow: auto' with regard to clearing floats. Of course, setting width or height is often not a very good way to get IE6-and-below to clear the float, especially when the element in question has padding. Luckily, though, Microsoft has given us an out by providing conditional comments. Now, I just have an IE6-and-below style sheet with a few tweaks in it.</p>
+<p>The best part of this scheme is that I can use the MS-proprietary CSS property 'zoom' in the IE style sheet. 'zoom: 100%' bestows 'hasLayout' on any element to which it is applied, which fixes a whole subset of rendering issues in one fell swoop. Parent elements expand to clear floated children; floated anchor elements containing images set to 'display: block' don't get all wonky; list items using background-image bullets don't flake out; dogs and cats, living togeth- well, you get the idea.</p>
+<p>I'm sure there are edge cases where 'overflow: auto' and/or 'zoom: 100%' aren't suitable. I just haven't found one yet, after coding dozens of designs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53757">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53757">26</a></div>
+			<span class="authorname">Andrew Gwozdziewycz</span> said on August 13, 2007		</div>
+		<div class="quote"><p>Floats take a little getting used to, but I wouldn't do it any other way now that I've gotten through learning it. I'm also a big fan of the sprites and image replacement techniques. Again, a bit tricky to get used to, but once you do... look out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53760">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53760">27</a></div>
+			<span class="authorname">Dan</span> said on August 13, 2007		</div>
+		<div class="quote"><p>Forms are teh sux.</p>
+<p>HTML forms are the bane of my CSS existence.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53761">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53761">28</a></div>
+			<span class="authorname">ryan leatzaw</span> said on August 13, 2007		</div>
+		<div class="quote"><p>I'd have to agree with most of the people on here about conditional statements, I don't think they're as vital as the six categories mentioned here but with CSS3 getting closer and closer who knows what things will have to be kept away from IE to keep things sane.</p>
+<p>They definitely are a major help already.<br />
+Great article, I've mined it for whatever I can learn.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53818">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53818">29</a></div>
+			<span class="authorname">Ewan</span> said on August 14, 2007		</div>
+		<div class="quote"><p>Nice article, will certainly come in handy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54192">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54192">30</a></div>
+			<span class="authorname">Zeb</span> said on August 19, 2007		</div>
+		<div class="quote"><p>Great read. I've bookmarked this article. Thanks for putting things together.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54730">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54730">31</a></div>
+			<span class="authorname">Jason Kataropoulos</span> said on August 24, 2007		</div>
+		<div class="quote"><p>All well put Jonathan.</p>
+<p>I could not agree more with the â€œcascadeâ€ issue. It is the main bottleneck to rookies. I will have to add to that the semantic meaning to markup and CSS. It is hard for beginners to grasp the value of semantic meaning to code. Same applies to server side code and even in SQL statements.</p>
+</div>
+	</div>
+		<div class="comment" id="c55023">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55023">32</a></div>
+			<span class="authorname">Carlos Eduardo</span> said on August 27, 2007		</div>
+		<div class="quote"><p>Nice article. This is a great list for beginners and experts!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55029">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55029">33</a></div>
+			<span class="authorname">H5N1</span> said on August 27, 2007		</div>
+		<div class="quote"><p>It's a good sensation...<br />
+I mean: this is my (and many other's) normal way to act and think.<br />
+Well, not in all points but most of them.<br />
+For months - no - years! - many people keep on thinking 'bout a different web.<br />
+What once was weired, today is normal!<br />
+Yes, I have a good feelings about that! :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55105">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55105">34</a></div>
+			<span class="authorname">Davey Boyd</span> said on September 03, 2007		</div>
+		<div class="quote"><p>Thanks for these pointers. Its good to get an overview of doing things the CSS way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55138">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55138">35</a></div>
+			<span class="authorname">Misty</span> said on September 05, 2007		</div>
+		<div class="quote"><p>Great article. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55193">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55193">36</a></div>
+			<span class="authorname">Ben Spencer</span> said on September 09, 2007		</div>
+		<div class="quote"><p>What an amazing article! I was searching the web for an article like this, and a couple of hours later this one cropped up on my RSS feeds. Crazy luck! Thanks very much Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55211">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55211">37</a></div>
+			<span class="authorname">herr_ernst</span> said on September 11, 2007		</div>
+		<div class="quote"><p>good article. but in my opinion it's now obsolete to consider quirks mode (nobody uses ie&lt;6 nowadays)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55241">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55241">38</a></div>
+			<span class="authorname">sangesh</span> said on September 14, 2007		</div>
+		<div class="quote"><p>Interesting article.</p>
+<p>Great list for novice as well as for professionals too
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55246">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55246">39</a></div>
+			<span class="authorname">goldfries</span> said on September 14, 2007		</div>
+		<div class="quote"><p>I'm glad to see many designers / developers around the world acknowledge the importance of CSS / Web Standards. </p>
+<p>It's just sad that in my part of the world, people don't care! :) Well I do, just bought a SitePoint book on CSS and it's great!</p>
+<p>I look forward to learn more from you. </p>
+<p>btw, are you ever going to STYLIZE the "Add my comment" button? ;) To match it with the site's beauty.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55280">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55280">40</a></div>
+			<span class="authorname">Alfred Fox</span> said on September 17, 2007		</div>
+		<div class="quote"><p>Great post. Your list was most comprehensive.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55283">41</a></div>
+			<span class="authorname">Mike Kider</span> said on September 17, 2007		</div>
+		<div class="quote"><p>Great roundup of CSS goodness.   I just got stymied from a custom component I had written for a customer.  Turns out that my doctype had been stripped out and replaced with a doctype that rendered my code in quirksmode.  Truly evil.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55288">42</a></div>
+			<span class="authorname">William</span> said on September 17, 2007		</div>
+		<div class="quote"><p>Corners
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55300">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55300">43</a></div>
+			<span class="authorname">Bryan</span> said on September 18, 2007		</div>
+		<div class="quote"><p>Clearfix is what I use for handling floats. Its by far the easiest and best cross browser approach to handling the clearing of floats I have seen. I know many people will use various "overflow" properties to pull off the clear, and that is great so additional classes (i.e; class="clearfix") doesn't have to get amended to various containing divs, but I have found using the overflow approach can have its cross browser pitfalls.</p>
+<pre>
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac */
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+</pre>
+</div>
+	</div>
+		<div class="comment" id="c55330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55330">44</a></div>
+			<span class="authorname">Eric</span> said on September 19, 2007		</div>
+		<div class="quote"><p>I'm an aspiring web developer (pretty young too - not even in college yet) and its sites like these that I love to read. Keep it up Snooks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56652">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56652">45</a></div>
+			<span class="authorname">LA</span> said on November 05, 2007		</div>
+		<div class="quote"><p>I also think the Sitepoint book is great.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59245">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59245">46</a></div>
+			<span class="authorname">James</span> said on August 29, 2008		</div>
+		<div class="quote"><p>Thanks for sharing this nice reference article. I tried that Liquid Faux Columns technique and it works perfect!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59370">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59370">47</a></div>
+			<span class="authorname">NewYoka</span> said on September 08, 2008		</div>
+		<div class="quote"><p>Ya the liquid faux columns worked great for me too!</p>
+<p>I dream of a day when there will be solid standards across browsers, I just hope google Chrome doesn't have its own CSS nuances.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59450">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59450">48</a></div>
+			<span class="authorname">Lenen</span> said on September 11, 2008		</div>
+		<div class="quote"><p>I agree with both James and NewYoka that the liquid faux colomus article is great. I have been looking for this for a while now and finally found it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59935">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59935">49</a></div>
+			<span class="authorname">Gmblrs</span> said on October 27, 2008		</div>
+		<div class="quote"><p>Great reference article, thanks for writing it. I love the fast rollovers article. Bookmarked!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59982">50</a></div>
+			<span class="authorname">Exdizajn</span> said on October 31, 2008		</div>
+		<div class="quote"><p>Floated Navigation, there is a bug in ff 2...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60060">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60060">51</a></div>
+			<span class="authorname">Alex @ Webson Design</span> said on November 06, 2008		</div>
+		<div class="quote"><p>I am using these techniques in almost every project, especially floated list and sprites/image replacements for navigation... nice list :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60130">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60130">52</a></div>
+			<span class="authorname">Web Design</span> said on November 12, 2008		</div>
+		<div class="quote"><p>Great list, I bookmarked a few that will be really helpful in my work. Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60363">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60363">53</a></div>
+			<span class="authorname">Computer Parts</span> said on November 25, 2008		</div>
+		<div class="quote"><p>Great post! Really informative post. Thanks for sharing with us.</p>
+</div>
+	</div>
+		<div class="comment" id="c60490">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60490">54</a></div>
+			<span class="authorname">Prengnant Mama</span> said on December 05, 2008		</div>
+		<div class="quote"><p>These are great techinques I have been using them for a little bit now.  The floated list is a great tool as well as the replacements for navigation, thanks so much for your valued work !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60531">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60531">55</a></div>
+			<span class="authorname">Price V</span> said on December 09, 2008		</div>
+		<div class="quote"><p>css examples - www.cssportal.com</p>
+<p>Great reference article, thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60775">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60775">56</a></div>
+			<span class="authorname">Michael Swaaley</span> said on December 27, 2008		</div>
+		<div class="quote"><p>Thanks for the helpful information
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62786">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62786">57</a></div>
+			<span class="authorname">fetre deepaak</span> said on February 17, 2009		</div>
+		<div class="quote"><p>Outstanding article sir!Bookmarked cheers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66024">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66024">58</a></div>
+			<span class="authorname">Ð¿Ñ€Ð¸ÐºÐ¾Ð»Ð¸ÑÑ‚</span> said on February 18, 2011		</div>
+		<div class="quote"><p>Ð¯ Ð½Ð¸ÐºÐ°Ðº Ð½Ðµ ÑÐ¼Ð¾Ð³Ð»Ð° Ð²ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº Ð² ÐºÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹. Ð’ÑÑ‚Ð°Ð²Ð»ÑÑŽ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð° Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº Ð° Ð¾Ð½ Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÐµÐ³Ð¾ ÐºÐ°Ðº Ñ€Ð¸ÑÑƒÐ½Ð¾Ðº. Ð§Ñ‚Ð¾ Ð¼Ð½Ðµ Ð´ÐµÐ»Ð°Ñ‚Ð¬?<br />
+Ð¤Ð¾Ñ‚ÐºÐ¸ Ð±ÐµÑ€Ñƒ Ð¾Ñ‚ÑÑŽÐ´Ð° - images.yandex.ru/yandsearch?text=snook.ca
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

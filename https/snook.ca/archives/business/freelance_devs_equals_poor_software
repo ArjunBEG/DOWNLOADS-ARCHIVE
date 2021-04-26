@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Are Freelance Developers a Recipe for Poor Software? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/freelance_devs_equals_poor_software">
+	<meta property="og:url" content="https://snook.ca/archives/business/freelance_devs_equals_poor_software">
+	<meta property="og:title" content="Are Freelance Developers a Recipe for Poor Software?">
+	<meta property="og:description" name="description" content="I recently read the Fast Company article, They Write the Right Stuff, and instantly began thinking of my situation as a freelance developer and what that ultimately means to my clients.
+The article t...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Are Freelance Developers a Recipe for Poor Software?</h1>
+		<p>I recently read the Fast Company article, <a href="http://www.fastcompany.com/magazine/06/writestuff.html">They Write the Right Stuff</a>, and instantly began thinking of my situation as a freelance developer and what that ultimately means to my clients.</p>
+<p>The article talks about NASA and the quality control that goes into the software that drives the shuttle. It's fascinating and impressive stuff. </p>
+<blockquote>
+  <p>&ldquo;Consider these stats : the last three versions of the program -- each  420,000 lines long-had just one error each. The last 11 versions of  this software had a total of 17 errors.&rdquo; </p>
+</blockquote>
+<p>I could only dream of such a rate of errors. Of course, the stuff I build isn't as mission critical as taking a hunk of metal with a bunch of people on board and throwing it into space but the four key things that they attribute to success is just as relevant. </p>
+<h2>1. Planning</h2>
+<p>At NASA, about one-third of the process is spent on planning. They develop requirements almost to the level of pseudo-code. It's very precise in detailing what the application must do and under what circumstances.</p>
+<p>In my development work, I've always believed in the planning process. I'd say I even have a knack for being able to visualize an application before it has even been built. Like a sculptor chipping away at a piece of rock, I have a sense of what is needed. I just have to bring it out in the code. But is my vision the same as what the client wants or needs? That's what the planning process is for.</p>
+<p>I like to develop flowcharts showing major pages of an application, and develop the data model, so I know what information needs to be captured. Better yet, would be developing a more thorough analysis of each page and what functionality is expected. I've done this on projects past but don't do it as often as a freelance developer. </p>
+<p>As a freelance developer, it may even seem less necessary to document every minutae of a project when you're the only one working on it. However, having documentation is important as it sets client expectations. It also helps avoid feature creep as you have something to refer to as a baseline and can stipulate that changes to the requirements cost extra.</p>
+<h2>2. Rivalry</h2>
+<p>Within the shuttle software group, they have two key teams: the coders, and the verifiers. They're pitted against each other in a way that ultimately produces better code.</p>
+<blockquote>
+  <p>&quot;They're in competition for who's going to find the errors,&quot; says  Keller. &quot;Sometimes they fight like cats and dogs. The developers want  to catch all their own errors. The verifiers get mad, 'Hey, give it up!  You're taking away from our time to test the software!'&quot;</p>
+</blockquote>
+<p>I'm a self-taught developer. Everything I have learned over the years has come from just building things, reading articles on the internet, and reviewing the code of others. I have no formal learning. While this has worked well for me, for the most part, I always feel that I would've liked more people to bounce ideas off of. It's great to be able to brainstorm with other people to achieve a solution that seems the most straightforward. It would've also been nice to have a solid foundation to build on top of. What algorithms should be used, what patterns can be implemented?</p>
+<p>As a freelance developer, there's no rivalry. Just the victory in having the client not notice where things might go wrong, or the disappointment by myself and the client when an error is found. The client is the only person who provides any independent set of eyes on what I produce.</p>
+<p>The heart of the title is in this very specific point: with nobody to review and critique the quality of product I'm developing, is the product I'm putting out there any good? Is there a way I can restructure my code to make it faster, easier to maintain, and ultimately better for this client and the next? </p>
+<p>This is one area where I'm particularly trying to address by hiring people to do code reviews, both for the JavaScript and CakePHP development that I do. For CakePHP, I'm looking to some of the core CakePHP developers via <a href="http://debuggable.com/">Debuggables</a> and the <a href="http://cakefoundation.org/">Cake Foundation</a>. Who better to look at the code I produce? For JavaScript, I put the call out via <a href="http://twitter.com/snookca/statuses/800534166">Twitter</a> and received the names of a few people I can rely on when needed. (Many thanks to those who responded.)</p>
+<p>As a freelancer, it's my responsibility to seek out others who can act as my rivaly and do so in a way that makes me strive to create better code. </p>
+<h2>3. History</h2>
+<p>There are two large databases at the shuttle software team: one that records the history of every change ever made to the application and another that logs every single error found in the application.</p>
+<p>Any development, large or small, should have two key pieces of software at their disposal:</p>
+<ul>
+  <li>
+    <p><strong>Version Control</strong>: There are a few different tools and it comes down to using what you feel comfortable with. Look into CVS, Subversion, or Git for more information.</p>
+  </li>
+  <li>
+    <p><strong>Bug Tracking</strong>: There are plenty of bug tracking tools such as Trac, Bugzilla, and Fogbugz.</p>
+  </li>
+</ul>
+<p>I have to admit to being lax on both of these points. I'm hit or miss when it comes to setting up a new Subversion repository for a new project and bug tracking is often left to collecting client emails into a to-do list. A more formal process would be good to establish on any project that I develop. Which leads into the fourth and final point...</p>
+<h2>4. Process</h2>
+<blockquote>
+  <p>Don't just fix the mistakes -- fix whatever permitted the mistake in the first place.</p>
+</blockquote>
+<p>The key to success isn't the lack of mistakes; mistakes are bound to happen. How you deal with clients, how you code, whatever it is that you do in your professional career or even in your personal life is a learning experience. It's important to learn from the mistakes and make sure that a process is put in place to avoid the problem from happening again.</p>
+<p>If it hasn't been evident throughout this post, I'm still changing my process and will continue to change my process to become a better developer. If there's one thing I've learned about freelance, it's that it is a journey deep into personal discovery. </p>
+<p>Do you re-examine your process on a regular basis? Do you have the ability to see where things are working and where they're not? Take the time to review things and change the process. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 02, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/891</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">21 Comments &middot; <a href="/archives/business/freelance_devs_equals_poor_software.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58288">1</a></div>
+			<span class="authorname">Damien</span> said on May 02, 2008		</div>
+		<div class="quote"><p>That's an interesting thought on the mentality of an independent software developer. I personally do a lot of inward thinking whenever I find a problem with something I've done, weather it be in something I've worked on or a breakdown of some sort. Unfortunately, that doesn't always turn into a change in my process. Much like a change in lifestyle, it's hard to change regular habits (though that isn't an excuse for not trying).</p>
+<p>I'm curious, how do you think these concepts apply to an open source project like CakePHP or FireFox? I imagine while a small development project doesn't get as much time invested in planning and bug tracking, larger ones certainly do. Would you argue that these projects suffer less problems because of that?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58293">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58293">2</a></div>
+			<span class="authorname"><a href="http://pauldwaite.co.uk/">Paul D. Waite</a></span> said on May 03, 2008		</div>
+		<div class="quote"><blockquote><p>Don't just fix the mistakes -- fix whatever permitted the mistake in the first place</p>
+</blockquote>
+<p>Word. I think thereâ€™s a principle like that in Toyotaâ€™s lean manufacturing approach, â€œthe five whysâ€ or something. You repeatedly ask why a problem happens, to get to the real, fundamental root cause.</p>
+</div>
+	</div>
+		<div class="comment" id="c58296">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58296">3</a></div>
+			<span class="authorname">Greg Newman</span> said on May 03, 2008		</div>
+		<div class="quote"><p>It's ironic that you are posting your thoughts on this subject.  Although I did not read the article (yet) that you link to, I have implemented a new system for my freelance work.  </p>
+<p>I've always spent a lot of time on planning and documenting but over the past year have focused on more documentation during a project.   I keep a log in a moleskine, (outside of existing code documentation) of potential errors and errors I make through the life of the project, trying to keep them down to a short list by completion.  Then I revisit that list after completion and analyze what could have been done differently to avoid the mistakes.  I have found over time that the list gets shorter with each project.</p>
+<p>I'm like you in that I have no formal training; am self taught.  You hit the nail on the head Jonathan: </p>
+<blockquote><p>Freelance: ...it's that it is a journey deep into personal discovery</p></blockquote>
+<p>And what a journey it has been.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58297">4</a></div>
+			<span class="authorname">George</span> said on May 03, 2008		</div>
+		<div class="quote"><p>In many projects, when time gets to be a luxury, testing is the first thing that drops off the plan. Maybe someone should start a company that tests code for others... Hehe.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58301">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58301">5</a></div>
+			<span class="authorname"><a href="http://webhive.com.ua">Eugene Sutula</a></span> said on May 03, 2008		</div>
+		<div class="quote"><p>@George: Actually there are few services for testing already available. Take a look on trybeta (trybeta.com) for example. Once I had an idea to make similar service to test websites.</p>
+<p>As for the NASA... When I was writing my master's work my classmate had a theme "qa of code by errors sowing" or something like that. I know such approach is used in rocket science. They "sow" errors in different places of system to analyze how it will work with errors. Pretty complicated but interesting stuff.</p>
+</div>
+	</div>
+		<div class="comment" id="c58303">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58303">6</a></div>
+			<span class="authorname"><a href="http://cakephp.org/">nate</a></span> said on May 03, 2008		</div>
+		<div class="quote"><p>After reading the article, my conclusion is that, while we can learn from their process, replicating it, or even an approximation of it, would be almost if not entirely impossible within our industry.</p>
+<p>The entire foundation is based on having a very exact, very detailed specification of precisely how the software is intended to function under every condition and change of state.  From that, the code an almost write itself.  Contrast that with the typical client on a web development project, who half the time has only a vague sense of what is it they want, if any at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58329">7</a></div>
+			<span class="authorname">Johan</span> said on May 04, 2008		</div>
+		<div class="quote"><blockquote><p>Are Freelance Developers a Recipe for Poor Software?</p>
+</blockquote>
+<p>If you would work for the first time with that person, anything might happen.<br />
+You just need to be lucky to hire the right person for the job, and communication during the project should be detailed and followed upon severely.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58330">8</a></div>
+			<span class="authorname">Alex Holt</span> said on May 04, 2008		</div>
+		<div class="quote"><blockquote><p>
+I could only dream of such a rate of errors. </p></blockquote>
+<p>A few other commenters have already touched on this, but surely this rate of errors is: a) in direct correlation with the extremely precise nature of the planning that goes into the work they are doing? and b) probably only measured after they have finished the project.</p>
+<p>Websites are a much more fluid, changeable domain than rockets? no?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58337">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 04, 2008		</div>
+		<div class="quote"><p>@nate: replicating such a project isn't the goal, but I believe the principles are still the same and while we scratch up web sites as vague, fluid and changeable, often the biggest problem is that they're ill defined. As web experts, it should be our position to help companies and clients understand to clarify those goals and document how best to achieve it. </p>
+<p>My biggest takeaway, and what I tried to emphasize in the article, was that good code comes from having people vet that code. Many open source projects are successful for this very reason. Would any project be as good without a second or third set of eyes on something? </p>
+<p>Does the fact that we're building web sites give us any more reason not to follow any of the key points mentioned? No, we don't need to go to the degree that they do, but we do need to do it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58339">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58339">10</a></div>
+			<span class="authorname">Jarrod Goddard</span> said on May 04, 2008		</div>
+		<div class="quote"><p>I agree with Nate, their process is definitely overkill for any project freelancers will be taking on, however, the idea of the in-depth QA and testing is definitely something to take away from the article. However, even with that in mind, most of my work doesn't need a separate QA department (really, my QA department is myself, my spouse, and my client). We do need to do testing, but on our scale, the testing doesn't need to be so hardcore.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58349">11</a></div>
+			<span class="authorname"><a href="http://jasonleveille.com">leveille</a></span> said on May 05, 2008		</div>
+		<div class="quote"><p>I would guess very few of us have rigorous testing in place for the applications we create for clients.  The sad truth is very few projects we work on can devote 40-60% or more of the budget to testing.  Clients don't want to hear that.  They can palate informal testing practices, of which they are normally a critical part of, however formal testing usually isn't going to happen.  Formal testing works great in open source projects with a lot of hands and a lot of code reuse, or for projects where the application is handling very sensitive information (NASA's mission critical applications for example), however most of us are not writing these types of applications.</p>
+<p>There are practices that I feel should be part of every project.  Source control and a solid deployment model.  Beyond that, if the developer cares about what they are doing, is invested in the work, and is able to manage client expectations, than the project likely doesn't need the rigorous model you've outlined above.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58361">12</a></div>
+			<span class="authorname">Brad Harris</span> said on May 06, 2008		</div>
+		<div class="quote"><p>I really like the concept of hiring some outside experts to do code reviews.  Code reviews is something I take part of on a daily basis at my day job, but I lack that in my freelance work.  While it is an extra cost that does impede many freelancers, I think as  developers there should be some motivation on our part to improve our code and knowledge, which happens through code reviews.  Thanks for the time put into writing these thoughts up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58406">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58406">13</a></div>
+			<span class="authorname">Mat</span> said on May 07, 2008		</div>
+		<div class="quote"><p>Personally, i do think that if you hire a freelancer then there is the definite possibility that they are not going to share your passion towards the software, having just jumped aboard.</p>
+<p>If that is the case, then obviously they are going to go for a quick solution over a longer one, implementing other features, etc.</p>
+<p>May just be my opinion, nice to check anyone elses on this. Good article though to bring up a discussion.</p>
+</div>
+	</div>
+		<div class="comment" id="c58414">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58414">14</a></div>
+			<span class="authorname">joe w </span> said on May 07, 2008		</div>
+		<div class="quote"><p>Nice article, I too am self taught and I know from my freelance experience that time vs. the alimighty dollar have forced me to take a shortcut here and there(and I hate doing that too) - If only we could figure out the equation to get 36hrs out of the day LOL
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58421">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58421">15</a></div>
+			<span class="authorname">Ryan</span> said on May 08, 2008		</div>
+		<div class="quote"><p>Heya, we also skip the test phase most of the time...time constraints etc. A once off test here and there is sometimes all we get in. And yes, we do spend alot of time afterwards fixing erros ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58573">16</a></div>
+			<span class="authorname">Rainer</span> said on May 15, 2008		</div>
+		<div class="quote"><p>I am a freelancer for fourteen years now. My conclusion for this topic is that there are few people writing good code and lots of people writing poor code.</p>
+<p>It's not a matter of freelance or not and it's not a matter of organizational frames like a MDA approach or extreme programming.<br />
+It's just that writing software needs A LOT of experience. Not two years or 5 years. I think about 25 years (that's the time I am doing it now - and I am still learning).</p>
+<p>I think DeMarco (who's a guru in the dev business) concluded about the same in his books. It's simple: There are good developers and there are bad developers. Usual teams of twenty people have 2 good guys doing the work and about 18 others doing something else :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58599">17</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on May 16, 2008		</div>
+		<div class="quote"><p>I might be a bit biased since I come from a software engineering background, but process is an extremely important part of making quality products. </p>
+<p>Warning: This is a bit long, but it covers software process and the reasons for maintaining a quality process. </p>
+<p>I wouldn't necessarily say that self-taught freelance developers = poor software, but they are generally not exposed to many of the practices that will improve the quality of their software, thereby resulting in lesser quality software (whether the quality of the software or the process itself). By improving your process, you will save time and money in the long run as well as make things easier on yourself. </p>
+<p>Don't just fix the mistakes -- fix whatever permitted the mistake in the first place.</p>
+<p>This is a good reason of why it is needed to plan out your software before jumping into development. Generally, writing requirements (whether formal or informal) is part of the planning stages since it will be a big help to guiding the design of the software as well as what Jonathan mentioned: Setting expectations and preventing feature creep. Honestly, I probably spend about as much time designing the software architecture as I do implementing it (its that important). It's also useful to design architectures that are open to change since you never know what will come down the line as well as designing components for reuse (loose coupling). </p>
+<p>Another important part of the process which Jonathan mentioned is version control and bug tracking. These sort of go hand in hand as it makes things easier to debug if you can roll back and just do a diff to find the injected code that caused a bug. Bug tracking is useful because it helps prevent bugs from repeating as well as getting re-injected. Never commit broken code to version control unless it's on a test branch. </p>
+<p>Code reviews aren't entirely necessary, but it always helps to have a second person participating since they'll think of things you won't or possibly have better solutions. It is very useful in catching errors as well. I think that Jonathan has a good solution to this with going to an external person to review your code but nothing beats having an extra person that is actually involved with the project. Back in college I experimented a bit with having two developers working on the same code at the same time (one watching the other through VNC/Remote Desktop/whatever). The resulting code tends to be better quality since you get two points of view and almost all errors are caught before they get deployed - on the other hand you're not accomplishing as much as if they worked separately, but it's a pretty decent trade-off. </p>
+<p>Other important parts are documentation and unit testing. Testing is boring but it will save you alot of grief if you write unit tests so that you can easily regression test your software and prevent bugs from getting back in as well as breaking your software. The point at which many freelance developers fail is documentation. Document your code - document what your code does, why it does it, and what is expected of it. As a freelance developer, you might expect that you'll never forget your intentions, but you will and you will never know what's going on in your software (worsened if you have to pass your software off to someone else). It's also important to document your designs/specs, but I tend to get lazy with this too just because it's boring and it takes quite a long time to do. It is a necessary part of making quality maintainable products though. </p>
+<p>As far as improving process, you should always be on the lookout of ways to improve your process - I'd like to think that mine is pretty ironed out by now but there's always something new that you could take advantage of.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58663">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58663">18</a></div>
+			<span class="authorname">Keith Brophy</span> said on May 22, 2008		</div>
+		<div class="quote"><p>Intersting article - especially the point of 'Rivalry'.</p>
+<p>I would like to stress the importance of point 3 - 'History'. </p>
+<p>I think integrating a version control system into the work flow is of extreme importance. The ability to access the source code at all points in its life cycle is very powerful. Further, with the ability to tag and branch - the developer can ensure exactly what is/has been deployed to the client. </p>
+<p>Another issue tracking system of note is JIRA (http://www.atlassian.com/software/jira/) that provides a very intuitive interface to the world of issue tracking. JIRA also provides hooks into version control systems - allowing an issue to be linked directly to a code commit. The issue tracker can then become a great knowledge resource - the more details added regarding the issue and its solution (with a direct link to the code), the more valuable this resource becomes. </p>
+<p>Now - I am off to think of ways to improve my process!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58737">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58737">19</a></div>
+			<span class="authorname">Adult Ãœhler</span> said on May 28, 2008		</div>
+		<div class="quote"><p>I think freelance developers are more likely to do a good job if the client is going to pay them well. I've worked for companies with large overheads and they end up just botching everything because margins are so tight.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58987">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58987">20</a></div>
+			<span class="authorname">Dakster</span> said on July 10, 2008		</div>
+		<div class="quote"><p>I don't think pay rates are directly connected to more efficient working and thus good code. Sometimes 'going native' in an enjoyable working environment flicks a switch that makes you want to check, clean and build code you are really happy with whatever the pay rate. </p>
+<p>Yes, sadly it sometimes makes me feel good when I write good code for clients :)</p>
+<p>Team competition is a great method for good code - there have been a few projects I have managed where we swapped code and made suggestions on each others development work - that was using multiple freelancers to good effect.</p>
+<p>In recent years I have noticed projects are pretty much just thrown up and tested once they are live. Clients cash, clients orders - this isnt always lack of capital, it is usually a lead time issue and we dont even have a chance to build anything remotely resembling error free, clean code. Most companies I have worked in that have had excellent development documenting and scheduling; debugging and testing regimes have eventually folded due to cost sensitive clients.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59766">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59766">21</a></div>
+			<span class="authorname">NOVICE</span> said on October 09, 2008		</div>
+		<div class="quote"><p>Hey,<br />
+Nice post and ofcourse another learning for me.<br />
+I would like to join this whole cool world of freelance software developers.<br />
+Is there any place (a website or something) where I can register myself,boast about what I can do in software development , get some work to code ,complete it with flying colours to the customer's satisfaction and get some bucks?(after fixing the bugs ofcourse).<br />
+Thank you in advance for letting me in.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

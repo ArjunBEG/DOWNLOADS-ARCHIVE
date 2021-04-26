@@ -1,0 +1,9 @@
+<p>Checks if a string contains only alphanumeric characters.</p>
+<ul>
+<li>Use <code>RegExp.prototype.test()</code> to check if the input string matches against the alphanumeric regexp pattern.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isAlphaNumeric <span class="op">=</span> str <span class="kw">=&gt;</span> <span class="ss">/</span><span class="sc">^[a-z0-9]+$</span><span class="ss">/gi</span>.<span class="at">test</span>(str)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isAlphaNumeric</span>(<span class="st">&#39;hello123&#39;</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isAlphaNumeric</span>(<span class="st">&#39;123&#39;</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">isAlphaNumeric</span>(<span class="st">&#39;hello 123&#39;</span>)<span class="op">;</span> <span class="co">// false (space character is not alphanumeric)</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">isAlphaNumeric</span>(<span class="st">&#39;#$hello&#39;</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

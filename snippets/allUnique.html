@@ -1,0 +1,8 @@
+<p>Checks if all elements in an array are unique.</p>
+<ul>
+<li>Create a new <code>Set</code> from the mapped values to keep only unique occurrences.</li>
+<li>Use <code>Array.prototype.length</code> and <code>Set.prototype.size</code> to compare the length of the unique values to the original array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> allUnique <span class="op">=</span> arr <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">length</span> <span class="op">===</span> <span class="kw">new</span> <span class="at">Set</span>(arr).<span class="at">size</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">allUnique</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">allUnique</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

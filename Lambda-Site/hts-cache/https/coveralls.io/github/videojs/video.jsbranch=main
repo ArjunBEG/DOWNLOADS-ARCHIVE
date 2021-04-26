@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<script src="/assets/application-9c9b45e437653e4c388a76aec3dc16059fffdb3c0959ca5678939a4402931b0a.js"></script>
+<title>videojs/video.js | Coveralls - Test Coverage History &amp; Statistics</title>
+<meta content='Test code coverage history for videojs/video.js' name='description'>
+<meta content='jjkWjPM43FYXwRd2QigTVe8W27xMk-cXGJxUD6mQDCY' name='google-site-verification'>
+<meta content='uVH7jwgRaeBZzSydDg2B7A3k8Xaw4axxRcaGLMd3Rc' name='globalsign-domain-verification'>
+<meta charset='utf-8'>
+<meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='Coveralls, coveralls gem, automated testing, integration testing, test coverage, TDD, CI, continuous integration testing, continuous integration, test code coverage, test coverage history, ruby gem, python extension, test driven development, github badge, code coverage, code coverage history, code coverage statistics' name='keywords'>
+<meta content='Coveralls.io - Test Coverage History and Statistics' property='og:title'>
+<meta content='The leading provider of test coverage analytics. Ensure that all your new code is fully covered, and see coverage trends emerge. Works with most CI services. Always free for open source.' property='og:description'>
+<meta content='Coveralls.io' property='og:site_name'>
+<meta content='/social.png' property='og:image'>
+<meta content='image/png' property='og:image:type'>
+<meta content='500' property='og:image:width'>
+<meta content='500' property='og:image:height'>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ULMyvlcXa0WiK9aJK3KiWhrnJolotihp1c7NJzS+rwt253g49gsrcTHSD7VeG7lHceNUfoYMsOX9fGoKf9Nx6w==" />
+<link href='/favicon.png' rel='shortcut icon'>
+<link href='/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed'>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.4/jquery.payment.min.js"></script>
+<script src="https://js.stripe.com/v2/"></script>
+<script src='//cdn.optimizely.com/js/2456360022.js'></script>
+<script src="//use.typekit.net/ngz2htl.js"></script>
+<script type='text/javascript'>try{Typekit.load();}catch(e){}</script>
+<meta name="stripe-key" content="pk_live_D0ehNEidbTjN3ZqW00IrjpM3" />
+<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css' rel='stylesheet'>
+<script src='https://d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js' type='text/javascript'></script>
+<script src="//js.pusher.com/3.1/pusher.min.js"></script>
+<script>
+//<![CDATA[
+var AUTH_TOKEN = 'KM9bYkdv17wRTyO+8EvgG1AmTDwssZAsfZHn6cIgSS8OmxHk5nOXiIK2+oKFIvsGOyI+y8ILCKBVI0DEiU2Xzw==';
+//]]>
+</script>
+<script>
+  window.Config = {
+    PusherKey: "4228d2afb0b831a6fec4"
+  }
+</script>
+
+<link rel="stylesheet" media="screen" href="/assets/application-6dcea7dfc789f6119ecada99ade2d978543d5090d80a865aeee8261151d0eed0.css" />
+</head>
+<body class='  '>
+<div class='container'>
+<div class='app-outer container_footer page-full'>
+<div class='header'>
+<div class='logo-fixed'>
+<img data-svg-fallback="/assets/coveralls_logo-1a40cd0265e114bdc40cc5caa6fc10786c80a9d1d37b2f30b30b7c5c3b4a8d71.png" src="/assets/coveralls_logob-27da862c7a24252e50f769869074fa2e8dff5c0a997ab880698836a1f7d4016d.svg" alt="Coveralls logob" />
+</div>
+<a class="logo" href="/"><img data-svg-fallback="/assets/coveralls_logo-1a40cd0265e114bdc40cc5caa6fc10786c80a9d1d37b2f30b30b7c5c3b4a8d71.png" src="/assets/coveralls_logo-bbcdaf48b4b89e4f878f9d12d52733d2e878e44e656bbd59a5e29800ba4ba393.svg" alt="Coveralls logo" />
+</a><nav class='siteNav'>
+<ul>
+<li>
+<a href="https://coveralls.io/"><i class="fa fa-home"></i>
+<span>Home</span>
+</a></li>
+<li>
+<a href="/features"><i class="fa fa-asterisk"></i>
+<span>Features</span>
+</a></li>
+<li class=''>
+<a href="/pricing"><i class="fa fa-star"></i>
+<span>Pricing</span>
+</a></li>
+<li>
+<a href="https://docs.coveralls.io"><i class="fa fa-question-circle"></i>
+<span>Docs</span>
+</a></li>
+<li>
+<a data-no-turbolink="true" href="/sign-in"><i class="fa fa-sign-in"></i>
+<span>Sign In</span>
+</a></li>
+</ul>
+</nav>
+</div>
+
+<div class='appWrapper'>
+<div class='show-page'>
+<h1>
+<i class="fa fa-github"></i>
+<a class="user" href="/github/videojs">videojs</a>
+<b>/</b>
+<a class="repo" href="https://coveralls.io/github/videojs/video.js">video.js</a>
+
+<div class='coverage-medium coverageText' id='repoShowPercentage'>86%</div>
+</h1>
+<div class='show-trend repoOverview'><div class='coverage-medium trend'>
+<em>
+DEFAULT BRANCH:
+<span>master</span>
+</em>
+<div class='repo-sparkline' data-branch='master' data-graph-data='[[0,77.1639042357274,2262847],[1,77.1639042357274,2262858],[2,79.3350265527592,2337962],[3,79.2652123995408,2400883],[4,79.4498749715844,2417294],[5,80.316742081448,2442613],[6,80.3078315980081,2443514],[7,80.3078315980081,2443551],[8,80.4023508137432,2444578],[9,80.4023508137432,2444672],[10,80.4023508137432,2445432],[11,80.4023508137432,2445925],[12,80.4023508137432,2446163],[13,80.4293785310734,2446307],[14,80.4293785310734,2452043],[15,80.4382200135532,2460604],[16,80.4382200135532,2461721],[17,80.4382200135532,2461754],[18,80.4382200135532,2461759],[19,80.1625659050967,2461962],[20,80.1625659050967,2461984],[21,80.1625659050967,2462016],[22,80.4284757866548,2467780],[23,80.4284757866548,2467791],[24,80.4284757866548,2467978],[25,80.4284757866548,2468477],[26,80.4284757866548,2468487],[27,80.4241071428571,2468520],[28,80.4241071428571,2468561],[29,80.4241071428571,2468591],[30,80.4275217100868,2469095],[31,80.4275217100868,2469121],[32,81.3111111111111,2469222],[33,81.3111111111111,2469234],[34,81.4320658216589,2483385],[35,81.4320658216589,2483404],[36,81.4361938639395,2500852],[37,81.4361938639395,2501016],[38,81.4348785871965,2501827],[39,81.4153439153439,2501926],[40,81.6137566137566,2547193],[41,81.4153439153439,2547266],[42,81.4153439153439,2547498],[43,81.4153439153439,2547563],[44,81.7680776014109,2548728],[45,81.6176470588235,2550538],[46,81.6663002857771,2560793],[47,81.6663002857771,2560857],[48,81.9776364832274,2577341],[49,82.1420812513578,2594388],[50,81.4485669851144,2734684],[51,81.2764064932177,2956777],[52,81.2764064932177,2990116],[53,81.3111111111111,3009687],[54,80.6709620084426,3020469],[55,80.6873614190687,3020793],[56,81.0062056737589,3028444],[57,81.6710992907801,3028476],[58,81.6530024374031,3028590],[59,81.6751606470197,3028632],[60,80.9787422497786,3029802],[61,82.6545684743617,3069976],[62,81.8028643639427,3081703],[63,81.6842105263158,3118385],[64,81.6842105263158,3118427],[65,81.7265280403277,3120419],[66,82.5795644891122,3120886],[67,83.1546391752577,3445411],[68,82.8771352130068,3446204],[69,83.1345125462773,3446321],[70,83.0146000411269,3448667],[71,82.99403660292,3448692],[72,82.8706559736788,3468914],[73,82.99403660292,3468945],[74,82.9905388728918,3470294],[75,82.9905388728918,3470307],[76,83.0351634793337,3480017],[77,82.8912194118857,3480033],[78,83.0421377183967,3480585],[79,83.0421377183967,3480603],[80,82.8982528263104,3488925],[81,82.9188078108941,3488947],[82,83.0696527635094,3499430],[83,82.9052804602425,3499434],[84,82.7713815789474,3505522],[85,82.7097039473684,3505540],[86,83.0665024630542,3515056],[87,83.0870279146141,3515082],[88,83.0870279146141,3525397],[89,82.6970443349754,3525407],[90,83.0665024630542,3527287],[91,83.0665024630542,3527313],[92,83.0598851517637,3539194],[93,82.9368334700574,3539201],[94,83.0598851517637,3539244],[95,82.9368334700574,3570236],[96,83.0598851517637,3570343],[97,82.6497128794093,3570345],[98,81.9319114027892,3570378],[99,82.9368334700574,3571231],[100,82.239540607055,3571298],[101,82.239540607055,3571308],[102,82.4735987002437,3577889],[103,82.4329813160033,3577921],[104,83.2691918168929,3578716],[105,82.479238403889,3578738],[106,83.2489366011748,3580051],[107,83.1274053068665,3580095],[108,82.4280502634779,3580161],[109,82.1240372922578,3580282],[110,82.4933141328945,3581913],[111,83.6247685661387,3581961],[112,83.6676217765043,3612059],[113,82.8489562013917,3612083],[114,83.6743044189853,3631434],[115,83.3265139116203,3631459],[116,82.9153924566769,3631548],[117,83.7308868501529,3631580],[118,82.9153924566769,3638126],[119,82.9153924566769,3638164],[120,82.9153924566769,3638495],[121,82.9258353708232,3643569],[122,83.3537082314588,3643633],[123,83.761206193969,3649977],[124,82.640586797066,3650010],[125,82.559087204564,3650112],[126,82.559087204564,3650164],[127,82.559087204564,3653368],[128,83.5778321108395,3663820],[129,83.7700589071704,3665600],[130,82.6325411334552,3670927],[131,82.6325411334552,3670962],[132,83.570268074736,3672620],[133,82.9610073111292,3672687],[134,82.6166328600406,3691395],[135,82.5152129817444,3691422],[136,82.4137931034483,3693125],[137,82.3732251521298,3694063],[138,82.3732251521298,3694128],[139,82.6166328600406,3702214],[140,82.4543610547667,3703223],[141,82.5963488843813,3704177],[142,82.3732251521298,3704203],[143,82.3732251521298,3705948],[144,82.3529411764706,3802175],[145,82.6166328600406,3955829],[146,82.4869004433696,3965996],[147,82.4642641433461,3967631],[148,83.2559039876113,3978132],[149,83.1204026325978,3979954],[150,83.2559039876113,3980023],[151,83.1204026325978,3980096],[152,83.2365466511808,3980152],[153,83.2365466511808,3980202],[154,83.2365466511808,3981257],[155,83.1010452961672,3981484],[156,83.1204026325978,3981655],[157,83.1204026325978,4004494],[158,83.3075435203095,4004552],[159,83.1141199226306,4022704],[160,83.3076032419915,4076607],[161,83.1725202624469,4094545],[162,83.1704044470002,4096185],[163,83.1704044470002,4096436],[164,83.2854130726471,4096603],[165,82.9978915085298,4096721],[166,83.1512363427257,4096888],[167,83.1277282216739,4098704],[168,83.1277282216739,4106328],[169,83.096186681844,4109659],[170,83.2100170745589,4109857],[171,83.228988806678,4110094],[172,83.1658767772512,4110138],[173,83.1848341232227,4110232],[174,83.1343566420315,4164916],[175,83.1533068031078,4179534],[176,83.1722569641842,4223238],[177,83.1628787878788,4223423],[178,83.1881862930708,4239954],[179,83.1913685406019,4240007],[180,83.0777967064168,4240058],[181,83.0399394283551,4255118],[182,83.0620741862226,4256343],[183,83.0620741862226,4256759],[184,83.1598864711447,4268944],[185,83.7275307473983,4269087],[186,83.7464522232734,4269137],[187,83.7464522232734,4269343],[188,83.7306091562618,4269463],[189,83.6634597245803,4269767],[190,83.4748160724392,4269773],[191,83.6634597245803,4381302],[192,83.8138307895233,4381405],[193,83.6442434520445,4381413],[194,83.7025910627112,4382341],[195,83.7371512481645,4390684],[196,83.6727206017244,4390898],[197,83.5443037974684,4391974],[198,83.6727206017244,4392677],[199,83.6910658594753,4394180],[200,83.5626490552192,4394269],[201,83.5626490552192,4396573],[202,83.6727206017244,4396586],[203,83.6727206017244,4397354],[204,83.6727206017244,4397366],[205,83.6727206017244,4409444],[206,83.6727206017244,4409471],[207,83.5626490552192,4419093],[208,83.5285505124451,4468660],[209,83.5468521229868,4468743],[210,83.3638360175695,4468872],[211,83.6749633967789,4468934],[212,83.6749633967789,4468972],[213,83.6566617862372,4469020],[214,83.6566617862372,4539175],[215,83.5468521229868,4660199],[216,83.5498627630375,4660219],[217,83.6779505946935,4660232],[218,83.6596523330284,4660260],[219,83.6596523330284,4660277],[220,83.5315645013724,4660299],[221,83.5681610247026,4660344],[222,83.6779505946935,4660397],[223,83.5498627630375,4660411],[224,83.6779505946935,4670402],[225,83.5681610247026,4670419],[226,83.6962488563587,4731235],[227,83.6779505946935,4731259],[228,84.5773874862788,4745823],[229,84.5590925722649,4745863],[230,84.5773874862788,4745885],[231,84.5773874862788,4745910],[232,84.6460257106645,4847565],[233,84.1529073941134,4847769],[234,84.1816896429834,4848019],[235,84.0756451042771,4848101],[236,84.1788934063992,4848242],[237,84.4020491079315,4848321],[238,84.1547429782724,4848338],[239,84.1547429782724,4848839],[240,83.3598304186539,4850011],[241,83.8191132308779,4856502],[242,84.1370782547253,4857953],[243,84.1603390429101,4946233],[244,84.0367296485962,4946311],[245,84.1603390429101,4946983],[246,83.9837541938902,4963040],[247,84.0720466184001,4969417],[248,84.0479971766367,4970395],[249,84.1538733015705,4970417],[250,84.1538733015705,5054605],[251,84.1538733015705,5054695],[252,84.0479971766367,5054794],[253,84.1538733015705,5126949],[254,84.0479971766367,5136553],[255,84.1715193223928,5136627],[256,84.009167842031,5136752],[257,84.0909090909091,5136902],[258,83.985200845666,5136956],[259,84.0909090909091,5138496],[260,83.985200845666,5138521],[261,84.0909090909091,5183042],[262,84.2031029619182,5243042],[263,84.2290748898678,5336165],[264,84.1233480176211,5336248],[265,84.2466960352423,5336303],[266,84.1289413422582,5336712],[267,84.1289413422582,5336733],[268,84.4123856439127,5371778],[269,84.0957072484166,5371817],[270,84.2751842751843,5459667],[271,84.3804843804844,5459732],[272,84.862623120788,5550433],[273,84.4025797691785,5570016],[274,84.4195519348269,5588882],[275,84.4025797691785,5589029],[276,84.3007467752885,5589177],[277,84.3962008141113,5589956],[278,84.2605156037992,5590072],[279,84.5827679782904,5590192],[280,84.2230130486358,5590328],[281,84.3585832909676,5590372],[282,84.2569056092188,5590413],[283,84.2283584617991,5656267],[284,84.1998306519898,5671813],[285,84.5385266723116,5671933],[286,84.5215918712955,5671982],[287,84.2105263157895,5672062],[288,84.3014394580864,5672371],[289,84.3014394580864,5672678],[290,84.5046570702794,5776226],[291,84.3533974034733,5851472],[292,84.1219060447887,5851759],[293,84.2326441418726,5866631],[294,84.0246991766941,5897657],[295,84.0246991766941,5978597],[296,84.3310693413363,6020281],[297,83.9110834758278,6020334],[298,83.9110834758278,6035152],[299,84.346339188559,6035234],[300,84.2219804134929,6042194],[301,84.2219804134929,6132206],[302,83.8639200998752,6132247],[303,83.9135840845508,6132294],[304,83.8664378218131,6158528],[305,84.3574547723019,6243764],[306,84.3598939653828,6369273],[307,83.8765008576329,6406398],[308,84.3335931410756,6497687],[309,83.3589664718548,7124529],[310,83.3589664718548,7125254],[311,83.9324449953517,7210005],[312,84.1125807443863,7210939],[313,83.3589664718548,7293263],[314,83.0355755786857,7325372],[315,83.0355755786857,7327594],[316,83.0382106244175,7327813],[317,83.0382106244175,7357243],[318,83.5663249456353,7360042],[319,83.7837837837838,7370666],[320,83.0382106244175,7413835],[321,83.7837837837838,7413956],[322,83.0382106244175,7414027],[323,83.0382106244175,7414324],[324,83.0382106244175,7433844],[325,83.946592144077,7459419],[326,83.946592144077,7473753],[327,83.2044540674296,7495830],[328,83.946798639035,7496506],[329,83.946798639035,7496846],[330,83.946798639035,7497159],[331,83.9517625231911,7555362],[332,83.7507730364873,7559045],[333,83.2096474953618,7594464],[334,83.7507730364873,7594695],[335,83.2096474953618,7594729],[336,83.982683982684,7607894],[337,83.2560296846011,7609446],[338,83.9981447124304,7611957],[339,83.7971552257267,7612955],[340,83.2560296846011,7612986],[341,83.2560296846011,7613171],[342,83.2560296846011,7613587],[343,83.7971552257267,7613909],[344,83.2663782447466,7616145],[345,83.2663782447466,7616241],[346,84.0568515371543,8099442],[347,84.0723003244245,8099592],[348,84.0568515371543,8099654],[349,83.3153097481848,8100207],[350,83.8560173026417,8100257],[351,83.3153097481848,8100357],[352,83.3153097481848,8100416],[353,83.3153097481848,8100442],[354,83.3153097481848,8113889],[355,83.8789376158122,8113967],[356,83.3384805435454,8114051],[357,83.3384805435454,8114570],[358,83.3384805435454,8115859],[359,83.3384805435454,8116386],[360,84.235991883877,8116656],[361,83.6502493765586,8116822],[362,83.7282284638318,8120696],[363,84.5441707202259,8136596],[364,83.7307812990273,8138315],[365,84.374019454032,8220174],[366,84.374019454032,8220387],[367,83.767252195734,8392820],[368,83.7566635308874,8392938],[369,84.3994982753214,8396335],[370,84.5719661335842,8396402],[371,84.5719661335842,8396469],[372,83.7566635308874,8398529],[373,83.7566635308874,8420142],[374,83.7566635308874,8420239],[375,84.3994982753214,8504528],[376,83.7566635308874,8504709],[377,83.7566635308874,8505137],[378,83.7566635308874,8505315],[379,84.5454545454545,8511714],[380,84.7876447876448,8657779],[381,84.7324723247232,8671640],[382,84.9407783417936,8672351],[383,84.0867158671587,8672397],[384,84.7277760689019,8672481],[385,84.9430944324823,8672584],[386,84.9747281360086,8674754],[387,85.0244498777506,8676086],[388,85.070293398533,8745301],[389,84.2145476772616,8749681],[390,84.3364315099802,8749753],[391,84.3364315099802,8750096],[392,84.3364315099802,8750285],[393,84.3364315099802,8750302],[394,85.0982782264208,8764787],[395,84.3107387661843,8786380],[396,84.4292237442922,8818952],[397,85.0343249427918,8819599],[398,85.0343249427918,8819635],[399,85.7883501067399,9105998],[400,84.9954254345837,9106137],[401,85.8035986581275,9106770],[402,85.2851479109485,9106845],[403,85.8345965976082,9106883],[404,85.8345965976082,9106928],[405,86.6148386006422,9106984],[406,85.9219198918371,9107152],[407,86.6902834008097,9107358],[408,85.7913365919434,9107452],[409,85.7913365919434,9107758],[410,86.1312637084528,9107805],[411,85.7938248692425,9108110],[412,86.7386536190316,9138254],[413,85.8613126370845,9138405],[414,85.9456723468871,9138481],[415,86.1987514762949,9139151],[416,85.8613126370845,9282330],[417,85.8613126370845,9303109],[418,86.1987514762949,9303275],[419,86.0520094562648,9303893],[420,85.7987166497805,9303961],[421,86.273847712308,9344673],[422,86.0205976700996,9348809],[423,86.2569643761607,9368173],[424,85.445937690898,9369432],[425,85.445937690898,9369475],[426,85.4306658521686,9369569],[427,85.4328905176363,9383429],[428,85.367714372902,9400721],[429,85.812356979405,9400781],[430,85.0953470633105,9402497],[431,85.3699466056445,9411482],[432,85.8122523620847,9413053],[433,85.096007314843,9413182],[434,85.8122523620847,9505371],[435,86.0103626943005,9505962],[436,85.096007314843,9505995],[437,85.096007314843,9506081],[438,85.8122523620847,9506321]]'></div>
+<a class='infobox' href='/builds/' onmouseout='$(&#39;.infobox&#39;).hide();' style='display:none;'>
+<span>
+Build:
+<i class='fa fa-arrow-circle-right'></i>
+</span>
+</a>
+</div>
+</div>
+<div class='repo-details'>
+<table>
+<tr>
+<td>
+<div class='show-detail-item'>
+<span>Repo Added</span>
+27 Mar 2015 08:12PM UTC
+</div>
+</td>
+<td>
+<div class='show-detail-item'>
+<span>Total Files</span>
+93
+</div>
+</td>
+<td>
+<div class='show-detail-item'>
+<span># Builds</span>
+2274
+<a class="btn btn-nano" href="/builds/29408739">Last
+<i class="fa fa-arrow-circle-right"></i>
+</a></div>
+</td>
+<td>
+<div class='show-detail-item'>
+<span>Badge</span>
+<div class='repoBadgeBtn'>
+<img src="https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master" alt="Badge" />
+<a class="btn btn-micro j_popoverButton btn-nano" href="javascript://">Embed ▾</a>
+<div class='popover j_shieldLinks_wr'>
+<h5>
+README BADGES
+<div class='j_popoverClose'>x</div>
+</h5>
+<p>If you need to use a raster PNG badge, change the '.svg' to '.png' in the link</p>
+<div class='j_shieldLinks'>
+<div class='markdown'>
+<h4>Markdown</h4>
+<textarea onclick='this.focus();this.select()' readonly='readonly'>[![Coverage Status](https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master)](https://coveralls.io/github/videojs/video.js?branch=master)</textarea>
+</div>
+<div class='textile'>
+<h4>Textile</h4>
+<textarea onclick='this.focus();this.select()' readonly='readonly'>https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master(Coverage Status)!:https://coveralls.io/github/videojs/video.js?branch=master</textarea>
+</div>
+<div class='rdoc'>
+<h4>RDoc</h4>
+<textarea onclick='this.focus();this.select()' readonly='readonly'>{&lt;img src=&quot;https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master&quot; alt=&quot;Coverage Status&quot; /&gt;}[https://coveralls.io/github/videojs/video.js?branch=master]
+</textarea>
+</div>
+<div class='html'>
+<h4>HTML</h4>
+<textarea onclick='this.focus();this.select()' readonly='readonly'>&lt;a href=&#39;https://coveralls.io/github/videojs/video.js?branch=master&#39;&gt;&lt;img src=&#39;https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master&#39; alt=&#39;Coverage Status&#39; /&gt;&lt;/a&gt;
+</textarea>
+</div>
+<div class='rst'>
+<h4>Rst</h4>
+<textarea onclick='this.focus();this.select()' readonly='readonly'>.. image:: https://coveralls.io/repos/github/videojs/video.js/badge.svg?branch=master
+:target: https://coveralls.io/github/videojs/video.js?branch=master
+</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div class='show-item repo-build-details'>
+<h3>
+LAST BUILD ON BRANCH
+master
+<div class='repo-build-branch pull-right pop-wr'>
+<a class="btn popover-btn j_popoverButton" href="javascript://"><i class="fa fa-code-fork"></i>
+branch: master
+</a><div class='popover popover-branches'>
+<h5>
+CHANGE BRANCH
+<div class='j_popoverClose'>x</div>
+</h5>
+<div class='branch-search'>
+<input id='branchSearch' placeholder='Search branches' type='text'>
+</div>
+<div class='branch-reset'>
+<div>
+<a href="/github/videojs/video.js"><i class="fa fa-check-circle"></i>
+Reset
+</a></div>
+</div>
+<ul class='popover-link-list' id='branchSearch-results'>
+<li>
+<div class='popover-link-list-current'>
+<i class="fa fa-check-circle-o"></i>
+master
+</div>
+</li>
+<li class='opt' data-name='es6ification'>
+<a href="/github/videojs/video.js?branch=es6ification"><i class="fa fa-circle-o"></i>
+es6ification
+</a></li>
+<li class='opt' data-name=''>
+<a href="/github/videojs/video.js?branch="><i class="fa fa-circle-o"></i>
+
+</a></li>
+<li class='opt' data-name='v5.0.0-2'>
+<a href="/github/videojs/video.js?branch=v5.0.0-2"><i class="fa fa-circle-o"></i>
+v5.0.0-2
+</a></li>
+<li class='opt' data-name='v5.0.0-3'>
+<a href="/github/videojs/video.js?branch=v5.0.0-3"><i class="fa fa-circle-o"></i>
+v5.0.0-3
+</a></li>
+<li class='opt' data-name='v5.0.0-4'>
+<a href="/github/videojs/video.js?branch=v5.0.0-4"><i class="fa fa-circle-o"></i>
+v5.0.0-4
+</a></li>
+<li class='opt' data-name='v5.0.0-5'>
+<a href="/github/videojs/video.js?branch=v5.0.0-5"><i class="fa fa-circle-o"></i>
+v5.0.0-5
+</a></li>
+<li class='opt' data-name='v5.0.0-6'>
+<a href="/github/videojs/video.js?branch=v5.0.0-6"><i class="fa fa-circle-o"></i>
+v5.0.0-6
+</a></li>
+<li class='opt' data-name='v5.0.0-7'>
+<a href="/github/videojs/video.js?branch=v5.0.0-7"><i class="fa fa-circle-o"></i>
+v5.0.0-7
+</a></li>
+<li class='opt' data-name='v5.0.0-8'>
+<a href="/github/videojs/video.js?branch=v5.0.0-8"><i class="fa fa-circle-o"></i>
+v5.0.0-8
+</a></li>
+<li class='opt' data-name='v5.0.0-9'>
+<a href="/github/videojs/video.js?branch=v5.0.0-9"><i class="fa fa-circle-o"></i>
+v5.0.0-9
+</a></li>
+<li class='opt' data-name='v5.0.0-10'>
+<a href="/github/videojs/video.js?branch=v5.0.0-10"><i class="fa fa-circle-o"></i>
+v5.0.0-10
+</a></li>
+<li class='opt' data-name='v5.0.0-11'>
+<a href="/github/videojs/video.js?branch=v5.0.0-11"><i class="fa fa-circle-o"></i>
+v5.0.0-11
+</a></li>
+<li class='opt' data-name='v5.0.0-12'>
+<a href="/github/videojs/video.js?branch=v5.0.0-12"><i class="fa fa-circle-o"></i>
+v5.0.0-12
+</a></li>
+<li class='opt' data-name='v5.0.0-13'>
+<a href="/github/videojs/video.js?branch=v5.0.0-13"><i class="fa fa-circle-o"></i>
+v5.0.0-13
+</a></li>
+<li class='opt' data-name='v5.0.0-14'>
+<a href="/github/videojs/video.js?branch=v5.0.0-14"><i class="fa fa-circle-o"></i>
+v5.0.0-14
+</a></li>
+<li class='opt' data-name='v5.0.0-15'>
+<a href="/github/videojs/video.js?branch=v5.0.0-15"><i class="fa fa-circle-o"></i>
+v5.0.0-15
+</a></li>
+<li class='opt' data-name='v5.0.0-17'>
+<a href="/github/videojs/video.js?branch=v5.0.0-17"><i class="fa fa-circle-o"></i>
+v5.0.0-17
+</a></li>
+<li class='opt' data-name='v5.0.0-33'>
+<a href="/github/videojs/video.js?branch=v5.0.0-33"><i class="fa fa-circle-o"></i>
+v5.0.0-33
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.1'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.1"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.1
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.3'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.3"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.3
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.5'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.5"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.5
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.8'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.8"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.8
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.11'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.11"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.11
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.13'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.13"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.13
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.16'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.16"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.16
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.17'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.17"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.17
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.20'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.20"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.20
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.22'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.22"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.22
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.24'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.24"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.24
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.62'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.62"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.62
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.63'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.63"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.63
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.64'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.64"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.64
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.66'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.66"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.66
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.70'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.70"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.70
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.71'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.71"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.71
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.72'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.72"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.72
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.73'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.73"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.73
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.74'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.74"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.74
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.75'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.75"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.75
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.76'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.76"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.76
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.78'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.78"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.78
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.79'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.79"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.79
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.80'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.80"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.80
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.81'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.81"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.81
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.82'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.82"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.82
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.83'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.83"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.83
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.86'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.86"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.86
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.87'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.87"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.87
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.88'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.88"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.88
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.89'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.89"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.89
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.90'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.90"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.90
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.91'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.91"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.91
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.92'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.92"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.92
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.93'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.93"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.93
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.94'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.94"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.94
+</a></li>
+<li class='opt' data-name='move-gruntjs'>
+<a href="/github/videojs/video.js?branch=move-gruntjs"><i class="fa fa-circle-o"></i>
+move-gruntjs
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.97'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.97"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.97
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.100'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.100"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.100
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.101'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.101"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.101
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.103'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.103"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.103
+</a></li>
+<li class='opt' data-name='v5.0.0-rc.104'>
+<a href="/github/videojs/video.js?branch=v5.0.0-rc.104"><i class="fa fa-circle-o"></i>
+v5.0.0-rc.104
+</a></li>
+<li class='opt' data-name='stable'>
+<a href="/github/videojs/video.js?branch=stable"><i class="fa fa-circle-o"></i>
+stable
+</a></li>
+<li class='opt' data-name='v5.0.0'>
+<a href="/github/videojs/video.js?branch=v5.0.0"><i class="fa fa-circle-o"></i>
+v5.0.0
+</a></li>
+<li class='opt' data-name='v5.2.0'>
+<a href="/github/videojs/video.js?branch=v5.2.0"><i class="fa fa-circle-o"></i>
+v5.2.0
+</a></li>
+<li class='opt' data-name='patch'>
+<a href="/github/videojs/video.js?branch=patch"><i class="fa fa-circle-o"></i>
+patch
+</a></li>
+<li class='opt' data-name='v5.2.1'>
+<a href="/github/videojs/video.js?branch=v5.2.1"><i class="fa fa-circle-o"></i>
+v5.2.1
+</a></li>
+<li class='opt' data-name='v5.2.2'>
+<a href="/github/videojs/video.js?branch=v5.2.2"><i class="fa fa-circle-o"></i>
+v5.2.2
+</a></li>
+<li class='opt' data-name='v5.2.3'>
+<a href="/github/videojs/video.js?branch=v5.2.3"><i class="fa fa-circle-o"></i>
+v5.2.3
+</a></li>
+<li class='opt' data-name='v5.2.4'>
+<a href="/github/videojs/video.js?branch=v5.2.4"><i class="fa fa-circle-o"></i>
+v5.2.4
+</a></li>
+<li class='opt' data-name='v5.3.0'>
+<a href="/github/videojs/video.js?branch=v5.3.0"><i class="fa fa-circle-o"></i>
+v5.3.0
+</a></li>
+<li class='opt' data-name='4.12.0'>
+<a href="/github/videojs/video.js?branch=4.12.0"><i class="fa fa-circle-o"></i>
+4.12.0
+</a></li>
+<li class='opt' data-name='v5.4.0'>
+<a href="/github/videojs/video.js?branch=v5.4.0"><i class="fa fa-circle-o"></i>
+v5.4.0
+</a></li>
+<li class='opt' data-name='v5.4.1'>
+<a href="/github/videojs/video.js?branch=v5.4.1"><i class="fa fa-circle-o"></i>
+v5.4.1
+</a></li>
+<li class='opt' data-name='v5.4.3'>
+<a href="/github/videojs/video.js?branch=v5.4.3"><i class="fa fa-circle-o"></i>
+v5.4.3
+</a></li>
+<li class='opt' data-name='v5.4.4'>
+<a href="/github/videojs/video.js?branch=v5.4.4"><i class="fa fa-circle-o"></i>
+v5.4.4
+</a></li>
+<li class='opt' data-name='v5.4.5'>
+<a href="/github/videojs/video.js?branch=v5.4.5"><i class="fa fa-circle-o"></i>
+v5.4.5
+</a></li>
+<li class='opt' data-name='v5.4.6'>
+<a href="/github/videojs/video.js?branch=v5.4.6"><i class="fa fa-circle-o"></i>
+v5.4.6
+</a></li>
+<li class='opt' data-name='v5.5.0'>
+<a href="/github/videojs/video.js?branch=v5.5.0"><i class="fa fa-circle-o"></i>
+v5.5.0
+</a></li>
+<li class='opt' data-name='v5.5.1'>
+<a href="/github/videojs/video.js?branch=v5.5.1"><i class="fa fa-circle-o"></i>
+v5.5.1
+</a></li>
+<li class='opt' data-name='v5.5.2'>
+<a href="/github/videojs/video.js?branch=v5.5.2"><i class="fa fa-circle-o"></i>
+v5.5.2
+</a></li>
+<li class='opt' data-name='v5.5.3'>
+<a href="/github/videojs/video.js?branch=v5.5.3"><i class="fa fa-circle-o"></i>
+v5.5.3
+</a></li>
+<li class='opt' data-name='v5.7.0'>
+<a href="/github/videojs/video.js?branch=v5.7.0"><i class="fa fa-circle-o"></i>
+v5.7.0
+</a></li>
+<li class='opt' data-name='v5.7.1'>
+<a href="/github/videojs/video.js?branch=v5.7.1"><i class="fa fa-circle-o"></i>
+v5.7.1
+</a></li>
+<li class='opt' data-name='v5.8.0'>
+<a href="/github/videojs/video.js?branch=v5.8.0"><i class="fa fa-circle-o"></i>
+v5.8.0
+</a></li>
+<li class='opt' data-name='v5.8.1'>
+<a href="/github/videojs/video.js?branch=v5.8.1"><i class="fa fa-circle-o"></i>
+v5.8.1
+</a></li>
+<li class='opt' data-name='v5.8.3'>
+<a href="/github/videojs/video.js?branch=v5.8.3"><i class="fa fa-circle-o"></i>
+v5.8.3
+</a></li>
+<li class='opt' data-name='fix-ie8-tests'>
+<a href="/github/videojs/video.js?branch=fix-ie8-tests"><i class="fa fa-circle-o"></i>
+fix-ie8-tests
+</a></li>
+<li class='opt' data-name='v5.8.5'>
+<a href="/github/videojs/video.js?branch=v5.8.5"><i class="fa fa-circle-o"></i>
+v5.8.5
+</a></li>
+<li class='opt' data-name='v5.8.6'>
+<a href="/github/videojs/video.js?branch=v5.8.6"><i class="fa fa-circle-o"></i>
+v5.8.6
+</a></li>
+<li class='opt' data-name='v5.9.0-1'>
+<a href="/github/videojs/video.js?branch=v5.9.0-1"><i class="fa fa-circle-o"></i>
+v5.9.0-1
+</a></li>
+<li class='opt' data-name='fix-ie8-tag'>
+<a href="/github/videojs/video.js?branch=fix-ie8-tag"><i class="fa fa-circle-o"></i>
+fix-ie8-tag
+</a></li>
+<li class='opt' data-name='pr3212'>
+<a href="/github/videojs/video.js?branch=pr3212"><i class="fa fa-circle-o"></i>
+pr3212
+</a></li>
+<li class='opt' data-name='v5.8.7'>
+<a href="/github/videojs/video.js?branch=v5.8.7"><i class="fa fa-circle-o"></i>
+v5.8.7
+</a></li>
+<li class='opt' data-name='v5.8.8'>
+<a href="/github/videojs/video.js?branch=v5.8.8"><i class="fa fa-circle-o"></i>
+v5.8.8
+</a></li>
+<li class='opt' data-name='v5.9.0'>
+<a href="/github/videojs/video.js?branch=v5.9.0"><i class="fa fa-circle-o"></i>
+v5.9.0
+</a></li>
+<li class='opt' data-name='v5.9.0-2'>
+<a href="/github/videojs/video.js?branch=v5.9.0-2"><i class="fa fa-circle-o"></i>
+v5.9.0-2
+</a></li>
+<li class='opt' data-name='fix-tests-ie'>
+<a href="/github/videojs/video.js?branch=fix-tests-ie"><i class="fa fa-circle-o"></i>
+fix-tests-ie
+</a></li>
+<li class='opt' data-name='v5.9.1'>
+<a href="/github/videojs/video.js?branch=v5.9.1"><i class="fa fa-circle-o"></i>
+v5.9.1
+</a></li>
+<li class='opt' data-name='v5.9.2'>
+<a href="/github/videojs/video.js?branch=v5.9.2"><i class="fa fa-circle-o"></i>
+v5.9.2
+</a></li>
+<li class='opt' data-name='video-audio-tracks'>
+<a href="/github/videojs/video.js?branch=video-audio-tracks"><i class="fa fa-circle-o"></i>
+video-audio-tracks
+</a></li>
+<li class='opt' data-name='clear-currentsource-loadstart'>
+<a href="/github/videojs/video.js?branch=clear-currentsource-loadstart"><i class="fa fa-circle-o"></i>
+clear-currentsource-loadstart
+</a></li>
+<li class='opt' data-name='v5.10.1'>
+<a href="/github/videojs/video.js?branch=v5.10.1"><i class="fa fa-circle-o"></i>
+v5.10.1
+</a></li>
+<li class='opt' data-name='v5.10.2'>
+<a href="/github/videojs/video.js?branch=v5.10.2"><i class="fa fa-circle-o"></i>
+v5.10.2
+</a></li>
+<li class='opt' data-name='v5.10.3'>
+<a href="/github/videojs/video.js?branch=v5.10.3"><i class="fa fa-circle-o"></i>
+v5.10.3
+</a></li>
+<li class='opt' data-name='v5.10.4'>
+<a href="/github/videojs/video.js?branch=v5.10.4"><i class="fa fa-circle-o"></i>
+v5.10.4
+</a></li>
+<li class='opt' data-name='fix-ie8-videojs'>
+<a href="/github/videojs/video.js?branch=fix-ie8-videojs"><i class="fa fa-circle-o"></i>
+fix-ie8-videojs
+</a></li>
+<li class='opt' data-name='v5.10.5'>
+<a href="/github/videojs/video.js?branch=v5.10.5"><i class="fa fa-circle-o"></i>
+v5.10.5
+</a></li>
+<li class='opt' data-name='v5.10.6'>
+<a href="/github/videojs/video.js?branch=v5.10.6"><i class="fa fa-circle-o"></i>
+v5.10.6
+</a></li>
+<li class='opt' data-name='v6.1.2'>
+<a href="/github/videojs/video.js?branch=v6.1.2"><i class="fa fa-circle-o"></i>
+v6.1.2
+</a></li>
+<li class='opt' data-name='v5.10.7'>
+<a href="/github/videojs/video.js?branch=v5.10.7"><i class="fa fa-circle-o"></i>
+v5.10.7
+</a></li>
+<li class='opt' data-name='lang-test-issues'>
+<a href="/github/videojs/video.js?branch=lang-test-issues"><i class="fa fa-circle-o"></i>
+lang-test-issues
+</a></li>
+<li class='opt' data-name='v5.11.0'>
+<a href="/github/videojs/video.js?branch=v5.11.0"><i class="fa fa-circle-o"></i>
+v5.11.0
+</a></li>
+<li class='opt' data-name='vjsstandard-core'>
+<a href="/github/videojs/video.js?branch=vjsstandard-core"><i class="fa fa-circle-o"></i>
+vjsstandard-core
+</a></li>
+<li class='opt' data-name='v5.10.8'>
+<a href="/github/videojs/video.js?branch=v5.10.8"><i class="fa fa-circle-o"></i>
+v5.10.8
+</a></li>
+<li class='opt' data-name='v5.11.1'>
+<a href="/github/videojs/video.js?branch=v5.11.1"><i class="fa fa-circle-o"></i>
+v5.11.1
+</a></li>
+<li class='opt' data-name='v5.11.2'>
+<a href="/github/videojs/video.js?branch=v5.11.2"><i class="fa fa-circle-o"></i>
+v5.11.2
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-qunit-1.2.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-qunit-1.2.0"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-qunit-1.2.0
+</a></li>
+<li class='opt' data-name='new-build'>
+<a href="/github/videojs/video.js?branch=new-build"><i class="fa fa-circle-o"></i>
+new-build
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-1.2.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-1.2.0"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-1.2.0
+</a></li>
+<li class='opt' data-name='revert-qunit'>
+<a href="/github/videojs/video.js?branch=revert-qunit"><i class="fa fa-circle-o"></i>
+revert-qunit
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-concurrent-2.3.1'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-concurrent-2.3.1"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-concurrent-2.3.1
+</a></li>
+<li class='opt' data-name=''>
+<a href="/github/videojs/video.js?branch="><i class="fa fa-circle-o"></i>
+
+</a></li>
+<li class='opt' data-name='v5.11.4'>
+<a href="/github/videojs/video.js?branch=v5.11.4"><i class="fa fa-circle-o"></i>
+v5.11.4
+</a></li>
+<li class='opt' data-name='greenkeeper-uglify-js-2.7.2'>
+<a href="/github/videojs/video.js?branch=greenkeeper-uglify-js-2.7.2"><i class="fa fa-circle-o"></i>
+greenkeeper-uglify-js-2.7.2
+</a></li>
+<li class='opt' data-name='greenkeeper-uglify-js-2.7.3'>
+<a href="/github/videojs/video.js?branch=greenkeeper-uglify-js-2.7.3"><i class="fa fa-circle-o"></i>
+greenkeeper-uglify-js-2.7.3
+</a></li>
+<li class='opt' data-name='pr/3547'>
+<a href="/github/videojs/video.js?branch=pr/3547"><i class="fa fa-circle-o"></i>
+pr/3547
+</a></li>
+<li class='opt' data-name='requirable'>
+<a href="/github/videojs/video.js?branch=requirable"><i class="fa fa-circle-o"></i>
+requirable
+</a></li>
+<li class='opt' data-name='require-tests'>
+<a href="/github/videojs/video.js?branch=require-tests"><i class="fa fa-circle-o"></i>
+require-tests
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-chrome-launcher-2.0.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-chrome-launcher-2.0.0"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-chrome-launcher-2.0.0
+</a></li>
+<li class='opt' data-name='ie8-test-fix'>
+<a href="/github/videojs/video.js?branch=ie8-test-fix"><i class="fa fa-circle-o"></i>
+ie8-test-fix
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-cli-6.14.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-cli-6.14.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-cli-6.14.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-register-6.14.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-register-6.14.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-register-6.14.0
+</a></li>
+<li class='opt' data-name='v5.11.5'>
+<a href="/github/videojs/video.js?branch=v5.11.5"><i class="fa fa-circle-o"></i>
+v5.11.5
+</a></li>
+<li class='opt' data-name='refactor-tts-complete'>
+<a href="/github/videojs/video.js?branch=refactor-tts-complete"><i class="fa fa-circle-o"></i>
+refactor-tts-complete
+</a></li>
+<li class='opt' data-name='v5.11.6'>
+<a href="/github/videojs/video.js?branch=v5.11.6"><i class="fa fa-circle-o"></i>
+v5.11.6
+</a></li>
+<li class='opt' data-name='v5.13.0'>
+<a href="/github/videojs/video.js?branch=v5.13.0"><i class="fa fa-circle-o"></i>
+v5.13.0
+</a></li>
+<li class='opt' data-name='v5.12.1'>
+<a href="/github/videojs/video.js?branch=v5.12.1"><i class="fa fa-circle-o"></i>
+v5.12.1
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-contrib-cssmin-1.0.2'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-contrib-cssmin-1.0.2"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-contrib-cssmin-1.0.2
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-plugin-transform-runtime-6.12.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-plugin-transform-runtime-6.12.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-plugin-transform-runtime-6.12.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-plugin-transform-runtime-6.15.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-plugin-transform-runtime-6.15.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-plugin-transform-runtime-6.15.0
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-browserstack-launcher-1.1.1'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-browserstack-launcher-1.1.1"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-browserstack-launcher-1.1.1
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-1.3.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-1.3.0"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-1.3.0
+</a></li>
+<li class='opt' data-name='greenkeeper-sinon-1.17.6'>
+<a href="/github/videojs/video.js?branch=greenkeeper-sinon-1.17.6"><i class="fa fa-circle-o"></i>
+greenkeeper-sinon-1.17.6
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-shell-2.0.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-shell-2.0.0"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-shell-2.0.0
+</a></li>
+<li class='opt' data-name='v5.11.7'>
+<a href="/github/videojs/video.js?branch=v5.11.7"><i class="fa fa-circle-o"></i>
+v5.11.7
+</a></li>
+<li class='opt' data-name='v5.12.2'>
+<a href="/github/videojs/video.js?branch=v5.12.2"><i class="fa fa-circle-o"></i>
+v5.12.2
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-preset-es2015-6.16.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-preset-es2015-6.16.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-preset-es2015-6.16.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-register-6.16.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-register-6.16.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-register-6.16.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-register-6.16.3'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-register-6.16.3"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-register-6.16.3
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-qunit-1.2.1'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-qunit-1.2.1"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-qunit-1.2.1
+</a></li>
+<li class='opt' data-name='refactor-tts'>
+<a href="/github/videojs/video.js?branch=refactor-tts"><i class="fa fa-circle-o"></i>
+refactor-tts
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-cli-6.16.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-cli-6.16.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-cli-6.16.0
+</a></li>
+<li class='opt' data-name='v5.12.3'>
+<a href="/github/videojs/video.js?branch=v5.12.3"><i class="fa fa-circle-o"></i>
+v5.12.3
+</a></li>
+<li class='opt' data-name='v5.12.4'>
+<a href="/github/videojs/video.js?branch=v5.12.4"><i class="fa fa-circle-o"></i>
+v5.12.4
+</a></li>
+<li class='opt' data-name='v5.12.5'>
+<a href="/github/videojs/video.js?branch=v5.12.5"><i class="fa fa-circle-o"></i>
+v5.12.5
+</a></li>
+<li class='opt' data-name='greenkeeper-uglify-js-2.7.4'>
+<a href="/github/videojs/video.js?branch=greenkeeper-uglify-js-2.7.4"><i class="fa fa-circle-o"></i>
+greenkeeper-uglify-js-2.7.4
+</a></li>
+<li class='opt' data-name='naked-createEl'>
+<a href="/github/videojs/video.js?branch=naked-createEl"><i class="fa fa-circle-o"></i>
+naked-createEl
+</a></li>
+<li class='opt' data-name='fix-minified-comments'>
+<a href="/github/videojs/video.js?branch=fix-minified-comments"><i class="fa fa-circle-o"></i>
+fix-minified-comments
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-cli-6.18.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-cli-6.18.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-cli-6.18.0
+</a></li>
+<li class='opt' data-name='remove-sourcemaps'>
+<a href="/github/videojs/video.js?branch=remove-sourcemaps"><i class="fa fa-circle-o"></i>
+remove-sourcemaps
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-preset-es2015-6.18.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-preset-es2015-6.18.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-preset-es2015-6.18.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-register-6.18.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-register-6.18.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-register-6.18.0
+</a></li>
+<li class='opt' data-name='greenkeeper-babel-runtime-6.18.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-babel-runtime-6.18.0"><i class="fa fa-circle-o"></i>
+greenkeeper-babel-runtime-6.18.0
+</a></li>
+<li class='opt' data-name='v5.11.9'>
+<a href="/github/videojs/video.js?branch=v5.11.9"><i class="fa fa-circle-o"></i>
+v5.11.9
+</a></li>
+<li class='opt' data-name='v5.12.6'>
+<a href="/github/videojs/video.js?branch=v5.12.6"><i class="fa fa-circle-o"></i>
+v5.12.6
+</a></li>
+<li class='opt' data-name='greenkeeper-webpack-1.13.3'>
+<a href="/github/videojs/video.js?branch=greenkeeper-webpack-1.13.3"><i class="fa fa-circle-o"></i>
+greenkeeper-webpack-1.13.3
+</a></li>
+<li class='opt' data-name='auto-cleaup-texttracks'>
+<a href="/github/videojs/video.js?branch=auto-cleaup-texttracks"><i class="fa fa-circle-o"></i>
+auto-cleaup-texttracks
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-shell-2.1.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-shell-2.1.0"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-shell-2.1.0
+</a></li>
+<li class='opt' data-name='bug/fix-ie8-unit-test'>
+<a href="/github/videojs/video.js?branch=bug/fix-ie8-unit-test"><i class="fa fa-circle-o"></i>
+bug/fix-ie8-unit-test
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-accessibility-5.0.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-accessibility-5.0.0"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-accessibility-5.0.0
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-detect-browsers-2.2.1'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-detect-browsers-2.2.1"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-detect-browsers-2.2.1
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-detect-browsers-2.2.2'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-detect-browsers-2.2.2"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-detect-browsers-2.2.2
+</a></li>
+<li class='opt' data-name='pin-karma-detect-browsers'>
+<a href="/github/videojs/video.js?branch=pin-karma-detect-browsers"><i class="fa fa-circle-o"></i>
+pin-karma-detect-browsers
+</a></li>
+<li class='opt' data-name='greenkeeper-grunt-github-releaser-0.1.18'>
+<a href="/github/videojs/video.js?branch=greenkeeper-grunt-github-releaser-0.1.18"><i class="fa fa-circle-o"></i>
+greenkeeper-grunt-github-releaser-0.1.18
+</a></li>
+<li class='opt' data-name='remove-el-class-safari'>
+<a href="/github/videojs/video.js?branch=remove-el-class-safari"><i class="fa fa-circle-o"></i>
+remove-el-class-safari
+</a></li>
+<li class='opt' data-name='v5.13.1'>
+<a href="/github/videojs/video.js?branch=v5.13.1"><i class="fa fa-circle-o"></i>
+v5.13.1
+</a></li>
+<li class='opt' data-name='greenkeeper-karma-detect-browsers-2.2.3'>
+<a href="/github/videojs/video.js?branch=greenkeeper-karma-detect-browsers-2.2.3"><i class="fa fa-circle-o"></i>
+greenkeeper-karma-detect-browsers-2.2.3
+</a></li>
+<li class='opt' data-name='fix-flash'>
+<a href="/github/videojs/video.js?branch=fix-flash"><i class="fa fa-circle-o"></i>
+fix-flash
+</a></li>
+<li class='opt' data-name='revert-flash-cache'>
+<a href="/github/videojs/video.js?branch=revert-flash-cache"><i class="fa fa-circle-o"></i>
+revert-flash-cache
+</a></li>
+<li class='opt' data-name='v5.13.2'>
+<a href="/github/videojs/video.js?branch=v5.13.2"><i class="fa fa-circle-o"></i>
+v5.13.2
+</a></li>
+<li class='opt' data-name='refactor/text-track-api'>
+<a href="/github/videojs/video.js?branch=refactor/text-track-api"><i class="fa fa-circle-o"></i>
+refactor/text-track-api
+</a></li>
+<li class='opt' data-name='always-emulate-captions'>
+<a href="/github/videojs/video.js?branch=always-emulate-captions"><i class="fa fa-circle-o"></i>
+always-emulate-captions
+</a></li>
+<li class='opt' data-name='fix-custom-player-test'>
+<a href="/github/videojs/video.js?branch=fix-custom-player-test"><i class="fa fa-circle-o"></i>
+fix-custom-player-test
+</a></li>
+<li class='opt' data-name='v5.14.0'>
+<a href="/github/videojs/video.js?branch=v5.14.0"><i class="fa fa-circle-o"></i>
+v5.14.0
+</a></li>
+<li class='opt' data-name='pr/3833'>
+<a href="/github/videojs/video.js?branch=pr/3833"><i class="fa fa-circle-o"></i>
+pr/3833
+</a></li>
+<li class='opt' data-name='browserstack-edge'>
+<a href="/github/videojs/video.js?branch=browserstack-edge"><i class="fa fa-circle-o"></i>
+browserstack-edge
+</a></li>
+<li class='opt' data-name='silence-guru-meditation'>
+<a href="/github/videojs/video.js?branch=silence-guru-meditation"><i class="fa fa-circle-o"></i>
+silence-guru-meditation
+</a></li>
+<li class='opt' data-name='v5.14.1'>
+<a href="/github/videojs/video.js?branch=v5.14.1"><i class="fa fa-circle-o"></i>
+v5.14.1
+</a></li>
+<li class='opt' data-name='middleware'>
+<a href="/github/videojs/video.js?branch=middleware"><i class="fa fa-circle-o"></i>
+middleware
+</a></li>
+<li class='opt' data-name='remove-seeking-on-src-change'>
+<a href="/github/videojs/video.js?branch=remove-seeking-on-src-change"><i class="fa fa-circle-o"></i>
+remove-seeking-on-src-change
+</a></li>
+<li class='opt' data-name='player-div-ingestion'>
+<a href="/github/videojs/video.js?branch=player-div-ingestion"><i class="fa fa-circle-o"></i>
+player-div-ingestion
+</a></li>
+<li class='opt' data-name='fix-console-log-tests'>
+<a href="/github/videojs/video.js?branch=fix-console-log-tests"><i class="fa fa-circle-o"></i>
+fix-console-log-tests
+</a></li>
+<li class='opt' data-name='vjs-hooks-tests'>
+<a href="/github/videojs/video.js?branch=vjs-hooks-tests"><i class="fa fa-circle-o"></i>
+vjs-hooks-tests
+</a></li>
+<li class='opt' data-name='patch-can-play-type'>
+<a href="/github/videojs/video.js?branch=patch-can-play-type"><i class="fa fa-circle-o"></i>
+patch-can-play-type
+</a></li>
+<li class='opt' data-name='fix-remote-track-logs'>
+<a href="/github/videojs/video.js?branch=fix-remote-track-logs"><i class="fa fa-circle-o"></i>
+fix-remote-track-logs
+</a></li>
+<li class='opt' data-name='hooks-logs'>
+<a href="/github/videojs/video.js?branch=hooks-logs"><i class="fa fa-circle-o"></i>
+hooks-logs
+</a></li>
+<li class='opt' data-name='greenkeeper/update-all'>
+<a href="/github/videojs/video.js?branch=greenkeeper/update-all"><i class="fa fa-circle-o"></i>
+greenkeeper/update-all
+</a></li>
+<li class='opt' data-name='greenkeeper/ghooks-2.0.0'>
+<a href="/github/videojs/video.js?branch=greenkeeper/ghooks-2.0.0"><i class="fa fa-circle-o"></i>
+greenkeeper/ghooks-2.0.0
+</a></li>
+<li class='opt' data-name='fix-back-seek'>
+<a href="/github/videojs/video.js?branch=fix-back-seek"><i class="fa fa-circle-o"></i>
+fix-back-seek
+</a></li>
+<li class='opt' data-name='v5.15.0'>
+<a href="/github/videojs/video.js?branch=v5.15.0"><i class="fa fa-circle-o"></i>
+v5.15.0
+</a></li>
+<li class='opt' data-name='fix-ie8'>
+<a href="/github/videojs/video.js?branch=fix-ie8"><i class="fa fa-circle-o"></i>
+fix-ie8
+</a></li>
+<li class='opt' data-name='v5.15.1'>
+<a href="/github/videojs/video.js?branch=v5.15.1"><i class="fa fa-circle-o"></i>
+v5.15.1
+</a></li>
+<li class='opt' data-name='greenkeeper/lodash-4.17.3'>
+<a href="/github/videojs/video.js?branch=greenkeeper/lodash-4.17.3"><i class="fa fa-circle-o"></i>
+greenkeeper/lodash-4.17.3
+</a></li>
+<li class='opt' data-name='greenkeeper/sinon-1.17.7'>
+<a href="/github/videojs/video.js?branch=greenkeeper/sinon-1.17.7"><i class="fa fa-circle-o"></i>
+greenkeeper/sinon-1.17.7
+</a></li>
+<li class='opt' data-name='greenkeeper/lodash-4.17.4'>
+<a href="/github/videojs/video.js?branch=greenkeeper/lodash-4.17.4"><i class="fa fa-circle-o"></i>
+greenkeeper/lodash-4.17.4
+</a></li>
+<li class='opt' data-name='v5.0.0-16'>
+<a href="/github/videojs/video.js?branch=v5.0.0-16"><i class="fa fa-circle-o"></i>
+v5.0.0-16
+</a></li>
+<li class='opt' data-name='v5.17.0'>
+<a href="/github/videojs/video.js?branch=v5.17.0"><i class="fa fa-circle-o"></i>
+v5.17.0
+</a></li>
+</ul>
+</div>
+</div>
+</h3>
+<div class='coverage-low' id='runInfo'>
+<label>Committed</label>
+ 4 Jan 2017 - 15:39
+<span class="negative">coverage decreased (-0.8%) to 85.02%</span>
+</div>
+<div class='coverage-low table' id='runCommit'>
+<div class='tr'>
+<div class='td runCommit-build-number'>
+<label>Build #</label>
+<a class="btn btn-micro" href="/builds/9518864">4933
+</a></div>
+<div class='td'>
+<label>Build Type</label>
+<p><a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3913">Pull #3913</a></p>
+<p>travis-ci</p>
+</div>
+<div class='td'>
+<label>Committed by</label>
+<a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a>
+</div>
+<div class='td'>
+<label>Commit Message</label>
+<pre><a href="https://github.com/videojs/video.js/commit/803500d6debbc5d5f1b1e3da9c4660e98556fae4">chore(release): add es5 folder to the tagged commit</a></pre>
+</div>
+<div class='td'>
+<label>Pull Request</label>
+<a href="https://github.com/videojs/video.js/pull/3913">Pull Request #3913:
+chore(release): add es5 folder to the tagged commit
+</a></div>
+<div class='td'>
+<label>Run Details</label>
+<p>
+<strong>5579</strong>
+of
+<strong>6562</strong>
+relevant lines covered
+<strong>(85.02%)</strong>
+</p>
+<p>
+<strong>1495.75</strong>
+hits per line
+</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class='show-item show-last-build-detail'>
+<h5>Relevant lines Covered</h5>
+<div class='show-trend repoOverview'><div class='trend relevant-total'>
+<div class='relevant-trend-count'>
+<em class='count-relevant'>
+<span>6562</span>
+RELEVANT LINES
+</em>
+<em class='count-covered'>
+<span>5579</span>
+COVERED LINES
+</em>
+</div>
+<div class='repo-sparkline sparkline-relevent sparkline-no-circles' data-branch='master' data-graph-data='[[0,2933,3801],[1,2933,3801],[2,3436,4331],[3,3452,4355],[4,3495,4399],[5,3550,4420],[6,3548,4418],[7,3548,4418],[8,3557,4424],[9,3557,4424],[10,3557,4424],[11,3557,4424],[12,3557,4424],[13,3559,4425],[14,3559,4425],[15,3561,4427],[16,3561,4427],[17,3561,4427],[18,3561,4427],[19,3649,4552],[20,3649,4552],[21,3649,4552],[22,3604,4481],[23,3604,4481],[24,3604,4481],[25,3604,4481],[26,3604,4481],[27,3603,4480],[28,3603,4480],[29,3603,4480],[30,3612,4491],[31,3612,4491],[32,3659,4500],[33,3659,4500],[34,3662,4497],[35,3662,4497],[36,3663,4498],[37,3663,4498],[38,3689,4530],[39,3693,4536],[40,3702,4536],[41,3693,4536],[42,3693,4536],[43,3693,4536],[44,3709,4536],[45,3663,4488],[46,3715,4549],[47,3715,4549],[48,3739,4561],[49,3781,4603],[50,3666,4501],[51,3655,4497],[52,3655,4497],[53,3659,4500],[54,3631,4501],[55,3639,4510],[56,3655,4512],[57,3685,4512],[58,3685,4513],[59,3686,4513],[60,3657,4516],[61,3917,4739],[62,3884,4748],[63,3880,4750],[64,3880,4750],[65,3891,4761],[66,3944,4776],[67,4033,4850],[68,4027,4859],[69,4042,4862],[70,4037,4863],[71,4036,4863],[72,4030,4863],[73,4036,4863],[74,4035,4862],[75,4035,4862],[76,4038,4863],[77,4031,4863],[78,4040,4865],[79,4040,4865],[80,4033,4865],[81,4034,4865],[82,4043,4867],[83,4035,4867],[84,4026,4864],[85,4023,4864],[86,4047,4872],[87,4048,4872],[88,4048,4872],[89,4029,4872],[90,4047,4872],[91,4047,4872],[92,4050,4876],[93,4044,4876],[94,4050,4876],[95,4044,4876],[96,4050,4876],[97,4030,4876],[98,3995,4876],[99,4044,4876],[100,4010,4876],[101,4010,4876],[102,4061,4924],[103,4059,4924],[104,4111,4937],[105,4072,4937],[106,4110,4937],[107,4104,4937],[108,4067,4934],[109,4052,4934],[110,4010,4861],[111,4065,4861],[112,4088,4886],[113,4048,4886],[114,4090,4888],[115,4073,4888],[116,4067,4905],[117,4107,4905],[118,4067,4905],[119,4067,4905],[120,4067,4905],[121,4070,4908],[122,4091,4908],[123,4111,4908],[124,4056,4908],[125,4052,4908],[126,4052,4908],[127,4052,4908],[128,4102,4908],[129,4124,4923],[130,4068,4923],[131,4068,4923],[132,4115,4924],[133,4085,4924],[134,4073,4930],[135,4068,4930],[136,4063,4930],[137,4061,4930],[138,4061,4930],[139,4073,4930],[140,4065,4930],[141,4072,4930],[142,4061,4930],[143,4061,4930],[144,4060,4930],[145,4073,4930],[146,4093,4962],[147,4096,4967],[148,4301,5166],[149,4294,5166],[150,4301,5166],[151,4294,5166],[152,4300,5166],[153,4300,5166],[154,4300,5166],[155,4293,5166],[156,4294,5166],[157,4294,5166],[158,4307,5170],[159,4297,5170],[160,4317,5182],[161,4310,5182],[162,4339,5217],[163,4339,5217],[164,4345,5217],[165,4330,5217],[166,4338,5217],[167,4380,5269],[168,4380,5269],[169,4380,5271],[170,4386,5271],[171,4387,5271],[172,4387,5275],[173,4388,5275],[174,4387,5277],[175,4388,5277],[176,4389,5277],[177,4391,5280],[178,4394,5282],[179,4395,5283],[180,4389,5283],[181,4387,5283],[182,4389,5284],[183,4389,5284],[184,4395,5285],[185,4425,5285],[186,4426,5285],[187,4426,5285],[188,4426,5286],[189,4435,5301],[190,4425,5301],[191,4435,5301],[192,4448,5307],[193,4439,5307],[194,4458,5326],[195,4562,5448],[196,4561,5451],[197,4554,5451],[198,4561,5451],[199,4562,5451],[200,4555,5451],[201,4555,5451],[202,4561,5451],[203,4561,5451],[204,4561,5451],[205,4561,5451],[206,4561,5451],[207,4555,5451],[208,4564,5464],[209,4565,5464],[210,4555,5464],[211,4572,5464],[212,4572,5464],[213,4571,5464],[214,4571,5464],[215,4565,5464],[216,4566,5465],[217,4573,5465],[218,4572,5465],[219,4572,5465],[220,4565,5465],[221,4567,5465],[222,4573,5465],[223,4566,5465],[224,4573,5465],[225,4567,5465],[226,4574,5465],[227,4573,5465],[228,4623,5466],[229,4622,5466],[230,4623,5466],[231,4623,5466],[232,4675,5523],[233,4689,5572],[234,4763,5658],[235,4757,5658],[236,4762,5657],[237,4778,5661],[238,4764,5661],[239,4764,5661],[240,4719,5661],[241,4745,5661],[242,4763,5661],[243,4766,5663],[244,4759,5663],[245,4766,5663],[246,4756,5663],[247,4761,5663],[248,4763,5667],[249,4769,5667],[250,4769,5667],[251,4769,5667],[252,4763,5667],[253,4769,5667],[254,4763,5667],[255,4770,5667],[256,4765,5672],[257,4773,5676],[258,4767,5676],[259,4773,5676],[260,4767,5676],[261,4773,5676],[262,4776,5672],[263,4780,5675],[264,4774,5675],[265,4781,5675],[266,4776,5677],[267,4776,5677],[268,4798,5684],[269,4780,5684],[270,4802,5698],[271,4808,5698],[272,4911,5787],[273,4973,5892],[274,4974,5892],[275,4973,5892],[276,4967,5892],[277,4976,5896],[278,4968,5896],[279,4987,5896],[280,4970,5901],[281,4978,5901],[282,4972,5901],[283,4972,5903],[284,4972,5905],[285,4992,5905],[286,4991,5905],[287,4976,5909],[288,4978,5905],[289,4978,5905],[290,4990,5905],[291,5003,5931],[292,4996,5939],[293,5011,5949],[294,5307,6316],[295,5307,6316],[296,5339,6331],[297,5398,6433],[298,5398,6433],[299,5426,6433],[300,5418,6433],[301,5418,6433],[302,5374,6408],[303,5399,6434],[304,5375,6409],[305,5409,6412],[306,5410,6413],[307,5379,6413],[308,5410,6415],[309,5420,6502],[310,5420,6502],[311,5417,6454],[312,5469,6502],[313,5420,6502],[314,5345,6437],[315,5345,6437],[316,5346,6438],[317,5346,6438],[318,5380,6438],[319,5394,6438],[320,5346,6438],[321,5394,6438],[322,5346,6438],[323,5346,6438],[324,5346,6438],[325,5407,6441],[326,5407,6441],[327,5380,6466],[328,5428,6466],[329,5428,6466],[330,5428,6466],[331,5430,6468],[332,5417,6468],[333,5382,6468],[334,5417,6468],[335,5382,6468],[336,5432,6468],[337,5385,6468],[338,5433,6468],[339,5420,6468],[340,5385,6468],[341,5385,6468],[342,5385,6468],[343,5420,6468],[344,5389,6472],[345,5389,6472],[346,5441,6473],[347,5442,6473],[348,5441,6473],[349,5393,6473],[350,5428,6473],[351,5393,6473],[352,5393,6473],[353,5393,6473],[354,5393,6473],[355,5432,6476],[356,5397,6476],[357,5397,6476],[358,5397,6476],[359,5397,6476],[360,5397,6407],[361,5367,6416],[362,5336,6373],[363,5388,6373],[364,5337,6374],[365,5378,6374],[366,5378,6374],[367,5341,6376],[368,5342,6378],[369,5383,6378],[370,5394,6378],[371,5394,6378],[372,5342,6378],[373,5342,6378],[374,5342,6378],[375,5383,6378],[376,5342,6378],[377,5342,6378],[378,5342,6378],[379,5394,6380],[380,5490,6475],[381,5511,6504],[382,5522,6501],[383,5469,6504],[384,5509,6502],[385,5523,6502],[386,5548,6529],[387,5564,6544],[388,5567,6544],[389,5511,6544],[390,5535,6563],[391,5535,6563],[392,5535,6563],[393,5535,6563],[394,5585,6563],[395,5535,6565],[396,5547,6570],[397,5574,6555],[398,5574,6555],[399,5626,6558],[400,5574,6558],[401,5627,6558],[402,5593,6558],[403,5096,5937],[404,5096,5937],[405,5125,5917],[406,5084,5917],[407,5139,5928],[408,5090,5933],[409,5090,5933],[410,5105,5927],[411,5085,5927],[412,5141,5927],[413,5089,5927],[414,5094,5927],[415,5109,5927],[416,5089,5927],[417,5089,5927],[418,5109,5927],[419,5096,5922],[420,5081,5922],[421,5110,5923],[422,5095,5923],[423,5109,5923],[424,5595,6548],[425,5595,6548],[426,5594,6548],[427,5595,6549],[428,5595,6554],[429,5625,6555],[430,5578,6555],[431,5596,6555],[432,5631,6562],[433,5584,6562],[434,5631,6562],[435,5644,6562],[436,5584,6562],[437,5584,6562],[438,5631,6562]]'></div>
+<a class='infobox' href='/builds/' onmouseout='$(&#39;.infobox&#39;).hide();' style='display:none;'>
+<span>
+Build:
+<i class='fa fa-arrow-circle-right'></i>
+</span>
+</a>
+</div>
+<div class='trend relevant-covered'>
+<em>
+<span>1495.75</span>
+HITS PER LINE
+</em>
+<div class='repo-sparkline sparkline-relevent' data-branch='master' data-graph-data='[[0,395.54,2262847],[1,395.23,2262858],[2,354.67,2337962],[3,353.45,2400883],[4,355.52,2417294],[5,395.79,2442613],[6,396.13,2443514],[7,395.65,2443551],[8,403.97,2444578],[9,403.39,2444672],[10,403.12,2445432],[11,403.12,2445925],[12,404.06,2446163],[13,403.49,2446307],[14,403.24,2452043],[15,403.15,2460604],[16,403.39,2461721],[17,403.12,2461754],[18,403.4,2461759],[19,397.21,2461962],[20,397.12,2461984],[21,396.43,2462016],[22,395.27,2467780],[23,396.13,2467791],[24,396.25,2467978],[25,395.46,2468477],[26,396.06,2468487],[27,396.62,2468520],[28,396.55,2468561],[29,395.61,2468591],[30,395.6,2469095],[31,394.77,2469121],[32,402.97,2469222],[33,402.95,2469234],[34,403.18,2483385],[35,402.31,2483404],[36,402.4,2500852],[37,403.08,2501016],[38,444.74,2501827],[39,444.81,2501926],[40,445.36,2547193],[41,443.66,2547266],[42,443.83,2547498],[43,443.16,2547563],[44,457.07,2548728],[45,458.05,2550538],[46,443.91,2560793],[47,442.89,2560857],[48,414.93,2577341],[49,411.4,2594388],[50,526.75,2734684],[51,528.73,2956777],[52,528.74,2990116],[53,534.58,3009687],[54,526.55,3020469],[55,527.71,3020793],[56,527.15,3028444],[57,535.89,3028476],[58,535.04,3028590],[59,535.55,3028632],[60,526.05,3029802],[61,506.62,3069976],[62,496.63,3081703],[63,503.47,3118385],[64,498.86,3118427],[65,499.15,3120419],[66,498.87,3120886],[67,508.1,3445411],[68,506.4,3446204],[69,506.99,3446321],[70,558.69,3448667],[71,558.54,3448692],[72,558.59,3468914],[73,558.64,3468945],[74,558.75,3470294],[75,558.73,3470307],[76,559.21,3480017],[77,559.12,3480033],[78,558.88,3480585],[79,558.98,3480603],[80,559.9,3488925],[81,559.99,3488947],[82,559.82,3499430],[83,559.73,3499434],[84,560.3,3505522],[85,560.07,3505540],[86,561.59,3515056],[87,561.49,3515082],[88,561.67,3525397],[89,561.13,3525407],[90,561.49,3527287],[91,561.49,3527313],[92,514.99,3539194],[93,515.02,3539201],[94,514.99,3539244],[95,514.89,3570236],[96,514.99,3570343],[97,514.91,3570345],[98,515.84,3570378],[99,514.86,3571231],[100,513.66,3571298],[101,513.55,3571308],[102,517.45,3577889],[103,517.36,3577921],[104,518.97,3578716],[105,517.62,3578738],[106,519.09,3580051],[107,518.87,3580095],[108,518.04,3580161],[109,520.35,3580282],[110,527.86,3581913],[111,527.09,3581961],[112,521.56,3612059],[113,520.28,3612083],[114,521.34,3631434],[115,521.41,3631459],[116,518.33,3631548],[117,519.59,3631580],[118,518.33,3638126],[119,518.24,3638164],[120,518.32,3638495],[121,517.92,3643569],[122,519.42,3643633],[123,519.54,3649977],[124,520.04,3650010],[125,519.93,3650112],[126,519.95,3650164],[127,520.24,3653368],[128,519.37,3663820],[129,517.78,3665600],[130,518.53,3670927],[131,518.56,3670962],[132,517.68,3672620],[133,516.42,3672687],[134,522.61,3691395],[135,521.67,3691422],[136,521.97,3693125],[137,482.01,3694063],[138,481.82,3694128],[139,482.64,3702214],[140,481.51,3703223],[141,482.65,3704177],[142,481.97,3704203],[143,482.02,3705948],[144,480.91,3802175],[145,481.94,3955829],[146,484.31,3965996],[147,483.93,3967631],[148,680.14,3978132],[149,678.5,3979954],[150,680.39,3980023],[151,678.55,3980096],[152,679.7,3980152],[153,679.7,3980202],[154,679.7,3981257],[155,678.42,3981484],[156,678.54,3981655],[157,678.49,4004494],[158,679.74,4004552],[159,678.03,4022704],[160,703.87,4076607],[161,701.91,4094545],[162,698.28,4096185],[163,698.38,4096436],[164,699.51,4096603],[165,698.49,4096721],[166,698.37,4096888],[167,693.34,4098704],[168,693.41,4106328],[169,693.05,4109659],[170,694.32,4109857],[171,694.79,4110094],[172,693.75,4110138],[173,694.62,4110232],[174,701.74,4164916],[175,694.3,4179534],[176,694.63,4223238],[177,702.09,4223423],[178,702.41,4239954],[179,701.89,4240007],[180,700.78,4240058],[181,700.78,4255118],[182,705.71,4256343],[183,705.32,4256759],[184,705.59,4268944],[185,712.07,4269087],[186,712.8,4269137],[187,712.58,4269343],[188,712.0,4269463],[189,722.48,4269767],[190,722.5,4269773],[191,722.84,4381302],[192,723.44,4381405],[193,726.24,4381413],[194,719.59,4382341],[195,721.16,4390684],[196,720.27,4390898],[197,719.33,4391974],[198,720.27,4392677],[199,720.83,4394180],[200,723.08,4394269],[201,719.33,4396573],[202,720.32,4396586],[203,720.27,4397354],[204,720.24,4397366],[205,720.32,4409444],[206,720.27,4409471],[207,719.38,4419093],[208,718.78,4468660],[209,718.78,4468743],[210,719.07,4468872],[211,720.54,4468934],[212,720.47,4468972],[213,719.9,4469020],[214,719.86,4539175],[215,719.01,4660199],[216,718.8,4660219],[217,720.19,4660232],[218,719.78,4660260],[219,720.39,4660277],[220,719.09,4660299],[221,719.74,4660344],[222,720.29,4660397],[223,719.39,4660411],[224,720.72,4670402],[225,719.32,4670419],[226,727.77,4731235],[227,727.02,4731259],[228,743.51,4745823],[229,743.02,4745863],[230,743.63,4745885],[231,743.73,4745910],[232,750.72,4847565],[233,741.42,4847769],[234,736.24,4848019],[235,735.66,4848101],[236,736.33,4848242],[237,745.58,4848321],[238,736.53,4848338],[239,736.43,4848839],[240,684.41,4850011],[241,688.41,4856502],[242,735.97,4857953],[243,736.22,4946233],[244,734.83,4946311],[245,736.43,4946983],[246,735.49,4963040],[247,734.98,4969417],[248,737.82,4970395],[249,738.6,4970417],[250,738.9,5054605],[251,738.6,5054695],[252,737.66,5054794],[253,739.24,5126949],[254,737.87,5136553],[255,738.98,5136627],[256,737.21,5136752],[257,737.44,5136902],[258,736.82,5136956],[259,737.44,5138496],[260,736.77,5138521],[261,737.44,5183042],[262,738.47,5243042],[263,741.81,5336165],[264,741.41,5336248],[265,742.43,5336303],[266,740.87,5336712],[267,740.9,5336733],[268,741.54,5371778],[269,739.94,5371817],[270,738.63,5459667],[271,739.4,5459732],[272,858.59,5550433],[273,843.02,5570016],[274,849.81,5588882],[275,849.84,5589029],[276,848.88,5589177],[277,849.52,5589956],[278,849.27,5590072],[279,849.66,5590192],[280,847.77,5590328],[281,848.71,5590372],[282,847.62,5590413],[283,847.83,5656267],[284,847.18,5671813],[285,848.55,5671933],[286,848.56,5671982],[287,855.17,5672062],[288,856.83,5672371],[289,856.83,5672678],[290,857.19,5776226],[291,871.57,5851472],[292,869.71,5851759],[293,869.01,5866631],[294,857.52,5897657],[295,857.65,5978597],[296,859.34,6020281],[297,872.75,6020334],[298,872.22,6035152],[299,873.65,6035234],[300,875.36,6042194],[301,875.23,6132206],[302,875.64,6132247],[303,872.58,6132294],[304,875.58,6158528],[305,879.8,6243764],[306,880.31,6369273],[307,877.22,6406398],[308,880.17,6497687],[309,876.15,7124529],[310,875.83,7125254],[311,889.11,7210005],[312,880.63,7210939],[313,875.87,7293263],[314,896.46,7325372],[315,896.51,7327594],[316,896.47,7327813],[317,896.35,7357243],[318,898.06,7360042],[319,901.03,7370666],[320,896.73,7413835],[321,901.17,7413956],[322,896.22,7414027],[323,896.25,7414324],[324,924.78,7433844],[325,908.42,7459419],[326,908.41,7473753],[327,916.96,7495830],[328,921.93,7496506],[329,921.79,7496846],[330,921.92,7497159],[331,921.93,7555362],[332,918.77,7559045],[333,917.69,7594464],[334,919.08,7594695],[335,916.92,7594729],[336,1027.66,7607894],[337,1023.37,7609446],[338,1028.28,7611957],[339,1025.08,7612955],[340,1023.88,7612986],[341,1023.62,7613171],[342,1023.51,7613587],[343,1025.21,7613909],[344,1024.56,7616145],[345,1025.09,7616241],[346,1029.34,8099442],[347,1029.31,8099592],[348,1029.3,8099654],[349,1024.9,8100207],[350,1025.99,8100257],[351,1024.42,8100357],[352,1024.45,8100416],[353,1024.43,8100442],[354,1024.46,8113889],[355,1025.52,8113967],[356,1024.01,8114051],[357,1023.96,8114570],[358,1024.5,8115859],[359,1024.67,8116386],[360,1037.33,8116656],[361,1033.78,8116822],[362,1041.48,8120696],[363,1046.38,8136596],[364,1040.36,8138315],[365,1042.16,8220174],[366,1042.29,8220387],[367,1046.72,8392820],[368,1046.41,8392938],[369,1048.83,8396335],[370,1051.43,8396402],[371,1051.3,8396469],[372,1046.68,8398529],[373,1046.4,8420142],[374,1046.4,8420239],[375,1048.15,8504528],[376,1046.39,8504709],[377,1046.93,8505137],[378,1046.75,8505315],[379,1051.1,8511714],[380,1089.17,8657779],[381,1213.23,8671640],[382,1239.16,8672351],[383,1211.11,8672397],[384,1225.15,8672481],[385,1250.37,8672584],[386,1240.67,8674754],[387,1237.84,8676086],[388,1259.29,8745301],[389,1233.45,8749681],[390,1238.32,8749753],[391,1237.55,8750096],[392,1237.66,8750285],[393,1237.57,8750302],[394,1241.88,8764787],[395,1237.1,8786380],[396,1245.22,8818952],[397,1243.24,8819599],[398,1243.2,8819635],[399,1337.04,9105998],[400,1332.2,9106137],[401,1337.0,9106770],[402,1334.78,9106845],[403,1464.25,9106883],[404,1464.0,9106928],[405,1470.82,9106984],[406,1469.52,9107152],[407,1503.73,9107358],[408,1585.18,9107452],[409,1585.22,9107758],[410,1589.97,9107805],[411,1586.91,9108110],[412,1622.15,9138254],[413,1587.26,9138405],[414,1587.39,9138481],[415,1592.86,9139151],[416,1587.21,9282330],[417,1587.03,9303109],[418,1592.2,9303275],[419,1594.21,9303893],[420,1588.81,9303961],[421,1646.61,9344673],[422,1641.8,9348809],[423,1644.01,9368173],[424,1496.15,9369432],[425,1496.39,9369475],[426,1493.87,9369569],[427,1495.97,9383429],[428,1494.91,9400721],[429,1494.15,9400781],[430,1490.04,9402497],[431,1503.2,9411482],[432,1501.31,9413053],[433,1496.9,9413182],[434,1501.04,9505371],[435,1528.38,9505962],[436,1496.84,9505995],[437,1496.83,9506081],[438,1501.09,9506321]]'></div>
+</div>
+</div>
+</div>
+<div class='show-item show-last-build-detail'>
+<h5>
+Source Files on
+master
+</h5>
+<div class='groupable'>
+<ul class='nav nav-tabs groupable-controls'>
+<li>
+<a data-sort-class="all" name="filesAll" class="sortableTh sortAll active" href="/github/videojs/video.js">List
+<strong>93</strong>
+</a></li>
+<li>
+<a data-sort-class="changed" class="sortableTh sortChanged" href="/github/videojs/video.js">Changed
+<strong>37</strong>
+</a></li>
+<li>
+<a data-sort-class="source-changed" class="sortableTh sortSourceChanged" href="/github/videojs/video.js">Source Changed
+<strong>0</strong>
+</a></li>
+<li>
+<a data-sort-class="coverage-changed" class="sortableTh sortCovChanged" href="/github/videojs/video.js">Coverage Changed
+<strong>37</strong>
+</a></li>
+</ul>
+<div id='source-files-datatable' style='display:'>
+<table class='datatable groupable-table' data-ajax-source-filter='filter=all' data-ajax-source='/builds/9518864/source_files.js'>
+<thead>
+<tr>
+<th>Coverage</th>
+<th>∆</th>
+<th>File</th>
+<th>Lines</th>
+<th>Relevant</th>
+<th>Covered</th>
+<th>Missed</th>
+<th>Hits/Line</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class='clear'></div>
+</div>
+
+</div>
+<div class='show-item'>
+<h3>Recent Builds</h3>
+<table>
+<thead>
+<tr>
+<th>Builds</th>
+<th>Branch</th>
+<th>Coverage</th>
+<th>Commit</th>
+<th>Committer</th>
+<th>Type</th>
+<th>Time</th>
+<th>Via</th>
+</tr>
+</thead>
+<tr>
+<td>
+<a class="btn btn-micro" href="/builds/9518864">4933
+</a></td>
+<td>
+<strong><a href="https://github.com/videojs/video.js/tree/master">master</a></strong>
+</td>
+<td>
+<div class='changeBadge'><i class="fa fa-arrow-down"></i><div class='changed coverage-medium'>
+85.02</div></div>
+
+</td>
+<td class='break-column'><span><a href="/builds/9518864">chore(release): add es5 folder to the tagged commit</a></span></td>
+<td><a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a></td>
+<td>
+<a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3913">Pull #3913</a>
+</td>
+<td>04 Jan 2017 03:43PM UTC</td>
+<td>travis-ci</td>
+</tr>
+<tr>
+<td>
+<a class="btn btn-micro" href="/builds/9515732">4932
+</a></td>
+<td>
+<strong><a href="https://github.com/videojs/video.js/tree/master">master</a></strong>
+</td>
+<td>
+<div class='changeBadge'><i class="fa fa-arrow-down"></i><div class='changed coverage-medium'>
+85.02</div></div>
+
+</td>
+<td class='break-column'><span><a href="/builds/9515732">mend</a></span></td>
+<td><a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a></td>
+<td>
+<a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3912">Pull #3912</a>
+</td>
+<td>04 Jan 2017 12:11PM UTC</td>
+<td>travis-ci</td>
+</tr>
+<tr>
+<td>
+<a class="btn btn-micro" href="/builds/9512340">4931
+</a></td>
+<td>
+<strong><a href="https://github.com/videojs/video.js/tree/master">master</a></strong>
+</td>
+<td>
+<div class='changeBadge'><i class="fa fa-arrow-down"></i><div class='changed coverage-medium'>
+85.02</div></div>
+
+</td>
+<td class='break-column'><span><a href="/builds/9512340">jsdoc output
+Uses the TUI JSDoc template. All configuring of jsdoc was moved to the jsdoc.json file.
+There&#39;s currently a bug with TUI regarding the tutorials (https://github.com/nhnent/tui.jsdoc-template/issues/12) but it should via gh-pages curre...</a></span></td>
+<td><a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a></td>
+<td>
+<a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3910">Pull #3910</a>
+</td>
+<td>04 Jan 2017 07:16AM UTC</td>
+<td>travis-ci</td>
+</tr>
+<tr>
+<td>
+<a class="btn btn-micro" href="/builds/9506989">4929
+</a></td>
+<td>
+<strong><a href="https://github.com/videojs/video.js/tree/master">master</a></strong>
+</td>
+<td>
+<div class='changeBadge'><i class="fa fa-arrow-down"></i><div class='changed coverage-medium'>
+85.08</div></div>
+
+</td>
+<td class='break-column'><span><a href="/builds/9506989">return a Promise from play.</a></span></td>
+<td><a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a></td>
+<td>
+<a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3907">Pull #3907</a>
+</td>
+<td>03 Jan 2017 09:22PM UTC</td>
+<td>travis-ci</td>
+</tr>
+<tr>
+<td>
+<a class="btn btn-micro" href="/builds/9506609">4928
+</a></td>
+<td>
+<strong><a href="https://github.com/videojs/video.js/tree/master">master</a></strong>
+</td>
+<td>
+<div class='changeBadge'><i class="fa fa-arrow-down"></i><div class='changed coverage-medium'>
+85.03</div></div>
+
+</td>
+<td class='break-column'><span><a href="/builds/9506609">don&#39;t modify method chaining in play</a></span></td>
+<td><a class="committer" href="https://github.com/web-flow"><img src="https://secure.gravatar.com/avatar/9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" alt="9181eb84f9c35729a3bad740fb7f9d93?size=18&amp;default=identicon" />web-flow</a></td>
+<td>
+<a class="btn btn-micro" href="https://github.com/videojs/video.js/pull/3860">Pull #3860</a>
+</td>
+<td>03 Jan 2017 08:59PM UTC</td>
+<td>travis-ci</td>
+</tr>
+</table>
+<div class='repo-show-all-builds'>
+<a class="btn" href="/repos/51573/builds">See All Builds (2269)
+</a></div>
+</div>
+
+
+</div>
+
+<div class='clear'></div>
+</div>
+<div class='sidebar'>
+<div class='sidebar-item'>
+<ul>
+<li>
+<a target="_blank" href="https://github.com/videojs/video.js"><i class="fa fa-external-link-square"></i>
+Repo on GitHub
+</a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+</div>
+<footer class='' id='footer'>
+<div class='wrapper'>
+<a href="https://docs.coveralls.io/troubleshooting">Troubleshooting</a>
+&middot;
+<a href="https://github.com/lemurheavy/coveralls-public/issues">Open an Issue</a>
+&middot;
+<a rel="nofollow" href="mailto:sales@coveralls.io">Sales</a>
+&middot;
+<a rel="nofollow" href="mailto:support@coveralls.io">Support</a>
+&middot;
+<a href="https://enterprise.coveralls.io">ENTERPRISE</a>
+&middot;
+<a href="/careers">CAREERS</a>
+&middot;
+<a target="_blank" href="https://status.coveralls.io">STATUS</a>
+<br>
+<span>
+<a target="_blank" href="https://blog.coveralls.io/">BLOG</a>
+&middot;
+<a target="_blank" href="https://twitter.com/CoverallsApp">TWITTER</a>
+&middot;
+<a href="/legal">Legal &amp; Privacy</a>
+&middot;
+<a href="/supported-continuous-integration">Supported CI Services</a>
+&middot;
+<a href="/continuous-integration">What&#39;s a CI service?</a>
+&middot;
+<a href="/code-coverage">Automated Testing</a>
+</span>
+<p>
+&copy; 2021 Coveralls, Inc
+</p>
+</div>
+</footer>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-36781555-1', 'auto');
+  ga('send', 'pageview');
+  
+  ga('require', 'ecommerce');
+</script>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0062/3179.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+</body>
+</html>

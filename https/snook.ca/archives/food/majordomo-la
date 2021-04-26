@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Majordomo - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/food/majordomo-la">
+	<meta property="og:url" content="https://snook.ca/archives/food/majordomo-la">
+	<meta property="og:title" content="Majordomo">
+	<meta property="og:description" name="description" content="
+
+Likely the last restaurant adventure on this L.A trip was to Majordomo—a David Chang restaurant. With all the cooking shows I’ve watched, I was excited to go here and excited to be able to boo...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Majordomo</h1>
+		
+
+<p>Likely the last restaurant adventure on this L.A trip was to <a href="https://www.majordomo.la/">Majordomo</a>—a David Chang restaurant. With all the cooking shows I’ve watched, I was excited to go here and excited to be able to book a reservation a month ago. </p>
+
+<p>Earlier today, in trying to track down a dress code—there really isn’t one except maybe “don’t look slovenly” but they still let me in and anyways—I came across a <a href="http://www.latimes.com/food/jonathan-gold/la-fo-gold-majordomo-review-20180414-story.html">review of Majordomo by Jonathan Gold</a>. The review was lukewarm and my expectations were tempered.</p>
+
+<p>The dishes are “family style,” designed for sharing. Between the two of us, we ended up ordering six dishes. It was a little much but we really wanted an opportunity to try as many dishes as possible. Once again, if you can go with a group of four, I think that’d be ideal. </p>
+
+<p>The place gets quite loud when it’s full and trying to hear people across a larger table can get quite difficult. At about 80dB, it was already difficult to hear other across our table of two without yelling at each other. (The woman to one side of us wants this $400 sweater but would never use it but her bff said she could totally use it in New York. One guy at the table to the opposite side never really liked fish until he went to Tokyo and bought some fish from the market it cut it himself. Anyway.)</p>
+
+<h1>The food!</h1>
+
+<p>We had the uni to start which came in a wonderful sauce with some tofu. A nice bit of spice and found it paired very well with the Paloma that I ordered at the start. </p>
+
+<p><em><a href="https://flic.kr/p/NoEgLm">View the food on Flickr</a>.</em></p>
+
+<p>That was quickly followed by the spicy lamb. Easily my favourite of the evening with the mint, the peppers, and that delicious bread.</p>
+
+<p>Up next was the Benton’s reserve ham. Sliced thinly like a good prosciutto and sizeable enough for two to three people, easily. It was a bit plain, though, with just the bing (a style of flatbread).</p>
+
+<p>At this point, the dishes came out more slowly. Something more tapas style would’ve made it easier to mix and match foods to try new combinations.</p>
+
+<p>Up next was heirloom tomatoes with fruit, sesame, and basil.
+I feel like the fruit made the whole dish taste muted.</p>
+
+<p>The sausage-stuffed peppers that followed were hot and oily, fresh out of the deep fryer. At the narrow end, the pepper seemed a bit flavourless. The middle was better but the end suddenly got quite spicy, which came as a bit of a surprise after the rather mild start.</p>
+
+<p>Lastly, we had the skirt steak with picked onion rings. The steak was cooked perfectly with a wonderful flavour. The onion rings were a bit of a surprise. I was left with a bit of cognitive dissonance with every bite that left me unsure of whether this was the right mix of flavours. </p>
+
+<p>In the end, I was left with mixed feelings, just like Mr. Gold. I’d go back to try some of the other dishes, to find the right mix for the perfect meal. </p>
+
+<p><em>Verdict:</em> I wouldn’t go out of my way for it but worth trying at least once with a group of friends.</p>
+
+<table>
+<colgroup>
+<col/>
+<col/>
+</colgroup>
+
+<tbody>
+<tr>
+	<td>Experience:</td>
+	<td>★☆☆</td>
+</tr>
+<tr>
+	<td>Value:</td>
+	<td>★★☆</td>
+</tr>
+<tr>
+	<td>Food:</td>
+	<td>★☆☆</td>
+</tr>
+<tr>
+	<td>Drinks:</td>
+	<td>★★☆</td>
+</tr>
+<tr>
+	<td>Service:</td>
+	<td>★★☆</td>
+</tr>
+</tbody>
+</table>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published August 28, 2018 </div>
+	<div class="cat">Categorized as <a href="/archives/food/">Food</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1135</span></div>
+</div>
+
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

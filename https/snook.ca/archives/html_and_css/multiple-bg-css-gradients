@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Multiple Backgrounds and CSS Gradients - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/multiple-bg-css-gradients">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/multiple-bg-css-gradients">
+	<meta property="og:title" content="Multiple Backgrounds and CSS Gradients">
+	<meta property="og:description" name="description" content="CSS3 features are making their way into the various browsers and while many are holding off on implementing them, there are those who are venturing ahead and likely running into a world of interesting...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Multiple Backgrounds and CSS Gradients</h1>
+		<p>CSS3 features are making their way into the various browsers and while many are holding off on implementing them, there are those who are venturing ahead and likely running into a world of interesting quirks across the various platforms.</p>
+<p>Two such features that I have been having the pleasure of enjoying are the use of multiple backgrounds and CSS gradients. I'm covering both features because multiple backgrounds by itself is simple enough, as are CSS gradients, but combining the two is where things get interesting.</p>
+<h2>Multiple Backgrounds</h2>
+<p>What are multiple backgrounds when it comes to CSS? I mean the ability to define more than one background image for a single element. That sounds wonderful, doesn't it? It is. No more having to have nested elements with lots of CSS just to create a layered effect. The syntax is very straightforward: just separate each background image with a comma.</p>
+<pre><code>background-image: url(&hellip;), url(&hellip;);</code></pre>
+<p>For browsers that don't recognize multiple backgrounds, the entire background declaration will be ignored. (Actually, according to PPK, <a href="http://www.quirksmode.org/css/multiple_backgrounds.html">Explorer Mac will show the last background declared</a>.) Depending on your design, you may need a single image declared and then declare the multiple background on the next line.</p>
+<pre><code>background: url(&hellip;) 0 0 repeat 10px 100px, url(&hellip;) 5px 5px no-repeat 5px 5px #FFF;
+background-image: url(&hellip;), url(&hellip;);</code></pre>
+<p>You can declare multiple backgrounds using the shorthand syntax, as well. </p>
+<pre><code>background: url(&hellip;) 0 0 repeat, url(&hellip;) 5px 5px no-repeat #FFF;</code></pre>
+<p>I threw a bunch of stuff in here to see if you're paying attention. The shorthand syntax for a normal background includes image, position, and repeat. However, the colour is always the last thing declared. (I've traditionally always declared it first.) There can only be one colour applied to an element&mdash;although with rgba, if you could declare the colour more than once, it'd theoretically be possible to mix colours.</p>
+<h3>Background Size</h3>
+<p>Another interesting property that is being implemented in recent browsers is support for background size. Any browser that supports multiple backgrounds also supports background size.</p>
+<p>When declaring background size for multiple backgrounds, the declarations are separated by commas just like with <code>background-image</code>.</p>
+<pre><code>background-image: url(&hellip;), url(&hellip;);
+background-size: 10px 100px, 5px 5px</code></pre>
+<p>In Opera, Mozilla, and Safari, you'll need to declare the vendor prefixes. Chrome and the Opera 10.5 dev builds don't require the vendor prefix. And to further clarify, background-size support is in Opera 10.1 but multiple background support isn't.</p>
+<pre><code>-o-background-size: 10px 100px; 
+-moz-background-size: 10px 100px, 5px 5px;
+-webkit-background-size: 10px 100px, 5px 5px;</code></pre>
+<p>(As much as I love the features that browsers are implementing, I'm getting really annoyed at all the vendor prefixes. Seriously. And believe me, by the end of this article you'll see how much worse it can get.)</p>
+<p>The background size declares width first and then height. Technically, you should be able to omit the second value, which should use auto for the second value.</p>
+<pre><code>background-size: 10px; /* should be the same as '10px auto' */
+background-size: 100%; /* should be the same as '100% auto' */</code></pre>
+<p>The reality?</p>
+<table width="100%" border="0">
+  <tr>
+    <td>Opera 10.5</td>
+    <td>Works according to the spec</td>
+  </tr>
+  <tr>
+    <td>Safari 4</td>
+    <td> ignores the declaration altogether</td>
+  </tr>
+  <tr>
+    <td>Firefox 3.6</td>
+    <td>Works according to the spec</td>
+  </tr>
+  <tr>
+    <td>Chrome 4</td>
+    <td>Treats the second value as the same as the first. Eg: 10px becomes '10px 10px'</td>
+  </tr>
+</table>
+<p>There are two other values that can be used for <code>background-size</code>: <code>contain</code> and <code>cover</code>. Cover will make sure that the background image covers the element. Contain makes sure that the entire background image is visible within the element. Only Safari seems to be the odd man out on this one.</p>
+<p>If you declare multiple images using the shorthand syntax, the background size is always declared after the background position (since they could technically be confused with each other) and separated with a slash.</p>
+<pre><code>background: url(&hellip;) 0 0 / 10px 100px repeat, url(&hellip;) 5px 5px / 5px 5px no-repeat #FFF;</code></pre>
+<p>The only problem is that no browser supports this and the entire background declaration will be thrown out if you try and use this syntax. Well, except for Opera 10.5 which does a weird thing where it ignores just the parts of the declaration it doesn't understand. </p>
+<p>All this to say that you must always declare background size using the long form. In my opinion, this will almost likely always be the case... changing <code>background</code> implementations risk backwards compatibility and that's a hell I'd like to avoid.</p>
+<h2>CSS Gradients</h2>
+<p>One of the many cool CSS additions to come out of Webkit is the ability to specify gradients. Whereever you would normally specify an image using a <code>url()</code> syntax, you can specify <code>-webkit-gradient</code> instead. Probably the most likely scenario will be for background images but you could use it for <code>border-image</code> or <code>list-style-image</code>, too.</p>
+<pre><code>background-image: -webkit-gradient(linear, 0 top, 0 bottom, from(#496178), to(#2E4960));</code>
+</pre>
+<p>The syntax takes a gradient type as the first parameter: linear or radial. The next two values indicate the start and stop points of the gradient. Each parameter after that is a <code>color-stop(x, y)</code> function where <em>x</em> is a percentage or a value between 0 and 1 and <em>y</em> is the colour value. <code>from</code> and <code>to</code> are shortcuts for <code>color-stop(0, y)</code> and <code>color-stop(1, y)</code> respectively. This implementation mirrors the functionality within the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#colors-and-styles">canvas specification</a>.</p>
+<p>CSS gradients have made their way into the W3C as <a href="http://dev.w3.org/csswg/css3-images/#gradients-">a draft spec</a>, although the syntax is different from how Webkit has implemented it. Firefox 3.6 has just been released and now includes CSS gradients using this newer syntax which separates the two types of gradients into their own syntax: <code>-moz-linear-gradient</code> and <code>-moz-radial-gradient</code>.</p>
+<pre><code>background-image: -moz-linear-gradient(90deg, #496178, #2E4960);</code>
+</pre>
+<p>The first parameter is the position or angle. There are a number of ways that the shorthand can be calculated and degrees are likely the easiest to use. If you're doing a gradient from top to bottom, the angle can be ignored altogether and the colour stops are all that need to be specified.</p>
+<pre><code>background-image: -moz-linear-gradient(#496178, #2E4960);</code>
+</pre>
+<p>There's no need to specify the <code>color-stop</code>, <code>from</code> or <code>to</code> functions like with the webkit gradients. You can specify multiple colour stops and it'll create a gradient between each one. If you wish to adjust the position of where the gradient transitions, you can specify it as a second value with the color stop.</p>
+<pre><code>background-image: -moz-linear-gradient(#496178, #323232 20%, #2E4960);</code>
+</pre>
+<p>You can also use <code>rgba</code> values, too, if you wanted to create semi-opaque gradients.</p>
+<h2>Mixing the Ingredients</h2>
+<p>Now that you know how the two things work, let's look at putting it all together. If you want to do multiple backgrounds and use CSS gradients, you'll need to do something like the following:</p>
+<pre><code>background-image: url(&hellip;);
+background-image: url(&hellip;), -webkit-gradient(linear, 0 0, 0 100%, from(#FFF), to(#000));
+background-image: url(&hellip;), -moz-linear-gradient(#FFF, #000);
+background-size: 10px 100px, 5px 5px;
+-o-background-size: 10px 100px;
+-moz-background-size: 10px 100px, 5px, 5px;
+-webkit-background-size: 10px 100px, 5px 5px;</code></pre>
+<p>Remember when I said the other browsers ignore the entire declaration? That's right, if Firefox doesn't like <code>-webkit-gradient</code> (because it has no clue what it is), it'll pretend that the entire background shorthand was never declared. Opera 10.5 alpha will still recognize any <code>url()</code> declarations and just ignore the <code>-webkit-gradient</code> and <code>-moz-linear-gradient</code> statements. <em>I've put in a bug report with Opera to change their behaviour to match what the other browsers do in this situation.</em></p>
+<p>I'm also going to take a moment right now and rant about vendor prefixes. Yes, I know I mentioned it before but this is getting absurd. Honestly, my plea to Microsoft is to avoid jumping on this CSS3 bandwagon until specifications settle. Where they have, nail it to a tee and make sure it matches how other browsers do it. Don't be innovative.</p>
+<h2>Wrapping it up</h2>
+<p>Having been working with CSS gradients as of late, I really wanted to document the current state of things. As you can see, some features can offer up a bumpy ride when you want cross-browser compatibility (even if we are still ignoring the elephant in the room: Internet Explorer).</p>
+
+<p>Check out the <a href="https://snook.ca/pages/demo/bg-image">Demo Page</a></p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 01, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/969</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">46 Comments &middot; <a href="/archives/html_and_css/multiple-bg-css-gradients.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64535">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64535">1</a></div>
+			<span class="authorname">ADrian</span> said on January 31, 2010		</div>
+		<div class="quote"><p>Interesting and helpfull article, thank you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64536">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64536">2</a></div>
+			<span class="authorname"><a href="http://brendanfalkowski.com">Brendan Falkowski</a></span> said on January 31, 2010		</div>
+		<div class="quote"><p>Nice digging expedition. Vendor extensions compounding CSS attributes are starting to worry me a bit too. It's becoming more difficult to write readable single-line CSS (another debate) let alone declarations that don't trip on each other.</p>
+<p>Thinking the W3C should standardize on a 2/3 majority of CSS3 syntax implementations and publish the spec. It wouldn't affect IE since it ignores them and shows up late to every party (inappropriately dressed).</p>
+<p>The WebKit, Mozilla, Opera, and Konquerer teams aren't suddenly going to rewrite their interpretations over their extensions and break existing uses. Unless I'm missing a major vender, why not finalize border-radius and kin so we can progressively degrade -moz/-webkit/-o/-khtml?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64537">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64537">3</a></div>
+			<span class="authorname">choen</span> said on January 31, 2010		</div>
+		<div class="quote"><p>The existence of CSS3 will reduce the use of the image. I tried "-moz-linear-gradient (# 222, # 000)" but in IE does not come out the color, whether there are ways that color may be just # 222 in IE. thanks before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64538">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64538">4</a></div>
+			<span class="authorname"><a href="http://cssaid.com/">Cesar</a></span> said on February 01, 2010		</div>
+		<div class="quote"><p>Just skimming this article gave me a headache, I'll just wait until the war settles down...never-the-less, that was a great article snook.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64539">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64539">5</a></div>
+			<span class="authorname">Peter van der Zee</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Didn't know about multiple background support, thanks. This will certainly help removing the styling cruft required right now.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64540">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64540">6</a></div>
+			<span class="authorname">Brad Koehler</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Thanks for a great intro to these two.</p>
+<p>Will the vendor prefixes be dropped when the spec is finalised?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64541">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64541">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 01, 2010		</div>
+		<div class="quote"><p>@<a href="#c64536">Brendan Falkowski</a>: You'll be happy to know that <code>border-radius</code> is likely to be one of the first properties to see vendor prefixes dropped. Opera has dropped it and it looks like IE9 won't use a vendor prefix. I expect Firefox to be next. Chrome and Safari should resolve how it handles border transitions to match the other browsers before dropping the prefix.</p>
+<p>@<a href="#c64537">Choen</a>: Since IE doesn't recognize -moz-linear-gradient, you need to put any IE (or any browser that doesn't support multi-background) onto its own line like this:</p>
+<pre><code>background: #222;
+background: -moz-linear-gradient(&hellip;);</code></pre>
+<p>@<a href="#c64540">Brad Koehler</a>: They most certainly will. In a few years, we can expect the specifications to be finalized and all the browsers to shift to matching the spec and dropping the vendor prefixes. I long for that day. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64542">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64542">8</a></div>
+			<span class="authorname">Ape Web</span> said on February 01, 2010		</div>
+		<div class="quote"><p>I would like to see a demo of this if anybody has an interesting demo to view?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64543">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64543">9</a></div>
+			<span class="authorname">FP</span> said on February 01, 2010		</div>
+		<div class="quote"><p>In the background-size section where you mention how a browser should deal with only a single value I think you might be looking at an older version of the spec, in the <a href="//www.w3.org/TR/css3-background/#the-background-size">December 2009 version</a> it says:</p>
+<blockquote><p>If only one value is given the second is assumed to be â€˜autoâ€™.</p></blockquote>
+<p>So I think that both Firefox and Opera are correctly handling this situation.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64544">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64544">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 01, 2010		</div>
+		<div class="quote"><p>@<a href="#c64542">Ape Web</a>: I've updated the article to include a link to a <a href="//snook.ca/pages/demo/bg-image">demo page</a>.</p>
+<p>@<a href="#c64543">FP</a>: thanks for pointing that out. I've updated the article to properly reflect that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64545">11</a></div>
+			<span class="authorname">bingeboy</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Snook this is a great post. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64546">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64546">12</a></div>
+			<span class="authorname">iammikek</span> said on February 01, 2010		</div>
+		<div class="quote"><p>on your demo, theres quite a bit of discrepancy between firefox3.6 and safari4.0.4 on snow leopard. cover snd contain look the same. should i upgrade to new webkit to see what you are seeing?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64547">13</a></div>
+			<span class="authorname">George Terezakis</span> said on February 01, 2010		</div>
+		<div class="quote"><p>I was quite amazed to see that Safari and Chrome can in some cases interpret css differently! (the one background-size value case)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64548">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64548">14</a></div>
+			<span class="authorname"><a href="http://www.silverspider.com">Alex @BaldMan)</a></span> said on February 01, 2010		</div>
+		<div class="quote"><p>Wow, thanks for posting this Jonathan. Even with the vendor extensions and the fact that we won't be able to use these attributes to the fullest for a while, it's exciting to see what is possible. This post has sparked a couple of ideas in my head for a personal experiment or two, which is the ideal way to kick off a week. Your work and sharing are appreciated given the herculean task of sorting this out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64549">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64549">15</a></div>
+			<span class="authorname"><a href="http://nellen.co.za">Adriaan</a></span> said on February 01, 2010		</div>
+		<div class="quote"><p>With linear gradients the difference in syntax between moz and webkit browsers is really annoying...so after a bit of googling, I found this really helpful site to get the basics right <a href="//gradients.glrzad.com/">http://gradients.glrzad.com/</a></p>
+<p>Thanks for a good quality post, I found it really enlightening after delving into CSS gradient backgrounds myself during the last couple of weeks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64550">16</a></div>
+			<span class="authorname">Matt Wiebe</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Thanks for getting in the trenches and sharing your findings.</p>
+<p>Interesting that WebKit doesn't support the contain or cover keywords in background-size.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64551">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64551">17</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 01, 2010		</div>
+		<div class="quote"><p>@<a href="#c64546">iammikek</a>: FF3.6 and Safari 4.0.4 are rendering cover and contain the same? Odd. I'm on FF3.6 and Safari 4.0.4 (on Snow Leopard) and Firefox renders them as expected whereas Safari doesn't.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64553">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64553">18</a></div>
+			<span class="authorname">kevadamson</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Nice article. I've just been playing with multiple backgrounds and gradient combos all day for a project, and one thing I thought I may be able to do is have a transition between one gradient and another (on :hover). Doesn't seem to be able to be done at present? Anyone know if this is the case?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64554">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64554">19</a></div>
+			<span class="authorname">Wolf</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Do note that IE supports gradients, albeit in an awkard way. E.g. try this rule:</p>
+<p>filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70000000,endColorstr=#70000000);</p>
+</div>
+	</div>
+		<div class="comment" id="c64555">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64555">20</a></div>
+			<span class="authorname">Wolf</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Uhm sorry that last one was not a gradient but will work like rgba(0,0,0,0.7). Ty changing the last six 0's to a different color value to see a gradient.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64557">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64557">21</a></div>
+			<span class="authorname">philippe</span> said on February 02, 2010		</div>
+		<div class="quote"><p>You should try WebKit (mac) nightlies (and Chrome 4+) while dropping the -webkit- vendor prefix. WebKit is then very close to spec, except for <code>background-repeat: space</code> (or round), treated as <code>no-repeat</code>. Opera 10.5a is wrong on that one too, afaict.<br />
+A bunch of my <a href="//dev.l-c-n.com/CSS3_border-background/">testcases</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64558">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64558">22</a></div>
+			<span class="authorname">Thomas</span> said on February 02, 2010		</div>
+		<div class="quote"><p>@Jonathan: Thanks for the great overview in your post!</p>
+<p>@APE WEB: Jonathan's post inspired me to play with multiple backgrounds - here are examples for simple multiple background usage and also for JavaScript animations using multiple backgrounds: http://www.storiesinflight.com/html5/backgrounds.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64560">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64560">23</a></div>
+			<span class="authorname">Ron</span> said on February 03, 2010		</div>
+		<div class="quote"><p>will all this work in IE ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64561">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64561">24</a></div>
+			<span class="authorname">Ape Web</span> said on February 03, 2010		</div>
+		<div class="quote"><p>Hey, thanks for the examples, I was looking in Firefox stupidly and seen nothing but normal pictures (Jonathan) and blue backgrounds (Thomas) but I realised pretty soon that it is probably that my version of Firefox does not support this kind of CSS despite the vendor prefix -moz which seems to be ignored. (Firefox 3.5.7)</p>
+<p>I took a look in Chrome and saw some interesting results (Jonathan) and some potentially useful results (Thomas). I had never heard of using multiple CSS backgrounds and things as I am too busy doing commercial work and don't work in the research and development department although I will be passing on the details.</p>
+<p>I expect sometime in the future somebody will come up with a JavaScript fix to allow multiple backgrounds in some way or another to allow some graceful degrading as I don't think 1 background by itself is comparable to multiple backgrounds that need each other to work.</p>
+<p>On the other hand, I have wanted something that allows me to apply multiple backgrounds to a layer for some time as it can be tricky to write semantic XHTML while achieving everything the designer has came up with.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64562">25</a></div>
+			<span class="authorname">Rajasekhar</span> said on February 03, 2010		</div>
+		<div class="quote"><p>will all this work in IE ? and windows browsers? please let me know this.... waiting for ur response snook and ur effort is great
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64563">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64563">26</a></div>
+			<span class="authorname"><a href="http://somadesign.ca">Matt Wiebe</a></span> said on February 03, 2010		</div>
+		<div class="quote"><p>I'll step in and answer for Mr. Snook: no, this will not work in IE.</p>
+<p>Gradients work in Safari 4 and Firefox 3.6.</p>
+</div>
+	</div>
+		<div class="comment" id="c64564">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64564">27</a></div>
+			<span class="authorname"><a href="http://www.santhos.nl">Thomas</a></span> said on February 03, 2010		</div>
+		<div class="quote"><p>Wow! I can't wait to see this working in all major browsers. Will be a great step forward!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64566">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64566">28</a></div>
+			<span class="authorname">me</span> said on February 03, 2010		</div>
+		<div class="quote"><p>We waste alot of time with ie6 hacks for some people who "don't feel the need of upgrade" they dont't know how much we work just so they can see our site's in ie 6
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64567">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64567">29</a></div>
+			<span class="authorname">Onderhond</span> said on February 03, 2010		</div>
+		<div class="quote"><p>&gt;&gt; I'm also going to take a moment right now and rant about vendor prefixes.</p>
+<p>Hear hear!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64568">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64568">30</a></div>
+			<span class="authorname">Thomas</span> said on February 04, 2010		</div>
+		<div class="quote"><p>@APE WEB: Elements with multiple background images are supported in Firefox 3.6, Safari 4.0.4 and in the latest version of Chrome. Firefox 3.5.x as well as IE don't support this feature - and in the case of IE we will at least have to wait for IE9.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64569">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64569">31</a></div>
+			<span class="authorname"><a href="http://www.contentwithstyle.co.uk">Matthias Willerich</a></span> said on February 04, 2010		</div>
+		<div class="quote"><p>But Jonathan, surely you'd want it mentioned somewhere that vendor prefixes are A Good Thing? :-)</p>
+<p>I can vividly feel your pain during this transition period, but it's better than browsers attempting an implementation at one or the other CSS feature, fail at following the specs, and then you'd end up with a single rule that is interpreted differently across browsers. That's where all those underscore and funky comments hacks came from, no? Your background-size example somewhat proves my point: Chrome shouldn't have picked up the non-prefixed rule until they get it right (although I guess it doesn't hurt to explicitly specify both dimensions), and it's definitely good that the different approaches to gradients aren't using the fully fledged rule, as it could never work cross-browser as of now.</p>
+<p>And with regards to you not wanting IE to be innovative: This is only down to their rare releases, right?<br />
+I mean, we're excited about all other browsers' innovations, want to use it in production while it's still smoking hot, and of course equally want browser vendors to compare notes of how they interpret the specs, and, once they support the real rule, all do the same thing across the board. If IE was releasing CSS rendering changes every few months or so, we'd love them to come up with experimental (prefixed!) implementations of every draft css rule we can think of, right?</p>
+</div>
+	</div>
+		<div class="comment" id="c64573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64573">32</a></div>
+			<span class="authorname">Theo</span> said on February 05, 2010		</div>
+		<div class="quote"><p>Even if all this stuff is not widely supported (will it ever be ?) is good to learn/now/use it, so thank you for this post. Bookmarked
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64582">33</a></div>
+			<span class="authorname"><a href="http://www.apeweb.co.uk/">Ape Web</a></span> said on February 09, 2010		</div>
+		<div class="quote"><p>In most cases, people over do the nested divs. I go for a minimalistic and semantic approach when using divs and think others should follow this approach, and if the designer comes up with something snazzy then find a way of making the design work without bloating the page.</p>
+<p>Although, saying that, this will not always be possible and therefore multiple CSS backgrounds will be very useful. Just because multiple CSS backgrounds will one day be supported, I think we should all stick to our roots and try and create semantic HTML first and worry about the CSS later.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64584">34</a></div>
+			<span class="authorname">Paul</span> said on February 11, 2010		</div>
+		<div class="quote"><p>It's the first time I've read something about these Multiple Backgrounds. Very interesting. Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64585">35</a></div>
+			<span class="authorname">Oliver Cardiff</span> said on February 11, 2010		</div>
+		<div class="quote"><p>I had a look at these features of CSS3 a while ago and would really like to use them on websites that I design but the only thing stopping me is IE as it doesn't support any CSS3 as of yet. </p>
+<p>These are definitely good features and maybe I can use them on my personal site. Thanks for sharing this information.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64592">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64592">36</a></div>
+			<span class="authorname">Andrija Markovic</span> said on February 16, 2010		</div>
+		<div class="quote"><p>Yep, one day this will all be very nice, hope that day comes soon...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64611">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64611">37</a></div>
+			<span class="authorname">Krishna</span> said on February 24, 2010		</div>
+		<div class="quote"><p>a great read....really interesting!<br />
+I cant wait to use these new techniques soon.  I just hope the dust settles with all the different requirements for different browsers...</p>
+<p>thanks for sharing!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64613">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64613">38</a></div>
+			<span class="authorname">thinsoldier</span> said on February 24, 2010		</div>
+		<div class="quote"><p>Thanks.</p>
+<p>Have you tried simulating Photoshop's Gradient-Stroke with just css and without using a wrapping div?</p>
+<p>I tried but haven't gotten very far:<br />
+http://thinsoldier.com/csswishlist/examples/1.php</p>
+</div>
+	</div>
+		<div class="comment" id="c64617">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64617">39</a></div>
+			<span class="authorname">Tab Atkins</span> said on February 25, 2010		</div>
+		<div class="quote"><p>Matthias Willerich has it right - vendor prefixes are a Good Thing, as long as they continue being used as they currently are, as a way to do early experimentation with new features.</p>
+<p>If browser vendors didn't use prefixes, we'd be in *tons* of trouble when some particular browser's impl gets popular but then we want to change the spec.  Frankly, we'd be unable to.  It would freeze mistakes in time forever.</p>
+<p>A vendor prefix at least means that you know what you're getting into when you use it on your page.  It's early, it's experimental, it might change before being finalized and losing the prefix.  In the meantime, you can play with it and see if it meets your needs, and potentially get the spec changed if it's not good enough.</p>
+<p>The whole situation does get confusing when there *is* significant change between implementations, I'll admit.  The differences in webkit and mozilla-prefixed gradients make them pretty weird to work with right now.  But that's because webkit came out first with an experimental implementation, I thought it sucked and wrote a new syntax that made its way into the Images module, and mozilla implemented the new one in the spec.  It still might change *slightly* before we take Images to CR (which is the point at which it is appropriate to drop the prefix), but all the simple uses of -moz-*-gradient() should continue to be correct until the standard is finished.</p>
+<p>That all said, good post!  I just added Moz-style gradients to my company's site template, so you can see them used in action at http://www.igofigure.com.  It's astonishing how much you can speed up a page load by swapping images of gradients for CSS-specified ones.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64621">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64621">40</a></div>
+			<span class="authorname">Scott Gale</span> said on February 28, 2010		</div>
+		<div class="quote"><p>I have been researching how these pieces can create clean text rendering.  This article was informative.  I'm hoping to leverage CSS3 gradients and a 1px stroke to create text effects usually only relegated to Photoshop and sIFR.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64663">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64663">41</a></div>
+			<span class="authorname"><a href="http://www.mysiteonline.org/">Brendon Kozlowski</a></span> said on March 18, 2010		</div>
+		<div class="quote"><p>Thank you for your tips here, Jonathan! The WebKit team's descriptions of gradient just was not as easy to comprehend and understand as yours. I now believe I actually understand the parameters that I'm using thanks to this blog post. Much appreciated!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65821">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65821">42</a></div>
+			<span class="authorname">Weetreuttom</span> said on February 10, 2011		</div>
+		<div class="quote"><p>I'm really Glad i ran across this site.Added snook.ca to my bookmark!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66179">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66179">43</a></div>
+			<span class="authorname">rajkamal</span> said on February 25, 2011		</div>
+		<div class="quote"><p>Thanks for the excellent post.</p>
+<p>p.bgTest{<br />
+	width:300px;<br />
+	height:250px;<br />
+	margin-left:10px;</p>
+<p>	background:url(acceldom.jpg) 10px 5px no-repeat ,<br />
+url(Examples.gif) right 5px no-repeat,-webkit-gradient(linear, 0 0, 0 100%, color-stop(0,rgba(0,0,0,0)), color-stop(1,rgba(0,0,0,1))) 0px 0px no-repeat;<br />
+	background-size:180px 250px, 20px 20px 10px 10px;<br />
+}</p>
+<p>i was expecting the last gradient, to be of 10X10 size. But the gradient was spearding the whole paragraph.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66964">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66964">44</a></div>
+			<span class="authorname">joshbot ï£¿</span> said on March 30, 2011		</div>
+		<div class="quote"><p>Your "background-size: cover" tip ended days of frustration.  Thank you VERY much.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67494">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67494">45</a></div>
+			<span class="authorname">Maurice</span> said on April 19, 2011		</div>
+		<div class="quote"><p>This is an absolutely fantastic walk through. You just saved me a tone of work and extra lines of z-indexing for floaded div's and all sorts of ****.</p>
+<p>Great, GREAT demos as well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68080">46</a></div>
+			<span class="authorname">monochrom</span> said on May 16, 2011		</div>
+		<div class="quote"><p>Hello There. Thanks very much for your article, very useful information! I'm dealing with gradients and background-images at the moment. I was wondering if its possible to combine these two, and YES it is :) Thank you!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

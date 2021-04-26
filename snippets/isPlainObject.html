@@ -1,0 +1,9 @@
+<p>Checks if the provided value is an object created by the Object constructor.</p>
+<ul>
+<li>Check if the provided value is truthy.</li>
+<li>Use <code>typeof</code> to check if it is an object and <code>Object.prototype.constructor</code> to make sure the constructor is equal to <code>Object</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isPlainObject <span class="op">=</span> val <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">!!</span>val <span class="op">&amp;&amp;</span> <span class="kw">typeof</span> val <span class="op">===</span> <span class="st">&#39;object&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">val</span>.<span class="at">constructor</span> <span class="op">===</span> Object<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isPlainObject</span>(<span class="op">{</span> <span class="dt">a</span><span class="op">:</span> <span class="dv">1</span> <span class="op">}</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isPlainObject</span>(<span class="kw">new</span> <span class="at">Map</span>())<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

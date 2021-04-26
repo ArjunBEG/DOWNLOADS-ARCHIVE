@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Why Safari for Windows? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/browsers/why_safari_for_windows">
+	<meta property="og:url" content="https://snook.ca/archives/browsers/why_safari_for_windows">
+	<meta property="og:title" content="Why Safari for Windows?">
+	<meta property="og:description" name="description" content="A common question that seems to be heard now that Apple has released Safari for Windows is &quot;Why?&quot; And while I don't know the real reasons, I have my opinion on the matter.
+For Web Site Deve...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Why Safari for Windows?</h1>
+		<p>A common question that seems to be heard now that Apple has released Safari for Windows is &quot;Why?&quot; And while I don't know the real reasons, I have my opinion on the matter.</p>
+<h2>For Web Site Developers </h2>
+<p>When asked why Safari is being released for Windows, a few people have said that it is intended for developers to be able to check their sites without having to own a Mac. It'll definitely be nice to have something on the PC that comes close to comparing the two. The unfortunate part is that Safari 2 is still the major browser right now and it's more troublesome than the latest WebKit. Every problem I've run into with Safari in the past 6 months has already had the issue resolved in WebKit. </p>
+<p>So, while the testing environment will be nice, it won't really help us developers in the short term. </p>
+<h2>For iPhone Developers</h2>
+<p>One of the announcements to come out of the keynote was that Safari was going to be the development platform for the iPhone. Well, if you want people to develop for the iPhone, you better make the platform available to the most number of people. No sense keeping iPhone developers locked into use a Mac. </p>
+<h2>Adobe and Apple sitting in a tree</h2>
+<p>Adobe AIR (Apollo) uses WebKit as one of its core technologies which works on OSX and Windows and eventually Linux (or so I've heard). Imagine AIR integration with the iPhone. Okay, that's not necessarily why I think they'd want to use the same platform but I think both companies benefit from using the same platform. You could theoretically make an application that could work as a desktop application, as a web application, and as an iPhone application. Win-win-win. </p>
+<p>A couple years from now, Apple could even use the by-then-tested phone-based Safari and license it out to other phone manufacturers or use it as leverage as they expand onto new carriers. They could easily start playing in Opera's mobile arena.</p>
+<p>While Adobe and Apple may not be working together specifically, they both benefit from using the same cross-platform technology. </p>
+<h2>The New Dawn of Browser Wars?  </h2>
+<p>For the average user, especially the average Windows user, much of this they certainly won't notice. Certainly not within the next 6 months. Depending on the developer uptake, though, things could begin to shift in the new year. </p>
+<p>Firefox has definitely put a dent into the behemoth that is Internet Explorer and with the introduction of Safari for Windows, things could get interesting. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 12, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/browsers/">Browsers</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/817</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">33 Comments &middot; <a href="/archives/browsers/why_safari_for_windows.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c49145">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49145">1</a></div>
+			<span class="authorname">Brian G</span> said on June 12, 2007		</div>
+		<div class="quote"><p>I plan on building standards compliant websites, and in the next year I will be phasing out any non-standard compliant hacks.</p>
+<p>If a user complains that one of my sites doesn't work in their browser of choice, I will give a list of reasons why that is the case, and how they can get in touch with the development team at the browser manufacturer's company to have the issues resolved.</p>
+<p>I wish more developers had the common sense to stand up and say "We don't want to go back to 1997".
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49146">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49146">2</a></div>
+			<span class="authorname">Chris Griffin</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Another big reason: Money.</p>
+<p>That search bar in the top right corner, browsers make money every time somebody uses it. Mozilla made 50 million in 2005 from their Firefox search bar alone.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49147">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49147">3</a></div>
+			<span class="authorname">Chris Griffin</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Ah didn't finish my point in the previous comment.</p>
+<p>Since Windows owns 95% of the OS market share (?) they just opened up that revenue stream to a lot more users.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49148">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49148">4</a></div>
+			<span class="authorname">Matt Croydon</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Actually, WebKit has been on mobile devices for more than a year now in the form of the <a href="//nokia.com/browser">Nokia Web Browser</a> which is based on <a href="//opensource.nokia.com/projects/S60browser/">an open source port of WebKit</a> to <a href="//www.symbian.com">Symbian</a> OS and <a href="//www.s60.com">S60</a>.  The browser was in the <a href="//europe.nokia.com/phones/e61">E61</a> and has shipped with every smartphone of Nokia's since.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49149">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49149">5</a></div>
+			<span class="authorname">Carlos Bernal</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Another more practical reason is...speed. Loads pages SOOO much faster.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49150">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 12, 2007		</div>
+		<div class="quote"><p>@Chris: good point. As Mozilla has obviously proved, getting paid for the search box is a lucrative business.</p>
+<p>@Carlos: But is the average user that concerned with rendering speed that they'd seek out another browser? With tabbed browsing, I never really notice page loads because I'll open a link in the background and continue reading what I'm on. </p>
+<p>The speed does seem to be nice, though. If targeting for the Windows market, I would have liked to see them follow more of the Windows UI standards. Only resizing a window from the bottom right is frustrating for me, for example.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49151">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49151">7</a></div>
+			<span class="authorname"><a href="http://nemus.se">Kalle Persson</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>I believe that with Apple releasing Safari to the masses that are Windows users, life just got a little bit better for us web developers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49153">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49153">8</a></div>
+			<span class="authorname">Sam Kellett</span> said on June 12, 2007		</div>
+		<div class="quote"><p>I think it's the direction Apple's taking now. I do think Leopard will be available on PC's too. Apple seem to be going in the direction of software and accessories now (the name change fortified that) and they need a bigger market share than mac users to be successful in this direction.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49155">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49155">9</a></div>
+			<span class="authorname">Martijn</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Is it just me, or does the comment numbering fall out of place in this Safari for Windows? Sorry for not having an other browser open, so no cross-browser results. Just saying what I see in this
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49157">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49157">10</a></div>
+			<span class="authorname">James</span> said on June 12, 2007		</div>
+		<div class="quote"><p>One of the biggest reasons i can see for Apple porting Safari to windows is to increase the user base and ensure that developers see Safari as a major browser and develop web apps that run as expected on a mac.  If they bundle it with iTunes as a download Apple should see some serious penetration pretty quickly.</p>
+<p>@ David G.  I run a web development agency aswell and i dont understand how you can do this.  IE variants still have around 60-70% of the browser market tied up.  To tell your clients that its tough if their site doesnt appear correntlly in them seems insane.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49158">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49158">11</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>@ Kalle : I wouldn't say that; things just got worse! Don't believe me? Compare <a href="//www.3rds.be/wordpress/wp-content/uploads/2007/06/safari-mac.jpg">this</a> (mac version) to <a href="//www.3rds.be/wordpress/wp-content/uploads/2007/06/safari-pc.jpg">that</a> (pc version) or open Google with Safari 3 (PC) and you'll see why.</p>
+<p>I'm suddenly getting IE Mac vs. IE PC flashbacks here ... *sigh*</p>
+</div>
+	</div>
+		<div class="comment" id="c49159">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49159">12</a></div>
+			<span class="authorname">Daniel</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Maybe it's because Trolltech have been <a href="//labs.trolltech.com/page/Projects/Internet/WebKit">porting Webkit back to QT</a>? Making webkit based windows browsers inevitable.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49160">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49160">13</a></div>
+			<span class="authorname">Jake</span> said on June 12, 2007		</div>
+		<div class="quote"><p>@Bramus! Thank you, I thought I was going crazy. I was seeing the same issues at work and my friend wouldn't confirm it. He even sent me a screenshot of the same page working that I was having trouble with.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49171">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49171">14</a></div>
+			<span class="authorname">Dinoboff</span> said on June 12, 2007		</div>
+		<div class="quote"><p>@Bramus &amp; Jake: I read somewhere else that WebKit has some issues with non English version of windows
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49172">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49172">15</a></div>
+			<span class="authorname">cpawl</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Bramus - no offense but it can also have something to do with you choice of CSS code there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49174">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49174">16</a></div>
+			<span class="authorname">Ben Henschel</span> said on June 12, 2007		</div>
+		<div class="quote"><p>@Brian G - I agree with you, I think it is pretty stupid to hinder designs because IE 6 or other older browsers don't support what you are trying to do (particularly the lack of support with PNG transparency). If developers and designers stop supporting these old browsers it will force people to take the 2 mins to update to IE7 or get FF or even now get Safari. I know all you accessibility freaks hate me right now...but hey what can I say.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49176">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49176">17</a></div>
+			<span class="authorname"><a href="http://germworks.net">Jermayn Parker</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>For me it will be good to test for Mac users, I have not had any troubles yet but it will be nice to use and see...</p>
+<p>I do not think honestly that it will affect the browser wars much though
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49177">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49177">18</a></div>
+			<span class="authorname">Abu</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Sorry... but what is WebKit?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49178">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49178">19</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 12, 2007		</div>
+		<div class="quote"><p>@Abu: <a href="//webkit.org/">WebKit</a> is an open-source web browser engine.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49189">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49189">20</a></div>
+			<span class="authorname">Tom</span> said on June 13, 2007		</div>
+		<div class="quote"><p>I tried the beta on Windows XP. I was overwhelmed initially, but on subsequent use, I must say that thereâ€™s not a whole lot of â€œnewâ€ things here when compared with Firefox. Of course, Apple does a tremendous job at serving things out the box whereas in Firefox (or Flock), I had to install extensions/addons. The font smoothing in Safari is superior â€¦ that goes without saying really. And for folks who love design, your websites look so much nicer! But the beta is still buggy and crashed on me a couple of times, especially with secure websites like credit cards and banks. I also had some trouble with Google Finance and Google Docs. Overall, Iâ€™d give this beta a B+ and wait for Apple to debug/improve on this. Am I switching to Safari later? Perhaps, but Iâ€™m really excited about Firefox 3 â€¦ IE never lived up anyway. I apologize for even mentioning IE along with Safari or Firefox â€¦
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49194">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49194">21</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>@ Jake, Dinoboff &amp; cpawl : <a href="//www.bram.us/2007/06/11/safari-on-pc/#comment-54713">it indeed has something to do with the non-English XP I'm using</a>. Hoping to see an updated build soon ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49211">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49211">22</a></div>
+			<span class="authorname">Robert</span> said on June 13, 2007		</div>
+		<div class="quote"><p>Why Safari on Windows? It's actually rather simple - to test web apps in because Apple will not be providing any SDK for the iPhone. Instead, build a web app! </p>
+<p>Since web apps are the way to go to write applications for the iPhone, you'll need to be able to test them in Safari, thus greater access to Safari is necessary. I don't believe the focus is on a browser war(on the desktop) but rather providing a platform for developers to develop for the iPhone which will eventually mean greater adoption of the iPhone = more revenue for Apple.</p>
+<p>It is a bold move by Apple to declare that web applications are the future of mobile development and technology. I think this will cause a browser war in the mobile arena, one which I happily welcome because I don't want to have to develop for 200+ browsers in the near future. Apple has a great opportunity here, one which we can all benefit from.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49215">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49215">23</a></div>
+			<span class="authorname"><a href="http://scottj.info/">Scott Johnson</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>I'm certainly not the typical user, and I usually don't notice things that a typical user would notice.  In fact, the first time I loaded up Safari on my WinXP machine, I couldn't help but notice how slow it was.  I have now discovered that it was slow because it was trying to access my work proxy from my home network and was timing out before it attempted to connect directly.  Today, I see that it's blazing fast.  And I think that last bit is something that most users will notice.  Nobody likes to wait.  Everyone loves it when an app is faster.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49226">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49226">24</a></div>
+			<span class="authorname"><a href="http://electrosignals.com">Prashant</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>It's obvious that Apple have done this so they have a chance to take over the browser market. Most users use Windows and by porting it over to Windows users may be convinced to use this over IE or Firefox.</p>
+<p>I'm glad they finally released a version for Windows, websites and layouts can be tested for cross-browsers bugs. However, it looks like the Beta is having some issues and renders the elements in a different manner - I hope this occurs just on the Beta stage, developers aren't going to be pleased if they have to design one version for Mac and the other for Windows.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49241">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49241">25</a></div>
+			<span class="authorname">Ryan Barr</span> said on June 14, 2007		</div>
+		<div class="quote"><p>"Firefox has definitely put a dent into the behemoth that is Internet Explorer and with the introduction of Safari for Windows, things could get interesting."</p>
+<p><strong>*cough*down-with-IE*cough*</strong></p>
+<p>But really, yes this will be nice thing. Now perhaps if Mac would release a browser for developers which could ditto the way IE6/7 handle code, it would be even more interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49255">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49255">26</a></div>
+			<span class="authorname">Dan Acuff</span> said on June 14, 2007		</div>
+		<div class="quote"><p>Yeah, I tested in Safari on Windows and it is the same comment numbering problem.</p>
+<p>Looks good in Opera though.</p>
+</div>
+	</div>
+		<div class="comment" id="c49398">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49398">27</a></div>
+			<span class="authorname">Ricardo Zea</span> said on June 16, 2007		</div>
+		<div class="quote"><p>Safari sux! Period. Just what we need, another browser AND another browser that renders HTML the way it wants it not the way it should.</p>
+<p>I'm tired of filling my CSS with 'html&gt;body...' (hacks for IE6) and now this Safari starts 'seeing' HTML different than Firefox, IE6 and 7...and now we are going to have to start writing specific CSS hacks for Safari? You've got be sh!@#$ me.</p>
+<p>Yes, it does load pages faster, so? 10ms are not a HUGE deal, ridiculous. </p>
+<p>Apple even says in their website (http://www.apple.com/safari/) that Safari "executes JavaScript up to 2.8 times faster than Internet Explorer 7 and up to 1.6 times faster than Firefox 2." and Safari can't even run a simple popup javascript I'm using in my new design for my personal website. This is stupid (pardon my excitement).</p>
+<p>I hope Safari turns out to be a complete outright failure in Windows.</p>
+<p>Zuertex
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49401">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49401">28</a></div>
+			<span class="authorname">Jeff</span> said on June 16, 2007		</div>
+		<div class="quote"><p>Why're so turned of by it? Seems like a good idea to me, especially considering the upcoming iphone...http://thenewsroom.com/details/394435?c_id=wom-bc-js
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49433">29</a></div>
+			<span class="authorname">Ulf</span> said on June 17, 2007		</div>
+		<div class="quote"><p>I guess, Jonathan is right about the iPhone thing and that Apple has to open the market, but seriously - who will change their browser of choice now?<br />
+Lot's of people still use IE, because it was preinstalled. When WinXP updated to IE7, lot's of people liked IE7 and didn't consider to change their browser.<br />
+I don't think a lot of users will change to safari because it renders so nicley the fonts (so does IE7).<br />
+If someone considers taking another browser then it would be Firefox or Opera, but why Safari? It's only a small number of people who are developing websites and would need on a PC. And if your developing an a mac - is there something better than Firebug on Firefox? I doubt it...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49516">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49516">30</a></div>
+			<span class="authorname">WulfTheSaxon</span> said on June 18, 2007		</div>
+		<div class="quote"><p>I personally don't think Safari is significantly faster than Firefox. Besides, Firefox 4 will introduce blazing-fast just-in-time JavaScript compilation with <a href="//www.mozilla.org/projects/tamarin/">Tamarin</a>.</p>
+<p>And, as far as features go, I don't see that Safari has any features lacking in Firefox (with extensions).</p>
+<p>Finally, on the anti-aliasing front, Safari's seems rather blurry to me. It's to the point of making everything look bold (and yes, I tried adjusting it).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49572">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49572">31</a></div>
+			<span class="authorname">Adrian</span> said on June 20, 2007		</div>
+		<div class="quote"><p>A couple of points that I'm really tired of having to make:</p>
+<p>1. Not all developers/designers work on Mac<br />
+2. Not everyone cares about the IPhone<br />
+3. Safari's support for JavaScript is appaling<br />
+4. Safari's interpretation of the standards has made it the Mac IE</p>
+<p>Safari for the PC renders differently more bugs, more crashes less support for JavaScript. Oh and the page load speeds in my tests are only 1ms ahead on a single page and nearly 3ms behind in opening multiple pages. I'm no apple fan but this isn't even private alpha standard I expected a lot more, Instead I got nothing new.</p>
+<p>I'm sorry but I'm growing really tired of this 'Apple have done something else the world must now change' fanaticism. Its a browser, one more to test and that's all
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49662">32</a></div>
+			<span class="authorname">Peter Gasston</span> said on June 21, 2007		</div>
+		<div class="quote"><p>Unless Apple make Safari integrate better with Windows, I can't see them winning many people over. It looks heavy and ugly outside of OS X, and doesn't respond to the Win+M shortcut to minimise all windows; everything else minimises, and Safari just squats there resolutely.</p>
+<p>I think that any market share it does take will be at the expense of Firefox, Opera, et al; the majority of casual Windows users don't know what a browser is - it's just the thing that opens when they want to access the internet. And I can't see sysadmins dropping IE when there's no guarantee of long-term support if Apple decide to discontinue it. This release is mainly for the development community, and the dev community tend to not use IE.</p>
+<p>As for speed, take a look at the FF3 pre-alphas; they've switched to the Cairo graphics layer and it's much faster than FF2.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55822">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55822">33</a></div>
+			<span class="authorname">Elliott Berglund</span> said on October 03, 2007		</div>
+		<div class="quote"><p>If you think Firefox 3 alphas are fast, then give the Opera 9.5 alphas a try, blows everything out of the water, and it supports all current finalized CSS3 standards
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

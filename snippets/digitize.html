@@ -1,0 +1,9 @@
+<p>Converts a number to an array of digits, removing its sign if necessary.</p>
+<ul>
+<li>Use <code>Math.abs()</code> to strip the number’s sign.</li>
+<li>Convert the number to a string, using the spread operator (<code>...</code>) to build an array.</li>
+<li>Use <code>Array.prototype.map()</code> and <code>parseInt()</code> to transform each value to an integer.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> digitize <span class="op">=</span> n <span class="kw">=&gt;</span> [...<span class="vs">`</span><span class="sc">${</span><span class="va">Math</span>.<span class="at">abs</span>(n)<span class="sc">}</span><span class="vs">`</span>].<span class="at">map</span>(i <span class="kw">=&gt;</span> <span class="at">parseInt</span>(i))<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">digitize</span>(<span class="dv">123</span>)<span class="op">;</span> <span class="co">// [1, 2, 3]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">digitize</span>(<span class="op">-</span><span class="dv">123</span>)<span class="op">;</span> <span class="co">// [1, 2, 3]</span></a></code></pre></div>

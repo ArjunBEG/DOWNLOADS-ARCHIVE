@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Multiple Validation Sets in CakePHP 1.2 - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/cakephp/multiple_validation_sets_cakephp">
+	<meta property="og:url" content="https://snook.ca/archives/cakephp/multiple_validation_sets_cakephp">
+	<meta property="og:title" content="Multiple Validation Sets in CakePHP 1.2">
+	<meta property="og:description" name="description" content="In CakePHP, you define how your data should be validated by setting parameters on the validate property of your model. In version 1.2, there is an on option that can be set on a specific rule that, wh...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Multiple Validation Sets in CakePHP 1.2</h1>
+		<p>In CakePHP, you define how your data should be validated by setting parameters on the <code>validate</code> property of your model. In version 1.2, there is an <code>on</code> option that can be set on a specific rule that, when set, is either create or update. This allows you to define different rules depending on the type of action being performed. That, in combination with the required and allowEmpty properties, give you a fair amount of control over different validation rules.</p>
+<p>Despite that, I developed a slightly different approach that allows for different validation sets to be specified and to be cleanly separated from each other. </p>
+<p>I override the <code>validates</code> method within a custom <code>AppModel</code> (stored in <kbd>/app/app_model.php</kbd>). The <code>validates</code> method is called when a <code>save</code> call is made or it can be called manually. This custom method can perform in one of two ways:</p>
+<h2>Method One: Action-specific Validation Sets</h2>
+<p>It'll first look to see if you have a validation set specified for the current controller action. For example, if you were in the edit action, it'd look for a property in the model called <code>validateEdit</code>. If it doesn't exist, it'll default back to using the normal <code>validate</code> property.</p>
+<pre><code>class User extends AppModel {
+   // performs normal validation
+   var $validate = array( ... ); 
+   // used in an edit action like /users/edit/1
+   var $validateEdit = array( ... ); 
+   // used in a forgotpassword action like /users/forgotpassword
+   var $validateForgotpassword = array( ... );
+}</code></pre>
+<p>In that Forgot Password example, this would allow you to avoid performing your own checks for even basic calls and keep the logic tucked away in the Model.</p>
+<pre><code>class UsersController extends AppController {
+   function forgotpassword() {
+      $this->User->set($this->data);
+      if ($this->User->validates()) {
+         // send email to reset password and show success message
+      }
+   }
+}</code></pre>
+<p>The thing I like about this is that the error messaging is handled by the validation and the <code>FormHelper</code>. (Although, a more noticable flash message near the top of the page is also helpful.)</p>
+<h2>Method Two: Custom Validation Sets</h2>
+<p>Alternatively, you may wish to specify a validation set manually before calling save or validates on a model. To do this, just specify a validationSet property on the model right before your call. The property will be unset immediately afterwards allowing normal validation rules to be applied. </p>
+<p>Here's an alternate approach to the forgotten password example:</p>
+<pre><code>class User extends AppModel {
+   var $validateForgotpassword = array( ... );
+}
+
+class UsersController extends AppController {
+   function forgot() {
+      $this->User->set($this->data);
+      $this->User->validationSet = 'forgotpassword';
+      if ($this->User->validates()) {
+         // send email to reset password and show success message
+      }
+   }
+}</code></pre>
+<h2>The Code</h2>
+<p>Here is the custom validates method that pulls this all off:</p>
+<pre><code>function validates($options = array()) {
+    // copy the data over from a custom var, otherwise
+    $actionSet = 'validate' . Inflector::camelize(Router::getParam('action'));
+    if (isset($this->validationSet)) {
+        $temp = $this->validate;
+        $param = 'validate' . $validationSet;
+        $this->validate = $this->{$param};
+    } elseif (isset($this->{$actionSet})) {
+        $temp = $this->validate;
+        $param = $actionSet;
+        $this->validate = $this->{$param};
+    } 
+    
+    $errors = $this->invalidFields($options);
+
+    // copy it back
+    if (isset($temp)) {
+        $this->validate = $temp;
+        unset($this->validationSet);
+    }
+    
+    if (is_array($errors)) {
+        return count($errors) === 0;
+    }
+    return $errors;
+}</code></pre>
+<p>Enjoy!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 23, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/cakephp/">CakePHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/901</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">18 Comments &middot; <a href="/archives/cakephp/multiple_validation_sets_cakephp.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59045">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59045">1</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on July 23, 2008		</div>
+		<div class="quote"><p>That is a work of genius! Funnily enough, I was looking into this only yesterday... for forgotten password validation O.o
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59049">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59049">2</a></div>
+			<span class="authorname">Bruno Bergher</span> said on July 23, 2008		</div>
+		<div class="quote"><p>It's very nice solution Jonathan, something I may apply to my projects as well.</p>
+<p>Perhaps it would also be worth considering using the 'on' key itself as an identifier for a validation set specific to an action. Maybe something like 'on' =&gt; 'actionEdit', or 'on'=&gt;'actionForgotPassword' could do the trick, without straying too much off the normal model structure. I'd have to put some more though into this.</p>
+<p>Anyway, my point here is to actually ask you a different thing (which could be slightly off-topic): we all end up creating this custom methods in app_model/app_controller, some new configuration settings, helper, components and lots of code we use on different projects, and end up becoming a custom framework.. I was wondering how do you (and your readers) manage this code to be included and kept in sync in different projects, along with the constant new versions of Cake itself.</p>
+<p>Do you use external repositories, SVN templates, copy + paste? What do you think is a good method for keeping track of all of this code, and keeping it useful?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59050">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 23, 2008		</div>
+		<div class="quote"><p>@Bruno: my largest complaint about the 'on' approach is that it's hard to separate which rules apply under which situations. Everything is all muddled together. The approach I've outlined separates the rules to make it clear when they should be applied.</p>
+<p>As for maintaining code across projects, I try to encapsulate things as best I can. I move what I can into plugins that are easier to drop into new projects. As well, having things in the app_* files like AppController. That leaves (hopefully) everything else to be unique for that project (like that ever happens). I have svn repos for each project as well as the latest cake version, a dev version that I use to play with different techniques sandboxed away from other projects. As well, I set up repos for things like my plugins. That's worked out well so far. It'd be cooler to have an IDE or other GUI approach to managing this but I don't know of any.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59051">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59051">4</a></div>
+			<span class="authorname">Bruno Bergher</span> said on July 23, 2008		</div>
+		<div class="quote"><p>I understand the need to separate the rules more clearly, but seems it's a trade-off determined by how many 'exceptions' you have?: if the model tends to use the default rules, the 'on' approach would be productive', but if each action uses a completely different rules, I certainly agree with your approach.</p>
+<p>Your way of dealing with this shared code seems good as well. But you do have to copy and paste much of the basic structure of projects from time to time, right? That's about the same way I'm doing.</p>
+<p>I've been considering creating a repository in which I'd keep all the plugins, for example, which could be referenced in each project's app/plugins folder, but it seems something that would break in no time. I also work if ActionScript, and the concept of a central library that is so simple for compiled languages is always something to be missed when working with PHP.</p>
+<p>Thanks for sharing anyway : )
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59052">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59052">5</a></div>
+			<span class="authorname"><a href="http://warpspire.com">Kyle Neath</a></span> said on July 23, 2008		</div>
+		<div class="quote"><p>My God, thanks for reminding me why I don't code in PHP any longer. You totally made my day :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59053">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59053">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 23, 2008		</div>
+		<div class="quote"><p>@Kyle Neath: Haha! I'm glad I could be of service. You bastard. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59055">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59055">7</a></div>
+			<span class="authorname">Ben</span> said on July 23, 2008		</div>
+		<div class="quote"><p>Thanks for this, I was wondering how validation would work across different actions. I've been working blindly, just hoping I would work out what to do when I write the edit action for users to edit their own details - where their username and certain other fields would not be editable by them.  And unless I've completely misunderstood what you've presented here, this will be a great help.</p>
+<p>This also got me thinking about something else, slightly off-topic, but perhaps you could point me in the right direction with this:  Say you have a register action for users to sign up and then an edit action for them to change some of their signup details at a later stage.  The edit action should naturally not allow them to change their username and so the associated view template would not have the corresponding form field.  What is to stop a user from writing a custom form and including a username field in it? Surely when the action calls save() then the username field would be updated...?  Do you know if cake has any "built-in" protection against this or would one have to manually unset these forbidden values from the data before calling save.  Maybe I've missed the plot completely?  This whole MVC thing is rather new to me.</p>
+<p>Well, thanks for this great post anyway. Very helpful.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59056">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59056">8</a></div>
+			<span class="authorname">Derick</span> said on July 23, 2008		</div>
+		<div class="quote"><p>I read your post and went ahead to share <a href="//derick.lyniq.com/posts/9-multiple-validation-sets-in-cakephp">my approach</a> as well. :)</p>
+<p>@Ben: You could do as shown below so you simply specify fields to save.<br />
+<code><br />
+$this-&gt;save($data, true, array('fields', 'to', 'save'));<br />
+</code>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59057">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59057">9</a></div>
+			<span class="authorname">Ben</span> said on July 23, 2008		</div>
+		<div class="quote"><p>@Derick:  Thanks... it's always the easy and logical step that I overlook...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59075">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59075">10</a></div>
+			<span class="authorname">Mark</span> said on July 27, 2008		</div>
+		<div class="quote"><p>i left my validation inside the models, one in user.php and one in user_info.php<br />
+the "User" model validates, but before i want to save the data, i want to check if the "UserInfo" is valid as well. But it just skippes this second validation.<br />
+All data is inserted in the DB - although you could add all kinds of stuff to the "homepage" field of "UserData" right now.</p>
+<p><b>USER MODEL:</b><br />
+class User extends AppModel {</p>
+<p>	var $name = 'User';<br />
+	var $validate = array(<br />
+		'username' =&gt; array(<br />
+            'alphanumeric' =&gt; array(<br />
+                'rule' =&gt; array('alphanumeric'),<br />
+                'required' =&gt; true,<br />
+                'message' =&gt; 'Username ungueltig'<br />
+            ),<br />
+            'unique' =&gt; array(<br />
+                'rule' =&gt; array('isUnique'),<br />
+                'message' =&gt; 'Username gibt es schon'<br />
+            )<br />
+        ),<br />
+		'email' =&gt; array(<br />
+            'email' =&gt; array(<br />
+                'rule' =&gt; array('email'),<br />
+                'required' =&gt; true,<br />
+                'message' =&gt; 'Email ungueltig'<br />
+            ),<br />
+            'unique' =&gt; array(<br />
+                'rule' =&gt; array('isUnique'),<br />
+                'message' =&gt; 'Email gibt es schon'<br />
+            ),<br />
+            'between' =&gt; array(<br />
+                'rule' =&gt; array('between', 4, 65),<br />
+            	'message' =&gt; 'Between 4 to 65 characters'<br />
+            )<br />
+        ),<br />
+		'password' =&gt; array(<br />
+			'password_between' =&gt; array(<br />
+                'rule' =&gt; array('between', 4, 65),<br />
+                'required' =&gt; true,<br />
+            	'message' =&gt; 'Between 4 to 65 characters'<br />
+            )<br />
+        ),<br />
+		'pwd_repeat' =&gt; array(<br />
+			'between' =&gt; array(<br />
+                'rule' =&gt; array('between', 4, 65),<br />
+                'required' =&gt; true,<br />
+            	'message' =&gt; 'Between 4 to 65 characters'<br />
+            ),<br />
+			'identicalFieldValues' =&gt; array(<br />
+				'rule' =&gt; array('identicalFieldValues','password'),<br />
+				'message' =&gt; '** error **'<br />
+			)<br />
+		)<br />
+	);<br />
+...</p>
+<p><b>USERINFO MODEL:</b><br />
+class UserInfo extends AppModel {</p>
+<p>	var $name = 'UserInfo';<br />
+	var $validate = array(<br />
+		'homepage' =&gt; array('alphanumeric'),<br />
+		'sex' =&gt; array('numeric'),<br />
+		'zipcode' =&gt; array('alphanumeric'),<br />
+		'city' =&gt; array('alphanumeric'),<br />
+		'country_id' =&gt; array('numeric'),<br />
+		'countries_province_id' =&gt; array('numeric'),<br />
+		'job' =&gt; array('alphanumeric')<br />
+	);<br />
+...</p>
+<p><b>USERS CONTROLLER:</b><br />
+function register() {<br />
+		$this-&gt;DarkAuth-&gt;redirectLoggedIn();</p>
+<p>		if (!empty($this-&gt;data)) {<br />
+			$this-&gt;User-&gt;create();</p>
+<p>			$this-&gt;User-&gt;set($this-&gt;data['User']);<br />
+			if ($this-&gt;User-&gt;validates() <b>&amp;&amp; $this-&gt;User-&gt;UserInfo-&gt;validates()) </b>{<br />
+				$this-&gt;data['User']['password']=DarkAuthComponent::hasher($this-&gt;data['User']['password']);</p>
+<p>				if ($this-&gt;User-&gt;save($this-&gt;data,false)) {	// validation is already done<br />
+					$this-&gt;data['UserInfo']['user_id'] = $this-&gt;User-&gt;id;<br />
+					$this-&gt;User-&gt;UserInfo-&gt;save($this-&gt;data,false);	// validation is already done (STILL NOT WORKING!)</p>
+<p>					$this-&gt;Session-&gt;setFlash(__('You have successfully registered', true));<br />
+					$this-&gt;redirect(array('action'=&gt;'registered'));<br />
+				} else {<br />
+					$this-&gt;Session-&gt;setFlash(__('Registration could not be continued', true));<br />
+				}<br />
+			} else {<br />
+				$this-&gt;Session-&gt;setFlash(__('The Data could not be saved. Please, try again.', true));<br />
+			}<br />
+		}<br />
+		//$groups = $this-&gt;User-&gt;Group-&gt;find('list');<br />
+		//$this-&gt;set(compact('groups'));<br />
+	}</p>
+</div>
+	</div>
+		<div class="comment" id="c59078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59078">11</a></div>
+			<span class="authorname">juanfgs</span> said on July 28, 2008		</div>
+		<div class="quote"><p>Wow!, I was writing something like this, you saved me a lot of work. (However I hate you because it seemed like a cool thing to do :P ).</p>
+<p>Just kidding, you did an awesome work! thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59094">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59094">12</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on August 03, 2008		</div>
+		<div class="quote"><p>Finally got an opportunity to play with this. </p>
+<p>Firstly, it's a very elegant solution but I might have hit a (minor) snag.</p>
+<p>The validation information is not passed to the view. Which means the $form-&gt;input() output doesn't autmatically highlight required fields.</p>
+<p>For example: If you create a model with the validation sets validateRegister and validateEdit and don't create a default validate then the Registration form doesn't highlight the fields in validateRegister marked as required=true.</p>
+<p>Here's my solution: In AppModel:</p>
+<p>	function setValidate($rule = null) {</p>
+<p>		if ($rule == null) {</p>
+<p>			$rule = 'validate' . Inflector::camelize(Router::getParam('action'));</p>
+<p>			if (!isset($this-&gt;$rule)) {</p>
+<p>				$rule = "validate";</p>
+<p>			}</p>
+<p>		}</p>
+<p>	    $this-&gt;validate = $this-&gt;$rule;</p>
+<p>	}</p>
+<p>In your controller method:</p>
+<p>	function register() {</p>
+<p>		$this-&gt;User-&gt;setValidate();</p>
+<p>		if(!empty($this-&gt;data)) {</p>
+<p>			$this-&gt;User-&gt;set($this-&gt;data);</p>
+<p>			if ($this-&gt;User-&gt;validates()) {</p>
+<p>			}</p>
+<p>		}</p>
+<p>	}</p>
+<p>$this-&gt;User-&gt;setValidate() uses the validation rule named after the current action ($validateRegister in this case)</p>
+<p>$this-&gt;User-&gt;setValidate("foo") uses the validation rule $foo set in the model</p>
+<p>If you leave out $this-&gt;User-&gt;setValidate, it defaults to using the default $validate
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59095">13</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on August 03, 2008		</div>
+		<div class="quote"><p>Minor enhancement to AppModel:</p>
+<p>	function AppModel() {</p>
+<p>		parent::__construct();</p>
+<p>		$this-&gt;setValidate();</p>
+<p>	}</p>
+<p>Now you don't have to explicitly user $this-&gt;Model-&gt;setValidate() in your controller method</p>
+<p>:-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59096">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59096">14</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on August 03, 2008		</div>
+		<div class="quote"><p>explicitly set*
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59134">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59134">15</a></div>
+			<span class="authorname"><a href="http://www.steveoliveira.com">Steve</a></span> said on August 11, 2008		</div>
+		<div class="quote"><p>Just wanted to note that the following line:<br />
+<code>$param = 'validate' . $validationSet;</code></p>
+<p>Should be:<br />
+<code>$param = 'validate' . $this-&gt;validationSet;</code></p>
+</div>
+	</div>
+		<div class="comment" id="c59246">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59246">16</a></div>
+			<span class="authorname">Frank</span> said on August 29, 2008		</div>
+		<div class="quote"><p>Cheers, just the approach I was looking for. Just a note to other readers, as this caught me up, retrieve the invalid fields from the model using:</p>
+<p>$this-&gt;User-&gt;validationErrors;</p>
+<p>It might be obvious, but calling:</p>
+<p>$this-&gt;User-&gt;invalidFields();</p>
+<p>Will run the validation over again, not using the rules you specifed in validates(). This tripped me up, but otherwise works really well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59460">17</a></div>
+			<span class="authorname">John</span> said on September 12, 2008		</div>
+		<div class="quote"><p>Thanks for the article. I have been growing increasingly frustrated with Cake's current validation setup making it seemingly impossible for me to cater for different situations like registering, editing profile and changing password.</p>
+<p>@Richard@Home: Is it possible to cater for more than one form on one page, each with different validation sets?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60229">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60229">18</a></div>
+			<span class="authorname">Josh Prowse</span> said on November 16, 2008		</div>
+		<div class="quote"><p>This is fantastic! Do you think it would be hard to get it working like CodeIgniter, where all the validation arrays can be stored in a global $config variable according to the model/action string? (See "Associating a Controller Function with a Rule Group" just a bit down on this page: http://codeigniter.com/user_guide/libraries/form_validation.html#savingtoconfig)</p>
+<p>Again, thanks!<br />
+:-j
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

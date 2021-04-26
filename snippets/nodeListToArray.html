@@ -1,0 +1,6 @@
+<p>Converts a <code>NodeList</code> to an array.</p>
+<ul>
+<li>Use spread operator (<code>...</code>) inside new array to convert a <code>NodeList</code> to an array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> nodeListToArray <span class="op">=</span> nodeList <span class="kw">=&gt;</span> [...<span class="at">nodeList</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">nodeListToArray</span>(<span class="va">document</span>.<span class="at">childNodes</span>)<span class="op">;</span> <span class="co">// [ &lt;!DOCTYPE html&gt;, html ]</span></a></code></pre></div>

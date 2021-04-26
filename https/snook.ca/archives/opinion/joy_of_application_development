@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>The Joys of Application Development - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/joy_of_application_development">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/joy_of_application_development">
+	<meta property="og:title" content="The Joys of Application Development">
+	<meta property="og:description" name="description" content="These days, I'm really enjoying what time I can spend building my desktop application, Snitter. Not because it's released me from the frustration of using the web site but because of the joy it's brou...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>The Joys of Application Development</h1>
+		<p>These days, I'm really enjoying what time I can spend building my desktop application, <a href="https://snook.ca/snitter/">Snitter</a>. Not because it's released me from the frustration of using the web site but because of the joy it's brought to other people from using it.</p>
+<h2>Creating Passionate Users</h2>
+<p>One of the first unexpected things was seeing the support and passion from the early adopters. A post about some twitter tool would pop up and someone (or two, or three) would pop up to drop mention of the app. That's wicked promotion right there! </p>
+<p>People have been awesome at contributing to moulding the application and providing really good feedback. It's these great group of people that really inspire me to continue development. People like <a href="http://www.cleverclogs.org/">Marjolein Hoekstra</a>, <a href="http://twitter.com/bridgetstewart">Bridget Stewart</a>, <a href="http://jtucker.org/">Jason Tucker</a> (thanks for the mimize to tray code), <a href="http://twitter.com/danieljohnsonjr">Daniel Johnson Jr</a>,  <a href="http://blog.jackvinson.com/">Jack Vinson</a> and countless more. And certainly to <a href="http://superfluousbanter.org/">Dan Rubin</a> for working hard on making the app look good. </p>
+<h2>Creating Disinterested Users</h2>
+<p>But on the flip-side, there are those that try the application out and don't like it. Sure, that's fine but I usually never get to hear why.  What is it that you didn't like? How can I make it better? I can see why many software applications have a survey after you uninstall them. How else would you find out that something just doesn't work. </p>
+<p>Luckily, Twitter offers up a few ways to track whenever a keyword is mentioned. Namely, they have their 'track <em>keyword</em>' feature that will automatically text message you or send you an IM any time somebody mentions the keyword. I also use <a href="http://buzztter.com/en">Buzztter</a> and <a href="http://terraminds.com/twitter/">Terraminds</a> to search for anything that might have gotten missed. </p>
+<h2>Create Something</h2>
+<p>In all this, it's just fun to create and whether it's an application or a web site, it's a great feeling to know that people enjoy what you create. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published October 26, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/850</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">12 Comments &middot; <a href="/archives/opinion/joy_of_application_development.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c56534">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56534">1</a></div>
+			<span class="authorname">Dave McNally</span> said on October 26, 2007		</div>
+		<div class="quote"><p>I am loving Snitter, especially now with ability to min to tray and change themes. Keep up the great work :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56535">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56535">2</a></div>
+			<span class="authorname">Camron Flanders</span> said on October 26, 2007		</div>
+		<div class="quote"><p>I would love for direct message notifications.  Another feature that would be welcome is for the X to (atleast as an option) minimize to systray...I can't count the number of times I've hit X instead of _ only to look for it 10 minutes later or wonder why no one has tweeted.</p>
+<p>It's the only twitter app I've used for more than a day, in use on my Macs and PCs :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56536">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56536">3</a></div>
+			<span class="authorname">Bridget Stewart</span> said on October 26, 2007		</div>
+		<div class="quote"><p>thanks for the honorable mention!  i'm a fan of snitter.  being on windows, there weren't any twitter apps that suited my fancy even though there were quite a few that existed.  snitter has very, very quickly grown into THE app that i wanted all along.</p>
+<p>thank you for making snitter!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56537">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56537">4</a></div>
+			<span class="authorname">j. brotherlove</span> said on October 26, 2007		</div>
+		<div class="quote"><p>As an "early adopter" I've seen Snitter change by leaps and bounds in a relatively short amount of time. I've tried other Twitter apps and have abandoned them all. Thanks again for your hard work and attention to detail. I can't wait to see what's next.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56538">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56538">5</a></div>
+			<span class="authorname">Ronnie</span> said on October 26, 2007		</div>
+		<div class="quote"><p>I use it and I like it :)<br />
+Loved the minimize to tray update!<br />
+Keep it going!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56540">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56540">6</a></div>
+			<span class="authorname">Steve Fleischer</span> said on October 26, 2007		</div>
+		<div class="quote"><p>I am also a Windows user and envied the sleek look of Twitterific. Then along came Snitter and I could see immediately that it was better than anything I had used to date. Since then the frequent updates have improved the app considerably. The notification pop-ups when Snitter is minimized is excellent! Well done Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56541">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56541">7</a></div>
+			<span class="authorname">Byron Rode</span> said on October 27, 2007		</div>
+		<div class="quote"><p>Hi Jonathan,<br />
+Loving Snitter. Awesome interface. It works better than any other AIR Twitter app that I tried. My search has come to an end. I have definitely found the final Twitter application I will ever use.</p>
+<p>Will chat again soon on MSN. Have a few questions I would like to ask and an idea to share.</p>
+<p>Thanks again for the great app, and look forward to the future revisions!<br />
+Byron
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56545">8</a></div>
+			<span class="authorname"><a href="http://www.projectdesigns.org">Ben Henschel</a></span> said on October 28, 2007		</div>
+		<div class="quote"><p>I must say it has been a joy using Snitter. Defiantly the best AIR Twitter app out there. </p>
+<p>Thanks for the great app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56547">9</a></div>
+			<span class="authorname">Brad Dielman</span> said on October 28, 2007		</div>
+		<div class="quote"><p>Snitter rocks, Jonathan. Keep up the great work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56550">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56550">10</a></div>
+			<span class="authorname"><a href="http://www.scottnelle.com/">Scott NellÃ©</a></span> said on October 29, 2007		</div>
+		<div class="quote"><p>Webware recently did a spot on a few <a href="//www.webware.com/8301-1_109-9805192-2.html?part=rss&amp;tag=feed&amp;subj=Webware">AIR-based twitter apps</a> and snitter ended up as their top choice.  Congrats, Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c56570">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56570">11</a></div>
+			<span class="authorname"><a href="http://www.skc.gr">Jason Kataropoulos</a></span> said on October 31, 2007		</div>
+		<div class="quote"><p>It is obvious to be curious about disinterested users because you come from the world of the web where we have statistics and visitor tracking. This information provides you an idea of how visitors behave on a web site. On a desktop application things are different unless you send user behavior information somewhere where you can analyze and estimate user stereotypes.</p>
+<p>To be honest, I downloaded and used the app once or twice. I never used it again because I realized that it will be another distraction from my work so I never got really into it on purpose! </p>
+<p>It does look good though. It is a Snook interface! </p>
+</div>
+	</div>
+		<div class="comment" id="c56627">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56627">12</a></div>
+			<span class="authorname">Erkl</span> said on November 04, 2007		</div>
+		<div class="quote"><p>I would love to create something. I want to give something back to the community that embraced me with loving (sorta') arms. Unfortunately I devote my time to creating nothing, files (and projects) that end up in the deep recess of my hard drive. But maybe thats creation too, eh?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

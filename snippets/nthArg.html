@@ -1,0 +1,11 @@
+<p>Creates a function that gets the argument at index <code>n</code>.</p>
+<ul>
+<li>Use <code>Array.prototype.slice()</code> to get the desired argument at index <code>n</code>.</li>
+<li>If <code>n</code> is negative, the nth argument from the end is returned.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> nthArg <span class="op">=</span> n <span class="kw">=&gt;</span> (...<span class="at">args</span>) <span class="kw">=&gt;</span> <span class="va">args</span>.<span class="at">slice</span>(n)[<span class="dv">0</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> third <span class="op">=</span> <span class="at">nthArg</span>(<span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">third</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// 3</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">third</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// undefined</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">const</span> last <span class="op">=</span> <span class="at">nthArg</span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="at">last</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// 5</span></a></code></pre></div>

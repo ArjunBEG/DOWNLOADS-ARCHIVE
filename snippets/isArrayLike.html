@@ -1,0 +1,10 @@
+<p>Checks if the provided argument is array-like (i.e. is iterable).</p>
+<ul>
+<li>Check if the provided argument is not <code>null</code> and that its <code>Symbol.iterator</code> property is a function.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isArrayLike <span class="op">=</span> obj <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  obj <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="kw">typeof</span> obj[<span class="va">Symbol</span>.<span class="at">iterator</span>] <span class="op">===</span> <span class="st">&#39;function&#39;</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isArrayLike</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isArrayLike</span>(<span class="va">document</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;.className&#39;</span>))<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">isArrayLike</span>(<span class="st">&#39;abc&#39;</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">isArrayLike</span>(<span class="kw">null</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

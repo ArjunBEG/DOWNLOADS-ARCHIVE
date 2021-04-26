@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>How I Use VMWare Fusion and Snapshots - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/vmware-fusion-snapshots">
+	<meta property="og:url" content="https://snook.ca/archives/other/vmware-fusion-snapshots">
+	<meta property="og:title" content="How I Use VMWare Fusion and Snapshots">
+	<meta property="og:description" name="description" content="Let&rsquo;s face it, testing multiple browsers on multiple systems isn&rsquo;t very practical. But it's still a fact of life for the web developer. What I&rsquo;m about to show you is how I manage tes...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>How I Use VMWare Fusion and Snapshots</h1>
+		<p>Let&rsquo;s face it, testing multiple browsers on multiple systems isn&rsquo;t very practical. But it's still a fact of life for the web developer. What I&rsquo;m about to show you is how I manage testing in multiple browser versions. </p>
+<p>About three years ago, I used to do all of my development on a Windows laptop. I had an old Mac G3 tower, an Ubuntu server, and a Windows 2000 server. All of these were separate&mdash;and rather ancient and noisy&mdash;machines that sat in my office. I would have IE7 and the latest version of Firefox on my machine. I would hop onto my Windows server for IE6 testing, onto my Mac for Safari testing, and ... well, okay, I didn&rsquo;t test any browser in Ubuntu.</p>
+<p>When I got my Mac, I decided to try out <a href="http://www.vmware.com/products/fusion/">VMWare Fusion</a>. There wasn&rsquo;t anything in particular that drove me to try it over <a href="http://www.parallels.com/">Parallels</a> but it seemed to get mentioned more frequently and so I just went for it.</p>
+<h2>The Virtual Machines</h2>
+<p>I started off by installing Windows XP. After which, I installed Ubuntu and more recently, I installed Windows 7 and also the emulator for the soon-to-be-released BlackBerry PlayBook.</p>
+
+<p><a href="http://www.flickr.com/photos/jonathansnook/5262178015/" title="VMWare Snapshots by Jonathan Snook, on Flickr"><img src="https://farm6.static.flickr.com/5209/5262178015_dd065440d2.jpg" width="500" height="387" alt="VMWare Snapshots" /></a></p>
+
+<p>Admittedly, my Ubuntu VM doesn&rsquo;t get much love. I used it for testing Adobe AIR applications when I was still working on them and also test in Firefox, just in case something interesting comes of it.</p>
+
+<p>I tried to install Windows Vista but it took forever to install and never seemed to work quite right. Thankfully, Windows 7 installed just fine and performs quite well in VMWare.</p>
+
+<p>I was surprised to discover that the emulator for the upcoming BlackBerry PlayBook actually runs in VMWare Fusion. It made it quite easy to set up, although I&rsquo;m doubtful how often I&rsquo;ll be loading this one unless I start getting into some development.</p>
+
+<h2>Snapshots</h2>
+
+<p>Many people I know either use something like <a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a> in their single VM or install multiple VMs, one for each browser that they wish to test with. In the case of using IETester, there are some known limitations which may impact accurate testing. In the case of multiple VMs, you&rsquo;ll need to have the hard drive space for multiple operating systems being installed on your system.</p>
+<p>I took another route and realized that I could take a Snapshot of a particular point in time and then launch that snapshot whenever I wanted to.  By taking a snapshot while the system is running, I can load a snapshot without having to wait for a virtual machine to boot up. It&rsquo;s already booted. Loading a snapshot just copies the state of the virtual machine back into memory. I&rsquo;m usually back up and running from a snapshot within 15 seconds.</p>
+
+<p>The amount of space that a snapshot takes on the hard drive is also much smaller than a virtual machine: it&rsquo;s just the size of memory, which may be between 512MB to 2GB, depending on VM configuration.</p>
+
+<p><a href="http://www.flickr.com/photos/jonathansnook/5262787478/" title="VMWare Snapshots by Jonathan Snook, on Flickr"><img src="https://farm6.static.flickr.com/5001/5262787478_a1f958c9fe.jpg" width="500" height="484" alt="VMWare Snapshots" /></a></p>
+
+<p>With IE6 on my machine, I took a snapshot. Then I installed IE7 and saved that as a snapshot. Then I installed IE8 and saved that as a snapshot. I used to keep various versions of Safari, Chrome and Firefox in those different VMs but I kept forgetting which snapshot had which alternate browser. So, I&rsquo;ve started saving the different versions of those browsers as separate snapshots, as well.</p>
+
+<p>This approach has come in quite handy. For example, I needed to test a localized version of Chrome for China. I was able to install and test the browser without worrying about it overwriting or impacting my main configuration. Once I was done with it, I could just delete the snapshot or load another snapshot without saving my current configuration.</p>
+
+<h2>Wishes</h2>
+<p>My biggest wish right now is to be able to install Mac OS X as a virtual machine, too. Unfortunately, Apple&rsquo;s licensing doesn&rsquo;t allow it. (Although, there are some hacks on the Internet that can get around that.) I&rsquo;d love to have copies of 10.4 or 10.5 that I could load up and test.</p>
+
+<p>Anyways, this is how I use VMWare Fusion. How do you handle your cross-browser, cross-platform testing?</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published December 15, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/988</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">31 Comments &middot; <a href="/archives/other/vmware-fusion-snapshots.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c65328">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65328">1</a></div>
+			<span class="authorname">jen</span> said on December 14, 2010		</div>
+		<div class="quote"><p>Funnyâ€¦ Femi &amp; I just noticed your screenshots while perusing Flickr, and were discussing our VM situation. Freakyâ€¦ Thanks for the heads-up. </p>
+<p>I installed all browsers into Windows XP - but have been reconsidering it. I hope to get around to doing it over the holiday.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65329">2</a></div>
+			<span class="authorname">John Faulds</span> said on December 14, 2010		</div>
+		<div class="quote"><p>I used to use VirtualBox for running Windows XP and 7 but found that my MacBook Pro would grind to a halt when firing up the Win 7 VM so have gone back to using a networked PC which has XP Mode and Virtual PC 7 installed on it. I can then use CORD to remote access the PC so that I can view both Windows and Mac browsers on the same screen.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65330">3</a></div>
+			<span class="authorname">Cobey </span> said on December 14, 2010		</div>
+		<div class="quote"><p>This is how I operate as well, though using Parallels. </p>
+<p>I actually moved on towards using Spoon.net, which had all the browsers as Active-X temp installs (I may be wrong about the Active-X, maybe it was a proprietary plugin). This was crazy helpful and worked really well. Microsoft went after them a month or so ago with legal action, so they pulled all the IEs. </p>
+<p>So, back to this solution, the best one for how we have to operate!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65331">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65331">4</a></div>
+			<span class="authorname">Rick Fletcher</span> said on December 14, 2010		</div>
+		<div class="quote"><p>I thought about this method, but I'd prefer to keep the various major browser versions at their latest minor versions (applying security fixes and windows updates as they come out).  With VMWare, can you switch to an old snapshot and update from FF 2.0 to 2.0.1, for example, while preserving the newer snapshots?</p>
+<p>I've always kept a separate VM for each browser, and that uses a huge chunk of my laptop's disk.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65332">5</a></div>
+			<span class="authorname"><a href="http://vernontgerzen.com">Trevor Gerzen</a></span> said on December 14, 2010		</div>
+		<div class="quote"><p>I do it the same exact way for Windows testing except I found myself combining browsers in snapshots like the oldest versions of IE, Safari, Chrome and Firefox in one snapshot then update them all and take another snapshot
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65333">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65333">6</a></div>
+			<span class="authorname">Thomas</span> said on December 15, 2010		</div>
+		<div class="quote"><p>Same question as rick: can you switch to an old snapshot and update from FF 2.0 to 2.0.1, for example, while preserving the newer snapshots?</p>
+<p>BTW, you should do some tests on Linux, especially with Chrome (it has a bunch of bugs specific to that platform) and/or for testing fonts. I guess there is more people using Chrome on Linux than people using Firefox 2.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65335">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65335">7</a></div>
+			<span class="authorname"><a href="http://riddle.pl">riddle</a></span> said on December 15, 2010		</div>
+		<div class="quote"><p>I canâ€™t believe you still support IE6.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65337">8</a></div>
+			<span class="authorname">Dan Brown</span> said on December 15, 2010		</div>
+		<div class="quote"><p>The stock fonts in Linux, with Firefox in Mandriva and OpenSuse at least, are wider than their windows counterparts. So that should be a good reason to include it in testing as it can break layout for things like horizontal lists. Ubuntu may use fonts that match better, not used it for a few years.</p>
+<p>The main BBC news site for example has its category menus broken over two lines due to this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65340">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65340">9</a></div>
+			<span class="authorname">Kroc Camen</span> said on December 15, 2010		</div>
+		<div class="quote"><p>@Riddle Regardless of whether a developer supports IE6 or not, it is almost certain that someone using it will visit their site, it's always worth checking in IE6 to ensure that content is at least readable, and if the layout is badly broken perhaps use the universal ie6 CSS instead.</p>
+<p>---</p>
+<p>On topic, I have taken to using IECollection which allows you to install stand-alone versions of IE1-through-8. I do this in an XP VM, and then have a Vista VM to check font-smoothing / unicode and font differences between the OSes.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65341">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65341">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 15, 2010		</div>
+		<div class="quote"><p>@Rick and Thomas: Yes, you can load up a snapshot, install any software or updates you want, and then save that as a new snapshot (and you can choose to delete the old snapshot if you wish). This is exactly what I do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65346">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65346">11</a></div>
+			<span class="authorname">Robert</span> said on December 15, 2010		</div>
+		<div class="quote"><p>I've been meaning to write the very same article.  Glad someone did!  The whole multiple IE thing is a hack, and I'm always worrying if the rendering is true to the original.  VMWare Snapshots give you the actual, full version of the browser as it actually works.  The only down side is that it takes a bit of time to launch a new snapshot.  So, you really want to get all your testing done in one version of IE, then swap to the next.  It's slow if your tweak to fix something in IE7 might have an impact on IE8 and you need to jump back and forth to see.  But this is the best way to cross-browser test right now on a Mac.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65347">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65347">12</a></div>
+			<span class="authorname">Eric</span> said on December 15, 2010		</div>
+		<div class="quote"><p>For IE6 testing, I've been using Windows 7's own built in virtualization for that. I forget the name of it but basically what happens is I'm running Windows 7 virtualized and then Windows XP (with IE6) virtualized inside of that. Kinda nuts, but it works.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65348">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65348">13</a></div>
+			<span class="authorname">Todd Austin</span> said on December 15, 2010		</div>
+		<div class="quote"><p>I did a writeup on this as well in June of last year. With VMware fusion, I've been doing the same thing with multiple snapshots of various browser versions on XP for about a year and half now. Though now I'm going to have to install Windows 7 in order to test IE9.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65349">14</a></div>
+			<span class="authorname">Dana Kashubeck</span> said on December 15, 2010		</div>
+		<div class="quote"><p>Brilliant!!  I switched from Parallels to VMWare Fusion recently.  I was running out of hard drive space for my VMs, so I have them on an external drive.  One for IE6, IE7, and IE8.  This is a much better way to do things.  Thanks for sharing!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65350">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65350">15</a></div>
+			<span class="authorname">Eric Lightbody</span> said on December 15, 2010		</div>
+		<div class="quote"><p>This seems like a beautiful solution to a common problem. How does having multiple snapshots up perform? My aging black Macbook doesn't do well with one vm open; curious how it would handle snapshots.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65351">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65351">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 15, 2010		</div>
+		<div class="quote"><p>@Eric: you can only ever load one snapshot at a time... you only ever have one vm open. There's no performance impact to having multiple snapshots.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65354">17</a></div>
+			<span class="authorname">Mike Champion</span> said on December 15, 2010		</div>
+		<div class="quote"><p>Helpful post, thanks. My typical usage now is to use VMWare during initial development for fast iterations on IE8 (in addition to Chrome/FF on Mac), but then to move to using MogoTest (http://mogotest.com) when I want to test the full suite of browsers. Mogotest can test the combination of browsers &amp; platforms faster and more frequently than I ever would manually. It has saved me many hours during development and caught regression bugs later when I introduced a layout bug.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65361">18</a></div>
+			<span class="authorname">Jekie</span> said on December 16, 2010		</div>
+		<div class="quote"><p>I've been running a VM per browser for about a year now, and it kills my laptop performance.  I never thought of doing it this way.  Thanks for the tip!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65362">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65362">19</a></div>
+			<span class="authorname"><a href="http://somadesign.ca/">Matt Wiebe</a></span> said on December 16, 2010		</div>
+		<div class="quote"><p>Thanks for this Jonathan. Snapshots are one of those things that I know I should be using but have been too lazy/stupid to bother with. That will be remedied shortly.</p>
+<p>As for installing Mac OS X in VMWare, you <em>are</em> allowed to install Mac OS X Server edition in a VM, no hacks required.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65366">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65366">20</a></div>
+			<span class="authorname">Iouri Goussev</span> said on December 17, 2010		</div>
+		<div class="quote"><p>Oh apple, you are the worse.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65368">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65368">21</a></div>
+			<span class="authorname">SÃ¸ren Hugger MÃ¸ller</span> said on December 18, 2010		</div>
+		<div class="quote"><p>This is such a fantastic tip! Thank you! I've been using IETester in VMs in Fusion ,and it didn't ever work super well. I've also been using multiple VMs and that's not very pretty either. But using Snapshots, that's just brilliant! Can't believe I didn't realise that before. Thank you, sir. You rock! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65371">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65371">22</a></div>
+			<span class="authorname">Masklinn</span> said on December 19, 2010		</div>
+		<div class="quote"><blockquote><p>Unfortunately, Appleâ€™s licensing doesnâ€™t allow it.</p>
+</blockquote>
+<p>That is not entirely correct: Apple changed part of the licensing in Leopard Server and to allow its virtualization, as long as it's on Apple hardware (but since you're running VMWare Fusion I'm assuming you're using Apple hardware).<br />
+In fact, you can verify this by opening VMWare Fusion, creating a new VM, Continue Without Disc &gt; Create a custom virtual machine &gt; Operating System [Apple Mac OS X], and it'll provide 4 choices for Server 10.5 and Server 10.6 (in 32 and 64b in each case).<br />
+Licensing doesn't allow running non-server and you're supposed to have a full license for each VM (at $500 a pop for 10.6â€¦), so I don't know how VMWare would react if you tried it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65374">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65374">23</a></div>
+			<span class="authorname"><a href="http://xonecas.com">xonecas</a></span> said on December 20, 2010		</div>
+		<div class="quote"><p>I'm lucky enough to have a few systems ranging from xp to 7, a few different macs, and a couple of linux boxes too. I have them all connected using a couple of screens and I use synergy to share the same keyboard, mouse, and clipboard across them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65375">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65375">24</a></div>
+			<span class="authorname">Jessica</span> said on December 21, 2010		</div>
+		<div class="quote"><p>Thanks so much for figuring this out and sharing it! I've had off and on struggles with testing IE on my Mac for a couple years now, and I've developed quite the love/hate relationship with the virtual machine as a result. This seems to work beautifully! You've relieved me from many potential hours of frustration =)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65452">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65452">25</a></div>
+			<span class="authorname">Darren Armstrong</span> said on January 02, 2011		</div>
+		<div class="quote"><p>Wow thanks, this is really useful. I've experimented with various browser testing solutions multiple VMs (too much disc space), IEtester (inconsistent), Spoon (IE has been withdrawn) none of them ideal. I can't wait to try your solution using snapshots in VirtualBox.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65516">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65516">26</a></div>
+			<span class="authorname">Juti Noppornpitak</span> said on January 05, 2011		</div>
+		<div class="quote"><p>You might want to try VirtualBox. I heard that you could install Mac OS as a virtual PC but you might need lots of RAM to do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65522">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65522">27</a></div>
+			<span class="authorname">Rich</span> said on January 06, 2011		</div>
+		<div class="quote"><p>Is there a practical reason for making seperate snapshots of each of the later Internet Explorers?</p>
+<p>I'm thinking of making a W7 VM with IE9 and taking advantage of Microsofts decision to supply compatibility modes for both IE8 and IE7 in it to test for those browsers.</p>
+<p>I'll still need an XP VM for IE6 but I can live with that.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65531">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65531">28</a></div>
+			<span class="authorname">Sensitive Designs</span> said on January 12, 2011		</div>
+		<div class="quote"><p>Thanks for sharing. I use vmware, ietester, adobe browserlabs but I never checked for any Linux platforms but some clients asks me to do tests in ubuntu firefox and I am really out of solution to fix those bugs :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65536">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65536">29</a></div>
+			<span class="authorname">Montreal Web Design</span> said on January 15, 2011		</div>
+		<div class="quote"><p>I use VirtualBox. It is free, opensource and works just fine.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65711">30</a></div>
+			<span class="authorname">Mark</span> said on February 07, 2011		</div>
+		<div class="quote"><p>I considered snapshots after reading your article... but being able to boot up multiple VMs concurrently and really crank through my testing was just too tempting.</p>
+<p>Currently built the first XP VM, and when it was all installed and updated, duplicated the VMs twice (so IE6, 7 &amp; 8)... Being a fairly basic install, it's less than 10 GB.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66805">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66805">31</a></div>
+			<span class="authorname">Randy</span> said on March 24, 2011		</div>
+		<div class="quote"><p>Great article, I'm looking to implement a similar setup on my home workstation soon and after reading this, I definitely think I will be going down this snapshot path.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

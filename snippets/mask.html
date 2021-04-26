@@ -1,0 +1,13 @@
+<p>Replaces all but the last <code>num</code> of characters with the specified mask character.</p>
+<ul>
+<li>Use <code>String.prototype.slice()</code> to grab the portion of the characters that will remain unmasked.</li>
+<li>Use <code>String.padStart()</code> to fill the beginning of the string with the <code>mask</code> character up to the original length.</li>
+<li>If <code>num</code> is negative, the unmasked characters will be at the start of the string.</li>
+<li>Omit the second argument, <code>num</code>, to keep a default of <code>4</code> characters unmasked.</li>
+<li>Omit the third argument, <code>mask</code>, to use a default character of <code>'*'</code> for the mask.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> mask <span class="op">=</span> (cc<span class="op">,</span> num <span class="op">=</span> <span class="dv">4</span><span class="op">,</span> mask <span class="op">=</span> <span class="st">&#39;*&#39;</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="vs">`</span><span class="sc">${</span>cc<span class="sc">}</span><span class="vs">`</span>.<span class="at">slice</span>(<span class="op">-</span>num).<span class="at">padStart</span>(<span class="vs">`</span><span class="sc">${</span>cc<span class="sc">}</span><span class="vs">`</span>.<span class="at">length</span><span class="op">,</span> mask)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">mask</span>(<span class="dv">1234567890</span>)<span class="op">;</span> <span class="co">// &#39;******7890&#39;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">mask</span>(<span class="dv">1234567890</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// &#39;*******890&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">mask</span>(<span class="dv">1234567890</span><span class="op">,</span> <span class="dv">-4</span><span class="op">,</span> <span class="st">&#39;$&#39;</span>)<span class="op">;</span> <span class="co">// &#39;$$$$567890&#39;</span></a></code></pre></div>

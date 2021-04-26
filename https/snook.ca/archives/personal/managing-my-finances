@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>How I Manage My Finances - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/personal/managing-my-finances">
+	<meta property="og:url" content="https://snook.ca/archives/personal/managing-my-finances">
+	<meta property="og:title" content="How I Manage My Finances">
+	<meta property="og:description" name="description" content="Money is such a taboo topic but shouldn’t be. Money is, good or bad, a very important part of our daily lives. While I’ve had some rough times with money, through luck and hard work, I managed to ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>How I Manage My Finances</h1>
+		<p>Money is such a taboo topic but shouldn’t be. Money is, good or bad, a very important part of our daily lives. While I’ve had some rough times with money, through luck and hard work, I managed to get myself to a good place. </p>
+
+<p>There are, in my opinion, some very basic tenets to how I manage my finances. </p>
+
+<ol>
+<li>Increase Revenue</li>
+<li>Decrease Expenses</li>
+<li>Manage Cash Flow</li>
+</ol>
+
+<h2>Increase Revenue</h2>
+
+<p>There are a couple different ways I increase my revenue. </p>
+
+<p>If you work full time, you can get a raise. Or switch to a new job that pays more. If you’re a freelancer or agency, you can charge more money for your services (assuming that you don’t increase beyond what people are willing to pay). If you have a product business, you can charge more for your products. Lastly, you can just pump out more work. </p>
+
+<p>Nobody really likes doing that last one but if you charge by the hour, sometimes working 60 hours for awhile to build up the savings is okay. Be careful not to burn out!</p>
+
+<p>For example, I often play around with pricing for the SMACSS book and workshop to see which results in more sales. Or, due to the declining Canadian dollar, I switched to charge in US dollars. Bam, I was suddenly making 40% more. </p>
+
+<p>Another way to increase revenue is to diversify. Diversifying your revenue streams helps protect you if one stream begins to die down. </p>
+
+<p>For example, I have my day job, ad revenue from my site, book revenue, along with conference and workshop revenue. My plan this year is to both increase revenue in one or more of these channels and possibly add more streams. </p>
+
+<p>One concern with diversification is being able to manage multiple projects at the same time. For some things, like my site and the book, I’ve let them languish while I concentrate on other projects. I hope to be able to launch some new projects then come back to the ones that have stopped being as effective. Or in the case of SMACSS, freshen and expand the content in hopes that people will like the new content.</p>
+
+<p>It can be hard to keep working on content that doesn’t have an obvious payout. Client work is guaranteed income. Hours for dollars. But in the land of content, some of the work is promotional, some of the work is just putting stuff out there in hopes that something will take off. Not everything will.</p>
+
+<h2>Decrease Expenses</h2>
+
+<p>Getting money is great but it’s important to keep your expenses in check. Like a project seems to fill the time we make available to it, so does our budget seem to match whatever we make. </p>
+
+<p>What, you don’t have a budget? You gotta track money going in and out to know what’s going on!</p>
+
+<p>I have a Google spreadsheet that I use that is pretty straightforward. It’s 3 sections:</p>
+
+<ol>
+<li>Income and Expenses; take the difference and this is your free cash every month.</li>
+<li>Cashflow. I detail what day of the month everything is going in and out for the next month or two.</li>
+<li>Assets and Debts; take the difference and this is your net worth.</li>
+</ol>
+
+<p>Once I know what’s going in and out and when, I can start to create a game plan for decreasing expenses. Can I eat out less? Do I need all the services I’m paying for? Can I cut back on the services I have?</p>
+
+<p>When I was really broke, I stopped paying for garage parking in my apartment building and parked on the street. Unfortunately, if I forgot to move my car on a regular basis, I’d get a parking ticket. It became a game of trying to get less in parking tickets than I was paying for the garage spot. </p>
+
+<p>The problem with being broke and in debt is dealing with the sometimes seemingly unsurmountable debt repayment. Consolidation loans from high interest to low interest can help reduce your costs. Focus on paying off higher interest debt before lower interest debt. Anytime you get a windfall, try to pay down that debt. Once you pay off debt, your cashflow opens up allowing you to pay down the rest of your debt faster. </p>
+
+<p>I ended up cashing in my retirement savings (only about $10k at the time) to pay down my debt. When I got a bonus at Yahoo!, I used it to pay down my debt. When the book started to take off, I’d take lump sums and pay down my debt.</p>
+
+<p>Friends and family also helped me through the time times in a pinch. Some people don’t like to borrow money from friends and family but a small interest free (or low interest) loan can be a blessing.</p>
+
+<p>It took me 3 years to go from near bankruptcy ($60k in debt, no assets) to debt free, which was, admittedly, faster than expected. </p>
+
+<p>I have a plan to continue decreasing my expenses over the next 3 years. My kids will slowly age out of after-school care. I’ll finish paying off my car. I’ll stop paying for a trainer at the gym.</p>
+
+<h2>Manage Cash Flow</h2>
+
+<p>I mentioned the cashflow thing a bit in the last section. To me, this is important because I want to avoid over-drafting my accounts, increasing expenses. I mentioned that spreadsheet that I use.</p>
+
+<p><a href="https://docs.google.com/spreadsheets/d/1-BvRDfuhKY7f2nEQMGJY-jydzxkNPTpcs5du_WNgG2Y/edit#gid=0">Here’s an example of what my spreadsheet looks like.</a> </p>
+
+<figure>
+<img src="https://snook.ca/files/spreadsheet.png" alt="">
+</figure>
+
+<p>That middle column is where the cashflow magic happens. As things are paid, I delete them from the middle column and update the current “IN BANK” amount in the top right. To know what the future looks like, I copy the items from the Expenses and Income column and add them to the bottom of the list. </p>
+
+<p>(One annoyance: sometimes the calculations get thrown off due to copying and pasting cells. Google Spreadsheets get confused. You just have to reset the rightmost column of the Cash Flow, which I do by dragging the bottom right corner of the second cell and drag down. This copies the formula to the cells below and updates relative cell references.)</p>
+
+<p>At this point, I can see where I might have to deal with issues like transferring money between accounts to ensure bills get paid. </p>
+
+<p>My mom used to spend time balancing her chequebook. It was a way of knowing what money was coming out since a cheque comes out at some awkward future date and if you forget about it, you’re in for a world of hurt.</p>
+
+<p>That’s what my cash flow does but, I think, does it better than what my mom had because I can see further into the future.</p>
+
+<h2>Conclusion</h2>
+
+<p>Getting out of debt can be daunting. I was always in debt up until 3 years ago. (And, well, if we consider I now have a house and car, I guess I’m still in debt! But I have a net worth above zero.) </p>
+
+<p>I recognize that not every person’s situation is the same and this approach—while it works for me—may not work for you. In a lot of ways, I recognize that I’ve been very lucky along the way and not everybody will have the same opportunities that I have.</p>
+
+<p>I do think that managing money well is important. It can be incredibly stressful. It’s also incredibly rewarding when a plan comes together.</p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published February 10, 2016 </div>
+	<div class="cat">Categorized as <a href="/archives/personal/">Personal</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1067</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">3 Comments &middot; <a href="/archives/personal/managing-my-finances.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70859">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70859">1</a></div>
+			<span class="authorname">Éber F. Dias</span> said on February 10, 2016		</div>
+		<div class="quote"><p>Thanks for sharing! I use one tool to handle my cash flow. It is really cool, but I guess the spreadsheet might be easier to keep up. If you wanna take a look, this is what I use:</p>
+<p>https://github.com/aureliojargas/moneylog</p>
+<p>It is not my project, btw!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70860">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70860">2</a></div>
+			<span class="authorname">Brandon Reid</span> said on February 10, 2016		</div>
+		<div class="quote"><p>Google doc budgeting FTW! Thanks for the article, nice to see how others do it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70861">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70861">3</a></div>
+			<span class="authorname">Brent Wilcox</span> said on February 10, 2016		</div>
+		<div class="quote"><p>Great article Jon, I should follow in your steps (or so I hope!)
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

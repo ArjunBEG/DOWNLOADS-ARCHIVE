@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>A Web Developer's Personal Projects - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/web-dev-personal-projects">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/web-dev-personal-projects">
+	<meta property="og:title" content="A Web Developer's Personal Projects">
+	<meta property="og:description" name="description" content="It's interesting to note that many web developers go through a similar process over the course of their careers. One of those rights of passage is the building of a particular application type. Cuttin...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>A Web Developer's Personal Projects</h1>
+		<p>It's interesting to note that many web developers go through a similar process over the course of their careers. One of those rights of passage is the building of a particular application type. Cutting your teeth on building a larger scale application (at least, larger than a contact form that emails somebody and larger than hacking up an install of WordPress) seems to inevitably involve developing a custom application, either as a personal project or as some client deliverable.</p>
+<p>Most importantly, I believe that a tried and true web developer should go through this process to understand the pain points of developing larger applications. There are three different types of applications that are certainly great excercises:</p>
+<ol>
+  <li>The forum</li>
+  <li>The blogging engine</li>
+  <li>The content management system</li>
+</ol>
+<p>Each of these often has a number of concerns that are always pertinent &mdash; such as user experience design and workflow, authentication, spam handling, email management and certainly database design. </p>
+<h2>The Forum</h2>
+<p>Over the years, I've built a few forums. Forums can be simple or they can be complex. Software like vBulletin or phpBB have grown to include a massive number of features, most of which are overkill for the average forum. There are certainly some critical design decisions that have to be made such as threaded or inline thread replies, thread notification, thread stickies, and user registration.</p>
+<h2>The Blogging Engine</h2>
+<p>Forums are probably the least popular application type these days as most people seem to prefer building a blog engine instead&mdash;the similarities of which are interesting. Both have a main topic with the ability for people to respond. The main differences are in who's allowed to post (everybody vs admin) and who's allowed to reply (registered vs anonymous).</p>
+<p>Over the last few years, the blogging engine has certainly become one of those things a web developer just does&mdash;usually as a result of outgrowing whatever engine they were using before.</p>
+<p>Blogging engines can be much more complex than a forum, though, including   trackbacks and RSS generation. (Not to say that RSS couldn't be in a forum; in fact, it probably should. It's just more prevalent in blogging.) Many web application frameworks like Ruby on Rails, CodeIgniter, and CakePHP include a tutorial on how to build a blog. </p>
+<h2>The Content Management System</h2>
+<p>The pinnacle project of a web application developer is the custom content management system. Born from the frustrations of trying to wield open source or commercial applications, it seems to be every developer's duty to try and build a custom CMS. How do you manage different object types? Templating, authentication, workflow, internationalization and localization are just a few of the issues you have to contend with in building a CMS. Do you go simple or do you go complex? How does the average user, with little web experience, find their way around the application? </p>
+<p>Building a custom CMS is a fantastic excercise on so many levels &mdash; well beyond what you run into with a blog or forum. Much of my design intuitiion came from this type of development. Custom CMS development almost always comes from design issues and not technological issues. They are a response to poor and confusing interfaces. Above and beyond forum design and blog design, CMS design really requires you to step outside of yourself and understand what the pain points are and how to solve them. This might also explain why most of them seem to suck and why developers around the globe continue to feel the need to reinvent this bumpy wheel. </p>
+<p>But it's also the avenue with seemingly endless possibilities. Is it hosted, is it custom, is it for the designer, is it for enterprises, and so on and so forth. </p>
+<h2>Any others?</h2>
+<p>What type of project do you feel is a great way to grow as a developer? As always, comments are open.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 09, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/910</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">56 Comments &middot; <a href="/archives/opinion/web-dev-personal-projects.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59399">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59399">1</a></div>
+			<span class="authorname">James Paden</span> said on September 09, 2008		</div>
+		<div class="quote"><p>Excellent post Jonathan.  I would add that two other application types that I've developing in the past.  The first is a simple shopping cart and the second is an ad management system or classified ads system.</p>
+<p>I think both of these address issues dealing with larger applications as well as issues such as payment management and order status.</p>
+<p>Usability is extremely to key to keep in mind when working on these kinds of projects.  A developer should never lose focus of the end user ("don't make me think").
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59400">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59400">2</a></div>
+			<span class="authorname">Chris Fullman</span> said on September 09, 2008		</div>
+		<div class="quote"><p>Great post Jonathan! James has a good point... e-commerce and ad management systems both play a part in the bigger usability/site integration role that any developer should know beyond forums, blogs and CMS's.</p>
+<p>One big exercise, however, is developing an API; Data exchange is proving very important on how the industry evolves. Knowing the ins and outs of authentication, permissions, rate limiting and information access will help anyone grasp a good understanding of how applications work and behave.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59401">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59401">3</a></div>
+			<span class="authorname">Tony</span> said on September 09, 2008		</div>
+		<div class="quote"><p>The forum/blog/cms seems very similar in the fundamental purpose (they are all ways to manage text).  How about a voting system, or a photography system, a social network, or an RSS reader?  And I definitely second the e-commerce system mentioned above.  (Your comment system is awesome btw!  I like the realtime view  :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59402">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59402">4</a></div>
+			<span class="authorname">Todd Rafferty</span> said on September 09, 2008		</div>
+		<div class="quote"><p>Simple shopping cart I can agree with.  I disagree with ad management systems or classified ad system.  It's nothing more than data in, data out.</p>
+<p>IMHO, I think some sort of application that relies on scheduling or a release date would be good to have, but that can be mingled in with the CMS system if you really wanted to.</p>
+<p>Or, if you really wanted to be cruel, event calendar with the ability to do recurring events. ;)  Just make sure you have a project manager that quotes, "Outlook can do it, why can't you figure this out?"
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59403">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59403">5</a></div>
+			<span class="authorname">Grant Palin</span> said on September 09, 2008		</div>
+		<div class="quote"><p>Several years ago I took a try at building a - really - basic blog system. Then I discovered WordPress. For the most part that has worked well since then. But I have been meaning to go back to that project and finish what I started. And go further than planned before.</p>
+<p>I've been toying around with some CMS ideas as well, regarding structure and modularity. Haven't gotten any further than that...maybe some day.</p>
+<p>I agree that those can be good pet projects to have, to goad us into learning new tools and techniques, and to refine our work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59405">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59405">6</a></div>
+			<span class="authorname"><a href="http://next.pixeldepo.com">Radoslav Stankov</a></span> said on September 09, 2008		</div>
+		<div class="quote"><p>The CMS, is I think, is the must build for every web developer. And if it have modules in it self like forum, blog, shopping cart is really great.</p>
+<p>I have make something different, years ago I create a little turn based web strategy for me and some friend of mine, just for fun :) in my school years. Some of the things I learn there how to do, and most importantly not to do, help me a lot over the years :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59406">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59406">7</a></div>
+			<span class="authorname">Luke Visinoni</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I hear that Todd (about the calendar system). I had a go at writing a calendar/scheduling application with recurring events. I have yet to finish it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59407">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59407">8</a></div>
+			<span class="authorname">Mike Smith</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I need &amp; want to start writing custom wordpress plug-ins that turn wordpress into a classifieds website or something else really big, as well as ad management, ect. But I haven't sat down and learned enough about writing php manually yet. I know the basics and I know how to hack php code pretty well, but for some reason, I can't write it from scratch yet. Time will tell....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59409">9</a></div>
+			<span class="authorname">Dave Rupert</span> said on September 09, 2008		</div>
+		<div class="quote"><p>wow. you nailed me to a "t".  i felt like i was reading a blog post about my life!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59410">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59410">10</a></div>
+			<span class="authorname"><a href="http://designsbychris.com">Chris Huff</a></span> said on September 09, 2008		</div>
+		<div class="quote"><p>I'm kind of working my way backwards through this list.  I've been working on my custom cms for years now.  It's evolved from very simple, to something that is becoming fully-featured, yet with a (hopefully) very intuitive interface.  I'm just now including blogging capabilities into my cms as well.  A forum may come eventually, but not for the foreseeable future.</p>
+<p>Sometimes I do feel like I'm merely re-inventing the wheel, but like you said, it's a bumpy wheel (sometimes it feels more like a hexagon).  I constantly think about giving up on my project and focusing instead on giving wordpress a simplified interface, but then I remember it's not just about the interface.</p>
+<p>Anyway, you asked about other projects that a web developer grows through.  I know for me, I grew a lot when I created a simple shoutbox.  It became the basis for my first guestbook, which became the basis for the first version of my cms.  It's amazing how all of these things are related.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59411">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59411">11</a></div>
+			<span class="authorname">Anders Ytterström</span> said on September 09, 2008		</div>
+		<div class="quote"><p>haha, funny. I built stuff in the exact order (first forum, then blog, now in an ongoing cms development)! </p>
+<p>Before the forum I built a guestbook, with admin, form and listing. That's the main reason why people started to learn server-side 8-10 years ago.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59412">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59412">12</a></div>
+			<span class="authorname">Ritesh</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I completely agree that building a CMS is one of the best way to learn web development. Not only there are so many things to take care of, but it also gives you an idea of how to organize database tables so as to minimize database queries and how to effectively use caching.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59413">13</a></div>
+			<span class="authorname">dedenf</span> said on September 09, 2008		</div>
+		<div class="quote"><p>aha! i've build two of your list, blogging engine and CMS, all of them using CodeIgniter,
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59414">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59414">14</a></div>
+			<span class="authorname">Tanny O'Haley</span> said on September 09, 2008		</div>
+		<div class="quote"><p>How about web applications for business needs? Enter data, pull data from other sources, validate complicated forms. Typical stuff a developer has to do at a major corporation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59416">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59416">15</a></div>
+			<span class="authorname">John</span> said on September 09, 2008		</div>
+		<div class="quote"><p>An ecommerce site is good for web developers because it requires you to address issues like security, encryption, and web services for credit card processing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59417">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59417">16</a></div>
+			<span class="authorname">Eddie Welker</span> said on September 09, 2008		</div>
+		<div class="quote"><p>If you want to grow as a developer, try writing a basic web framework. Seriously. You'll learn a lot about how core technologies actually work, why most frameworks behave/are structured the way that they do, and it will certainly straighten you out if you are used to writing even slightly sloppy code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59418">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59418">17</a></div>
+			<span class="authorname"><a href="http://sanisoft.com/blog/author/tariquesani/">Tarique Sani</a></span> said on September 09, 2008		</div>
+		<div class="quote"><p>A multiuser photo gallery worked great for me currently it lives as Coppermine Picture Gallery - but a word of caution - many times the immature design decision which are made in the beginning continue to haunt you forever and somehow never get fixed!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59419">18</a></div>
+			<span class="authorname">Daniel Craig Jallits</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I would suggest "Rolling One's Own Lifestream", as it involves working with a chosen scripting language and a multitude of APIs and data formats, and I am not talking about using pre-built code like SimplePie either.</p>
+<p>There is no need to drastically change the overall functionality that users expect from your site, as some did when site owners went from Forums to Blogs, as LifeStreams can be easily integrated into pre-existing sites.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59420">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59420">19</a></div>
+			<span class="authorname">Matthew Geddert</span> said on September 09, 2008		</div>
+		<div class="quote"><p>I believe that the best project for a web developer is one the developer really wants to do, and wants to do well. Something where you say "wouldn't it be cool if..." that you haven't seen done before. This will force you to figure out how to solve a unique problem that hasn't been documented in thousands of places. It certainly helps to know how to roll your own authentication/email/spam system, but, the best developers are the ones that aren't constrained by those conventions.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59421">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59421">20</a></div>
+			<span class="authorname"><a href="http://adriaannel.com">Adriaan Nel</a></span> said on September 10, 2008		</div>
+		<div class="quote"><p>I've built an invoicing system tailored around a small business' needs.  I use it myself and have a lot of clients that also use it.  Before I started, I checked current systems on the web, but none had a couple of features I required, like automatic generation of recurring invoices - especially useful if you do hosting...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59422">21</a></div>
+			<span class="authorname">Joe Siao</span> said on September 10, 2008		</div>
+		<div class="quote"><p>I am making a questions and answers site in cakephp 1.2 RC2 and it is my personal project. I initially thought of creating a blog in cakephp but I felt it was too cliche.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59424">22</a></div>
+			<span class="authorname">Sasa Bogdanovic</span> said on September 10, 2008		</div>
+		<div class="quote"><p>One other functionality which I had to develop with almost every web application I have been working on is a reporting system.<br />
+Sometimes they are simple, sometimes they get a bit more complex, but they are always needed if there is any kind of data collection in the application. The most important is to understand which are the relevant data the client need, and to find a way to present the data in readable way for the user.</p>
+<p>Navigation in reporting? It can be even more complex than website navigation. Besides a set of navigation menus, I also always use hyperlinks in the reports as a very efficient way to dig deeper through the data.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59429">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59429">23</a></div>
+			<span class="authorname">Ivan</span> said on September 10, 2008		</div>
+		<div class="quote"><p>I think you summed it up pretty good. I've went through the same process when starting with PHP, and doing it again with Cake. </p>
+<p>Damn, I hate feeling like a newbie :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59430">24</a></div>
+			<span class="authorname">dr. Hannibal Lecter</span> said on September 10, 2008		</div>
+		<div class="quote"><p>I think the future lies in specialized CMS development. Not just because I'm creating a specialized CMS at the moment:) but because CMSes tend to end up bloated, just like forums and blogs.</p>
+<p>Funny thing though, even though I'm develping a CMS, people often congratulate me on great "blogging software".. :-/</p>
+<p>What about a combination of all three of those as an exercise? Or the ever popular social networks and bookmarks site?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59433">25</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on September 10, 2008		</div>
+		<div class="quote"><p>I would definitely agree that developing a CMS is a great exercise, as I tend to prefer developing a mostly new CMS (re-using some components such as user authentication systems) for pretty much every website I make. I prefer to develop a basic CMS that is scoped for a specific site and can be bent any way I choose rather than use a CMS system has too many features that I will never use and is difficult to extend the way I would like. </p>
+<p>Usually when I'm testing a new technology (such as Ruby on Rails or Django), I do something a bit more ambitious so that I can learn more than just the technology. An example of this was an Ajax-based multiplayer gaming system I developed to learn Rails (turns out that Ruby makes game logic quite a bit easier).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59434">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59434">26</a></div>
+			<span class="authorname">Binny V A</span> said on September 10, 2008		</div>
+		<div class="quote"><p>Usually CMS and Blogging Engine goes into one category.</p>
+<p>Some other exercise projects...<br />
+Digg Clone<br />
+Social Networking App<br />
+.<br />
+.<br />
+A Framework</p>
+<p>By the way, I have not created a forum yet.</p>
+</div>
+	</div>
+		<div class="comment" id="c59436">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59436">27</a></div>
+			<span class="authorname">Jack Keller</span> said on September 10, 2008		</div>
+		<div class="quote"><p>CMS, sheesh, how many times have I written and rewritten mine, then forked it off for client projects. I would say it is definitely an essential project for any developer to put in their arsenal. Another fun project could be along the lines of a Framework as stated previously.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59437">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59437">28</a></div>
+			<span class="authorname">Ain Tohvri</span> said on September 10, 2008		</div>
+		<div class="quote"><p>Surely a great post. I couldn't agree more to the CMS part of it. The work on a custom Content Management System is really endless.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59438">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59438">29</a></div>
+			<span class="authorname"><a href="http://www.madwebskills.com">Michael McCorry</a></span> said on September 10, 2008		</div>
+		<div class="quote"><p>I've got my own home-grown CMS that I've been using and upgrading since 2000, plus a forum, e-newsletter management system, photo library flickr-style thing plus a virtual tour management system, but the one thing I seem to use the most is a generic catalog cms thing, which gets used to manage non-webpage content such as real estate listings, used cars, retail products, announcements and classified ads. Now all I need to do is tie all of these things together into my main CMS via some kind of plugin architecture.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59443">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59443">30</a></div>
+			<span class="authorname"><a href="http://www.mileswjohnson.com">Miles Johnson</a></span> said on September 11, 2008		</div>
+		<div class="quote"><p>I agree whole heartedly. Ive built my own forum, user system, blog system, project manager, ecommerce shopping cart, photo gallery, cms and am currently building an online social community. Its the only real way I know to learn more and more, it helps.</p>
+<p>Up next I intend to build my own lightweight framework, not a fan of a lot of the MVC frameworks.</p>
+<p>Too bad im too scared to apply for a PHP job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59449">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59449">31</a></div>
+			<span class="authorname">Kim Joar Bekkelund</span> said on September 11, 2008		</div>
+		<div class="quote"><p>I have been through these myself. Lately I have started programming a lot more in Python and Ruby, but haven't found a pet project yet. I thought it was a little bit to cliche to actually implement a new CMS, forum or blogging engine. I think I'm in a creative down period. Hopefully it will come back to me soon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59454">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59454">32</a></div>
+			<span class="authorname">Nikola</span> said on September 12, 2008		</div>
+		<div class="quote"><p>Jonathan, I couldn't agree more, those three applications are a must in one's experience. I would only add that extending available applications (CMS, Forums, etc.) with modules is also a must. It teaches how to use API and it teaches of problem solving with limited resources.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59462">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59462">33</a></div>
+			<span class="authorname">Brad Harris</span> said on September 12, 2008		</div>
+		<div class="quote"><p>Along with a few others here, while building these applications, I think its a great exercise to extract a framework from the way you develop your applications, if you're not building on top of a framework already.  After time you will either end up with a nice custom little framework of your own, or realize you're building CakePHP, or some other framework, and give in to using whats out there.  Either way its a win situation in my book, you really learn a lot as you try and create a framework.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59473">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59473">34</a></div>
+			<span class="authorname">Micheil</span> said on September 14, 2008		</div>
+		<div class="quote"><p>hmm, I  must say I learn things slightly differently. I've got about 30 projects currently open personally, the biggest or best learning ones I've got for PHP are:</p>
+<p>1) Photo Gallery â€“ something simple, file based, nothing complex.<br />
+2) Something to Manipulate graphics using Imagemagik<br />
+3) Server Administration console (similar to PHPMyAdmin)<br />
+4) Fully fledged Templating system / MVC / WEb Application framework.</p>
+<p>I find these are the projects that helped me learn things the best, so far out of all those projects, I've gotten knowledge on: Mysql, Imagemagik, Classes, OOP, Wireframe Design, and a bunch more!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59477">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59477">35</a></div>
+			<span class="authorname">Brade</span> said on September 14, 2008		</div>
+		<div class="quote"><p>So true, man. I've learned so dang much by working on these types of software projects. I've already got two CMSes under my belt -- one that manipulated flat files, and one that is database-backed. For the latter, I had to build in basic blog functionality in only a week's time. Stressful, but I think some measure of success was achieved. Feel free to <a href="//demo.blueinkcms.com/">check it out</a> and see what we've done. It's got some drag-n-drop ajax niceties in an attempt to make things intuitive for most users. Sadly, the company itself is struggling (only 2 guys, after all), but the things I learned give me ample confidence as I forge ahead in this industry.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59501">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59501">36</a></div>
+			<span class="authorname">Alexander Berglund</span> said on September 17, 2008		</div>
+		<div class="quote"><p>This is very interesting as I recently contemplated the same ideas and thoughts...</p>
+<p>Many developers - as they start out - seem to be very interested in building their own small community. This also giving them an exercise in managing flags, database design, user registration and CMS (on a small scale). These projects only live on for so so long until the developer finds that there actually takes a lot of energy to keep it going and soon abandon the project or build it together with a personal page/portfolio.</p>
+<p>As also been mentioned in the comments, a voting system and some form of statistics system also seem to be a popular personal project...</p>
+<p>Brade; I haven't dug very deep in it, but I find the content (Text primary) to be slightly amateurish although the rest tells a different tale. It gives a kind of mixed feeling even if the system and graphics looks good...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59523">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59523">37</a></div>
+			<span class="authorname">THEODIN</span> said on September 19, 2008		</div>
+		<div class="quote"><p>I Myself have been through this right of passage, starting off small is great, but as time goes by more challenging opportunities almost becomes a birthright, I feel that modularity is the key here, breaking down the most complicated of applications into the componants that run them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59532">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59532">38</a></div>
+			<span class="authorname"><a href="http://www.dbuzzer.com">Shaal</a></span> said on September 19, 2008		</div>
+		<div class="quote"><p>A developer should come up with not only apps, but softwares, portals and bla bla bla!!! You're already a grown up developer. Try games for now;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59606">39</a></div>
+			<span class="authorname">matt</span> said on September 23, 2008		</div>
+		<div class="quote"><p>E-commerce storefront/admin.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59621">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59621">40</a></div>
+			<span class="authorname">John F Croston III</span> said on September 24, 2008		</div>
+		<div class="quote"><p>The first application I first built was an RSS feed reader in Classic ASP with the ability to do key word searches to help narrow the feeds from places like CNN, BBC, Washington Post, etc. </p>
+<p>After that I started building a bunch of other projects over the last year or so, that had been already done by others like bookmarking, contact lists, wine inventory, and a few others again in Classic ASP. </p>
+<p>I'm now going to take sometime off work (one week) instead of going to "An Event Apart" in Chicago and build a few of these applications in PHP and MySQL which I don't currently know. This way I have a great deal of time to spend building them and learning the new skills to help improve my resume. I have a lot of the DB design input FORMs already built, just need to do the conversion to the new language and DB. This should make the process a bit easier. </p>
+<p>The other big issue I want to do with these applications is make them accessibile and useful on phone web browser.</p>
+<p>I have been fortunate enough to have two different friends that said I can use some of their studio space. I know if I stay home to do the work I will end up watching TV, napping, go to the movies, etc.</p>
+<p>I have been reading up on both PHP and MySQL and it should be a fun learning experience if nothing else. </p>
+<p>Wish me good luck.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59756">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59756">41</a></div>
+			<span class="authorname">Acorn</span> said on October 08, 2008		</div>
+		<div class="quote"><p>I used to work for a company as a Web developer, but I quit my job. Now I only make sites for myself. Its fun developing personal projects than for the company.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59778">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59778">42</a></div>
+			<span class="authorname">Barry</span> said on October 11, 2008		</div>
+		<div class="quote"><p>I've also gone through this rite of passage : Started off with a CMS, moved on to a Forum, e-commerce, custom framework... the usual. Been doing so for close on 10 years now.</p>
+<p>So far though, one of the biggest challenges I've faced is writing a subscription based service. It sounds easy enough at first, but can get rather complicated. Keeping track of multiple paid for subscriptions per user, all while making sure the system is easy to use proved quite daunting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59795">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59795">43</a></div>
+			<span class="authorname">bazet</span> said on October 15, 2008		</div>
+		<div class="quote"><p>My first project is actually, Web SMS management system using PHP/PgSQL using PHP 3. Since then I've built countless of CMS,customised Equestrian scoring system. Now with cakephp, I write a simple forum as an exercise ( http://forum.protonmania.com ) and I have my own little project, a wifi controller written using cake 1.2 ( radius,coova,mysql,linux,apache ) . Tried Sf, but cameback to cake..due to a lot of reasons.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59815">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59815">44</a></div>
+			<span class="authorname">Thomas</span> said on October 17, 2008		</div>
+		<div class="quote"><p>I came pretty far in building my own CMS. I still got lots of ideas (many of them are custom plugins to make the whole thing more flexible and user friendly). </p>
+<p>The problem is: I can't find the time to work it all out and build it. When a client needs something, it's sometime attractive for me to do it quick and dirty because there's just no time to build a universal solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59914">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59914">45</a></div>
+			<span class="authorname">Philippe Rathe</span> said on October 24, 2008		</div>
+		<div class="quote"><p>To boost your JavaScript skill, nothing is better than trying to program a tetris game. You have to deal with many thing in order to program a game. I had a lot of fun doing it, even if it's not finished, it's still playable.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60007">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60007">46</a></div>
+			<span class="authorname">Anonymous</span> said on November 03, 2008		</div>
+		<div class="quote"><p>Joomla has saved my hide so many times, but I personally prefer Drupal. Has anyone here used Elgg? Open source is good, but I would eventually like to build my own bloat free proprietary CRM, CMS and E-Commerce platforms to use on my clients sites. There is never enough time!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60336">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60336">47</a></div>
+			<span class="authorname">George</span> said on November 23, 2008		</div>
+		<div class="quote"><p>Doing a weblog engine is good for exercising your web development skills.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60918">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60918">48</a></div>
+			<span class="authorname">John Lozo</span> said on January 09, 2009		</div>
+		<div class="quote"><p>I am currently working on a blogging engine and I must say it is quite a challenge. I am thinking of switching on to CMS, or some combination of both. But I must agree with you that personal projects are just the best!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61122">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61122">49</a></div>
+			<span class="authorname">Sherry</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Excuse me. An idea is salvation by imagination.<br />
+I am from China and learning to read in English, tell me whether I wrote the following sentence: "First paragraphopen with the obligatory thank you and include how you enjoyed the meeting."</p>
+<p>With respect ;-), Sherry.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62684">50</a></div>
+			<span class="authorname">Widliftingoli</span> said on February 16, 2009		</div>
+		<div class="quote"><p>http://krser.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62755">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62755">51</a></div>
+			<span class="authorname">urist</span> said on February 17, 2009		</div>
+		<div class="quote"><p>ÐžÑ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¸ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ñ„Ð¸Ñ€Ð¼, Ð·Ð° 10000 Ñ€ÑƒÐ±Ð»ÐµÐ¹, Ð“Ð¾Ñ‚Ð¾Ð²Ñ‹Ðµ Ñ„Ð¸Ñ€Ð¼Ñ‹ Ð·Ð°  29 000 Ñ€ÑƒÐ±Ð»ÐµÐ¹ Ñ Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð¾Ð¼ Ð¸ ÑÑ‡Ñ‘Ñ‚Ð¾Ð¼ Ð² Ð±Ð°Ð½ÐºÐµ. Ð›Ð¸ÐºÐ²Ð¸Ð´Ð°Ñ†Ð¸Ñ Ð¾Ñ€Ð³Ð°Ð½Ð¸Ð·Ð°Ñ†Ð¸Ð¹ Ð·Ð° 10000 Ñ€ÑƒÐ±Ð»ÐµÐ¹, Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ð¸Ð·Ð²ÐµÑ‰ÐµÐ½Ð¸Ð¹ Ð¸Ð· Ð¤Ð¾Ð½Ð´Ð¾Ð², ÑŽÑ€Ð¸Ð´Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð°Ð´Ñ€ÐµÑÐ°, Ð¿Ñ€Ð¾Ð´Ð»ÐµÐ½Ð¸Ðµ, Ð¿Ð¾Ñ‡Ñ‚Ð¾Ð²Ð¾Ðµ Ð¾Ð±ÑÐ»ÑƒÐ¶Ð¸Ð²Ð°Ð½Ð¸Ðµ, Ð²Ñ‹Ð¿Ð¸ÑÐ¾Ðº Ð¸Ð· Ð½Ð°Ð»Ð¾Ð³Ð¾Ð²Ð¾Ð¹ Ð¸Ð½ÑÐ¿ÐµÐºÑ†Ð¸Ð¸. ÐžÐ±Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ, Ð¾Ð±Ð½Ð°Ð»Ð¸Ñ‡ÐºÐ° Ð´ÐµÐ½ÐµÐ³, Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ð´ÐµÐ½ÐµÐ³ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ð¼Ð¸ Ð½Ð°ÑˆÐ¸Ð¼Ð¸ Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð°Ð¼Ð¸. Ð‘ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ñ‹Ð¹ Ð²Ñ‹ÐµÐ·Ð´ ÑÐ¿ÐµÑ†Ð¸Ð°Ð»Ð¸ÑÑ‚Ð° Ðº Ð’Ð°Ð¼ Ð² Ð¾Ñ„Ð¸Ñ. ÐžÐ±Ð½Ð°Ð»Ð¸Ñ‡ÐºÐ° (Ð¾Ð±Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ) - Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð½Ð¾Ð³Ð¾ Ñ€Ð¾Ð´Ð° Ñ„Ð¸Ð½Ð°Ð½ÑÐ¾Ð²Ñ‹Ñ… ÑÑ…ÐµÐ¼, Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ñ…...<br />
+Ð”ÐµÐ½ÑŒÐ³Ð¸ Ð¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÑÑŽÑ‚ÑÑ Ð¿Ð¾ÑÑ€ÐµÐ´ÑÑ‚Ð²Ð¾Ð¼ Ð´ÐµÐ½ÐµÐ¶Ð½Ð¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ²Ð¾Ð´Ð° Ð»Ð¸Ð±Ð¾ Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ ÑÑ‡ÐµÑ‚, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð»ÐµÐ³ÐºÐ¾ Ð¾Ð±Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ñ‚ÑŒ. Ð¢Ð°ÐºÐ°Ñ ÑÑ…ÐµÐ¼Ð° Ñ‚Ð°ÐºÐ¶Ðµ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð²Ð¿Ð¾Ð»Ð½Ðµ Ð·Ð°ÐºÐ¾Ð½Ð½Ð¾Ð¹ Ð¸ ÑƒÐ´Ð¾Ð±Ð¾Ð²Ð°Ñ€Ð¸Ð¼Ð¾Ð¹.<br />
+Ð’ Ð½Ð°ÑˆÐµÐ¼ Ð´ÐµÐ»Ðµ Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð½Ðµ Ñ†ÐµÐ½Ð°, Ð° Ð½Ð°Ð´ÐµÐ¶Ð½Ð¾ÑÑ‚ÑŒ Ð¾Ñ‚Ð½Ð¾ÑˆÐµÐ½Ð¸Ð¹.<br />
+ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ñ‹Ð¹ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½: 8-962-977-3711 ÐœÐ°ÐºÑÐ¸Ð¼ (Ð’Ð°Ñˆ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€)<br />
+Email: inmir@bk.ru<br />
+Ð°ÑÑŒÐºÐ°: 373336644</p>
+</div>
+	</div>
+		<div class="comment" id="c62817">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62817">52</a></div>
+			<span class="authorname">SeeniaUnserce</span> said on February 17, 2009		</div>
+		<div class="quote"><p>http://nwser.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62842">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62842">53</a></div>
+			<span class="authorname">Thitmedeemy</span> said on February 18, 2009		</div>
+		<div class="quote"><p>http://utser.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62879">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62879">54</a></div>
+			<span class="authorname">Calfeessfeede</span> said on February 19, 2009		</div>
+		<div class="quote"><p>http://ortli.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62913">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62913">55</a></div>
+			<span class="authorname">diborerce</span> said on February 19, 2009		</div>
+		<div class="quote"><p>Can I restrict dating giant fib that's not undeniably internet related? I was at the exposed library one morning go in February checking my email (the days premier I had a computer at intimate with) and the neat guy sitting next to me started talking to me. He asked for my phone billion and asked if he could indulge me out sometime. </p>
+<p><a href="//kefotabetuy.blog.fr/">coolstUff</a>&lt;/div&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62919">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62919">56</a></div>
+			<span class="authorname">Nataha</span> said on February 19, 2009		</div>
+		<div class="quote"><p>ÐŸÐ¾Ð·Ð´Ñ€Ð°Ð²Ð»ÑÑŽ Ð²ÑÐµÑ… Ð¼Ð°Ð»ÑŒÑ‡Ð¸ÐºÐ¾Ð² Ñ 23 Ñ„ÐµÐ²Ñ€Ð°Ð»Ñ! Ð£ Ð’Ð°Ñ Ð¾Ñ‚Ð¸Ñ‡Ð½Ñ‹Ð¹ ÑÐ°Ð¹Ñ‚!</p>
+<p>ÐœÐ¾Ðµ Ð¿Ð¾Ð·Ð´Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ - Ð½Ðµ Ð·Ð²ÑƒÐº Ð¿ÑƒÑÑ‚Ð¾Ð¹!<br />
+ÐœÐ¾Ðµ Ð¿Ð¾Ð·Ð´Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ - ÑÐ²ÑÑ‚Ð¾!<br />
+ÐžÐ½Ð¾ Ð´Ð»Ñ Ð’Ð°Ñ - Ð½Ð°Ñˆ Ð±Ñ‹Ð²ÑˆÐ¸Ð¹ Ð³ÐµÑ€Ð¾Ð¹,<br />
+Ð—Ð°Ñ‰Ð¸Ñ‚Ð½Ð¸Ðº Ð½Ð°Ñˆ Ð² Ñ„Ð¾Ñ€Ð¼Ðµ ÑÐ¾Ð»Ð´Ð°Ñ‚Ð°!<br />
+Ð˜ Ð¿ÑƒÑÑ‚ÑŒ Ð¿ÑƒÑÑ‚ÑŒ Ð·Ð°Ð²Ð¾ÐµÐ²Ð°Ð½Ð½Ñ‹Ð¹ Ð¼Ð¸Ñ€ Ñ…Ñ€Ð°Ð½Ð¸Ñ‚,<br />
+Ð¡Ð²ÑÑ‚ÑƒÑŽ ÑÐ²Ð¾ÑŽ Ð±ÐµÐ·Ð¼ÑÑ‚ÐµÐ¶Ð½Ð¾ÑÑ‚ÑŒ,<br />
+Ð˜ Ð¿ÑƒÑÑ‚ÑŒ Ð²ÑÐµ Ð»ÑŽÐ´Ð¸, Ð²ÐµÑÑŒ Ð¼Ð¸Ñ€ Ð’Ð°Ð¼ Ð´Ð°Ñ€Ð¸Ñ‚:<br />
+Ð›ÑŽÐ±Ð¾Ð²ÑŒ, Ð¿Ñ€Ð¸Ð·Ð½Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð¸ Ð½ÐµÐ¶Ð½Ð¾ÑÑ‚ÑŒ!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

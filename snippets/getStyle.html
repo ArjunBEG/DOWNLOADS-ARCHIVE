@@ -1,0 +1,6 @@
+<p>Retrieves the value of a CSS rule for the specified element.</p>
+<ul>
+<li>Use <code>Window.getComputedStyle()</code> to get the value of the CSS rule for the specified element.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> getStyle <span class="op">=</span> (el<span class="op">,</span> ruleName) <span class="kw">=&gt;</span> <span class="at">getComputedStyle</span>(el)[ruleName]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">getStyle</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;p&#39;</span>)<span class="op">,</span> <span class="st">&#39;font-size&#39;</span>)<span class="op">;</span> <span class="co">// &#39;16px&#39;</span></a></code></pre></div>

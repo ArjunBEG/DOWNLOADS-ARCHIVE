@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Thinking about CSS Architecture - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/css-architecture">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/css-architecture">
+	<meta property="og:title" content="Thinking about CSS Architecture">
+	<meta property="og:description" name="description" content="With all my work at Yahoo!, I'd been thinking more and more about CSS architecture. I really sat down and took the time to analyze my process. What's the most flexible but straightforward way to do it...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Thinking about CSS Architecture</h1>
+		<p>With all my work at Yahoo!, I'd been thinking more and more about CSS architecture. I really sat down and took the time to analyze my process. What's the most flexible but straightforward way to do it? How does this fit in with the team process and how does this work in comparison to how other people are doing it?</p>
+
+<p>I started making notes and eventually started writing up my thoughts. Was this going to be a full-fledged book? Just an e-book? Should I charge for it?</p>
+
+<p>In the end, I found my time limited and my thoughts a little scattered. Over the weekend, I decided to do it more "blog" style and just write my thoughts on the various related topics that came to mind. Nothing to download, no store to go to, and no cost to you. The result is <a href="http://smacss.com/book/">Scalable and Modular Architecture for CSS</a> or SMACSS (pronounced "smacks") for short.</p>
+
+<p>The intent is to have it be <em>an evolving guide to CSS architecture for sites small and large</em>. I will continue to work on the site, adding new content, and reworking existing content. I hope it'll be a resource for people to revisit and to refine their workflow for the better. More examples and more topics will be added over time.</p>
+
+<p>Read, bookmark, and share: <a href="http://smacss.com/book/">Scalable and Modular Architecture for CSS</a>.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 26, 2011 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1002</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">9 Comments &middot; <a href="/archives/html_and_css/css-architecture.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c68561">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68561">1</a></div>
+			<span class="authorname">Gene Parcellano</span> said on September 27, 2011		</div>
+		<div class="quote"><p>Awesome. Can't wait to read this.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68562">2</a></div>
+			<span class="authorname">Marlon</span> said on September 27, 2011		</div>
+		<div class="quote"><p>Excellent idea! Going to the next level in CSS ;) Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68563">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68563">3</a></div>
+			<span class="authorname">Kristina</span> said on September 28, 2011		</div>
+		<div class="quote"><p>WOW, thank you! This is EXACTLY what I needed right now. I've been doing a lot of research on CSS architecture lately, and you've provided so many answers for me. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68565">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68565">4</a></div>
+			<span class="authorname">Raghavender Reddy</span> said on September 29, 2011		</div>
+		<div class="quote"><p>WOW, Great post... This exactly I was looking for I am going to follow this structure in my project which I am planning to redesign.</p>
+<p>Thank you
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68571">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68571">5</a></div>
+			<span class="authorname">The Peach</span> said on October 02, 2011		</div>
+		<div class="quote"><p>well done, thanks for sharing this. Very useful :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68595">6</a></div>
+			<span class="authorname">Anthony</span> said on October 30, 2011		</div>
+		<div class="quote"><p>This is a great read and is something that has been on my mind as we have run into some specificity problems and need better CSS organization for our "not small" site. I'd love to see more about the organization of the 4 categories when it comes to media queries. Also, how do HTML5 tags like &lt;header&gt; and &lt;footer&gt; change things?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68646">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68646">7</a></div>
+			<span class="authorname">Website Nonprofit</span> said on November 15, 2011		</div>
+		<div class="quote"><p>
+Some great thoughts on CSS for any level. Great idea to have this evolving guide to CSS architecture, so many articles are so specific many people have forgotten the architecture and process behind the css which makes it an easy tool to build and maintain sites.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68954">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68954">8</a></div>
+			<span class="authorname">Nima</span> said on March 26, 2012		</div>
+		<div class="quote"><p>hey beautiful blog site and web theme. I hope I'm not ninoyang you I just wanted to inquire precisely what wordpress plugin you utilize to show the most recent comments on your blog? I really want to do something along the same lines for my free iphone 4 website but I cant acquire the plugin or widget for it. Thank you for your time :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69245">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69245">9</a></div>
+			<span class="authorname">cheap bookmarking service</span> said on September 20, 2012		</div>
+		<div class="quote"><p>NRy2sk Thank you ever so for you post. Great.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<p>Checks if there are duplicate values in a flat array.</p>
+<ul>
+<li>Use <code>Set()</code> to get the unique values in the array.</li>
+<li>Use <code>Set.prototype.size</code> and <code>Array.prototype.length</code> to check if the count of the unique values is the same as elements in the original array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hasDuplicates <span class="op">=</span> arr <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="at">Set</span>(arr).<span class="at">size</span> <span class="op">!==</span> <span class="va">arr</span>.<span class="at">length</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">hasDuplicates</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>])<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">hasDuplicates</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

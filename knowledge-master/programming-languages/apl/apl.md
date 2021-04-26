@@ -1,0 +1,40 @@
+# [APL](<https://en.wikipedia.org/wiki/APL_(programming_language)>)
+
+## Links
+
+- [Try APL](https://tryapl.org/) - APL is an array-oriented programming language that will change the way you think about problems and data.
+- [J for C Programmers](https://www.jsoftware.com/help/jforc/contents.htm) ([HN](https://news.ycombinator.com/item?id=23412724))
+- [Implementing a bignum calculator - Rob Pike (2014)](https://www.youtube.com/watch?v=PXoG0WX0r_E)
+- [My Life with Array Languages (2005)](http://webdocs.cs.ualberta.ca/~smillie/Jpage/MyLife.pdf)
+- [Lessons from APL, a “lost” language (2014)](https://blog.benjojo.co.uk/post/2014-05-26-APL-the-lost-language.md)
+- [Beating C with Dyalog APL: wc](https://ummaycoc.github.io/wc.apl/)
+- [APL and J (2015)](https://crypto.stanford.edu/~blynn/c/apl.html) ([HN](https://news.ycombinator.com/item?id=21792763))
+- [Kenneth E. Iverson: An Autobiographical Essay (2004)](http://archive.vector.org.uk/trad/v234/iverson.pdf) ([HN](https://news.ycombinator.com/item?id=21855821))
+- [Functional Programming in Joy and K (2005)](http://archive.vector.org.uk/art10000360)
+- [Language as an intellectualtool: From hieroglyphicsto APL (1991)](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.6185&rep=rep1&type=pdf)
+- [April](https://github.com/phantomics/april) - APL programming language (a subset thereof) compiling to Common Lisp. ([HN](https://news.ycombinator.com/item?id=22225136))
+- [APL a Day](https://www.sacrideo.us/tag/apl-a-day/)
+- [Ode to J](https://zserge.com/posts/j/)
+- [Is APL Dead? Not anymore (2020)](https://www.sacrideo.us/is-apl-dead/) ([HN](https://news.ycombinator.com/item?id=23055793))
+- [A Dictionary of APL (1987)](https://www.jsoftware.com/papers/APLDictionary1.htm) ([Lobsters](https://lobste.rs/s/niyjrs/dictionary_apl)) ([PDF](http://www.softwarepreservation.org/projects/apl/Books/ADICTIONARYOFAPL))
+- [APL Since 1978](https://dl.acm.org/doi/pdf/10.1145/3386319) ([HN](https://news.ycombinator.com/item?id=23510433))
+- [APL In Exposition by K. E. Iverson (1972)](http://www.softwarepreservation.org/projects/apl/Papers/197201_APL%20In%20Exposition_320-3010.pdf)
+- [An APL Machine (1970)](https://www.slac.stanford.edu/pubs/slacreports/reports07/slac-r-114.pdf) ([Lobsters](https://lobste.rs/s/zfwv49/apl_machine_1970))
+- [Compiling APL to JavaScript](http://archive.vector.org.uk/art10501160) ([Lobsters](https://lobste.rs/s/4c5joc/compiling_apl_javascript))
+- [J Notation as a Tool of Thought (2020)](https://www.hillelwayne.com/post/j-notation/) ([Lobsters](https://lobste.rs/s/uh4hl2/j_notation_as_tool_thought)) ([HN](https://news.ycombinator.com/item?id=24166260))
+- [BQN](https://mlochbaum.github.io/BQN/) - APL Variant from Marshall Lochbaum. ([HN](https://news.ycombinator.com/item?id=24167804))
+- [A look at the J language: the fine line between genius and insanity (2012)](https://scottlocklin.wordpress.com/2012/09/18/a-look-at-the-j-language-the-fine-line-between-genius-and-insanity/) ([HN](https://news.ycombinator.com/item?id=24177126))
+- [Convolutional Neural Networks in APL (2019)](https://dl.acm.org/doi/pdf/10.1145/3315454.3329960)
+- [NumPy another Iverson Ghost (2018)](https://analyzethedatanotthedrivel.org/2018/03/31/numpy-another-iverson-ghost/) ([HN](https://news.ycombinator.com/item?id=24176985))
+- [MicroKanren in J: an Embedding of the Relational Paradigm in an Array Language with Rank-Polymorphic Unification (2020)](http://minikanren.org/workshop/2020/minikanren-2020-paper2.pdf) ([Lobsters](https://lobste.rs/s/qcrdly/microkanren_j_embedding_relational))
+- [April, an APL Compiler for Common Lisp](https://www.youtube.com/watch?v=AUEIgfj9koc) ([HN](https://news.ycombinator.com/item?id=24434717))
+- [Co-dfns](https://github.com/Co-dfns/Co-dfns) - High-performance, Reliable, and Parallel APL.
+- [Notation as a Tool of Thought - Kenneth E. Iverson (1979)](https://www.jsoftware.com/papers/tot.htm)
+- [J one-page interpreter fragment (1992)](https://code.jsoftware.com/wiki/Essays/Incunabulum) ([HN](https://news.ycombinator.com/item?id=25902615))
+- [J Books](https://code.jsoftware.com/wiki/Books)
+- [APL Problem Solving Competition](https://dyalogaplcompetition.com/)
+- [Elementary Functions (1966)](https://www.jsoftware.com/papers/Elementary_Functions.pdf) - Book that uses APL to illustrate mathematics.
+- [Algebra: An Algorithmic Treatment](https://www.jsoftware.com/books/pdf/algebra.pdf)
+- [Does APL Need a Type System? (2018)](https://www.youtube.com/watch?v=z8MVKianh54)
+- [APL Seeds](https://www.dyalog.com/apl-seeds-user-meetings/aplseeds21.htm) - Event for those just starting their APL journey.
+- [APLcart](https://aplcart.info/) - Find your way in APL. ([Code](https://github.com/abrudz/aplcart))

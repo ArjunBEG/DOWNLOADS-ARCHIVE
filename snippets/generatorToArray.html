@@ -1,0 +1,7 @@
+<p>Converts the output of a generator function to an array.</p>
+<ul>
+<li>Use the spread operator (<code>...</code>) to convert the output of the generator function to an array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> generatorToArray <span class="op">=</span> gen <span class="kw">=&gt;</span> [...<span class="at">gen</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="at">Set</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">generatorToArray</span>(<span class="va">s</span>.<span class="at">entries</span>())<span class="op">;</span> <span class="co">// [[ 1, 1 ], [ 2, 2 ], [ 3, 3 ], [ 4, 4 ]]</span></a></code></pre></div>

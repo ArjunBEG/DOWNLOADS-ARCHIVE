@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Simplest jQuery Slideshow - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/simplest-jquery-slideshow">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/simplest-jquery-slideshow">
+	<meta property="og:title" content="Simplest jQuery Slideshow">
+	<meta property="og:description" name="description" content=" A friend was looking at doing a simple slideshow. The requirements were very straightforward:
+ 
+   No animation controls. eg: play, stop.
+   Images should cross-fade.
+ 
+ Her instinct was to find...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Simplest jQuery Slideshow</h1>
+		 <p><a href="http://bitofgrace.com/">A friend</a> was looking at doing a simple slideshow. The requirements were very straightforward:</p>
+ <ul>
+   <li>No animation controls. eg: play, stop.</li>
+   <li>Images should cross-fade.</li>
+ </ul>
+ <p>Her instinct was to find an existing jQuery plug-in and revise it to work to her needs. That would seem simple enough but if you do a search for jQuery slideshows, you'll find that there are plenty of them and they are filled with plenty of functionality. </p>
+ <p>Using an existing plug-in wasn't very practical and hard to work with. I had even recommended a script that I, myself, had written but she quickly realized it didn't  meet the requirements.</p>
+<p>I put my thinking cap on and decided to write a script from scratch. &quot;Under 20 lines,&quot; I exclaimed! In the end, it turned out much simpler than even I predicted.</p>
+<p>(If you're a <abbr title="Too long; didn't read">TL;DR</abbr> kinda person, check out the <a href="https://snook.ca/technical/fade/fade.html">demo</a>.)</p>
+ <h2>HTML and CSS</h2>
+ <p>The HTML was very straightforward: a DIV with some IMGs in it. </p>
+ <pre><code>&lt;div class=&quot;fadein&quot;&gt;<br />  &lt;img src=&quot;https://farm3.static.flickr.com/2610/4148988872_990b6da667.jpg&quot;&gt;<br />  &lt;img src=&quot;https://farm3.static.flickr.com/2597/4121218611_040cd7b3f2.jpg&quot;&gt;<br />  &lt;img src=&quot;https://farm3.static.flickr.com/2531/4121218751_ac8bf49d5d.jpg&quot;&gt;<br />&lt;/div&gt;</code></pre>
+ <p>In thinking about the CSS, I decided to just lock all the images into the same place using absolute positioning. </p>
+ <pre><code>.fadein { position:relative; width:500px; height:332px; }<br />.fadein img { position:absolute; left:0; top:0; }</code></pre>
+ <h2>jQuery Slideshow</h2>
+ <p>Now to think about the slideshow. First, I knew that I'd want to hide all the images except the first one.</p>
+<pre><code>$('.fadein img:gt(0)').hide();</code></pre>
+ <p>You have to remember that the image index starts at 0. That means that we want all images after the first one to be hidden. </p>
+ <p>Next, I need a <code>setInterval</code> to iterate through the images every few seconds. </p>
+<pre><code>setInterval(function(){ },3000);</code></pre>
+<p>From here, I started writing this out piece by piece to get what I wanted. I needed the first image to fade out.</p>
+<pre><code>$('.fadein :first-child').fadeOut()</code></pre>
+<p>After that, I need the next image to fade in.</p>
+<pre><code>.next('img').fadeIn()</code></pre>
+<p>Then I needed to take the first image and throw it onto the end of the stack.</p>
+<pre><code>.end().appendTo('.fadein')</code></pre>
+<p>The <code>end()</code> resets jQuery's internal reference back to the original selection. That way, it's the <code>:first-child</code> that I'm appending to the end of the <code>.fadein</code> element and not the <code>next('img')</code>.</p>
+<h2>That's it?</h2>
+<p>Well, yes. That's it.</p>
+<pre><code>$(function(){
+    $('.fadein img:gt(0)').hide();
+    setInterval(function(){
+      $('.fadein :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('.fadein');}, 
+      3000);
+});</code></pre>
+<p>Check out the <a href="https://snook.ca/technical/fade/fade.html">demonstration page</a> to this this little script in action. </p>
+<p>Is there an even simpler way to do this? (Some ideas that I haven't tried: Is specifying <code>img</code> in <code>next()</code> necessary? Could I have used <code>eq(0)</code> instead of <code>:first-child</code> to save a couple bytes?)</p>
+
+
+<p>For more Snook.ca slideshows:</p>
+
+<ul>
+<li><a href="https://snook.ca/archives/javascript/more-simple-slideshow">More Simple jQuery Slideshows</a></li>
+<li><a href="https://snook.ca/archives/javascript/simplest-javascript-slideshow">Simplest JavaScript Slideshow</a></li>
+<li><a href="https://snook.ca/archives/html_and_css/simplest-css-slideshow">Simplest CSS Slideshow</a></li>
+</ul>
+
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published December 11, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/965</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">83 Comments &middot; <a href="/archives/javascript/simplest-jquery-slideshow.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64376">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64376">1</a></div>
+			<span class="authorname">grace</span> said on December 11, 2009		</div>
+		<div class="quote"><p>:) Even the post is concise, loving it! Thank you again sweetness.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64377">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64377">2</a></div>
+			<span class="authorname">Sean Gaffney</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Looks really similar to what we did on http://pocketyoursite.com, but yours is more elegantly coded. :)  Mine is additionally ugly because I had to sync two "shows" and ended up just doubling up the code...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64378">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64378">3</a></div>
+			<span class="authorname">Mathias Bynens</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Impressive!</p>
+<p>I guess you could indeed use <code>eq(0)</code> instead of <code>:first-child</code> in most cases. (Depending on how many of these slideshows you would want on one page, and how youâ€™d specify the different element sets on which to invoke the effect, <code>:first-child</code> and <code>eq(0)</code> could return different results.)</p>
+<p>Specifying <code>img</code> in <code>next()</code> is something I personally wouldnâ€™t do, since Iâ€™d be using an unordered list containing <code>IMG</code> elements. Fade effects work on any HTML element, so thereâ€™s no problem there. Dropping the <code>img</code> in <code>next()</code> wouldnâ€™t just make your script smaller, it would increase its <strong>flexibility</strong> by accepting different markup scenarios.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64379">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64379">4</a></div>
+			<span class="authorname">Steve Rydz</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Great work Jonathan, however when Javascript is disabled you can only see one image. Would it not be better to perhaps set the images to overflow:auto so at least the user could scroll through the images if they didn't have Javascript?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64380">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64380">5</a></div>
+			<span class="authorname">Justen Doherty</span> said on December 11, 2009		</div>
+		<div class="quote"><p>good job - i got the perfect use for this!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64381">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64381">6</a></div>
+			<span class="authorname">Eugenio Grigolon</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Wow, what a nice slideshow. This can help lots of people with no jQuery knowledge. No need to add anything else. Nice job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64382">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64382">7</a></div>
+			<span class="authorname">Andy Ford</span> said on December 11, 2009		</div>
+		<div class="quote"><p>I was prepared with a "why not use <a href="//www.malsup.com/jquery/cycle/lite/">Cycle lite</a>" comment, but then I saw how little code you used to pull this off. Very cool!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64383">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64383">8</a></div>
+			<span class="authorname">Jake</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Sweet Jonathan. I love when code is nice and small. Will definitely check this out next time I need slideshow functionality. Thanks for sharing :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64385">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64385">9</a></div>
+			<span class="authorname">Thomas Fuchs</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Hey Jonathan, nice to have met you in Amsterdam!</p>
+<p>If you rearrange the images to be in reverse-order, you can fade with basically just one line of code. For a cross-fade it's just necessary to fade out the overlaying object (you don't need to fade two elements at the same time).</p>
+<p>Here's my implementation with Prototype and scriptaculous, with <a href="//script.aculo.us/stuff/simplest_slideshow/">three lines of code</a>. :)</p>
+<pre><code>setInterval(function(){ $$('.fadein img').last().fade({
+  duration: .3, afterFinish: function(e){ e.element.remove(); }
+}); }, 3000);
+</code></pre>
+<p>By the way, I love the comment preview functionality on your site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64386">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64386">10</a></div>
+			<span class="authorname">Eli Dupuis</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Sweet! I use Alsup's cycle all the time and it  works great. but this takes the cake from a simplicity standpoint. Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64387">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64387">11</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>Jonathan, your code can easily be made into a jQuery plugin:</p>
+<pre><code>  $.fn.slideShow = function(timeOut) {
+   var $elem = this;
+   this.children(':gt(0)').hide();
+   setInterval(function() {
+    $elem.children().eq(0).fadeOut().next().fadeIn().end().appendTo($elem);
+   }, timeOut || 3000);
+  };
+
+  $(function() {
+   $('.fadein').slideShow();
+  });</code></pre>
+<p>Now you can use something like this to invoke the slideshow on an element:</p>
+<pre><code>$('.fadein').slideShow();</code></pre>
+<p>As you can see, Iâ€™ve added a <code>timeOut</code> parameter. The default value is <code>3000</code> (I just took this from your code) but this can easily be specified:</p>
+<pre><code>$('.fadein').slideShow(300);</code></pre>
+<p><a href="//mathiasbynens.be/examples/slideshow">I uploaded an example of your script in this plugin format.</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64388">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64388">12</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>I also did the changes I mentioned in <a href="/archives/javascript/simplest-jquery-slideshow#c64378">my first comment</a>, allowing for more flexibility in the markup. Hereâ€™s <a href="//mathiasbynens.be/examples/slideshow-ul">an example of your script cycling through an unordered list</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64389">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64389">13</a></div>
+			<span class="authorname">Thomas Fuchs</span> said on December 11, 2009		</div>
+		<div class="quote"><p>I had a pretty big bug in my code, but have corrected it now (unfortunately, requires some extra hoops). Anyway, here it goes:</p>
+<pre><code>setInterval(function(){
+  var imgs = $$('.fadein img'),
+   visible = imgs.findAll(function(img){ return img.visible(); });
+  if(visible.length&gt;1) visible.last().fade({ duration: .3 });
+    else imgs.last().appear({ duration: .3,
+      afterFinish: function(){ imgs.slice(0,imgs.length-1).invoke('show');  } });
+}, 3000);</code></pre>
+<p>I personally don't like either the jQuery (too "magic", not readable) nor my code (too complicated). Will think about it and hopefully come up with something nicer.</p>
+<p>Thanks for the food for thought!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64390">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64390">14</a></div>
+			<span class="authorname">Derek Pennycuff</span> said on December 11, 2009		</div>
+		<div class="quote"><p>If you ignore the opening and closing function call and don't bother to specify 'img' for next(), the minified version of this is exactly 140 characters. Any jQuery function that both does something useful and fits inside a single tweet is something to be proud of.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64391">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64391">15</a></div>
+			<span class="authorname"><a href="http://iamdanielmarino.com">Daniel Marino</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>@Steve Rydz - I would think that you'd want to hide the other images, otherwise it could break the layout of the page (depending on how the images fall into place).</p>
+<p>Other way's I've seen this done (though not using Snook's methodology) is that in the HTML you only specify one image and use JS to append the other images to use in the slideshow. If the user has JS disabled, they only see the one, placeholder image. This is kind of the same, except that the JS isn't adding the other images... they're specified in the HTML.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64392">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64392">16</a></div>
+			<span class="authorname">Jeff</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Bravo snook! I'm really liking this! Is there some way to control how fast the image fades out? Would you do that by extending the interval time?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64393">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64393">17</a></div>
+			<span class="authorname">Adam Detrick</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Thomas - I agree in a way regarding the jQuery syntax...</p>
+<p>The enthusiasm for code like this makes me anxious. Don't get me wrong, it's beautiful... It's just that I've had one to many experiences working with <em>really cool and terse</em> jQuery "sream of consciousness" style code. Also, I hate the misconception that this is just a few lines of code. It's a few lines of code plus the jQuery library. Readability and performance gains seem to be canceled out here in a way. </p>
+<p>It just upsets me when I imagine the complex web app that's written entirely like this because a developer gets too excited about how few lines of code something might take instead of making something understandable and scalable. </p>
+<p>With that said, this is a really cool post! I look forward to more, and I'm really loving the redesign here...</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64394">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64394">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 11, 2009		</div>
+		<div class="quote"><p>@<a href="#c64392">Jeff</a>: to change the speed at which the fade occurs, you need to pass in a parameter to the fadeIn/fadeOut methods.</p>
+<pre><code>$('.fadein :first-child').fadeOut(1000)
+  .next('img').fadeIn(1000)
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c64395">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64395">19</a></div>
+			<span class="authorname">adam j. sontag</span> said on December 11, 2009		</div>
+		<div class="quote"><p>"Too magic to understand" strikes me as a bizarre criticism of what is a relatively simple code snippet that a majority of jQuery developers could grok in a matter of seconds.  Jon's example is clearly only a few lines of code, there is no "misconception" there.  LOC is not calculated by adding up all the lines of code that are used in the library methods that you employ in the original function.  </p>
+<p>There is a lot of energy invested on large jQuery sites on organising and structuring code (or at least there should be), so the idea that someone would write a "complex web app" as a random bunch of jQuery snippets seems like an unfounded fear.  It does happen, but unsavvy developers writing crappy code is not a problem that is unique to jQuery or even JavaScript.  I have frequently encountered this perception that jQuery is "too easy" from a lot of people who tend to conflate complexity with worthiness, and I just don't buy it.  That the potential exists for something to be misused does not mean it should be eschewed altogether.  </p>
+<p>I shudder at the thought of seeing this code written out with native DOM methods, and I shudder again at the thought that someone that would be preferable.</p>
+</div>
+	</div>
+		<div class="comment" id="c64396">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64396">20</a></div>
+			<span class="authorname">Jonathan Coombs</span> said on December 11, 2009		</div>
+		<div class="quote"><p>I love the simple slideshow concept here. But I notice that all the images are the same size in the slideshow. Does anyone have an example of showing both landscape and portrait photos in the same slideshow with the portrait photos centered? All photos would be the same height, but of course the portrait photos would have a smaller width.<br />
+Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64397">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64397">21</a></div>
+			<span class="authorname">Steve Rydz</span> said on December 11, 2009		</div>
+		<div class="quote"><p>@Daniel Marino That is one way. </p>
+<p>Surely however the images must be relevant to the content and therefore should be accessible. Having them hidden or positioned absolutely on top of each other means that in the situation where JS isn't available the user cannot access the images at all except whichever one is on top.</p>
+<p>The only way I can see this being acceptable is if the images are there purely for decoration but then they wouldn't be in the content, they would be specified in the stylesheet.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64398">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64398">22</a></div>
+			<span class="authorname"><a href="http://gbradley.co.uk">Graham Bradley</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>I'm glad someone else pointed out that this "tiny" piece of code requires the entire jQuery library behind it. I know there's a judgement call to be made - when to stop writing custom code and use a library - but a novice doesn't know about that.</p>
+<p>I'm not arguing against jQuery or Jon's code -  I just think that, in general, its a good idea to mention an alternative to using a framework, in case a reader only needs the functionality you're describing. Otherwise a novice is going to follow a Jon's article and end up using a sledgehammer to crack a walnut.</p>
+<p>@Adam Sontag</p>
+<blockquote><p>"I shudder at the thought of seeing this code written out with native DOM methods, and I shudder again at the thought that someone that would be preferable.</p></blockquote>
+<p>Writing a custom script to do the same isn't hard - I recently wrote something very similar for a client that comes in well under 1k <strong>un</strong>compressed. There are plenty of occasions where going native is preferable.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64399">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64399">23</a></div>
+			<span class="authorname">Michael EichelsdÃ¶rfer</span> said on December 11, 2009		</div>
+		<div class="quote"><p>I have written a "fully-fledged" (e.g. chainable) jQuery plugin based on the ideas above. It can be called with timeout and speed parameter values.</p>
+<pre><code>
+(function($){
+  $.fn.simplestSlideShow = function(settings){
+    var config = {
+      'timeOut': 3000,
+      'speed': 'normal'
+    };
+    if (settings) $.extend(config, settings);
+    this.each(function(){
+      var $elem = $(this);
+      $elem.children(':gt(0)').hide();
+      setInterval(function(){
+        $elem.children().eq(0).fadeOut(config['speed'])
+        .next().fadeIn(config['speed'])
+        .end().appendTo($elem);
+      }, config['timeOut']);
+    });
+    return this;
+  };
+})(jQuery);
+</code></pre>
+<p>You may use it like this:</p>
+<pre><code>
+$(".fadein").simplestSlideShow({'timeOut': 5000, 'speed': 1000});
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c64400">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64400">24</a></div>
+			<span class="authorname">Michael EichelsdÃ¶rfer</span> said on December 11, 2009		</div>
+		<div class="quote"><p>BTW: It's still less than 20 lines!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64401">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64401">25</a></div>
+			<span class="authorname"><a href="http://azureabstraction.com/">Chris Sullins</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>Graceful degradation: When the slideshow is initialized, add a second class to <code>.fadein</code>, and reference the js-dependent css using that class.  Also, might as well just get all direct children of <code>.fadein</code>.  The simple slideshow is inconstent between <code>img</code> and <code>:first-child</code>, so that's basically a requirement anyway.  While we're at it, why not store <code>$('.fadein')</code> via closure?</p>
+<pre><code>.fadein-js &gt; * { position: absolute; top: 0; left: 0; }</pre>
+<p></code></p>
+<pre><code>$(function(){
+	var fadein = $('.fadein').addClass('fadein-js');
+	fadein.children().slice(1).hide();
+	setInterval(function(){
+		fadein.children().eq(0).fadeOut()
+		.next().fadeIn()
+		.end().appendTo(fadein);
+	}, 3000);
+});</code></pre>
+<p>This would be incredibly easy to turn into a function to allow multiple slideshows on a page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64402">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64402">26</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>Thanks MichaÃ«l, I was about to update my â€˜pluginâ€™ example with that functionality (speed setting + chainability).</p>
+<p>I see you wrapped the code inside    <code>this.each(function() { â€¦ }</code>, so <a href="//mathiasbynens.be/examples/slideshow-update">it works for several elements at the same time</a>. Awesome!</p>
+<p>I took the liberty of <a href="//github.com/mathiasbynens/Simplest-jQuery-Slideshow">adding this to GitHub</a>, so itâ€™s easier to reference future improvements of the script. I hope thatâ€™s okay.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64403">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64403">27</a></div>
+			<span class="authorname"><a href="http://amotion.tv">Andrew Cornett</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>Dude that is so clean. Two lines??? That's why you're the man, Snook!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64404">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64404">28</a></div>
+			<span class="authorname">Trevor</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Mathias, How do you change the fadeIn, fadeOut animation with your code?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64405">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64405">29</a></div>
+			<span class="authorname">peter</span> said on December 11, 2009		</div>
+		<div class="quote"><p>I like the fact that you show us how to do it instead of just providing a plug in. Awesome tutorial.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64406">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64406">30</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 11, 2009		</div>
+		<div class="quote"><p>@<a href="#c64397">Steve Rydz</a>: If you're looking for a non-JS alternative, I'd look at attaching a "with JS" class at runtime. With that said, when talking about accessibility, those with screenreaders and other assistive software usually browse with JavaScript on. Which still begs the question of how the interaction should work when there's no real interaction at play. </p>
+<p>What I'd recommend is having the images fade in/out but set visibility to hidden and display set to block (do not set it to none). Make sure the images have alt text. That should still allow screenreaders to access the content regardless of the animation.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64407">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64407">31</a></div>
+			<span class="authorname"><a href="http://steverydz.com">Steve Rydz</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>I think you misunderstand me Jonathan. I mean more of a situation where someone is viewing the site without Javascript but not assistive technology.</p>
+<p>For example I used to work in an office and we had free reign on the web in quiet times but were not able to use JS, so in a situation like this I would only be able to see one image and not even have the option to scroll through the other images.</p>
+<p>This might work from a presentation point of view however if the images are in the content then surely they should be available without JS?</p>
+<p>This is more of a CSS thing than JS really. I hope you get what I mean?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64408">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64408">32</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 11, 2009		</div>
+		<div class="quote"><p>Right, I understand now. In which case, I'd do as mentioned in previous comments and as I mentioned in the first sentence of my comment: just add a class to the body or to the surrounding element via javascript and use that to set the absolute positioning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64409">33</a></div>
+			<span class="authorname"><a href="http://steverydz.com">Steve Rydz</a></span> said on December 11, 2009		</div>
+		<div class="quote"><p>Ah I get what you mean now. Sorry I was on a completely different wave length. You live and you learn ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64410">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64410">34</a></div>
+			<span class="authorname">Michael EichelsdÃ¶rfer</span> said on December 12, 2009		</div>
+		<div class="quote"><p>@MATHIAS BYNENS: Thanks for putting it on GitHub. Just one more thing: According to the <a href="//docs.jquery.com/Plugin">jQuery plugin guidelines</a> the name of the (plugin) file should be "jquery.simplestslideshow.js" (or "jquery.slideshow.js", but I prefer the first).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64411">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64411">35</a></div>
+			<span class="authorname">Mathias Bynens</span> said on December 12, 2009		</div>
+		<div class="quote"><blockquote><p>Mathias, How do you change the fadeIn, fadeOut animation with your code?</p></blockquote>
+<p>Just to be clear: itâ€™s not 'my code', I just wrapped <strong>Jonathanâ€™s code</strong> into a plugin with some enhancements from Michael. Credit to these fella's!</p>
+<p>To answer your question: sorry, thatâ€™s not what this script does. As Jonathan explained, this is just a simple slideshow where images cross-fade. If you want more fade effects, use a (heavier) plugin, like <a href="//malsup.com/jquery/cycle/">Cycle</a> or <a href="//malsup.com/jquery/cycle/lite/">Cycle Lite</a>.</p>
+<blockquote><p>According to the jQuery plugin guidelines the name of the (plugin) file should be "jquery.simplestslideshow.js" (or "jquery.slideshow.js", but I prefer the first).</p></blockquote>
+<p>Thanks for the tip, Michael, <a href="//github.com/mathiasbynens/Simplest-jQuery-Slideshow/commit/54301404d9c9de58c23140c4687c7b546d60a992">I renamed it</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64412">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64412">36</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 12, 2009		</div>
+		<div class="quote"><p>I love how, after some optimizations, the minified plugin version of this script is only 291 characters long.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64413">37</a></div>
+			<span class="authorname">Chris</span> said on December 12, 2009		</div>
+		<div class="quote"><p>This is great! Thanks for explaining how it all comes together Jonathan.</p>
+<p>Is there anyway to make this work with the same class for multiple slideshows on the  same page?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64414">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64414">38</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 12, 2009		</div>
+		<div class="quote"><p><a href="#c64413">Chris</a>: This would be very easy using <a href="//github.com/mathiasbynens/Simplest-jQuery-Slideshow">the plugin</a>. <a href="//mathiasbynens.be/examples/slideshow">Hereâ€™s an example of multiple slideshows (having the same class) in one page</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64415">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64415">39</a></div>
+			<span class="authorname">Chris</span> said on December 12, 2009		</div>
+		<div class="quote"><p>Thank you Mathias :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64416">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64416">40</a></div>
+			<span class="authorname">Christian Fleschhut</span> said on December 12, 2009		</div>
+		<div class="quote"><p>Great post!</p>
+<p>Instead of cross-fading two images you can also just get the first one, hide it, append it to the end of the image stack<br />
+and fade it in from there so that the (in this case white) page background wonâ€™t shine through.</p>
+<p>Like this:<br />
+<a href="//jsbin.com/isegi">http://jsbin.com/isegi</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64417">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64417">41</a></div>
+			<span class="authorname">Charles</span> said on December 12, 2009		</div>
+		<div class="quote"><p>It is a very simple slideshow. Useful for some projects.<br />
+I like  the Christian Fleschlut solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64418">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64418">42</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 13, 2009		</div>
+		<div class="quote"><p>Nice solution, Christian! Unfortunately your scripts starts off with the wrong image.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64419">43</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 13, 2009		</div>
+		<div class="quote"><p><a href="#c64416">Christian</a>: My latest comment was phrased incorrectly. Your example flashes the last image in the stack upon loading, then quickly switches to the first image. I found this to be pretty annoying. Also, note that Jonathanâ€™s demo doesnâ€™t have this tiny issue. This can be fixed through CSS (in combination with <a href="#c64406">a â€˜with JSâ€™ class</a>), and by adding some tweaks to your code. Currently, you have the following:</p>
+<pre><code>$(function() {
+ $('.fadein :first-child').appendTo('.fadein');
+ setInterval(function() {
+  $('.fadein :first-child').hide().appendTo('.fadein').fadeIn(2000);
+ }, 4000);
+});</code></pre>
+<p>Try this instead:</p>
+<pre><code>$(function() {
+ $('.fadein :first-child').appendTo('.fadein').show();
+ setInterval(function() {
+  $('.fadein :first-child').hide().appendTo('.fadein').fadeIn(2000);
+ }, 4000);
+});</code></pre>
+<p>As you can see, <code>.show()</code> explicitly makes the first image visible.</p>
+<p>Combined with the â€˜with JSâ€™ class, you can use CSS to hide all the images inside <code>.fadein</code> until the script makes them visible again:</p>
+<pre><code> &lt;head&gt;
+  &lt;!-- Other stuff hereâ€¦ --&gt;
+  &lt;style&gt;
+   .js .fadein img { display: none; }
+   .js .fadein img:first-child { display: block; }
+  &lt;/style&gt;
+  &lt;script&gt;
+   document.documentElement.className += 'js';
+  &lt;/script&gt;
+ &lt;/head&gt;
+</code></pre>
+<p>If you omit <code>.js .fadein img:first-child { display: block; }</code>, this will also cause a small â€˜flashâ€™, going from the background color of the page to the first image. This is better already â€“ at least itâ€™s not a â€˜flashâ€™ between two images. But by adding that line, <a href="//jsbin.com/azofe">we donâ€™t get a flash at all</a> :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64420">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64420">44</a></div>
+			<span class="authorname"><a href="http://mathiasbynens.be/">Mathias Bynens</a></span> said on December 13, 2009		</div>
+		<div class="quote"><p>Whoops, that last link should be <a href="//jsbin.com/alada3">http://jsbin.com/alada3</a>. Jonathan, could you please edit my previous post and remove this one? Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64422">45</a></div>
+			<span class="authorname">"Cowboy" Ben Alman</span> said on December 13, 2009		</div>
+		<div class="quote"><p>Jonathan, I wrote a tiny plugin that does just this to help someone in the irc.freenode.net #jquery IRC channel earlier this year. What I did was very similar, except that it did allow stopping and restarting, as well as a "one-off" fade without any kind of loop.</p>
+<p>I'm not a big fan of setInterval, for reasons explained on <a href="//benalman.com/code/projects/jquery-dotimeout/examples/delay-poll/">this doTimeout example page</a>, so I've used setTimeout instead. The plugin code is available in the source of <a href="//benalman.com/code/test/js-jquery-fade-queue.html">the 'fadeQueue ' example page</a>.</p>
+<p>This is one of this little plugins that got totally lost in the shuffle.. thanks for reminding me of it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64424">46</a></div>
+			<span class="authorname">Cesar</span> said on December 13, 2009		</div>
+		<div class="quote"><p>Amazing trick with such tiny amount of code, thanks for sharing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64425">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64425">47</a></div>
+			<span class="authorname">Matthew Simmons</span> said on December 13, 2009		</div>
+		<div class="quote"><p>It's funny that you posted this.  I've been looking for a plugin to do exactly this.  I'm still in the beginning stages of learning jQuery so I couldn't do it myself.</p>
+<p>again, thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64426">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64426">48</a></div>
+			<span class="authorname">Rio</span> said on December 13, 2009		</div>
+		<div class="quote"><p>I'm use this code with jquery tools slider. It seems conflict mixing with jquery tools because it only fade one time and then stop.</p>
+<p>What solution for this?</p>
+</div>
+	</div>
+		<div class="comment" id="c64427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64427">49</a></div>
+			<span class="authorname">Babar O'Cap</span> said on December 14, 2009		</div>
+		<div class="quote"><p>Check out Slidedown.<br />
+It Generates syntax-highlighted slides from Markdown.</p>
+<p>http://github.com/nakajima/slidedown
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64432">50</a></div>
+			<span class="authorname">Joe Kirkson</span> said on December 14, 2009		</div>
+		<div class="quote"><p>Good stuff Jonathan, you make it seem so effortlessly easy!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64433">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64433">51</a></div>
+			<span class="authorname">Rio</span> said on December 14, 2009		</div>
+		<div class="quote"><p>Forget my previous comment, I found the problem :]</p>
+<p>Your code is running smooth right now, It's a miracle!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64434">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64434">52</a></div>
+			<span class="authorname">Hey</span> said on December 14, 2009		</div>
+		<div class="quote"><p>What
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64435">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64435">53</a></div>
+			<span class="authorname">Ben Tortora</span> said on December 14, 2009		</div>
+		<div class="quote"><p>You would not believe how much time I have spent looking for something like this to solve my problem. </p>
+<p>This should be the default setup for anyone looking for a photogallery solution
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64439">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64439">54</a></div>
+			<span class="authorname">johan</span> said on December 16, 2009		</div>
+		<div class="quote"><p>For a port to  mootools, would be great to have that...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64441">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64441">55</a></div>
+			<span class="authorname">nate</span> said on December 17, 2009		</div>
+		<div class="quote"><p>I was trying to make it work when each image is a link. Any suggestions? Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64443">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64443">56</a></div>
+			<span class="authorname">Frank</span> said on December 20, 2009		</div>
+		<div class="quote"><p>Wow. That's what I call lightweight. Thank you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64444">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64444">57</a></div>
+			<span class="authorname">e-sushi</span> said on December 20, 2009		</div>
+		<div class="quote"><p>Just an idea... I tend to do jquery stuff completely internal; meaning, I also handle all CSS stuff using jquery, making the modding of yet-another-file (the css file) void.</p>
+<p>I'm not sure if everyone will agree, but I am convinced that it strips some bytes from the main css and it only uses the jquery-needed css rules if the user has javascript enabled.</p>
+<p>You might want to try it... it downgrades more beautifull and surely is a bit more minimal when those robots come haunting your site for more search-engine food.</p>
+<p>Nice site btw. - and I sure like that "preview" while writing my comment. It simply rocks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65641">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65641">58</a></div>
+			<span class="authorname">Cara Mico</span> said on February 03, 2011		</div>
+		<div class="quote"><p>Love this script, use it on my own site! Thanks, if only all code was this concise!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65662">59</a></div>
+			<span class="authorname">Pete</span> said on February 04, 2011		</div>
+		<div class="quote"><p>Anyone know how to add links to the images or the whole thing?? Its exactly what i'm looking for if it had that!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65671">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65671">60</a></div>
+			<span class="authorname">Pete</span> said on February 04, 2011		</div>
+		<div class="quote"><p>found a way to link the whole thing, not ideal but basically adding onclick to the surrounding div. If anyone has a cleaner way let me know: http://www.shore.co.uk/snow/snow-jackets/ladies-snow-jackets.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66425">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66425">61</a></div>
+			<span class="authorname">Dan</span> said on March 07, 2011		</div>
+		<div class="quote"><p>It's quite easy to do. Just add a link around each image have the links fading back and forth instead of the images. The css would look something like this:</p>
+<pre><code>
+.fadein a {display:block;}
+</pre>
+<p></code><br />
+And the Javascript would look like this:</p>
+<pre><code>$(function(){
+    $('.fadein a:gt(0)').hide();
+    setInterval(function(){
+      $('.fadein a:first-child').fadeOut()
+         .next('a').fadeIn()
+         .end().appendTo('.fadein');},
+      3000);
+});</pre>
+<p></code>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66555">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66555">62</a></div>
+			<span class="authorname">Cat</span> said on March 12, 2011		</div>
+		<div class="quote"><p>I am new to jquery and was wondering can anyone explain what the gt(0)  in this line of code $('.fadein img:gt(0)').hide();<br />
+stands for?</p>
+</div>
+	</div>
+		<div class="comment" id="c66559">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66559">63</a></div>
+			<span class="authorname">anthony</span> said on March 12, 2011		</div>
+		<div class="quote"><p>How to do this with img's of different sizes?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66568">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66568">64</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 13, 2011		</div>
+		<div class="quote"><p>@Cat: it means 'greater than' zero. That means get every image except the first one and hide it.</p>
+<p>@Anthony: You can do all sorts of different sizes, you just need to make sure that you've reserved room for the largest image. If you wanted it to resize the space for each image, that's a little more complicated. You'd have to get the dimensions of the image and then resize the container around it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66602">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66602">65</a></div>
+			<span class="authorname">Richard</span> said on March 15, 2011		</div>
+		<div class="quote"><p>Thanks for this although I'm having trouble with jquery 1.4.2 here: &lt;http://www.hakomimallorca.com/about-mallorca&gt;</p>
+<p>It seems to skip through the images once then stops at the final one instead of looping.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66603">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66603">66</a></div>
+			<span class="authorname">Richard</span> said on March 15, 2011		</div>
+		<div class="quote"><p>Please disregard my previous comment...thanks
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66791">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66791">67</a></div>
+			<span class="authorname">Sam Rogal</span> said on March 23, 2011		</div>
+		<div class="quote"><p>Sir, you are gentleman and a scholar.<br />
+I've been wrestling with slideshows of one kind or another for the last six ours trying to meet a deadline for a client. Everything else was breaking the layout with the styles being dynamically applied or the use of static positioning.<br />
+This was simple, clean, and elegant. Perfect.<br />
+A million thanks to you.<br />
+-Sam
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66799">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66799">68</a></div>
+			<span class="authorname">anitha</span> said on March 24, 2011		</div>
+		<div class="quote"><p>I need to add a play/pause, forward and backward to this jquery. Could you please help me with this. Is it possible to do that? Can I use this code to my website. Is it legal?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66806">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66806">69</a></div>
+			<span class="authorname">Daniel</span> said on March 24, 2011		</div>
+		<div class="quote"><p>Hi! I've been looking for a slideshow like this, but, at the same tiem i've downloaded a lot of them, by the way this one is the most practic one, congrats!!!, i would like to ask you a thing, why all of them are constructed with PA Divs and not with simple Divs??? If you could answer me i'll be very grateful.<br />
+THNKS!!!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66811">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66811">70</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 24, 2011		</div>
+		<div class="quote"><p>@Daniel: What's a PA div and how does it differ from a simple div?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66814">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66814">71</a></div>
+			<span class="authorname">Adham Dannaway</span> said on March 24, 2011		</div>
+		<div class="quote"><p>Nice one, very simple. Sometimes a whole library just isn't needed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66899">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66899">72</a></div>
+			<span class="authorname">Dodgem Rider</span> said on March 28, 2011		</div>
+		<div class="quote"><p>Great solution. Was trying to work out the neatest way to advance the slides with a mouse click (instead of via "set Interval"). Similar to the query from Anitha (above). Any ideas on this would be appreciated. I now there are many other slideshows out there, but having the images in a single div with a class is potentially great for use with a CMS.</p>
+</div>
+	</div>
+		<div class="comment" id="c67636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67636">73</a></div>
+			<span class="authorname">Geoff</span> said on April 26, 2011		</div>
+		<div class="quote"><p>I think Daniel is trying to say AP div. Absolute positioned div.</p>
+<p>Thanks for the easy script.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67669">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67669">74</a></div>
+			<span class="authorname">smita</span> said on April 28, 2011		</div>
+		<div class="quote"><p>I am unable to see this slideshow when i add jquerymobile css
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67670">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67670">75</a></div>
+			<span class="authorname">smita</span> said on April 28, 2011		</div>
+		<div class="quote"><p>Please help </p>
+</div>
+	</div>
+		<div class="comment" id="c67866">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67866">76</a></div>
+			<span class="authorname">Muhammad Adnan</span> said on May 05, 2011		</div>
+		<div class="quote"><p>thx for so simple &amp; easy slideshow script.......plz help me in tab switching and drop down menu......thx in advance.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67928">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67928">77</a></div>
+			<span class="authorname">Robert Cox</span> said on May 07, 2011		</div>
+		<div class="quote"><p>Just wanted to thank the creator for this simple slideshow, and for helping me learn how to make slideshows in general (web student for almost year and a half now).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67995">78</a></div>
+			<span class="authorname">Ian</span> said on May 10, 2011		</div>
+		<div class="quote"><p>Hi, thanks for the code. If I wanted to add a pause to the slideshow, so when a user hovers on an image the show pauses and on mouseout the show resumes how would I go about doing this?</p>
+<p>I've tried adding onMouseOver and onMouseOut attributes but I'm not really a coder and haven't got very far!</p>
+</div>
+	</div>
+		<div class="comment" id="c68001">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68001">79</a></div>
+			<span class="authorname">Giselli M.</span> said on May 10, 2011		</div>
+		<div class="quote"><p>AMAZING! Thank you so much :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68034">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68034">80</a></div>
+			<span class="authorname">Jess</span> said on May 12, 2011		</div>
+		<div class="quote"><p>This is absolutely amazing, and exactly what I needed. I'm a newbie at js and jQuery, so please forgive the intro answer. Is there any way to randomize the order that the images are displayed in, while keeping the multiple slideshows on the same page? TIA!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68035">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68035">81</a></div>
+			<span class="authorname">Jess</span> said on May 12, 2011		</div>
+		<div class="quote"><p>One more question - yes, I'm still a newbie. Is there any way to adjust the timing on the slideshows so that they look like they are daisy chaining - so a second slideshow on the page starts a few miliseconds later than the first? TIA!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68135">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68135">82</a></div>
+			<span class="authorname">jcnapw</span> said on May 18, 2011		</div>
+		<div class="quote"><p>I thought it would be easy to find a clean-coded fade slideshow... boy was I wrong. I'm a novice at programming to begin with but after hours of searching I was really feeling like an idiot. Thanks so much for this script!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c68171">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c68171">83</a></div>
+			<span class="authorname">Sarah</span> said on May 19, 2011		</div>
+		<div class="quote"><p>Is there a way to randomize the images ??
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

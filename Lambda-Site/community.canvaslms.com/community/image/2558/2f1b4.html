@@ -1,0 +1,1096 @@
+<!DOCTYPE html><html prefix="og: http://ogp.me/ns#" dir="ltr" lang="en" class="no-js">
+	<head>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"90ec53e80f",applicationID:"322244629"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+	
+	<title>
+	Page not found - Canvas Community
+</title>
+	
+	
+	<link rel="icon" href="https://community.canvaslms.com/html/@5A34C2EE85E3D81AAEB42F5E58E6871B/assets/favicon.ico" />
+<link rel="stylesheet" href="https://community.canvaslms.com/html/@FF223D4EC3DD26D4EE039BEF8CCD4782/assets/ext-footer.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQJRQYTPK7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XQJRQYTPK7');
+</script>
+<script src="https://kit.fontawesome.com/123efe1e4b.js" crossorigin="anonymous"></script>
+
+	
+	
+	
+	<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><link href="https://community.canvaslms.com/t5/errors/error404page" rel="canonical"/>
+	
+	
+	
+	
+	    
+            	<link href="/skins/4860936/1c33ce0b140006377162242b5854f621/instructure.css" rel="stylesheet" type="text/css"/>
+            
+	
+
+	
+	
+	
+	
+<script language="javascript" type="text/javascript">
+<!--
+if("undefined"==typeof LITHIUM)var LITHIUM={};LITHIUM.Loader=function(){var d=[],a=[],b=!1,e=!1;return{onLoad:function(a){"function"===typeof a&&(!0===b?a():d.push(a))},onJsAttached:function(b){"function"===typeof b&&(!0===e?b():a.push(b))},runJsAttached:function(){e=!0;for(var b=0;b<a.length;b++)a[b]()},getOnLoadFunctions:function(){return d},setLoaded:function(){b=!0},isLoaded:function(){return b},isJsAttached:function(){return e}}}();"undefined"===typeof LITHIUM.Components&&(LITHIUM.Components={});LITHIUM.Components.render=function(d,a,b){LITHIUM.Loader.onLoad(function(){var e=LITHIUM.Components.renderUrl(d),g={type:"GET",dataType:"json"};LITHIUM.jQuery.extend(g,b||{});g.hasOwnProperty("url")||LITHIUM.jQuery.extend(g,{url:e});g.data=a;if("object"!==typeof g.data||null===g.data)g.data={};g.data.originalPageName=LITHIUM.Components.ORIGINAL_PAGE_NAME;g.data.originalPageContext=LITHIUM.Components.ORIGINAL_PAGE_CONTEXT;LITHIUM.jQuery.ajax(g)}.bind(this))};
+LITHIUM.Components.renderUrl=function(d,a){var b=LITHIUM.Components.RENDER_URL;LITHIUM.jQuery.each({"component-id":d},function(a,d){b=b.replace(new RegExp("#{"+a+"}","g"),d)});"undefined"!==typeof a&&(b+="?"+LITHIUM.jQuery.param(a));return b};
+LITHIUM.Components.renderInPlace=function(d,a,b,e){function g(a){var b=document.createElement("div"),d=(new Date).getTime()+Math.floor(1E7*Math.random()+1);b.setAttribute("id",d);a.parentNode.insertBefore(b,a);return d}if(e)var n=e;else!1===LITHIUM.Loader.isLoaded()&&(document.currentScript?n=g(document.currentScript):(e=document.querySelectorAll("script"),1<e.length&&(n=g(e[e.length-1]))));LITHIUM.Loader.onLoad(function(){var e=LITHIUM.jQuery,g=a||{},m=b||{},k=e("#"+n);e.extend(g,{renderedScripts:LITHIUM.RenderedScripts.toString(),
+"component-id":d});e.extend(m,{success:function(a){var b=a.content;LITHIUM.AngularSupport.isAngularEnabled()&&(b=LITHIUM.AngularSupport.compile(b));k.replaceWith(b);LITHIUM.AjaxSupport.ScriptsProcessor.handleScriptEvaluation(a);(a=LITHIUM.jQuery(b).attr("id"))&&LITHIUM.jQuery("#"+a).trigger("LITHIUM:ajaxSuccess:renderInPlace",{componentId:d})},error:function(a,d,e){0===a.readyState||0===a.status?k.html(""):k.html('\x3cspan class\x3d"lia-ajax-error-text"\x3e'+b.errorMessage+"\x3c/span\x3e");k.removeClass(LITHIUM.Css.BASE_LAZY_LOAD).removeClass("lia-fa-spin")}});
+k&&LITHIUM.Components.render(d,g,m)}.bind(this))};/*
+ modernizr v3.3.1
+ Build https://modernizr.com/download?-exiforientation-filereader-flash-setclasses-dontmin
+
+ Copyright (c)
+  Faruk Ates
+  Paul Irish
+  Alex Sexton
+  Ryan Seddon
+  Patrick Kettner
+  Stu Cox
+  Richard Herrera
+
+ MIT License
+ {
+      "name": "EXIF Orientation",
+      "property": "exiforientation",
+      "tags": ["image"],
+      "builderAliases": ["exif_orientation"],
+      "async": true,
+      "authors": ["Paul Sayre"],
+      "notes": [{
+        "name": "Article by Dave Perrett",
+        "href": "http://recursive-design.com/blog/2012/07/28/exif-orientation-handling-is-a-ghetto/"
+      },{
+        "name": "Article by Calvin Hass",
+        "href": "http://www.impulseadventure.com/photo/exif-orientation.html"
+      }]
+    }
+    ! {
+      "name": "Flash",
+      "property": "flash",
+      "tags": ["flash"],
+      "polyfills": ["shumway"]
+      }
+      ! {
+      "name": "File API",
+      "property": "filereader",
+      "caniuse": "fileapi",
+      "notes": [{
+        "name": "W3C Working Draft",
+        "href": "https://www.w3.org/TR/FileAPI/"
+      }],
+      "tags": ["file"],
+      "builderAliases": ["file_api"],
+      "knownBugs": ["Will fail in Safari 5 due to its lack of support for the standards defined FileReader object"]
+    }
+    !*/
+LITHIUM.LiModernizr=function(){(function(d,a,b){function e(h){var a=p.className,b=c._config.classPrefix||"";r&&(a=a.baseVal);c._config.enableJSClass&&(a=a.replace(new RegExp("(^|\\s)"+b+"no-js(\\s|$)"),"$1"+b+"js$2"));c._config.enableClasses&&(a+=" "+b+h.join(" "+b),r?p.className.baseVal=a:p.className=a)}function g(){return"function"!==typeof a.createElement?a.createElement(arguments[0]):r?a.createElementNS.call(a,"http://www.w3.org/2000/svg",arguments[0]):a.createElement.apply(a,arguments)}function n(){var b=
+a.body;b||(b=g(r?"svg":"body"),b.fake=!0);return b}function q(a,b){if("object"==typeof a)for(var h in a)u(a,h)&&q(h,a[h]);else{a=a.toLowerCase();h=a.split(".");var l=c[h[0]];2==h.length&&(l=l[h[1]]);if("undefined"!=typeof l)return c;b="function"==typeof b?b():b;1==h.length?c[h[0]]=b:(!c[h[0]]||c[h[0]]instanceof Boolean||(c[h[0]]=new Boolean(c[h[0]])),c[h[0]][h[1]]=b);e([(b&&0!=b?"":"no-")+h.join("-")]);c._trigger(a,b)}return c}var t=[],m=[],k={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,
+enableJSClass:!0,usePrefixes:!0},_q:[],on:function(a,b){var h=this;setTimeout(function(){b(h[a])},0)},addTest:function(a,b,c){m.push({name:a,fn:b,options:c})},addAsyncTest:function(a){m.push({name:null,fn:a})}},c=function(){};c.prototype=k;c=new c;var p=a.documentElement,r="svg"===p.nodeName.toLowerCase(),u;(function(){var a={}.hasOwnProperty;u="undefined"!==typeof a&&"undefined"!==typeof a.call?function(b,h){return a.call(b,h)}:function(a,b){return b in a&&"undefined"===typeof a.constructor.prototype[b]}})();
+k._l={};k.on=function(a,b){this._l[a]||(this._l[a]=[]);this._l[a].push(b);c.hasOwnProperty(a)&&setTimeout(function(){c._trigger(a,c[a])},0)};k._trigger=function(a,b){if(this._l[a]){var h=this._l[a];setTimeout(function(){var a;for(a=0;a<h.length;a++){var c=h[a];c(b)}},0);delete this._l[a]}};c._q.push(function(){k.addTest=q});c.addAsyncTest(function(){LITHIUM.Loader.onLoad(function(){var b=a.createElement("img");b.onerror=function(){q("exiforientation",!1,{aliases:["exif-orientation"]});a.body.removeChild(b)};
+b.onload=function(){q("exiforientation",2!==b.width,{aliases:["exif-orientation"]});a.body.removeChild(b)};b.src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAASUkqAAgAAAABABIBAwABAAAABgASAAAAAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAABAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+/iiiigD/2Q\x3d\x3d";
+a.body&&(b.setAttribute("style","position: absolute; left: -9999;"),a.body.appendChild(b))})});c.addAsyncTest(function(){var b=function(a){p.contains(a)||p.appendChild(a)},c=function(a,b){var c=!!a;c&&(c=new Boolean(c),c.blocked="blocked"===a);q("flash",function(){return c});if(b&&f.contains(b)){for(;b.parentNode!==f;)b=b.parentNode;f.removeChild(b)}};try{var e="ActiveXObject"in d&&"Pan"in new d.ActiveXObject("ShockwaveFlash.ShockwaveFlash")}catch(v){}if(!("plugins"in navigator&&"Shockwave Flash"in
+navigator.plugins||e)||r)c(!1);else{var l=g("embed"),f=n(),k;l.type="application/x-shockwave-flash";f.appendChild(l);if("Pan"in l||e){var m=function(){b(f);if(!p.contains(f))return f=a.body||f,l=g("embed"),l.type="application/x-shockwave-flash",f.appendChild(l),setTimeout(m,1E3);p.contains(l)?(k=l.style.cssText,""!==k?c("blocked",l):c(!0,l)):c("blocked");f.fake&&f.parentNode&&f.parentNode.removeChild(f)};setTimeout(m,10)}else b(f),c("blocked",l),f.fake&&f.parentNode&&f.parentNode.removeChild(f)}});
+c.addTest("filereader",!!(d.File&&d.FileList&&d.FileReader));(function(){var a,b;for(b in m)if(m.hasOwnProperty(b)){var e=[];var d=m[b];if(d.name&&(e.push(d.name.toLowerCase()),d.options&&d.options.aliases&&d.options.aliases.length))for(a=0;a<d.options.aliases.length;a++)e.push(d.options.aliases[a].toLowerCase());d="function"===typeof d.fn?d.fn():d.fn;for(a=0;a<e.length;a++){var f=e[a];f=f.split(".");1===f.length?c[f[0]]=d:(!c[f[0]]||c[f[0]]instanceof Boolean||(c[f[0]]=new Boolean(c[f[0]])),c[f[0]][f[1]]=
+d);t.push((d?"":"no-")+f.join("-"))}}})();e(t);delete k.addTest;delete k.addAsyncTest;for(b=0;b<c._q.length;b++)c._q[b]();LITHIUM.Modernizr=c})(window,document)}();(function(){LITHIUM.Globals=function(){var d={};return{preventGlobals:function(a){for(var b=0;b<a.length;b++){var e=a[b];e in window&&void 0!==window[e]&&(d[e]=window[e],window[e]=void 0)}},restoreGlobals:function(a){for(var b=0;b<a.length;b++){var e=a[b];d.hasOwnProperty(e)&&(window[e]=d[e])}}}}()})();(function(){function d(a,b){return a.replace(/\/+$/,"")+"/"+b}function a(a){return n.ajax({url:a,dataType:"script",cache:!0})}function b(b){var e=d(b,"core.min.js"),m=d(b,"video-plugin/main_html5.min.js"),k=d(b,"video-plugin/bit_wrapper.min.js"),c=d(b,"skin-plugin/html5-skin.min.js"),p=d(b,"skin-plugin/html5-skin.min.css");void 0===g&&(g=a(e).then(function(){return a(m)}).then(function(){return a(k)}).then(function(){return a(c)}).then(function(){var a=n.Deferred(),b=n("\x3clink/\x3e",{rel:"stylesheet",
+type:"text/css",href:p}).appendTo("head");a.resolve(b);return a.promise()}));return g}function e(a,b,e,g){var c=d(a,"skin-plugin/skin.json");OO.ready(function(){var a=n.extend({},g,{onCreate:function(a){LITHIUM.OOYALA.players[b]={containerId:b,videoId:e,messageBus:a.mb};a.subscribe("playerEmbedded","liResize",function(){LITHIUM.Video(a.elementId,"playerEmbedded")})},skin:{config:c,inline:{responsive:{aspectRatio:"false"}}}});OO.Player.create(b,e,a);n(".lia-vid-container .innerWrapper").css("z-index",
+"0")})}LITHIUM.OoyalaPlayer={};LITHIUM.OOYALA=LITHIUM.OOYALA||{};LITHIUM.OOYALA.players=LITHIUM.OOYALA.players||{};var g,n;LITHIUM.OoyalaPlayer.addVideo=function(a,d,g,k){LITHIUM.Loader.onLoad(function(){n=LITHIUM.jQuery;b(a).done(function(){e(a,d,g,k)})})}})();(function(d){Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector);Element.prototype.closest||(Element.prototype.closest=function(a){var b=this;do{if(b.matches(a))return b;b=b.parentElement||b.parentNode}while(null!==b&&1===b.nodeType);return null})})(LITHIUM.jQuery);window.FileAPI = { jsPath: '/html/assets/js/vendor/ng-file-upload-shim/' };
+LITHIUM.PrefetchData = {"Components":{},"commonResults":{}};
+LITHIUM.DEBUG = false;
+LITHIUM.CommunityJsonObject = {
+  "Validation" : {
+    "image.description" : {
+      "min" : 0,
+      "max" : 1000,
+      "isoneof" : [ ],
+      "type" : "string"
+    },
+    "tkb.toc_maximum_heading_level" : {
+      "min" : 1,
+      "max" : 6,
+      "isoneof" : [ ],
+      "type" : "integer"
+    },
+    "tkb.toc_heading_list_style" : {
+      "min" : 0,
+      "max" : 50,
+      "isoneof" : [
+        "disc",
+        "circle",
+        "square",
+        "none"
+      ],
+      "type" : "string"
+    },
+    "blog.toc_maximum_heading_level" : {
+      "min" : 1,
+      "max" : 6,
+      "isoneof" : [ ],
+      "type" : "integer"
+    },
+    "tkb.toc_heading_indent" : {
+      "min" : 5,
+      "max" : 50,
+      "isoneof" : [ ],
+      "type" : "integer"
+    },
+    "blog.toc_heading_indent" : {
+      "min" : 5,
+      "max" : 50,
+      "isoneof" : [ ],
+      "type" : "integer"
+    },
+    "blog.toc_heading_list_style" : {
+      "min" : 0,
+      "max" : 50,
+      "isoneof" : [
+        "disc",
+        "circle",
+        "square",
+        "none"
+      ],
+      "type" : "string"
+    }
+  },
+  "User" : {
+    "settings" : {
+      "imageupload.legal_file_extensions" : "*.jpg;*.JPG;*.jpeg;*.JPEG;*.gif;*.GIF;*.png;*.PNG,*.mp4;*.tiff;*.TIFF;*.bmp;*.BMP;",
+      "config.enable_avatar" : true,
+      "integratedprofile.show_klout_score" : true,
+      "layout.sort_view_by_last_post_date" : true,
+      "layout.friendly_dates_enabled" : true,
+      "profileplus.allow.anonymous.scorebox" : false,
+      "tkb.message_sort_default" : "topicPublishDate",
+      "layout.format_pattern_date" : "MM-dd-yyyy",
+      "config.require_search_before_post" : "require",
+      "isUserLinked" : false,
+      "integratedprofile.cta_add_topics_dismissal_timestamp" : -1,
+      "layout.message_body_image_max_size" : 1000,
+      "profileplus.everyone" : false,
+      "integratedprofile.cta_connect_wide_dismissal_timestamp" : -1,
+      "blog.toc_maximum_heading_level" : "4",
+      "integratedprofile.hide_social_networks" : false,
+      "blog.toc_heading_indent" : "15",
+      "contest.entries_per_page_num" : 20,
+      "layout.messages_per_page_linear" : 10,
+      "integratedprofile.cta_manage_topics_dismissal_timestamp" : -1,
+      "profile.shared_profile_test_group" : false,
+      "integratedprofile.cta_personalized_feed_dismissal_timestamp" : -1,
+      "integratedprofile.curated_feed_size" : 10,
+      "contest.one_kudo_per_contest" : false,
+      "integratedprofile.enable_social_networks" : false,
+      "integratedprofile.my_interests_dismissal_timestamp" : -1,
+      "profile.language" : "en",
+      "layout.friendly_dates_max_age_days" : 10,
+      "layout.threading_order" : "thread_ascending",
+      "blog.toc_heading_list_style" : "disc",
+      "useRecService" : false,
+      "layout.module_welcome" : "<#if user.registered>\r\n<#import \"theme-lib.common-functions.ftl\" as commonUtils /> \r\n<#assign query = \"SELECT first_name, last_name FROM users WHERE login = '${user.login}'\" />\r\n<#assign userBio = commonUtils.executeLiQLQuery(query) />\r\n<#list userBio as userInfo >\r\n<#if userInfo.first_name?? >\r\n    <#assign authorFirstLast = userInfo.first_name />\r\n<#else>\r\n<#assign authorFirstLast = user.login />\r\n<\/#if>\r\n    <div class=\"hero-title-welcome\"><div class=\"user-greet\">Welcome, ${authorFirstLast}!<\/div><\/div>\r\n<\/#list>\r\n<#else>\r\n    <h2>Welcome to our community<\/h2>\r\n    <p>Canvas users sharing, collaborating, and shaping Canvas together<\/p>\r\n<\/#if>",
+      "imageupload.max_uploaded_images_per_upload" : 10,
+      "imageupload.max_uploaded_images_per_user" : 5000,
+      "integratedprofile.connect_mode" : "",
+      "tkb.toc_maximum_heading_level" : "4",
+      "tkb.toc_heading_list_style" : "disc",
+      "sharedprofile.show_hovercard_score" : true,
+      "config.search_before_post_scope" : "community",
+      "tkb.toc_heading_indent" : "15",
+      "p13n.cta.recommendations_feed_dismissal_timestamp" : -1,
+      "imageupload.max_file_size" : 5000,
+      "layout.show_batch_checkboxes" : false,
+      "integratedprofile.cta_connect_slim_dismissal_timestamp" : -1
+    },
+    "isAnonymous" : true,
+    "policies" : {
+      "image-upload.process-and-remove-exif-metadata" : false
+    },
+    "registered" : false,
+    "emailRef" : "",
+    "id" : -1,
+    "login" : "Anonymous"
+  },
+  "Server" : {
+    "communityPrefix" : "/xjnht99997",
+    "nodeChangeTimeStamp" : 1619207333011,
+    "tapestryPrefix" : "/t5",
+    "deviceMode" : "DESKTOP",
+    "responsiveDeviceMode" : "DESKTOP",
+    "version" : "21.2",
+    "branch" : "21.2-release",
+    "showTextKeys" : false
+  },
+  "Config" : {
+    "phase" : "prod",
+    "integratedprofile.cta.reprompt.delay" : 30,
+    "profileplus.tracking" : {
+      "profileplus.tracking.enable" : false,
+      "profileplus.tracking.click.enable" : false,
+      "profileplus.tracking.impression.enable" : false
+    },
+    "app.revision" : "2103242028-sbc56d0b16d-b31",
+    "navigation.manager.community.structure.limit" : "1000"
+  },
+  "Activity" : {
+    "Results" : [ ]
+  },
+  "NodeContainer" : {
+    "viewHref" : "https://community.canvaslms.com/t5/Top/ct-p/top",
+    "description" : "",
+    "id" : "top",
+    "shortTitle" : "Top",
+    "title" : "Top",
+    "nodeType" : "category"
+  },
+  "Page" : {
+    "skins" : [
+      "instructure",
+      "theme_support",
+      "theme_base",
+      "responsive_peak"
+    ],
+    "authUrls" : {
+      "loginUrl" : "/plugins/common/feature/samlss/doauth/redirect?referer=https%3A%2F%2Fcommunity.canvaslms.com%2Ft5%2Ferrors%2Ferror404page",
+      "loginUrlNotRegistered" : "/plugins/common/feature/samlss/doauth/redirect?redirectreason=notregistered&referer=https%3A%2F%2Fcommunity.canvaslms.com%2Ft5%2Ferrors%2Ferror404page",
+      "loginUrlNotRegisteredDestTpl" : "/plugins/common/feature/samlss/doauth/redirect?redirectreason=notregistered&referer=%7B%7BdestUrl%7D%7D"
+    },
+    "name" : "Error404Page",
+    "rtl" : false,
+    "object" : { }
+  },
+  "WebTracking" : {
+    "Activities" : { },
+    "path" : "Community:Home"
+  },
+  "Feedback" : {
+    "targeted" : { }
+  },
+  "Seo" : {
+    "markerEscaping" : {
+      "pathElement" : {
+        "prefix" : "@",
+        "match" : "^[0-9][0-9]$"
+      },
+      "enabled" : false
+    }
+  },
+  "TopLevelNode" : {
+    "viewHref" : "https://community.canvaslms.com/",
+    "description" : "",
+    "id" : "xjnht99997",
+    "shortTitle" : "Home",
+    "title" : "Canvas Community",
+    "nodeType" : "Community"
+  },
+  "Community" : {
+    "viewHref" : "https://community.canvaslms.com/",
+    "integratedprofile.lang_code" : "en",
+    "integratedprofile.country_code" : "US",
+    "id" : "xjnht99997",
+    "shortTitle" : "Home",
+    "title" : "Canvas Community"
+  },
+  "CoreNode" : {
+    "viewHref" : "https://community.canvaslms.com/",
+    "settings" : { },
+    "description" : "",
+    "id" : "xjnht99997",
+    "shortTitle" : "Home",
+    "title" : "Canvas Community",
+    "nodeType" : "Community",
+    "ancestors" : [ ]
+  }
+};
+LITHIUM.Components.RENDER_URL = '/t5/util/componentrenderpage/component-id/#{component-id}?render_behavior=raw';
+LITHIUM.Components.ORIGINAL_PAGE_NAME = 'errors/Error404Page';
+LITHIUM.Components.ORIGINAL_PAGE_CONTEXT = 'uOgbEOCEK3wqWbW5Y6QB4FfUb0nGoaLvVt1eMwS8GMsF1PxxQ2vTtiwp_nk0lYLyaj75rnN_zhgWA1LuM2bZpyPC5ZQ4Dc5bQB48ZVQSXJ9ZMFMftuvKaRCCYugHiZmuAhGLo-Vykz1GuiXV9QLmS-GfgbQfrf5GaS0E0wusaBI18ormh_8-uG63whiMKjehHGBfI8ic085Wfz3lQ_nHN4zl3qsce7OzzUljB3fjtRWlDOgyIyVhHLg9r8wurhHd3ru0LuEr8H0ZL7IynnnKQqzR-MKY18YsUMhCwI_QyQE.';
+LITHIUM.Css = {
+  "BASE_DEFERRED_IMAGE" : "lia-deferred-image",
+  "BASE_BUTTON" : "lia-button",
+  "BASE_SPOILER_CONTAINER" : "lia-spoiler-container",
+  "BASE_TABS_INACTIVE" : "lia-tabs-inactive",
+  "BASE_TABS_ACTIVE" : "lia-tabs-active",
+  "BASE_AJAX_REMOVE_HIGHLIGHT" : "lia-ajax-remove-highlight",
+  "BASE_FEEDBACK_SCROLL_TO" : "lia-feedback-scroll-to",
+  "BASE_FORM_FIELD_VALIDATING" : "lia-form-field-validating",
+  "BASE_FORM_ERROR_TEXT" : "lia-form-error-text",
+  "BASE_FEEDBACK_INLINE_ALERT" : "lia-panel-feedback-inline-alert",
+  "BASE_BUTTON_OVERLAY" : "lia-button-overlay",
+  "BASE_TABS_STANDARD" : "lia-tabs-standard",
+  "BASE_AJAX_INDETERMINATE_LOADER_BAR" : "lia-ajax-indeterminate-loader-bar",
+  "BASE_AJAX_SUCCESS_HIGHLIGHT" : "lia-ajax-success-highlight",
+  "BASE_CONTENT" : "lia-content",
+  "BASE_JS_HIDDEN" : "lia-js-hidden",
+  "BASE_AJAX_LOADER_CONTENT_OVERLAY" : "lia-ajax-loader-content-overlay",
+  "BASE_FORM_FIELD_SUCCESS" : "lia-form-field-success",
+  "BASE_FORM_WARNING_TEXT" : "lia-form-warning-text",
+  "BASE_FORM_FIELDSET_CONTENT_WRAPPER" : "lia-form-fieldset-content-wrapper",
+  "BASE_AJAX_LOADER_OVERLAY_TYPE" : "lia-ajax-overlay-loader",
+  "BASE_FORM_FIELD_ERROR" : "lia-form-field-error",
+  "BASE_SPOILER_CONTENT" : "lia-spoiler-content",
+  "BASE_FORM_SUBMITTING" : "lia-form-submitting",
+  "BASE_EFFECT_HIGHLIGHT_START" : "lia-effect-highlight-start",
+  "BASE_FORM_FIELD_ERROR_NO_FOCUS" : "lia-form-field-error-no-focus",
+  "BASE_EFFECT_HIGHLIGHT_END" : "lia-effect-highlight-end",
+  "BASE_SPOILER_LINK" : "lia-spoiler-link",
+  "BASE_DISABLED" : "lia-link-disabled",
+  "FACEBOOK_LOGOUT" : "lia-component-users-action-logout",
+  "FACEBOOK_SWITCH_USER" : "lia-component-admin-action-switch-user",
+  "BASE_FORM_FIELD_WARNING" : "lia-form-field-warning",
+  "BASE_AJAX_LOADER_FEEDBACK" : "lia-ajax-loader-feedback",
+  "BASE_AJAX_LOADER_OVERLAY" : "lia-ajax-loader-overlay",
+  "BASE_LAZY_LOAD" : "lia-lazy-load"
+};
+LITHIUM.noConflict = true;
+LITHIUM.useCheckOnline = false;
+LITHIUM.RenderedScripts = [
+  "jquery.ui.draggable.js",
+  "LiModernizr.js",
+  "jquery.hoverIntent-r6.js",
+  "jquery.viewport-1.0.js",
+  "jquery.lithium-selector-extensions.js",
+  "SpoilerToggle.js",
+  "jquery.ui.dialog.js",
+  "jquery.clone-position-1.0.js",
+  "jquery.autocomplete.js",
+  "jquery.ui.mouse.js",
+  "jquery.ajax-cache-response-1.0.js",
+  "Events.js",
+  "jquery.placeholder-2.0.7.js",
+  "ActiveCast3.js",
+  "jquery.iframe-transport.js",
+  "Components.js",
+  "Cache.js",
+  "AutoComplete.js",
+  "jquery.effects.slide.js",
+  "ForceLithiumJQuery.js",
+  "SearchForm.js",
+  "Namespace.js",
+  "jquery.ui.resizable.js",
+  "json2.js",
+  "DeferredImages.js",
+  "jquery.tools.tooltip-1.2.6.js",
+  "jquery.function-utils-1.0.js",
+  "jquery.css-data-1.0.js",
+  "NoConflict.js",
+  "ElementMethods.js",
+  "Link.js",
+  "ResizeSensor.js",
+  "jquery.iframe-shim-1.0.js",
+  "Loader.js",
+  "Auth.js",
+  "Lithium.js",
+  "PolyfillsAll.js",
+  "ElementQueries.js",
+  "jquery.ui.core.js",
+  "jquery.scrollTo.js",
+  "Sandbox.js",
+  "Tooltip.js",
+  "OoyalaPlayer.js",
+  "AjaxSupport.js",
+  "Throttle.js",
+  "jquery.position-toggle-1.0.js",
+  "InformationBox.js",
+  "jquery.js",
+  "jquery.tmpl-1.1.1.js",
+  "AjaxFeedback.js",
+  "Forms.js",
+  "SearchAutoCompleteToggle.js",
+  "PartialRenderProxy.js",
+  "jquery.delayToggle-1.0.js",
+  "jquery.json-1.3.js",
+  "jquery.fileupload.js",
+  "DataHandler.js",
+  "Placeholder.js",
+  "Globals.js",
+  "jquery.effects.core.js",
+  "jquery.ui.position.js",
+  "Video.js",
+  "Text.js",
+  "jquery.blockui.js",
+  "jquery.appear-1.1.1.js",
+  "prism.js",
+  "jquery.ui.widget.js"
+];(function(){LITHIUM.AngularSupport=function(){function g(a,c){a=a||{};for(var b in c)"[object object]"===Object.prototype.toString.call(c[b])?a[b]=g(a[b],c[b]):a[b]=c[b];return a}var d,f,b={coreModule:"li.community",coreModuleDeps:[],noConflict:!0,bootstrapElementSelector:".lia-page .min-width .lia-content",bootstrapApp:!0,debugEnabled:!1,useCsp:!0,useNg2:!1},k=function(){var a;return function(b){a||(a=document.createElement("a"));a.href=b;return a.href}}();LITHIUM.Angular={};return{preventGlobals:LITHIUM.Globals.preventGlobals,
+restoreGlobals:LITHIUM.Globals.restoreGlobals,init:function(){var a=[],c=document.querySelector(b.bootstrapElementSelector);a.push(b.coreModule);b.customerModules&&0<b.customerModules.length&&a.concat(b.customerModules);b.useCsp&&(c.setAttribute("ng-csp","no-unsafe-eval"),c.setAttribute("li-common-non-bindable",""));d=LITHIUM.angular.module(b.coreModule,b.coreModuleDeps);d.config(["$locationProvider","$provide","$injector","$logProvider","$compileProvider","$qProvider","$anchorScrollProvider",function(a,
+c,e,d,f,g,h){h.disableAutoScrolling();h=document.createElement("base");h.setAttribute("href",k(location));document.getElementsByTagName("head")[0].appendChild(h);window.history&&window.history.pushState&&a.html5Mode({enabled:!0,requireBase:!0,rewriteLinks:!1}).hashPrefix("!");d.debugEnabled(b.debugEnabled);f.debugInfoEnabled(b.debugEnabled);e.has("$uibModal")&&c.decorator("$uibModal",["$delegate",function(a){var b=a.open;a.open=function(a){a.backdropClass=(a.backdropClass?a.backdropClass+" ":"")+
+"lia-modal-backdrop";a.windowClass=(a.windowClass?a.windowClass+" ":"")+"lia-modal-window";return b(a)};return a}]);e.has("uibDropdownConfig")&&(e.get("uibDropdownConfig").openClass="lia-dropdown-open");e.has("uibButtonConfig")&&(e.get("uibButtonConfig").activeClass="lia-link-active");g.errorOnUnhandledRejections(!1)}]);if(b.bootstrapApp)f=b.useNg2?LITHIUM.Angular.upgradeAdapter.bootstrap(c,a):LITHIUM.angular.bootstrap(c,a);else LITHIUM.Loader.onLoad(function(){f=LITHIUM.angular.element(c).injector()});
+LITHIUM.Angular.app=d},compile:function(a){void 0===a&&(a=document.querySelector(b.bootstrapElementSelector));var c;if(void 0===a||""===a)return a;f.invoke(["$rootScope","$compile",function(b,d){try{var e=LITHIUM.angular.element(a)}catch(l){e=LITHIUM.angular.element("\x3cli:safe-wrapper\x3e"+a+"\x3c/li:safe-wrapper\x3e")}e.attr("li-common-non-bindable","");c=d(e)(b);b.$digest()}]);return c},isAngularEnabled:function(){return void 0!==d},updateLocationUrl:function(a,b){f.invoke(["$location","$rootScope",
+"$browser",function(c,d,e){a=""===a?"?":a;c.url(a,b);d.$apply()}])},setOptions:function(a){return g(b,a)},getOptions:function(){return b},initGlobal:function(a){LITHIUM.angular=a;b.useNg2&&(LITHIUM.Angular.upgradeAdapter=new ng.upgrade.UpgradeAdapter)}}}()})();(function(){LITHIUM.ScriptLoader=function(){function d(a){a in b||(b[a]={loaded:!1});return b[a]}function e(){f.filter(function(a){return!a.loaded}).forEach(function(a){var c=!0;a.labels.forEach(function(a){!1===d(a).loaded&&(c=!1)});c&&(a.loaded=!0,a.callback())})}var b={},f=[];return{load:function(a){a.forEach(function(a){var c=document.getElementsByTagName("head")[0]||document.documentElement,b=document.createElement("script");b.src=a.url;b.async=!1;c.insertBefore(b,c.firstChild);d(a.label)})},
+setLoaded:function(a){d(a).loaded=!0;e()},ready:function(a,b){f.push({labels:a,callback:b,loaded:!1});e()}}}()})();LITHIUM.ScriptLoader.load([{"name":"lia-scripts-common-min.js","label":"common","url":"/t5/scripts/7631AB9C6031DE86D2A8CB82D8EF7FE8/lia-scripts-common-min.js"},{"name":"lia-scripts-body-min.js","label":"body","url":"/t5/scripts/6DF0BF83088052F880E3DB5A67453943/lia-scripts-body-min.js"},{"name":"lia-scripts-angularjs-min.js","label":"angularjs","url":"/t5/scripts/0E9B1B4B3C4E1B2400B49FC5A33AF243/lia-scripts-angularjs-min.js"},{"name":"lia-scripts-angularjsModules-min.js","label":"angularjsModules","url":"/t5/scripts/E0929924E1039198B6F2E8B964C02925/lia-scripts-angularjsModules-min.js"}]);
+// -->
+</script></head>
+	<body class="lia-user-status-anonymous Error404Page lia-body lia-a11y" id="lia-body">
+	
+	
+	<div id="EA95CEAC" class="ServiceNodeInfoHeader">
+</div>
+	
+	
+	
+	
+
+	<div class="lia-page">
+		<center>
+			
+				
+					
+	
+	<div class="MinimumWidthContainer">
+		<div class="min-width-wrapper">
+			<div class="min-width">		
+				
+						<div class="lia-content">
+                            
+							
+							
+							
+		   
+   	<div class="lia-quilt lia-quilt-error404-page lia-quilt-layout-one-column lia-top-quilt">
+	<div class="lia-quilt-row lia-quilt-row-header">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-common-header">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<div class="lia-quilt lia-quilt-header lia-quilt-layout-header-new lia-component-quilt-header">
+	<div class="lia-quilt-row lia-quilt-row-main-header-top">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-header-top">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<div class="custom-community-logo">
+    <h1><a href="/">Canvas</a></h1>
+</div>
+		
+	
+	
+
+	
+		<div class="lia-header-actions">
+			
+		
+			<a class="lia-link-navigation login-link lia-authentication-link lia-component-users-action-login" rel="nofollow" id="loginPageV2" href="/plugins/common/feature/samlss/doauth/redirect?referer=https%3A%2F%2Fcommunity.canvaslms.com%2F">Sign In</a>
+		
+			<a class="lia-link-navigation faq-link lia-component-help-action-faq" id="faqPage" href="/t5/help/faqpage">Community FAQ</a>
+		
+			
+		
+			
+		
+			
+		
+	
+		</div>
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-custom_nav">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-custom-nav lia-mark-empty">
+			
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-main-header-banner">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-banner">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<style>
+  #top-banner {
+    display: block;
+    height: auto;
+    width: 100%;
+    background-color: #e72429;
+    padding: 15px;
+}
+  #top-banner p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+  #top-banner a {
+    color: white;
+    text-decoration: underline;
+}
+@media only screen and (max-width: 1200px) {#top-banner p {padding-left: 70px;}}
+</style>
+
+
+
+<html>
+  <div id="top-banner">
+    
+  </div>
+
+
+</html>
+  <script>
+    document.getElementById('top-banner').style.display = 'none';
+  </script>
+
+
+
+
+		
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-main-header">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-header">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			 
+
+<nav id="header-horizontal-nav" class="horizontal-nav"> <div class="slide-out-menu hidden-lg"> <div class="lia-slide-out-nav-menu lia-component-common-widget-slide-out-nav-menu"> <button li-bindable="" li-common-element-hook="navMenuTriggerElement" class="lia-slide-menu-trigger lia-slide-out-nav-menu-wrapper"> <div ng-non-bindable="" class="lia-slide-out-nav-menu-title"> Browse </div> </button> <li:common-slide-menu li-bindable="" trigger-element="navMenuTriggerElement" li-direction="left" style="display:none"> <div class="lia-quilt lia-quilt-navigation-slide-out-menu lia-quilt-layout-one-column"> <div class="lia-quilt-row lia-quilt-row-header"> <div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-common-header lia-mark-empty"> </div> </div><div class="lia-quilt-row lia-quilt-row-main"> <div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-main-content"> <div class="lia-quilt-column-alley lia-quilt-column-alley-single"> <li:community-navigation class="lia-component-community-widget-navigation" li-bindable="" li-instance="0" componentId="community.widget.navigation" mode="default"></li:community-navigation> </div> </div> </div><div class="lia-quilt-row lia-quilt-row-footer"> <div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-common-footer lia-mark-empty"> </div> </div> </div> </li:common-slide-menu> </div> <ul class="custom-sub-nav"> <li role="presentation" class="community-link"><a class="top-level-link" role="menuitem" href="/" aria-label="Community">Community</a></li> </ul> </div> <ul class="custom-sub-nav visible-lg-block" role="menubar"> <li role="presentation" class="community-link"><a class="top-level-link" role="menuitem" href="/" aria-label="Community">Community</a></li> <li role="presentation" class="has-children"> <a role="menuitem" class="top-level-link menuitem" aria-haspopup="true" href="/t5/Knowledge/ct-p/knowledge" aria-label="Knowledge" tabindex="0">Knowledge</a> <ul class="header-sub-nav"> <li class="depth2"> <a href="/t5/Guides/ct-p/guides" role="menuitem" class="nav-category selectable-link" aria-label="Guides" tabindex="0">Guides</a> <li role="presentation" class="depth3"> <a href="/t5/Canvas/ct-p/canvas" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Canvas</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Community/ct-p/community_guides" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Community</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Catalog/ct-p/canvas_catalog" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Catalog</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Certify/ct-p/certify" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Certify</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Commons/ct-p/canvas_commons" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Commons</a> </li> <li role="presentation" class="depth3"> <a href="/t5/MasteryConnect/ct-p/masteryconnect" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">MasteryConnect</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Mobile/ct-p/apps" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Mobile</a> </li> <li role="presentation" class="depth3"> <a href="/t5/enCASE/ct-p/encase" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">enCASE</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Practice/ct-p/practice" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Practice</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Navigate-Item-Bank/ct-p/navigate" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Navigate Item Bank</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Guides-by-Language/ct-p/language_guides" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Guides by Language</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Portfolium/ct-p/portfolio" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Portfolium</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Student-Information-Systems-SIS/ct-p/sis_guides" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Student Information Systems (SIS)</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Studio/ct-p/studio_guides" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Studio</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Professional-Services/ct-p/professional_services" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Professional Services</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Videri/ct-p/videri" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Videri</a> </li> </li> <li class="depth2"> <a href="/t5/Question-Forum/bd-p/questions" role="menuitem" class="nav-category selectable-link" aria-label="Question Forum" tabindex="0">Question Forum</a> </li> <li class="depth2"> <a href="/t5/Training/tkb-p/Training" role="menuitem" class="nav-category selectable-link" aria-label="Training" tabindex="0">Training</a> </li> </ul> </li> <li role="presentation" class="has-children"> <a role="menuitem" class="top-level-link menuitem" aria-haspopup="true" href="/t5/Product/ct-p/product" aria-label="Product" tabindex="0">Product</a> <ul class="header-sub-nav"> <li class="depth2"> <a href="/t5/Roadmap/ct-p/roadmap" role="menuitem" class="nav-category selectable-link" aria-label="Roadmap" tabindex="0">Roadmap</a> <li role="presentation" class="depth3"> <a href="/t5/Idea-Conversations/idb-p/ideas" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Idea Conversations</a> </li> <li role="presentation" class="depth3"> <a href="/t5/The-Canvas-tl-dr/bg-p/tldr" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">The Canvas tl;dr</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Beta-User-Groups/ct-p/betagroups" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Beta User Groups</a> </li> </li> <li class="depth2"> <a href="/t5/Releases/ct-p/Releases" role="menuitem" class="nav-category selectable-link" aria-label="Releases" tabindex="0">Releases</a> <li role="presentation" class="depth3"> <a href="/t5/Canvas/ct-p/canvas-release" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Canvas</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Commons/ct-p/commons_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Commons</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Catalog/ct-p/catalog_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Catalog</a> </li> <li role="presentation" class="depth3"> <a href="/t5/MasteryConnect/ct-p/masteryconnect_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">MasteryConnect</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Mobile/ct-p/mobile-release" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Mobile</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Practice/ct-p/practice_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Practice</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Portfolium/ct-p/portfolium_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Portfolium</a> </li> <li role="presentation" class="depth3"> <a href="/t5/SIS-Integration/ct-p/sis_integration_release" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">SIS Integration</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Studio/ct-p/studio_releases" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Studio</a> </li> </li> <li class="depth2"> <a href="/t5/Known-Issues/ct-p/current_issues" role="menuitem" class="nav-category selectable-link" aria-label="Known Issues" tabindex="0">Known Issues</a> <li role="presentation" class="depth3"> <a href="/t5/Known-Issues/tkb-p/issues" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Known Issues</a> </li> </li> </ul> </li> <li role="presentation" class="has-children"> <a role="menuitem" class="top-level-link menuitem" aria-haspopup="true" href="/t5/Group-Hub/ct-p/groups" aria-label="Group Hub" tabindex="0">Group Hub</a> <ul class="header-sub-nav"> <li class="depth2"> <a href="/t5/My-Role/ct-p/role" role="menuitem" class="nav-category selectable-link" aria-label="My Role" tabindex="0">My Role</a> <li role="presentation" class="depth3"> <a href="/t5/Admin-Group/gh-p/admin" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Admin Group</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Community-Advocates/gh-p/advocate" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Community Advocates</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Instructional-Designer/gh-p/designer" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Instructional Designer</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Instructor/gh-p/instructor" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Instructor</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Observer-Parent/gh-p/observer" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Observer/Parent</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Student/gh-p/student" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Student</a> </li> </li> <li class="depth2"> <a href="/t5/My-Interests/ct-p/interest" role="menuitem" class="nav-category selectable-link" aria-label="My Interests" tabindex="0">My Interests</a> <li role="presentation" class="depth3"> <a href="/t5/Accessibility/gh-p/accessibility" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Accessibility</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Canvas-Data-Users/gh-p/data" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Canvas Data Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Catalog-Users/gh-p/catalog" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Catalog Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Commons-Users/gh-p/commons" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Commons Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Community-Users/gh-p/community" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Community Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/COVID-Resources/gh-p/contingency" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">COVID Resources</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Developers-Group/gh-p/developers" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Developers Group</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Free-For-Teacher-Users/gh-p/fft" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Free For Teacher Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Higher-Ed-Users/gh-p/highered" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Higher Ed Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/K12-Users/gh-p/k12" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">K12 Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/LMS-Migration-Strategies/gh-p/migration" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">LMS Migration Strategies</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Mobile-Users/gh-p/mobile" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Mobile Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Portfolium-Users/gh-p/portfolium" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Portfolium Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Studio-Users/gh-p/studio" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Studio Users</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Vocational-Ed-Training/gh-p/vet" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Vocational Ed &amp; Training</a> </li> <li role="presentation" class="depth3"> <a href="/t5/SIS/gh-p/sis" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">SIS</a> </li> </li> <li class="depth2"> <a href="/t5/My-Language/ct-p/language" role="menuitem" class="nav-category selectable-link" aria-label="My Language" tabindex="0">My Language</a> <li role="presentation" class="depth3"> <a href="/t5/Chinese-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87/gh-p/chinese" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Chinese 繁體中文</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Espa%C3%B1ol/gh-p/espanol" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Español</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Nederlands/gh-p/nederlands" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Nederlands</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Norsk/gh-p/norsk" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Norsk</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Portugu%C3%AAs/gh-p/portugues" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Português</a> </li> <li role="presentation" class="depth3"> <a href="/t5/Svenska/gh-p/svenska" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Svenska</a> </li> </li> <li class="depth2"> <a href="/t5/Instructure-CS/ct-p/customer-success" role="menuitem" class="nav-category selectable-link" aria-label="Instructure CS" tabindex="0">Instructure CS</a> <li role="presentation" class="depth3"> <a href="/t5/Priority-Services/bg-p/ps" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Priority Services</a> </li> </li> </ul> </li> <li role="presentation" class="has-children"> <a role="menuitem" class="top-level-link menuitem" aria-haspopup="true" href="/t5/Events/ct-p/events" aria-label="Events" tabindex="0">Events</a> <ul class="header-sub-nav"> <li class="depth2"> <a href="/t5/CanvasLive/bg-p/canvaslive" role="menuitem" class="nav-category selectable-link" aria-label="CanvasLive" tabindex="0">CanvasLive</a> </li> <li class="depth2"> <a href="/t5/Conferences/ct-p/conferences" role="menuitem" class="nav-category selectable-link" aria-label="Conferences" tabindex="0">Conferences</a> <li role="presentation" class="depth3"> <a href="/t5/CanvasCon-2020/bd-p/canvascon20" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">CanvasCon 2020</a> </li> <li role="presentation" class="depth3"> <a href="/t5/InstructureCon-2019/bd-p/instructurecon2019" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">InstructureCon 2019</a> </li> <li role="presentation" class="depth3"> <a href="/t5/InstructureCon-2018/bd-p/instructurecon2018" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">InstructureCon 2018</a> </li> <li role="presentation" class="depth3"> <a href="/t5/InstructureCon-2017/bd-p/instructurecon2017" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">InstructureCon 2017</a> </li> <li role="presentation" class="depth3"> <a href="/t5/InstructureCon-2016/bd-p/instructurecon2016" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">InstructureCon 2016</a> </li> <li role="presentation" class="depth3"> <a href="/t5/InstructureCon-2015/bd-p/instructurecon2015" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">InstructureCon 2015</a> </li> </li> <li class="depth2"> <a href="/t5/Community-Avatar-Contest/con-p/CommunityAvatarContest" role="menuitem" class="nav-category selectable-link" aria-label="Community Avatar Contest" tabindex="0">Community Avatar Contest</a> </li> </ul> </li> <li role="presentation" class="has-children"> <a role="menuitem" class="top-level-link menuitem" aria-haspopup="true" href="/t5/Partners/ct-p/partners" aria-label="Partners" tabindex="0">Partners</a> <ul class="header-sub-nav"> <li class="depth2"> <a href="/t5/Partner-Listings/ct-p/partner_listings" role="menuitem" class="nav-category selectable-link" aria-label="Partner Listings" tabindex="0">Partner Listings</a> <li role="presentation" class="depth3"> <a href="/t5/Partner-Listings/tkb-p/briefs" role="menuitem" class="nav-category selectable-link" aria-label="(catItem.short_title)!""}" tabindex="0">Partner Listings</a> </li> </li> </ul> </li> </ul> </nav>
+		
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-sub-header">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-sub-header-main">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<div id="lia-searchformV32" class="SearchForm lia-search-form-wrapper lia-mode-default lia-component-common-widget-search-form">
+	
+
+	
+		<div class="lia-inline-ajax-feedback">
+			<div class="AjaxFeedback" id="ajaxfeedback"></div>
+			
+	
+
+	
+
+		</div>
+
+	
+
+	
+		<div id="searchautocompletetoggle">	
+	
+		
+
+	
+		<div class="lia-inline-ajax-feedback">
+			<div class="AjaxFeedback" id="ajaxfeedback_0"></div>
+			
+	
+
+	
+
+		</div>
+
+	
+
+	
+			
+            <form enctype="multipart/form-data" class="lia-form lia-form-inline SearchForm" action="https://community.canvaslms.com/t5/errors/error404page.searchformv32.form.form" method="post" id="form" name="form"><div class="t-invisible"><input value="search/contributions/page" name="t:cp" type="hidden"></input><input value="SWXaR17DmC4t98HbLrNa1xJ5J_kbR-aVuUUpfWAXoE28DRqrf7DE5IfFlW_z93s98DpcMGOdhjL8Z-sInjgk4t6JgOmT15FzeYUiBjI6srGAUzX4zxggX9cBCAVQXr6FcgJD7zvx8ckePy_AWyWnZg3iGOY-2QX0KKzw_42U24gok5J2a12aeQodxkr2zc_m5HyCxTwa1zqy__SzI9pZKJSoP1vo2lMLKO81Wa5YIB-D4dexLq6FrSSLbahSHG5P1e7bWTpg_EUnn87Y58z94sJTm8DGhfW3huY4ToKqrDl95izFlnx8Vxr-MSoNb1faGKohYooyr2PbOP_9zE1hlxRAGelkA6B9orIcgXhO3cHHyVFu8oUOreUNk-Hy2Gqdl6G5PjE0dlq3rgvK3luqvN6KLBA8zE3Bi9zP5dOdYSTLM31AjmPGahnaXvJWh2RC_s4WgsDjbGdoMTYb4-DeXFwQyRD-I3j5OXC2_-Z2uLyq0AVs6Qq0U0pt-8dg9H_EIm-V88TExM5E6lsW1mskUiNHSAp_c_Fb_b2LweSKKm20edPj785XbZl7von5J8iZ8spUIOj-DaDytO6FCB_E6akY-L0tOXfVU7HduwcOFV1RXivYJH6aGUE2cAagQ0qh3BCRyGLzMcZaem4PSTidtMYXkbQEp3zyqIwfAIVqLAvAKfycd6MJ3TM76FW9689hTFuvPR8b5kivKK3_dIfCt_pymNtUVzBBTRsGeqtEfwnEZj-29RKtdp0dF7QTMmyWf-JtD4TWUOx-U3dmCwTh6gCWifUpMdZSJy926mnWGRVX_tMJwfxvoSVpLDhmN44psFzIhjZKUyK0TC9WX6FkZEFW3hV4w5Lxrwse5ccpYT5ypVDKr247HmQxdAQmVpV0-CRdCkPFc8TY4d_IXt9OsvQA4X5K5jS6tJw5EOMRi7wwQ8ot3ImxPVJXtRdNeaPkPXkc3xpcz58dITncbwNExJF1vA5GGxAqAk554a6DqftGWCUytk-s9ouNUdIWcp92FB3AO4P3ZKoWrN3C-y3sEQ.." name="lia-form-context" type="hidden"></input><input value="Error404Page::searchformv32.form:" name="liaFormContentKey" type="hidden"></input><input value="BJR3mZgsgXhChjmdyYZbPmMg/lU=:H4sIAAAAAAAAALWRzUrDQBSFr4WuiohF30C3iahdaEUogkWoGgyu5SadptEkE2du+rPpo/gE4kt04c538AHcunJhkkm1VsHE1tVwzx3O+c7M/QuU+3XYkwyF3dVtHpBwrYhcHkjdQIftq02HC7+3s62pyREYRB4Kl4ZSQI0LR8MQ7S7TCEMmSQxrms0F81xLs1AyrWHFItp07DKvvWEyisLNy3Hlef3xrQRLLaikwdw7Q58RVFvX2EPdw8DRzZgncOqDkGBVhTc/w+clbxQlNwS3mZRmZPmulHHU+KG923m9eyoBDML+IRzkxkksKDuS22xA8hZGAATLSj1S6ryuiWm5fw6neU38uGGsZmLS+wdpwlrNVma6Sl9p4VmqwQUYeV3pxipUYu17iaut/whUTU6gmdc4kkxMW87MkwIriT79BYuLKIwccPryCjPzB3Ki/xH5l4gU+R2rKjjg2gQAAA==" name="t:formdata" type="hidden"></input></div>
+	
+	
+
+	
+
+	
+
+	
+		<div class="lia-inline-ajax-feedback">
+			<div class="AjaxFeedback" id="feedback"></div>
+			
+	
+
+	
+
+		</div>
+
+	
+
+	
+
+	
+
+	
+
+
+	
+	<input value="eev03SK3eWWj0d4fdQPrOMmpsoqsDIfGc_8VMDLwXLo." name="lia-action-token" type="hidden"></input>
+	
+	<input value="form" id="form_UIDform" name="form_UID" type="hidden"></input>
+	<input value="" id="form_instance_keyform" name="form_instance_key" type="hidden"></input>
+	
+                
+
+                
+                    
+                        <span class="lia-search-granularity-wrapper">
+                            <select title="Search Granularity" class="lia-search-form-granularity search-granularity" aria-label="Search Granularity" id="searchGranularity" name="searchGranularity"><option title="All community" selected="selected" value="xjnht99997|community">All community</option><option title="Knowledge base" value="tkb|tkb">Knowledge base</option><option title="Users" value="user|user">Users</option></select>
+                        </span>
+                    
+                
+
+                <span class="lia-search-input-wrapper">
+                    <span class="lia-search-input-field">
+                        <span class="lia-button-wrapper lia-button-wrapper-secondary lia-button-wrapper-searchForm-action"><input value="searchForm" name="submitContextX" type="hidden"></input><input class="lia-button lia-button-secondary lia-button-searchForm-action" value="Search" id="submitContext" name="submitContext" type="submit"></input></span>
+
+                        <span class="lia-hidden-aria-visibile" id="autocompleteInstructionsText"></span><input placeholder="Search all content" aria-label="Search" title="Search" class="lia-form-type-text lia-autocomplete-input search-input lia-search-input-message" value="" id="messageSearchField_0" name="messageSearchField" type="text"></input>
+                        <span class="lia-hidden-aria-visibile" id="autocompleteInstructionsText_0"></span><input placeholder="Search all content" aria-label="Search" title="Search" class="lia-form-type-text lia-autocomplete-input search-input lia-search-input-tkb-article lia-js-hidden" value="" id="messageSearchField_1" name="messageSearchField_0" type="text"></input>
+                        
+
+	
+		<span class="lia-hidden-aria-visibile" id="autocompleteInstructionsText_1"></span><input placeholder="Search all content" ng-non-bindable="" title="Enter a user name or rank" class="lia-form-type-text UserSearchField lia-search-input-user search-input lia-js-hidden lia-autocomplete-input" aria-label="Enter a user name or rank" value="" id="userSearchField" name="userSearchField" type="text"></input>
+	
+
+	
+
+
+                        <span class="lia-hidden-aria-visibile" id="autocompleteInstructionsText_2"></span><input title="Enter a search word" class="lia-form-type-text NoteSearchField lia-search-input-note search-input lia-js-hidden lia-autocomplete-input" aria-label="Enter a search word" value="" id="noteSearchField_0" name="noteSearchField" type="text"></input>
+                        <input class="lia-as-search-action-id" name="as-search-action-id" type="hidden"></input>
+                    </span>
+                </span>
+                
+
+                <span class="lia-cancel-search">cancel</span>
+
+                
+            
+</form>
+		
+			<div class="search-autocomplete-toggle-link lia-js-hidden">
+				<span>
+					<a class="lia-link-navigation auto-complete-toggle-on lia-link-ticket-post-action lia-component-search-action-enable-auto-complete" data-lia-action-token="NwWm8LS_t2KDmZpxSfefOzqxwYP2JhaZzR6SdQ0Run0." rel="nofollow" id="enableAutoComplete" href="https://community.canvaslms.com/t5/errors/error404page.enableautocomplete:enableautocomplete?t:cp=action/contributions/searchactions">Turn on suggestions</a>					
+					<span role="button" class="HelpIcon">
+	<a class="lia-link-navigation help-icon lia-tooltip-trigger" id="link" href="#"><span class="lia-img-icon-help lia-fa-icon lia-fa-help lia-fa" alt="Auto-suggest helps you quickly narrow down your search results by suggesting possible matches as you type." aria-label="Help Icon" role="img" id="display"></span></a><div role="alertdialog" class="lia-content lia-tooltip-pos-bottom-left lia-panel-tooltip-wrapper" id="link_0-tooltip-element"><div class="lia-tooltip-arrow"></div><div class="lia-panel-tooltip"><div class="content">Auto-suggest helps you quickly narrow down your search results by suggesting possible matches as you type.</div></div></div>
+</span>
+				</span>
+			</div>
+		
+
+	
+
+	
+
+	
+	
+	
+</div>
+		
+	<div class="spell-check-showing-result">
+		Showing results for <span class="lia-link-navigation show-results-for-link lia-link-disabled" id="showingResult"></span>
+		
+
+	</div>
+	<div>
+		
+		<span class="spell-check-search-instead">
+			Search instead for <a class="lia-link-navigation search-instead-for-link" rel="nofollow" id="searchInstead" href="#"></a>
+		</span>
+
+	</div>
+	<div class="spell-check-do-you-mean lia-component-search-widget-spellcheck">
+		Did you mean: <a class="lia-link-navigation do-you-mean-link" rel="nofollow" id="doYouMean" href="#"></a>
+	</div>
+
+	
+
+	
+
+	
+
+
+	
+</div>
+		
+			    <div class="custom-community-header-cta">
+        <a class="lia-button lia-button-primary" href="/plugins/common/feature/samlss/doauth/redirect?referer=https%3A%2F%2Fcommunity.canvaslms.com%2Ft5%2Ferrors%2Ferror404page">Log in to participate</a>
+    </div>
+
+		
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-breadcrumb">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-breadcrumb">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<div aria-label="breadcrumbs" role="navigation" class="BreadCrumb crumb-line lia-breadcrumb lia-component-common-widget-breadcrumb">
+	<ul role="list" id="list" class="lia-list-standard-inline">
+	
+		
+			<li class="lia-breadcrumb-node crumb">
+				<a class="lia-link-navigation crumb-community lia-breadcrumb-community lia-breadcrumb-forum" id="link_1" href="/">Home</a>
+			</li>
+			
+				<li aria-hidden="true" class="lia-breadcrumb-seperator crumb-community lia-breadcrumb-community lia-breadcrumb-forum">
+				  
+           			 <span>
+           				 <span class="lia-img-icon-list-separator-breadcrumb lia-fa-icon lia-fa-list lia-fa-separator lia-fa-breadcrumb lia-fa" alt="" aria-label="" role="img" id="display_0"></span>
+  					</span>
+          		  
+       			 
+				</li>
+			
+		
+			<li class="lia-breadcrumb-node crumb final-crumb">
+				<span class="lia-link-navigation child-thread lia-link-disabled" id="link_2">Page not found</span>
+			</li>
+			
+		
+	
+</ul>
+</div>
+		
+	
+	
+
+	
+		<div class="page-controls lia-mark-empty">
+			
+		
+			
+    
+
+		
+	
+		</div>
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-feedback">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-feedback">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			
+	
+
+	
+
+		
+			
+        
+        
+	
+
+	
+
+    
+		
+	
+	
+</div>
+		</div>
+	</div>
+</div>
+		
+	
+	
+
+	
+		<div class="lia-page-header">
+			
+		
+			
+		
+			<h1 class="PageTitle lia-component-common-widget-page-title"><span class="lia-link-navigation lia-link-disabled" id="link_3">Page not found</span></h1>
+		
+	
+		</div>
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-main">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-main-content">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			
+			
+	<span id="feedback-errorinformationbox_4"> </span>
+
+	
+		<div class="InfoMessage lia-panel-feedback-inline-alert lia-component-content" id="informationbox_4">
+			<div role="alert" class="lia-text">
+				
+
+				
+					<p ng-non-bindable="" tabindex="0">
+						The page you are trying to access was not found. Please check your URL for typos and try again.
+					</p>
+				
+
+				
+
+				
+
+				
+			</div>
+
+			
+		</div>
+	
+
+		
+		
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-footer">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-common-footer">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<div class="lia-quilt lia-quilt-footer lia-quilt-layout-footer lia-component-quilt-footer">
+	<div class="lia-quilt-row lia-quilt-row-main">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-icons">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single">
+	
+		
+			<li:common-scroll-to class="lia-component-common-widget-scroll-to" li-bindable="" li-instance="0" componentId="common.widget.scroll-to" mode="default"></li:common-scroll-to>
+		
+			
+		
+	
+	
+</div>
+		</div>
+	</div><div class="lia-quilt-row lia-quilt-row-theme-scripts">
+		<div class="lia-quilt-column lia-quilt-column-24 lia-quilt-column-single lia-quilt-column-ui-scripts">
+			<div class="lia-quilt-column-alley lia-quilt-column-alley-single lia-mark-empty">
+	
+		
+			
+		
+	
+	
+</div>
+		</div>
+	</div>
+</div>
+		
+	
+	
+</div>
+		</div>
+	</div>
+</div>
+
+	
+						</div>
+					
+			</div>								
+		</div>
+	</div>
+
+				<div id="footer">
+    <div class="inner">
+        <h3>
+            <a href="https://www.instructure.com/">
+                <img id="logo" src="https://community.canvaslms.com/html/@8172B4B17B2C088A245A756A19BA6E39/assets/img_footer-logo.png" alt="Canvas" />
+            </a>
+        </h3>
+        <section>
+            <ul>
+                <li>Reference</li>
+                <li><a href="/t5/Community/What-are-the-Canvas-Community-guidelines/ta-p/2978">Community Guidelines</a></li>
+                <li><a href="https://www.instructure.com/canvas/security">Security</a></li>
+                <li><a href="https://instructure.github.com/">Developers</a></li>
+                <li><a href="https://github.com/instructure/canvas-lms/wiki">Open Source</a></li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li>Company</li>
+                <li><a href="https://partners.instructure.com/English/">Partners</a></li>
+                <li><a href="https://www.instructure.com/careers/">Jobs</a></li>
+                <li><a href="https://www.instructure.com/canvas/about">About Us</a></li>
+                <li><a href="https://www.instructure.com/store/">Store</a></li>
+                <li><a href="https://www.instructure.com/policies/marketing-privacy">Privacy</a></li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li>Help</li>
+                <li><a href="https://community.canvaslms.com/docs/DOC-17624-how-to-contact-canvas-support">Support</a></li>
+                <li><a href="https://community.canvaslms.com/community/answers/guides">Guides</a></li>
+                <li><a href="https://community.canvaslms.com/community/answers/releases">Releases</a></li>
+                <li><a href="https://status.instructure.com/">Status</a></li>
+            </ul>
+        </section>
+        <section>
+            <div>
+                <a href="https://www.instructure.com/canvas/try-canvas" class="button-footer">Try Canvas</a>
+                <a href="https://www.instructure.com/canvas" class="button-footer empty">Learn More</a>
+            </div>
+            <ul class="footer-social-links">
+                <li>
+                    <a class="icon" href="https://facebook.com/CanvasLMS">
+                        <img src="https://community.canvaslms.com/html/@A19735A988F686E2F9CB2C44F3BD4517/assets/img_footer-facebook.png" alt="Facebook" />
+                    </a>
+                </li>
+                <li>
+                    <a class="icon" href="https://twitter.com/CanvasLMS">
+                        <img src="https://community.canvaslms.com/html/@3F9CE61567BE51C4A9840A24ADF2C521/assets/img_footer-twitter.png" alt="Twitter" />
+                    </a>
+                </li>
+                <li>
+                    <a class="icon" href="https://www.youtube.com/user/CanvasLMS">
+                        <img src="https://community.canvaslms.com/html/@D0304166669B3CBCB36C3847F419E108/assets/img_footer-youtube.png" alt="Youtube" />
+                    </a>
+                </li>
+                <li>
+                    <a class="icon" href="https://www.linkedin.com/showcase/canvas-lms/">
+                        <img src="https://community.canvaslms.com/html/@74BFF6E688A1A6067902C8437C9588C3/assets/img_footer-linkedin.png" alt="LinkedIn" />
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <small>© 2020 Instructure. All rights reserved</small>
+    </div>
+</div>
+			
+		</center>
+	</div>
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+	new Image().src = ["/","b","e","a","c","o","n","/","5","8","4","7","9","5","1","0","6","6","0","_","1","6","1","9","2","0","7","5","9","0","3","6","7",".","g","i","f"].join("");
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+LITHIUM.ScriptLoader.ready(['common', 'body', 'angularjs', 'angularjsModules'], function () {
+LITHIUM.AngularSupport.setOptions({
+  "useCsp" : true,
+  "useNg2" : false,
+  "coreModuleDeps" : [
+    "li.directives.common.slide-menu",
+    "li.directives.community.navigation",
+    "li.directives.common.scroll-to",
+    "li.directives.common.non-bindable"
+  ],
+  "debugEnabled" : false
+});
+LITHIUM.AngularSupport.initGlobal(angular);LITHIUM.AngularSupport.init();LITHIUM.Globals.restoreGlobals(['define', '$', 'jQuery', 'angular']);LITHIUM.Sandbox.restore();
+LITHIUM.jQuery.fn.cssData.defaults = {"dataPrefix":"lia-js-data","pairDelimeter":"-","prefixDelimeter":"-"};
+LITHIUM.CommunityJsonObject.User.policies['forums.action.message-view.batch-messages.allow'] = false;
+LITHIUM.Form.resetFieldForFocusFound();
+  ;(function($) {
+    $('body').on('click', function() {
+            $('#header-horizontal-nav .has-children').removeClass('expanded');
+    });
+
+        $('#header-horizontal-nav > .custom-sub-nav > li > .top-level-link').on('keydown', function(evt) {
+
+            evt.stopPropagation();
+            var parent = $(this).parent();
+
+            if (parent.hasClass('has-children')) {
+                if (evt.keyCode == 40) {
+                    evt.preventDefault();
+                    $('.has-children').removeClass('expanded');
+                    $(parent).addClass('expanded');
+                    $('.header-sub-nav li:first-child a', parent).addClass('selected').focus();
+                }
+            }
+            if (evt.keyCode == 39 && !parent.is(':last-child')) {
+                $(this).removeClass('expanded');
+                $('.top-level-link', parent.next()).focus();
+            } else if (evt.keyCode == 37 && !parent.is(':first-child')) {
+                $(this).removeClass('expanded');
+                $('.top-level-link', parent.prev()).focus();
+            }
+        });
+
+        $('#header-horizontal-nav li').on('keydown', '.selectable-link', function(evt) {
+            console.log(evt.target);
+            evt.stopPropagation();
+            if (evt.keyCode == 40) {
+                $(this).removeClass('selected');
+                $('a.selectable-link', $(this).parent().next()).addClass('selected').focus();
+                evt.preventDefault();
+            } else if (evt.keyCode == 38 && $(this).parent().is(':first-child')) {
+                $(this).removeClass('selected');
+                var targetParent = $(this).parents('.has-children');
+                targetParent.removeClass('expanded');
+                $('.top-level-link', targetParent).focus();
+                evt.preventDefault();
+            } else if (evt.keyCode == 38 && !$(this).parent().is(':first-child')) {
+                $(this).removeClass('selected');
+                $('a.selectable-link', $(this).parent().prev()).addClass('selected').focus();
+                evt.preventDefault();
+            }
+
+        });
+  })(LITHIUM.jQuery);
+
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox","feedbackSelector":".InfoMessage"});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox_0","feedbackSelector":".InfoMessage"});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox_1","feedbackSelector":".InfoMessage"});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox_2","feedbackSelector":".InfoMessage"});
+LITHIUM.AjaxFeedback(".lia-inline-ajax-feedback", "LITHIUM:hideAjaxFeedback", ".lia-inline-ajax-feedback-persist");
+LITHIUM.Placeholder();
+LITHIUM.AutoComplete({"options":{"autosuggestionAvailableInstructionText":"Auto-suggestions available. Use Up and Down arrow keys to navigate.","triggerTextLength":3,"autocompleteInstructionsSelector":"#autocompleteInstructionsText","updateInputOnSelect":true,"loadingText":"Searching...","emptyText":"No Matches","successText":"Results:","defaultText":"Enter a search word","autosuggestionUnavailableInstructionText":"No suggestions available","disabled":false,"footerContent":[{"scripts":"\n\n(function(b){LITHIUM.Link=function(f){function g(a){var c=b(this),e=c.data(\"lia-action-token\");!0!==c.data(\"lia-ajax\")&&void 0!==e&&!1===a.isPropagationStopped()&&!1===a.isImmediatePropagationStopped()&&!1===a.isDefaultPrevented()&&(a.stop(),a=b(\"\\x3cform\\x3e\",{method:\"POST\",action:c.attr(\"href\"),enctype:\"multipart/form-data\"}),e=b(\"\\x3cinput\\x3e\",{type:\"hidden\",name:\"lia-action-token\",value:e}),a.append(e),b(document.body).append(a),a.submit(),d.trigger(\"click\"))}var d=b(document);void 0===d.data(\"lia-link-action-handler\")&&\n(d.data(\"lia-link-action-handler\",!0),d.on(\"click.link-action\",f.linkSelector,g),b.fn.on=b.wrap(b.fn.on,function(a){var c=a.apply(this,b.makeArray(arguments).slice(1));this.is(document)&&(d.off(\"click.link-action\",f.linkSelector,g),a.call(this,\"click.link-action\",f.linkSelector,g));return c}))}})(LITHIUM.jQuery);\nLITHIUM.Link({\n  \"linkSelector\" : \"a.lia-link-ticket-post-action\"\n});LITHIUM.AjaxSupport.defaultAjaxFeedbackHtml = \"<div class=\\\"lia-inline-ajax-feedback lia-component-common-widget-ajax-feedback\\\">\\n\\t\\t\\t<div class=\\\"AjaxFeedback\\\" id=\\\"ajaxFeedback_507ad1fa03f302\\\"><\\/div>\\n\\t\\t\\t\\n\\t\\n\\n\\t\\n\\n\\t\\t<\\/div>\";LITHIUM.AjaxSupport.defaultAjaxErrorHtml = \"<span id=\\\"feedback-errorfeedback_507ad1fa1b5a8f\\\"> <\\/span>\\n\\n\\t\\n\\t\\t<div class=\\\"InfoMessage lia-panel-feedback-inline-alert lia-component-common-widget-feedback\\\" id=\\\"feedback_507ad1fa1b5a8f\\\">\\n\\t\\t\\t<div role=\\\"alert\\\" class=\\\"lia-text\\\">\\n\\t\\t\\t\\t\\n\\n\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t<p ng-non-bindable=\\\"\\\" tabindex=\\\"0\\\">\\n\\t\\t\\t\\t\\t\\tSorry, unable to complete the action you requested.\\n\\t\\t\\t\\t\\t<\\/p>\\n\\t\\t\\t\\t\\n\\n\\t\\t\\t\\t\\n\\n\\t\\t\\t\\t\\n\\n\\t\\t\\t\\t\\n\\t\\t\\t<\\/div>\\n\\n\\t\\t\\t\\n\\t\\t<\\/div>\";LITHIUM.AjaxSupport.fromLink('#disableAutoComplete_507ad1f9f7c519', 'disableAutoComplete', '#ajaxfeedback_0', 'LITHIUM:ajaxError', {}, '_lKdrhJ2Ayyn06FOp5p6CClV1HCzZk_IPiLnlDwWZVQ.', 'ajax');","content":"<a class=\"lia-link-navigation lia-autocomplete-toggle-off lia-link-ticket-post-action lia-component-search-action-disable-auto-complete\" data-lia-action-token=\"KliNqDyFTFiim9m-lDCok5ZjKf7ADkjegXtOor6Mx9c.\" rel=\"nofollow\" id=\"disableAutoComplete_507ad1f9f7c519\" href=\"https://community.canvaslms.com/t5/errors/error404page.disableautocomplete:disableautocomplete?t:cp=action/contributions/searchactions\">Turn off suggestions<\/a>"}],"prefixTriggerTextLength":3},"inputSelector":"#messageSearchField_0","redirectToItemLink":false,"url":"https://community.canvaslms.com/t5/errors/error404page.searchformv32.messagesearchfield.messagesearchfield:autocomplete?t:cp=search/contributions/page","resizeImageEvent":"LITHIUM:renderImages"});
+LITHIUM.AutoComplete({"options":{"autosuggestionAvailableInstructionText":"Auto-suggestions available. Use Up and Down arrow keys to navigate.","triggerTextLength":3,"autocompleteInstructionsSelector":"#autocompleteInstructionsText_0","updateInputOnSelect":true,"loadingText":"Searching...","emptyText":"No Matches","successText":"Results:","defaultText":"Enter a search word","autosuggestionUnavailableInstructionText":"No suggestions available","disabled":false,"footerContent":[{"scripts":"\n\n(function(b){LITHIUM.Link=function(f){function g(a){var c=b(this),e=c.data(\"lia-action-token\");!0!==c.data(\"lia-ajax\")&&void 0!==e&&!1===a.isPropagationStopped()&&!1===a.isImmediatePropagationStopped()&&!1===a.isDefaultPrevented()&&(a.stop(),a=b(\"\\x3cform\\x3e\",{method:\"POST\",action:c.attr(\"href\"),enctype:\"multipart/form-data\"}),e=b(\"\\x3cinput\\x3e\",{type:\"hidden\",name:\"lia-action-token\",value:e}),a.append(e),b(document.body).append(a),a.submit(),d.trigger(\"click\"))}var d=b(document);void 0===d.data(\"lia-link-action-handler\")&&\n(d.data(\"lia-link-action-handler\",!0),d.on(\"click.link-action\",f.linkSelector,g),b.fn.on=b.wrap(b.fn.on,function(a){var c=a.apply(this,b.makeArray(arguments).slice(1));this.is(document)&&(d.off(\"click.link-action\",f.linkSelector,g),a.call(this,\"click.link-action\",f.linkSelector,g));return c}))}})(LITHIUM.jQuery);\nLITHIUM.Link({\n  \"linkSelector\" : \"a.lia-link-ticket-post-action\"\n});LITHIUM.AjaxSupport.fromLink('#disableAutoComplete_507ad1fa5003fe', 'disableAutoComplete', '#ajaxfeedback_0', 'LITHIUM:ajaxError', {}, '-4qMBvg0QMFAU18xlgTX7jufJyB0kkTTXL1hH2AZvEE.', 'ajax');","content":"<a class=\"lia-link-navigation lia-autocomplete-toggle-off lia-link-ticket-post-action lia-component-search-action-disable-auto-complete\" data-lia-action-token=\"4ji1LK-1IKPFudyse4P4apuN8LWYMgxVSw-qxbiKMmg.\" rel=\"nofollow\" id=\"disableAutoComplete_507ad1fa5003fe\" href=\"https://community.canvaslms.com/t5/errors/error404page.disableautocomplete:disableautocomplete?t:cp=action/contributions/searchactions\">Turn off suggestions<\/a>"}],"prefixTriggerTextLength":3},"inputSelector":"#messageSearchField_1","redirectToItemLink":false,"url":"https://community.canvaslms.com/t5/errors/error404page.searchformv32.tkbmessagesearchfield.messagesearchfield:autocomplete?t:cp=search/contributions/page","resizeImageEvent":"LITHIUM:renderImages"});
+LITHIUM.AutoComplete({"options":{"autosuggestionAvailableInstructionText":"Auto-suggestions available. Use Up and Down arrow keys to navigate.","triggerTextLength":0,"autocompleteInstructionsSelector":"#autocompleteInstructionsText_1","updateInputOnSelect":true,"loadingText":"Searching for users...","emptyText":"No Matches","successText":"Users found:","defaultText":"Enter a user name or rank","autosuggestionUnavailableInstructionText":"No suggestions available","disabled":false,"footerContent":[{"scripts":"\n\n(function(b){LITHIUM.Link=function(f){function g(a){var c=b(this),e=c.data(\"lia-action-token\");!0!==c.data(\"lia-ajax\")&&void 0!==e&&!1===a.isPropagationStopped()&&!1===a.isImmediatePropagationStopped()&&!1===a.isDefaultPrevented()&&(a.stop(),a=b(\"\\x3cform\\x3e\",{method:\"POST\",action:c.attr(\"href\"),enctype:\"multipart/form-data\"}),e=b(\"\\x3cinput\\x3e\",{type:\"hidden\",name:\"lia-action-token\",value:e}),a.append(e),b(document.body).append(a),a.submit(),d.trigger(\"click\"))}var d=b(document);void 0===d.data(\"lia-link-action-handler\")&&\n(d.data(\"lia-link-action-handler\",!0),d.on(\"click.link-action\",f.linkSelector,g),b.fn.on=b.wrap(b.fn.on,function(a){var c=a.apply(this,b.makeArray(arguments).slice(1));this.is(document)&&(d.off(\"click.link-action\",f.linkSelector,g),a.call(this,\"click.link-action\",f.linkSelector,g));return c}))}})(LITHIUM.jQuery);\nLITHIUM.Link({\n  \"linkSelector\" : \"a.lia-link-ticket-post-action\"\n});LITHIUM.AjaxSupport.fromLink('#disableAutoComplete_507ad1fa77d5d0', 'disableAutoComplete', '#ajaxfeedback_0', 'LITHIUM:ajaxError', {}, 'paUR34WjFGiOMEGioUGLPU2OUnZR4LmhxWdB1CgpvpE.', 'ajax');","content":"<a class=\"lia-link-navigation lia-autocomplete-toggle-off lia-link-ticket-post-action lia-component-search-action-disable-auto-complete\" data-lia-action-token=\"feyyT6t03asqXRl9V-lDxpqtBIFgNvL4B3xjwF7PK8Q.\" rel=\"nofollow\" id=\"disableAutoComplete_507ad1fa77d5d0\" href=\"https://community.canvaslms.com/t5/errors/error404page.disableautocomplete:disableautocomplete?t:cp=action/contributions/searchactions\">Turn off suggestions<\/a>"}],"prefixTriggerTextLength":0},"inputSelector":"#userSearchField","redirectToItemLink":false,"url":"https://community.canvaslms.com/t5/errors/error404page.searchformv32.usersearchfield.usersearchfield:autocomplete?t:cp=search/contributions/page","resizeImageEvent":"LITHIUM:renderImages"});
+LITHIUM.AjaxSupport({"ajaxOptionsParam":{"event":"LITHIUM:userExistsQuery","parameters":{"javascript.ignore_combine_and_minify":"true"}},"tokenId":"ajax","elementSelector":"#userSearchField","action":"userExistsQuery","feedbackSelector":"#ajaxfeedback_0","url":"https://community.canvaslms.com/t5/errors/error404page.searchformv32.usersearchfield:userexistsquery?t:cp=search/contributions/page","ajaxErrorEventName":"LITHIUM:ajaxError","token":"IBQLgFBOYaIEZ85B1FTqiabDWgPKCknJAVt7g1650iA."});
+LITHIUM.AutoComplete({"options":{"autosuggestionAvailableInstructionText":"Auto-suggestions available. Use Up and Down arrow keys to navigate.","triggerTextLength":3,"autocompleteInstructionsSelector":"#autocompleteInstructionsText_2","updateInputOnSelect":true,"loadingText":"Searching...","emptyText":"No Matches","successText":"Results:","defaultText":"Enter a search word","autosuggestionUnavailableInstructionText":"No suggestions available","disabled":false,"footerContent":[{"scripts":"\n\n(function(b){LITHIUM.Link=function(f){function g(a){var c=b(this),e=c.data(\"lia-action-token\");!0!==c.data(\"lia-ajax\")&&void 0!==e&&!1===a.isPropagationStopped()&&!1===a.isImmediatePropagationStopped()&&!1===a.isDefaultPrevented()&&(a.stop(),a=b(\"\\x3cform\\x3e\",{method:\"POST\",action:c.attr(\"href\"),enctype:\"multipart/form-data\"}),e=b(\"\\x3cinput\\x3e\",{type:\"hidden\",name:\"lia-action-token\",value:e}),a.append(e),b(document.body).append(a),a.submit(),d.trigger(\"click\"))}var d=b(document);void 0===d.data(\"lia-link-action-handler\")&&\n(d.data(\"lia-link-action-handler\",!0),d.on(\"click.link-action\",f.linkSelector,g),b.fn.on=b.wrap(b.fn.on,function(a){var c=a.apply(this,b.makeArray(arguments).slice(1));this.is(document)&&(d.off(\"click.link-action\",f.linkSelector,g),a.call(this,\"click.link-action\",f.linkSelector,g));return c}))}})(LITHIUM.jQuery);\nLITHIUM.Link({\n  \"linkSelector\" : \"a.lia-link-ticket-post-action\"\n});LITHIUM.AjaxSupport.fromLink('#disableAutoComplete_507ad1fa9d79ed', 'disableAutoComplete', '#ajaxfeedback_0', 'LITHIUM:ajaxError', {}, '4rZifVJzA8GaEgQxmBBSY1i1dLBq6HsOV4PCgSCDW9Y.', 'ajax');","content":"<a class=\"lia-link-navigation lia-autocomplete-toggle-off lia-link-ticket-post-action lia-component-search-action-disable-auto-complete\" data-lia-action-token=\"_sPk6mT4BpW9kHoHcV664nmOPUVAXjDNDYYKjtAlzdw.\" rel=\"nofollow\" id=\"disableAutoComplete_507ad1fa9d79ed\" href=\"https://community.canvaslms.com/t5/errors/error404page.disableautocomplete:disableautocomplete?t:cp=action/contributions/searchactions\">Turn off suggestions<\/a>"}],"prefixTriggerTextLength":0},"inputSelector":"#noteSearchField_0","redirectToItemLink":false,"url":"https://community.canvaslms.com/t5/errors/error404page.searchformv32.notesearchfield.notesearchfield:autocomplete?t:cp=search/contributions/page","resizeImageEvent":"LITHIUM:renderImages"});
+LITHIUM.Link({"linkSelector":"a.lia-link-ticket-post-action"});
+LITHIUM.AjaxSupport.fromLink('#enableAutoComplete', 'enableAutoComplete', '#ajaxfeedback_0', 'LITHIUM:ajaxError', {}, 'OypUrVUlgWXhBk6R6ewuB4BJpNwIJfWIMSH8rjeRp3s.', 'ajax');
+LITHIUM.Tooltip({"bodySelector":"body#lia-body","delay":30,"enableOnClickForTrigger":false,"predelay":10,"triggerSelector":"#link","tooltipContentSelector":"#link_0-tooltip-element .content","position":["bottom","left"],"tooltipElementSelector":"#link_0-tooltip-element","events":{"def":"focus mouseover,blur mouseout"},"hideOnLeave":true});
+LITHIUM.SearchAutoCompleteToggle({"containerSelector":"#searchautocompletetoggle","enableAutoCompleteSelector":".search-autocomplete-toggle-link","enableAutocompleteSuccessEvent":"LITHIUM:ajaxSuccess:enableAutoComplete","disableAutoCompleteSelector":".lia-autocomplete-toggle-off","disableAutocompleteSuccessEvent":"LITHIUM:ajaxSuccess:disableAutoComplete","autoCompleteSelector":".lia-autocomplete-input"});
+LITHIUM.SearchForm({"asSearchActionIdSelector":".lia-as-search-action-id","useAutoComplete":true,"selectSelector":".lia-search-form-granularity","useClearSearchButton":false,"buttonSelector":".lia-button-searchForm-action","asSearchActionIdParamName":"as-search-action-id","formSelector":"#lia-searchformV32","nodesModel":{"tkb|tkb":{"title":"Knowledge base","inputSelector":".lia-search-input-tkb-article"},"xjnht99997|community":{"title":"Search Community: Canvas Community","inputSelector":".lia-search-input-message"},"user|user":{"title":"Users","inputSelector":".lia-search-input-user"}},"asSearchActionIdHeaderKey":"X-LI-AS-Search-Action-Id","inputSelector":"#messageSearchField_0:not(.lia-js-hidden)","clearSearchButtonSelector":null});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#pageInformation","feedbackSelector":".InfoMessage"});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox_3","feedbackSelector":".InfoMessage"});
+LITHIUM.InformationBox({"updateFeedbackEvent":"LITHIUM:updateAjaxFeedback","componentSelector":"#informationbox_4","feedbackSelector":".InfoMessage"});
+  ;(function($) {
+	$(document).ready(function() {
+		var offset = 200,
+		    shown = false;
+
+		$(window).scroll(function(){
+			if ($(window).scrollTop() > offset) {
+				if (!shown) {
+					$('.li-common-scroll-to-wrapper').show().animate({opacity: 1}, 300);
+					shown = true;
+				}
+			} else {
+				if (shown) {
+					$('.li-common-scroll-to-wrapper').animate({opacity: 0}, 300, 
+						function() { $(this).hide() });
+					shown = false;
+				}
+			}
+		});
+	});
+  })(LITHIUM.jQuery);
+
+LITHIUM.PartialRenderProxy({"limuirsComponentRenderedEvent":"LITHIUM:limuirsComponentRendered","relayEvent":"LITHIUM:partialRenderProxyRelay","listenerEvent":"LITHIUM:partialRenderProxy"});
+LITHIUM.AjaxSupport({"ajaxOptionsParam":{"event":"LITHIUM:partialRenderProxyRelay","parameters":{"javascript.ignore_combine_and_minify":"true"}},"tokenId":"ajax","elementSelector":document,"action":"partialRenderProxyRelay","feedbackSelector":false,"url":"https://community.canvaslms.com/t5/errors/error404page.liabase.basebody.partialrenderproxy:partialrenderproxyrelay","ajaxErrorEventName":"LITHIUM:ajaxError","token":"cMkj40xvqfgqdOCS4Gh3oV2dgIlVfDguEhTsj8A5cT4."});
+LITHIUM.Auth.API_URL = '/t5/util/authcheckpage';
+LITHIUM.Auth.LOGIN_URL_TMPL = '/plugins/common/feature/samlss/doauth/redirect?referer=https%3A%2F%2FREPLACE_TEXT';
+LITHIUM.Auth.KEEP_ALIVE_URL = '/t5/status/blankpage?keepalive';
+LITHIUM.Auth.KEEP_ALIVE_TIME = 300000;
+LITHIUM.Auth.CHECK_SESSION_TOKEN = '0WUXt4AKkmAzbISP6XHQpqR0LxID8VCW8fV0wdNu54k.';
+LITHIUM.AjaxSupport.useTickets = false;
+LITHIUM.Loader.runJsAttached();
+
+});
+// -->
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam-cell.nr-data.net","licenseKey":"90ec53e80f","agent":"","beacon":"bam-cell.nr-data.net","applicationTime":364,"applicationID":"322244629","transactionName":"M1BRYEAEWBVYURYLWAoaZFFQSmIHSVcRFkUdZVJTV19zFEtdEFYHUGVSU1c=","queueTime":0,"atts":"HxdGFggeFA1afA0GUjBMQ1EQXxQFVl8PF1kNQUoWHkdQFFhfBytTRg8GDAZSD1MIAlRUB0gXWFdnFlMUcFZAWBpVGRFfUTVXAVx8Aw9SRg8RcUAXWRQNAlYyVgNQERgQDlUrVlALDlJGDxFSUwlFAxseQAlUJlpHFghHUAdVQQdAG0ZeUGBKRwxECVcBVlUCU1UZAwdXUhQGW1EBSQ0KBQRIUFQBVAYBUVJTAQdWRxpEUlEsDVMBfFcWCEdODFdaFlsOXQwEFh5HXQVrVxEWYVZkRlFAHBRcG2EnLnInYRNHWgpEEmZGCxZbARkTQFsRWgMVEhQLUhNqW0ZXAxpGUFZCJGUreBNaXQFTFRllKidlIRVXUUIRXlsGEiMsc0RFUkZXC0JIUFZfXRcle3cUWgxSAlxcX10XK2d3cWBFdD8ZQg0RXhBcXFoSJGUlG08f"}</script></body>
+</html>

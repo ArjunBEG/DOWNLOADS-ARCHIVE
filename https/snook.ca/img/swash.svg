@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="100px" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs> <symbol id="ln"> <path d="M173.994,247.702 C173.994,247.702 198.069,191.923 116.796,137.548 C35.524,83.171 11.82,54.472 1,0" transform="scale(.2)" stroke="#69737B" stroke-width="0.25" fill="none" fill-rule="evenodd"></path> </symbol> </defs> <g transform="translate(0 -20)" opacity=".2"> <g transform="scale(3,2)"> <g id="ln1"> <use xlink:href="#ln" x="0" y="0"/> <use xlink:href="#ln" x="0" y="0" transform="rotate(3)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(6)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(9)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(12)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(15)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(18)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(21)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(24)" /> <use xlink:href="#ln" x="0" y="0" transform="rotate(27)" /> </g> <use xlink:href="#ln1" x="0" y="0" transform="rotate(30)" /> <use xlink:href="#ln1" x="0" y="0" transform="rotate(60)" /> <use xlink:href="#ln1" x="0" y="0" transform="rotate(90)" />
+	<use xlink:href="#ln1" x="0" y="0" transform="rotate(300)"/>
+	<use xlink:href="#ln1" x="0" y="0" transform="rotate(330)"/>
+</g>
+<g transform="translate(57 0)">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M25.137,45.088 C14.118,45.088 5.186,36.155 5.186,25.137 C5.186,14.118 14.118,5.186 25.137,5.186 C36.156,5.186 45.088,14.118 45.088,25.137 C45.088,36.155 36.156,45.088 25.137,45.088 M25.137,0 C11.254,0 0,11.254 0,25.137 C0,39.02 11.254,50.275 25.137,50.275 C39.02,50.275 50.274,39.02 50.274,25.137 C50.274,11.254 39.02,0 25.137,0" fill="#69737B"></path>
+    </g>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(28 23)">
+        <path d="M7.566,1.867 C5.558,3.842 4.761,6.037 3.866,8.936 C3.301,10.795 2.216,12.017 0.962,12.21 L0.266,12.289 C0.1,13.209 0,14.152 0,15.12 C0,15.766 0.05,16.402 0.126,17.029 L1.106,16.998 C4.476,16.9 6.802,14.883 8.213,10.842 C8.357,10.45 9.465,5.311 12.257,4.821 L12.954,4.74 C13.12,3.82 13.22,2.877 13.22,1.91 C13.22,1.263 13.169,0.627 13.094,0 L12.113,0.031 C12.113,0.031 9.452,0.01 7.566,1.867" fill="#69737B"></path>
+    </g>
+</g>
+</g>
+</svg>

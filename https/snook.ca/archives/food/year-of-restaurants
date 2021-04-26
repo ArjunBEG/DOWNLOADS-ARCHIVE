@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>A Year of Restaurants - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/food/year-of-restaurants">
+	<meta property="og:url" content="https://snook.ca/archives/food/year-of-restaurants">
+	<meta property="og:title" content="A Year of Restaurants">
+	<meta property="og:description" name="description" content="It’s been an interesting year, to say the least. Started a new job. Left that job. Ended a relationship. Have a newfound affinity for Islay Scotch. (Those last two things aren’t related, surprisin...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>A Year of Restaurants</h1>
+		<p>It’s been an interesting year, to say the least. Started a new job. Left that job. Ended a relationship. Have a newfound affinity for Islay Scotch. (Those last two things aren’t related, surprisingly.) Throughout this tumultuous year, there has been adventures to many amazing restaurants around the world. </p>
+
+<p>The main goal was to continue on the quest to eat at <a href="https://fifty.snook.ca">50 of the World’s 50 Best Restaurants before I turn 50</a>. Last year, I managed to make it to 10 restaurants. This year, I went to 17 restaurants on the list. That means I’m over the halfway point of this crazy challenge in just under two years. </p>
+
+<p>This year kicked off with a trip to London in January where I came down with a severe bout of something viral and was bedridden for a bit. Not quite fully recovered, I stupidly went to the four restaurants I had reservations at: The Clove Club, Lyle’s, The Ledbury, and Dinner by Heston Blumenthal.</p>
+
+<p>In April, a trip to Peru was to include three restaurants on the list. We went to Maido and Astrid &amp; Gaston. Sadly, we couldn’t get reservations to Central due to some confusion with the online booking site. Instead, we went to its sister restaurant, Kjolle, which ended up being amazing. Like, how is this restaurant not on the list itself?!</p>
+
+<figure>
+<img src="http://img.snook.ca/food/L1000522.jpg" alt="A potato tart from Kjolle" />
+<figcaption>A potato tart from Kjolle</figcaption>
+</figure>
+
+<p>In May, we made a road trip out of it, driving to Zwolle, in the Netherlands to go to De Librije. After an amazing meal and stay at the attached hotel, we drove to Ghent, Belgium for a brief stay to go to Hof Van Cleve.</p>
+
+<p>Midway through the year, the 2019 list came out, adding Atelier Crenn and Benu from San Francisco to the list. Benu was visited the year prior, so I took the easy win. </p>
+
+<h2>Side Challenge</h2>
+
+<p>I had a secondary goal of going to every Michelin 3-starred restaurant in the Bay Area. This included Saison, Benu, Quince, and Coi in San Francisco—all of which I had been to in 2018. There is Manresa down in Los Gatos (which I also went to in 2018), The Restaurant at Meadowood (also visited in 2018) up in Napa Valley, and the French Laundry that is also up in Napa Valley. In 2019, Michelin added SingleThread and Atelier Crenn to the ranks of 3-star restaurants.</p>
+
+<p>That means, I had three restaurants to go to to complete the side quest. It also meant adding one more to the 50 list. In July, I went to Atelier Crenn, SingleThread, and French Laundry in a single weekend. </p>
+
+<figure>
+<img src="http://img.snook.ca/food/L1010098.jpg" alt="The setting sun shining some light at the French Laundry" />
+<figcaption>The setting sun shining some light at the French Laundry</figcaption>
+</figure>
+
+<p>Thomas Keller, of the French Laundry, was a consultant on the movie Ratatouille, which set my expectations high. I really wanted them to serve the dish from the movie, but sadly, it didn’t happen. The meal was still wonderful, though. </p>
+
+<p>Side challenge completed.</p>
+
+<h2>Autumn</h2>
+
+<p>I wanted to make another big jump for the 50 list. Getting a restaurant here or there just wasn’t going to cut it. There are five restaurants on the list in Paris. I managed to snag reservations at four of the five to be within three days of each other: Alain Ducasse au Plaza Athénée, Arpège, Alléno Paris au Pavillon Ledoyen, and Astrance. (I seemed to have forgotten about Septime, which is unfortunate.)</p>
+
+<figure>
+<img src="http://img.snook.ca/food/L1010309.jpg" alt="Lunch at Arpège was divine" />
+<figcaption>Lunch at Arpège was divine</figcaption>
+</figure>
+
+<p>Paris is also where I learned of a whisky speakeasy hidden under a sake bar. Absolutely amazing. I already want to go back.</p>
+
+<p>Last year, for Thanksgiving, we took Kitt’s parents to Copenhagen to have dinner at Geranium. This year, we took them to Barcelona. Disfrutar and Tickets were the primary targets, inching us further along the Fifty quest. Barcelona is a hotbed of molecular gastronomy. It was home to elBulli, run by Ferran Adria, well known as the creator of culinary foam. Former chefs from the restaurant started Disfrutar. Ferran’s brother, Albert, has since created a collection of restaurant within a stone’s throw of each other including Enigma and Pakta, which we also managed to get reservations to. </p>
+
+<p>Enigma ended up being the most <em>interesting</em> of the bunch—and maybe the most challenging, too. Dishes included hare brain and squid head. There was also some foie gras, which I personally enjoy. Enigma was fascinating as it moved us through six stations and about 30 courses of food, including a speakeasy at the end. </p>
+
+<p>One last Fifty adventure of the year was a trip to Buenos Aires for Don Julio, a steakhouse, and Tegui, a more “traditional” upscale restaurant with a tasting menu. Of course, I discovered that there’s a Latin America’s 50 Best Restaurants list that’s done by the same people who do the World’s list. As such, I made reservations for Mishiguene and Chila. </p>
+
+<p>Mishiguene was a neat experience. It’s very casual but they did a tasting menu that was filling and flavourful. The portions were huge and felt like it could’ve fed a table of four. Chila ended up being the highlight of the trip with great service and amazing dishes. I felt like it deserves to be on the World’s 50 Best.</p>
+
+<p>Ending the year past the halfway mark on the 50 by 50 adventure was very satisfying—and very filling. </p>
+
+<h2>Side Adventures</h2>
+
+<p>The side adventures have been a lot of fun, too. </p>
+
+<p>With frequent trips to Portland, I’ve tried to get to many of the nice restaurants there and have been delightfully impressed. A return visit to Le Pigeon, for example, wasn’t as gut-busting as the first time I went but was still delicious. I’ve also been to DOC, Beast, Coquine, and Nodoguro. Not to mention the love I have for Bamboo Sushi. </p>
+
+<p>Canada has its own Top 100 list with a handful of restaurants right here in Ottawa: Atelier, who’s head chef once worked at Alinea in Chicago; Riviera; Stofa; and Fauna. Atelier is definitely the fanciest of the bunch but I prefer the slightly more casual experience at the other places. Fauna has been consistent both times I’ve gone. Not on the list are places like Whalesbone and Aperitivo, which were also quite good. It’s nice to see Ottawa’s food scene expand. </p>
+
+<h2>Next Year</h2>
+
+<p>2020 will bring many more food adventures as I attempt to get to another 15 restaurants or so on the way to completing the 50. </p>
+
+<p>Completing the second half of this adventure gets harder as the restaurants are fewer and farther between.</p>
+
+<p>I already have reservations to Noma, which has returned to Copenhagen after being closed for a couple years. I’m hoping to also do a side trip to Maaemo in Oslo and Frantzen in Stockholm around the same time, which will require short flights from city to city. </p>
+
+<p>I’d like to get to Tokyo, which has three restaurants on the list. Maybe add on an extension to Hong Kong to do the two restaurants there.</p>
+
+<p>Probably the most ambitious will be planning out the possibility of two other trips. </p>
+
+<p>One, to northern Italy. There are three restaurants: Le Calandre, Piazza Duomo, and the venerable Osteria Francescana. But there’s also Hisa Franko that’s a two and a half hour drive to the east, in Slovenia; and Mirazur, that’s a three hour drive to the west, in France. A one or two week road trip through the north of Italy sounds incredible. </p>
+
+<p>The other, equally ambitious adventure, would be a trip to northern Spain, split between Bilbao and San Sebastian, to go to Asador Etxebarri, Nerua, Mugaritz, Elkano, Azurmendi, and Arzak. </p>
+
+<p>Were I able to pull off all four of these trips as desired, I’d be at 46 of the 50 restaurants by the end of the year. Crazy.</p>
+
+<p>Those would be amazing trips, for sure. At the same time, part of the fun of trying to tackle this list is heading off to places I haven’t been before—especially in out-of-the-way places. Hof Van Cleve, sitting out in the middle of rolling green hills, took me to a place I never would’ve picked. Trips to Lima and Buenos Aires were also new adventures to cities and countries I hadn’t been before. </p>
+
+<p>As such, the places that excite me are places like Bangkok, Moscow, and Istanbul. </p>
+
+<h2>Onwards</h2>
+
+<p>Who knows what, exactly, the new year will bring. I just consider myself lucky to be this far along this journey and hope the new year brings many new adventures.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published December 26, 2019 </div>
+	<div class="cat">Categorized as <a href="/archives/food/">Food</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1153</span></div>
+</div>
+
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

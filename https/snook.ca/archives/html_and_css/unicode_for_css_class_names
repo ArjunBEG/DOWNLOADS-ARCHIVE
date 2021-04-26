@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Unicode for CSS Class Names - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/unicode_for_css_class_names">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/unicode_for_css_class_names">
+	<meta property="og:title" content="Unicode for CSS Class Names">
+	<meta property="og:description" name="description" content="In doing some research, I discovered that you could use Unicode for CSS class names. Okay, nothing earth shattering by any means. But think of the ideograms that exist within and how applicable they m...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Unicode for CSS Class Names</h1>
+		<p>In doing some research, I discovered that you could use Unicode for CSS class names. Okay, nothing earth shattering by any means. But think of the ideograms that exist within and how applicable they might actually be.</p>
+<p>Take for example a common rounded corner HTML setup:</p>
+<pre><code>&lt;div class=&quot;container&quot;&gt;<br />  &lt;div class=&quot;left-top&quot;&gt;<br />    &lt;div class=&quot;right-top&quot;&gt;<br />      &lt;div class=&quot;left-bottom&quot;&gt;<br />        &lt;div class=&quot;right-bottom&quot;&gt;<br />          content<br />        &lt;/div&gt;<br />      &lt;/div&gt;<br />    &lt;/div&gt;<br />&lt;/div&gt;</code></pre>
+<p>Now let's try using some fancy Unicode characters to give the same meaning:</p>
+<pre><code>&lt;div class=&quot;&#9633;&quot;&gt;<br />  &lt;div class=&quot;&#9484;&quot;&gt;<br />    &lt;div class=&quot;&#9488;&quot;&gt;<br />      &lt;div class=&quot;&#9492;&quot;&gt;<br />        &lt;div class=&quot;&#9496;&quot;&gt;<br />          content<br />        &lt;/div&gt;<br />      &lt;/div&gt;<br />    &lt;/div&gt;<br />&lt;/div&gt;</code></pre>
+<p>I've used a number of the <a href="http://www.faqs.org/docs/docbook/html/iso-box.html">box drawing entities</a>, namely U+250C, U+2510, U+2514, U+2518 and the square is U+25A1. </p>
+<p>Then, to mark up our styles:</p>
+<pre><code>.&#9633; { /* container styles */ }
+.&#9484; { /* top-left styles */ }
+.&#9488; { /* top-right styles */ }
+.&#9492; { /* bottom-left styles */ }
+.&#9496; { /* bottom-right styles */ }</code></pre>
+<p>In any case, I'm just having fun with the idea. You're probably better off to stick to those standard letters and numbers for your class names. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 12, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/818</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">44 Comments &middot; <a href="/archives/html_and_css/unicode_for_css_class_names.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c49179">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49179">1</a></div>
+			<span class="authorname"><a href="http://www.christianmontoya.net">Montoya</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>That's definitely cool, but not a good idea from an HTML perspective. Classes should be semantic and are sometimes used in that way (especially with microformats), so it's important to keep them as plain text. Nice find though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49180">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49180">2</a></div>
+			<span class="authorname">Olav</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Wow, that's really useful. ;) No seriously, nice find..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49181">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49181">3</a></div>
+			<span class="authorname">Lucas Murray</span> said on June 12, 2007		</div>
+		<div class="quote"><p>That is a very interesting technique however I do agree with Montoya that it may not actually be a good idea to use. Although you can shorten class names it only makes them harder to write and follow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49182">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49182">4</a></div>
+			<span class="authorname"><a href="http://arjaneising.nl">Arjan Eising</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>First, I don't see the needs of so many <code>div</code>s. Second, both examples are semantically rubbish. A <code>class</code> or <code>id</code> name should always say something about the contents, not about how it will be displayed using <abbr title="Cascading Style Sheets">CSS</abbr>.<br />
+Nonetheless, this can only be useful, like sending special characters like &lt;samp&gt;Ã©&lt;/samp&gt; or &lt;samp&gt;Ã¼&lt;/samp&gt; within the (semantic) <code>class</code> or <code>id</code> name.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49184">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49184">5</a></div>
+			<span class="authorname">jm@goemaere.com</span> said on June 13, 2007		</div>
+		<div class="quote"><p>"A class or id name should always say something about the contents, not about how it will be displayed using CSS."</p>
+<p>Dont you think it is the developer to decide that ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49185">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49185">6</a></div>
+			<span class="authorname">Harmen Janssen</span> said on June 13, 2007		</div>
+		<div class="quote"><p>Ha! I like it :)<br />
+Nice find. As said above; they're not easy to type and therefore not very easy to maintain, but it provides an option for throwing in some geeky humor every now and then.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49186">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49186">7</a></div>
+			<span class="authorname"><a href="http://meiert.com/en/">Jens Meiert</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>Interesting approach, but the loss of semantics and the problem that at least the example is presentational anyway don't make it very commendable, I fear. There probably are just a few characters that provide some "semantics", and combined with probably desired ID/class name consistency, this may result in a real obstacle to make it "good practice" at all.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49187">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49187">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 13, 2007		</div>
+		<div class="quote"><p>@arjan: it's a common approach to rounded corners. And what I should have added was that because the example is presentational, using special characters could help to highlight that very fact. </p>
+<p>@Jens: there's no loss of semantics since it's a presentational example to begin with.  "I'm just having fun with the idea" should've made that clear that I'm not trying to make this a de facto standard.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49190">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49190">9</a></div>
+			<span class="authorname">Rian Orie</span> said on June 13, 2007		</div>
+		<div class="quote"><p>I think it's funny and a nice find! My main question is whether or not all the browsers can work with it.. Either way, keep it up, these are interesting things to find. We all talk about semantics this and that, but if we don't explore the non-semantic ways as well as the semantic ones we wont ever find anything new outside of the box!<br />
+&lt;/end rant&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49191">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49191">10</a></div>
+			<span class="authorname">Michael Thompson</span> said on June 13, 2007		</div>
+		<div class="quote"><p>Oh yeah?</p>
+<pre><code>
+&lt;div class="Î”"&gt;
+  &lt;div class="/"&gt;
+    &lt;div class=""&gt;
+      &lt;div class="_"&gt;
+      &amp;lt/div&gt;
+    &amp;lt/div&gt;
+  &amp;lt/div&gt;
+&amp;lt/div&gt;
+</code></pre>
+<p>And to all you standardistas: that's going to be the new microformat for marking-up top-level navigation for blind users &mdash; expect the draft published by tomorrow.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49192">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49192">11</a></div>
+			<span class="authorname">Anton Andreasson</span> said on June 13, 2007		</div>
+		<div class="quote"><p>LOL, very nice observation! :) Regarding semantics: Adding the divs to the DOM using javascript could still be an option no matter the class names. Even if it's just for playing with, I think it solves bothe the problem of left-top vs top-left and possible translations of them in foreign languages.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49193">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49193">12</a></div>
+			<span class="authorname">Tim</span> said on June 13, 2007		</div>
+		<div class="quote"><p>I haven't tried it yet, but doesn't this mean you can use international character sets as CSS id/class names? If so, I would've thought this is <em>very</em> useful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49196">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49196">13</a></div>
+			<span class="authorname"><a href="http://teevio.com">Teevio</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>clever!  I love seeing people think outside the (unicode)box.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49197">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49197">14</a></div>
+			<span class="authorname"><a href="http://www.bram.us/">Bramus!</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>Muha, neat!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49198">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49198">15</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>Those are *square*-corners you're using for *rounded*-corner classes -- hardly very semantic! Shame on you. /sarcasm
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49201">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49201">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 13, 2007		</div>
+		<div class="quote"><p>@Michael Thompson: Good work on the triangle! ;)</p>
+<p>@Tim: IDs can't use Unicode. Only class names.</p>
+<p>@Tim McCormack: Ack! You've got me! ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49202">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49202">17</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>It seems only logical that you could use unicode characters. though, it wouldn't surprise me if it wasn't supported, what surprised me is that it <i>doesn't</i> work for ID's, what's up with that?</p>
+<p>oh, and just to tease and counter Arjan. I think your class names are visually very semantic ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49203">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49203">18</a></div>
+			<span class="authorname">BillyG</span> said on June 13, 2007		</div>
+		<div class="quote"><p>How many people will ever see this? I'm glad I did, neat stuff Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49204">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49204">19</a></div>
+			<span class="authorname">sandeep</span> said on June 13, 2007		</div>
+		<div class="quote"><p>good idea !!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49205">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49205">20</a></div>
+			<span class="authorname">Alex</span> said on June 13, 2007		</div>
+		<div class="quote"><p>An interesting use for this would be to use Unicode characters as a way to ensure you avoid conflicts within pages that may pull in multiple style sheets. Fro example, if you create widgets to be embedded on other sites, and you want to guarantee that your styles apply, you could use a class name with Unicode for your outermost container. This isn't any different than creating a very specific and unique ID, but it opens up another option.</p>
+<p>Cool discovery Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49206">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49206">21</a></div>
+			<span class="authorname"><a href="http://nateklaiber.com">Nate Klaiber</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>What will you think of next? Ha. It all looks very strange - but it's interesting nonetheless. </p>
+</div>
+	</div>
+		<div class="comment" id="c49207">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49207">22</a></div>
+			<span class="authorname">Harmen Janssen</span> said on June 13, 2007		</div>
+		<div class="quote"><p>@Tim, just tried this style-rule:</p>
+<pre><code>.æ ªå¼ä¼šç¤¾ã‚»ã‚¬ { width:100px;height:100px;background-color:red;}</code></pre>
+<p>with this HTML:</p>
+<pre><code>&lt;div class="æ ªå¼ä¼šç¤¾ã‚»ã‚¬"&gt;&lt;/div&gt;</code></pre>
+<p>and it works just great :) In my opinion you're right, this could be very useful for certain developers using different character sets.</p>
+<p><small>By the way: I've got no clue what's in my className, I just copied it from a random Japanese website :D</small></p>
+</div>
+	</div>
+		<div class="comment" id="c49208">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49208">23</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>@Harmen Janssen: According to Google, you've just declared the Sega Corporation to be a 100 pixel red square. :-P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49212">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49212">24</a></div>
+			<span class="authorname">Marc Grabanski</span> said on June 13, 2007		</div>
+		<div class="quote"><p>Brilliant! Its simple but I never thought to use Unicode characters. Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49214">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49214">25</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>Never thought of doing that...Interesting to say the least but I doubt it would be used in production. ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49223">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49223">26</a></div>
+			<span class="authorname">Robin</span> said on June 13, 2007		</div>
+		<div class="quote"><p>That's a very interesting use... quite ingenious, really.</p>
+<p>Just the other day I was discussing zero-width space characters as function names in PHP, so you could do something that looks like ('foo'). But Unicode support for function names isn't coming to PHP 6, if then, so I guess we're stuck with conventional names ;).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49224">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49224">27</a></div>
+			<span class="authorname"><a href="http://arapehlivanian.com">Ara Pehlivanian</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>Definitely a creative take on class names, but not really very semantic. Especially since class names aren't for the exclusive use of CSS. That being said, .wrapper .wrapper .wrapper .wrapper isn't really of much use to anyone either. :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49225">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49225">28</a></div>
+			<span class="authorname">John Lascurettes</span> said on June 13, 2007		</div>
+		<div class="quote"><p>I love the potential. This will introduce problems if you don't prep. The type="text/css" gets sent as ASCII and not Unicode. But you can fix that. <a href="//www.w3.org/International/tutorials/tutorial-char-enc/#Slide0390">Here's one way</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49230">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49230">29</a></div>
+			<span class="authorname">RStankov</span> said on June 13, 2007		</div>
+		<div class="quote"><p>The problem is Javascript and working with className in some cases and I don't know how other browser( ... and IE ) will handle it in the future.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49233">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49233">30</a></div>
+			<span class="authorname"><a href="http://omnibuscreative.com">Ben Hirsch</a></span> said on June 13, 2007		</div>
+		<div class="quote"><p>That's really freaking clever, Snook. Dang. Not that I will ever use it. But cool find. What made you even decide to try that?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49237">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49237">31</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 13, 2007		</div>
+		<div class="quote"><p>@John Lascurettes: you can use escape sequences which I had have debated going into a deep discussion about but felt that I'm not really promoting the method, just highlighting something fun. In my example, I could have easily done <code>.\250C {}</code> and achieved the same result. </p>
+<p>@Ben Hirsch: I was doing some research for some writing I'm doing and in verifying what the acceptable characters were (not easy to find!) I discovered that you can do Unicode. I decided to put together something quick to test the theory. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49253">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49253">32</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com/">Jason Beaird</a></span> said on June 14, 2007		</div>
+		<div class="quote"><p>That's quite a creative find Jonathan.  ...and the discussion here is just as entertaining as the post.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49259">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49259">33</a></div>
+			<span class="authorname">Michel Valdrighi</span> said on June 14, 2007		</div>
+		<div class="quote"><p>I noticed that some time ago, accidentally. I had typed class="rÃ©sumÃ©" in my markup, noticed it later and thought "what was I thinking!?", corrected it to "resume", saw that it didn't work anymore, checked the style block and noticed that I had made the same mistake there (and thus, that Unicode for class names worked).</p>
+<p>The only use I see for this feature is to use extended latin characters, to have proper accents.<br />
+Anything beyond that and you run into mundane issues like seeing the lovely Unicode corners turn into little squares when you edit source on another computer that does not have the fonts. Imagine you work collaboratively on some files and an inexperienced team member, who does not have the fonts, mistakes the little squares for glitches and removes them, unbeknowst to the rest of the team?<br />
+Also, the other issue is simple writability and maintainability: wtf was the keyboard magical mantra to invoke those characters, again? :)<br />
+Anyway, nice find. Just, downright useless and potentially harmful in the real worldâ€¦
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49274">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49274">34</a></div>
+			<span class="authorname">David Walsh</span> said on June 14, 2007		</div>
+		<div class="quote"><p>This article should be titled "How to get yourself fired."  Great find though.  Wouldn't use it at work though...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49275">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49275">35</a></div>
+			<span class="authorname">David Walsh</span> said on June 14, 2007		</div>
+		<div class="quote"><p>On second thought, maybe it should be called "Job Security 101"...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49295">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49295">36</a></div>
+			<span class="authorname">minghong</span> said on June 14, 2007		</div>
+		<div class="quote"><p>Why is this surprising? Unicode can be used in HTML and JavaScript, why not CSS? Just remember to use the same character encoding, or you need to specify the charset in the link/style/script element.</p>
+<p>I do NOT agree that it is not semantic, as character encoding has nothing to do with the meaning of the class name. For example, one can use non-semantic class name in Latin character, like "style01".</p>
+<p>However, personally I won't use non-latin characters in source codes, unless if it is an language file (locale strings). Unicode can be used in Java, but I've never seen any Java program written in unicode...
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49296">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49296">37</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 14, 2007		</div>
+		<div class="quote"><p>@David Walsh: getting fired for using ideograms for class names seems a little extreme. Remind me never to work where you work. :)</p>
+<p>@minghong: not all HTML attributes accept Unicode. IDs for example, can't. And they're not arguing that Unicode is unsemantic but rather that my example in particular might be.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49327">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49327">38</a></div>
+			<span class="authorname"><a href="http://nathanlogan.com/">Nathan Logan</a></span> said on June 15, 2007		</div>
+		<div class="quote"><p>Snook - you rock.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49338">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49338">39</a></div>
+			<span class="authorname">David</span> said on June 15, 2007		</div>
+		<div class="quote"><p>I think maybe someone has too much time on his hands.... ;)</p>
+<p>But then again - if no one ever worked with weird things where would we be? I guess I'll have to try this out on some code monkey some time just to see their face....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49422">40</a></div>
+			<span class="authorname">Doug</span> said on June 16, 2007		</div>
+		<div class="quote"><p>Brilliant, useless, &amp; intriguing. Just right for inspiring something really useful.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49959">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49959">41</a></div>
+			<span class="authorname">Amila</span> said on June 25, 2007		</div>
+		<div class="quote"><p>snook that's not bad
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50323">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50323">42</a></div>
+			<span class="authorname">Rotterdam</span> said on June 30, 2007		</div>
+		<div class="quote"><p>this is cool! and little bit funny :D I will try to use this, it is very sweet!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54749">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54749">43</a></div>
+			<span class="authorname">Anand</span> said on August 24, 2007		</div>
+		<div class="quote"><p>This is real cool, I was doing some research and I stumbled upon this. </p>
+<p>Though the thing I can't understand is, if you can use these funny little symbols as the first character in a classname, why can't you use a regular number? </p>
+<p>"In CSS2, identifiers  (including element names, classes, and IDs in selectors) can contain only the characters [A-Za-z0-9] and ISO 10646 characters 161 and higher, plus the hyphen (-); they cannot start with a hyphen or a digit. They can also contain escaped characters and any ISO 10646 character as a numeric code (see next item)."</p>
+<p>Anyways, I might actually try this out if it'll work with Javascript :) .addClass(â–¡)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60254">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60254">44</a></div>
+			<span class="authorname">Andy Gongea</span> said on November 17, 2008		</div>
+		<div class="quote"><p>This is sick. :)) and fun.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

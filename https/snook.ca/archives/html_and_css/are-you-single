@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Are you Single? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/are-you-single">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/are-you-single">
+	<meta property="og:title" content="Are you Single?">
+	<meta property="og:description" name="description" content="I find it interesting when two (or more) people can say something but the way that something is interpreted can be quite different. 
+
+Nearly four years ago, Harry Roberts wrote about applying the si...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Are you Single?</h1>
+		<p>I find it interesting when two (or more) people can say something but the way that something is interpreted can be quite different. </p>
+
+<p>Nearly four years ago, Harry Roberts wrote about <a href="http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/">applying the single responsibility principle to CSS</a>.</p>
+
+<p>Within the article, Harry explains how defining too many properties on a class selector may make it difficult to re-use that class in other contexts, thereby requiring either duplicate CSS properties or overrides to achieve our goals.</p>
+
+<p>He starts with a design of a promotional link like so:</p>
+
+<pre><code>.promo {
+    display: block;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #09f;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+</code></pre>
+
+<p>It’s a full-width button, lovingly styled.</p>
+
+<p>However, that single class is doing multiple things at once. But what if you wanted a similar promo link but wanted it inline? How do you solve that problem? Here’s his solution:</p>
+
+<pre><code>.island {
+    display: block;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.promo {
+    background-color: #09f;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+</code></pre>
+
+<p>Boom! The promo class can be used in both inline and block contexts. The island class creates the block context. </p>
+
+<p>In the HTML, we can now handle the two scenarios we want:</p>
+
+<pre><code>&lt;a href="..." class="island promo"&gt;Buy Now!&lt;/a&gt;
+&lt;h2&gt;You should &lt;span class="promo"&gt;Buy Now!&lt;/span&gt;&lt;/h2&gt;
+</code></pre>
+
+<h2>Breaking it down</h2>
+
+<p>In this case, the CSS has been broken down into two use cases and we have two CSS classes that serve this purpose. Excellent!</p>
+
+<p>But wait, there’s more. There are a bunch of things that I might want to set consistent margin and padding to including <code>inline-block</code> and <code>flex</code> items. Maybe I should break things down even further?</p>
+
+<pre><code>.block {
+    display: block;
+}
+
+.spacing {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.promo {
+    background-color: #09f;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+</code></pre>
+
+<pre><code>&lt;a href="..." class="block spacing promo"&gt;Buy Now!&lt;/a&gt;
+&lt;h2 class="spacing"&gt;You should 
+   &lt;span class="promo"&gt;Buy Now!&lt;/span&gt;&lt;/h2&gt;
+</code></pre>
+
+<p>As a project gets more complex, there are going to other ways to break down classes into smaller and smaller components. Which, ultimately, leads you to <a href="http://acss.io">Atomic CSS</a>, where each class has a very discreet purpose with, usually, just a single property. </p>
+
+<pre><code>&lt;a href="..." class="D(b) P(20px) Mb(20px) Bgc(#09f) C(#fff) Bdrs(4px) Tsh(light)"&gt;Buy Now!&lt;/a&gt;
+&lt;h2 class="P(20px) Mb(20px)"&gt;You should 
+   &lt;span class="Bgc(#09f) C(#fff) Bdrs(4px) Tsh(light)"&gt;Buy Now!&lt;/span&gt;&lt;/h2&gt;
+</code></pre>
+
+<p>Which one is following the single responsibility theory?</p>
+
+<h2>Get Smacked</h2>
+
+<p>On the other end of the spectrum, is <a href="https://smacss.com">SMACSS</a>. I advocate creating interface components that are independent of the content it’s trying to style. </p>
+
+<p>Did you notice how there’s something that is made to look like something you can click on (the block link) but the other context was just inline text? </p>
+
+<p>This whole scenario is made up but follow along here. If this were a design I received, I’d be going back to the designer and saying, why is it a link here but not there? </p>
+
+<p>In other words, what’s the purpose of this style? It’s a button. Or a link meant to look like a button. In any case, calling it ‘promo’ is limiting. I’m probably going to want buttons all over the place. Or, if I don’t, at some point, I might. Therefore, I create a button style:</p>
+
+<pre><code>.button {
+    padding: 20px;
+    background-color: #09f;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+
+.button-full {
+    display: block;
+    margin-bottom: 20px;
+}
+</code></pre>
+
+<p>This is very similar to what Harry had originally written but with different names. Also, I moved the CSS properties around. I want the padding on the button in both contexts but only when it’s full-width do I want it to have the extra margin on the bottom. </p>
+
+<p>The naming convention I used was on purpose. They both start with button. One is the core module name and then the other can be layered on top of it. </p>
+
+<p>Where I apply the single responsibility theory is in saying that an HTML should only have one module applied to it. Island and promo on the same element? Nope. But button and button-full? Climb aboard!</p>
+
+<p>This narrow example gives me pretty much the same results that Harry did but with a bit more consideration added as to <em>why</em> things have been split up the way they have.</p>
+
+<p>It’s one of the reasons that I continue to stick with the categorization that I originally defined in the book, with layouts, modules, states, and themes. There are patterns that reveal themselves in each of these categories. </p>
+
+<h2>Which way?</h2>
+
+<p>I’m not sure Harry expected to have his example nitpicked and there might’ve been a degree of pointlessness in my doing so. What’s the point of all this then?</p>
+
+<p>There’s no right or wrong here. </p>
+
+<p>Whether you use Harry’s approach, Atomic CSS, or SMACSS, could depend on any number of factors including comfort level and what you’re willing to trade off. Each could be argued as having or not having applied the single responsibility principle to their project.</p>
+
+<p>Knowing which approach you want to take and how to break up your CSS comes from experience. You start to get a feel for where to draw the lines between which properties should go with which classes based on what was painful the last time you built a site. </p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published April 05, 2016 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1079</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">4 Comments &middot; <a href="/archives/html_and_css/are-you-single.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70926">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70926">1</a></div>
+			<span class="authorname">Grant Vinson</span> said on April 05, 2016		</div>
+		<div class="quote"><p>Definitely more of a SMACCS guy than Atomic. Atomic reminds me of Semantic-UI naming conventions. Name it what it is, and thats it.<br />
+So, I might have a stackable grid with the classes "stackable" and "grid". Thats fine and all but I find myself convoluting the classes with more detailed elements. SMACCS solves that problem by keeping everything in order and abstracted. Anyways, just wanted to say how much I love this idea. Trés bon!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70927">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70927">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 05, 2016		</div>
+		<div class="quote"><p>Good to hear, Grant!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70929">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70929">3</a></div>
+			<span class="authorname">Cameron Malek</span> said on April 08, 2016		</div>
+		<div class="quote"><p>I don't see how the class <code>C(#fff)</code> is different from the HTML attribute <code>color="#FFFFFF"</code> from the days before CSS.  To change the color to something else you're editing template files and individual pages rather than a single stylesheet!</p>
+<p>I also don't necessarily agree with “HTML should only have one module applied to it.” For example, if the attributes of the <code>.button-full</code> class are a common pattern, that class should be renamed appropriately and be able to be reused on more than just buttons. If you do need to use more linear, intuitive naming schemes for the HTML writers, a Sass mix-in could re-create the module modifiers while keeping the stylesheet DRY; if that pattern changes in a redesign it is modified in only the one spot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70957">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70957">4</a></div>
+			<span class="authorname">Sean</span> said on April 12, 2016		</div>
+		<div class="quote"><p>Having seen Harry Roberts give a talk last year (2015) I heard him mention that we was moving more towards an atomic level (He did not mention atomic). When doing some work for the NHS Harry found it much easier to create smaller modular class names that could be applied as helper classes.</p>
+<p>From my point, I still struggle with these principles given a design I will add a structure class and a generic style class and then try to DRY up my code by moving some of the declarations into global classes.</p>
+<p>Generally I end up mixing these principles up, I have a text-left/text-right to modify content and over-ride styles but I will still create a component style that aligns the text left without the helper class and content that more or less sticks with the SMACSS categorisation.</p>
+<p>As long as once I'm finished the CSS is maintainable and understandable by the next developer then I'm a happy bunny. </p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

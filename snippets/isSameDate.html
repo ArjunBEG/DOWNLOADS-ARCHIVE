@@ -1,0 +1,7 @@
+<p>Checks if a date is the same as another date.</p>
+<ul>
+<li>Use <code>Date.prototype.toISOString()</code> and strict equality checking (<code>===</code>) to check if the first date is the same as the second one.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isSameDate <span class="op">=</span> (dateA<span class="op">,</span> dateB) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">dateA</span>.<span class="at">toISOString</span>() <span class="op">===</span> <span class="va">dateB</span>.<span class="at">toISOString</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isSameDate</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2010</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span>)<span class="op">,</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2010</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span>))<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

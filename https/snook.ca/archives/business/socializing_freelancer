@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Socializing for the Freelancer - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/socializing_freelancer">
+	<meta property="og:url" content="https://snook.ca/archives/business/socializing_freelancer">
+	<meta property="og:title" content="Socializing for the Freelancer">
+	<meta property="og:description" name="description" content="As a freelancer, especially working from home as I do, you might find yourself a little detached from the world. If not for my wife and kids, it might be entirely possible to go days without ever leav...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Socializing for the Freelancer</h1>
+		<p>As a freelancer, especially working from home as I do, you might find yourself a little detached from the world. If not for my wife and kids, it might be entirely possible to go days without ever leaving the house and experiencing any in-person social interaction. However, even with family forcing me out into sunlight on a daily basis, I still find myself separated from a larger community. </p>
+<p>Here are a few ways that I &mdash; and you &mdash; can keep in touch with the community.</p>
+<h2>Significant Other</h2>
+<p>Your wife, husband, girlfriend, boyfriend, or life partner can be a great way to get some socialization. Sure, it's only one person but it's somebody you see every day (or close to). Having somebody you can share your thoughts with on projects, finances, and decisions can be comforting. It's a great feeling to know that you're not going at it alone. My wife has been a great support system for me and has pushed me when I've felt like getting out of the game.</p>
+<p>While I love my wife dearly, she's no geek. Sure, she follows a bunch of forums, loves IM, and is as addicted to checking email as I am &mdash; but when I say, &quot;sudo get me a sandwich&quot; the joke is sadly lost. Essays on LOLcats and South Park videos on internet memes are equally lost on her. Pointing out these things to her has, in fact, only sparked questions about whether I actually get any work done during the day. </p>
+<h2>Coffee Shop</h2>
+<p>Sometimes you just need to get out of the house and many coffee shops cater to the independent worker with free WiFi and supplying quick access to some much-needed caffiene. </p>
+<p>I've always felt a little uncomfortable in the local coffee establishment. I feel like I'm loitering, taking up space that could be used by paying customers. And ultimately, connecting with other people doesn't happen unless you are brave enough to strike up a conversation with the person next to you &mdash; something I'm not always comfortable with.</p>
+<h2>Co-working</h2>
+<p>A phenomenon that seems to be gaining traction these days is the concept of sharing a single office space amongst a collection of freelancers or small companies. Many of the co-working spaces I've seen popping up these days have been marketed to designers and developers, with plenty of open space, offering up the potential to chat with all the other folks hanging out.</p>
+<p>Some co-working spaces have tried to mimic the coffee shop feel or have even been created by those who frequent coffee shops as a working environment. From what I've heard, it's a great way to stay connected and still have that &quot;office&quot; feel that one might miss by working from home.</p>
+<p>When I first went freelance, I rented a desk in a design firm and the social interaction was nice but I constantly found myself separated from my infrastructure (all my dev servers are at home) and the drive to the office was simply too far. I wasted too much time getting in and back every day. <em>That's time that could be spent watching the latest YouTube videos, donchyaknow.</em></p>
+<p>I've been reconsidering the idea of using an official co-working space but for the time being, they're still too far from my humble abode. </p>
+<h2>Barcamp</h2>
+<p>Although not as frequent, <a href="http://barcamp.org">Barcamps</a> have been a great way to stay connected with others in my community &mdash; both those who are developers and those who are located in my region. </p>
+<p>Alas, being local, it's easy to brush it off due to the demands of family life. I've only gone to half the events that have been hosted here but the ones I've been able to attend have been fun and it's always great to say Hi to colleagues.</p>
+<p>I've also found the mix of attendees to be less than ideal. Here in Ottawa, many of the attendees come from a more varied mix of backgrounds (work-wise) that tend to fall more outside my personal interests. For example, it's not uncommon to see a session on intellectual property or government-specific issues. These just aren't topics that I'm as interested in right now.</p>
+<h2>Conferences</h2>
+<p>I get stoked about conferences because they've been the best way for me to chat face-to-face with those whose work most closely resembles the work I do. These are web developers and designers who are running into similar technical issues, similar client issues, and even similar life issues like freelance development. </p>
+<p><a href="http://sxsw.com/">SXSW</a> is probably the ultimate conference. In fact, it's not even a conference...it's a festival. And it's the one  I look forward to attending each year, no matter how big it gets. The people there are just awesome (attendees and residents alike).</p>
+<h2>Twitter</h2>
+<p>Finally, <a href="http://twitter.com/snookca">Twitter</a>. Many people deride it, considering it useless or a waste of time but not so for me. It's been my primary form of interaction during the day. It has let me connect with <a href="http://www.randsinrepose.com/archives/2008/05/15/we_travel_in_tribes.html">my Tribe</a> in a meaningful way. It's been a place to vent, a place to learn, and a place to share. It contains all the social elements that I need from day to day. Sure, it can be distracting and I need to shut it off to focus on being productive but it's been a great resource for me. </p>
+<p>When I was at SXSW this year, I actually said that I felt like I didn't meet as many new people this year as in previous years. However, I think Twitter is to blame for that. Many of the people that I met in person for the first time had been people I've chatted with and follow on Twitter. I felt like I already knew these people, even just a little bit. It wasn't as random as it might've been. And I think I like that.</p>
+<h2>Anything else</h2>
+<p>Of course, everybody has their own way of staying connected. Be sure to share how you stay connected in the comments. I'd be interested to learn of new ways I can continue to be involved, to learn, and to connect with others.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 21, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/892</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">49 Comments &middot; <a href="/archives/business/socializing_freelancer.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58636">1</a></div>
+			<span class="authorname">Elliot Jay Stocks</span> said on May 21, 2008		</div>
+		<div class="quote"><p>Great article, sir. I think <em>a lot</em> of us are in a similar situation. </p>
+<p>Like you, the people I interact with on a physical level are rarely fellow web geeks, apart from the obvious exception of when I'm at web-related conferences and events. I don't really feel like I'm 'missing out' because of the constant connection I have with the community through things like Twitter. You said...</p>
+<blockquote><p>I felt like I already knew these people, even just a little bit.</p></blockquote>
+<p>... and I couldn't agree more. In fact, when explaining Twitter to non-web people or potential adopters, the "ice breaker" reason is the first I cite. A similar thing is done over email, Flickr (at al) 'relationships', and comments on websites (which is how I believe you and I 'met', long before <em>actually</em> meeting in the flesh).</p>
+<p>This gets me thinking: perhaps if our daytime interaction is with people in the industry (albeit digitally), maybe heading out to work in the local coffee shop is a good idea because it forces us to engage with people <em>outside</em> the industry. In fact I think I'll make a concerted effort to head down to a coffee shop one day this week and work from there, just to see what difference it makes in terms of daily physical interactions.</p>
+<p>They'll probably think I'm a weirdo, of course.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58637">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58637">2</a></div>
+			<span class="authorname">Geof Harries</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I've long wondered about cafe + working etiquette. In particular, once the first cup runs dry, do you have to buy another to keep your chair? I'd rather not spend $15 on three cups of fancy coffee; might as well stay at home if that's the case.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58640">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58640">3</a></div>
+			<span class="authorname">greg.newman</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I'm starting to see local twitter meetups in my area and also flickr meetups.  It's nice to see virtual social going offline.</p>
+<p>Co-working spaces sounds interesting.  I guess maybe I just live in the stix because I haven't seen this phenomenon yet.  </p>
+<p>I'd love to hit some conferences but am always to busy with work to take the time off.  How do you do it Jonathan?  Do you plan that far in advance or just tell clients you're going to be gone?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58641">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58641">4</a></div>
+			<span class="authorname"><a href="http://jeffsmithdesigns.com">Jeff Smith</a></span> said on May 21, 2008		</div>
+		<div class="quote"><p>A lot of my socializing comes from sports. I play in a men's golf league during the summer months (2 nights/week) and play rec. hockey in the winter. It gets me out of the house, with other people, and has the added bonus of some exercise.</p>
+<p>Aside from that, I try to make a point at least once a week to get out with some friends, for dinner, a round of golf, sporting event, or just a quick beer at the pub. I'm also a bit of a handyman, so I'll often find myself getting roped into helping friends with their home reno. projects. It's work, but again, it's out of the house.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58642">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58642">5</a></div>
+			<span class="authorname">Grant</span> said on May 21, 2008		</div>
+		<div class="quote"><p>Great post.. You could always go to the pub at the weekend, a great option to make friends and go out places at nights....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58643">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58643">6</a></div>
+			<span class="authorname">Dylan B.</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I also like to take web courses at my university to meet other web geeks and socialize that way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58644">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58644">7</a></div>
+			<span class="authorname">JamieO</span> said on May 21, 2008		</div>
+		<div class="quote"><p>FreelanceFolder just put up <a href="//freelancefolder.com/working-from-home-tips-to-avoid-loneliness/">5 Tips To Avoid That Dreaded Loneliness</a> which closely relates to your post.</p>
+<p>Blogging and commenting on other blogs makes the lonliness a little less lonely.</p>
+<p>For those in Ottawa, The Code Factory is opening at the end of the month and meets that sweet spot of co-working location AND coffee shop where the price of coffee includes wifi with an expectation to hang around for a while.</p>
+<p>I'd also put 'Non-Freelance Activities' on there, such as intramural sports!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58645">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58645">8</a></div>
+			<span class="authorname">onajide</span> said on May 21, 2008		</div>
+		<div class="quote"><p>"sharing a single office space amongst a collection of freelancers or small companies" might be gaining traction but, I was doing that in 1988-89 and, it was in a small backwater town in Florida. </p>
+<p>The problem I find working in places like Starbucks is that I often need (paper) files that are not assessable and, using small tables to work off of is sometimes annoying.</p>
+<p>Twitter has also been a good discovery for me because, I've read some of your published work (and other developers I won't name) and, it's not to hear about things that are of interest to me that I can then go explore rather than checking out 15 web sites or blogs, in addition to my own work. Twitter has actually helped me learn things and, my belief is that if I don't learn something new every day, something is wrong in my life.</p>
+<p>I'm a Meetup group organizer and co-organizer of computer tech and entrepreneurship so, I use those to meet people and engage in both social activities and learning.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58646">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58646">9</a></div>
+			<span class="authorname"><a href="http://www.mattrobin.com">Matt Robin</a></span> said on May 21, 2008		</div>
+		<div class="quote"><p>With 2,796 Followers on Twitter - you can't be feeling out of touch! Hehe (I've chosen to 'follow' - but will you even notice? Probably not! Haha)  :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58647">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58647">10</a></div>
+			<span class="authorname"><a href="http://jessecollins.com">Jesse C.</a></span> said on May 21, 2008		</div>
+		<div class="quote"><p>Although we're on the edge of a massive city, our little town of Port Credit is an easy place to maintain an offline existence. In fact, it seems that more through good luck than good management, I'm a practitioner of a number of the suggestions both in your post and the comments: I spend a little time out every day, starting off with an indoor cycle with a mate; I share a loft space with a guy who works mostly with print - a nice complement to my service offerings and someone to swap small-business war stories with; and I finish every day with a visit to my local, which&mdash;while maybe not so good for my liver&mdash;is brilliant for my soul. The same 6 - 10 guys each day, some craftsmen, some successful businessmen, others just local rounders. But all of us sharing a laugh and a story and a pint.</p>
+<p>And I have to admit, I've been enjoying Twitter as well (the screen name's moxy, btw). It seems to be the perfect mix of tribe, trivia, trash and treasures.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58648">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58648">11</a></div>
+			<span class="authorname">Julia</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I hear ya. While I'm a fairly social person, I do also enjoy the solitude of working in a cubicle/office/what-have-you. I tend to go the exercise/rec sport league route too, as you get the added bonus of getting off your duff and getting some exercise. I know I'll have to be very diligent about getting out and about once I switch over to the freelancing life.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58649">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58649">12</a></div>
+			<span class="authorname"><a href="http://c77.tumblr.com">Mark</a></span> said on May 21, 2008		</div>
+		<div class="quote"><p>I and some cohorts are talking up the shared space. The upside for me is that it would be walking distance rather than the drive in traffic I currently undertake to the solo office I'm renting. Working at home just doesn't work in the home we're stuck in. It's too open a floor plan with the boy around.</p>
+<p>Since I leave the house every day, I'm super-diligent about being home at dinnertime so my wife gets a break and we have a consistent bedtime routine for the boy. That means I haven't been to one of many worthwhile networking/social opportunities in greater Boston in the past year. Hopefully the aforementioned cohorts will be remedying that right in my town as well.</p>
+<p>And where did I meet those local cohorts? On Twitter.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58650">13</a></div>
+			<span class="authorname">Sean</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I have an absolutely first rate caf&eacute; about 5 mins from my home, which is in a rural area. Speedy, free WiFi and free coffee all day long. It's open and airy and trendy, not cramped or dark and pokey like most Starbucks. Very lucky to have such a nice space as a kind of second office.</p>
+<p>I imagine the etiquette is different from place to place, depending on size, number of chairs/tables, and the caf&eacute;s philosophy on refills. if I get a cappuccino, there's no refill. If I get a straight americano, I can have as many refills as I like&mdash;although, personally, I cap it at three for cluster of reasons concerning my mental health. If I'm there for any length of time, I make sure to get some nibbles. If I'm there during lunch, I always buy lunch. Luckily, the food is great.</p>
+<p>So I think if you sort of "fund your seat" there's no reason to feel bad. Just try not to pad your waistline.</p>
+<p>I've actually made some friends from my caf&eacute; life, invited people to my home for dinner, my daughter's birthday party and the like. I'm not that social but when you see the same people on a regular basis, it becomes <em>more</em> awkward to <em>not</em> say hello. Anyway, awkwardness is a natural part of any social scene, so you just muddle through the best you can. I think a lot of us are sitting around noticing each other and just waiting for someone to break the ice.</p>
+<p>We're just about to move to a small city. The caf&eacute; will then be 15 mins away, but I'll continue to go for the camaraderie that's developed.</p>
+<p>But none of this addresses my shop talk deficit. (The other customers/freelancers are programmers and writers, while I'm a designer.) Sometimes it's only when you run into another design/code nerd that you realize how badly you've been missing basic work chat. I had a meeting in NYC recently with a great new client, and felt so good we were able to quickly move through our discussions because he understood my prattle. So, after we move, I'm looking to set up a coworking space myself, in the hopes of attracting some other Webheads.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58651">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58651">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 21, 2008		</div>
+		<div class="quote"><blockquote><p>I'd love to hit some conferences but am always too busy with work to take the time off. How do you do it Jonathan? Do you plan that far in advance or just tell clients you're going to be gone?</p>
+</blockquote>
+<p>greg.newman, I do keep clients aware of my schedule and when I'll be out of town. I try to build this into the timelines so there are no surprises.</p>
+<blockquote><p>With 2,796 Followers on Twitter - you can't be feeling out of touch! Hehe (I've chosen to 'follow' - but will you even notice?</p>
+</blockquote>
+<p>I catch every @reply so I don't miss conversations. I'm no Scoble and couldn't possibly follow the streams of all 2700+ followers. </p>
+</div>
+	</div>
+		<div class="comment" id="c58656">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58656">15</a></div>
+			<span class="authorname">Peter Wilson</span> said on May 21, 2008		</div>
+		<div class="quote"><p>The State Library of Victoria (Aus) is my 'I need to leave the house' destination; it's not that I know anyone there, it's that I'm surrounded by the background noise of students working, people making use of the free web browsing, and, general sounds of the world. The total cost of this office away from home is a 3G net connection - the SLV won't let me use FTP on their free WiFi - at $29/month it's well and truly worth it.</p>
+<p>Bonus points - no paying customers, so I don't have to buy a coffee every hour.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58657">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58657">16</a></div>
+			<span class="authorname">Patrick</span> said on May 21, 2008		</div>
+		<div class="quote"><p>Users groups are another great way of connecting with your local geek community. Sadly I been able to find a Javascript Users Group in my town (Melbourne, Australia) but we've got a great Perl Users Group that makes up for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58658">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58658">17</a></div>
+			<span class="authorname">WTL</span> said on May 21, 2008		</div>
+		<div class="quote"><p>I have a good arrangement with a local pub - I come in, have lunch, and work there for the afternoon.  It's quiet, they have wifi, and they bring me tea and pop.  Works out to less than what it would cost to co-work.</p>
+<p>And when work is done, they have beer. ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58662">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58662">18</a></div>
+			<span class="authorname">Evan Meagher</span> said on May 22, 2008		</div>
+		<div class="quote"><p>Literally laughed out loud at the sudo joke. hahaha. Good post!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58664">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58664">19</a></div>
+			<span class="authorname">Marcos Kuhns</span> said on May 22, 2008		</div>
+		<div class="quote"><p>+1 on the excellent sudo joke!<br />
+Found your site via commandshift3.com - sweet design
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58668">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58668">20</a></div>
+			<span class="authorname"><a href="http://omnibuscreative.com">Ben Hirsch</a></span> said on May 22, 2008		</div>
+		<div class="quote"><p>I have found my local php group via meetup.com.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58669">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58669">21</a></div>
+			<span class="authorname"><a href="http://mattbrett.com">Matt Brett</a></span> said on May 22, 2008		</div>
+		<div class="quote"><p>Great article, Jonathan.  And something I really needed brought to my attention, as I've been working with my head down for weeks now.  It's no good for the mind, or any other aspect of your life for that matter.</p>
+<p>Sadly, the scene isn't exactly booming in Whitby.  In fact, there's shit all happening here ever, aside from the frequent big-box store openings.  Perhaps it's time to get out of dodge?</p>
+<p>I was up in Ottawa a couple weeks back and really enjoyed my time there.  It's a completely different kind of "big city" than I'm used to.  Toronto is so busy, dirty and stinky - I couldn't stand driving in there every morning.  But Ottawa and the surrounding towns are really nice and more humble.  It's just too bad it's so far away (about 4 hours at 120kmph).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58670">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58670">22</a></div>
+			<span class="authorname">Kyle Hayes</span> said on May 22, 2008		</div>
+		<div class="quote"><p>I must say that the biggest winner for me is my wife. She is so very supportive of my work and when I was 100% virtual with Boeing last year, she was my main human contact. Without her, I really would have gone nuts.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58677">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58677">23</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 22, 2008		</div>
+		<div class="quote"><p>Matt, you should move up to Ottawa! There's a bit of a scene going on here...well, depending on where you live. Out here in the east end of town, it's pretty quiet. All the govt workers live around here. But downtown or just west of, there's a good "artsy" community. There's a cluster of print and web design shops in the Westboro area (nice and close to Little Italy and other yummy places to eat).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58684">24</a></div>
+			<span class="authorname">Maikel</span> said on May 23, 2008		</div>
+		<div class="quote"><p>
+Interesting. I've been thinking about this, because I wish to be  freelance and one of the points of reflection has been precisely the real socialization, I do not speak a virtual socialization through social networks or similar. Where exercising language and share with others  individuals. The church, house, ... are my places of real socialization, while Facebook, Twitter, Slideshare and others networks are places for virtual socialization.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58701">25</a></div>
+			<span class="authorname">Gary Barber</span> said on May 24, 2008		</div>
+		<div class="quote"><p>The interesting thing with twitter is that when you reconnect face to face with people its not longer "how are you going", it is now your latest tweet topic. The conversation is deeper, maybe more personal.  More connected.  </p>
+<p>The introductions and familiarity build of the conversation are no longer required.  You know what your people, your tribe is doing.  You just get to explore and extend your online friendship into a Real World view.  This type of extended instant connectivity is changing the web culture.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58725">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58725">26</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on May 25, 2008		</div>
+		<div class="quote"><p>Nice article, and one well worth the read. I've been considering the freelance route recently and a friend of mine who went that route years ago had only one thing to say: Go for it, but first figure out where you will get your social interaction from.</p>
+<p>Makes sense, sitting at home all day tends to get me down.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58732">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58732">27</a></div>
+			<span class="authorname">Sarah Ward</span> said on May 27, 2008		</div>
+		<div class="quote"><p>Hi Jonathan, this is a great article.</p>
+<p>Although I am not a freelancer, I have been working from home for the past few years since my daughter was born and feel I could really benefit from your advice here. With my employers office being a 100 miles away in London the cost of travel and childcare for me actually makes working in the office impossible at the moment, and you do loose that contact with the outside world.</p>
+<p>Luckily I've found Messenger, Facebook, Email all good methods to keep in contact with the team at the office, and for a person who doesn't really like talking on the phone I seem to be using that more and more these days. I am always keen to get my name down for conferences and I am lucky that work will provide me with that opportunity. And I've just found Twitter and although obviously there aren't many people following me, it's a great tool to keep up with the conversation :) I just wish there was more general meet up events in my local area.</p>
+<p>One bad point from working at home, you end up becoming the network administrator and general computer fixer for your family at home on hand 24/7.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58733">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58733">28</a></div>
+			<span class="authorname">meandmyself</span> said on May 27, 2008		</div>
+		<div class="quote"><p>Email, IM, Facebook and Twitter (oh god I hate Twitter) are just surrogate drugs. As a freelancer who is working mainly on the internet the best way to socialize is everything BUT the internet. Just turn off the computer, stand up and go meet some people. Everything else is not socializing. I know this is hard but there is no other way.<br />
+I'm a freelancer btw...<br />
+I think communication over the internet is so much more fake then in real life. Besides it's kind of pathetic...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58734">29</a></div>
+			<span class="authorname"><a href="http://pauldwaite.co.uk/">Paul D. Waite</a></span> said on May 27, 2008		</div>
+		<div class="quote"><p>I second the library as a workplace for freelancers. I often find it easier to concentrate there than in my flat, as I live next to a main-ish road.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58735">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58735">30</a></div>
+			<span class="authorname">Marko Dugonjic</span> said on May 27, 2008		</div>
+		<div class="quote"><p>Nothing compares to good ole <a href="//www.coudal.com/bbq.php">BBQ</a>.</p>
+<p>No seriously. Hosting an informal event of Wii tournament or something equally geekish like a game of Risk proved to do the trick.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58736">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58736">31</a></div>
+			<span class="authorname">Phil Whitfield</span> said on May 28, 2008		</div>
+		<div class="quote"><p>When i read the first paragraph i thought, wow Jonathan is just like me.. Until i got the the parts about increasing interaction.</p>
+<p>I actually find comfort in my own company, i'm not a social reject, butt ugly or lacking in social skills i just really love working from home and not having to interact with people. My partner is exactly the same, we enjoy each others company that much it's the whole reason we work online instead of with a company.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58738">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58738">32</a></div>
+			<span class="authorname">Andy Sharp</span> said on May 28, 2008		</div>
+		<div class="quote"><p>excellent sudo joke! LOL
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58740">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58740">33</a></div>
+			<span class="authorname">Scott Chaney</span> said on May 29, 2008		</div>
+		<div class="quote"><p>Nice article - you brought up several things I hadn't thought of before, but that might be a result of a generational difference.    I've been working at home for about 23 years writing shareware and other software.  Marriage is still strong which is not unremarkable considering you see your significant other 24/7.</p>
+<p>I've found that most of my socialization comes indirectly thru my children.  The parents of their friends become our friends.  We both volunteer in school and help coach sports teams.  And some of my friends who do this are also very involved in their churches.  I also seem to find myself involved in a host of community organizations and causes.</p>
+<p>Humans are social creatures.  You will find a way to reach out and connect or you'll go nuts - even a recluse like myself.  But the rewards!  Who can put a price tag on putting your kids on the bus everyday and being there for them when they get back home.  Or witnessing most all of their first steps, literally and figuratively.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58741">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58741">34</a></div>
+			<span class="authorname">Derek523</span> said on May 29, 2008		</div>
+		<div class="quote"><p>It really is important to get out and socialize, online socializing while good can only really provide a peice of what we need..  It is good to physically talk to someone, using sound instead of text... also facial expressions, tonality in voice, all very important things to exercise lest we become more digital than human...</p>
+<p>Personally I try to go to church with my friends, out to lunch/dinner/movies and maybe just get together to play some frisbee golf ;-}
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58758">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58758">35</a></div>
+			<span class="authorname">Andrew Woods</span> said on June 03, 2008		</div>
+		<div class="quote"><p><a href="//www.meetup.com">Meetup.com</a> has been a big one for me, as well as helping to organize <a href="//pathable.com/events/barcampseattle">Barcamp Seattle</a> (June 14, 2008). Refresh Seattle is also great. As far as coworking spaces go, I know about <a href="//www.officenomads.com">Office Nomads</a> in Seattle. There are others, but that's the best one I know of. Hope that helps.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58760">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58760">36</a></div>
+			<span class="authorname">Paul White</span> said on June 03, 2008		</div>
+		<div class="quote"><p>I am in the same boat.  Freelancing from home is great, but I don't get any contact from the outside world.  That and my sense of style is now shorts and a plain white T shirt.  Get your Girl to force you to go shopping every once in a while.  This will help give you a some culture.  Else you will go outside one day and start calling everyone dam hippies.  I am only 28 yet I have developed the prejudices of a 65 year old man.  I can't even imagine what my neighbors think of me.  The Tall guy with white pasty skin, who wears the same outfit everyday ( rotating shorts ), who rarely shaves, never combs his hair, and seems to work between the hours of 8PM and 6AM and he likes it that way.  Kids stay off his lawn
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58761">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58761">37</a></div>
+			<span class="authorname">Paul White</span> said on June 03, 2008		</div>
+		<div class="quote"><p>By the way Your blog's design is awesome!  It pushes me to do better.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58766">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58766">38</a></div>
+			<span class="authorname"><a href="http://css-class.com/">Alan Gresley</a></span> said on June 05, 2008		</div>
+		<div class="quote"><p>I have just turned down my second offer of freelance work. They needed help with IE6 amazingly. I just have no spare time to have extra work on top of my usual work which is caring for my wife or creating organization in my house.</p>
+<p>Networking with twitter, I don't see that happening. Adding comments to blog post,  guilty. </p>
+<p>Trying to get a stable computer to test IE8b on, I must wait until cash flow comes since I did need new <a href="//css-class.com/test/images/oldbrownshoes.png">shoes</a>. Maybe working as a freelancer will stop my work as a CSS bug demonstrator.</p>
+<p>Time , Time , Time, always disappearing on me. Time that could be spent working, socializing, looking after myself better or being a father to my kids. Such is Life.</p>
+</div>
+	</div>
+		<div class="comment" id="c58767">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58767">39</a></div>
+			<span class="authorname">Tobi</span> said on June 05, 2008		</div>
+		<div class="quote"><p>Yes to me itÂ´s nearly the same. Working at the home-office, you become to feel like some kind of isolated freak, (hehe sorry) i often feel like it is to hard or it takes to much time to cook something - bread and some cheese will do it even faster - and you can eat it in front of your laptop, yummie. ItÂ´s like voluntary imprisonment with bread and coffee. If i work in my home office full time (only friday and saturday) i normaly donÂ´t leave the house and also my girlfriend is not invited.I think she couldÂ´nÂ´t understand it anyway how one can sit the whole day in front of a computer-screen... So what are my tipps for you? IÂ´m in the very happy position to teach some kundalini yoga on mondays,tuesday,wednessday and thursday evening. So when i have to teach it isnÂ´t possible for me to work more than 5 hours in front of the PC (which is my rescue) and i allways meet some (real) people. I could recommend you in participating in a weekly yoga class, or go to a gym with a buddy on a regular basis. A dog would be a solution to see more sun during the day..haha<br />
+I think to most important thing is to take your time off - and to switch off your computer and leave it all behind. And donÂ´t look back ;-)</p>
+</div>
+	</div>
+		<div class="comment" id="c58782">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58782">40</a></div>
+			<span class="authorname"><a href="http://www.minutedesigns.com">Adam</a></span> said on June 09, 2008		</div>
+		<div class="quote"><p>Your lucky, my ex just used to shout at me for not listening - Not understand that total concentration was being given to actually what I was doing... And then getting emotional when i scream "STFU" because im stressed with a bit of code misbehaving LOL!</p>
+<p>I think it takes a good relationship to keep it a relationship in our field, as time can be spilt away so easy, especially when just starting out, atleast for me anyway - depending ont he clients I can get very very EMO :&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58783">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58783">41</a></div>
+			<span class="authorname">Raspberry</span> said on June 09, 2008		</div>
+		<div class="quote"><p>It got really bad for me about a year ago, I was incredibly isolated and didn't have much access to other people in my stage of life who I could socialize with.  It got really pathetic; when I think back to that time I can't believe how close I was to being a social leper. I also became resentful of most online interactions, it just can't replace the real thing.  Nowadays I avoid IM, Facebook and the like, I've been challenging myself to become a better real-life friend; it's a good way to live and the pay-off is much much greater.  However, I am starting to read design/freelance/code blogs on a regular basis, it's great to know there are people having similar work and business experiences.  The water cooler experience is the one thing I've missed from the 9-5 gigs...</p>
+<p>I work outside the house a lot.  University libraries and campuses are the best, lots of studying students around who motivate me and places to wander when I want to take a break.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58820">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58820">42</a></div>
+			<span class="authorname">Nick Fassolas</span> said on June 11, 2008		</div>
+		<div class="quote"><p>If we also add how problematic socializing has become for everyone in todayâ€™s societies then I guess being a freelance web designer makes it close to impossible to socialize. In my case I seem to find the idea for the creation of a <em><b>rejuvenating pill</b></em>, more and more attractive!<br />
+My problem has to do with time and the biological need for sleep! As for where to socializeâ€¦I agree with all the above.<br />
+Co-working is a great idea, needs more conversation though. </p>
+<p>Thanks for a great article Jonathan.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58880">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58880">43</a></div>
+			<span class="authorname">klash</span> said on June 24, 2008		</div>
+		<div class="quote"><p>Hey Jonathan, nice to read your this post, I enjoyed it, and I am also facing the same problem, cause I am the only one in the office who is working in this field and as I am outside of my country, I face the same problem and I am not able to get connected to the peoples who share the same field and I try to get in touch as much as I can online, but it always keeps me inside the room. Let  me know if you find more ways to get rid of this ;), and by the way Twitter is blocked in here, Dubai, UAE :), so cannot use it here.</p>
+<p>Anyways, take care and be in touch ;)<br />
+CHEERS!!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58885">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58885">44</a></div>
+			<span class="authorname">Scott Lenger</span> said on June 25, 2008		</div>
+		<div class="quote"><p>1. The Mrs. and I make it a point to go out with friends at least once a week.<br />
+2. When you meet with folks make sure it DOES NOT include staring at a display/screen. It really helps me detach emotionally :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58900">45</a></div>
+			<span class="authorname">Chris</span> said on June 28, 2008		</div>
+		<div class="quote"><p>Ii gotta sayJon, I've the opposite issue where I have way too much social interaction. It is difficult to get things done between 9-5, and so I've been locking myself in a boardroom for half the Dayton get anything meaningful accomplished. Feel free to come join me :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58995">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58995">46</a></div>
+			<span class="authorname">John</span> said on July 11, 2008		</div>
+		<div class="quote"><p>ItÂ´s hard to socialize if youÂ´re somehow addicted to the internet or your computer.<br />
+It is good to have something regular in your day to day life:<br />
+- 1 day in the week leave the computer completely off<br />
+- 1 evening a week meet with  friends,<br />
+- 2 times a week go jogging ...<br />
+- add something here what you like<br />
+and than stick to it!</p>
+<p>This works for me!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59933">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59933">47</a></div>
+			<span class="authorname">Johnny Meiss</span> said on October 26, 2008		</div>
+		<div class="quote"><p>I have this same issue, I too work as a freelancer and also have my own websites.  The work is endless, and it can be somewhat isolating.  I actually go to the gym several time per week, something have to force myself to go.  We recently had a Hurricane IKE came through Houston, it cut the Internet off for almost three weeks.  I almost went through withdraw from the Internet.  When the Internet and power came back I actually slowed down for a bit, but soon was back at it 110%.  It is hard to slowdown on something that I really enjoy !  Great post at least I know I am not alone.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60067">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60067">48</a></div>
+			<span class="authorname">Sophia</span> said on November 07, 2008		</div>
+		<div class="quote"><p>Nice post as well as comments<br />
+In todayâ€™s market it can be hard for your company to stand out in the vast online crowd. Thatâ€™s why we need employees for our organization with outstanding skills. And in the present scenario the global economy is going down and down tremendously. In such circumstances itâ€™s very difficult to manage â€œneedless reports, high recurring expenditures and unfriendly, unknowledgeable outsourced staffâ€.<br />
+What to do?<br />
+Better option is hire virtual employees and be tension free.<br />
+I can say that because I have done the same thing. And itâ€™s only possible with the of www.marketraise.com<br />
+So, visit www.marketraise.com today to experience how cutting edge web design, software development and Search Engine Optimization from MarketRaise can make all the difference for you!</p>
+</div>
+	</div>
+		<div class="comment" id="c60068">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60068">49</a></div>
+			<span class="authorname">Sophia</span> said on November 07, 2008		</div>
+		<div class="quote"><p>Nice post as well as comments<br />
+In todayâ€™s market it can be hard for your company to stand out in the vast online crowd. Thatâ€™s why we need employees for our organization with outstanding skills. And in the present scenario the global economy is going down and down tremendously. In such circumstances itâ€™s very difficult to manage â€œneedless reports, high recurring expenditures and unfriendly, unknowledgeable outsourced staffâ€.<br />
+What to do?<br />
+Better option is hire virtual employees and be tension free.<br />
+I can say that because I have done the same thing. And itâ€™s only possible with the of www.marketraise.com<br />
+So, visit www.marketraise.com today to experience how cutting edge web design, software development and Search Engine Optimization from MarketRaise can make all the difference for you!</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

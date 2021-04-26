@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Tiling Backgrounds in Internet Explorer - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/tiling-background-ie">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/tiling-background-ie">
+	<meta property="og:title" content="Tiling Backgrounds in Internet Explorer">
+	<meta property="og:description" name="description" content="With tables becoming less popular, this particular problem doesn't crop up nearly as often anymore but for when those data tables could use a little spice, it'd be nice sometimes to be able to set an ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Tiling Backgrounds in Internet Explorer</h1>
+		<p>With tables becoming less popular, this particular problem doesn't crop up nearly as often anymore but for when those <a href="http://24ways.org/2005/tables-with-style">data tables could use a little spice</a>, it'd be nice sometimes to be able to set an image on the table row. The problem is that Internet Explorer 6 and 7 have this little problem: the background image specified in the TR gets displayed as if set for each TD. In other words, a background meant to span the entire TR would appear tiled. </p>
+<p>Obviously that's not the effect you'd want. I was completely taken by surprise to find out that there is a way to <a href="http://www.mynameisal.com/2008/07/30/background-image-on-table-rows-repeating/">trick IE into doing things &quot;properly&quot;</a>. The solution is fairly straightforward. Set the TR to <code>position:relative</code> and set the TD to <code>background:none</code>. </p>
+<p>With IE though, it's never that easy. I decided to play around with it to see what was possible and it turns out the technique stands up somewhat well under certain situations but falls flat in pretty much every other scenario.</p>
+<h2>Alpha PNGs</h2>
+<p>First up, I tried using alpha PNGs with the usual filter hack in the TD to see if images could be overlayed on top of each other. Luckily, it worked! I could layer transparent PNGs over background images specified on the TR. </p>
+<p>This alone probably solves the majority of design cases. However, I wanted to take it a step further.</p>
+<h2>Display Discrepancies</h2>
+<p>Even though the table looked good generally speaking, I did begin to notice a specific oddity with cell spacing. In other browsers, the background image set on the row is only visible within the cell and not between cells. With this technique, that wasn't the case. The background on the table row in Internet Explorer would be visible from edge to edge. Not a deal breaker by any means but definitely something to consider.</p>
+<p><img src="https://snook.ca/technical/table-bg/difference.png" alt="IE/FF differences" /></p>
+<h2>Row Groups</h2>
+<p>The next test was to determine whether table groups like TBODY could receive the same treatment. In this case, the answer was a <em>no</em>. With the TR positioned relatively, you could get a background image on the TBODY to display in each TR but it tiled like the default behaviour between TR and TD. In other words, the problem managed to shift up.</p>
+<p>Unfortunately, no amount of relative positioning seemed to unlock this mystery. In fact, setting a relative position on the TBODY made the background disappear altogether.</p>
+<h2>The Future</h2>
+<p>Thankfully, IE8's rendering engine has been written from scratch and the current beta does not exhibit this behaviour. </p>
+<p>Feel free to <a href="https://snook.ca/technical/table-bg/">check out the test page I put together</a>, which demonstrates the alpha PNG over the background set in the table row.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published September 18, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/911</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">9 Comments &middot; <a href="/archives/html_and_css/tiling-background-ie.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c59511">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59511">1</a></div>
+			<span class="authorname"><a href="http://www.whoisskillen.co.uk">Steve Killen</a></span> said on September 18, 2008		</div>
+		<div class="quote"><p>I can imagine this causing me headaches at some point in the future, must remember this article for reference thanks Snook.</p>
+<p>Btw is that a sneaky preview of the next design of this site?!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59512">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59512">2</a></div>
+			<span class="authorname">Matt Puchlerz</span> said on September 18, 2008		</div>
+		<div class="quote"><p>Just a word of warning!</p>
+<p>Checking out the demo page in Safari (3.1.2), the background on the &lt;tr&gt; repeats per cell just like in IE. I wasn't expecting to see that.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59513">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59513">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 18, 2008		</div>
+		<div class="quote"><p>@Steve Killen: Sort of. ;) It was from a jpg I had exported from my first revision of the new design. But the final version looks absolutely nothing like that.</p>
+<p>@Matt Puchlerz: Oh man, I didn't expect that either. And nothing I throw at it really seems to make a difference. That's it, I give up on this internet stuff. </p>
+</div>
+	</div>
+		<div class="comment" id="c59514">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59514">4</a></div>
+			<span class="authorname"><a href="http://matt.puchlerz.com">Matt Puchlerz</a></span> said on September 18, 2008		</div>
+		<div class="quote"><p>I messed around with it for a bit as well, but to no avail.</p>
+<p>Funny enough... doing a quick search yields a <a href="//snook.ca/archives/html_and_css/applying_a_back/#c2105">page discussing a similar problem</a> to this one. Look familiar?</p>
+</div>
+	</div>
+		<div class="comment" id="c59515">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59515">5</a></div>
+			<span class="authorname">Pies</span> said on September 18, 2008		</div>
+		<div class="quote"><p>Unsurprisingly, your example yields the same result in Chrome as it does in Safari.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59517">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59517">6</a></div>
+			<span class="authorname">Pies</span> said on September 18, 2008		</div>
+		<div class="quote"><p>The CSS 2.1 specs say that the row's background "covers exactly the full area of all cells that originate in the row, even if they span outside the row, but this difference in area does not affect background image positioning" (http://www.w3.org/TR/CSS21/tables.html#table-layers). </p>
+<p>I'd think that makes Firefox implementation perfect, but doesn't exactly make Safari/Chrome implementation wrong (unless I'm misreading the specs).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59520">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59520">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 18, 2008		</div>
+		<div class="quote"><p>I've always believed <a href="//www.w3.org/TR/CSS21/images/tbl-layers.png">that diagram</a> to be the way things should render and the way it's described, Firefox gets it wrong as well. The graphic should extend the full width of the table as if it was an element surrounding all cells (since it is). Alas, with IE8 following in Firefox's (and Opera's) footsteps, I doubt we'll see that change. </p>
+<p>The table spec has been one of the most inconsistent across all browsers and it has taken years to see it come even close to being similar. (Making HTML5's 2022 target a pretty realistic assessment based on what current browsers have accomplished.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59521">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59521">8</a></div>
+			<span class="authorname">Jamie Hill</span> said on September 18, 2008		</div>
+		<div class="quote"><p>The spec is a little un-clear if you ask me. I'm getting the same Safari issue but which is right Safari/Chrome (or Webkit in general) and IE or Firefox. I'm thinking that Mozilla just saw the spec differently, this could do with clarification.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59861">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59861">9</a></div>
+			<span class="authorname">Annamalai</span> said on October 20, 2008		</div>
+		<div class="quote"><p>Ya It is wonder fyl
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

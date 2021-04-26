@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>SnookSurvey #2: To Link or Not? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/snooksurvey/to_link_or_not">
+	<meta property="og:url" content="https://snook.ca/archives/snooksurvey/to_link_or_not">
+	<meta property="og:title" content="SnookSurvey #2: To Link or Not?">
+	<meta property="og:description" name="description" content="The discussion on this should prove interesting. So, you're ajaxifying an interface and you've got some JavaScript injecting new elements into the DOM for the purpose of enabling interaction. For exam...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>SnookSurvey #2: To Link or Not?</h1>
+		<p>The discussion on this should prove interesting. So, you're ajaxifying an interface and you've got some JavaScript injecting new elements into the DOM for the purpose of enabling interaction. For example, you've got an FAQ with a series of questions and answers. Questions are marked up with H2's (or maybe you prefer definition lists for your FAQ, whatever, this is just for argument's sake). You hide all the answers and set up event handlers for users to click on the questions. But how do you make the interaction obvious? Do you:</p>
+<ol type="A">
+  <li>inject a link element (A) into the HTML and add the event handler to that; or</li>
+  <li>add  the event handler to the header and add a class name allowing you to style the header using a different colour and <code>cursor:pointer</code>. </li>
+</ol>
+<p> Discuss. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 06, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/snooksurvey/">SnookSurvey</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/815</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">54 Comments &middot; <a href="/archives/snooksurvey/to_link_or_not.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c48997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48997">1</a></div>
+			<span class="authorname">Kevin</span> said on June 06, 2007		</div>
+		<div class="quote"><p>Definitely B. In A you're adding an anchor because you want the anchor's style, not the functionality. To me, it's like using &lt;strong&gt; because you want bold text. Adding a decent CSS class would suffice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48998">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48998">2</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com">Jeff Croft</a></span> said on June 06, 2007		</div>
+		<div class="quote"><p>I don't see a whole lot of difference between the two. They both seem equally accessible and usable. I'm sure people will have perfectly reasonable explanations of why one is better than the other, but my opinion is: it doesn't matter. Both are fine ways to go about it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48999">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48999">3</a></div>
+			<span class="authorname">Yuccaplant</span> said on June 06, 2007		</div>
+		<div class="quote"><p>Definitely A, because B ain't accessible from a screenreaders point of view. Moreover I think that it's a logical thing that every 'clickable' element is a link.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49000">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49000">4</a></div>
+			<span class="authorname"><a href="http://www.456bereastreet.com/">Roger Johansson</a></span> said on June 06, 2007		</div>
+		<div class="quote"><p>A.</p>
+<p>B is <strong>not</strong> an option for accessibility reasons, since it offers no way for people who do not use a mouse or trackpad to interact with your interface.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49001">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49001">5</a></div>
+			<span class="authorname">Arjan Eising</span> said on June 06, 2007		</div>
+		<div class="quote"><p>B is definitely my answer. Because you don't hyperlink something, you only trigger an event. The <code>a</code> element is for links, not for events.<br />
+@Yaccaplant: since when do screenreaders care about JavaScript?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49002">6</a></div>
+			<span class="authorname">Rian Orie</span> said on June 06, 2007		</div>
+		<div class="quote"><p>A<br />
+Simply because B doesn't degrade for screenreaders or I-dont-use-javascript-because-its-unsafe users :)</p>
+<p>I'd probably make it a link that would show the answer after a reload and use javascript to hijack this functionality in without a reload
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49003">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49003">7</a></div>
+			<span class="authorname">Paul Annesley</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Rian: I believe the answers will not be hidden in the first place for users without JavaScript. Keyboard navigation for JS-enabled users is still an issue if there's no link element to tab to.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49004">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49004">8</a></div>
+			<span class="authorname">Yuccaplant</span> said on June 07, 2007		</div>
+		<div class="quote"><p>@Arjan Eising<br />
+Almost every modern screenreader supports javascript at some level (it's true that not every setup with an (old) screenreader supports javascript). Just don't forget to put focus on tne newly available content. (My blind colleague can confim this.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49005">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49005">9</a></div>
+			<span class="authorname"><a href="http://kimblim.dk">kimblim</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>A - no doubt.</p>
+<p>Preferably constructed in a way, where you insert a url into the href of the &lt;a&gt; as well and put a return false in the javascript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49006">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49006">10</a></div>
+			<span class="authorname">Martin</span> said on June 07, 2007		</div>
+		<div class="quote"><p>A, because you can't use your keyboard to navigate between the elements if they're H2's.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49007">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49007">11</a></div>
+			<span class="authorname"><a href="http://el73.be/">Kevin</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>Well, I've changed my mind. Apparantly you <strong>do</strong> want the functionality of the anchor. ;-)</p>
+<p>Some great tips here.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49008">12</a></div>
+			<span class="authorname">Jack Sleight</span> said on June 07, 2007		</div>
+		<div class="quote"><p>B,<br />
+Arguing over which of the two would degrade the best is irrelevant, because they are both being inserted via JS anyway, if JS was turned off neither would ever get added to the page.</p>
+<p>In my mind &lt;a&gt; elements are for hyperlinks, not interaction. Given that there is no logical value for the href attribute in this situation, it makes no sense to add an &lt;a&gt; element.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49009">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49009">13</a></div>
+			<span class="authorname">flashpro</span> said on June 07, 2007		</div>
+		<div class="quote"><p>A is the only right answer. You should use an anchor because the element is clickable and the right element for clickable items is an anchor, not a H2.</p>
+<p>And off course this is more accessible... because screen readers depend on semantic code. But this is just one of the reasons (keyboard nav., search spiders, etc.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49010">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49010">14</a></div>
+			<span class="authorname"><a href="http://www.thewatchmakerproject.com/">Matthew Pennell</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>A, for the reasons given above.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49011">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49011">15</a></div>
+			<span class="authorname">Jack Sleight</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Oops, that should read "In my mind &lt;a&gt; elements are for hyperlinks". There is also no need for anchors, because it sounds as though the answers are appearing directly under the questions anyway.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49013">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49013">16</a></div>
+			<span class="authorname"><a href="http://www.trovster.com">trovster</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>Definitely 'a'. I understand why people argue for 'b', but a lot of this doesn't matter, because you're adding the element via JavaScript, so if you do not have JavaScript the code isn't broken, unlike using ::javascript in anchors within 'normal' static code.</p>
+<p>The fact that if you didn't use an anchor, you'd have to fix :hover effects for IE6 using JavaScript (OK, you're already using JavaScript, but this is just extra hassle). Definitely 'a'.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49014">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49014">17</a></div>
+			<span class="authorname">Jake Archibald</span> said on June 07, 2007		</div>
+		<div class="quote"><p>A - if I had to choose one.</p>
+<p>Instead, I'd rather insert a list above the first question which contains all the question titles as anchors which link down to the appropriate part of the page. This is screen-reader and user friendly. The list doesn't really need to be generated by javascript, but it easily could be.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49016">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49016">18</a></div>
+			<span class="authorname"><a href="http://www.thefutureoftheweb.com/">Jesse Skinner</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>A, because then you can give it focus (ie. click it from the keyboard) as well as give it non-JavaScript "functionality" through the href (either go to another page or jump down to the anchor of the answer).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49019">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49019">19</a></div>
+			<span class="authorname"><a href="http://jacksleight.com">Jack Sleight</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>Iâ€™ve been giving this some more thought, and decided on this:</p>
+<p>B, <strong>unless there is a logical and valid value for the href attribute of the &lt;a&gt; element</strong> eg. anchors, or links to separate pages (â€œjavascript:â€¦â€ is not valid IMO). However in that case, it would probably make more sense to include the &lt;a&gt; element in the mark-up, rather than adding it via JavaScript.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49020">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49020">20</a></div>
+			<span class="authorname">steve</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Has to be (A), because you want users to be able to keyboard navigate to it.</p>
+<p>But, the link could be bogus, with JS to expose the answer text... depending on layout, maybe a class makes sense, but likely just hiding/showing the next child elem should work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49021">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49021">21</a></div>
+			<span class="authorname"><a href="http://kasimir-k.fi">Kasimir K</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>The answer to "But how do you make the interaction obvious?" is C) <a href="//www.w3.org/TR/html401/interact/forms.html#edef-BUTTON">&lt;button&gt;</a></p>
+<p>Then again, speaking of this kind of FAQs, IMO the proper way to do it is:</p>
+<ul>
+<li>two lists
+<li>in the first list just the questions
+<li>in the second questions and answers
+<li>the q's of the first list are links to the q's of the second list, which are anchors
+<li>now we have max usablility for UAs without JS
+<li>then enhance it with JS:
+<ul>
+<li>hide the first list</p>
+<li>in the second list:
+<ul>
+<li>hide all answers</p>
+<li>give event handler to all question anchors<br />
+</div>
+	</div>
+		<div class="comment" id="c49022">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49022">22</a></div>
+			<span class="authorname">Adam J. McIntyre</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Setting all thoughts of accessibility aside, as we can all agree that the end result needs to be accessible, I'd have to side with (B).</p>
+<p>(A) seems to be adding extra markup to the page purely for the sake of taking advantage of that markup's inherent style properties; the extra markup is not really necessary, other than for presentation. Control that presentation with a bit of CSS and lighten that code a bit.</p>
+<p>With (A), you'd be adding x number of anchor tags to your page's markup. With (B), you're adding a line or two of CSS (cursor:pointer/hand, maybe a text-decoration:underline).</p>
+<p>(From an accessibility standpoint, I like Kasimir's idea.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49060">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49060">23</a></div>
+			<span class="authorname"><a href="http://nateklaiber.com">Nate Klaiber</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>Another vote for A, for many of the same reasons listed above. Few other thoughts in my head, but A is my final answer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49061">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49061">24</a></div>
+			<span class="authorname"><a href="http://www.mattrobin.com">Matt Robin</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>Although B sounds intriguing it also sounds a bit much, I think I'd go with A.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49062">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49062">25</a></div>
+			<span class="authorname">alvin</span> said on June 07, 2007		</div>
+		<div class="quote"><p>as noted above, it really depends on the way you inject the A tag. If source code remains unchanged and you use JS to inject the extra tags, it's beats the purpose of having it there in the first place - which is to provide better accessibility support. So in that sense, B would be a better/simpler choice.</p>
+<p>I however, disagree with Adam's reply above that using the A tag just for the sake of the markup's inherent style properties. Some of the comments mention about keyboard and accessibility support. Also with an A tag, you can implement :hover state without extra javascript (just to make IE6 plays nice). The 'title' attributes provide additional acces. support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49064">26</a></div>
+			<span class="authorname">Brendon Kozlowski</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Hmmm...  I decided on (B) for my solution previously whilst using definition lists (and only inserting classes, not actual CSS), but I never thought about allowing the ability to set focus.  If I were to also add focus, I'd still be completely happy with B.  Unfortunately, I'm not sure how to do that (atm) so I'm personally unhappy with both solutions.  I don't want to change the markup from a header to an anchor'd header (or a DT to an A).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49067">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49067">27</a></div>
+			<span class="authorname">Jarrod</span> said on June 07, 2007		</div>
+		<div class="quote"><p>A without a doubt. ALWAYS design with graceful degradation in mind.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49069">28</a></div>
+			<span class="authorname">Rob</span> said on June 07, 2007		</div>
+		<div class="quote"><p>I think (B) is definitely the ideal solution, but it simply isn't practical. I don't think there is any way to get keyboard focus outside of Gecko/Firefox and IE and even if there was, how would you indicate to a blind user that the item is click-able?</p>
+<p>In a real-world situation, I think Kasimir's two list solution is probably the best method, as it's a little cleaner and less hack-ish than adding an anchor element only to co-opt it's behavior by not actually hyperlinking.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49070">29</a></div>
+			<span class="authorname">Lance Fisher</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Using method (A) you could make it degrade easily by having the href point to a page where the FAQ answer is located, but override the link with javascript to inject the answer directly into the current page.  </p>
+<p>On the other hand, I like that (B) has less markup.  Also, you could make the H2 element keyboard-accessable by setting its tabindex to 0 or greater.</p>
+<p>I was leaning more towards (B) for the cleaner markup, but I think for the purpose of easier degrade-ability I would choose (A).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49071">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49071">30</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 07, 2007		</div>
+		<div class="quote"><p>To clarify things as I think a few people have misunderstood: in both A and B, we're injecting the required behaviour using JavaScript so degradation is not an issue. The issue is whether additional markup should be added just to gain the benefits that a link element gives you, despite the fact that said link won't actually link to anywhere.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49072">31</a></div>
+			<span class="authorname">Lance Fisher</span> said on June 07, 2007		</div>
+		<div class="quote"><p>Oh, in that case, don't add the anchor.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49074">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49074">32</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com">Jeff Croft</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>I stand my my original answer: it doesn't matter. Really, who cares? Both work great, and I can't see any practical, real-world difference. It's an interesting academic debate, but I don't think it matters in the real world.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49075">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49075">33</a></div>
+			<span class="authorname"><a href="http://brad.touesnard.com/">Brad Touesnard</a></span> said on June 07, 2007		</div>
+		<div class="quote"><p>It sounds like the page is already marked up semantically and you are just transforming the page for presentation, so it doesn't really matter.</p>
+<p>However, I would lean toward (A) because you are actually transforming the header text into a link for presentation and by injecting an anchor tag it will inherit the anchor style you have already defined.</p>
+<p>It makes no difference what you attach the event to.</p>
+</div>
+	</div>
+		<div class="comment" id="c49083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49083">34</a></div>
+			<span class="authorname">Chris Lienert</span> said on June 07, 2007		</div>
+		<div class="quote"><p>I've already come across this before and I chose B. Combining unique styles for the headers with the JS has worked well.</p>
+<p>I can see how option A would assist with keyboard navigation, but given that the anchors' behaviour is hijacked, there's not much gain.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49089">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49089">35</a></div>
+			<span class="authorname">Daniel</span> said on June 08, 2007		</div>
+		<div class="quote"><p>I really think  you can't really go wrong with either.. Just make sure whatever you add the event handler to is obviously click able.  Something beyond just a cursor change...   but I would choose...</p>
+<p><b>A.</b></p>
+<p>Because you can make it an anchor for screenreaders, then have your event handler return true ...  </p>
+</div>
+	</div>
+		<div class="comment" id="c49095">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49095">36</a></div>
+			<span class="authorname">Andy</span> said on June 09, 2007		</div>
+		<div class="quote"><p>I'd say it depends on the target audience. Although, for accessibility, I'd go with A.<br />
+However, it doesn't make much sense to me encapsuling the H2 element inside a link when you could just simply make the link look like the H2 element using CSS. Unless there's some unknown factor to why we would have to use H2 elements ..?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49110">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49110">37</a></div>
+			<span class="authorname">Chandra</span> said on June 10, 2007		</div>
+		<div class="quote"><p>My choice is A.<br />
+I am with Roger. B is not accessible for screen readers.<br />
+A link should be a link. Why simulate the link behavior for heading/dt using JS and CSS?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49117">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49117">38</a></div>
+			<span class="authorname">Jackson</span> said on June 10, 2007		</div>
+		<div class="quote"><p>I would go with A and link the anchor to a page with the individual question and answer. That way users with javascript can show/hide answers till kingdom come, and users without can still access the answers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49119">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49119">39</a></div>
+			<span class="authorname">Dylan</span> said on June 10, 2007		</div>
+		<div class="quote"><p>I'd have to <a href="#c49000">agree with Roger</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49120">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49120">40</a></div>
+			<span class="authorname">Medyk</span> said on June 10, 2007		</div>
+		<div class="quote"><p>A.<br />
+We're adding interaction layer and it should be reflected in structure.</p>
+<p>Choosing B would be like (more extreme example) adding form functionality but hesitate to add form element
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49122">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49122">41</a></div>
+			<span class="authorname">Kevinin</span> said on June 10, 2007		</div>
+		<div class="quote"><p>I chose A because of it's accessibility support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49123">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49123">42</a></div>
+			<span class="authorname">Yuccaplant</span> said on June 11, 2007		</div>
+		<div class="quote"><p>@Jeff Croft<br />
+In my case the real world difference is 1m83 tall, weights 81kg, is called Geert and can be quite aggressive with his white stick from time to time. ;-) </p>
+<p>So yeah, it matters. Don't be selfish and think about blind people, think about people who don't have the physical ability to surf the internet with a mouse, ... . </p>
+<p>As it comes to B, the arguments are only academical. So why go for B?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49126">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49126">43</a></div>
+			<span class="authorname">Dave Choi</span> said on June 11, 2007		</div>
+		<div class="quote"><p>If you're concerning yourself with accessibility and anchoring for screen readers, the questions should all be anchored to begin with, regardless of whether the answers are interspersed or provided after an index of questions.  That decision basically has nothing to do with JavaScript.</p>
+<p>That said, you shouldn't inject anchors into adequately semantic HTML with JS unless you're doing something like linking to JS-enabled-only content.</p>
+<p>(Incidentally, this has nothing to do with AJAX)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49127">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49127">44</a></div>
+			<span class="authorname">Dave Choi</span> said on June 11, 2007		</div>
+		<div class="quote"><p>btw, B.</p>
+<p>Sorry for double posting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49133">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49133">45</a></div>
+			<span class="authorname">Mikel Ward</span> said on June 11, 2007		</div>
+		<div class="quote"><p>
+B, because clicking on it doesn't take you to a new page (or an already visible section on the same page), therefore it's not a link.
+</p>
+<p>
+I already use B on <a href="//mikelward.com/links">my links page</a>, but I admit it's lacking something, perhaps something like the expand/collapse widget from the <a href="//developer.yahoo.com/yui/treeview/">Yahoo UI TreeView</a> would be even better.
+</p>
+<p>
+Depending on the size of the content, it may be better to use CSS to hide the answers and use JavaScript to display them.  You can configure the CSS to only hide the answers from screen devices, so screen readers will ignore them and see the whole content.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49137">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49137">46</a></div>
+			<span class="authorname">Nick Cowie</span> said on June 12, 2007		</div>
+		<div class="quote"><p>A because it is more accessible
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49141">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49141">47</a></div>
+			<span class="authorname">Andreas</span> said on June 12, 2007		</div>
+		<div class="quote"><p>A, because of all the good reasons given above.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49142">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49142">48</a></div>
+			<span class="authorname">DreamwinD</span> said on June 12, 2007		</div>
+		<div class="quote"><p>Both ways. All links will have "href" and "onlick=...return false;" attributes<br />
+double accessibility (ajax-mode and noscript-mode)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49143">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49143">49</a></div>
+			<span class="authorname"><a href="http://www.jemjabella.co.uk">Jem</a></span> said on June 12, 2007		</div>
+		<div class="quote"><p>I <em>just</em> wrote a brief tutorial on this at the start of the month for tutorialtastic and chose to go with A but with empty links (#). I chose this method for its simplicity and that fact that I wouldn't have to add a whole bunch of CSS and hackery (that the majority of my audience would barely understand) to make it look good.</p>
+<p>If I were to code the same thing into a page professionally (e.g. for a business that therefore has to comply to various accessibility laws) I would probably also choose A, but would link the question to something - e.g. a page of its own. This would be more semantically correct, would allow people to view the question and answer irrespective of whether or not they had JavaScript installed and would also allow people to link others directly to the individual contents of the FAQ.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49152">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49152">50</a></div>
+			<span class="authorname">Steve</span> said on June 12, 2007		</div>
+		<div class="quote"><p>I would have to go for A because it allows focus to be gained for keyboard-only users, but the questions should have  terse anchor text for voice recognition users. Otherwise they might have to speak the full text of the anchor to activate the control.<br />
+If they are very experienced users of voice rec, they could just say "links" and have each anchor revealed with a numerical value overlay and select the corresponding #. You cannot count on the level of proficiency being equal in all your users.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49501">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49501">51</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik WÃ¤rnsberg</a></span> said on June 18, 2007		</div>
+		<div class="quote"><p>A, combined with site anchors that make the JS act unobtrusively.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54477">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54477">52</a></div>
+			<span class="authorname"><a href="http://www.bogglethemind.com/">Jeff L</a></span> said on August 21, 2007		</div>
+		<div class="quote"><p>I don't see this mentioned anywhere - </p>
+<p>Roger wants option A just to allow the element to receive focus.  Folks argue this is wrong, as it's not technically a link and doesn't go anywhere.</p>
+<p>What about using option B but putting a tabindex on the h2?  This would allow the element to receive focus.  However, you'd need to use another event handler along with the onclick, as onclick won't fire when you hit the enter key, as it does for links. A onkeyup handler that checks which key was pressed might get the job done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54542">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54542">53</a></div>
+			<span class="authorname">Tommy Olsson</span> said on August 22, 2007		</div>
+		<div class="quote"><p>The <code>tabindex</code> attribute is not valid for headings, only for links, <code>area</code>, <code>object</code> and some form controls.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c54567">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c54567">54</a></div>
+			<span class="authorname">Stevie D</span> said on August 22, 2007		</div>
+		<div class="quote"><p>I don't see how either of these options can be made accessible. At all.</p>
+<p>If the plain page just lists the questions, and the answers are inserted using Javascript, then anyone without Javascript active can't get the answers, full stop. So neither A nor B, in the situation you've suggested.</p>
+<p>A better solution would be to have a plain page generated with the answers, and put links to that in the initial plain page. Whether you have a page for each question/answer, or whether you link to, eg, "faq.htm?q=6" and use server-side code to insert the relevant answer into the question page doesn't matter - either way is perfectly accessible.</p>
+<p>If you <em>then</em> want to Ajaxify it, you can do. And then, as you've already got [a] tags in your plain page, option <strong>A</strong> makes most sense. It allows non-mouse-users to select and activate the option and to see that it is selected, which is very difficult under B. It doesn't add any additional elements that aren't required by the initial accessible version.</p>
+<p>PS - Is your blog <strong>deliberately</strong> set to prevent IE-users from contributing?
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

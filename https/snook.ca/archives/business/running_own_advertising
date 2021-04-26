@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Can running your own advertising be worthwhile?  - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/running_own_advertising">
+	<meta property="og:url" content="https://snook.ca/archives/business/running_own_advertising">
+	<meta property="og:title" content="Can running your own advertising be worthwhile? ">
+	<meta property="og:description" name="description" content="The short answer is yes, running my own advertising has been worthwhile, and it's been a good learning experience. In talking with those that advertised, the response has been good with many saying th...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Can running your own advertising be worthwhile? </h1>
+		<p>The short answer is yes, <a href="https://snook.ca/jonathan/advertising/">running my own advertising</a> has been worthwhile, and it's been a good learning experience. In talking with those that advertised, the response has been good with many saying that it resulted in additional business. Let's take a look at some of the lessons I've learned. </p>
+<h2>Good design</h2>
+<p>Running your own advertising gives you the benefit of having ads fit into the overall look and feel of the site. I had a couple people actually compliment on how well the ads were integrated into the site. When you get compliments with advertising, you know you're on the right track. That's one of the things I didn't like about Google Ads. They always seemed so garish and they really had to stand out. They had to be obtrusive to get results. </p>
+<p>In retrospect, however, I should have stuck to <a href="http://www.iab.net/standards/adunits.asp">standard IAB sizes</a>.     Redesigning can be terribly restrictive when you start having to consider advertising in the mix. It gets awkward when dealing with odd ad sizes that &mdash; while they fit the current design &mdash; are just out of place in the new design.</p>
+<p>While on the subject of design, trying to redesign the site has been made more complicated with advertising. I'm not just designing for myself. There's now an additional facet that has to be considered. Where do the ads get placed? Does shifting their placement increase or decrease their value? It's definitely tougher to design with multiple ad spots and considering how advertisers might feel about various placements. </p>
+<h2>RSS ads = Evil?</h2>
+<p>My biggest surprise has been the lack of interest in the RSS ad. I figured it'd get snapped up right away. I'm not entirely sure what to attribute this to. It may be that most people may think RSS ads are an abomination. Others may have felt there was more bang for the buck with the site ads.  </p>
+<h2>Too many choices</h2>
+<p>I think my first mistake right off the bat was offering too many choices. I ended up simplifying things within a couple days, dropping a couple of the ad slots. I've also recently, due to the lack of interest, dropped the RSS ad option. </p>
+<p>People need to be able to see value and if there are too many choices, it makes it difficult to make any choice at all. People also tend to ask more questions to clarify any comparison between the slots. Keeping it simple makes it easier for everybody. </p>
+<h2>Statistics</h2>
+<p>Use a decent stats program like <a href="http://www.google.com/analytics/">Google Analytics</a> which allows you to drill down into various segments. Advertisers sometimes want to know more detailed demographics to ensure they're hitting their target market. Doing a survey of your site visitors can also be advantageous as you'll hopefully get more insight beyond what a stats package can offer, like gender, age, and interests. </p>
+<p>I've debated about tracking the clickthrough rates of the ads themselves through redirects but opted not to in order to retain the search engine benefits of direct linking. I could alternatively do a JavaScript-based hook but I'm okay with not tracking this info. </p>
+<h2>Automate as much as you can</h2>
+<p>Especially considering the number of ad slots that I have available (ie: more than one), I couldn't manage it unless it was at least partially maintained by some system. Currently, it's a really simple system of a couple CakePHP components and helpers that manage things. However, I could definitely use an automated email notification on pending expiration. It would have saved me on two separate occasions. </p>
+<h2>Exclusivity</h2>
+<p>Another surprise has been the type of companies choosing to advertise. In the first couple months, the variety was decent. A dev shop, a tax preparation company, and an HTML slicer company. Then, as the months progressed, things began to shift. To the point now where almost all advertisers are now HTML slicer companies. I don't have any exclusivity clauses and even after mentioning this fact to new requests, they've gone ahead anyway.  </p>
+<h2>Expanding the Ad Program </h2>
+<p>Ultimately, I'd like to expand the program. In the near future, I'll more than likely be expanding the system to  <a href="http://withcake.com/">WithCake.com</a>. However, could the system be used as an ad platform for anybody, similar to <a href="http://www.coudal.com/deck/">The Deck</a> or <a href="http://www.text-link-ads.com/">TLA</a>? I suppose more importantly, is anyone interested in yet another ad system? </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 04, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/802</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">19 Comments &middot; <a href="/archives/business/running_own_advertising.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c48212">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48212">1</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com">Jeff Croft</a></span> said on May 04, 2007		</div>
+		<div class="quote"><p>Nice post... lot of interesting stuff to think about here.</p>
+<p>My feeling on RSS adds is that the market for them simply isn't there yet. On our 20+ news media sites, all of which have tons of available RSS feeds, the subscribtion rate is remarkably low. "Regular people" just aren't that interested in RSS (yet, anyway).  </p>
+<p>Another issue with ads in RSS is that it sort of ignores the original point of RSS: syndication. While ads in your feed reader might not seem so bad, if I want to syndicate your RSS feed into another site, then I probably don't want your ads (you may not care, but the fact is that I probably just wouldn't use your feed if it had ads in it).</p>
+<p>RSS (and Atom) is a great technology for what it was intended: machine-consumable and syndicatable versions of the content for websites. I fear that some people are trying to turn RSS into just another version of the website, with the addition of ads, and some people adding CSS styles to their RSS feeds.</p>
+<p>The more non-content bits in an RSS feed, the less useful that RSS feed becomes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48213">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48213">2</a></div>
+			<span class="authorname"><a href="http://www.thewatchmakerproject.com/">Matthew Pennell</a></span> said on May 04, 2007		</div>
+		<div class="quote"><p>Interesting stuff, Jon - thanks for sharing.</p>
+<p>With reference to tracking outgoing traffic, did you know you can <a href="//www.google.com/support/analytics/bin/answer.py?answer=27246&amp;ctx=sibling">track outgoing clicks</a> using Analytics, without redirecting? You can also <a href="//www.google.com/support/analytics/bin/answer.py?answer=27244&amp;hl=en">track JavaScript events</a>, which is great for seeing how much use a particular widget is getting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48214">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48214">3</a></div>
+			<span class="authorname"><a href="http://visicswire.com">Walker Hamilton</a></span> said on May 04, 2007		</div>
+		<div class="quote"><p>Yeah, I think there's interest. I would join. I've got two cakePHP-powered sites (only one of which has launched) which would benefit from having ads integrated.</p>
+<p>The launched one has also been sorely lacking my attention: <a href="//txpmanual.com">txpmanual</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48217">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48217">4</a></div>
+			<span class="authorname"><a href="http://mattbrett.com">Matt Brett</a></span> said on May 04, 2007		</div>
+		<div class="quote"><p>Ah nice, I was hoping for a follow-up to your venture into self managed advertising.  Paul Stamatiou brought this up in the 9rules forum recently and I've been meaning to talk to those that have gone this route for a while now.</p>
+<p>I've been using TLA, but for whatever reason, the ads for my site are crazy expensive ($200/month).  I've had people approach me about buying space outside of TLA, but I don't have anything setup yet.  While I'm currently working on a redesign, I've been factoring in new ad placement aside from TLAs.</p>
+<p>So from what I've learned here, it's going to take a bit of time to manage and coordinate all of this.  I'm probably going to go with OpenAds (formerly PhpAdsNew), so that should make things a little easier.</p>
+<p>Thanks for sharing your experience Jon and glad to hear it's working out for you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48218">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48218">5</a></div>
+			<span class="authorname">Sam D</span> said on May 04, 2007		</div>
+		<div class="quote"><p>Not sure if you have seen this interesting take on cooperative advertising.  There are a lot of ideas that I think have great merrit</p>
+<p>http://www.red-sweater.com/blog/330/free-idea-cooperative-advertising
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48219">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48219">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 04, 2007		</div>
+		<div class="quote"><p>@Matthew: thanks for the heads up. I might take the time at some point to include that. </p>
+<p>@Matt: My TLA ads are just a smidge cheaper than yours but it's still decent revenue (currently about a third of my overall revenue). I'll be interested to see how things work out for you with OpenAds. </p>
+<p>@Sam: I read through that post and it seemed more like an enterprise-level blogroll. :) But the idea of community-focused advertising, which I think is what The Deck falls under, is definitely a decent idea.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48220">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48220">7</a></div>
+			<span class="authorname">TechCheatSheets</span> said on May 04, 2007		</div>
+		<div class="quote"><p>I'm just starting to see if I can start selling advertising space on my site. Great timing!</p>
+<p>Interesting that RSS feed ads are not very popular. Seems to me it would be one of the best options, as you would reach all the subscribers, even if they did not click through.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48239">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48239">8</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik WÃ¤rnsberg</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>I think that one reason why RSS advertisement isn't as popular is because the advertisers get a harder time to check for referrals, knowing how effective their ads are.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48249">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48249">9</a></div>
+			<span class="authorname">topfunky</span> said on May 06, 2007		</div>
+		<div class="quote"><p>As an advertiser (but not on this site, currently), blog advertising has really helped my business (PeepCode Screencasts). </p>
+<p>I started by approaching several people I respect and asked if they would run an ad for a certain monthly rate (none of them had a system in place other than Google ads). I've gotten a good return and positive exposure, and I like knowing that I'm helping to support great blogging.</p>
+<p>Establishing rates can be tough. I ended up setting a rate that I thought was reasonable and haven't been turned down yet.</p>
+<p>All the ads I've bought are on actual websites, not feeds.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48252">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48252">10</a></div>
+			<span class="authorname"><a href="http://www.germworks.net">Jermayn Parker</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Mmmm good interesting thought provoking points. I actually personally also do not like google adverts etc either. I am creating a website at the moment which has personalized adverts and its easier and looks nicer than custom adverts. Chalk and cheese i think...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48323">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48323">11</a></div>
+			<span class="authorname">Scott Johnson</span> said on May 08, 2007		</div>
+		<div class="quote"><p>It's good to see conversation on DIY advertising.  Most of the popular ad programs for publishers out there take WAY too large of a cut off the top.  If you run your own ads, you can make more money while offering a cheaper spot to your advertisers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48332">12</a></div>
+			<span class="authorname">Sam Stevens</span> said on May 08, 2007		</div>
+		<div class="quote"><p>Great read, thank you. I've been using phpAdsNew/OpenAds for years and love it! Huge props to the developers who make upgrades a SNAP. You can run image and text ads easily and it has all the tracking tools you could need built in. Highly recommended.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48451">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48451">13</a></div>
+			<span class="authorname">Oz</span> said on May 15, 2007		</div>
+		<div class="quote"><p>Great post -- I will be diving into OpenAds myself, open source gifts like these should not be passed up IMO.</p>
+<p>On another note, what about Affiliate Programs? Can anyone recommend a opensource OpenAds type product targeted to running Affiliates?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48484">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48484">14</a></div>
+			<span class="authorname"><a href="http://www.diethour.com">Ivan</a></span> said on May 18, 2007		</div>
+		<div class="quote"><p>Really interesting and valuable information. Thanks!<br />
+An important point is to incorporate ads with the design that way so people can see them and even if they know these are ads, they still click them because of interest. Most  adsense publishers mislead people and they click the ads because they see links. Of course, this is good for the publisher, but advertisers receive only clicks and no sales.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48486">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48486">15</a></div>
+			<span class="authorname">Todd Garland</span> said on May 18, 2007		</div>
+		<div class="quote"><p>Hi John,</p>
+<p>Interesting post.  I have been managing ads on a couple of my sites for almost 2 years now selling text links and banner ads.  The text links I usually sell through TLA and the banner ads I do manually.  I have found it to be somewhat of a nuisance to manage the ad spots, track who has paid, send out monthly bills, find new advertisers, etc.</p>
+<p>I have been working on an ad serving site with a couple great programmers for the past 4 months to solve this problem I was having with selling ads on my sites.  The key for us was to make sure that the ads remain search friendly - because, as a small publisher/advertiser we knew how important it was for advertisers to gain this added SEO value from the banner ads.</p>
+<p>We will be launching our ad marketplace targeted towards small/medium sized publishers in late June.  I think you might like it...  http://search-friendly-ads.com.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48601">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48601">16</a></div>
+			<span class="authorname">Charles Iliya Krempeaux</span> said on May 24, 2007		</div>
+		<div class="quote"><p>@Scott Johnson: "Most of the popular ad programs for publishers out there take WAY too large of a cut off the top."</p>
+<p>It's true that ad networks take money off the top.  But currently, advertising networks have an advantage.  They have a "market".</p>
+<p>And having that, they have a group of advertisers willing to pay quite alot for advertising space.</p>
+<p>So... even if ad networks are taking a cut... you still may get more because the advertiser was willing to may more to them... than you can get advertisers to pay you directly.</p>
+<p>But... perhaps things will change in the future.  But that's how things are today.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50797">17</a></div>
+			<span class="authorname">John</span> said on July 08, 2007		</div>
+		<div class="quote"><p>All the advertisements I see mentioned here are the interrupting-the-user-from-what-they're-doing type. Something genuine as a blog post with a affiliate link might be worth it to you if it's targeted to your audience enough. I haven't kept up with it, but I remember hearing that google at one point was going to start contextual advertising where you insert a link into a blog post, and try to sell the product as best as you can.  There's another style of paid adverts where you can honestly review a product or website for a fee... reviewme.com I believe. With that one, you don't have to give a good review if you don't want to.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51069">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51069">18</a></div>
+			<span class="authorname"><a href="http://brad.touesnard.com/">Brad Touesnard</a></span> said on July 11, 2007		</div>
+		<div class="quote"><p>Have you looked at <a href="//www.openads.org/">OpenAds</a> to manage your ad programs?  I just stumbled upon their site and found out that this project used to be the phpAdsNew project which I had tried back in the day (1999?) and was very impressed with.  It might be worth a look.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c51070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51070">19</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 11, 2007		</div>
+		<div class="quote"><p>@Brad: a few others in earlier comments have mentioned OpenAds and I may move that direction. For now, I'm happy where things are at.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

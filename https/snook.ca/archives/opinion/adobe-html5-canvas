@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Adobe and HTML5's Canvas - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/adobe-html5-canvas">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/adobe-html5-canvas">
+	<meta property="og:title" content="Adobe and HTML5's Canvas">
+	<meta property="og:description" name="description" content="I had an epiphany and I hope somebody at Adobe has been paying attention to the HTML5 developments. Adobe is well positioned to take advantage of emerging browser features, most specifically canvas. ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Adobe and HTML5's Canvas</h1>
+		<p>I had an epiphany and I hope somebody at Adobe has been paying attention to the HTML5 developments. Adobe is well positioned to take advantage of emerging browser features, most specifically canvas. </p>
+<p>As great as canvas is, having a visual tool to assist in taking advantage of that would be ideal. Such a tool would smooth out the rough spots of cross-browser issues and could provide a set of pre-designed widgets and interactions that could be quickly dropped into any project. </p>
+<p>Flash developers would likely find it an easy transition to building canvas-based tools. It'd be easier because of their knowledge of animation and because of the similarities between ActionScript and JavaScript. </p>
+<p>Adobe is also well positioned to integrate a solution across existing applications such as allowing &quot;Export as Canvas&quot; from Flash, or the ability to build a canvas editor for Dreamweaver.</p>
+<p>This isn't a Canvas vs. Flash issue. There are still advantages to both. Building a tool such as this doesn't sabotage their Flash marketshare any more than Dreamweaver does. In fact, having a tool such as this would further entrench Adobe as the de facto provider for web design tools.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published July 07, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/950</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">16 Comments &middot; <a href="/archives/opinion/adobe-html5-canvas.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63673">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63673">1</a></div>
+			<span class="authorname">Henry</span> said on July 07, 2009		</div>
+		<div class="quote"><p>Interesting thoughts. I just hope the start making this "movement" soon by major browsers. I love the idea of HTML 5, but at this point its like using CSS3.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63674">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63674">2</a></div>
+			<span class="authorname">Jeff Schiller</span> said on July 07, 2009		</div>
+		<div class="quote"><p>If the idea that they make money from authoring tools without requiring lock-in actually holds water, they would support SVG directly within Flash.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63675">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63675">3</a></div>
+			<span class="authorname">John Dowdell</span> said on July 07, 2009		</div>
+		<div class="quote"><p>I've been following CANVAS for about five years now:<br />
+http://weblogs.macromedia.com/jd/archives/2004/07/safari_html_ext.html</p>
+<p>Adobe CEO this month: "To the extent that an improved HTML standard accelerates innovation and consistent reach for web content, weâ€™re very supportive and clearly from the perspective of our tools, we will support the creation and management of HTML content to the level that they want."<br />
+http://blogs.adobe.com/jd/2009/06/adobe_on_html5.html</p>
+<p>But before tooling comes consumer support. Making faster workflows to create drawings is predicated on consumers being able to view those drawings. There's still quite a way to go.</p>
+<p>(The Adobe Flash CS4 authoring tool isn't a general-purpose drawing tool. It focuses on various ways of creating SWF. Fireworks, Illustrator, even Dreamweaver are a little closer in scope to HTML construction.)</p>
+<p>jd/adobe
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63676">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63676">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 07, 2009		</div>
+		<div class="quote"><p>John: While other tools are certainly closer in scope for HTML construction, I still feel that Flash is closer in scope to addressing the scripting and animation that one would generally need for canvas development. IE is really the holding point here, because of its lack of canvas support but if IE9 is rumoured to have it, how long does Adobe wait before getting that tool our there?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63677">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63677">5</a></div>
+			<span class="authorname">Zachary Johnson</span> said on July 07, 2009		</div>
+		<div class="quote"><p>I really wish you'd stop adding to the HTML5 buzz machine by calling it the "HTML5 Canvas."  Canvas works just fine with HTML4 and XHTML1.x.  The functionality is not exclusive to HTML5.  And it would have worked just as well with XHTML2.</p>
+<p>Though, I suppose there's not much point in defending the better standard at this point since the XHTML2 people have thrown in the towel.</p>
+<p>Also, somebody is currently working on a tool that will take vector images like SVG from a desktop design application and automatically port them to the Canvas.  http://ajaxian.com/archives/svgburst</p>
+<p>The Burst tool is timeline based, but it doesn't have GUI yet.</p>
+<p>I'm pretty sure somebody has made a GUI animation tool for jQuery effects.  Can't recall the name of it.</p>
+<p>I don't expect Adobe to jump into this market because they'd be putting further nails into Flash's coffin.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63678">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63678">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 07, 2009		</div>
+		<div class="quote"><p>Canvas works just fine in HTML and XHTML, sure. Browsers are cool like that. But the Canvas spec falls under the umbrella of HTML5. That's not taking advantage of the "HTML5 buzz machine." That's fact. </p>
+<p>As for a GUI animation tool for jQuery effects, take a look at <a href="//visitmix.com/Lab/Glimmer">Glimmer</a>. Not quite the same thing as what you're probably thinking.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63679">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63679">7</a></div>
+			<span class="authorname">Zachary Johnson</span> said on July 07, 2009		</div>
+		<div class="quote"><p>No... that's true.  Canvas did make its way from a proprietary Apple extension to the HTML5 spec.  I'll take you at your word that you weren't buzzing for the sake of buzzing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63680">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63680">8</a></div>
+			<span class="authorname">Andy Kant</span> said on July 07, 2009		</div>
+		<div class="quote"><p>I really doubt that Adobe would ever implement that mechanism (not to say that a third party won't). Canvas is a direct competitor to Flash, it may not be as powerful, but there's no doubting that it could support most use cases.</p>
+<p>If Microsoft ever bothered implementing Canvas, I could see them integrating some level of interoperability between Silverlight and Canvas since Silverlight is poised not only as Flash replacement but a method for progressively enhancing web apps (see Office Live which has a Silverlight enhanced version).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63681">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63681">9</a></div>
+			<span class="authorname">Matt May</span> said on July 07, 2009		</div>
+		<div class="quote"><p>(Disclaimer: I work for Adobe, but wouldn't have any introspection into whether we could or would build something like you're asking about.)</p>
+<p>I seem to remember Corel making a tool called RAVE that could output SVG or SWF. The main problem that I recall was that the animation models were different (Flash used frame-based animation; SVG is time-based). Anyway, people making really complex animations couldn't make it work on those two disparate systems, and the idea flopped.</p>
+<p>I think now the issue is the disparity in the richness of the toolkits. From what I've seen of canvas, its feature set is about on par with Flash 5. Which is pretty good for a 1.0, honestly. Flash 5 wasn't that bad. But that also means no 3D, no HW acceleration, no component model or base set of components, and no API for direct accessibility. At this point, at least, canvas is a subset of Flash, which means any attempt to cross-compile from Flash to canvas would be constrained by what canvas is capable of.</p>
+<p>Still, it would be up to the people buying the Flash authoring tool(s) whether this is something they require, and whether they're willing to live with those limitations. I think what we've seen over the lifespan of the web is that they want the right tool for their format, and that would lead me to believe more people will want canvas-centric authoring tools than retrofits of Flash authoring. But that's just my 2c.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63683">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63683">10</a></div>
+			<span class="authorname">Patrick H. Lauke</span> said on July 07, 2009		</div>
+		<div class="quote"><p>Just had a flashback to one of the early versions of Dreamweaver when I played around like crazy with its built-in DHTML animation stuff. And, wouldn't you know, I just found it again in the current version, lurking under Windows &gt; Timelines ... a relic, but probably quite close already (I seem to remember it generates oodles of javascript for its animation stuff).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63684">11</a></div>
+			<span class="authorname">Matthew Fabb</span> said on July 07, 2009		</div>
+		<div class="quote"><p>Note that Adobe AIR renders content with WebKit, so it's very likely that a future version of AIR will support the HTML5 canvas tag. Once that happens Adobe will like want some sort of tooling to support that, rather than developers rely on other tool to create Adobe AIR content that uses the canvas tag.</p>
+<p>I definitely think that Dreamweaver would be more of the tool for this job than the Flash authoring tool. Developers who work with Dreamweaver will be looking for some sort of canvas support anyways, meanwhile I'm not sure how many Flash developers will be looking to output their content to canvas.</p>
+<p>Plus as Matt May mentions points out the capabilities of the HTML5 canvas still don't compared to what is capable in Flash. Outputting canvas content from the Flash authoring tool would require turning off a lot of functionality and then there would still be issues of how content in Flash is handled so differently from canvas. It's just way too much of trying to smash a round square peg into round whole.</p>
+<p>Perhaps, something better would be a Flash-like animation tool that followed the canvas model and HTML DOM rather than the Flash model of movieclips with it's different DOM. Once again, I imagine Dreamweaver would be a better fit for this kind of tool and audience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63685">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63685">12</a></div>
+			<span class="authorname">John Dowdell</span> said on July 07, 2009		</div>
+		<div class="quote"><p>re: #4: "how long does Adobe wait before getting that tool our there?"</p>
+<p>Creative Suite cycles are usually in the 18-24 month range. Work on CS5 has already been underway for quite awhile.</p>
+<p>More practical and immediate may be third-party converters, in the same vein as clipboard-to-SVG converters or Illustrator export plugins:<br />
+<a href="//www.svgfactory.com/">http://www.svgfactory.com/</a><br />
+<a href="//www.mikeswanson.com/xamlexport/">http://www.mikeswanson.com/xamlexport/</a></p>
+<p>Me, I'd prioritize authoring-tool improvements for Text Layout Framework more highly -- offers real innovation to customers, and is already supported by 90% of consumer browsers -- but I'm not a direct decision-maker on tooling priorities:<br />
+<a href="//labs.adobe.com/technologies/textlayout/">http://labs.adobe.com/technologies/textlayout/</a></p>
+<p>(Matt had the blast-from-the-past with R.A.V.E.. Corel had some other projects in similar vein, with native formats as well, if memory serves... came in too late to reap same network effects as the innovator, though.)</p>
+<p>jd/adobe</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64552">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64552">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Some time has passed since this post but I also wanted to point people to something I had heard on <a href="//www.sitepoint.com/blogs/2010/01/15/podcast-44-html5-is-a-beautiful-mess/">Sitepoint podcast #44</a> where Bruce Lawson makes reference to a demo from Adobe of someone pasting Illustrator into Dreamweaver and generating canvas.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64556">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64556">14</a></div>
+			<span class="authorname">Chat Clussman</span> said on February 01, 2010		</div>
+		<div class="quote"><p>Flash CS5 is supposed to be able to compile into native iPhone (and presumably iPad) apps too. So adding support for other formats doesn't seem like too big of a stretch.</p>
+<p>Personally, I'd be happy if Adobe focused more on releasing stable code than anything else. Illustrator CS3 had a nifty little bug for about six months where about 50% of the time using a gradient or layer transparency would completely crash my MBP.</p>
+<p>Optimization settings in Acrobat Pro CS3 still create documents that don't render or print properly from Apple Preview. I had assumed that was a bug on Apple's end but then CS4 came out and the optimization settings are even buggier. Now I have PDFs that also don't print properly from Acrobat Reader on PCs.</p>
+<p>But yeah, support for Canvas wouldn't be a bad thing either and it would be the smart thing for them to do. Sometimes a species can hit an evolutionary dead-end not because of a weakness in itself but because of greater strengths in a competitive species. When that happens the first species either adapts or becomes extinct.</p>
+<p>That's not to say Adobe, with a de facto monopoly on creation tools, is going anywhere anytime soon, but it is to say that the de facto monopoly of Flash for rich media on the web and web-enabled devices like the iPhone/iPad *is* about to come to an end.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64577">15</a></div>
+			<span class="authorname">Brendon Smith</span> said on February 07, 2010		</div>
+		<div class="quote"><p>This would be easy for them and actually anyone using flash should checkout haXe http://haxe.org/ and take notice of what it is capable of http://drawlogic.com/2009/07/16/haxe-sandy-able-to-generate-a-3d-javascript-engine-port-of-sandy-for-canvas/ -cool
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66446">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66446">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 08, 2011		</div>
+		<div class="quote"><p>And Adobe has now released <a href="//labs.adobe.com/technologies/wallaby/">Wallaby</a>, a Flash to HTML exporter (mostly SVG and CSS, not Canvas).
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<p>Checks if the provided predicate function returns <code>true</code> for all elements in a collection.</p>
+<ul>
+<li>Use <code>Array.prototype.every()</code> to test if all elements in the collection return <code>true</code> based on <code>fn</code>.</li>
+<li>Omit the second argument, <code>fn</code>, to use <code>Boolean</code> as a default.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> all <span class="op">=</span> (arr<span class="op">,</span> fn <span class="op">=</span> Boolean) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">every</span>(fn)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">all</span>([<span class="dv">4</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> x <span class="kw">=&gt;</span> x <span class="op">&gt;</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">all</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

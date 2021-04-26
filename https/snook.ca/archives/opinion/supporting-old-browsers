@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Old Browsers: Do they still exist? - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/opinion/supporting-old-browsers">
+	<meta property="og:url" content="https://snook.ca/archives/opinion/supporting-old-browsers">
+	<meta property="og:title" content="Old Browsers: Do they still exist?">
+	<meta property="og:description" name="description" content="I've been thinking about this for a long time and while I thought I had a solid opinion on the matter, I find myself waffling on the issue.
+Who cares about older browsers?
+If you haven't done so, I ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Old Browsers: Do they still exist?</h1>
+		<p>I've been thinking about this for a long time and while I thought I had a solid opinion on the matter, I find myself waffling on the issue.</p>
+<h2>Who cares about older browsers?</h2>
+<p>If you haven't done so, I highly recommend cracking out a copy of Firefox 1. Start bouncing around to a few sites and check out what's broken. Sure, most stuff is fine but you'd probably be surprised at what's broken. What about Firefox 2? I have more people using this old version of Firefox than I do of all Opera users put together. These are browsers that I don't check my site in any more. In a way, it's like they don't even exist.</p>
+<p>As web browsers have progressed, we've increasingly gotten to the point where we just ignore old browsers like they don't exist. No more testing, no more hacks, no more nothing. Who knows what it looks like? Is it good, is it bad? Does it even matter?</p>
+<h2>My initial stance</h2>
+<p>My initial stance was that every browser mattered. It doesn't matter if they're coming in with Netspace 1.0 or Internet Explorer 3. These people are armed with a browser and they deserve content. No, they don't get any CSS, or maybe a limited amount. Only the recent browsers get the good stuff.</p>
+<p>We draw a line in the sand that says, &quot;You popular browsers, stand over here. Everybody else, just be happy you got content.&quot; </p>
+<p>More specifically, a base style sheet would declare some default font styles but no float or other layout tricks. Just linear content. This default would look decent in any browser, no matter from what era. It makes a great print style sheet, too.</p>
+<p>Then, for those cool, fancy browsers that we know and like, we give them the good stuff. The whole enchilada.</p>
+<p>Two major issues here:</p>
+<ol>
+  <li>How can you tell that you have a current browser?</li>
+  <li>What can you assume about browsers that haven't come out yet?</li>
+</ol>
+<p>With Internet Explorer, it's really easy: we have conditional comments that we can use to target specific versions. Now for the rest of them? Unfortunately, the best way (that I can think of) is to use user agent sniffing on the server to serve up the extra stylesheets only if the visitor has a browser within the subset that we find acceptable.</p>
+<p>On that second point, what happens when a new version comes out? Or somebody says they're &quot;compatible&quot; with another engine and your user agent sniffing serves up something limited. Basically, it becomes  difficult to future-proof something for any length of time. </p>
+<h2>My softened stance</h2>
+<p>My pragmatism comes into play, like that little devil and angel on my shoulders telling me each side of the story. The fact is, these <em>are</em>  old browsers. Why haven't these people upgraded? Why are all these people still using Firefox 2? So what if it's a little (or a lot) broken for them. They should upgrade.</p>
+<p>Obviously, Internet Explorer 6 is the oddball here. She's that awkward girl who doesn't understand social cues and realize that the party is over. It's the elephant in the room, as it were. Too big to ignore. But right! We <em>have</em> a way to target IE browsers by version. We can use our conditional comments to tailor for IE6 until it disappears. We can feed it the limited CSS and let everybody else get the fun stuff.</p>
+<h2>Mmmmm, pie</h2>
+<p>When it comes to market support, I've often looked at it as one big pie. You may say that Opera is too small to really care about. It's only 2%. You don't care about Firefox 2 users. It's only 2%. You may not care about accessibility issues. It's only 2%. Soon enough, you've whittled down your potential market to 90% of what it could have been. </p>
+<p>Every site, whether it be for personal or professional reasons, needs to mark that line in the sand. If you're running a content-heavy, large traffic site targetting a less than savvy crowd then maybe IE6 and FF2 support is critical. You want to capture as much of the market as you can. If you're running a niche blog focused on tech issues then even IE6 might be safe to put on the ignore list.</p>
+<p>But all the while, I'll keep thinking about all those people I could be getting. Did they walk away with the best experience? Sometimes it hurts my head just to think about it. So now it's your turn: Should we care about old browsers or fringe browsers? Or are we safe in our little bubble?</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published April 24, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/opinion/">Opinion</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/941</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">62 Comments &middot; <a href="/archives/opinion/supporting-old-browsers.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63282">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63282">1</a></div>
+			<span class="authorname">Dave McNally</span> said on April 24, 2009		</div>
+		<div class="quote"><p>It's a great question and I'm not quite sure where I stand. In all honesty, I don't check as many old browsers as I should and since Firefox 3 came along, I haven't so much as even looked at two.</p>
+<p>My initial feeling with the 'old' versions of 'decent' browsers is that if people are savvy enough to know they should be using a better browser, they are probably most likely to be keen on updating it. It then becomes the issue of people using old 'bad' browsers such as IE which we can target so it doesn't matter much.</p>
+<p>I know I could be doing a lot more testing wise, I just haven't gotten around to implementing a decent structure as I just by with current practice and haven't taken the time to improve. So, I think we should care but I don't know how much and I don't know how much I care myself.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63283">2</a></div>
+			<span class="authorname">Jojo Siao</span> said on April 24, 2009		</div>
+		<div class="quote"><p>We should definitely move on and forget about old browsers.</p>
+</div>
+	</div>
+		<div class="comment" id="c63284">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63284">3</a></div>
+			<span class="authorname">Hayo</span> said on April 24, 2009		</div>
+		<div class="quote"><p>The problem in the netherlands is mainly the government. their IT systems all still use ie6. and for some reason they refuse to upgrade. this is by far the largest population still using 6. And pretty much the only reason to still develop for the browser here.</p>
+<p>But it's a lot easier with conditional comments. Just build for firefox 3, and put a fix-css in place after that.</p>
+<p>I dont tend to bother anymore with safari and opera. On my websites they usually have the same amount of users as Amaya.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63285">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63285">4</a></div>
+			<span class="authorname">Sanchit Thakur</span> said on April 24, 2009		</div>
+		<div class="quote"><p>We as web developers have all the latest, updated browsers.<br />
+Everyone has Chrome, FF, Opera, Safari &amp; IE8.</p>
+<p>But, rather than IE6 we never test sites on Older browsers.<br />
+Why? Because of this: http://www.w3schools.com/browsers/browsers_stats.asp</p>
+<p>Still there are people who are on IE5 too, but we never check for them.</p>
+<p>I think that everyone who's an avid &amp; dedicated web surfer should have an updated Browser as the older browsers dont have the features which are changing the face of the web.<br />
+ Slowly, these people we see that websites dont work on their browsers &amp; they will then know that their browsers are old &amp; eventually they will upgrade.</p>
+<p>We as the web developing community have the responsibility to update the users on "the benefits of using latest browsers"
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63286">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63286">5</a></div>
+			<span class="authorname">Sanchit Thakur</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Hayo  You are talking about Netherlands friend. In India all the Govt. Agencies &amp; Institues, even private ones are on IE6. And we have a huge population, think how difficult's that for telling them that they should upgrade. I think all of these Agencies are accountable to 90% IE6 use on net :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63287">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63287">6</a></div>
+			<span class="authorname"><a href="http://superfluousbanter.org">Dan Rubin</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>I hate playing both sides of an argument, but with a question like "do old browsers exist" I just <em>have</em> to â€” if we all <em>really</em> wanted to, we could support every version of every browser known to man, on every single darned platform and device possible. The definition of "support" is what people get hung up on, and I'm still surprised by that, considering how long the web standards community has been extolling the virtues of said standards, specifically how even ancient browsers will understand the *content* even if they can't understand the design.</p>
+<p>Even though I've publicly stated that folks should stop supporting IE6, that statement of course comes with caveats â€” personally, I may or may not support IE6 or *any* browser/platform/version in my own projects, and that could depend on the design, the audience, or my general mood the day I make the decision.</p>
+<p>For client work, my personal preference in this area won't cloud what I feel is best for the client's audience â€” they are the ones who matter the most, ultimately.</p>
+<p>I just did my first bit of serious HTML/CSS (yup, no "X" at the front of that) for a client in over 6 months, and did my part to make sure it was presentable to a large part in many different browsers. I didn't check FF1 or Safari 2, or a host of other "older" browsers, because for this particular design it wasn't a) contracted and b) necessary. Had the client wanted broader "support" I would have explained why most of the design wouldn't work in those browsers, and given them alternate solutions so at least "older" browsers wouldn't break horribly, but that wasn't part of this particular project. And so it goes.</p>
+<p>Would I love Firefox 3.x/Safari 4/IE8/Opera 10 to be the only browsers we need to account for? Yup. Do I mind terribly testing in other browsers? Nope. Will I still say that IE6 should die a horrible death that involves spikes and a deep, dark pit? You betcha.</p>
+<p>So, my line in the sand is more like a line per-project, and per-audience â€”Â now that I've typed all this out, re-read it, and re-read your article once more, I feel like we might be in need of a base set of HTML(5?) template + stylesheet(s) that do exactly what you suggest: draw a line, provide a basic set of text styles to older browsers, that can be used on every project as a minimum. Sure, everyone could do this for themselves, yet the same could be said for reset stylesheets, and they are easier to use because of Eric's and others being available.</p>
+<p>Thoughts?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63288">7</a></div>
+			<span class="authorname">Sam</span> said on April 24, 2009		</div>
+		<div class="quote"><p>When I worked at an agency, the browsers we tested for were the ones I've only ended up caring for: Firefox 2 &amp; 3, Internet Explorer 6 &amp; 7 and Safari 3. In that situation though, perhaps budget becomes more of an issue. I could see how it would be hard to justify to a client why they'd need to pay more to test and cater a site for a browser like Opera which typically sees low usage numbers.</p>
+<p>I don't think we should ignore those who don't upgrade to the latest and greatest though. As you said, a bad feeling is left when someone might view your work in an older browser and not have the best experience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63289">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63289">8</a></div>
+			<span class="authorname">Peter Wilson</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I think part of the reluctance â€“ not sure if thatâ€™s the best word â€“ to test older browsers is the difficulty of running separate versions of the same browser on a single computer; it can be done, but is often done so in a hackish manner. IE is famed for an inability to run multiple versions, yet â€“ ironically â€“ with programs such as IETester it has become the easiest of the lot.</p>
+<p>We definitely need to worry about IE6 on sites with broad appeal; looking at the stats of a such a site recently, I was surprised to discover IE6 still accounted for 23% of visitors. On the same site the total visitors using all versions of FF was slightly lower, 21%.</p>
+<p>There is no <em>single</em> answer for which browsers should be tested; the decision needs to be on a site-by-site basis and based on browser statistics. The line in the sand is something that should be defined by the client in discussion with the developer. For each browser that the developer supports, development time and cost increases; the client needs to be made aware of this.</p>
+<p>A base style sheet for <em>unsupported</em> browsers is the most useful method, Iâ€™m not sure if browser sniffing is the ideal method to achieve this, but it may be the best we have.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63290">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63290">9</a></div>
+			<span class="authorname">Allen Pike</span> said on April 24, 2009		</div>
+		<div class="quote"><p>You don't have to be a niche blog focused on tech issues to drop IE6. You could be Facebook, 37Signals, MobileMe, or GMail. These are all complex web apps where the cost of supporting IE6 is high - high enough that even their (presumably) hundreds of thousands of IE6 visitors aren't worth supporting. I think that says something.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63291">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63291">10</a></div>
+			<span class="authorname">Steve Rydz</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I think that with browsers such as Firefox 2 we need to let them go. Most likely if someone is using Firefox then they are tech savvy enough to upgrade when it is nessecary.</p>
+<p>In my opinion the only <em>old</em> browsers that will ever really need to be considered are IE, simply because that audience isn't always aware of other options.</p>
+<p>Maybe the the other browsers we need to watch are Safari? Surely not everyone who uses a Mac know about upgrading or alternative browsers? Although I am sure this is much less of a problem than IE.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63292">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63292">11</a></div>
+			<span class="authorname">art</span> said on April 24, 2009		</div>
+		<div class="quote"><p>while my boss using ie6, I care (:</p>
+<p>but I dont thing using it is normal
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63293">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63293">12</a></div>
+			<span class="authorname">Jason Huck</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Our policy has always been to support the current (release, not beta) and previous major versions of the major browsers, something I carried over with me from work in previous agencies. Our stats bear out the notion that most non-IE users tend to keep their browsers up to date. Unfortunately, even though IE8 has shipped, we have to make an exception to our version rule and continue supporting IE6. The numbers just can't be ignored.</p>
+<p>We use one set of styles for all browsers, and then conditionally add fixes on top of that for IE7 and IE6 as separate files.</p>
+<p>However, recently, we've begun to make a distinction between the definition of "support" for IE6 vs. everybody else. For everybody else, the goal is "as close as possible to pixel-perfect." For IE6, it's just "not obviously broken." IMO that's perfectly reasonable. In the meantime, we try to be proactive with larger clients who are "stuck" on IE6 for whatever reason.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63294">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63294">13</a></div>
+			<span class="authorname">David Dixon</span> said on April 24, 2009		</div>
+		<div class="quote"><p>For me, the issue with supporting old browsers boils down to a single question: Am I supporting a browsers "lack of support" for current standards or their "buggy support" for the current standards.</p>
+<p>For browsers like Firefox 1 etc, I think most of the issues with broken browsers is due to a lack of css support, so gracefully degrading for this kind of scenario shouldn't "in thoery" be too taxing (realties aside). By this I mean that your not supporting an old browser per-se, but a general "standards gap" that is more common to old browsers.</p>
+<p>For browsers like IE6/5.5 (and probably older versions of Firefox/opera to far lesser extent) etc a lot of the problems are due to buggy support which require browser hacks. As these typically browser-specific, it becomes unmaintainable after a time (remembering hacks of ages past, time required to test, testing on browsers that are not available for public download any longer etc). I'd like to hazard a guess whether web developers starting out in 10 years time will have any idea what the double margin bug is, or how to fix it.</p>
+<p>Obviously, for the moment, IE6 is an outlier to this pattern, simply because its current user base is still very large and it has to be dealt with. But then, for the purposes of this argument, I dont consider IE6 to be an "old browser" (despite its age) as it's still a popular browser. When its market share drops away to the sub 10% bracket, I'll then consider it an old browser where I have to weigh up the pros/cons of supporting its bugs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63295">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63295">14</a></div>
+			<span class="authorname">Joel Goldstick</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Who uses old browsers?</p>
+<p>People in dysfunctional companies and people with really old computers.</p>
+<p>If you are making websites for commerce these people don't matter because they don't buy things.  If you are making websites to make the world a better place in some small way, these people aren't among a group that can be motivated.</p>
+<p>So, even though they may be nice, good people, if your time is valuable, its being wasted catering to that group.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63297">15</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Jonathan, you're visiting places other people have already been at. Go read up on Graded Browser Support.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63299">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63299">16</a></div>
+			<span class="authorname"><a href="http://sputnik.pl">Pies</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>I think it's just a matter of cost/profit calculation. Supporting an additional browser always carries a cost, likewise, not supporting it also has a cost.</p>
+<p>Personally, I check in Chrome (my browser of choice) and Firefox (my boss uses it). But then again, the pages I design are for internal use and are 100% data-driven (statistics, site administration, etc.). It would be an absolute waste of time and money to optimize for any other browsers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63300">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63300">17</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris Wallace</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>I agree with Dan. Per project, per audience. Working on a site that sees 6 million visitors per month, 10% of our audience is a LARGE amount of revenue online and we can't afford to miss out on that revenue simply because, I, the front-end guy, didn't want to test and fix for "older" browsers. IE6 is 25-30% of our visitors.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63301">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63301">18</a></div>
+			<span class="authorname"><a href="http://sputnik.pl">Pies</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>BTW, support for older browsers might sound like a good thing, but in reality you're creating huge hurdles you will need to get trough each time you change _anything_ in the design. That alone should be enough of a reason to minimize the number of supported browsers.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63302">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63302">19</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Andy (15): to be honest, I almost deleted your comment for uselessness. First of all, there's no reason discussion can't continue where others have tread. If that were the case, there would be little to talk about. Second of all, what I'm talking about here is how do we recognize and support those outside the A-grade browsers, a point you so readily missed. </p>
+<p>Read up on Yahoo's Graded Browser Support and see if you can find where it says HOW they handle support. Sure, they talk of progressive enhancement but tell me how you do progressive enhancement at the CSS level and understand how things look across C-grade browsers. </p>
+<p>I've talked to Nate Koechley who used to work at Yahoo and he mentioned that they do user agent matching (I'm unclear as to whether that's all sites that do it). Nobody is really talking about this and that is what this post is trying to uncover.</p>
+<p>Sadly, it seems everybody is in the same boat. We know we should care but the time and effort to test in the increasingly large number of expired browsers is just too much, leaving the experience to chance.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63303">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63303">20</a></div>
+			<span class="authorname"><a href="http://www.boggethemind.com/">Jeff L</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>Eventually, you have to move on. The newest version of Office uses a new document format by default. This format isn't compatible with older versions of Office.</p>
+<p>Yes, you can save your documents in an older, compatible format. Same as you could still create websites compatible with older browsers. But eventually, people will just use the new format and nothing else. </p>
+<p>Personally, I don't care what my site looks like in IE3. Worst case scenario, I know the content is still available and someone could simply view source. :)  Assuming, of course, the markup is clean and easily readable.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63304">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63304">21</a></div>
+			<span class="authorname">Dale Mugford</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Fantastic article, Jonathan. For my work, I build projects assuming only a small subset of limitations when I design and code, and work to reduce the indiscrepancies closer to the end of a project, targetting a 95% viewability rate.</p>
+<p>I think it depends on scope, to be sure- if the budget (and/or audience) is small, the targets are only Safari/FF 2+, IE7+, Opera 9+. If we've got wiggle room, we work backwards into the past and try to harmonize.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63305">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63305">22</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I'm sorry that you feel my comment was useless, I was merely trying to point you in the right direction so you wouldn't wander blindly in the night. </p>
+<p>As for people not talking about it, it has been up for discussion already. Even Nate Koechley addressed this last month. </p>
+<p>What you can do is to monitor the statistics of your own site (or if none exist, simply refer to the public ones at Net Applications, Wikipedia, W3 Schools et al) and do a judgement call of what subset of browsers to support and maybe later expand on this as things develop. </p>
+<p>It's a shame that you would have my comment deleted just because you don't agree with what I said. Like said, I was merely trying to help you by advising not to reinvent the wheel. If there's already data on this then why not use it, right?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63306">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63306">23</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Andy: well, I didn't delete the comment so no shame here. What I was concerned about is adding to the conversation and I don't feel you did that. You didn't say, "hey, btw folks, there's this graded browser support that covers a lot of this." (Which it doesn't.)</p>
+<p>My hard-line stance is that screw stats, we should be able to create a valued experience for any browser. If that's the stance, how do we do it? User agent matching? How many people besides big companies like Yahoo do User agent matching? Where's the data on that, Andy?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63308">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63308">24</a></div>
+			<span class="authorname">Scott Jehl</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Some good points here, but let's not forget that we're not just talking about older browsers.  This is about new and obscure browsers and devices as well. There are multitudes of ways people are accessing the web now (mobile, obscure browsers, video game platforms, kitchen appliances) that all bring new and quirky behavior to consider.  You can bet that these people expect that a website will be accessible to them in some way regardless of the device they use to connect to the internet.</p>
+<p>At Filament Group, we've been advocating capabilities testing as a sort of "gatekeeper" between simple and enhanced app experiences.  Everyone here is already using good progressive enhancement techniques anyway (right? :) ), so why not make use of that clean division and provide one experience or the other based on a device's basic standards rendering capabilities? Currently I think a lot of developers assume that devices get one or the other, but what they really get is something mashed up and unusable. </p>
+<p>My article for A List Apart outlines this approach (http://alistapart.com/articles/testdriven/) and I gave a talk on this yesterday at MIT "Access-Oriented Web Design" - we'll post the slides and video later today.</p>
+<p>This isn't a suggestion to stop testing on your most popular browsers (that's important), but rather a complementary alternate approach to consider, because I think this method of turning a shoulder to however our sites look in browsers other than FF2/3, Safari 3, IE 6,7,8, and Opera latest is just not sustainable.  And I'm not saying that OUR capabilities test is the way it has to be done, but test-driven P.E. approach provides a sane way of providing some level of support to any user.<br />
+&lt;/lengthy comment &gt;</p>
+<p>btw - @jeff:  "view source" does not an accessible website make :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63309">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63309">25</a></div>
+			<span class="authorname"><a href="http://www.boggethemind.com/">Jeff L</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>@scott  but wouldn't it be cool if it did? Would be nice if browsers all had the functionality that Firefox has: View &gt; Page Style &gt; No style. You'd know that no matter how tricky we got with our CSS, if someone was on a browser that didn't support it they could easily remove the styles and have a 'nicely' formatted page based on the browsers builtin styles.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63311">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63311">26</a></div>
+			<span class="authorname">Scott Jehl</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@jeff: Sure that would be cool, but how would that help someone who's using a  form that just failed in attempt at swapping all its HTML inputs for flashy div-based, js/css/aria-driven widgets. </p>
+<p>Turning off page styles will not help that user fill out the form. And even if it did, suggesting that the user would know to turn of CSS or JS and refresh the page is, frankly, expecting too much.</p>
+<p>We're doing things now that are not going to work in some browsers and devices (both old and new). I'm suggesting a different way of thinking about support. Support doesn't mean the same look and behave the same across every browser. It could even mean a subset of features depending on capabilities, but that's much better than nothing at all.</p>
+<p>It's a methodology for making that division clean in a fairly expected way. If you can support basic JS DOM methods &amp; traversal, css box model, positioning, yada yada, we'll give you a shot at the enhanced page. If not, here's a page that works just fine already.</p>
+<p>This isn't about CSS, or JS, but both and how they work or don't work together.</p>
+<p>When the client says "what browsers will the site work in?", you can feel secure saying it'll work in most anything, but it'll work better in devices that support "X" features and we're running capabilities tests to make sure those browsers get an enhanced experience.<br />
+"Which browsers are those?" the client may say. We'll we know the popular ones are in there, but who knows, maybe others too, and that's great! right?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63312">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63312">27</a></div>
+			<span class="authorname">Scott Jehl</span> said on April 24, 2009		</div>
+		<div class="quote"><p>re: Yahoo's graded browser support: that's a fine system for claiming which browsers your site supports and why, and it works in combination with capabilities testing, but YGBS in itself is just a disclaimer for which browsers you test and support. It's not a methodology for how to carry out those levels of "support". These two approaches aren't at odds with one another.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63313">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63313">28</a></div>
+			<span class="authorname">Heath Nail</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I think with old user agent strings, to some degree you have to wonder if they are actually human beings or not. I'm definitely not denying there is a population of people that still use old browsers. I often wonder though about what percentage of traffic on the web is actually automated (spambots, spiders, etc).</p>
+<p>Consider that for some sites there is a huge difference between google analytics stats versus stats programs that parse log files. Every hit is logged by the web server, while only user agents that support javascript will be logged by analytics. Is there reelly such a large group of people disabling javascript?</p>
+</div>
+	</div>
+		<div class="comment" id="c63314">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63314">29</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Jonathan: I'm sorry if you took it the wrong way. I wasn't trying to offend you by not sugar-coating my message, I was simply trying to cut to the chase. </p>
+<p>As for having a valued experience (and I assume you mean intended rendering) in every browser, I don't think that's a realistic goal. The only thing you can offer that works everywhere is Plain Ol' HTML (Because let's face it, CSS is an enhancement). </p>
+<p>And even if I did have a link on how many people UA matching, I don't think it would make much of a difference. IMO it's a matter of How, not Who. </p>
+<p>In fact, I'm not even sure if UA matching is the answer. I'd rather just offer the resources (HTML, CSS, JS) up-front and let the browsers sort it out best they can. In the meanwhile I'd do my best supporting a sensible range of browsers (this is where statistics come in).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63317">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63317">30</a></div>
+			<span class="authorname">Zach Leatherman</span> said on April 24, 2009		</div>
+		<div class="quote"><p>If you watch Koechley's video on Professional Front End Engineering, he talks about Graded Browser Support quite a bit, and even shows an example of how Yahoo's homepage is served to a C grade browser.</p>
+<p>Basically, (if I understand correctly), they just don't serve you CSS if you're C grade.  So, they have a filter server side to modify the markup to remove the link/style tags if the user agent matches against a known DB of C grade browsers.</p>
+<p>http://ericmiraglia.com/blog/?p=181</p>
+<p>There are some good notes in the comments at:<br />
+http://us3.php.net/manual/en/function.get-browser.php
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63318">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63318">31</a></div>
+			<span class="authorname">Stanley</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I go with the "intended" jQuery support path.</p>
+<p>I will support the LATEST RELEASED version (and 1 previous) of every browser with &gt; 1% market share.</p>
+<p>Thus right now (April, 2009) my official support list is:<br />
+Firefox 3<br />
+Firefox 2<br />
+Internet Explorer 8<br />
+Internet Explorer 7<br />
+Safari 3<br />
+Opera 9.5, 9.0<br />
+Chrome</p>
+<p>That said other browsers will work just fine (e.g. Arora, Pogo, Camino, Lunascape) because they are based on Webkit or Gecko.</p>
+<p>But as you may have noticed, IE6 is NOT supported at all, nor is Firefox 1 (although it would likely work fine).</p>
+<p>I Tried to add a link, but your spam filter kept choking on it. Google "browser life statuses" for some stats</p>
+<p>thanks<br />
+stanley</p>
+</div>
+	</div>
+		<div class="comment" id="c63320">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63320">32</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Zach Leatherman: Indeed, that's what I was referring to when I stated that Nate Koechley addressed it last month.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63321">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63321">33</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Andy: By "valued", I meant, they could have a reasonable experience without stuff looking like its broken. And yes, it is a matter of How. </p>
+<p>Going back in history, IE had a monstrous share of the market, <a href="//en.wikipedia.org/wiki/Usage_share_of_web_browsers">peaking at 95%</a>. If we go by stats alone, were people justified in providing an IE-only experience? If stats is your benchmark, then why not? But I think we'd all agree that that approach isn't the best. </p>
+<p>We talk of universality. As others in this thread have mentioned, what about the increasingly mobile market? Do we only care about smart phones running the latest Webkit browser? </p>
+<p>It just seems like we're leaving a lot up to chance and leaving it to stats to confirm our bias.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63322">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63322">34</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>Server-side UA testing only works for browsers you know about. What's to say an "x-grade" browser is capable or not? Should we really assume it always is?</p>
+<p>jQuery recently moved to capabilities testing for many of these reasons.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63323">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63323">35</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>I'm just saying there's no point of adding support for a browser that is generally considered dead and will never ever ever end up doing a request to my site. IMO it makes more sense to target the browsers that matter and that's the approach that works best. Simple business logic, really.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63324">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63324">36</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Scott Jehl: capabilities testing works well with JavaScript but it feels too brittle. Yes, UA testing only works for browsers that you know about but I think that some assumptions can be made. That is, we know of certain engines like Webkit, Gecko and MSIE. We whitelist those engines above the versions that we want to support. That does mean that browsers whose UA string refers to something else will get a simple experience, but at least they'll have a reliable experience. We *know* what's going to happen instead of *hoping* that it'll work. If that browser gains traction and hits some threshold, <em>then</em> you add it to the supported list.</p>
+<p>In talking with Nate, I still feel that UA testing is the most consistent and reliable approach. But nobody is really talking about it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63325">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63325">37</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>By brittle, do you mean my test cases in particular or the practice in general? I'll take criticism on my own tests - they could certainly be improved. But jQuery 1.3 runs most of the largest sites on the web, and is driven by capabilities testing (no more UA).</p>
+<p>UA testing is the approach that has been in use for years - it's nothing new, which may be why it's not being discussed heavily at the moment. The problem is exactly what you said - we can only whitelist those we know about. What about new browsers and devices that are perfectly capable of using your high-end site? What if they're good but not popular?</p>
+<p>A whitelisted site is obselete at launch. It's not a forward-proof approach.</p>
+</div>
+	</div>
+		<div class="comment" id="c63326">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63326">38</a></div>
+			<span class="authorname">Andy</span> said on April 24, 2009		</div>
+		<div class="quote"><p>"That does mean that browsers whose UA string refers to something else will get a simple experience, but at least they'll have a reliable experience. We *know* what's going to happen instead of *hoping* that it'll work."</p>
+<p>I just wanted to pitch in and say that the way Yahoo does it is the opposite. Nate Koechley stated that they are optimistic about the capabilities of the X-Grade browsers and always serve the full experience for these. That means only the browsers who are known not to be able to render things correctly (C-Grade) will get a reduced experience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63327">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63327">39</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>More food-for-thought against UA testing:</p>
+<p>Do your clients maintain their whitelist as browsers emerge? How do you ensure their content is viewed as intended years from now?</p>
+<p>Maybe Yahoo can afford to do this, but it's not practical for most web sites and apps.</p>
+<p>Our industry's practice of using UA detection has only prompted devices to find workarounds to "get in" where they aren't really capable.</p>
+<p>UA Spoofing preferences come built-in to most popular mobile devices. This isn't some obscure thing that only Opera used to do. :)</p>
+<p>Here's an example of the new blackberry Storm's prefs:<br />
+http://www.wirelessinfo.com/content/Blackberry-Storm-Cell-Phone-Review/Software.htm</p>
+<p>to quote: "The Storm's marketing materials describe the browser as an enhanced one compared to other Blackberry models. It handles WAP and HTML pages easily, though you are often re-directed to mobile versions of some sites automatically when you're trying to get to the full site. It is possible to change the browser's mode so it operates like Internet Explorer or Firefox to avoid this issue. Javascript is disabled by default but can be enabled via the menu. It's not capable of showing Flash or Java elements, though it shows frames and images with no problems at all."</p>
+<p>According to comScore.com, there's around 63 million people accessing the web on mobiles regularly. Of those, around 25 million are Blackberry users - and we know that browser is quirky as QuarksXpress. </p>
+<p>Shouldn't we be directing our development attention to improving capabilities testing libraries? If they're brittle, let's improve them! </p>
+<p>UA detection is a dead end in the long run.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63328">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63328">40</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Andy: good point and you're right. I'm more apt to throw the X-grade in with the C-grade but thanks for mentioning that.</p>
+<p>@Scott: great points all around on the UA detection. Curation is an important point. For applications, I think it's reasonable to expect that to be managed long term. For static content, less so, and in those cases, does it matter if 10 years down the line somebody comes across the page gets a simplified design? I'd be okay with that. We can't predict the future or what bugs or features may give us problems in the future. I'd be interested to see a site built using JS feature detection left untouched for 5 years and see if it stands the test of time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63329">41</a></div>
+			<span class="authorname"><a href="http://antonpeck.com">Anton</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>Look, we all have to remember that it's a numbers game, and it's VERY specific to the site that's being built. I'm reading a lot of "I do such and such", but I'm not picking up on much "for scenario A I do this, but for B I do this".</p>
+<p>In other words, analyze the conditions of when and where you use a specific set of browsers for the goal, and audience, of the site. There is no magic pill that will apply to all the work we do. There will be cases where we weigh heavier influence on one brand over another.</p>
+<p>For example, the sites that I create for my employer are much more legacy-rooted than the browsers I will be targeting for my own site (when I re-launch).</p>
+<p>But it's not just about browser stats... it's about general demographics. Who is your audience? What's the average age group of your visitors? What parts of the world are they visiting from? All of these things matter!</p>
+<p>It's common-sense really, you do the research, crunch the numbers, and build for your audience.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63330">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63330">42</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>@snook: But isn't this approach backed by the promise of web standards that we've all already fully endorsed? These capabilities tests to determine a devices handling of standards-based technologies (CSS, JS). If a browser comes out that handles these technologies well - and more - then all the better! </p>
+<p>And if a new device comes out that gets say, the box model, wrong in a way we haven't even seen before, they'll be shielded from a layout they can't handle. Keep in mind that we aren't specifically looking for bugs with these tests. We're looking for *proper* handling. It's a different kind of "whitelist" based on capabilities rather than the capabilities that a device "claims" to have (UA string).</p>
+<p>And it comes down to a simple acid test of any web standard features that we're about to make use of across an entire site or app. What's the theoretical difference between this and using Object Detection? Even something as simple as floated columns can make for a jarbled mess in many popular mobile devices - and it's easy to use this methodology to prevent that from happening.</p>
+<p>I'll upload slides to the FG site in a minute - there are a couple examples of sites that aren't failing in a usable way. Progressive enhancement alone doesn't ensure much of anything.</p>
+<p>The browsers you might be UA detecting for are vastly outnumbered by other mobile devices that may or may not be capable. A quick glance at YGBS makes no mention of any OS's beyond the most popular ones - and no mention of mobile...</p>
+<p>Lastly, to counter your point. I'd like to see the size of your UA whitelist in 5 years too... :P
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63331">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63331">43</a></div>
+			<span class="authorname">Shimon</span> said on April 24, 2009		</div>
+		<div class="quote"><p>"all Opera users put together. &lt;...&gt; In a way, it's like they don't even exist."</p>
+<p>Hey we do exist! But thanks to Opera that keeps up to most of standards so it pages rarely look bad in it if they look fine in all other modern brothers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63332">44</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>@Shimon. Exactly. :) And we can easily check if your browser is capable before delivering enhancements, without a laundry list of UA strings to maintain. &lt;/broken-record&gt;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63333">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63333">45</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>There is no way I can give up IE 6 support at this time.  Too large of a % is using, and will continue to use it for years to come.  IE 8 update/upgrade is great on paper, but in the end just isn't effective.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63334">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63334">46</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Well, my UA whitelist would be upwards compatible so if I had one for a site right now, I'd have 5 listed. IE6+, Gecko/2009040820+, Webkit/500+, and Opera9+. Think it'll be much different in 5 years?</p>
+<p>Anyways, I don't want to stick my heels too far into this point because I'm fairly agnostic. I'd just rather avoid the overhead of a JS library to test for browser capabilities.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63335">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63335">47</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>It really depends on the audience of a site. Typically I officially support the latest versions of major browsers (Firefox, IE, Safari, Opera, Chrome) along with IE6/7. Supporting IE6 is still pretty much a requirement for most sites since the user base is still pretty large due to many companies not upgrading to IE7/8.</p>
+<p>At a bare minimum, it should be functional (JavaScript) in every major browser/version since IE6. However, I'm not going to waste hours/days fixing minor visual bugs for old browsers with minimal usage - I've also started taking the approach that IE6 doesn't deserve a first class presentation and isn't guaranteed as such.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63336">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63336">48</a></div>
+			<span class="authorname"><a href="http://scottjehl.com">Scott Jehl</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>Thanks Jonathan, good to hear your thoughts on this stuff. We'll have some good examples to show shortly, so I'll hold off on saying more until then.</p>
+<p>Meanshile, we posted the slides mentioned above if you'd like to "take this outside" ;-)<br />
+http://www.filamentgroup.com/lab/access_oriented_web_design_building_highly_interactive_web_apps_that_work_f/</p>
+</div>
+	</div>
+		<div class="comment" id="c63337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63337">49</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake Smith</a></span> said on April 24, 2009		</div>
+		<div class="quote"><p>The following link is my response/views related to this post:<br />
+<a href="//www.jakefolio.com/2009/04/drawing-the-line-with-browser-compatibility">Drawing the Line with Browser Compatibility</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63338">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63338">50</a></div>
+			<span class="authorname">John Dowdell</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Designing to particular desktop user agents doesn't seem to do too well when the number of mobile devices is increasing so rapidly.</p>
+<p>It's like asking about making layouts sized to 1024x768 pixels... you could show stats on current monitor sizes, but miss out on the wider future audience.</p>
+<p>If HTML is to be a universal format, it should act like one.</p>
+<p>jd/adobe</p>
+</div>
+	</div>
+		<div class="comment" id="c63339">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63339">51</a></div>
+			<span class="authorname"><a href="http://peterwilson.cc">Peter Wilson</a></span> said on April 25, 2009		</div>
+		<div class="quote"><p>@Scott Jehl, @snook</p>
+<p>Many mobile browsers use screen styles rather than handheld styles - I've put together a page to demonstrate this - almost rendering alternative media types useless for anything other than printing. I presuming manufacturers made a conscious decision based on how developers were implementing handheld styles or, more to the point, weren't implementing handheld styles.</p>
+<p>Without guaranteed capability sniffing or UA sniffing, do we continue to ignore this problem or choose the most reliable method at the time of development?</p>
+<p>If UA sniffing is the chosen path, development needs to include a process to automatically update the list for the client, otherwise the job is only half done.</p>
+</div>
+	</div>
+		<div class="comment" id="c63340">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63340">52</a></div>
+			<span class="authorname">Peter Wilson</span> said on April 25, 2009		</div>
+		<div class="quote"><p>Sorry abotu the double post, left out the demonstration link:</p>
+<p><a href="//code.peterwilson.cc/screen-mobile/">http://code.peterwilson.cc/screen-mobile/</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63342">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63342">53</a></div>
+			<span class="authorname">Paddy Foran</span> said on April 26, 2009		</div>
+		<div class="quote"><p>I'm not going to lie- I'm an amateur web developer at best, and with all the pros throwing in their two cents, I'm almost positive it is not worth my time to try and deal with this in terms of development.</p>
+<p>Instead, let's view this in terms of the government bailouts in America (not trying to get political, just the first thing that came to mind): Companies failed. They made bad choices, and that led them to very poor financial situations. That is how capitalism works. But because they affected the economy so much, they were handed money to get back on their feet. Money other people had to earn, by making good choices.</p>
+<p>Now, the way I see it, IE6 users are the failing companies here. They continue to use an outdated, buggy, and downright terrible browser. They're making a bad choice. And the developers are the government. Because instead of telling the IE6 users "Too bad, get a better browser and come back.", they keep bending over backwards to say "It's ok, we'll accept your bad decision and help you make it work." If I could be lazy and have people bend over backwards to help me, I sure as hell would. I have no incentive to do otherwise.</p>
+<p>But if developers stopped supporting IE6 altogether- no patches, no fixes, no checks at all- and just let IE6 users get a broken page when they visited the site... There would be a lot less IE6 users around, because people would realise they can't get away with it anymore.</p>
+<p>Sometimes, people need to be allowed to fail before they'll learn their lesson.</p>
+<p>But the development community will not take this approach, because it will cost them customers and visitors on a short-term basis, and if they're the first to do it, others may not follow.</p>
+<p>Developers, as a group, need to draw a line. There is no "per-project" or "per-person" line. If people are expected to abandon IE6, developers can't keep working to let them keep it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63346">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63346">54</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake</a></span> said on April 27, 2009		</div>
+		<div class="quote"><p>@paddy<br />
+I wish is were feasible to just quit IE 6....I'd be the first to do so, but as you said you lose customers.  Referencing some stuff I talk about in my response article, it's not always the users fault they are using IE 6 or the reason they don't upgrade is beyond their control.</p>
+<p>Many developers can let it be known to their supervisors that IE 6 support should be discontinued, but not all developers can pull the trigger on such decisions.  Also, many clients will push for IE 6 support...it's their money all you can do as a developer is advise them and then it's out of your control.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63353">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63353">55</a></div>
+			<span class="authorname">mofo</span> said on April 27, 2009		</div>
+		<div class="quote"><p>The truth is (in my experience), that no business dealing with web design has the time to fine tune a particular site for 'deprecated' browsers, since we all know that time is money.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63361">56</a></div>
+			<span class="authorname">Matt</span> said on April 27, 2009		</div>
+		<div class="quote"><p>I'm a newbie and have to agree to ignore older browsers, chances are the user is old, poor and unable to upgrade their computer, so why would your client want to target them unless they were a computer manufacturer? I only design to IE7, FF and Safari which covers over 75% of the browser market share, that's enough for me. Oh and is there a petition to get rid of IE6 and am sure we'll all sign it :-) (in fact get rid of IE altogether :-)<br />
+Cheers all, good blog, Matt.</p>
+<p>http://www.design-intellect.co.uk</p>
+</div>
+	</div>
+		<div class="comment" id="c63371">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63371">57</a></div>
+			<span class="authorname">Heidi Cool</span> said on April 28, 2009		</div>
+		<div class="quote"><p>It's amazing how the debate that began during the browser wars continues to carry on. I think we do have to draw a line in the sand somewhere. To me it comes well after Netscape 1.0, but it does come before IE6. If we write W3C standard compliant code it's not that hard. Some designs may require some tweaking or alternative style sheets for IE6, but if we keep browser compatibility in mind before we keep designing we can sometimes avoid even having to do that. </p>
+<p>I like to <a href="//www.heidicool.com/blog/2008/07/14/testing-web-sites-with-multiple-browser-versions/">test my site in as many browsers as possible</a>. But I don't test to ensure that my pages look identical in each. I test to make sure they look fine and perform properly in each. </p>
+<p>In this scenario, a page may end up looking slightly different in browser X than in does in Y, but most visitors aren't comparing browsers when reading my pages. They just want to know that the site works. For IE 6 this may mean some tweaks. For Netscape 1.0 it means the site should degrade nicely, so that when the CSS disappears, the content is still rendered in a logical order.</p>
+<p>I have to say I was troubled by Matt's comment suggesting IE 6 users are old poor people not worthy of our attention. This bothers me on 2 levels. 1) It's just creepy to think we wouldn't want to support users who might not be able to afford our products at the moment. Usability is meant for all, no matter what their wealth or health status may be. If someone has an interest in my site, I want to make sure they can use it. I don't want to make it a gated community that excludes some in favor of others.</p>
+<p>2)It's presumptuous to assume they can't afford something just because they've not upgraded. There are plenty of wealthy people driving old cars, using old computers, etc. by choice and practicality. And there are plenty of people using IE6 because that's the only browser installed at their workplace. Those people surfing the Web during lunch are still potential customers. Potential customer who aren't going to blame their company, who aren't going to blame IE6, but are instead going to blame us or are client for providing a site that doesn't work for them. In the end it behooves us to serve our visitors.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63373">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63373">58</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake</a></span> said on April 28, 2009		</div>
+		<div class="quote"><p>@matt<br />
+I'm sorry to say I know plenty of VERY wealthy people who still use IE 6, wealth does not directly correlate to computer knowledge.  I agree with Heidi, if you develop good HTML/CSS it is usually just a matter of tweaking to get IE 6 to function properly.  Many sites are still showing IE 6 around 20% of their user base....I will not give up on that crowd, but I also won't spend a large amount of time perfecting IE 6.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63423">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63423">59</a></div>
+			<span class="authorname">David</span> said on May 03, 2009		</div>
+		<div class="quote"><p>My position on this one is very straightforward: browsers are free so why should companies around the world spend millions of $ supporting old kit, when people can upgrade for free?</p>
+<p>The only people who have a half decent excuse are those still on dial-up. Perhaps someone should start a fund where all the money that would have gone into old browser support goes instead into mailing Firefox CDs free of charge to anyone who asks..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63594">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63594">60</a></div>
+			<span class="authorname">Wilfred Nas</span> said on May 25, 2009		</div>
+		<div class="quote"><p>In my opinion, supporting browsers are influenced by the amount of users. One of my clients has over 9 million visitiors a month. even a browser with a percentage of .5 % still represents a large amount of users.</p>
+<p>And as it not my decision to make as of which browser people are using, I do my best ( within reason) to support them as best as I can.</p>
+<p>Better browsers get a better experience though :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63636">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63636">61</a></div>
+			<span class="authorname">Roxbourne</span> said on June 23, 2009		</div>
+		<div class="quote"><p>I agree with David, as browsers are free, there is no excuse for not updating. Anyone still browsing with really old ones will surly be experiencing plenty of sites not looking right - so either they dont have the brains to figure out they need an update OR they just dont use the internet much - in which case they're not ideal target customers for any website.  </p>
+<p>As web designers it's advisable to make sure websites work in IE6 for now, but another year on forget it - the coding effort won't be worth it. </p>
+<p>Really dont think browsing the internet on a mobile is going to take off like the mobile network providers would hope. Maybe for checking your favs like Facebook, but not doing research via Google for products and services, etc where you'll be checking out lots of sites and their pages. </p>
+<p>Good post and blog, some good comments too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66796">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66796">62</a></div>
+			<span class="authorname">larKeypeMal</span> said on March 23, 2011		</div>
+		<div class="quote"><p>Go to Layer&gt;Matting&gt;Remove White Matte (because the outline here is white).
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

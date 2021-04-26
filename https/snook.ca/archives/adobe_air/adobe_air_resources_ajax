@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Adobe AIR Resources for the Ajax Developer - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/adobe_air/adobe_air_resources_ajax">
+	<meta property="og:url" content="https://snook.ca/archives/adobe_air/adobe_air_resources_ajax">
+	<meta property="og:title" content="Adobe AIR Resources for the Ajax Developer">
+	<meta property="og:description" name="description" content="I've been doing a fair amount of writing and developing with Adobe AIR over the past few months and just thought I'd take a moment to wrap up some of the resources I've put together. These resources a...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Adobe AIR Resources for the Ajax Developer</h1>
+		<p>I've been doing a fair amount of writing and developing with Adobe AIR over the past few months and just thought I'd take a moment to wrap up some of the resources I've put together. These resources are mainly for the Ajax developer, since that's what I like to develop with. It doesn't get as much air time (pardon the pun) as using Flex or Flash.</p>
+<p><a href="http://24ways.org/2007/christmas-is-in-the-air">Christmas is in the AIR</a><br />
+Written for 24ways.org last December, this article goes through the development of a To Do list application using jQuery. It was written while AIR was in beta so there is some minor changes that would be required for it to work on 1.0.</p>
+<p><a href="https://snook.ca/snoto/">Snoto Photo</a><br />
+Snoto Photo is a reference application developed using Mootools and accessing the Flickr API. The application was put together to demonstrate some of the features of accessing 3rd party services within AIR. The code structure I used is currently my favourite approach to AIR development since I think it works well for application development.</p>
+<p><a href="http://www.insideria.com/jonathan_snook/">InsideRIA</a><br />
+InsideRIA is a blog focused on Rich Internet Applications, which inevitably covers Flash, Flex and Adobe AIR. I'll be more likely to post code snippets on that site and will link them up from my <a href="http://del.icio.us/gr66nman/forsite/">quick links</a> (<a href="http://del.icio.us/rss/gr66nman/forsite">via RSS feed</a>, if you want). </p>
+<p><a href="http://www.adobe.com/devnet/air/ajax/articles/todo_air_dw.html?devcon=f4">Building a common desktop application on AIR in Dreamweaver CS3</a><br />
+My most recent writing effort just went live over on the Adobe Devnet and is similar to the 24ways article in that it goes through the steps of building a To Do list but does it with a different approach, focusing on different technologies&mdash;namely, file associations and XML handling. While the last bit of the article is Dreamweaver-specific, the code part of it can be developed in any IDE.</p>
+<h2>Next</h2>
+<p>If you're looking for more resources, you can take a look at any AIR application. If it's an HTML-based application, the files are available in the installed folder. It's like having View Source, allowing you to peek inside and learn more about how an AIR application is built. </p>
+<p>Anybody else diving into building an AIR application?</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published April 15, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/adobe_air/">Adobe AIR</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/888</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">6 Comments &middot; <a href="/archives/adobe_air/adobe_air_resources_ajax.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c57955">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57955">1</a></div>
+			<span class="authorname">Josh Langner</span> said on April 16, 2008		</div>
+		<div class="quote"><p>I just completed "retrofitting" a trading application based in EXT JS for use as a desktop download as an AIR app, and I also used Dreamweaver to do it. </p>
+<p>The major piece for me was utilizing the AIR Updater service, which I coded completely in JavaScript to check for the latest version of the AIR application and compare it with the existing. If the remote version was newer, it would automatically download and install the latest version.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57961">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57961">2</a></div>
+			<span class="authorname">Ty (tzmedia)</span> said on April 16, 2008		</div>
+		<div class="quote"><p>A newly launched gallery resources site, by the maker of the EMcalculator is:<br />
+http://freshairapps.com/<br />
+Looks to be a great layout for finding the hot stuff!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57963">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57963">3</a></div>
+			<span class="authorname"><a href="http://www.epiphantastic.com">Thomas Messier</a></span> said on April 16, 2008		</div>
+		<div class="quote"><p>I've been meaning to do something in AIR, but am always short on time... But when I do, I'd like to also give Jaxer a test drive. That way I can code everything in HTML and javascript including the server-side code. Should be interesting.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c57971">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c57971">4</a></div>
+			<span class="authorname">Patrick Donelan</span> said on April 16, 2008		</div>
+		<div class="quote"><p>I made my first AIR app last week (an ExtJS Grid + Form db front-end) for somewhat interesting reasons - the app is being used next week in a remote Ingienous community where internet access isn't available. (http://patspam.com/2008/tarpo)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58226">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58226">5</a></div>
+			<span class="authorname"><a href="http://www.oribium.se/">Mark</a></span> said on May 01, 2008		</div>
+		<div class="quote"><p>As soon as Adobe AIR for Linux is available, I will certainly give it a try. I simply don't have the time to play around with the current alpha release of Adobe AIR for Linux.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59538">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59538">6</a></div>
+			<span class="authorname">Jim</span> said on September 20, 2008		</div>
+		<div class="quote"><p>I have just spent all week working with Air last week, I found it difficult to start with but in the end it all came together nicely
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

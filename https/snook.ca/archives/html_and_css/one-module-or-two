@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>One Module or Two - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/one-module-or-two">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/one-module-or-two">
+	<meta property="og:title" content="One Module or Two">
+	<meta property="og:description" name="description" content="
+An interesting question was asked of me in regards to the SMACSS methodology:
+
+Karl Tynan&nbsp;asked, &ldquo;What do you do if you want to use the CSS from one module in another module?&rdquo;
+No...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>One Module or Two</h1>
+		
+<p>An interesting question was asked of me in regards to the <a href="http://smacss.com/">SMACSS</a> methodology:</p>
+
+<p>Karl Tynan&nbsp;<a href="https://twitter.com/karltynan/status/241506283482664960" title="Link: https://twitter.com/karltynan/status/241506283482664960">asked</a>, &ldquo;What do you do if you want to use the CSS from one module in another module?&rdquo;</p>
+<p>Not being able to see the design Karl was referring to, it&rsquo;s hard to say exactly what I would do. However, I&rsquo;m guessing one of two possible scenarios.</p>
+
+<ol>
+  <li>Two modules&mdash;like a menu and a modal dialog&mdash;share some common traits; or</li>
+  <li>We&rsquo;re really talking about a single module with minor differences.</li>
+</ol>
+
+<h2>Two Modules with Commonalities</h2>
+
+<p>One would think that the purpose of modular CSS is to avoid the repetition of a batch of properties across multiple rules. After all, repetition is just another word for bloat. At least, that&rsquo;s how we tend to equate the two.</p>
+
+<p>When thinking about modular CSS, it&rsquo;s not about the CSS that is modular, it&rsquo;s about the design that is modular. Most designs are built from design elements that are repeated throughout the interface.</p>
+
+<p>Just because your menus and your buttons share the same border radius and font size doesn&rsquo;t mean those styles should be abstracted away into some third class that gets applied to both elements.</p>
+
+<p>Taken too far, you&rsquo;d be left with a single class for each CSS property and, clearly, that&rsquo;s not practical.</p>
+
+<p>Modular design is about separating the components of your design such that they can be re-used elsewhere with ease or that they can be altered with ease. (There are other reasons, too, which I talk about in the <a href="http://smacss.com/" >SMACSS book</a>.)</p>
+
+<p>In this case, I would code the CSS for each module in isolation. They may have some similarities and that is okay.</p>
+
+<h2>One Module with Differences</h2>
+
+<p>When do you know when you&rsquo;re dealing with one module that just has some differences? Sometimes it feels like a case of &ldquo;you&rsquo;ll know it when you see it&rdquo;. In actuality, I believe that the Great Semantic Debate obscures how we should name things.</p>
+
+<p>What do I mean by the Great Semantic Debate? We&rsquo;ve been convinced as an industry that we should avoid naming things &ldquo;red-background&rdquo;. It&rsquo;s not very descriptive and creates a brittle system for maintaining your website. Not naming something &ldquo;red-background&rdquo; is a good thing!</p>
+
+<p>Yet, we use naming conventions like nav and menu which don&rsquo;t describe the content; they describe the container. They describe the design element.</p>
+
+<p>What about a table of products? We&rsquo;d probably use a class name of <code>products</code>, right? And then for the events table, we&rsquo;d use a class name of <code>events</code>. What if they look mostly the same? We&rsquo;d just bundle up our selectors.</p>
+
+<pre><code>.products, .events { }</code></pre>
+
+<p>If these elements are mostly the same then we should use a naming convention that describes the commonality.&nbsp;</p>
+
+<p>Unfortunately, this is where naming can be difficult. Do we use a class of table? That might be appropriate, although it feels a little redundant. Maybe matrix. Whatever you choose to use, the point is to use a single class to define the consistent pattern. Then the differences are codified in a sub-module.</p>
+
+<pre><code>.matrix { }
+.matrix-minor { }</code></pre>
+
+<p>In this case, if I had originally coded this as two separate modules, I&rsquo;d bring them together under a single module.</p>
+
+<h2>Hard and fast</h2>
+<p>There are no hard and fast rules for recognizing when you&rsquo;re dealing with one situation over the other. It may require discussion within your team to come up with something that works.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published September 01, 2012 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1023</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">11 Comments &middot; <a href="/archives/html_and_css/one-module-or-two.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c69148">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69148">1</a></div>
+			<span class="authorname">Miller Medeiros</span> said on September 02, 2012		</div>
+		<div class="quote"><p>I do agree that duplicated code isn't always a bad thing, if you reuse too many rules you will end up with a tight coupled system (making changes to one module will affect the other) and that is terrible for maintenance. Modules should be a set of self-contained rules that doesn't rely on external code to work, they should be as standalone as possible if you want greater reuse and less headaches. Avoiding duplication at all cost can be a sign of premature optimization. Make it work first, refactor/abstract later.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69149">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69149">2</a></div>
+			<span class="authorname">Matt Hinchliffe</span> said on September 02, 2012		</div>
+		<div class="quote"><p>There will always be a level of overlap but I think it is wrong to worry too much about repetition on your abstracts/modules. Any performance gains would easily be wiped out in creating code that is more difficult to read. Code readability and elegance (doing the most with the least IMO) should always be the deciding factor.  Using a pre-processor can certainly have this effect, overuse of SASS's brilliant placeholder selectors and @extend directive may mean your stylesheet contains less rules but may just be spaghetti to your team.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69155">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69155">3</a></div>
+			<span class="authorname">Oliver Joseph Ash</span> said on September 04, 2012		</div>
+		<div class="quote"><p>In this case, I would use two modules, that extend from one module. In pure CSS my group selector would be something like: `.matrix, .products, .events { }`, but in practice I would use the `@extend` method of CSS pre-processors like Sass and Stylus.</p>
+<p>This way, a back-end developer can build pages using components that make sense in relation to content, without understanding the design or any front-end code. However, if by extending one module and leaving it behind, this opens up the possibility of an author also using the module generically for any other sort of content that is not for products or events.</p>
+<p>Alternatively, you might use the placeholder selector/silent classes in Sass so that you just have two modules. In conclusion, I believe it is better to use two modules in this case, because our â€˜lego blockâ€™ modules need to make sense to anyone authoring HTML (who may not have knowledge of CSS).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69199">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69199">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 05, 2012		</div>
+		<div class="quote"><p>@Oliver: Thanks for the great response. I would imagine that having a back-end developer build out components without any understanding of front-end code would lead to more maintenance headaches and a potential lack of consistency. How do they decide what class names to use? When do they use them? </p>
+<p>You're asking for HTML code to be developed and for hooks to be placed for CSS with potentially no or little understanding of that CSS. You're constantly going back to the CSS to adjust for new features. Oh, you have .products and .events but now the Customers feature is added. Back you go to the CSS to have .customers @extend something else. This type of thinking results in context-specific code like this:</p>
+<pre><code>.customers {
+    .highlight { background: url(banner.gif); }
+}</code></pre>
+<p>You can take advantage of some features from preprocessors like @extend that help simplify this but in the end, they still generate more code than it would take to build a simple design system. .matrix and .matrix-highlight will still be less code and easier to debug and easier to maintain than .customers, .products, .events {} and all the variations of that you might have with sub-components within those.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69304">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69304">5</a></div>
+			<span class="authorname">Shanawaz</span> said on October 03, 2012		</div>
+		<div class="quote"><p>Hi I found your site by mistake when i was sirncheag Google for this issue, I have to say your site is really helpful I also love the theme, its amazing!. I dont have that much time to read all your post at the moment but I have bookmarked it and also add your RSS feeds. I will be back in a day or two. thanks for a great site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69496">6</a></div>
+			<span class="authorname">orustam</span> said on October 30, 2012		</div>
+		<div class="quote"><p>i have 1 question regarding modules and naming. I'm kind of deciding which paradigm should i use for my css. I saw your presentation on adobe.tv and i've read some info about smacss and i kind of like it. About my question :) - You stick to
+<pre><code>.module {}
+.module-different {}</code></pre>
+<p>Would it be bad to use:
+<pre><code>.module {}
+.module.different {}</code></pre>
+<p>In the last case you would have inheritance, or am i missing your point? And it wouldn't work in ie6 but i think it should't concern anyone in near future.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69497">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69497">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 30, 2012		</div>
+		<div class="quote"><p>Orustam: The problem with .module.different is that you end up with class="module different". And then "othermodule different". And even "anothermodule different". Which different is which? How do you search to find the .different class that you want? If you're using preprocessors, you end up with .different nested in hard to find places. In the end, it just makes it harder to find things and work with what you're trying to do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70082">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70082">8</a></div>
+			<span class="authorname">Tharun P Karun</span> said on February 13, 2013		</div>
+		<div class="quote"><p>SMACSS book is yours?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70083">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70083">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 13, 2013		</div>
+		<div class="quote"><p>@Tharun: Yes, yes it is.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70084">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70084">10</a></div>
+			<span class="authorname">Brett Jankord</span> said on February 14, 2013		</div>
+		<div class="quote"><p>Thanks for this post Johnathon, it's helped me clear up some of my thoughts on modules.</p>
+<p>I've been using an approach very similar from the book of adding a modifier(sub-module) to a module for different module instances. The only difference from the book is that I am calling (sub-modules) modifiers. I prefer to use the BEM double hyphen syntax for modifiers (sub-modules) and the term modifiers makes more sense in my mind, but its doing the same thing a what you described as sub-modules. </p>
+<p>So for example, with .products, .events tables I would come up with a role based class name for my module. I don't mind .table so I might just use that rather than .matrix, though both would work fine. Then I add my modifier to the module.</p>
+<p>/* Global styles for all matrices */<br />
+.matrix{...}</p>
+<p>/* Local styles for modified versions of .matrix */<br />
+.matrix--products{...}<br />
+.matrix--events{...}</p>
+<p>I set up a <a href="//github.com/bjankord/CSS-Modules-Components-And-Modifiers-Collection<br />
+">repo</a> to help collect common/popular naming ideas for modules like .matrix, modifiers, and components, which are what you refereed to here as sub-components.</p>
+<p>I'd love to see a post on sub-components, or the inside parts that make up a module. Curious if you prefer to use descendant selectors and nest sub-components:</p>
+<p>.matrix .title, .matrix .body</p>
+<p>Or do you come up with unique classes for each sub-component?</p>
+<p>.matrix-title, .matrix-body
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70085">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70085">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 14, 2013		</div>
+		<div class="quote"><p>@Brett: I use .matrix-title and .matrix-body. I want to make sure that the sub-components are named in a way that is related to the module it belongs to.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

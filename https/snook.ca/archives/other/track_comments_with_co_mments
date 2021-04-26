@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Track Comments with Co.mments - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/track_comments_with_co_mments">
+	<meta property="og:url" content="https://snook.ca/archives/other/track_comments_with_co_mments">
+	<meta property="og:title" content="Track Comments with Co.mments">
+	<meta property="og:description" name="description" content="
+I've been using for months now and Co.mments is by far my favourite way to track comments on a site.
+How does it work? Through the use of a bookmarklet, I just hit a button on a page whose comments...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Track Comments with Co.mments</h1>
+		<p><img width="260" vspace="10" hspace="10" height="38" align="middle" src="/files/image/comments.gif" alt="Co.mments" /></p>
+<p>I've been using for months now and <a href="http://co.mments.com/">Co.mments</a> is by far my favourite way to track comments on a site.</p>
+<p>How does it work? Through the use of a bookmarklet, I just hit a button on a page whose comments I wish to track. It doesn't matter if the site uses WordPress, Movable Type or a custom home-grown solution. And you don't have to leave a comment in order to continually track the page.</p>
+<p>Even better, you don't even have to create an account to use it. It'll remember the sites you're tracking through the use of a cookie. If you do create an account then you have them safely stored if something happens to your cookie or if you want to access your account from another browser or computer.</p>
+<p>When tracking sites, it'll ping and update with the number of new comments. You can even read the new comments right from Co.mments without having to return to the site. With that said, it's not perfect. It must have some algorithm for determing comments on a page and certain HTML structures prevent it from pulling out comment text or updating the number of new comments. The accuracy, in my opinion, is still really good, though. Probably around 95%.</p>
+<p>For those blogs that don't get tracked properly, at least I have a central place to keep an eye on articles that I wish to check back on.</p>
+<p>After the discussion has died down and I'm no longer interested in tracking the page, I simply remove it from the list.</p>
+<p>If you need a handy way to track conversations,  I recommend you head on over to <a href="http://co.mments.com/">Co.mments.com</a> and give it a try.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 04, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/832</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">27 Comments &middot; <a href="/archives/other/track_comments_with_co_mments.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c50674">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50674">1</a></div>
+			<span class="authorname">fathima</span> said on July 04, 2007		</div>
+		<div class="quote"><p>coComment (http://www.cocomment.com/) does much the same thing. It's slightly prettier though and there it has a community feel to it, what with "Top Commenters" and favourites and such.<br />
+It's funny how they have such similar things. I mean, I understand why the emphasis on the word "comment," but even still ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50675">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50675">2</a></div>
+			<span class="authorname">fathima</span> said on July 04, 2007		</div>
+		<div class="quote"><p>"such similar <em>names</em> .." ack. sorry.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c50678">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50678">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 04, 2007		</div>
+		<div class="quote"><p>I had looked at coComment when it was first released and it was limited at the time. It looks like they've expanded the feature set to include much of what co.mments does. Just playing with it now, I like the interface of coComment but I find the interface slow to load (at least through the bookmarklet...the firefox add-on is probably faster). co.mments does have the added bonus that you don't have to signup or login. Definitely pros and cons between them. I might have to give coComment another go.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50679">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50679">4</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on July 04, 2007		</div>
+		<div class="quote"><p>Last I checked, both services have a hell of a time picking out comments on non-standard templates. I wrote up an algorithm and sent it to the cocomment folks, but they don't seem to have progressed any farther.</p>
+<p>I'm getting sick of cocomment. Their javascript is super slow, and the extension bogs firefox down horribly. Don't use it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50680">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50680">5</a></div>
+			<span class="authorname"><a href="http://adamduvander.com">AdamD</a></span> said on July 04, 2007		</div>
+		<div class="quote"><p>I had heard about these long ago, but hadn't ever given it a shot. I'll be checking it out now, starting with this thread!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50681">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50681">6</a></div>
+			<span class="authorname">Evan</span> said on July 04, 2007		</div>
+		<div class="quote"><p>Yet another: commentful.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50682">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50682">7</a></div>
+			<span class="authorname"><a href="http://germworks.net">Jermayn Parker</a></span> said on July 04, 2007		</div>
+		<div class="quote"><p>The thing that gets me about blogs and that is whenever I make a comment I like the option of adding another one, however with viewing so many a week, its hard unless they have a subscription option.</p>
+<p>I cant view this at work at the moment (net filter) but will this solve this problem? If so, I am up for it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50696">8</a></div>
+			<span class="authorname">Yuccaplant</span> said on July 04, 2007		</div>
+		<div class="quote"><p>the cocomment firefox plugin is awesome
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50700">9</a></div>
+			<span class="authorname"><a href="http://clagnut.com/">Richard Rutter</a></span> said on July 05, 2007		</div>
+		<div class="quote"><p>I have been <a href="//www.cocomment.com/comments/clagnut">using coComment</a> for a while, and I've enabled it on my (homemade) blog engine. Although I have signed up (to keep a central record of my comments), I think you can still do the cookie-based commenting. I liked coComment because it also provided an API so I could extract my comments and track them elsewhere.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50701">10</a></div>
+			<span class="authorname"><a href="http://clagnut.com/">Richard Rutter</a></span> said on July 05, 2007		</div>
+		<div class="quote"><p>The trouble with both of these systems though, is that if you forget to click the bookmarklet instead of the 'add comment' button, the tracking doesn't work so well.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50702">11</a></div>
+			<span class="authorname">matthew</span> said on July 05, 2007		</div>
+		<div class="quote"><p>cocomment.com user here, I tried co.omment.com a while ago but found it very cludgy in comparison. cocomment.com also has the script you can add to your blog to automate a lot of it for your users.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50703">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50703">12</a></div>
+			<span class="authorname">matthew</span> said on July 05, 2007		</div>
+		<div class="quote"><p>Also, when I used co.mment.com there was some kind of a bug with the system and it add HUNDREDS of posts to follow which I never commented on, so I got my account removed.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50706">13</a></div>
+			<span class="authorname"><a href="http://www.mileswjohnson.com">Miles</a></span> said on July 05, 2007		</div>
+		<div class="quote"><p>I hate how alot of sites have a period in the name for no reason. lol.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50728">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50728">14</a></div>
+			<span class="authorname"><a href="http://www.brainonfire.net/">Tim McCormack</a></span> said on July 05, 2007		</div>
+		<div class="quote"><p>If anyone wants to start their own comment tracking system with a better interface, here's a <a href="//www.brainonfire.net/2007/07/05/comment-tokenizer-algorithm/">comment extraction algorithm</a>, free for the taking.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50753">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50753">15</a></div>
+			<span class="authorname">Mike</span> said on July 06, 2007		</div>
+		<div class="quote"><p>The only problem with co.mments is that it is frequently unavailable. Other than that it's a Godsend for someone like me who regularly comments on new sites that I find. Like this one, for example.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50783">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50783">16</a></div>
+			<span class="authorname">andrej</span> said on July 06, 2007		</div>
+		<div class="quote"><p>I definitely like the design, straight forward, easy to use and just the functionality I needed ;) you can even subscribe to it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50786">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50786">17</a></div>
+			<span class="authorname"><a href="http://foobr.co.uk">Aaron Bassett</a></span> said on July 06, 2007		</div>
+		<div class="quote"><p>Looks interesting, I had heard/seen coComments before but it seemed <strong>very</strong> Javascript heavy and quite sluggish so I gave it a miss.</p>
+<p>co.mments doesn't seem to suffer from this so will be giving it a try - infact am tracking these comments right now ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50796">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50796">18</a></div>
+			<span class="authorname">Stu</span> said on July 08, 2007		</div>
+		<div class="quote"><p>Cool idea, nice to know. I just think I will be wasting more time using it :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50867">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50867">19</a></div>
+			<span class="authorname"><a href="http://run.likethewind.ca">fathima</a></span> said on July 09, 2007		</div>
+		<div class="quote"><p>The irony is that cocomments has yet to track any of the comments on this post. In fact, I don't even see the usual blue options bar beneath this textbox.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c50870">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50870">20</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 09, 2007		</div>
+		<div class="quote"><p>@fathima: but co.mments.com seems to be working fine. Good thing I recommended the right service. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51297">21</a></div>
+			<span class="authorname">Vingana</span> said on July 13, 2007		</div>
+		<div class="quote"><p>Cookies bad... I'm surprised you're embracing them so.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c51314">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51314">22</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 13, 2007		</div>
+		<div class="quote"><p>@Vingana: cookies aren't inherently bad. In fact, they're quite good from a personalization point of view. And this is a prime example: if somebody did manage to get access to the cookies for this site, they'd manage to get a client_id which might allow them to view the articles I'm tracking. That's information I'd readily share. Do some further research before you paint cookies in such a bad light.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52314">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52314">23</a></div>
+			<span class="authorname">Laurent</span> said on July 24, 2007		</div>
+		<div class="quote"><p>Having tried cocomment, commentful and co.mments, I've settled for co.mments. I love its simplicity. Plus in my tests it handled more blogs than the other two services, but your milleage might vary (furthermore it was months ago).<br />
+The only downside of co.mments is that it's the "smallest" one of the three, hence its reliability and availability might not be the best. For instance a few weeks ago a problem with the server resulted in a pruning of old conversations. I lost about 2/3 of my conversations. Although those had died for lack of new comments I kept them in my list as some kind of history. I was sad when they disappeared. :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52437">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52437">24</a></div>
+			<span class="authorname">Carly</span> said on July 27, 2007		</div>
+		<div class="quote"><p>If your a coComments user as well as a Firefox user, the coComments plugin for Firefox is excellent. It's been around since approx August last year so it's quite stable and functional.</p>
+<p>Well worth installing my 497th Firefox Plugin. (Joke but it feels that way with the sheer number of neat Firefox extensions available)</p>
+<p>Carly,
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52880">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52880">25</a></div>
+			<span class="authorname"><a href="http://www.chrispalle.com">Chris PallÃ©</a></span> said on August 01, 2007		</div>
+		<div class="quote"><p>Did anybody else notice their co.mments feed drop off and restart with a different name?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c53616">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c53616">26</a></div>
+			<span class="authorname">Chris</span> said on August 11, 2007		</div>
+		<div class="quote"><p>This is kind of a sore subject for me.  Back in the day, I was happy with co.mment.  It did the purpose it was intended to do, but as I started to track more comments I desired more features. </p>
+<p>1. When I click the bookmarklet it should clear the RSS feed (why do I want to be notified about comments I have already made?</p>
+<p>2. co.mments did a horrific job of picking up feeds on anything other than a blog.  For instance, trying to get it to detect a feed on the WordPress forum (which is RSS enabled) never worked.</p>
+<p>These two things were big enough to make me look again at coComment which, like you, I was not impressed with in the beginning.  The Firefox plugin is ok, but it does add some load time to pages.  It did provide a feed that did not post comments I've already read.</p>
+<p>The big thing is how horrific the coComment interface is.  They recently changed it, and I think it actually got worse.  It was looking good, but then it went downhill.</p>
+<p>Anyway, I've had conversations with Assaf of co.mments, and it seems as though he's stopped doing development on the app (as the co.mments blog suggests).  Sore, sore subject.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61125">27</a></div>
+			<span class="authorname">Pelton</span> said on January 16, 2009		</div>
+		<div class="quote"><p>Greeting. To be nobody but yourself in a world which is doing its best day and night to make you like everybody else means to fight the hardest battle which any human being can fight and never stop fighting.<br />
+I am from Japan and also now am reading in English, give true I wrote the following sentence: "Basic principles of writing powerful and effective resumes from the rockport institute."</p>
+<p>THX :p, Pelton.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

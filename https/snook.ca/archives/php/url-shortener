@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Building a URL Shortener - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/php/url-shortener">
+	<meta property="og:url" content="https://snook.ca/archives/php/url-shortener">
+	<meta property="og:title" content="Building a URL Shortener">
+	<meta property="og:description" name="description" content="With all the talk of URL shortening services, I decided to add a quick service into Snook.ca, which is run on CakePHP, to redirect a short URL to a post. Because my static content already has short UR...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Building a URL Shortener</h1>
+		<p>With all the talk of URL shortening services, I decided to add a quick service into Snook.ca, which is run on CakePHP, to redirect a short URL to a post. Because my static content already has short URLs and all I have are posts, creating a short URL handler for it was very easy. </p>
+ <p>To give you some context, I  route my posts through  a specific  structure:</p>
+ <p><kbd>/archives/:category<br />
+ /archives/:category/:articlename</kbd></p>
+ <p>In this case, I have a couple routes that route everything to my Posts controller and the bycat or view actions. These action take the named parameters and pulls out the appropriate content. Easy peasy. </p>
+ <p>The key thing here is that my articles have two identifiers: one is the slug, the other is the post ID. The process for the short service just takes a post ID and redirects it to its fully expanded URL.</p>
+ <p>Here's the Shortening Route:</p>
+<pre><code>Router::connect('/s/:id', 
+   array('controller'=>'posts', 'action'=>'shorturl'), 
+   array('id'=>'\\d+'));</code></pre>
+ <p>As you can see, it looks for a specific pattern (it must be all numbers) and then passes that into my posts controller to my shorturl action.</p>
+<pre><code>function shorturl () {
+   $id = $this->params['id'];
+   $this->Post->unbindModel(array('hasMany'=>array('Comment')));
+   $post = $this->Post->findById($id);
+   $url = '/archives/' 
+          . $post['Tag'][0]['safetag'] . '/' 
+          . $post['Post']['slug'];
+   $this->redirect($url);
+}</code></pre>
+     <p>I grab the named parameter. I unbind my Comment model to prevent the findById call in the next line from returning too much. Then I find my post which will return the associated tags (which are my &quot;categories&quot;). I build the URL and then redirect the user onwards.</p>
+     <p>I haven't exposed the short URL in any way, yet. For now, it's more to allow myself quick posts to Twitter without having to use another service and to see if people are retweeting the link.</p>
+     <p>And now it's really easy to find the first blog post (based on ID): <a href="https://snook.ca/s/1">https://snook.ca/s/1</a></p>
+     <h2>Building your own</h2>
+     <p>With a single model and a single action taking a single parameter, wiring up a URL shortener was very simple. How could you do it with a more complicated system?</p>
+     <h3>Multiple Routes</h3>
+     <p>Another easy way to extend this concept is to simply map each prefix to each model's view action that needs to be shortened. You could have a Posts model on /p/ and a Comments model on /c/. the :id for each of them would simply point to the view page for each one. That offers up a little more flexibilty but not much.</p>
+     <h3>Automatically Creating and Caching Short Links</h3>
+     <p>In thinking this through, especially for an established site, you could have it automatically create a short link for any URL on your site once it has been visited once. First, create a new model called Short (or whatever you feel like it should be called).The short model will consist of two fields: the primary key (id) and character field to store the URL. </p>
+<pre><code>CREATE TABLE shorts (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  url varchar(100) NOT NULL UNIQUE
+)</code></pre>
+     <p> Within your AppController, grab the current URL (available via <code>$this-&gt;url</code>). With the URL being a unique key as well as the ID, you'll only have a single ID for each  URL. </p>
+     <p>If you want to find the short URL for an existing URL, just look it up in the database.</p>
+<pre><code>$this->Short->findByUrl($this->url);</code></pre>
+     <p>If a URL is not found, you'll need create a new record for it. It'd be advantageous for you to create a method on your model that'll do the find/not found/create process. </p>
+     <p>You can use your ID as your short form (as I did) which, given most sites, will be quite small. If you have 4000 unique URLs, you're using 4 characters. What if you wanted to optimize that even further? </p>
+     <p>You could convert that integer into a hexidecimal value. Anything under 4096 items will only take 3 characters. That's not bad. Anything over 4096 and you're back to 4 characters.</p>
+     <h2>Creating a super-compressed URL</h2>
+     <p> But what if you wanted to optimize that even further? The trick is to create your own base system with a custom set of characters. This next bit of code isn't CakePHP-specific.</p>
+     <pre><code>$codeset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+$base = strlen($codeset);
+$n = 300;
+$converted = "";
+
+while ($n > 0) {
+  $converted = substr($codeset, ($n % $base), 1) . $converted;
+  $n = floor($n/$base);
+}
+
+echo $converted; // 4Q</code></pre>
+     <p>It loops over the original number, converting it into the base that you want. In my particular example, it converts the 300 into 4Q. But you'll get up to 3844 before you need more than 2 characters. And up to over 238,000 before you get past 3 characters. Precious bytes.</p>
+     <p>If you were setting up a route for this, you can use the following regex pattern:</p>
+     <pre><code>Router::connect('/s/:id', 
+   array('controller'=&gt;'shorts', 'action'=&gt;'retrieve'), 
+   array('id'=&gt;'[0-9a-zA-Z]+'));</code></pre>
+     <p>Of course, feel free to customize the acceptable character list &mdash; some people drop 0, O, 1 and l to avoid confusion.</p>
+     <h3>Converting the Compressed Version back to Decimal</h3>
+     <p>Going back is  straightforward. In the retrieve method of the shorts controller that we set the route up for, we need to take our compressed ID and uncompress it into an integer we can search the database for.</p>
+     <pre><code>$converted = <code>$this-&gt;params['id']</code>;<br />$c = 0;<br />for ($i = strlen($converted); $i; $i--) {<br />  $c += strpos($codeset, substr($converted, (-1 * ( $i - strlen($converted) )),1)) 
+        * pow($base,$i-1);
+}<br />$this-&gt;Short-&gt;id = $c; // 300 from our earlier example<br />$this-&gt;redirect( $this-&gt;Short-&gt;field('url') ); </code></pre>
+
+<p>Each point in the string is multiplied by the base to the power of that position. Then it grabs the URL field for that item. Finally, it redirects them off to their final destination.</p>
+<h2>Wrapping it up</h2>
+<p>This blog post twisted and turned but ended up in a great place. The principles of the shortening system  could be applied to any system whether it's CakePHP or not. If you're a CakePHP fan, feel free to take this example and build it into a component or plugin. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published April 27, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/php/">PHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/942</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">34 Comments &middot; <a href="/archives/php/url-shortener.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63347">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63347">1</a></div>
+			<span class="authorname"><a href="http://marcgrabanski.com">Marc Grabanski</a></span> said on April 27, 2009		</div>
+		<div class="quote"><p>Hey! nice job Snook. I think I'll be adding this to my blog "short"ly. And since it's a CakePHP, it'll be "cake" to implement. Man, puns at 1:30AM are easy to come by.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63348">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63348">2</a></div>
+			<span class="authorname">Ulf</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Hey Snook! Thanks for that article, I loved the part with the explanation about the precious bytes - nice detail!<br />
+Did you know about the lilURL-Project? It's kind of the same approach.</p>
+<p>Ulf
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63349">3</a></div>
+			<span class="authorname"><a href="http://ivanbernat.com">Ivan</a></span> said on April 27, 2009		</div>
+		<div class="quote"><p>OK, this is sooo sweet :-) I used to simply md5 the ID and substr the first 4 characters, guess this is better ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63350">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63350">4</a></div>
+			<span class="authorname">Maciej Grajcarek</span> said on April 27, 2009		</div>
+		<div class="quote"><p>That is really nice! I was thinking how to shorten links in a smart way. Your way is really good :). Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63354">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 27, 2009		</div>
+		<div class="quote"><p>@Ulf: I hadn't seen the <a href="//lilurl.sourceforge.net/">lilURL project</a>. Thanks for pointing it out. Admittedly, I prefer my approach as it leaves the database to what it does best: incrementing integers for primary keys. Converting from one base to another is fairly easy (although it did take me a bit to track it down and put together a JavaScript-based proof).</p>
+<p>The other limiting factor with lilURL is that it only seems to take advantage of lower-case letters (from what I can tell). However, maybe I'll look to contribute my ideas back into the project. </p>
+<p>On a separate note, I took a quick look at what other characters you could use to expand the character set and possibly compress your URL further, here are the other unreserved characters: -_.!~*'(). I think that'd make the URL less readable but just wanted to share.</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63355">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63355">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Just doing a little research after finding the lilURL library, I found the <a href="//tighturl.com/project/">tighturl</a> project, which is also open source. It does spam filtering, as well.</p>
+<p>Finally, and this is something I wasn't aware of, PHP has a <code>base_convert</code> function that'll convert anything up to a base 36 [0-9a-z]. Being able to do upper and lower case, as I've done it, certainly gives you greater compression. Of course, use what works best for you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63356">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63356">7</a></div>
+			<span class="authorname">Zachary Johnson</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Having just made my own URL shortener for personal use a couple weeks ago (in action here: http://a.stronaut.com/z1), I thought it was important that I share a couple of things I learned:</p>
+<p>1. Check out the PHP built-in function:</p>
+<pre><code>
+base_convert()
+</code></pre>
+<p>2. The default HTTP header that PHP throws when you do a Location redirect is 302, which is bad because you will end up with your pages possibly twice in Google search results, one of those listings being under the shortened URL.  You want to throw a 301 code before the location code:</p>
+<pre><code>
+header('HTTP/1.1 301 Moved Permanently');
+header('Location: ' . $url);
+</code></pre>
+<p>where $url is the place that the short url is redirecting to.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63357">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63357">8</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris Wallace</a></span> said on April 27, 2009		</div>
+		<div class="quote"><p>Did you just recently add comment numbers? They are so smooth I thought they were being replaced with Cufon or sIFR, but alas, they are not.</p>
+<p>In an attempt to stay on topic, enjoy this <a href="//u.nu/unu-faq">FAQ</a> from u.nu, a URL shortening service. It's funny.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63358">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63358">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 27, 2009		</div>
+		<div class="quote"><p>@Chris Wallace: I just recently <em>styled</em> the comment numbers. :) They used to be a plainly styled element right next to the commenter's name. My comments are also now highlighted within the list.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63359">10</a></div>
+			<span class="authorname">Chris Shiflett</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Have you considered adding rev="canonical" support? I wrote about it here:</p>
+<p>http://shiflett.org/blog/2009/apr/save-the-internet-with-rev-canonical</p>
+<p>Here's an API call that returns the advertised short URL for your post, if one exists:</p>
+<p>http://revcanonical.appspot.com/api?url=http://snook.ca/archives/php/url-shortener</p>
+<p>Simon Willison has a nifty bookmarklet for it:</p>
+<p>http://simonwillison.net/2009/Apr/11/revcanonical/</p>
+</div>
+	</div>
+		<div class="comment" id="c63360">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63360">11</a></div>
+			<span class="authorname">Shimon</span> said on April 27, 2009		</div>
+		<div class="quote"><p>I've wrote a short post about using base_convert not so long time ago, check it out - http://baaltshuvaslowly.blogspot.com/2009/02/tinyurl-with-one-line-of-php-easy.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63362">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63362">12</a></div>
+			<span class="authorname">Andrew Woods</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Nicely Done! I've also thought about building a url shortener, and would've done it much the same way. Although, it'd be great to know: how often do urls get shortened?, and how often a particular shortened url gets used?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63363">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63363">13</a></div>
+			<span class="authorname">JR</span> said on April 27, 2009		</div>
+		<div class="quote"><p>I took the liberty of converting your encode and decode functions into Python:</p>
+<pre><code>import math
+
+codeset = 'Ts87HNB2US1dxhgMWCpAKmRXO0rnG4lDZkcFLqutzEYbfv6JQo3Pea5iw9VyjI'
+base = len(codeset)
+n = 300
+
+def encode(id):
+
+    encoded = ''
+
+    while id &gt; 0:
+        position = int(id % base)
+        encoded = ''.join([ codeset[position:position+1], encoded ])
+        id = math.floor(id/base)
+
+    return encoded
+
+def decode(encoded):
+
+    id = 0
+
+    for index, char in enumerate(encoded[::-1]):
+        id += codeset.find(char) * math.pow(base,index)
+
+    return int(id)</code></pre>
+<p>I was recently working on something very similar, but my method wasn't nearly as clean.</p>
+<p>I also randomized the codeset string to prevent sequential shortened URLs.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63364">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63364">14</a></div>
+			<span class="authorname"><a href="http://www.felocity.org">Jakob Heuser</a></span> said on April 27, 2009		</div>
+		<div class="quote"><p>@Zach: To prevent duplicate links, you can also use the canonical "link" tag that google endorses:<br />
+http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html As per google, it's a hint that they "honor strongly". It's now also supported by Yahoo, Ask.com, and MS Live Search.</p>
+<p>I agree we should be mindful of sending 301 v 302, but I haven't seen too many browsers that change behavior based on the redirect code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63365">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63365">15</a></div>
+			<span class="authorname">Jamie Rumbelow</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Hey Jonathan,</p>
+<p>Have you considered using rev="canonical"? Drew McLellan pointed me to it when I was recording my podcast - it's a semantic way of representing a shorter link. You simply embed a link tag into each page, with the target pointing to the shorter link.</p>
+<p>PHP.net makes good use of it - if you view source on every single function page you can see the shorter URL. And if you visit http://revcanonical.appspot.com/, you can see it working in action.</p>
+<p>I guess it's the next step for the semantic web - but what you've already accomplished is sweet, and I reckon rev="canonical" will make it even sweeter.</p>
+<p>Anyway, if you've got any questions about rev="canonical", semantics or Microformats, give me an email - I'll be happy to help!</p>
+<p>Thanks,</p>
+<p>Jamie Rumbelow
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63366">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63366">16</a></div>
+			<span class="authorname">Kevin Thompson</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Great article. Really serves to show how simple it can be to setup your own short URL service. However, what really stood out to me is what Chris Wallace noticed... </p>
+<p>Your comments are slick!</p>
+<p>As simple as they are, the variation in color that highlights your comments, and the number placement greatly compliment the current design. Bravo.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63367">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63367">17</a></div>
+			<span class="authorname">Kevin Thompson</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Blindsided by the newly styled comments, I failed to include my original question...</p>
+<p>Now that you have a method for easily identifying your shortened URLs in social media, are you considering including some form of "tweetbacks" in your blog ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63368">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63368">18</a></div>
+			<span class="authorname">Matt</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Nice.<br />
+Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63369">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63369">19</a></div>
+			<span class="authorname">SharonHill</span> said on April 27, 2009		</div>
+		<div class="quote"><p>Nice way of shortening URL. I generally use http://aafter.us/ that shrinks large URL. Itâ€™s an open and free source.</p>
+<p>Regards,<br />
+SharonHill</p>
+</div>
+	</div>
+		<div class="comment" id="c63391">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63391">20</a></div>
+			<span class="authorname">Maxime Perron Caissy</span> said on April 29, 2009		</div>
+		<div class="quote"><p>Nice article snook, the super compressed url part is especially interesting!</p>
+<p>ps. the comment numbering is brilliant, I first thought you had used images but that would have been a pain in the ass. Great use of fonts!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63409">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63409">21</a></div>
+			<span class="authorname">Michael Kozakewich</span> said on May 01, 2009		</div>
+		<div class="quote"><p>I made a similar post a day or two ago (with far less graceful code), but the whole setup is kind of useless on my site (the domain alone has seventeen characters). I may be able to fit up to 40 links in my bar, using the trick where you don't need a question mark. I spent hours looking at different ways of doing it, though.</p>
+<p>The best thing of all: I don't even use Twitter.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63412">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63412">22</a></div>
+			<span class="authorname">Matt</span> said on May 01, 2009		</div>
+		<div class="quote"><p>Anyone interested in hosting their own URL Shortener should check out the project I manage, urlShort at http://urlshort.sourceforge.net. Weâ€™re aiming to have it include all the good features of URL shorteners, but be free, open-source, and easy to use/setup.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63419">23</a></div>
+			<span class="authorname">Tim Johannessen</span> said on May 03, 2009		</div>
+		<div class="quote"><p>For the compression of the ID to work properly, the value should be at least two digits.</p>
+<p>Compressing a value of 1 will remain 1 and so forth, until at least two digits are used.</p>
+<p>I was looking for a way to "scramble" a string, and yet make it URI friendly - only problem is, that your input will grow to at least twice the size of the original input.</p>
+<p>The scrambled string, has a self contained cipher, used when "unsrambling" the string.</p>
+<p>http://sandbox.datapimp.dk/scrambler/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63421">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63421">24</a></div>
+			<span class="authorname"><a href="http://www.argusvision.net">Zeb</a></span> said on May 03, 2009		</div>
+		<div class="quote"><p>great job.. there is a similar URL shortener plugin over here: http://www.colly.com/comments/ee_shortener_plugin_your_own_short_urls_using_revcanonical_and_permanent_re/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63488">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63488">25</a></div>
+			<span class="authorname">Cloud Freak</span> said on May 06, 2009		</div>
+		<div class="quote"><p>This is a very nice tutorial.<br />
+@Ivan: you will have collision soon if you do MD5
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63536">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63536">26</a></div>
+			<span class="authorname">Abhisek</span> said on May 11, 2009		</div>
+		<div class="quote"><p>WOW!!! Cool... Months back I made a tutorial on this too: http://ad1987.blogspot.com/2008/12/create-your-own-tinyurl-with-php-and.html
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63597">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63597">27</a></div>
+			<span class="authorname">Travell Perkins</span> said on May 26, 2009		</div>
+		<div class="quote"><p>Hello Jonathan,</p>
+<p>Your writeup was great.  The main gem for me was the base conversion code.  I wrapped it in a static class and started experimenting.  Your solution, base 58/60, is a much better solution than base 36 because codes. With 4 character code you can represent 0 to approximately 11.3M vs only 1.7M in base 36.  Things get crazy at 6 codes, 58^6 vs 36^6.</p>
+<p>I started experimenting with really large numbers to encode and your code fell over.  It lost precision and was not able to accurately encode large integers though the decoding process worked fine.  Basically after MAX_SIGNED_INT 32 bit (approximately 2.7T) it would fall over.  Encoding and then decoding back would result in rounding errors.</p>
+<p>Working in finance, I knew that I would need to convert your algorithm to use a big math library.  PHP's floor blows up with big numbers and of course modulo and division. I had to implement floor since bcmath doesn't come with that baked in. The class works with insanely huge numbers now.  Like all of the atoms in the universe size numbers. You can use it as a basis for an arbitrary base encoding by just augmenting the character set.  Base 60 is great if you really aren't worried about people having to ever read the codes over the phone. Base 61 basically adds a hyphen to the mix, though leading,trailing, and multiple hyphens would look weird to most people so it's probably a bad idea. "---" would be a valid number. </p>
+<p>I'm using the class in a project to include canonical short urls in content pages on my site.  The added benefit is that I can just use the existing integer table ids.  I tack on a prefix letter to identify the type of content (table type) and then I can convert the trailing code, get the id, and then lookup the SEO friendly long URL.  I return that back to the browser with a 301 permanent redirect.  Hope this helps peeps.</p>
+<p>Here is the new code:</p>
+<pre><code>
+class BaseIntEncoder {
+
+        //const $codeset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //readable character set excluded (0,O,1,l)
+        const codeset = "23456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ";
+
+        static function encode($n){
+            $base = strlen(self::codeset);
+            $converted = '';
+
+            while ($n &gt; 0) {
+                $converted = substr(self::codeset, bcmod($n,$base), 1) . $converted;
+                $n = self::bcFloor(bcdiv($n, $base));
+            }
+
+            return $converted ;
+        }
+
+        static function decode($code){
+            $base = strlen(self::codeset);
+            $c = '0';
+            for ($i = strlen($code); $i; $i--) {
+                $c = bcadd($c,bcmul(strpos(self::codeset, substr($code, (-1 * ( $i - strlen($code) )),1))
+                        ,bcpow($base,$i-1)));
+            }
+
+            return bcmul($c, 1, 0);
+        }
+
+        static private function bcFloor($x)
+        {
+            return bcmul($x, '1', 0);
+        }
+
+        static private function bcCeil($x)
+        {
+            $floor = bcFloor($x);
+            return bcadd($floor, ceil(bcsub($x, $floor)));
+        }
+
+        static private function bcRound($x)
+        {
+            $floor = bcFloor($x);
+            return bcadd($floor, round(bcsub($x, $floor)));
+        }
+    }
+</code></pre>
+<p>Travell Perkins
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63606">28</a></div>
+			<span class="authorname">marvell</span> said on May 28, 2009		</div>
+		<div class="quote"><p>GKAA8m hi! mi site is http://norffg.com<br />
+see you!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63616">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63616">29</a></div>
+			<span class="authorname"><a href="http://twitter.com/ds">Dave</a></span> said on June 05, 2009		</div>
+		<div class="quote"><p>Is there irony in the fact that Zeb points out Colly's article on short urls and posts the long url, so long that it runs into the next column?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64480">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64480">30</a></div>
+			<span class="authorname">FReNeTiC</span> said on January 06, 2010		</div>
+		<div class="quote"><p>Yesterday i was thinking about "how does a url shortner works?".<br />
+I got the same conclusion as you got when you wrote the piece of code from the post :</p>
+<pre><code>$codeset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+$base = strlen($codeset);
+$n = 300;
+$converted = "";
+
+while ($n &gt; 0) {
+$converted = substr($codeset, ($n % $base), 1) . $converted;
+$n = floor($n/$base);
+}
+echo $converted; // 4Q
+</code></pre>
+<p>When I started trying the algorithm I saw that really large numbers where not working =/<br />
+Reading PHP manuals I got the same conclusion as |<a href="//twitter.com/tlperkins">Travell Perkins</a>.<br />
+But, I also saw that numbers higher than PHP integer limit are automatic converted to float, that has an even higher limit.<br />
+The problem of this conversion is that float numbers cant perform the % algorithm.<br />
+So, I came with a solution, that I THOUGHT (only my opinion =P) is a simple way of solving this integer-float problem, and working with a high numbers.</p>
+<p>The code is this:</p>
+<pre><code>
+&lt;?php
+
+/*    recieve a number to convert to the new base    */
+if ( !isset($_GET["n"]) || !is_numeric($_GET["n"]) || $_GET['n'] &lt; 1 )
+ exit;
+   $number = $_GET["n"];
+$stack = "";
+
+$base = array("0", "1", "2", "3", "4", "5", "6" , "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+               "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+               "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
+/*    while the number is higher than the new base    */
+while ($number &gt;= 62) {
+	/*    divide the number and split the float into 2 parts    */      $divided = explode(".", $number / 62);
+
+	/*    the first part is an integer value, that is the new number for the loop    */
+    $number = $divided[0];
+
+/*    the other half will be used to calculate the rest of the division    */
+    if ( isset($divided[1]) ) {
+       $rest = "0." . $divided[1];
+       $rest = round( $rest * 62);
+    }
+    else
+        $rest = 0;
+                                 	/*    whe take the rest of the division and find a base62 number for it    */
+    $stack = $base[$rest] . $stack;
+}
+
+if ($number != 0)
+ $stack = $base[(int)$number] . $stack;
+   var_dump($stack);
+
+?&gt;
+</code></pre>
+<p>this algorithm have the same idea of yours, but it has a larger range.<br />
+Testing it i could see that PHP FLOAT LIMIT is a number with 14 digits.<br />
+Its like 11,111,111,111,111 \o/<br />
+And the algorithm converts this 14 digits number to a 8 characters key.</p>
+</div>
+	</div>
+		<div class="comment" id="c65813">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65813">31</a></div>
+			<span class="authorname"> Hello! eagccke interesting eagccke site!</span> said on February 10, 2011		</div>
+		<div class="quote"><p> Hello! eagccke interesting eagccke site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65820">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65820">32</a></div>
+			<span class="authorname">Very nice site!</span> said on February 10, 2011		</div>
+		<div class="quote"><p>Very nice site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65829">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65829">33</a></div>
+			<span class="authorname"> Hello! kddcfdg interesting kddcfdg site!</span> said on February 10, 2011		</div>
+		<div class="quote"><p> Hello! kddcfdg interesting kddcfdg site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65832">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65832">34</a></div>
+			<span class="authorname">Very nice site!</span> said on February 10, 2011		</div>
+		<div class="quote"><p>Very nice site!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

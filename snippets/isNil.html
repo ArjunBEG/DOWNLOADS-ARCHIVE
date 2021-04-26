@@ -1,0 +1,8 @@
+<p>Checks if the specified value is <code>null</code> or <code>undefined</code>.</p>
+<ul>
+<li>Use the strict equality operator to check if the value of <code>val</code> is equal to <code>null</code> or <code>undefined</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isNil <span class="op">=</span> val <span class="kw">=&gt;</span> val <span class="op">===</span> <span class="kw">undefined</span> <span class="op">||</span> val <span class="op">===</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isNil</span>(<span class="kw">null</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isNil</span>(<span class="kw">undefined</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">isNil</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

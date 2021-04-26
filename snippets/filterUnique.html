@@ -1,0 +1,8 @@
+<p>Creates an array with the unique values filtered out.</p>
+<ul>
+<li>Use <code>new Set()</code> and the spread operator (<code>...</code>) to create an array of the unique values in <code>arr</code>.</li>
+<li>Use <code>Array.prototype.filter()</code> to create an array containing only the non-unique values.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> filterUnique <span class="op">=</span> arr <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  [...<span class="at">new</span> <span class="at">Set</span>(arr)].<span class="at">filter</span>(i <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">indexOf</span>(i) <span class="op">!==</span> <span class="va">arr</span>.<span class="at">lastIndexOf</span>(i))<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">filterUnique</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>])<span class="op">;</span> <span class="co">// [2, 4]</span></a></code></pre></div>

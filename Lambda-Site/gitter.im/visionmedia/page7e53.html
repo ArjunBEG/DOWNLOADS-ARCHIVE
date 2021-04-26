@@ -1,0 +1,2165 @@
+<!doctype html>
+<html class="no-js " lang="en">
+  
+<!-- Mirrored from gitter.im/visionmedia/page.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 21:25:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=IE9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+    <meta charset="utf-8">
+    <title>visionmedia/page.js - Gitter</title>
+    <style>
+
+      @-webkit-keyframes pulsey {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+      }
+
+      html.loading .trpContentPanel { background: url("http://cdn01.gitter.im/_s/5239e9e87/images/logo-mark-grey-64.png") center no-repeat; height: 90%; -webkit-animation: pulsey 2s ease-out; -webkit-animation-iteration-count: infinite;  }
+      html.loading .trpContentPanel > * { visibility: hidden; }
+    </style>
+    <base target="_parent">
+
+
+
+      <style>
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: bold;
+      src: local("SourceSansPro-Bold");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: bold;
+      src: local("SourceSansPro-BoldIt");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 200;
+      src: local("SourceSansPro-ExtraLight");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: italic;
+      font-weight: normal;
+      src: local("SourceSansPro-It");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 300;
+      src: local("SourceSansPro-Light");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: normal;
+      src: local("SourceSansPro-Regular");
+    }
+    @font-face {
+      font-family: 'SourceSansLocal';
+      font-style: normal;
+      font-weight: 600;
+      src: local("SourceSansPro-Semibold");
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-Regular.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-It.otf.woff") format('woff');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-Bold.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-Semibold.otf.woff") format('woff');
+      font-weight: 600;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-BoldIt.otf.woff") format('woff');
+      font-weight: bold;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-Light.otf.woff") format('woff');
+      font-weight: 300;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "source-sans-pro";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/fonts/sourcesans/SourceSansPro-ExtraLight.otf.woff") format('woff');
+      font-weight: 200;
+      font-style: normal
+    }
+    @font-face {
+      font-family: "KaTeX_AMS";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_AMS-Regular.woff") format('woff');
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_AMS-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Caligraphic";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Caligraphic-Bold.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Caligraphic-Bold.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Caligraphic";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Caligraphic-Regular.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Caligraphic-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Fraktur";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Fraktur-Bold.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Fraktur-Bold.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Fraktur";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Fraktur-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Fraktur-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Main";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Bold.woff") format('woff');
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Bold.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Main";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-BoldItalic.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-BoldItalic.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Main";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Italic.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Italic.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Main";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Regular.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Main-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Math";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Math-BoldItalic.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Math-BoldItalic.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Math";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Math-Italic.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Math-Italic.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_SansSerif";
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Bold.woff") format('woff');
+        src: url("http://cdn01.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Bold.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_SansSerif";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Italic.woff") format('woff');
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Italic.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_SansSerif";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_SansSerif-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Script";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Script-Regular.woff") format('woff');
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Script-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Size1";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size1-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size1-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Size2";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size2-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size2-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Size3";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size3-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size3-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Size4";
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size4-Regular.woff") format('woff');
+        src: url("http://cdn03.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Size4-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+    @font-face {
+      font-family: "KaTeX_Typewriter";
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Typewriter-Regular.woff") format('woff');
+        src: url("http://cdn02.gitter.im/_s/5239e9e87/repo/katex/fonts-0.10.0/KaTeX_Typewriter-Regular.woff2") format('woff2');
+      font-weight: normal;
+      font-style: italic
+    }
+  </style>
+
+    <link rel="stylesheet" href='http://cdn01.gitter.im/_s/5239e9e87/sprites/services.css'>
+      <link rel="stylesheet" href='http://cdn01.gitter.im/_s/5239e9e87/styles/router-nli-chat.css'>
+
+
+    <link id="favicon" rel="shortcut icon" href='http://cdn03.gitter.im/_s/5239e9e87/images/favicon-normal.ico'><!-- Le fav and touch icons -->
+
+    <link rel="manifest" href="https://gitter.im/manifest.webmanifest">
+
+    <meta property="og:title" content="visionmedia/page.js"/>
+    <meta property="og:description" content="Micro client-side router inspired by the Express router (~1200 bytes)"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d"/>
+    <meta property="fb:app_id" content=""/>
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="@gitchat"/>
+    <meta property="twitter:title" content="visionmedia/page.js"/>
+    <meta property="twitter:description" content="Micro client-side router inspired by the Express router (~1200 bytes)"/>
+    <meta property="twitter:image" content="https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d"/>
+  </head>
+  <body class=" iframe logged-out">
+    <div class="layout-app">
+        <script>window.__INITIAL_STATE__={"search":{"repo":{"loading":false,"error":null,"results":[]},"room":{"loading":false,"error":null,"results":[]},"people":{"loading":false,"error":null,"results":[]},"message":{"loading":false,"error":null,"results":[]},"searchInputValue":"","current":{"results":[]}},"joinRoomRequest":{"loading":false,"error":null,"results":[]},"isMobile":false,"isLoggedIn":false,"darkTheme":false,"groupMap":{},"roomMap":{"547093f6db8155e6700d7101":{"id":"547093f6db8155e6700d7101","name":"visionmedia\u002Fpage.js","topic":"Micro client-side router inspired by the Express router (~1200 bytes)","avatarUrl":"https:\u002F\u002Favatars-01.gitter.im\u002Fgroup\u002Fiv\u002F4\u002F57542cf4c43b8c601977827d","uri":"visionmedia\u002Fpage.js","userCount":88,"url":"\u002Fvisionmedia\u002Fpage.js","githubType":"REPO","security":"PUBLIC","groupId":"57542cf4c43b8c601977827d","public":true,"matrixRoomLink":"https:\u002F\u002Fmatrix.to\u002F#\u002F#visionmedia_page.js:gitter.im?utm_source=gitter","v":113}},"messageMap":{},"displayedRoomId":"547093f6db8155e6700d7101","hightLightedMessageId":null,"leftMenuState":"all","leftMenuPinnedState":true,"leftMenuExpandedState":false,"favouriteDraggingInProgress":false,"threadMessageFeed":{"isVisible":false,"draftMessage":"","messageEditState":{"id":null,"text":null},"atTop":false,"atBottom":false,"parentId":null,"childMessagesRequest":{"loading":false,"error":null,"results":[]}},"createCommunity":{"currentStep":"step-main","communityName":"","communityNameError":null,"communitySlug":"","slugAvailabilityStatus":null,"communitySlugError":null,"selectedBackingEntity":null,"allowBadger":true,"orgs":[],"repos":[],"entityTypeTabState":"tab-orgs","orgsRequest":{"loading":false,"error":null,"results":[]},"reposRequest":{"loading":false,"error":null,"results":[]},"communitySubmitRequest":{"loading":false,"error":null,"results":[]}},"createRoom":{"adminGroupMap":{},"groupFilterText":"","selectedGroupId":null,"groupError":null,"roomName":"","roomNameError":null,"roomNameAvailabilityStatus":null,"adminRepoMap":{},"repoFilterText":"","selectedRepoId":null,"roomSecurity":"PUBLIC","onlyGithubUsers":false,"allowGroupAdmins":false,"allowBadger":true,"repos":[],"groupsRequest":{"loading":false,"error":null,"results":[]},"reposRequest":{"loading":false,"error":null,"results":[]},"roomSubmitRequest":{"loading":false,"error":null,"results":[]}}}</script><style data-vue-ssr-id="2795a402:0">.root[data-v-44ebcb1a] {
+  box-sizing: border-box;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  will-change: transform;
+  transition: transform 0.05s ease;
+}
+.root[data-v-44ebcb1a] *,
+.root[data-v-44ebcb1a] *:before,
+.root[data-v-44ebcb1a] *:after {
+  box-sizing: inherit;
+}
+@media (max-width: 900px) {
+.root[data-v-44ebcb1a] {
+    position: absolute;
+    transform: translateX(-100%);
+}
+.root.expanded[data-v-44ebcb1a] {
+    transform: translateX(0%);
+}
+}
+.layout-minibar[data-v-44ebcb1a] {
+  z-index: 1;
+  width: 7.5rem;
+}
+.layout-main-menu[data-v-44ebcb1a] {
+  width: 26.5rem;
+  transition: transform 0.1s ease;
+}
+@media not all and (max-width: 900px) {
+.root:not(.pinned).logged-in .layout-main-menu[data-v-44ebcb1a] {
+    position: absolute;
+    left: 7.5rem;
+    transform: translateX(-100%);
+}
+.root.expanded:not(.pinned).logged-in .layout-main-menu[data-v-44ebcb1a] {
+    transform: translateX(0%);
+}
+}
+.header[data-v-44ebcb1a] {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  height: 65px;
+  color: #ffffff;
+}
+.header-minibar[data-v-44ebcb1a] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #753a88;
+}
+.dark-theme .header-minibar[data-v-44ebcb1a] {
+  background-color: #2d2c2c;
+}
+.header-main-menu[data-v-44ebcb1a] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #753a88;
+}
+.dark-theme .header-main-menu[data-v-44ebcb1a] {
+  background-color: #2d2c2c;
+}
+.left-menu-toggle[data-v-44ebcb1a] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  transition: background-color 0.2s ease;
+}
+.left-menu-toggle:hover .hamburger-icon[data-v-44ebcb1a] {
+  left: -9px;
+}
+.left-menu-toggle[data-v-44ebcb1a]:focus {
+  background-color: #f68d42;
+  outline: none;
+}
+.hamburger-icon[data-v-44ebcb1a] {
+  position: absolute;
+  left: -13px;
+  width: 26px;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  color: rgba(255, 255, 255, 0.7);
+  stroke: rgba(255, 255, 255, 0.7);
+  transition: left 0.2s ease;
+}
+.logo-gitter-sign[data-v-44ebcb1a] {
+  display: block;
+  width: 18px;
+  fill: #ffffff;
+}
+.logo-text[data-v-44ebcb1a] {
+  display: block;
+  width: 7rem;
+}
+.logo-text[data-v-44ebcb1a] > svg {
+  fill: #ffffff;
+}
+.body[data-v-44ebcb1a] {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+.body-main-menu[data-v-44ebcb1a] {
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+  height: 100%;
+  background-color: #fdfdfd;
+  border-right: 1px solid #f1f1f1;
+}
+.dark-theme .body-main-menu[data-v-44ebcb1a] {
+  background-color: #383736;
+  border-right-color: #2d2c2c;
+}
+.room-list-title[data-v-44ebcb1a] {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  max-width: 90%;
+  margin: 0;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  padding: 0 0 0 2.6rem;
+  line-height: 65px;
+  color: #a2a3a3;
+}
+.mobile .room-list-title[data-v-44ebcb1a] {
+  padding: 0 0 0 0.5rem;
+  line-height: 50px;
+}
+.room-list[data-v-44ebcb1a] {
+  margin-left: 0;
+  list-style: none;
+}
+.nli-body[data-v-44ebcb1a] {
+  flex: 1;
+  display: block;
+  width: 34rem;
+  height: 100%;
+  padding: 20px;
+  background-color: #753a88;
+  color: #ffffff;
+}
+.nli-body a[data-v-44ebcb1a] {
+  color: #ffffff;
+}
+.nli-primary-heading[data-v-44ebcb1a] {
+  font-family: 'source-sans-pro';
+  font-weight: 200;
+  font-size: 47px;
+  line-height: 43px;
+}
+.nli-info-block[data-v-44ebcb1a] {
+  padding: 1vh 15px;
+  margin: 10px 0px;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.nli-info-block-item[data-v-44ebcb1a] {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+</style><div data-server-rendered="true" class="root js-left-menu-root pinned" style="transform:;transition:;" data-v-44ebcb1a><header class="header" data-v-44ebcb1a><section class="header-minibar layout-minibar" data-v-44ebcb1a><button label="Unpin and collapse the left-menu" class="left-menu-toggle" data-v-44ebcb1a><svg viewBox="0 0 26 22" class="hamburger-icon" data-v-44ebcb1a><path d="M0,2 l26,0" data-v-44ebcb1a></path> <path d="M0,11 l26,0" data-v-44ebcb1a></path> <path d="M0,20 l26,0" data-v-44ebcb1a></path></svg> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 25" class="logo-gitter-sign" data-v-44ebcb1a><rect x="15" y="5" width="2" height="10"></rect> <rect x="10" y="5" width="2" height="20"></rect> <rect x="5" y="5" width="2" height="20"></rect> <rect width="2" height="15"></rect></svg></button></section> <section class="header-main-menu layout-main-menu" data-v-44ebcb1a><a href="https://gitter.im/?utm_source=left-menu-logo" class="logo-text" data-v-44ebcb1a><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 98.7 16.3" data-v-44ebcb1a><g><path d="M20.9,0.3h2.6v15.8h-2.6V0.3z"></path> <path d="M34.8,2.9h-4V0.3h11.8v2.6h-5.2v13.2h-2.6V2.9z"></path> <path d="M51.9,2.9h-4V0.3h11.8v2.6h-5.2v13.2h-2.6V2.9z"></path> <path d="M66.4,0.3h11.8v2.6H69v3.9h7.9v2.6H69v4h9.2v2.6H66.4V0.3z"></path> <path d="M98.7,16.1l-4.2-5.9c1.7-0.9,2.8-2.5,2.8-4.6c0-3.1-2.5-5.3-5.7-5.3l-6.2,0v15.8h2.6l0-5.3
+    c0,0,3.6,0,3.6,0l3.8,5.3H98.7z M88.1,8.2l0-5.3l3.5,0c1.7,0,3,1,3,2.6c0,1.7-1.4,2.6-3,2.6L88.1,8.2z"></path> <path d="M7.9,7.1v2.6l3.9,0c0,0,0,1.4,0,2.3c-0.1,0.2-0.4,1.8-3.8,1.8c-0.2,0-0.3,0-0.5,0
+    c-0.1,0-0.2,0-0.2,0c-0.1,0-0.2,0-0.2,0c-0.1,0-0.2-0.1-0.3-0.1c-0.1,0-0.1,0-0.2-0.1c0,0-0.1,0-0.1,0c-2.1-0.7-3.5-2.8-3.5-5.3
+    l0,0v0v0c0-0.3,0-0.5,0.1-0.8C3.3,4.7,5.4,2.5,8,2.5c0.9,0,2.5,0.3,3.6,1.5l1.5-2.2c0,0-1.3-1.9-5-1.9C3.7,0,0.4,3.3,0,7.3
+    c0,0.3,0,0.6,0,0.8l0,0l0,0c0,4.3,3.2,7.9,7.7,8.1c0.2,0,0.3,0,0.5,0c0,0,0.1,0,0.1,0c0.3,0,0.5,0,0.7,0c0.1,0,0.2,0,0.3,0
+    c0.2,0,0.3,0,0.5-0.1c2.7-0.1,4.7-2.3,4.7-3.4c0-5,0-5.7,0-5.7H7.9z"></path></g></svg></a></section></header> <section class="body nli-body" data-v-44ebcb1a><h2 class="nli-primary-heading" data-v-44ebcb1a>Where communities thrive</h2> <br data-v-44ebcb1a> <ul class="nli-info-block" data-v-44ebcb1a><li class="nli-info-block-item" data-v-44ebcb1a>
+        Join over
+        <strong data-v-44ebcb1a>1.5M+ people</strong></li> <li class="nli-info-block-item" data-v-44ebcb1a>
+        Join over
+        <strong data-v-44ebcb1a>100K+ communities</strong></li> <li class="nli-info-block-item" data-v-44ebcb1a>
+        Free
+        <strong data-v-44ebcb1a>without limits</strong></li> <li class="nli-info-block-item" data-v-44ebcb1a>
+        Create
+        <strong data-v-44ebcb1a>your own community</strong></li></ul> <ul class="nli-info-block" data-v-44ebcb1a><li class="nli-info-block-item" data-v-44ebcb1a><a href="https://gitter.im/explore" data-v-44ebcb1a>Explore more communities</a></li></ul></section></div>
+
+      <div class="layout-app-body">
+        <div class="trpAlertWrapper" id="alert-panel">
+  <div class="trpAlertContainer">
+    <div class="trpAlertContent" id="alert-content">
+    </div>
+  </div>
+</div>
+<div class="chat-header-wrapper">
+  <header class="chat-header" id="header-wrapper">
+  <div id="header" class="chat-header-inner">
+    <div class="chat-header__main-grouping chat-header__left-menu-toggle-grouping">
+  <button class="chat-header__left-menu-toggle js-header-view-left-menu-toggle">
+    <svg class="chat-header__action-icon" viewBox="0 0 26 22">
+      <path d="M0,2 l26,0" />
+      <path d="M0,11 l26,0" />
+      <path d="M0,20 l26,0" />
+    </svg>
+  </button>
+</div>
+
+<div class="chat-header__main-grouping chat-header__avatar-grouping">
+  <form
+    class="chat-header__avatar  js-chat-header-group-avatar-upload-form"
+    action="#"
+    enctype="multipart/form-data"
+    method="POST">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-signature" name="signature" value="">
+    <input type="hidden" class="js-chat-header-group-avatar-upload-params" name="params" value="">
+    <input
+      id="chat-header-group-avatar-upload-input"
+      class="chat-header__group-avatar-upload-input js-chat-header-group-avatar-upload-input"
+      name="file"
+      type="file"
+      accept="image/*"
+      disabled />
+    <label
+      class="chat-header__group-avatar-upload-label js-chat-header-group-avatar-upload-label"
+      for="chat-header-group-avatar-upload-input"
+      >
+      <img class="js-chat-header-avatar-image"  height='48' width='48' src='https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d?s=48' srcset='https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d?s=96 2x' >
+      <div class="chat-header__group-avatar-upload-progress hidden js-chat-header-group-avatar-upload-progress"></div>
+    </label>
+  </form>
+</div>
+
+<div class="chat-header__main-grouping chat-header__info-grouping">
+  <div class="chat-header__heading-sub-group">
+    <h1 class="js-chat-name chat-header__heading">
+      <a href="https://github.com/visionmedia/page.js" class="chat-header__title" target="_blank">visionmedia/page.js</a>
+    </h1>
+  </div>
+  <div class="chat-header__topic-sub-group js-room-topic-edit-activator" tabindex="0">
+    <div class="chat-header__topic-wrapper js-room-topic-wrapper  "><p class="js-room-topic chat-header__topic  ">Micro client-side router inspired by the Express router (~1200 bytes)</p></div>
+  </div>
+</div>
+
+
+<div class="chat-header__main-grouping chat-header__action-grouping">
+    <a href="https://matrix.to/#/#visionmedia_page.js:gitter.im?utm_source=gitter" class="chat-header__org-page org-page-link" title="See this room on Matrix" target="_blank" rel="nofollow noopener noreferrer">
+     <img class="chat-header__action-icon chat-header__action-matrix-icon" src='http://cdn01.gitter.im/_s/5239e9e87/images/svg/matrix-favicon-logo-white.svg' aria-hidden="true">
+    </a>
+
+    <a href="https://gitter.im/orgs/visionmedia/rooms" class="chat-header__org-page org-page-link js-chat-header-org-page-action" title="More visionmedia rooms">
+      <i class="chat-header__action-icon icon-globe"></i>
+    </a>
+
+</div>
+
+  </div>
+</header>
+  <div class="chat-and-toolbar-wrapper">
+    <div class="right-toolbar-region" id="right-toolbar-layout">
+  <div class="right-toolbar right-toolbar--collapsible ">
+
+    <div id="toolbar-top-content" class="right-toolbar__body">
+      <div id="people-list">
+        <div class="trpToolbarHeader" id="top-header">
+          <h5 class="trpToolbarHeaderItem selected" id="people-header">
+            People
+          </h5>
+          <h5 class="trpToolbarHeaderItem " id="info-header">
+              Repo info
+          </h5>
+        </div>
+        <div class="trpToolbarList">
+          <div class="trpToolbarListContent" id="people-roster">
+            <div>
+              <span class="frame-people">
+  <span id="roster-region">
+    <ul id="roster-view" class="roster">
+      <li class="js-model-id-530620725e986b0712ef8766">
+        <div
+  class="trpDisplayPicture avatar-530620725e986b0712ef8766 avatar-s offline admin ">
+  <img src="https://avatars2.githubusercontent.com/matthewp?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/matthewp?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5404708f163965c9bc201a95">
+        <div
+  class="trpDisplayPicture avatar-5404708f163965c9bc201a95 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/basiclaser?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/basiclaser?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5484cdbddb8155e6700dcc22">
+        <div
+  class="trpDisplayPicture avatar-5484cdbddb8155e6700dcc22 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/Grynn?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/Grynn?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-533347535e986b0712f00131">
+        <div
+  class="trpDisplayPicture avatar-533347535e986b0712f00131 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/gsf?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/gsf?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-548dba13db8155e6700defff">
+        <div
+  class="trpDisplayPicture avatar-548dba13db8155e6700defff avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/gunderwonder?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/gunderwonder?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5463933ddb8155e6700d3f36">
+        <div
+  class="trpDisplayPicture avatar-5463933ddb8155e6700d3f36 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/hellboy81?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/hellboy81?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-547c4adbdb8155e6700d9d4e">
+        <div
+  class="trpDisplayPicture avatar-547c4adbdb8155e6700d9d4e avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/helpermethod?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/helpermethod?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54d28663db8155e6700f743a">
+        <div
+  class="trpDisplayPicture avatar-54d28663db8155e6700f743a avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/horochovec?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/horochovec?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54c9428cdb8155e6700f30fd">
+        <div
+  class="trpDisplayPicture avatar-54c9428cdb8155e6700f30fd avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/467251?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/467251?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5452a221db8155e6700cfe45">
+        <div
+  class="trpDisplayPicture avatar-5452a221db8155e6700cfe45 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/joeLepper?v=3&amp;s=30" srcset="https://avatars2.githubusercontent.com/joeLepper?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-549986d8db8155e6700e25cf">
+        <div
+  class="trpDisplayPicture avatar-549986d8db8155e6700e25cf avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/karantir?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/karantir?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5490ad9cdb8155e6700dfef3">
+        <div
+  class="trpDisplayPicture avatar-5490ad9cdb8155e6700dfef3 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/kkemple?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/kkemple?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-542b3c84163965c9bc207a4f">
+        <div
+  class="trpDisplayPicture avatar-542b3c84163965c9bc207a4f avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/koistya?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/koistya?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-529c6a57ed5ab0b3bf04d319">
+        <div
+  class="trpDisplayPicture avatar-529c6a57ed5ab0b3bf04d319 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/longlho?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/longlho?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54946b46db8155e6700e13be">
+        <div
+  class="trpDisplayPicture avatar-54946b46db8155e6700e13be avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/10215174?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/10215174?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54b85ddddb8155e6700eba4d">
+        <div
+  class="trpDisplayPicture avatar-54b85ddddb8155e6700eba4d avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/3631485?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/3631485?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54df9f9615522ed4b3dc0506">
+        <div
+  class="trpDisplayPicture avatar-54df9f9615522ed4b3dc0506 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/6342564?v=3&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/6342564?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-53f98eca163965c9bc20011d">
+        <div
+  class="trpDisplayPicture avatar-53f98eca163965c9bc20011d avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/mkdizajn?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/mkdizajn?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-53d67dce107e137846ba83ce">
+        <div
+  class="trpDisplayPicture avatar-53d67dce107e137846ba83ce avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/narirou?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/narirou?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54b8d74bdb8155e6700ebcd8">
+        <div
+  class="trpDisplayPicture avatar-54b8d74bdb8155e6700ebcd8 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/9807336?v=3&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/9807336?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-5475971ddb8155e6700d83f2">
+        <div
+  class="trpDisplayPicture avatar-5475971ddb8155e6700d83f2 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/2252992?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/2252992?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54253faa163965c9bc206d41">
+        <div
+  class="trpDisplayPicture avatar-54253faa163965c9bc206d41 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/vichugunov?v=3&amp;s=30" srcset="https://avatars2.githubusercontent.com/vichugunov?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-548db50fdb8155e6700deff3">
+        <div
+  class="trpDisplayPicture avatar-548db50fdb8155e6700deff3 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/woodlandhunter?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/woodlandhunter?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-546beea3db8155e6700d5fbc">
+        <div
+  class="trpDisplayPicture avatar-546beea3db8155e6700d5fbc avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/Xe?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/Xe?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+      <li class="js-model-id-54aaf03adb8155e6700e621a">
+        <div
+  class="trpDisplayPicture avatar-54aaf03adb8155e6700e621a avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/yatindra?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/yatindra?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  <div class="trpStatus" id="status"> </div>
+</div>
+
+      </li>
+    </ul>
+  </span>
+<div id="remaining-region" class="remaining-region"></div>
+</span>
+
+            </div>
+          </div>
+          <div class="trpToolbarListContent" id="repo-info" style="display: none"></div>
+        </div>
+      </div>
+
+      <div id="activity-region" class="right-toolbar-activity-area">
+        <div  class="right-toolbar-activity-area-inner" >
+<div class="trpToolbarHeader">
+  <h5 class="trpToolbarHeaderItem selected" id="activity-header">Activity</h5>
+</div>
+
+<ul class="right-toolbar-activity-list u-font-smaller" id="activity-list"><li  class="activity-item model-id-60741e9d06e2e024e84ab619" ><div class="activity-item-inner github-issue github-issue-closed">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Apr 12 10:19</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="Giggiux">Giggiux</span> closed <span class="issue closed" data-link-type="issue" data-issue="337" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#337</span></div>
+</div>
+</li><li  class="activity-item model-id-607369d4a2ac0d38e7ad71c6" ><div class="activity-item-inner github-issue github-issue-closed">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Apr 11 21:27</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="ricreis394">ricreis394</span> closed <span class="issue closed" data-link-type="issue" data-issue="588" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#588</span></div>
+</div>
+</li><li  class="activity-item model-id-607369cfae90f36840752a44" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Apr 11 21:27</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="ricreis394">ricreis394</span> commented <span class="issue open" data-link-type="issue" data-issue="588" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#588</span></div>
+
+</div>
+</li><li  class="activity-item model-id-606f8669b6a4714a29b1ffb2" ><div class="activity-item-inner github-issue github-issue-opened">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Apr 08 22:40</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="ricreis394">ricreis394</span> opened <span class="issue open" data-link-type="issue" data-issue="588" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#588</span></div>
+</div>
+</li><li  class="activity-item model-id-605bbdb488edaa1eb8db370f" ><div class="activity-item-inner github-issue github-issue-opened">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Mar 24 22:31</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="arethk">arethk</span> opened <span class="issue open" data-link-type="issue" data-issue="587" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#587</span></div>
+</div>
+</li><li  class="activity-item model-id-6055dbf1ef43061daa8690a7" ><div class="activity-item-inner github-issue github-issue-opened">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Mar 20 11:26</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="rkyoku">rkyoku</span> opened <span class="issue open" data-link-type="issue" data-issue="586" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#586</span></div>
+</div>
+</li><li  class="activity-item model-id-6037b87a27f8804c6bb49d1d" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 25 14:47</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="axelpale">axelpale</span> commented <span class="issue open" data-link-type="issue" data-issue="566" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#566</span></div>
+
+</div>
+</li><li  class="activity-item model-id-60379de9b183705405175dcf" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 25 12:54</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="axelpale">axelpale</span> commented <span class="issue open" data-link-type="issue" data-issue="563" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#563</span></div>
+
+</div>
+</li><li  class="activity-item model-id-603794d6e0d7284c7359d36b" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 25 12:15</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="axelpale">axelpale</span> commented <span class="issue open" data-link-type="issue" data-issue="566" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#566</span></div>
+
+</div>
+</li><li  class="activity-item model-id-603095e7726a881d4f872a5d" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 20 04:53</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="t829702">t829702</span> commented <span class="issue closed" data-link-type="issue" data-issue="208" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#208</span></div>
+
+</div>
+</li><li  class="activity-item model-id-6029d2a74c79215749e87d5a" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 15 01:47</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="coyotte508">coyotte508</span> commented <span class="issue open" data-link-type="issue" data-issue="554" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#554</span></div>
+
+</div>
+</li><li  class="activity-item model-id-60288f8f9403f11bb5804d91" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 14 02:48</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="lagden">lagden</span> commented <span class="issue open" data-link-type="issue" data-issue="564" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#564</span></div>
+
+</div>
+</li><li  class="activity-item model-id-60288ea68621811d58766f93" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 14 02:44</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="lagden">lagden</span> commented <span class="issue open" data-link-type="issue" data-issue="564" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#564</span></div>
+
+</div>
+</li><li  class="activity-item model-id-60288e34726a881d4f72bb00" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 14 02:43</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="lagden">lagden</span> commented <span class="issue open" data-link-type="issue" data-issue="564" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#564</span></div>
+
+</div>
+</li><li  class="activity-item model-id-60233b4eaa6a6f319d1737ad" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 10 01:47</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="jrj2211">jrj2211</span> commented <span class="issue open" data-link-type="issue" data-issue="585" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#585</span></div>
+
+</div>
+</li><li  class="activity-item model-id-6021abe19238c531ad3261f3" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 08 21:23</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="dlockhart">dlockhart</span> commented <span class="issue open" data-link-type="issue" data-issue="462" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#462</span></div>
+
+</div>
+</li><li  class="activity-item model-id-601db026a0246860dc3472e3" ><div class="activity-item-inner github-issue github-issue-edited">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Feb 05 20:52</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="jrj2211">jrj2211</span> edited <span class="issue open" data-link-type="issue" data-issue="585" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#585</span></div>
+</div>
+</li><li  class="activity-item model-id-601db0039d5c644f6652a558" ><div class="activity-item-inner github-comment">
+  <i class="octicon octicon-comment activity-item__icon"></i>
+  <div class="activity-time" id="time">Feb 05 20:52</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="jrj2211">jrj2211</span> commented <span class="issue open" data-link-type="issue" data-issue="585" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#585</span></div>
+
+</div>
+</li><li  class="activity-item model-id-601dae9a84e66b7f7ed4fc23" ><div class="activity-item-inner github-issue github-issue-edited">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Feb 05 20:46</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="jrj2211">jrj2211</span> edited <span class="issue open" data-link-type="issue" data-issue="585" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#585</span></div>
+</div>
+</li><li  class="activity-item model-id-601daca19fa6765ef8fece1c" ><div class="activity-item-inner github-issue github-issue-opened">
+  <i class='octicon octicon-issue-opened activity-item__icon'></i>
+  <div class="activity-time" id="time">Feb 05 20:37</div>
+
+  <div class="gtrActivityItemText"><span class='mention' data-link-type="mention" data-screen-name="jrj2211">jrj2211</span> opened <span class="issue open" data-link-type="issue" data-issue="585" data-issue-repo="https://gitter.im/visionmedia/visionmedia/page.js">#585</span></div>
+</div>
+</li></ul>
+</div>
+      </div>
+    </div>
+
+    <div id="right-toolbar-footer-region" class="right-toolbar-region__footer">
+      <svg
+           class="menu-toggle-icon js-menu-toggle-icon"
+           width="30px"
+           height="34px"
+           viewBox="0 0 30 34"
+       >
+        <path d="M0,6 l15,0 l15,0" />
+        <path d="M0,17 l15,0 l15,0" />
+        <path d="M0,28 l15,0 l15,0" />
+      </svg>
+    </div>
+
+  </div>
+</div>
+    <script>window.__INITIAL_STATE__={"search":{"repo":{"loading":false,"error":null,"results":[]},"room":{"loading":false,"error":null,"results":[]},"people":{"loading":false,"error":null,"results":[]},"message":{"loading":false,"error":null,"results":[]},"searchInputValue":"","current":{"results":[]}},"joinRoomRequest":{"loading":false,"error":null,"results":[]},"isMobile":false,"isLoggedIn":false,"darkTheme":false,"groupMap":{},"roomMap":{"547093f6db8155e6700d7101":{"id":"547093f6db8155e6700d7101","name":"visionmedia\u002Fpage.js","topic":"Micro client-side router inspired by the Express router (~1200 bytes)","avatarUrl":"https:\u002F\u002Favatars-01.gitter.im\u002Fgroup\u002Fiv\u002F4\u002F57542cf4c43b8c601977827d","uri":"visionmedia\u002Fpage.js","userCount":88,"url":"\u002Fvisionmedia\u002Fpage.js","githubType":"REPO","security":"PUBLIC","groupId":"57542cf4c43b8c601977827d","public":true,"matrixRoomLink":"https:\u002F\u002Fmatrix.to\u002F#\u002F#visionmedia_page.js:gitter.im?utm_source=gitter","v":113}},"messageMap":{},"displayedRoomId":"547093f6db8155e6700d7101","hightLightedMessageId":null,"leftMenuState":"all","leftMenuPinnedState":true,"leftMenuExpandedState":false,"favouriteDraggingInProgress":false,"threadMessageFeed":{"isVisible":false,"draftMessage":"","messageEditState":{"id":null,"text":null},"atTop":false,"atBottom":false,"parentId":null,"childMessagesRequest":{"loading":false,"error":null,"results":[]}},"createCommunity":{"currentStep":"step-main","communityName":"","communityNameError":null,"communitySlug":"","slugAvailabilityStatus":null,"communitySlugError":null,"selectedBackingEntity":null,"allowBadger":true,"orgs":[],"repos":[],"entityTypeTabState":"tab-orgs","orgsRequest":{"loading":false,"error":null,"results":[]},"reposRequest":{"loading":false,"error":null,"results":[]},"communitySubmitRequest":{"loading":false,"error":null,"results":[]}},"createRoom":{"adminGroupMap":{},"groupFilterText":"","selectedGroupId":null,"groupError":null,"roomName":"","roomNameError":null,"roomNameAvailabilityStatus":null,"adminRepoMap":{},"repoFilterText":"","selectedRepoId":null,"roomSecurity":"PUBLIC","onlyGithubUsers":false,"allowGroupAdmins":false,"allowBadger":true,"repos":[],"groupsRequest":{"loading":false,"error":null,"results":[]},"reposRequest":{"loading":false,"error":null,"results":[]},"roomSubmitRequest":{"loading":false,"error":null,"results":[]}}}</script><style data-vue-ssr-id="7c73d085:0">.root[data-v-3b2f1a78] {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  order: 2;
+  display: none;
+  /*
+  The TMF width changes between 300px and 600px boundaries.
+  Within this boundary it tries to be 40% of the space taken by
+  both panels (MMF - 60%, TMF - 40%)
+  */
+  min-width: 300px;
+  max-width: 600px;
+  width: 40%;
+  color: #333;
+  text-align: left;
+  box-sizing: border-box;
+}
+.root.opened[data-v-3b2f1a78] {
+  display: flex;
+}
+.mobile .root.opened[data-v-3b2f1a78] {
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+}
+.root[data-v-3b2f1a78] *,
+.root[data-v-3b2f1a78] *:before,
+.root[data-v-3b2f1a78] *:after {
+  box-sizing: inherit;
+}
+.body[data-v-3b2f1a78] {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfdfd;
+  border-left: 1px solid #f1f1f1;
+}
+.dark-theme .body[data-v-3b2f1a78] {
+  background-color: #383736;
+  border-left-color: #2d2c2c;
+}
+.content[data-v-3b2f1a78] {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.error-box[data-v-3b2f1a78] {
+  margin: 10px;
+}
+.chat-messages .error-box[data-v-3b2f1a78] {
+  margin-left: 50px;
+}
+.loading-message[data-v-3b2f1a78] {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+.chat-messages[data-v-3b2f1a78] {
+  width: 100%;
+  display: inline-block;
+  overflow: auto;
+  flex-grow: 1;
+}
+</style><div data-server-rendered="true" class="js-thread-message-feed-root root" data-v-3b2f1a78><!----></div>
+    <div class="chat-app">
+      <div class="collaborators-container" id="collaborators-container"></div>
+      <div class="trpContentPanel" id="content-wrapper">
+  <div>
+    <div class="trpChatPanel">
+
+      <div id="unread-banner" style="display:none"></div>
+      <div id="bottom-unread-banner" style="display:none"></div>
+
+      <div id="content-frame" class="trpChatContainer primary-scroll chat-container" role="log" aria-live="polite" aria-atomic="false" aria-relevant="additions text">
+        <div id="chat-container" role="list">
+            <div>
+                <div class="chat-item model-id-585d61670730ce69370166c6 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=585d61670730ce69370166c6' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="basiclaser" class="mention">@basiclaser</span> - looking at the source code, likely you have to manipulate the <code>window.history.*</code> directly in order to mess w/ history and &quot;back&quot; behaviour.  otherwise, the following documentation will likely help - <a href="https://visionmedia.github.io/page.js/#working-with-state" rel="nofollow" target="_blank" class="link">https://visionmedia.github.io/page.js/#working-with-state</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58a675eb00c00c3d4f4d22b6 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57b86d5d40f3a6eec0607509 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/1707818?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/1707818?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Nomia</div>
+      <div class='chat-item__username js-chat-item-from'>@Nomia</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=58a675eb00c00c3d4f4d22b6' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hi, guys. Does anyone have the same issue with me. The issue is that: back button and forward button will not trigger page.js router callback.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58a6764a00c00c3d4f4d2923 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      history.back and history.forward or go(-1) will not trigger callback neither :worried: 
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58ad8960872fc8ce626c3d73 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5765150dc2f0db084a1e9471 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/3343938?v=3&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/3343938?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>M-Hc0d3</div>
+      <div class='chat-item__username js-chat-item-from'>@M-Hc0d3</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=58ad8960872fc8ce626c3d73' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      its a nightmare trying to run this up on cloud9&#39;s chrome IDE  
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58ad896fde50490822fe38f3 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      for the Vue js version 
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58ad899121d548df2c424306 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      anyone gone through this before?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58c46c14872fc8ce62ecb76f burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-540a7441163965c9bc202fc2 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>fiatjaf</div>
+      <div class='chat-item__username js-chat-item-from'>@fiatjaf</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=58c46c14872fc8ce62ecb76f' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I was using <code>react-router</code> on an application, and just dumped it to use <code>page</code> instead. seems much better and smaller and faster and customizable, and I get to know better what is happening.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58c46c1e21d548df2cc3c762 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      thus the question: why would anyone prefer <code>react-router</code>?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-58d532b319cdf803632cafb3 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-529c6a57ed5ab0b3bf04d319 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/198255?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/198255?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Lo̹̫̦̥̬̜͈͝n̗͚̼̤ĝ̮̫͎̬̬͕̪ͫ̐̕ ͭ̊H̱̏ͬ̃ͨ̆͗o̱͚͉͉̖̰̪ͯ̈ͪ̈̎̚</div>
+      <div class='chat-item__username js-chat-item-from'>@longlho</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=58d532b319cdf803632cafb3' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      bc of the integration w/ React
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5934a919e531dbc905aedd6b burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-540a7441163965c9bc202fc2 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>fiatjaf</div>
+      <div class='chat-item__username js-chat-item-from'>@fiatjaf</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5934a919e531dbc905aedd6b' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      what is that integration? I don&#39;t see any integration happening there, just a more clumbersome way of specifying routes and a component to run in each route.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-595abd68f5b3458e300bd793 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-565b184f16b6c7089cbc9685 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/5423195?v=3&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/5423195?v=3&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Clayton Albachten</div>
+      <div class='chat-item__username js-chat-item-from'>@clay-reed-a</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=595abd68f5b3458e300bd793' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hello
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-595abd6e3230e14f3a1f9bb5 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Is anybody home?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-595d8b334bcd78af567e7fea burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=595d8b334bcd78af567e7fea' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      there are some people using page.js ... i&#39;ve been using page.js for a while now and have had basically zero issues with it.  biggest difficulty is working around back/forward page transitions and keeping scroll position
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-595d8b3dbf7e6af22cabc779 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="clay-reed-a" class="mention">@clay-reed-a</span> (see above)
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5962c718c101bc4e3a6b62d8 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-540a7441163965c9bc202fc2 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>fiatjaf</div>
+      <div class='chat-item__username js-chat-item-from'>@fiatjaf</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5962c718c101bc4e3a6b62d8' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      page.js is the best js router ever written.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5967446e4bcd78af56a660bd burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5967441ed73408ce4f6cf6f1 avatar-s offline  ">
+  <img src="https://pbs.twimg.com/profile_images/698226794869166080/KRgHkSxY_bigger.jpg" srcset="https://pbs.twimg.com/profile_images/698226794869166080/KRgHkSxY_bigger.jpg 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jannick Vandaele</div>
+      <div class='chat-item__username js-chat-item-from'>@jnnck_twitter</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5967446e4bcd78af56a660bd' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hi there! Someone has any idea why my browser reloads the page when i page(&#39;/newroute/param&#39;); ?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-59685b2789aea4761d98a8c4 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=59685b2789aea4761d98a8c4' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      which browser are you seeing this in <span data-link-type="mention" data-screen-name="jnnck_twitter" class="mention">@jnnck_twitter</span>? all of this is working fine for me<pre><code>$ git grep <span class="string">'page('</span>
+components<span class="regexp">/cheers-header/</span>controller.<span class="string">js:</span>      page( <span class="keyword">this</span>.data.back );
+components<span class="regexp">/cheers-header/</span>controller.<span class="string">js:</span>      page( <span class="string">'/home'</span> );
+components<span class="regexp">/recipe-details/</span>index.<span class="string">marko:</span>        &lt;button onclick=<span class="string">"window.page('/coming-soon')"</span>&gt;Share&lt;/button&gt; &lt;br&gt;
+components<span class="regexp">/search-guide/</span>component.<span class="string">js:</span>    window.page( url );
+components<span class="regexp">/search-input/</span>component.<span class="string">js:</span>    window.page( url );
+index.<span class="string">js:</span>  page( <span class="string">'*'</span>, function( ctx, next ) {
+index.<span class="string">js:</span>  page();
+lib/Pages.<span class="string">js:</span>      document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].innerHTML = page( ctx, next );
+pages<span class="regexp">/drinks-with/</span>controller.<span class="string">js:</span>      window.page( url );</code></pre>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-59685b7a89aea4761d98a952 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      are you sure you have that route associated with the page (ie: you&#39;ve done <code>page( &#39;/newroute/:my_param&#39;, function() { ... } )</code>, right?)
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a5ea5a4290a1f4561995979 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-58072030d73408ce4f2f4572 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/378397?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/378397?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Paulo Coghi</div>
+      <div class='chat-item__username js-chat-item-from'>@paulocoghi</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5a5ea5a4290a1f4561995979' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Yes! Page.js is live again! Thanks a lot, <span data-link-type="mention" data-screen-name="matthewp" class="mention">@matthewp</span>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60d9dd5a9ebe4f75a36d38 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530620725e986b0712ef8766 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Matthew Phillips</div>
+      <div class='chat-item__username js-chat-item-from'>@matthewp</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5a60d9dd5a9ebe4f75a36d38' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hey! :)
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60d9eace68c3bc74d3d052 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Thanks <span data-link-type="mention" data-screen-name="paulocoghi" class="mention">@paulocoghi</span>! Glad to be having your help as well.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60db3eae53c159030466a4 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530620725e986b0712ef8766 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Matthew Phillips</div>
+      <div class='chat-item__username js-chat-item-from'>@matthewp</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5a60db3eae53c159030466a4' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="fiatjaf" class="mention">@fiatjaf</span> is there a way we could better integrate page.js with react?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60db465ade18be3991bf0d burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Not directly in page.js but in a supporting module
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60db4e517037a212c2c7aa burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      a <code>page-react</code> or something
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a60dbcd5a9ebe4f75a37ae0 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Hah, looks like someone already did! <a href="https://github.com/tyler-johnson/page-react/blob/master/test/index.js" rel="nofollow noopener noreferrer" target="_blank" class="link">https://github.com/tyler-johnson/page-react/blob/master/test/index.js</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a7849fdb3c4a0d376e1e6c0 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-540a7441163965c9bc202fc2 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/1653275?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>fiatjaf</div>
+      <div class='chat-item__username js-chat-item-from'>@fiatjaf</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5a7849fdb3c4a0d376e1e6c0' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="matthewp" class="mention">@matthewp</span> I don&#39;t think we actually need that. it is pretty straightforward to integrate already.
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5a784a04ce68c3bc7448ad0d burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      (actually, that package has 27 LOC)
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5b7b53b14be56c591871f975 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-54f8bf0315522ed4b3dcdd66 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/462380?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/462380?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>A Goblin King</div>
+      <div class='chat-item__username js-chat-item-from'>@AGoblinKing</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5b7b53b14be56c591871f975' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <a target="_blank" data-link-type="issue" data-issue="491" href="https://github.com/visionmedia/page.js/issues/491" data-provider="github" data-issue-repo="visionmedia/page.js" class="issue">visionmedia/page.js#491</a> I may be crazy and missusing something 
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27c7e8d945b9688214d290 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5c27c7dcd73408ce4fb32bc2 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Sbot83</div>
+      <div class='chat-item__username js-chat-item-from'>@Sbot83</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c27c7e8d945b9688214d290' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      hi boys
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27c80d37975e7ca942d203 burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      is there someone that can help me with page.js?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27c8808dafa715c710898d burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c27c8808dafa715c710898d' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <a href="https://softwareengineering.stackexchange.com/questions/154676/etiquette-when-asking-questions-in-an-irc-channel" rel="nofollow noopener noreferrer" target="_blank" class="link">https://softwareengineering.stackexchange.com/questions/154676/etiquette-when-asking-questions-in-an-irc-channel</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27c8988dafa715c71089ca burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Don’t ask to ask, simply ask you question and if someone can answer they will
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27c90509b8066849840395 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5c27c7dcd73408ce4fb32bc2 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Sbot83</div>
+      <div class='chat-item__username js-chat-item-from'>@Sbot83</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c27c90509b8066849840395' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      ok my friend here is my question:  <a href="https://stackoverflow.com/q/53969713/4227712" rel="nofollow noopener noreferrer" target="_blank" class="link">https://stackoverflow.com/q/53969713/4227712</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27ca606649aa1f82ed94aa burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c27ca606649aa1f82ed94aa' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Did you restart/reload your web server after updating configure?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c27cb40d945b9688214e68a burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      Also check access/error logs and try going to <a href="http://xyz.com/blah/blah" rel="nofollow noopener noreferrer" target="_blank" class="link">xyz.com/blah/blah</a> and making sure it serves your index.html as expected. 
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c28b87d6649aa1f82f30ded burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5c27c7dcd73408ce4fb32bc2 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/28786978?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Sbot83</div>
+      <div class='chat-item__username js-chat-item-from'>@Sbot83</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c28b87d6649aa1f82f30ded' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      i&#39;ve restarted my web server and it serves my index.html as expected, but the problem still remain
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f37c832a8370605ded58a burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-571a3881659847a7aff408d0 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Avocher</div>
+      <div class='chat-item__username js-chat-item-from'>@Avocher</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c3f37c832a8370605ded58a' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      can page.js be used to reconstruct a URL? Lets say i wanted to update one of my params
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f3acc20b78635b6321417 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5baf023fd73408ce4fa9c11b avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/43288556?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/43288556?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>tightcode</div>
+      <div class='chat-item__username js-chat-item-from'>@tightcode</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c3f3acc20b78635b6321417' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="Avocher" class="mention">@Avocher</span> <a href="https://github.com/visionmedia/page.js#working-with-parameters-and-contexts" rel="nofollow noopener noreferrer" target="_blank" class="link">https://github.com/visionmedia/page.js#working-with-parameters-and-contexts</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f3ea8dab15872cea35c41 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-571a3881659847a7aff408d0 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Avocher</div>
+      <div class='chat-item__username js-chat-item-from'>@Avocher</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c3f3ea8dab15872cea35c41' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I&#39;m really sorry I must be blind, I can&#39;t find anything there for reconstructing a URL from params :(
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f74d90999400604fff78c burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-57c7c02040f3a6eec0629997 avatar-s offline  ">
+  <img src="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=30" srcset="https://avatars0.githubusercontent.com/u/110406?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Robert Ames</div>
+      <div class='chat-item__username js-chat-item-from'>@ramses0</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c3f74d90999400604fff78c' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      <span data-link-type="mention" data-screen-name="Avocher" class="mention">@Avocher</span> - three parts, parse url, update url, recreate url - <a href="https://stackoverflow.com/a/15979390" rel="nofollow noopener noreferrer" target="_blank" class="link">https://stackoverflow.com/a/15979390</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f7504cb47ec30005396ae burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <a href="https://stackoverflow.com/a/44169651" rel="nofollow noopener noreferrer" target="_blank" class="link">https://stackoverflow.com/a/44169651</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f7556cb47ec300053978d burstContinued read  " role="listitem"><div class='chat-item__container'>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__text js-chat-item-text'>
+      <a href="https://css-tricks.com/using-the-html5-history-api/" rel="nofollow noopener noreferrer" target="_blank" class="link">https://css-tricks.com/using-the-html5-history-api/</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c3f7575cb47ec30005397e1 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-571a3881659847a7aff408d0 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/4103154?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Avocher</div>
+      <div class='chat-item__username js-chat-item-from'>@Avocher</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c3f7575cb47ec30005397e1' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      cool, thx! I noticed that this library is using path-to-regexp, and it can create inject the params <a href="https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp" rel="nofollow noopener noreferrer" target="_blank" class="link">https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c5aea671b62f12650b0d29f burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5ae7156dd73408ce4f97a4a5 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/14909082?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/14909082?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Daniil Chervyakov</div>
+      <div class='chat-item__username js-chat-item-from'>@DanilChe</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c5aea671b62f12650b0d29f' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hello! This library works well on ios? I made site with this and in ios cant do routing (
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c6421eb604f233ab6022445 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5723727a659847a7aff526de avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/5872432?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/5872432?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Jalal Fathi</div>
+      <div class='chat-item__username js-chat-item-from'>@JaySunSyn</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c6421eb604f233ab6022445' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hi, do I need to add all routes at once or can I lazily add additional routes during runtime?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c6491aa16e4682259a2b99f burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-530620725e986b0712ef8766 avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/361671?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Matthew Phillips</div>
+      <div class='chat-item__username js-chat-item-from'>@matthewp</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c6491aa16e4682259a2b99f' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      you can lazily add them
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5c65b80180df6804a1a55e44 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5baf023fd73408ce4fa9c11b avatar-s offline  ">
+  <img src="https://avatars2.githubusercontent.com/u/43288556?v=4&amp;s=30" srcset="https://avatars2.githubusercontent.com/u/43288556?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>tightcode</div>
+      <div class='chat-item__username js-chat-item-from'>@tightcode</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5c65b80180df6804a1a55e44' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      I was wondering why when utilizing page.js&#39;s client-side routing configured for apache using &quot;page.base(&#39;/&#39;);&quot; doesn&#39;t route properly to the root public directory whereas excluding the slash (&quot;page.base(&#39;&#39;);&quot; or &quot;&quot;page.base();&quot;) makes it route properly?
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5dd81171c4fca14de3cea6e3 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5d1f8eb4d73408ce4fc55e03 avatar-s offline  ">
+  <img src="https://assets.gitlab-static.net/uploads/-/system/user/avatar/3893857/avatar.png?s=30" srcset="https://assets.gitlab-static.net/uploads/-/system/user/avatar/3893857/avatar.png?s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Vincent Lortie</div>
+      <div class='chat-item__username js-chat-item-from'>@vincent.lortie.sgx_gitlab</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5dd81171c4fca14de3cea6e3' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      Hello, I am a beginner with page.js, I&#39;ve been trying to pass a parameter to when calling <code>page(&#39;destination_url&#39;)</code>. So far, the only way I&#39;ve been able to accomplish that is by using the <code>page.replace(&#39;destination_url&#39;, {history: state_object})</code>. However, that function is not referenced in the docs and I just found it in source code. Is there a cleaner way to do this ?  
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-5f7cadec65cb032060736415 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5f7c7eedd73408ce4ff0d091 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/15479479?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/15479479?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Mike</div>
+      <div class='chat-item__username js-chat-item-from'>@gentleboy98</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=5f7cadec65cb032060736415' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      For those of you who got the issue of <strong>reload in redirect</strong>, this came from the leading dot in URL. see <a href="https://stackoverflow.com/questions/63060128/how-to-navigate-to-url-without-full-reload-using-page-js" rel="nofollow noopener noreferrer" target="_blank" class="link ">how-to-navigate-to-url-without-full-reload-using-page-js</a>
+    </div>
+  </div>
+</div>
+</div>
+                <div class="chat-item model-id-60412a98d74bbe49e0d2d472 burstStart read  " role="listitem"><div class='chat-item__container'>
+  <div class='chat-item__aside'>
+    <div class="chat-item__avatar">
+      <div
+  class="trpDisplayPicture avatar-5671455c16b6c7089cbee486 avatar-s offline  ">
+  <img src="https://avatars1.githubusercontent.com/u/3460775?v=4&amp;s=30" srcset="https://avatars1.githubusercontent.com/u/3460775?v=4&amp;s=60 2x" height="30" width="30" class="avatar__image" alt="">
+  
+</div>
+
+    </div>
+  </div>
+    <div class="chat-item__actions js-chat-item-actions">
+      <i class="chat-item__icon icon-check chat-item__icon--read js-chat-item-readby"></i>
+      <i class="chat-item__icon icon-ellipsis"></i>
+    </div>
+  <div class='chat-item__content'>
+    <div class='chat-item__details'>
+      <div class='chat-item__from js-chat-item-from'>Bharat D Bhadresha</div>
+      <div class='chat-item__username js-chat-item-from'>@imbdb</div>
+      <a class='chat-item__time js-chat-time'  href='https://gitter.im/visionmedia/page.js?at=60412a98d74bbe49e0d2d472' title=""></a>
+    </div>
+    <div class='chat-item__text js-chat-item-text'>
+      how to handle onbeforeunload in page.js?
+    </div>
+  </div>
+</div>
+</div>
+            </div>
+        </div>
+          <div id='initial' style="height:1px;width:1px;overflow:hidden;opacity:0"><a name="initial"/>_</a></div>
+      </div>
+    </div>
+    <div class="chat-connectivity-indicator-wrapper"></div>
+  </div>
+</div>
+      <footer class="chat-input chat-input-nli" id="chat-input-wrapper">
+  <a href="https://gitter.im/login?action=login" target="_top" class="chat-input__btn">
+  Sign in to start talking
+  </a>
+    <a href="https://matrix.to/#/#visionmedia_page.js:gitter.im?utm_source=gitter" class="chat-input__btn chat-input__btn--matrix" target="_blank" rel="nofollow noopener noreferrer">
+    <img src='http://cdn01.gitter.im/_s/5239e9e87/images/svg/matrix-favicon-logo-white.svg' aria-hidden="true">
+    Chat via Matrix
+    </a>
+</footer>
+    </div>
+  </div>
+</div>
+<div class="trpBlankPage"></div>
+<script type="text/javascript">
+    var s = document.querySelector('#initial');
+    if(s) setTimeout(function() {
+      s.scrollIntoView();
+    }, 16) ;
+</script>
+
+      </div>
+    </div>
+
+    
+    <div class="js-drag-overlay drag-frame hide">
+      <span class="octicon octicon-arrow-down"></span>
+    </div>
+
+
+    <script type="text/javascript">window.gitterClientEnv = {"lang":"en","domain":"gitter.im","baseServer":"gitter.im","basePath":"https://gitter.im","apiBasePath":"https://gitter.im/api","homeUrl":"/","badgeBaseUrl":"https://badges.gitter.im","googleTrackingId":"UA-45918290-1","googleTrackingDomain":"gitter.im","env":"prod","cdns":["cdn01.gitter.im","cdn02.gitter.im","cdn03.gitter.im"],"version":"5239e9","assetTag":"5239e9e87","exportEnabled":true,"logging":false,"ravenUrl":"https://be4e47abe6ae4ed58bd8a5326124638e@sentry.matrix.org/25","websockets":{"fayeUrl":"https://ws.gitter.im/bayeux","options":{"timeout":120,"retry":2}},"avatarsUrl":"https://avatars.gitter.im","avatarCdns":["https://avatars-01.gitter.im","https://avatars-02.gitter.im/","https://avatars-03.gitter.im/","https://avatars-04.gitter.im/","https://avatars-05.gitter.im"],"vapidAppServerKey":"BMhrlZd_I5OFJSJQTbg2mZ5PTHarzenwsKfsRd8C0-HRBygpDj9O3M4VTJIQfB9VPDjAoO_w2eg7Sj_cMXzuLwI","headlineNumbers":{"gitterUsers":"800K+","gitterRooms":"300K+","gitterGroups":"90K+","gitterCountries":"100+"},"inviteEmailAbuseThresholdPerDay":10};window.troupeContext = {"accessToken":"$fQM0GGVWwWRhu9t0txb5tzXyTkIUkAOR0xQe5y14zHU=","isNativeDesktopApp":false,"locale":{"%d unread message":{"one":"%d unread message","other":"%d unread messages"},"Unread messages in %%s, %%s and one other":{"one":"Unread messages in %%s, %%s and one other","other":"Unread messages in %%s, %%s and %d others"},"Unread messages in %s":"Unread messages in %s","Unread messages in %s and %s":"Unread messages in %s and %s","Unread messages from %s":"Unread messages from %s","Unread messages from %s and %s":"Unread messages from %s and %s","Unread messages from %%s, %%s and one other":{"one":"Unread messages from %%s, %%s and one other","other":"Unread messages from %%s, %%s and %d others"},"Gitter is available in all modern browsers as well as apps for desktops.":"Gitter is available in all modern browsers as well as apps for desktops.","Mac":"Mac","Windows":"Windows","Linux 32":"Linux 32","Linux 64":"Linux 64","The above Mac installer is a signed version of 1.177 (backed by Safari). For an unsigned 5.0.1 installer (backed by <a %s>NW.js<\/a>), <a %s>click here to download<\/a>.":"The above Mac installer is a signed version of 1.177 (backed by Safari). For an unsigned 5.0.1 installer (backed by <a %s>NW.js<\/a>), <a %s>click here to download<\/a>.","Mac users on 10.9 or lower, <a %s>download here<\/a>.":"Mac users on 10.9 or lower, <a %s>download here<\/a>.","We also have a sweet little <a %s>IRC bridge<\/a>.":"We also have a sweet little <a %s>IRC bridge<\/a>.","The dedicated Android/iOS apps are no longer recommended and may be officially <a href='%s'>deprecated in the future<\/a>. For mobile, we recommend using the mobile web version in your browser.":"The dedicated Android/iOS apps are no longer recommended and may be officially <a href='%s'>deprecated in the future<\/a>. For mobile, we recommend using the mobile web version in your browser.","Our efforts are focused on the <a %s>webapp<\/a> which is the backbone of the mobile/desktop apps but mainly focused on the web experience. There are a number of bugs in these desktop/mobile clients and they spread the Gitter team too thin for us to give them proper attention. The apps are open-source if you want to tackle something particularly annoying to you.":"Our efforts are focused on the <a %s>webapp<\/a> which is the backbone of the mobile/desktop apps but mainly focused on the web experience. There are a number of bugs in these desktop/mobile clients and they spread the Gitter team too thin for us to give them proper attention. The apps are open-source if you want to tackle something particularly annoying to you.","desktop":"desktop","iOS":"iOS","Android":"Android","Support":"Support","API":"API","Blog":"Blog","Twitter":"Twitter","The dedicated Gitter Android/iOS apps are no longer recommended and are officially <a href='%s' target='_blank'>deprecated<\/a>. For Android/iOS, we bridge all public rooms over to Matrix, so you can use any <a href='%s' target='_blank'>Matrix client<\/a> like <a href='%s' target='_blank'>Element (Android)<\/a> or <a href='%s' target='_blank'>Element (iOS)<\/a> to access those rooms.":"The dedicated Gitter Android/iOS apps are no longer recommended and are officially <a href='%s' target='_blank'>deprecated<\/a>. For Android/iOS, we bridge all public rooms over to Matrix, so you can use any <a href='%s' target='_blank'>Matrix client<\/a> like <a href='%s' target='_blank'>Element (Android)<\/a> or <a href='%s' target='_blank'>Element (iOS)<\/a> to access those rooms.","The above Mac installer is a signed version of 1.177 (backed by Safari). For an unsigned 5.0.1 installer (backed by <a %s>NW.js<\/a>), <a %s>click here to download<\/a>. Mac users on 10.9 or lower, <a %s>download here<\/a>.":"The above Mac installer is a signed version of 1.177 (backed by Safari). For an unsigned 5.0.1 installer (backed by <a %s>NW.js<\/a>), <a %s>click here to download<\/a>. Mac users on 10.9 or lower, <a %s>download here<\/a>.","Documentation":"Documentation"},"features":[],"roomMember":false,"user":null,"troupe":{"id":"547093f6db8155e6700d7101","name":"visionmedia/page.js","topic":"Micro client-side router inspired by the Express router (~1200 bytes)","avatarUrl":"https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d","uri":"visionmedia/page.js","userCount":88,"url":"/visionmedia/page.js","githubType":"REPO","associatedRepo":"visionmedia/page.js","security":"PUBLIC","groupId":"57542cf4c43b8c601977827d","group":{"id":"57542cf4c43b8c601977827d","name":"visionmedia","uri":"visionmedia","homeUri":"visionmedia","backedBy":{"type":"GH_ORG","linkPath":"visionmedia"},"avatarUrl":"https://avatars-01.gitter.im/group/iv/4/57542cf4c43b8c601977827d"},"backend":{"type":"GH_REPO","linkPath":"visionmedia/page.js"},"public":true,"matrixRoomLink":"https://matrix.to/#/#visionmedia_page.js:gitter.im?utm_source=gitter","v":113},"roomHasWelcomeMessage":false,"snapshots":{"rightToolbar":{},"allRooms":[],"groups":[]}};</script>
+    
+    <script type="text/javascript">window.webpackPublicPath = 'http://cdn02.gitter.im/_s/5239e9e87/js/';</script>
+    <script type="text/javascript" src="http://cdn01.gitter.im/_s/5239e9e87/js/runtime.bundle.js"></script>
+<script type="text/javascript" src="http://cdn03.gitter.im/_s/5239e9e87/js/vendor.chunk.js"></script>
+<script type="text/javascript" src="http://cdn02.gitter.im/_s/5239e9e87/js/default.chunk.js"></script>
+<script type="text/javascript" src="http://cdn02.gitter.im/_s/5239e9e87/js/router-nli-chat.chunk.js"></script>
+<script type="text/javascript" src="http://cdn01.gitter.im/_s/5239e9e87/js/router-app.chunk.js"></script>
+  
+  </body>
+
+<!-- Mirrored from gitter.im/visionmedia/page.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 21:25:51 GMT -->
+</html>

@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Behind the Process: Snitter Icon - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/design/snitter-icon-design">
+	<meta property="og:url" content="https://snook.ca/archives/design/snitter-icon-design">
+	<meta property="og:title" content="Behind the Process: Snitter Icon">
+	<meta property="og:description" name="description" content="I built this desktop application a while back called Snitter. It's a desktop Twitter client that runs on Adobe AIR. Alas, it fell by the wayside during my freelance tenure. Recently, I've had the incl...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Behind the Process: Snitter Icon</h1>
+		<p>I built this desktop application a while back called <a href="http://getsnitter.com/">Snitter</a>. It's a desktop Twitter client that runs on Adobe AIR. Alas, it fell by the wayside during my freelance tenure. Recently, I've had the inclination to start working on it again and bringing forth to reality ideas that I've had for over a year now.</p>
+<p><img src="https://snook.ca/img/snitter/snitter-48.png" alt="The original S icon" align="right" />One of the things that always bothered me was the rather rushed icon. A rather boring S. I was just happy that I had a desktop app with its own icon. I knew I'd get around to getting a new, more polished icon at some point.</p>
+<h2>Who can? A Toucan.</h2>
+<p>Being a Twitter app, I wanted to stick with the bird motif but also wanted a bird that had some colour to it &mdash; especially green. The toucan came to mind, as images of Toucan Sam and his colourful beak filled my head. </p>
+<p>In doing research on toucans, I came across a page on <a href="http://healing.about.com/od/animaltotems/ig/Animal-Totems-Photo-Gallery/Toucan.htm">Toucan totems</a>. </p>
+<blockquote>
+  <p>The toucan represents communication and showmanship. The toucan's colorful appearance and large bill indicates a strong desire to be seen and heard.</p>
+</blockquote>
+<p>If anything sounded more appropriate for a Twitter app, I haven't heard it. The toucan was now the bird.</p>
+<h2>Initial Sketches</h2>
+<p>I'm not an icon designer, so I enlisted the help of Mike Rohde. The fact that he said yes to a free project was music to my ears. I gave him some simple direction that I wanted the icon to be a toucan and he came back with some initial sketches.</p>
+<p><a href="http://www.flickr.com/photos/rohdesign/3553822077/"><img src="https://snook.ca/img/snitter/snitter-sketches-v1.jpg" alt="A couple initial toucan sketches from Mike Rohde" /></a></p>
+<p><a href="http://www.flickr.com/photos/rohdesign/3553822077/">Check out all the sketches.</a></p>
+<p>I was definitely starting to get excited. I had started to provide Mike with some further direction, indicating that I really liked the bird looking over the shoulder. I felt it provided more balance and would be easier to work into an icon.</p>
+<p>Alas, a year had gone by and my ability to work on Snitter had disappeared. Sadly, so had Mike's free time. Mike had to bow out. Having been in his shoes, I completely understood. </p>
+<h2>Inspiration</h2>
+<p>Now on my own, I thought I'd give icon design a try. </p>
+<p>One thing I did differently than any other design project I've done before was to create an inspiration document where I threw in a bunch of photos and icons that I liked.</p>
+<p><img src="https://snook.ca/img/snitter/snitter-inspiration.jpg" alt="Photos of various breeds of toucans and some application icons"></p>
+ <p>When you see the final icon, I'm sure you'll see where much of the inspiration has come. I started by actually tracing out the shape of one of the birds that was looking over his shoulder. Using the pen tool in Fireworks, I traced out the beak, the head, the chest and the body. The shapes had flat colours and I really just wanted to get the basics of the shape in place.</p>
+ <h3>Circle-bound</h3>
+ <p>Two things that I was missing were a tail and feet. As I started to put the tail in, I begun to see the circle shape come into play. I drew a circle and placed it behind my vectors and tried to lock everything into that shape. I was drawn to using the circle based on the Twtterrific and Firefox logos. (I was tempted to have my bird circle a globe but thought against it.) This is definitely where the most progress was made.</p>
+ <p><a href="http://www.flickr.com/photos/jonathansnook/3552250640/" title="Snitter Icon by Jonathan Snook, on Flickr"><img src="https://farm4.static.flickr.com/3664/3552250640_b49f4d3dbf_o.png" alt="Snitter Icon" width="128" height="128" align="right" /></a>I had a tail in place and then started on shading. I layered vectors over top of what was there, playing with gradients and colours to create the effect that I wanted. It was after this point where I really started liking how things were coming together. </p>
+ <p>When I posted this version to Flickr, a few people mentioned its similarity to the <a href="http://aviary.com/tools/toucan">Aviary Toucan</a>. They did a fantastic job with that toucan. One thing that was extremely evident was how tightly they stuck to a circle for the beak, head and into the body and then breaking out of that with the wings.</p>
+ <p>I took that inspiration and went back to tweaking my toucan. I still didn't want to stick <em>too</em> close to the circle but I did lengthen the beak, having it follow the edge of the circle, instead of having a more defined hook nose. Where the beak meets the head, I decided to leave it as-is. I didn't want to stylize the bird too much.</p>
+ <h3>Stay on the ground or fly?</h3>
+ <p>I still had no feet and I wasn't really loving the wings. Trying to play with the circle, I tried to get the wings to complete the left side of the circle but everything I tried felt unbalanced, leaving a large space right in the middle of the logo. </p>
+ <p>Starting to grow weary of using the pen tool to shape things, I switched to use circles to punch shapes into crescents for the wings. It was at this point that I used a circle to punch the shape of the toucan's back. I liked it. </p>
+ <p>When I rotated the crescents I had, I tried shifting them into the middle of the space between the head and the body. The crescents were so large that they inadvertently popped out on the other side of the bird. Wait, it looks like wings on the other side! This happy accident got me exactly what I wanted. </p>
+ <p>With the bird in flight, I no longer had to worry about the feet. I tried a couple different things earlier to get feet but they all looked hideous. Feet are not my fort&eacute;, it seems. No worries, as I was really happy with how things were shaping up. (a little vector humour there...)</p>
+ <p>I continued to adjust the shadows, adding highlights to the bottom and the wings to give the bird a little more depth. Finally, I was happy with the result. Like, really happy.</p>
+ <h2>Let it fly!</h2>
+ <p>This will be the icon for the next version of Snitter, which I'm hoping to have out in a couple weeks.</p>
+ <p><img src="https://snook.ca/img/snitter/snitter-logo.jpg" alt="Photos of various breeds of toucans and some application icons" /></p>
+ <p>As an added bonus, I'm linking up <a href="https://snook.ca/img/snitter/snitter-icon.png">the final Fireworks PNG</a>. Download it and check out how it's all put together. The design is copyright so don't go throwing toucans over everything but pick it apart and use it to inspire your next design. The Fireworks file was created in CS4 and uses the Pages feature where I have an earlier version on page 1 and then the final version on page 2 (a cheap way to do versioning). </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 22, 2009 </div>
+	<div class="cat">Categorized as <a href="/archives/design/">Design</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/949</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">30 Comments &middot; <a href="/archives/design/snitter-icon-design.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c63573">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63573">1</a></div>
+			<span class="authorname">Niki Brown | The Design O'Blog</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Love the illustration, but not digging the type. Looks to hot dog-ish. Maybe go with something more geometric or circle ish - such as the typeface Duoh uses: http://www.duoh.com/ which i think is chalet paris</p>
+</div>
+	</div>
+		<div class="comment" id="c63574">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63574">2</a></div>
+			<span class="authorname"><a href="http://nickburd.com">Nick Burd</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>I love the illustration as well. I do somewhat agree about the type, and tho I DO like the current choice, seeing a variety would for sure be pretty cool as well. </p>
+<p>I like the direction that this is headed, what are more of your future plans for "Snitter"? Just curious. </p>
+<p>I look forward to hearing about it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63575">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63575">3</a></div>
+			<span class="authorname"><a href="http://www.iconiza.com">Michael M.</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>Nice work Jonathan, thank you for sharing the process. </p>
+<p>I love Toucans, they are very graceful creatures, which btw are great "jumpers", almost to the point that you may think the prefer to jump (like kangaroos) rather than fly.</p>
+<p>Here in Ecuador, they are very loved birds, and thank to their colorful body, they are widely used in publicity.</p>
+<p>Nice work with the logo! I'll try your app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63576">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63576">4</a></div>
+			<span class="authorname">Andy</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Personally I prefer the first one over the flying one.<br />
+And I don't think it should have feet.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63577">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63577">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 22, 2009		</div>
+		<div class="quote"><p>@Niki and Nick, the font is VAG Rounded and is the font that's currently in use on the Snitter home page. Basically, I stuck with the same but I like it because it carries the same feel as the Twitter logo, which is plenty rounded.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63578">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63578">6</a></div>
+			<span class="authorname">Guillermo Rauch</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Multi-talented anyone? Great work! Love the end result.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63579">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63579">7</a></div>
+			<span class="authorname">Nathan Nash</span> said on May 22, 2009		</div>
+		<div class="quote"><p>the bird looks great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63580">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63580">8</a></div>
+			<span class="authorname">Jack F</span> said on May 22, 2009		</div>
+		<div class="quote"><p>I've with Andy, I like the first version of the icon much more, but still nice work :D
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63581">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63581">9</a></div>
+			<span class="authorname">Jesse Altman</span> said on May 22, 2009		</div>
+		<div class="quote"><p>The logo came out great. I have tried to do some logo design myself a few times and I am absolutely terrible at it. It is usually because I lack some sort of centralized figure. Thanks for the breakdown, I'll be sure to remember some of these points next time I try my own icon.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63582">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63582">10</a></div>
+			<span class="authorname"><a href="http://nickburd.com">Nick Burd</a></span> said on May 22, 2009		</div>
+		<div class="quote"><p>That is true, </p>
+<p>I didn't say I disagreed with your font choice, I do see the similarity. I was just wondering what else you could come up with in this new branding adventure you are taking.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63583">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63583">11</a></div>
+			<span class="authorname">Andrew Yates</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Looks amazing, I have to say I am also with Andy and Jack. Nice work!!!</p>
+<p>Andy.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63584">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63584">12</a></div>
+			<span class="authorname">Aaron Conran</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Love the icon and thanks for sharing the steps you went through to come up with the end result.</p>
+<p>On a side-note, I'd like to see what the icon looks like against a lighter background. The dark grays are so similar that the Toucan seems to blend in more rather than pop off the page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63585">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63585">13</a></div>
+			<span class="authorname">alex</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Thanks for sharing!</p>
+<p>I like the 1st version more, don't like the wings, they look forced into the circle. By the way, it's also too 'circlish', ain't it? break the trend!</p>
+<p>Also I don't like the type; too standard, nowadays everybody's doing the same thing... pour some wild imagination.</p>
+<p>No mean to offend.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63586">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63586">14</a></div>
+			<span class="authorname">Andrew Newland</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Dude, I have to say I love the toucan. Both versions are awesome, but I would have to agree that the flying is the coolest, I like the wings.</p>
+<p>Like Aaron, I'm curious to see it on a lighter background!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c63587">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63587">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 22, 2009		</div>
+		<div class="quote"><p>If you're interested in checking out what it'd look like on a light background, <a href="//www.flickr.com/photos/jonathansnook/3552722683/">check out Flickr</a>.</p>
+<p>@Alex: It is circlish but hardly a trend. At least, not these days. Looking at my Dock, almost all the icons are square. Only the Firefox and Twitterrific logos break the trend. I do want something to stand out and I think what I've got now will do just that. The typography will almost never be seen so I'm less concerned about it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63588">16</a></div>
+			<span class="authorname">Mike Rohde</span> said on May 22, 2009		</div>
+		<div class="quote"><p>Jonathan, this is a fabulous process to share with everyone. </p>
+<p>I'm glad to have played a small part in the process (very small) and I think things working out for you to do the icon yourself was a blessing in disguise â€” great work!</p>
+<p>I'm a huge Fireworks fan as well, building all of my icons using vectors in Fireworks. I do very similar things as you during the process, including the inspiration document you mention. It's very handy to have all of the elements ready for a quick reference.</p>
+<p>Can't wait to check out your PNG file to see how the vectors, layers and pages are structured.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63595">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63595">17</a></div>
+			<span class="authorname">Aliester</span> said on May 25, 2009		</div>
+		<div class="quote"><p>Great work, thank you for sharing the process,i really like it.Both versions are awesome, but I would have to agree that the flying is the coolest.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63596">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63596">18</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com">Michael Kozakewich</a></span> said on May 26, 2009		</div>
+		<div class="quote"><p>It's great!</p>
+<p>I'm not sure about the angle of the wings, and perhaps the tail might have a split or two, but the rest of it looks pretty good.<br />
+Oh, and I just noticed that the wings look like they split in two halfway down. I'd make the lines between them less pronounced (and move them closer), and maybe add a third crescent. Or maybe keep it at two.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63599">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63599">19</a></div>
+			<span class="authorname">Varun</span> said on May 26, 2009		</div>
+		<div class="quote"><p>The icon looks beautiful!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63600">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63600">20</a></div>
+			<span class="authorname">Shapia Web services</span> said on May 27, 2009		</div>
+		<div class="quote"><p>This where the creativity lies a lot. The small start of play has got huge attraction. I really love the way it was being created. The pencil sketches are really awesome.....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63604">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63604">21</a></div>
+			<span class="authorname">theodin</span> said on May 28, 2009		</div>
+		<div class="quote"><p>great window into your creative process, thanks for sharing!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63605">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63605">22</a></div>
+			<span class="authorname">Johan</span> said on May 28, 2009		</div>
+		<div class="quote"><p>web designers can design, not only graphic designers...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63612">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63612">23</a></div>
+			<span class="authorname">sandra</span> said on June 02, 2009		</div>
+		<div class="quote"><p>Nice work! I think this might end up on some sports teams helmet!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63615">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63615">24</a></div>
+			<span class="authorname">Web Development</span> said on June 05, 2009		</div>
+		<div class="quote"><p>I used it but having problem to logo design.I have tried to do some logo design myself a few times and I am absolutely terrible at it. It is usually because I lack some sort of centralized figure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63617">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63617">25</a></div>
+			<span class="authorname">dunksmylife</span> said on June 06, 2009		</div>
+		<div class="quote"><p>The icon looks beautiful! :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63620">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63620">26</a></div>
+			<span class="authorname">mason</span> said on June 07, 2009		</div>
+		<div class="quote"><p>Very nice, but a little too new looking!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63621">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63621">27</a></div>
+			<span class="authorname">Connie Smithson</span> said on June 08, 2009		</div>
+		<div class="quote"><p>I love the look of this illustration and would like to use it when your done. Thanks for the hard work, connie
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63631">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63631">28</a></div>
+			<span class="authorname">teylorfeliz</span> said on June 18, 2009		</div>
+		<div class="quote"><p>I was looking for an Icon Tutorial. Thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63632">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63632">29</a></div>
+			<span class="authorname">Michiel </span> said on June 22, 2009		</div>
+		<div class="quote"><p>The final result looks great, little humor as well as giving a clear detail of the product... hope nobody confuses that n for an h???
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63647">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63647">30</a></div>
+			<span class="authorname">Shane McCarthy</span> said on June 29, 2009		</div>
+		<div class="quote"><p>Really nice work, although I much prefer the first circle bound one, I think that the circle gives it a really nice style. I had waaaaay too much free time this evening &amp; put together my own take on it. I think that there was an opportunity to shape the bird into the letter 's', anyway you can see my version here   http://tinyurl.com/illworks
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

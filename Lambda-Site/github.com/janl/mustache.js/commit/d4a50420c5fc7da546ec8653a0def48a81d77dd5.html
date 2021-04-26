@@ -1,0 +1,2136 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+  
+<!-- Mirrored from github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 21:27:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com/">
+  <link rel="dns-prefetch" href="https://avatars.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-7KjiGvJiLLy6LJPGf3m67ejAdgQsgDdnxZYoaI6+Agd0ZxHKTCjoKZgaf3PgUjURCcVceAwySJJJWgitRskDiA==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-eca8e21af2622cbcba2c93c67f79baed.css" />
+    <link crossorigin="anonymous" media="all" integrity="sha512-dDsAoT3mMaA8gyLZkshXL3vrnDAuIv4cNq2iN06+o44rOFIngYNNiTehUUzNuMoBXMaDg0MLhEaZNumoCiLJkw==" rel="stylesheet" href="https://github.githubassets.com/assets/behaviors-743b00a13de631a03c8322d992c8572f.css" />
+    
+    
+    
+    <link crossorigin="anonymous" media="all" integrity="sha512-GTYTKrM51E5wmup1WdLkaUpoc+XJN/19n0f8G/e2KiqEkBvUfUocVddAju6Yc+eFTR3jNzAZfJchyhdDinGW6g==" rel="stylesheet" href="https://github.githubassets.com/assets/github-1936132ab339d44e709aea7559d2e469.css" />
+
+  <script crossorigin="anonymous" defer="defer" integrity="sha512-CzeY4A6TiG4fGZSWZU8FxmzFFmcQFoPpArF0hkH0/J/S7UL4eed/LKEXMQXfTwiG5yEJBI+9BdKG8KQJNbhcIQ==" type="application/javascript" src="https://github.githubassets.com/assets/environment-0b3798e0.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-E+MNpR1dyNE0hrMBGq4WFHHe3UIkcQU59XV5Pdzb3m0JUo5PcRrFRSWQTHDA5388RHiBHVOcm5EaaoRNa86bLw==" type="application/javascript" src="https://github.githubassets.com/assets/chunk-frameworks-13e30da5.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-+1BN8W3XvQeL2HiktoDjb/NDm2W8tp9hDUb+NL4vabH/tvhdLZIdE9tYL3xRh6HDsc7JpvlTmu2m7CllRB+QYA==" type="application/javascript" src="https://github.githubassets.com/assets/chunk-vendor-fb504df1.js"></script>
+  
+  <script crossorigin="anonymous" defer="defer" integrity="sha512-WTSd4u3TiWf+Bqfb/7bTnzyDbSBftqePECjIOCGOCx9n2L8aE4zNYknWYK5zR1D4ELghJcW3SS9jGbqTt50aCw==" type="application/javascript" src="https://github.githubassets.com/assets/behaviors-59349de2.js"></script>
+  
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-tjuNQcwhEIXGvVIG4XM/Aj4z+Od+NBRkbgWNwEMjGL3nsnAmdoBdbzsn/WTvl3hk+TPt1D0BvBLHLBPgiwvT2w==" type="application/javascript" data-module-id="./chunk-animate-on-scroll.js" data-src="https://github.githubassets.com/assets/chunk-animate-on-scroll-b63b8d41.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-+BKEtK9JkmJ52jKSoX6+SBrGV6kJxB8J/iAPkFQ/oeq8YekNcz7IZlJgM5Tddyx1RrkL3+sdG0tAy3YuFbYqfA==" type="application/javascript" data-module-id="./chunk-codemirror.js" data-src="https://github.githubassets.com/assets/chunk-codemirror-f81284b4.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-EKOvqJ9uTatAt87WxU+OSS4mi7gMUszFbGo4aPErQkjpWLXnrPSeZvK5ngU8OYoIoiVOq+v8dA3C6MF/z2d/kA==" type="application/javascript" data-module-id="./chunk-color-modes.js" data-src="https://github.githubassets.com/assets/chunk-color-modes-10a3afa8.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-zkYZSjUFqSifB+Lt76jclFMrfqpcPqevT801RZcoBNCZHRTBKcFrW9OyJoPOzKFv+fZVDRnqdqGsuIv5KOIgZg==" type="application/javascript" data-module-id="./chunk-contributions-spider-graph.js" data-src="https://github.githubassets.com/assets/chunk-contributions-spider-graph-ce46194a.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-6j/oSF+kbW+yetNPvI684VzAu9pzug6Vj2h+3u1LdCuRhR4jnuiHZfeQKls3nxcT/S3H+oIt7FtigE/aeoj+gg==" type="application/javascript" data-module-id="./chunk-drag-drop.js" data-src="https://github.githubassets.com/assets/chunk-drag-drop-ea3fe848.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-N+ziqJjVMfWiqeVHdayDHpNRlG5HsF+cgV+pFnMDoTJuvBzgw+ndsepe4NcKAxIS3WMvzMaQcYmd2vrIaoAJVg==" type="application/javascript" data-module-id="./chunk-edit.js" data-src="https://github.githubassets.com/assets/chunk-edit-37ece2a8.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-aiqMIGGZGo8AQMjcoImKPMTsZVVRl6htCSY7BpRmpGPG/AF+Wq+P/Oj/dthWQOIk9cCNMPEas7O2zAR6oqn0tA==" type="application/javascript" data-module-id="./chunk-emoji-picker-element.js" data-src="https://github.githubassets.com/assets/chunk-emoji-picker-element-6a2a8c20.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-X2jjKnutPkcho7t5ol+kG/6fAb/SMV2RY7rHSDNI7qkb2ZYftJuySsrz+bqpWUJlBCMOJO+Qs4HcisrrpgHyHQ==" type="application/javascript" data-module-id="./chunk-filter-input.js" data-src="https://github.githubassets.com/assets/chunk-filter-input-5f68e32a.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-XwuQdORq1W9Z+a/i72pH+NfR1rhwlGdxIlaIBbTciscGc/+McxMNLixGBp8e6Td4W1zzHvQ1Jyryl5gUfEr76g==" type="application/javascript" data-module-id="./chunk-insights-graph.js" data-src="https://github.githubassets.com/assets/chunk-insights-graph-5f0b9074.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-guegRI58Rv3iFAfIPmB7r5EMnJN8YavE7gaPDH1bXf48eRgA4GtM2bgd0Luxu1zmIbSCIiultO3tXizNlApljQ==" type="application/javascript" data-module-id="./chunk-jump-to.js" data-src="https://github.githubassets.com/assets/chunk-jump-to-82e7a044.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-supZkxo+OPYLNtLXxI+e1dkCqVySu4FOWX1fiVVFs2ZggygppNsEz4F9wVp4YtH2TjFsZW8r/75uDUhPneO2sA==" type="application/javascript" data-module-id="./chunk-notification-list-focus.js" data-src="https://github.githubassets.com/assets/chunk-notification-list-focus-b2ea5993.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-ma0OOy3nj0c1cqBx0BkcmIFsLqcSZ+MIukQxyEFM/OWTzZpG+QMgOoWPAHZz43M6fyjAUG1jH6c/6LPiiKPCyw==" type="application/javascript" data-module-id="./chunk-profile-pins-element.js" data-src="https://github.githubassets.com/assets/chunk-profile-pins-element-99ad0e3b.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-yBm+bOiMVHzMsjjrBdE6ioYuVigzh+DOBbf3dfNjKIWoilpY1Whx1NvNp2mtBFkRbamLkcXjOAE1YkKaLOoHgw==" type="application/javascript" data-module-id="./chunk-ref-selector.js" data-src="https://github.githubassets.com/assets/chunk-ref-selector-c819be6c.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-9yFUsOHjJzYPFPiEllzLQ+moFYxDf4kgPb4JtE6U2HkuQGhk13jLBkjRfFiR21uDHuH+aqLZBHrYN43T1jtWRA==" type="application/javascript" data-module-id="./chunk-responsive-underlinenav.js" data-src="https://github.githubassets.com/assets/chunk-responsive-underlinenav-f72154b0.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-9WNXtB07IyWypiPmkuucspwog4mme9q5GKGMSgd7FI0DPimmg/pEw+aaAofFV1vuWMt9I8H5QpsVtlbHGg1YBA==" type="application/javascript" data-module-id="./chunk-runner-groups.js" data-src="https://github.githubassets.com/assets/chunk-runner-groups-f56357b4.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-fIq9Mn7jY/bHQXnsmh+VejpDnaO+d/FDxsp+4CuZtdNLrLuO+dQCjh+m6Yd8GCYD2Cy6DWbCEyM+mH2dkB2H9A==" type="application/javascript" data-module-id="./chunk-sortable-behavior.js" data-src="https://github.githubassets.com/assets/chunk-sortable-behavior-7c8abd32.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-WK8VXw3lfUQ/VRW0zlgKPhcMUqH0uTnB/KzePUPdZhCm/HpxfXXHKTGvj5C0Oex7+zbIM2ECzULbtTCT4ug3yg==" type="application/javascript" data-module-id="./chunk-toast.js" data-src="https://github.githubassets.com/assets/chunk-toast-58af155f.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-vgHJEmEJxNmHucGbVY8bEUoOYo5/ZwpQ69rU8Dld89daWJ54uad9lNptxq32F8pnbHhdngw9lohNEbMbjmj5AQ==" type="application/javascript" data-module-id="./chunk-tweetsodium.js" data-src="https://github.githubassets.com/assets/chunk-tweetsodium-be01c912.js"></script>
+    <script crossorigin="anonymous" defer="defer" integrity="sha512-ucVNkKwIqy4+ze/ypsWpn7ndabcdwyPboAy0Z0S4heVwr2dS/RF4hWDZcLs9IYoLD8h8oL1E65uSM+GncDsTZA==" type="application/javascript" data-module-id="./chunk-user-status-submit.js" data-src="https://github.githubassets.com/assets/chunk-user-status-submit-b9c54d90.js"></script>
+  
+  <script crossorigin="anonymous" defer="defer" integrity="sha512-xcx3BdsrK77G2iC9ccUI/KOoDGIZIl9ORL25ClBvmQdnxEQoXQuNjkunyOreNdY0+eR0pMcyIv3ziV0nGci6Fg==" type="application/javascript" src="https://github.githubassets.com/assets/diffs-c5cc7705.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Use `esm` package locally when testing to use ESM syntax from CJS code · janl/mustache.js@d4a5042 · GitHub</title>
+    <meta name="description" content="Minimal templating with {{mustaches}} in JavaScript - janl/mustache.js">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+  <meta name="apple-itunes-app" content="app-id=1477376905" />
+    <meta name="twitter:image:src" content="https://opengraph.githubassets.com/4853c0bb926b4f556eea6c6d4af838c75646dcca36b6cd2210b7b85a45d41d84/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Use `esm` package locally when testing to use ESM syntax from CJS code · janl/mustache.js@d4a5042" /><meta name="twitter:description" content="These changes are primarily aiming for having an acceptable developer
+experience when working on changes locally and want to run the test
+suite.
+
+By using `esm` as a required package to be executed..." />
+    <meta property="og:image" content="https://opengraph.githubassets.com/4853c0bb926b4f556eea6c6d4af838c75646dcca36b6cd2210b7b85a45d41d84/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="Use `esm` package locally when testing to use ESM syntax from CJS code · janl/mustache.js@d4a5042" /><meta property="og:url" content="/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5" /><meta property="og:description" content="These changes are primarily aiming for having an acceptable developer
+experience when working on changes locally and want to run the test
+suite.
+
+By using `esm` as a required package to be executed..." /><meta property="og:updated_time" content="1614976249" />
+
+
+
+    
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  
+
+  <meta name="request-id" content="C4E5:0557:92F26F:F7FBF0:608326FE" data-pjax-transient="true"/><meta name="html-safe-nonce" content="1cd0f425ef50d63593ba0c4a1e928369f0d7310eeade5af7880f6082829b67d1" data-pjax-transient="true"/><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHA6Ly9naXRodWIuY29tL2phbmwvbXVzdGFjaGUuanMiLCJyZXF1ZXN0X2lkIjoiQzRFNTowNTU3OjkyRjI2RjpGN0ZCRjA6NjA4MzI2RkUiLCJ2aXNpdG9yX2lkIjoiMzE0MTc3NDA0MTg0MTYwNzA3NSIsInJlZ2lvbl9lZGdlIjoiaWFkIiwicmVnaW9uX3JlbmRlciI6ImlhZCJ9" data-pjax-transient="true"/><meta name="visitor-hmac" content="8264bae779000e97e268f4620840a7c742c252a8c68368c22a87d7eaa85914f9" data-pjax-transient="true"/>
+
+    <meta name="hovercard-subject-tag" content="repository:326688" data-pjax-transient>
+
+
+  <meta name="github-keyboard-shortcuts" content="repository,commits" data-pjax-transient="true" />
+
+  
+
+  <meta name="selected-link" value="repo_commits" data-pjax-transient>
+
+    <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY">
+  <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+  <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+  <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" />
+
+  <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/commit/show" data-pjax-transient="true" />
+
+  
+
+
+
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+
+      <meta name="expected-hostname" content="github.com">
+
+
+    <meta name="enabled-features" content="MARKETPLACE_PENDING_INSTALLATIONS,AUTOCOMPLETE_EMOJIS_IN_MARKDOWN_EDITOR,ACTIONS_CONCURRENCY_UI">
+
+  <meta http-equiv="x-pjax-version" content="031223f33b9cb3182dfb0ff62ca1503334049f018ae2c8d6b349df57a9005815">
+  
+
+      <link href="https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5.diff" rel="alternate" type="text/plain+diff" data-pjax-transient="true" />
+  <link href="https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5.patch" rel="alternate" type="text/plain+patch" data-pjax-transient="true" />
+
+  <meta name="diff-view" content="unified" data-pjax-transient>
+      <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="go-import" content="github.com/janl/mustache.js git https://github.com/janl/mustache.js.git">
+
+  <meta name="octolytics-dimension-user_id" content="11321" /><meta name="octolytics-dimension-user_login" content="janl" /><meta name="octolytics-dimension-repository_id" content="326688" /><meta name="octolytics-dimension-repository_nwo" content="janl/mustache.js" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="326688" /><meta name="octolytics-dimension-repository_network_root_nwo" content="janl/mustache.js" />
+
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <meta name="browser-optimizely-client-errors-url" content="https://api.github.com/_private/browser/optimizely_client/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
+  <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+
+<meta name="theme-color" content="#1e2327">
+<meta name="color-scheme" content="light dark" />
+
+
+  <link rel="manifest" href="https://github.com/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production page-responsive" style="word-wrap: break-word;">
+    
+
+    <div class="position-relative js-header-wrapper ">
+      <a href="#start-of-content" class="px-2 py-4 color-bg-info-inverse color-text-white show-on-focus js-skip-to-content">Skip to content</a>
+      <span class="progress-pjax-loader width-full js-pjax-loader-bar Progress position-fixed">
+    <span style="background-color: #79b8ff;width: 0%;" class="Progress-item progress-pjax-loader-bar "></span>
+</span>      
+      
+
+
+            <header class="Header-old header-logged-out js-details-container Details position-relative f4 py-2" role="banner">
+  <div class="container-xl d-lg-flex flex-items-center p-responsive">
+    <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+          <svg height="32" class="octicon octicon-mark-github color-text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+
+          <div class="d-lg-none css-truncate css-truncate-target width-fit p-2">
+            
+
+          </div>
+
+        <div class="d-flex flex-items-center">
+              <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fcommit%2Fshow&amp;source=header-repo"
+                class="d-inline-block d-lg-none f5 color-text-white no-underline border color-border-tertiary rounded-2 px-2 py-1 mr-3 mr-sm-5 js-signup-redesign-control js-signup-redesign-target"
+                data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="dcf942a3abcb586ac56e0274584f145484925cd03dc20490de3d39e81e981bce"
+              >
+                Sign&nbsp;up
+              </a>
+              <a href="https://github.com/join_next?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fcommit%2Fshow&amp;source=header-repo"
+                class="d-inline-block d-lg-none f5 color-text-white no-underline border color-border-tertiary rounded-2 px-2 py-1 mr-3 mr-sm-5 js-signup-redesign-variation js-signup-redesign-target"
+                hidden
+                data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="dcf942a3abcb586ac56e0274584f145484925cd03dc20490de3d39e81e981bce"
+              >
+                Sign&nbsp;up
+              </a>
+
+          <button class="btn-link d-lg-none mt-1 js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-three-bars color-text-white" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg>
+          </button>
+        </div>
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--logged-out position-fixed top-0 right-0 bottom-0 height-fit position-lg-relative d-lg-flex flex-justify-between flex-items-center flex-auto">
+      <div class="d-flex d-lg-none flex-justify-end border-bottom color-bg-secondary p-3">
+        <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <svg height="24" class="octicon octicon-x color-text-secondary" viewBox="0 0 24 24" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path></svg>
+        </button>
+      </div>
+
+        <nav class="mt-0 px-3 px-lg-0 mb-5 mb-lg-0" aria-label="Global">
+          <ul class="d-lg-flex list-style-none">
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Why GitHub?
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+                  <div class="dropdown-menu flex-auto rounded px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="https://github.com/features" class="py-2 lh-condensed-ultra d-block Link--primary no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Features">Features <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a>
+                    <ul class="list-style-none f5 pb-3">
+                        <li class="edge-item-fix"><a href="https://github.com/mobile" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Mobile <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/actions" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Actions <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/codespaces" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Codespaces <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/packages" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Packages <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/security" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Security <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/code-review/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Code review <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/project-management/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Project management <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/features/integrations" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">Integrations <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/sponsors" class="py-2 lh-condensed-ultra d-block no-underline Link--primary no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Sponsors">GitHub Sponsors <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/customer-stories" class="py-2 lh-condensed-ultra d-block no-underline Link--primary no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Customer stories">Customer stories<span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/team" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Team">Team</a>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Enterprise">Enterprise</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Explore
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded px-0 pt-2 pb-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/explore" class="py-2 lh-condensed-ultra d-block Link--primary no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Explore">Explore GitHub <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+
+                    <h4 class="color-text-tertiary text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Learn and contribute</h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/topics" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Topics">Topics <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/collections" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Collections">Collections <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/trending" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Trending">Trending <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Learning lab">Learning Lab <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Open source guides">Open source guides <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+
+                    <h4 class="color-text-tertiary text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Connect with others</h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/readme" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover">The ReadME Project <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Events">Events <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.community/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Community forum">Community forum <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to GitHub Education">GitHub Education <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://stars.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to GitHub Stars Program">GitHub Stars program <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="https://github.com/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Marketplace">Marketplace</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Pricing
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                       <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded px-0 pt-2 pb-4 mt-0 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="https://github.com/pricing" class="pb-2 lh-condensed-ultra d-block Link--primary no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Pricing">Plans <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Compare plans">Compare plans <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block Link--secondary no-underline f5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Contact Sales">Contact Sales <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block no-underline Link--primary no-underline h5 Bump-link--hover"  data-ga-click="(Logged out) Header, go to Education">Education <span class="Bump-link-symbol float-right text-normal color-text-tertiary pr-3">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+          </ul>
+        </nav>
+
+      <div class="d-lg-flex flex-items-center px-3 px-lg-0 text-center text-lg-left">
+          <div class="d-lg-flex min-width-0 mb-3 mb-lg-0">
+            <div class="header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"
+  role="combobox"
+  aria-owns="jump-to-results"
+  aria-label="Search or jump to"
+  aria-haspopup="listbox"
+  aria-expanded="false"
+>
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="326688" data-scoped-search-url="/janl/mustache.js/search" data-owner-scoped-search-url="/users/janl/search" data-unscoped-search-url="/search" action="https://github.com/janl/mustache.js/search" accept-charset="UTF-8" method="get">
+      <label class="form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+        <input type="text"
+          class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+          data-hotkey="s,/"
+          name="q"
+          value=""
+          placeholder="Search"
+          data-unscoped-placeholder="Search GitHub"
+          data-scoped-placeholder="Search"
+          autocapitalize="off"
+          aria-autocomplete="list"
+          aria-controls="jump-to-results"
+          aria-label="Search"
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations"
+          spellcheck="false"
+          autocomplete="off"
+          >
+          <input type="hidden" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" value="Qffydf1JhWEXLSpWhosx6DQK5af2jo203nCShzqNwagiFiW96S0cFUFqtkJNO59Mv1ulkPfIzv+9lwoU8T65Tg==" />
+          <input type="hidden" class="js-site-search-type-field" name="type" >
+            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="#" data-item-type="suggestion">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="#" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="color-text-secondary">No suggested jump to results</span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="#" data-item-type="scoped_search">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="#" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-owner-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="#" data-item-type="owner_scoped_search">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="#" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this user">
+        In this user
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="#" data-item-type="global_search">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="#" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 color-bg-tertiary px-1 color-text-tertiary ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+          </div>
+
+        <a href="https://github.com/login?return_to=%2Fjanl%2Fmustache.js%2Fcommit%2Fd4a50420c5fc7da546ec8653a0def48a81d77dd5"
+          class="HeaderMenu-link flex-shrink-0 no-underline mr-3"
+          data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6c6b4468dc67bccf8685e4002b3e1fa1e8265fd9e7ddb617543f50cecfa45de7"
+          data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">
+          Sign in
+        </a>
+            <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fcommit%2Fshow&amp;source=header-repo&amp;source_repo=janl%2Fmustache.js"
+              class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded px-2 py-1 js-signup-redesign-target js-signup-redesign-control"
+              data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6c6b4468dc67bccf8685e4002b3e1fa1e8265fd9e7ddb617543f50cecfa45de7"
+              data-hydro-click="{&quot;event_type&quot;:&quot;analytics.click&quot;,&quot;payload&quot;:{&quot;category&quot;:&quot;Sign up&quot;,&quot;action&quot;:&quot;click to sign up for account&quot;,&quot;label&quot;:&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/commit/show;ref_cta:Sign up;ref_loc:header logged out&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="4cad050ce26388387a7482a25882071e4908de693040b3d5f702acd15f57365b"
+            >
+              Sign up
+            </a>
+            <a href="https://github.com/join_next?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fcommit%2Fshow&amp;source=header-repo&amp;source_repo=janl%2Fmustache.js"
+              class="HeaderMenu-link flex-shrink-0 d-inline-block no-underline border color-border-tertiary rounded-1 px-2 py-1 js-signup-redesign-target js-signup-redesign-variation"
+              hidden
+              data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6c6b4468dc67bccf8685e4002b3e1fa1e8265fd9e7ddb617543f50cecfa45de7"
+              data-hydro-click="{&quot;event_type&quot;:&quot;analytics.click&quot;,&quot;payload&quot;:{&quot;category&quot;:&quot;Sign up&quot;,&quot;action&quot;:&quot;click to sign up for account&quot;,&quot;label&quot;:&quot;ref_page:/&lt;user-name&gt;/&lt;repo-name&gt;/commit/show;ref_cta:Sign up;ref_loc:header logged out&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="4cad050ce26388387a7482a25882071e4908de693040b3d5f702acd15f57365b"
+            >
+              Sign up
+            </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+
+
+
+    <div data-pjax-replace id="js-flash-container">
+
+
+  <template class="js-flash-template">
+    <div class="flash flash-full  {{ className }}">
+  <div class=" px-2" >
+    <button class="flash-close js-flash-close" type="button" aria-label="Dismiss this message">
+      <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+    </button>
+    
+      <div>{{ message }}</div>
+
+  </div>
+</div>
+  </template>
+</div>
+
+
+    
+
+  <include-fragment class="js-notification-shelf-include-fragment" data-base-src="https://github.com/notifications/beta/shelf"></include-fragment>
+
+
+
+
+  <div
+    class="application-main "
+    data-commit-hovercards-enabled
+    data-discussion-hovercards-enabled
+    data-issue-and-pr-hovercards-enabled
+  >
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <main id="js-repo-pjax-container" data-pjax-container >
+      
+    
+
+
+
+
+  
+
+
+  <div class="color-bg-secondary pt-3 hide-full-screen mb-5">
+
+      <div class="d-flex mb-3 px-3 px-md-4 px-lg-5">
+
+        <div class="flex-auto min-width-0 width-fit mr-3">
+            <h1 class=" d-flex flex-wrap flex-items-center break-word f3 text-normal">
+    <svg class="octicon octicon-repo color-text-secondary mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+  <span class="author flex-self-stretch" itemprop="author">
+    <a class="url fn" rel="author" data-hovercard-type="user" data-hovercard-url="/users/janl/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/janl">janl</a>
+  </span>
+  <span class="mx-1 flex-self-stretch color-text-secondary">/</span>
+  <strong itemprop="name" class="mr-2 flex-self-stretch">
+    <a data-pjax="#js-repo-pjax-container" href="https://github.com/janl/mustache.js">mustache.js</a>
+  </strong>
+  
+</h1>
+
+
+        </div>
+
+          <ul class="pagehead-actions flex-shrink-0 d-none d-md-inline" style="padding: 2px 0;">
+
+  <li>
+      <a class="tooltipped tooltipped-s btn btn-sm" aria-label="You must be signed in to change notification settings" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="cf7f0b95597e817b7e281ee0c6d6ab3abbb1e1edcbe3dce978e562478a1e0aec" href="https://github.com/login?return_to=%2Fjanl%2Fmustache.js">
+    <svg class="octicon octicon-bell" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path d="M8 16a2 2 0 001.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 008 16z"></path><path fill-rule="evenodd" d="M8 1.5A3.5 3.5 0 004.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.018.018 0 00-.003.01l.001.006c0 .002.002.004.004.006a.017.017 0 00.006.004l.007.001h10.964l.007-.001a.016.016 0 00.006-.004.016.016 0 00.004-.006l.001-.007a.017.017 0 00-.003-.01l-1.703-2.554a1.75 1.75 0 01-.294-.97V5A3.5 3.5 0 008 1.5zM3 5a5 5 0 0110 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0113.482 13H2.518a1.518 1.518 0 01-1.263-2.36l1.703-2.554A.25.25 0 003 7.947V5z"></path></svg>
+    Notifications
+</a>
+  </li>
+
+  <li>
+          <a class="btn btn-sm btn-with-count  tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:326688,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="09a7495e585e8bec0d184e9e8f29da8ebe4e6c900738c0876dbeb8491209e829" href="https://github.com/login?return_to=%2Fjanl%2Fmustache.js">
+      <svg class="octicon octicon-star v-align-text-bottom mr-1" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg>
+      <span>
+        Star
+</span></a>
+    <a class="social-count js-social-count" href="https://github.com/janl/mustache.js/stargazers"
+      aria-label="14559 users starred this repository">
+      14.6k
+    </a>
+
+  </li>
+
+  <li>
+        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:326688,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="1cb8f5d53299571924627ffcbad4e9faea9658c0018a5f9c21cda6e2ef86a0a1" href="https://github.com/login?return_to=%2Fjanl%2Fmustache.js">
+          <svg class="octicon octicon-repo-forked" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+          Fork
+</a>
+      <a href="https://github.com/janl/mustache.js/network/members" class="social-count"
+         aria-label="2401 users forked this repository">
+        2.4k
+      </a>
+  </li>
+</ul>
+
+      </div>
+        
+
+  <nav data-pjax="#js-repo-pjax-container" aria-label="Repository" class="js-repo-nav js-sidenav-container-pjax js-responsive-underlinenav overflow-hidden UnderlineNav px-3 px-md-4 px-lg-5 color-bg-secondary">
+
+    <ul class="UnderlineNav-body list-style-none ">
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js" data-tab-item="i0code-tab" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages repo_deployments /janl/mustache.js" data-hotkey="g c" data-ga-click="Repository, Navigation click, Code tab" aria-current="page" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item selected ">
+    
+                  <svg class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
+          <span data-content="Code">Code</span>
+            <span title="Not available" class="Counter "></span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/issues" data-tab-item="i1issues-tab" data-selected-links="repo_issues repo_labels repo_milestones /janl/mustache.js/issues" data-hotkey="g i" data-ga-click="Repository, Navigation click, Issues tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-issue-opened UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"></path></svg>
+          <span data-content="Issues">Issues</span>
+            <span title="55" class="Counter ">55</span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/pulls" data-tab-item="i2pull-requests-tab" data-selected-links="repo_pulls checks /janl/mustache.js/pulls" data-hotkey="g p" data-ga-click="Repository, Navigation click, Pull requests tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-git-pull-request UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+          <span data-content="Pull requests">Pull requests</span>
+            <span title="28" class="Counter ">28</span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/actions" data-tab-item="i3actions-tab" data-selected-links="repo_actions /janl/mustache.js/actions" data-hotkey="g a" data-ga-click="Repository, Navigation click, Actions tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-play UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006 5.442v5.117a.25.25 0 00.379.214l4.264-2.559a.25.25 0 000-.428L6.379 5.227z"></path></svg>
+          <span data-content="Actions">Actions</span>
+            <span title="Not available" class="Counter "></span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/projects" data-tab-item="i4projects-tab" data-selected-links="repo_projects new_repo_project repo_project /janl/mustache.js/projects" data-hotkey="g b" data-ga-click="Repository, Navigation click, Projects tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-project UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+          <span data-content="Projects">Projects</span>
+            <span title="0" hidden="hidden" class="Counter ">0</span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/wiki" data-tab-item="i5wiki-tab" data-selected-links="repo_wiki /janl/mustache.js/wiki" data-hotkey="g w" data-ga-click="Repository, Navigation click, Wikis tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-book UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"></path></svg>
+          <span data-content="Wiki">Wiki</span>
+            <span title="Not available" class="Counter "></span>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/security" data-tab-item="i6security-tab" data-selected-links="security overview alerts policy token_scanning code_scanning /janl/mustache.js/security" data-hotkey="g s" data-ga-click="Repository, Navigation click, Security tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-shield UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.467.133a1.75 1.75 0 011.066 0l5.25 1.68A1.75 1.75 0 0115 3.48V7c0 1.566-.32 3.182-1.303 4.682-.983 1.498-2.585 2.813-5.032 3.855a1.7 1.7 0 01-1.33 0c-2.447-1.042-4.049-2.357-5.032-3.855C1.32 10.182 1 8.566 1 7V3.48a1.75 1.75 0 011.217-1.667l5.25-1.68zm.61 1.429a.25.25 0 00-.153 0l-5.25 1.68a.25.25 0 00-.174.238V7c0 1.358.275 2.666 1.057 3.86.784 1.194 2.121 2.34 4.366 3.297a.2.2 0 00.154 0c2.245-.956 3.582-2.104 4.366-3.298C13.225 9.666 13.5 8.36 13.5 7V3.48a.25.25 0 00-.174-.237l-5.25-1.68zM9 10.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.75a.75.75 0 10-1.5 0v3a.75.75 0 001.5 0v-3z"></path></svg>
+          <span data-content="Security">Security</span>
+            <include-fragment src="https://github.com/janl/mustache.js/security/overall-count" accept="text/fragment+html"></include-fragment>
+
+    
+</a></li>
+        <li class="d-flex">
+  <a href="https://github.com/janl/mustache.js/pulse" data-tab-item="i7insights-tab" data-selected-links="repo_graphs repo_contributors dependency_graph dependabot_updates pulse people community /janl/mustache.js/pulse" data-ga-click="Repository, Navigation click, Insights tab" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item ">
+    
+                  <svg class="octicon octicon-graph UnderlineNav-octicon d-none d-sm-inline" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"></path></svg>
+          <span data-content="Insights">Insights</span>
+            <span title="Not available" class="Counter "></span>
+
+    
+</a></li>
+</ul>
+      <div style="visibility:hidden;" class="UnderlineNav-actions  js-responsive-underlinenav-overflow position-absolute pr-3 pr-md-4 pr-lg-5 right-0">      <details class="details-overlay details-reset position-relative">
+  <summary role="button">          <div class="UnderlineNav-item mr-0 border-0">
+            <svg class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            <span class="sr-only">More</span>
+          </div>
+</summary>
+  <div>          <details-menu role="menu" class="dropdown-menu dropdown-menu-sw ">
+  
+            <ul>
+                <li data-menu-item="i0code-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js" href="https://github.com/janl/mustache.js">
+                    Code
+</a>                </li>
+                <li data-menu-item="i1issues-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/issues" href="https://github.com/janl/mustache.js/issues">
+                    Issues
+</a>                </li>
+                <li data-menu-item="i2pull-requests-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/pulls" href="https://github.com/janl/mustache.js/pulls">
+                    Pull requests
+</a>                </li>
+                <li data-menu-item="i3actions-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/actions" href="https://github.com/janl/mustache.js/actions">
+                    Actions
+</a>                </li>
+                <li data-menu-item="i4projects-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/projects" href="https://github.com/janl/mustache.js/projects">
+                    Projects
+</a>                </li>
+                <li data-menu-item="i5wiki-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/wiki" href="https://github.com/janl/mustache.js/wiki">
+                    Wiki
+</a>                </li>
+                <li data-menu-item="i6security-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/security" href="https://github.com/janl/mustache.js/security">
+                    Security
+</a>                </li>
+                <li data-menu-item="i7insights-tab" hidden>
+                  <a role="menuitem" class="js-selected-navigation-item dropdown-item" data-selected-links=" /janl/mustache.js/pulse" href="https://github.com/janl/mustache.js/pulse">
+                    Insights
+</a>                </li>
+            </ul>
+
+</details-menu></div>
+</details></div>
+</nav>
+
+  </div>
+
+
+<div class="container-xl clearfix new-discussion-timeline px-3 px-md-4 px-lg-5">
+  <div id="repo-content-pjax-container" class="repository-content " >
+
+    
+      
+  <a href="https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+  
+
+  
+<div id="spoof-warning" class="mt-0 pb-3" hidden aria-hidden>
+  <div class="flash mt-0 flash-warn clearfix">
+    <svg class="octicon octicon-alert float-left mt-1" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+
+      <div class="overflow-hidden">This commit does not belong to any branch on this repository, and may belong to a fork outside of the repository.</div>
+  </div>
+</div>
+
+<div class="commit full-commit mt-0 px-2 pt-2 ">
+  <a href="https://github.com/janl/mustache.js/tree/d4a50420c5fc7da546ec8653a0def48a81d77dd5" class="btn btn-outline float-right" title="Browse the repository at this point in the history" rel="nofollow">Browse files</a>
+
+    <span class="mr-1 mt-1 float-left">
+    </span>
+
+    <p class="commit-title">
+      Use `esm` package locally when testing to use ESM syntax from CJS code
+    </p>
+
+    <div class="commit-desc"><pre>These changes are primarily aiming for having an acceptable developer
+experience when working on changes locally and want to run the test
+suite.
+
+By using `esm` as a required package to be executed *before* the
+individual test files are executed, `esm` allows CommonJS/`require()`
+based code to use code written with ES Modules syntax.
+
+In practise that means our existing CommonJS based test suite that is
+`require()`ing the source code witten in ES Modules, is seamless and
+totally transparent. It just works without any build or transpiling
+pipeline like `babel` involved.
+
+Caveat: the `esm` package only support Node.js 6.x and above.
+
+That is more than okey, as we've got continous integration to verify
+how our changes works on different versions of Node.js, browsers &amp; deno.
+
+Refs <a href="https://www.npmjs.com/package/esm" rel="nofollow">https://www.npmjs.com/package/esm</a></pre></div>
+
+  <div class="commit-branches">
+  <include-fragment src="https://github.com/janl/mustache.js/branch_commits/d4a50420c5fc7da546ec8653a0def48a81d77dd5" id="async-branches-list">
+    <svg class="octicon octicon-git-branch" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path></svg>
+    <ul class="branches-list">
+      <li class="loading">Loading branch information<span class="AnimatedEllipsis"></span></li>
+    </ul>
+</include-fragment></div>
+
+
+  <div class="commit-meta p-2 d-flex flex-wrap">
+    <div class="AvatarStack flex-self-start  " >
+  <div class="AvatarStack-body" aria-label="phillipj" >
+      <a class="avatar avatar-user" style="width:20px;height:20px;" data-skip-pjax="true" data-test-selector="commits-avatar-stack-avatar-link" data-hovercard-type="user" data-hovercard-url="/users/phillipj/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/phillipj">
+        <img data-test-selector="commits-avatar-stack-avatar-image" src="https://avatars.githubusercontent.com/u/1231635?s=40&amp;v=4" width="20" height="20" alt="@phillipj" class=" avatar-user" />
+</a>  </div>
+</div>
+
+    <div class="flex-self-start no-wrap mr-md-4 mr-0">
+      
+      <a href="https://github.com/janl/mustache.js/commits?author=phillipj"
+     class="commit-author user-mention"
+     title="View all commits by phillipj">phillipj</a>
+
+
+  committed
+  <relative-time datetime="2021-03-05T20:30:49Z" class="no-wrap">Mar 5, 2021</relative-time>
+
+      <div class="d-none d-md-inline-block">
+          
+
+      </div>
+    </div>
+    <div class="flex-auto no-wrap text-lg-right text-left overflow-x-auto">
+      <span class="sha-block ml-0" data-pjax>
+        1 parent
+          
+          <a class="sha" data-hotkey="p" href="https://github.com/janl/mustache.js/commit/a93c39eef286bdbaa3562902d7870b1d6444ecad">a93c39e</a>
+      </span>
+      <span class="sha-block">commit <span class="sha user-select-contain">d4a50420c5fc7da546ec8653a0def48a81d77dd5</span></span>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <a name="diff-stat"></a>
+      <div id="toc" class="details-collapse table-of-contents js-details-container Details">
+  <div class="BtnGroup float-right ml-2" data-ga-load="Diff, view, Viewed Unified Diff">
+  <a class="btn btn-sm BtnGroup-item selected"
+    aria-current="true"
+    href="https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5?branch=d4a50420c5fc7da546ec8653a0def48a81d77dd5&amp;diff=unified">
+    Unified
+  </a>
+  <a class="btn btn-sm BtnGroup-item"
+    
+    href="https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5?branch=d4a50420c5fc7da546ec8653a0def48a81d77dd5&amp;diff=split">
+    Split
+  </a>
+</div>
+
+
+  <div class="toc-diff-stats">
+    <svg class="octicon octicon-file-diff" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V4.664a.25.25 0 00-.073-.177l-2.914-2.914a.25.25 0 00-.177-.073H2.75zM1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V1.75zm7 1.5a.75.75 0 01.75.75v1.5h1.5a.75.75 0 010 1.5h-1.5v1.5a.75.75 0 01-1.5 0V7h-1.5a.75.75 0 010-1.5h1.5V4A.75.75 0 018 3.25zm-3 8a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"></path></svg>
+    Showing
+    <button type="button" class="btn-link js-details-target" aria-expanded="false">
+      4 changed files
+    </button>
+    with
+    <strong>47 additions</strong>
+    and <strong>13 deletions</strong>.
+  </div>
+
+  <ol class="content collapse js-transitionable">
+    <li>
+      <span class="diffstat float-right">
+          <span class="color-text-success">
+            +8
+          </span>
+          <span class="color-text-danger">
+            −0
+          </span>
+          <a href="#diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00" class="tooltipped tooltipped-s" aria-label="8 lines changed">
+            <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span>
+          </a>
+      </span>
+      <svg title="added" class="octicon octicon-diff-added" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.25 2.5H2.75a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V2.75a.25.25 0 00-.25-.25zM2.75 1h10.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 15H2.75A1.75 1.75 0 011 13.25V2.75C1 1.784 1.784 1 2.75 1zM8 4a.75.75 0 01.75.75v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5A.75.75 0 018 4z"></path></svg>
+      <a href="#diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00">.esmrc</a>
+    </li>
+    <li>
+      <span class="diffstat float-right">
+          <span class="color-text-success">
+            +36
+          </span>
+          <span class="color-text-danger">
+            −11
+          </span>
+          <a href="#diff-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519" class="tooltipped tooltipped-s" aria-label="47 lines changed">
+            <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span>
+          </a>
+      </span>
+      <svg title="modified" class="octicon octicon-diff-modified" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25H2.75a.25.25 0 01-.25-.25V2.75a.25.25 0 01.25-.25zM13.25 1H2.75A1.75 1.75 0 001 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0015 13.25V2.75A1.75 1.75 0 0013.25 1zM8 10a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+      <a href="#diff-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519">package-lock.json</a>
+    </li>
+    <li>
+      <span class="diffstat float-right">
+          <span class="color-text-success">
+            +2
+          </span>
+          <span class="color-text-danger">
+            −1
+          </span>
+          <a href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519" class="tooltipped tooltipped-s" aria-label="3 lines changed">
+            <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span>
+          </a>
+      </span>
+      <svg title="modified" class="octicon octicon-diff-modified" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25H2.75a.25.25 0 01-.25-.25V2.75a.25.25 0 01.25-.25zM13.25 1H2.75A1.75 1.75 0 001 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0015 13.25V2.75A1.75 1.75 0 0013.25 1zM8 10a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+      <a href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519">package.json</a>
+    </li>
+    <li>
+      <span class="diffstat float-right">
+          <span class="color-text-success">
+            +1
+          </span>
+          <span class="color-text-danger">
+            −1
+          </span>
+          <a href="#diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2" class="tooltipped tooltipped-s" aria-label="2 lines changed">
+            <span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span>
+          </a>
+      </span>
+      <svg title="modified" class="octicon octicon-diff-modified" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 01.25.25v10.5a.25.25 0 01-.25.25H2.75a.25.25 0 01-.25-.25V2.75a.25.25 0 01.25-.25zM13.25 1H2.75A1.75 1.75 0 001 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0015 13.25V2.75A1.75 1.75 0 0013.25 1zM8 10a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+      <a href="#diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2">test/cli-test.js</a>
+    </li>
+  </ol>
+</div>
+
+    
+<div id="files" class="diff-view  js-diff-container">
+
+  <div class="js-diff-progressive-container">
+    
+<div id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00"
+     data-details-container-group="file"
+     class="file js-file js-details-container js-targetable-element Details
+              Details--on open
+             
+             
+             
+             
+             
+              show-inline-notes
+             
+           "
+          data-file-type="dotfile"
+          data-file-deleted="false"
+      >
+  <div class="file-header d-flex flex-md-row flex-column flex-md-items-center file-header--expandable js-file-header "
+    data-path=".esmrc"
+    data-short-path="d2d217f"
+    data-anchor="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00"
+    data-file-type="dotfile"
+    data-file-deleted="false"
+    >
+    <div class="file-info flex-auto min-width-0 mb-md-0 mb-2">
+      <button type="button" class="btn-octicon js-details-target" aria-label="Toggle diff contents" aria-expanded="true" style="width: 22px;">
+  <svg class="octicon octicon-chevron-down Details-content--hidden" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path></svg>
+  <svg class="octicon octicon-chevron-right Details-content--shown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path></svg>
+</button>
+
+
+
+
+        <span class="diffstat tooltipped tooltipped-e" aria-label="8 changes: 8 additions &amp; 0 deletions">8 <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span></span>
+
+      
+<a title=".esmrc" class="Link--primary" href="#diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00">.esmrc</a>
+
+<clipboard-copy
+  value=".esmrc"
+  data-copy-feedback="Copied!"
+  aria-label="Copy"
+  class="js-clipboard-copy zeroclipboard-link color-text-secondary Link--onHover"
+  >
+  <svg class="octicon octicon-clippy d-inline-block mx-1 js-clipboard-clippy-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+  <svg class="octicon octicon-check js-clipboard-check-icon mx-1 d-inline-block d-none color-text-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+</clipboard-copy>
+
+
+      
+    </div>
+
+    <div class="file-actions pt-0 mb-md-0 mb-2 ml-md-2 flex-shrink-0 flex-md-justify-end">
+      <div class="d-flex flex-justify-end">
+
+
+
+
+
+
+
+
+
+
+        <details class="js-file-header-dropdown dropdown details-overlay details-reset pr-2 pl-2">
+          <summary class="height-full">
+            <div class="height-full d-flex flex-items-center Link--secondary">
+              <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            </div>
+          </summary>
+          <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover color-text-primary position-absolute f5" style="width:185px; z-index:99; right: -4px;">
+                          <label role="menuitemradio" class="dropdown-item btn-link text-normal d-block pl-5" tabindex="0" aria-checked="true">
+              <span class="position-absolute ml-n4"><svg class="octicon octicon-check" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
+              <input type="checkbox" checked class="d-none js-toggle-file-notes">
+              Show comments
+            </label>
+
+                        <div role="none" class="dropdown-divider"></div>
+
+                          <a href="https://github.com/janl/mustache.js/blob/d4a50420c5fc7da546ec8653a0def48a81d77dd5/.esmrc"
+   class="pl-5 dropdown-item btn-link"
+   rel="nofollow"
+   role="menuitem"
+   data-ga-click="View file, click, location:files_changed_dropdown"
+   >
+   View file
+</a>
+
+
+                                <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to make changes.">
+      Edit file
+    </button>
+
+
+                              <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to delete this file.">
+    Delete file
+  </button>
+
+
+                        <div role="none" class="dropdown-divider"></div>
+
+              
+
+              
+          </details-menu>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="js-file-content Details-content--hidden"
+    data-hydro-view="{&quot;event_type&quot;:&quot;pull_request.select_diff_range&quot;,&quot;payload&quot;:{&quot;actor_id&quot;:null,&quot;pull_request_id&quot;:null,&quot;repository_id&quot;:null,&quot;diff_type&quot;:&quot;UNIFIED&quot;,&quot;whitespace_ignored&quot;:false,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-view-hmac="214148208fdc43c0dee2ef23da8a06a536f5a65252986ca5e553f355d7b39afa">
+        <div class="data highlight js-blob-wrapper " style="overflow-x: auto">
+          <table class="diff-table js-diff-table tab-size  " data-tab-size="8" data-diff-anchor="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00" data-paste-markdown-skip>
+
+                
+      <tr data-position="0">
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00HL0" class="blob-num blob-num-hunk non-expandable" data-line-number="..."></td>
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00HR1" class="blob-num blob-num-hunk non-expandable" data-line-number="..."></td>
+    <td class="blob-code blob-code-inner blob-code-hunk">@@ -0,0 +1,8 @@</td>
+  </tr>
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R1" data-line-number="1"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">{</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R2" data-line-number="2"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">  cjs: {</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R3" data-line-number="3"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    // Ensure ESM `export default` ends up as the root, e.g. `module.exports` when</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R4" data-line-number="4"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    // being `require()`d from CJS code. This is not spec compliant, but that does</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R5" data-line-number="5"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    // not matter because only use this `esm` package trickery locally while testing</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R6" data-line-number="6"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    dedefault: true</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R7" data-line-number="7"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">  }</span></td>
+</tr>
+
+
+
+    <tr data-hunk="394a71cf3b46c7564bb47855259c6ef4064ee7df053efd4010b6d59611e177fa">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-d2d217f0ebbb1f0a7017f9a59527123facb9603e9b0903d58abdb40c20ca8c00R8" data-line-number="8"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">}</span></td>
+</tr>
+
+
+
+
+
+          </table>
+        </div>
+
+  </div>
+</div>
+
+    
+<div id="diff-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519"
+     data-details-container-group="file"
+     class="file js-file js-details-container js-targetable-element Details
+              Details--on open
+             
+             
+             
+             
+             hide-file-notes-toggle
+              show-inline-notes
+             
+           "
+          data-file-type=".json"
+          data-file-deleted="false"
+            data-file-manifest
+      >
+  <div class="file-header d-flex flex-md-row flex-column flex-md-items-center file-header--expandable js-file-header "
+    data-path="package-lock.json"
+    data-short-path="053150b"
+    data-anchor="diff-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519"
+    data-file-type=".json"
+    data-file-deleted="false"
+    >
+    <div class="file-info flex-auto min-width-0 mb-md-0 mb-2">
+      <button type="button" class="btn-octicon js-details-target" aria-label="Toggle diff contents" aria-expanded="true" style="width: 22px;">
+  <svg class="octicon octicon-chevron-down Details-content--hidden" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path></svg>
+  <svg class="octicon octicon-chevron-right Details-content--shown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path></svg>
+</button>
+
+
+
+
+        <span class="diffstat tooltipped tooltipped-e" aria-label="47 changes: 36 additions &amp; 11 deletions">47 <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span></span>
+
+      
+<a title="package-lock.json" class="Link--primary" href="#diff-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519">package-lock.json</a>
+
+<clipboard-copy
+  value="package-lock.json"
+  data-copy-feedback="Copied!"
+  aria-label="Copy"
+  class="js-clipboard-copy zeroclipboard-link color-text-secondary Link--onHover"
+  >
+  <svg class="octicon octicon-clippy d-inline-block mx-1 js-clipboard-clippy-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+  <svg class="octicon octicon-check js-clipboard-check-icon mx-1 d-inline-block d-none color-text-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+</clipboard-copy>
+
+
+      
+    </div>
+
+    <div class="file-actions pt-0 mb-md-0 mb-2 ml-md-2 flex-shrink-0 flex-md-justify-end">
+      <div class="d-flex flex-justify-end">
+
+
+
+
+
+
+
+
+
+
+        <details class="js-file-header-dropdown dropdown details-overlay details-reset pr-2 pl-2">
+          <summary class="height-full">
+            <div class="height-full d-flex flex-items-center Link--secondary">
+              <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            </div>
+          </summary>
+          <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover color-text-primary position-absolute f5" style="width:185px; z-index:99; right: -4px;">
+                          <label role="menuitemradio" class="dropdown-item btn-link text-normal d-block pl-5" tabindex="0" aria-checked="true">
+              <span class="position-absolute ml-n4"><svg class="octicon octicon-check" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
+              <input type="checkbox" checked class="d-none js-toggle-file-notes">
+              Show comments
+            </label>
+
+                        <div role="none" class="dropdown-divider"></div>
+
+                          <a href="https://github.com/janl/mustache.js/blob/d4a50420c5fc7da546ec8653a0def48a81d77dd5/package-lock.json"
+   class="pl-5 dropdown-item btn-link"
+   rel="nofollow"
+   role="menuitem"
+   data-ga-click="View file, click, location:files_changed_dropdown"
+   >
+   View file
+</a>
+
+
+                                <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to make changes.">
+      Edit file
+    </button>
+
+
+                              <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to delete this file.">
+    Delete file
+  </button>
+
+
+                        <div role="none" class="dropdown-divider"></div>
+
+              
+
+              
+          </details-menu>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="js-file-content Details-content--hidden"
+    data-hydro-view="{&quot;event_type&quot;:&quot;pull_request.select_diff_range&quot;,&quot;payload&quot;:{&quot;actor_id&quot;:null,&quot;pull_request_id&quot;:null,&quot;repository_id&quot;:null,&quot;diff_type&quot;:&quot;UNIFIED&quot;,&quot;whitespace_ignored&quot;:false,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-view-hmac="214148208fdc43c0dee2ef23da8a06a536f5a65252986ca5e553f355d7b39afa">
+          <div class="js-diff-load-container">
+            <include-fragment data-fragment-url="/janl/mustache.js/diffs/1?commit=d4a50420c5fc7da546ec8653a0def48a81d77dd5&amp;sha1=a93c39eef286bdbaa3562902d7870b1d6444ecad&amp;sha2=d4a50420c5fc7da546ec8653a0def48a81d77dd5" class="js-diff-entry-loader px-3 py-4 position-relative">
+                <div>
+                </div>
+
+              <div data-hide-on-error>
+                <svg aria-hidden="true" class="width-full" style="max-width: 340px;" height="84" viewBox="0 0 340 84" xmlns="http://www.w3.org/2000/svg" class="d-block">
+                  <path class="js-diff-placeholder" clip-path="url(#diff-placeholder)" d="M0 0h340v84H0z" style="fill: var(--color-bg-tertiary)" fill-rule="evenodd"></path>
+                </svg>
+
+                <button type="button" class="load-diff-button btn-link width-full
+                  position-absolute top-0 left-0 height-full f4 no-underline js-diff-load" data-disable-with="Loading…" aria-describedby="hidden-diff-reason-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519">
+                  <div class="text-bold f4 mb-3 js-button-text">Load diff</div>
+                </button>
+                  <div class="d-flex flex-items-center flex-justify-center position-absolute top-0 left-0 height-full width-full">
+                    <p id="hidden-diff-reason-053150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519" class="hidden-diff-reason color-text-tertiary f6 mt-4 mb-0 text-center">
+                        Some generated files are not rendered by default. <a class="js-ignore-this" href="https://docs.github.com/github/administering-a-repository/customizing-how-changed-files-appear-on-github">Learn more</a>.
+                    </p>
+                  </div>
+              </div>
+
+              <div class="load-diff-retry text-center p-1" data-show-on-error hidden>
+                <svg class="octicon octicon-alert color-text-danger mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+                Oops, something went wrong.
+                <button type="button" class="btn-link" data-retry-button>Retry</button>
+              </div>
+            </include-fragment>
+          </div>
+
+  </div>
+</div>
+
+    
+<div id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+     data-details-container-group="file"
+     class="file js-file js-details-container js-targetable-element Details
+              Details--on open
+             
+             
+             
+             
+             
+              show-inline-notes
+             
+           "
+          data-file-type=".json"
+          data-file-deleted="false"
+            data-file-manifest
+      >
+  <div class="file-header d-flex flex-md-row flex-column flex-md-items-center file-header--expandable js-file-header "
+    data-path="package.json"
+    data-short-path="7ae45ad"
+    data-anchor="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+    data-file-type=".json"
+    data-file-deleted="false"
+    >
+    <div class="file-info flex-auto min-width-0 mb-md-0 mb-2">
+      <button type="button" class="btn-octicon js-details-target" aria-label="Toggle diff contents" aria-expanded="true" style="width: 22px;">
+  <svg class="octicon octicon-chevron-down Details-content--hidden" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path></svg>
+  <svg class="octicon octicon-chevron-right Details-content--shown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path></svg>
+</button>
+
+
+        <div class="js-expand-full-wrapper d-inline">
+          <button
+            type="button"
+            class="btn-link color-text-tertiary no-underline js-expand-full directional-expander tooltipped tooltipped-se"
+            aria-label="Expand all"
+            data-url="/janl/mustache.js/blob_expand/71312e0fd0369e5f66a90dc2be80cd011bf2d7f5?diff=unified&amp;direction=full&amp;mode=100644&amp;path=package.json"
+          >
+            <svg aria-label="Expand all" aria-hidden="false" class="octicon octicon-unfold" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path d="M8.177.677l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25a.75.75 0 01-1.5 0V4H5.104a.25.25 0 01-.177-.427L7.823.677a.25.25 0 01.354 0zM7.25 10.75a.75.75 0 011.5 0V12h2.146a.25.25 0 01.177.427l-2.896 2.896a.25.25 0 01-.354 0l-2.896-2.896A.25.25 0 015.104 12H7.25v-1.25zm-5-2a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </button>
+          <button
+            type="button"
+            class="btn-link color-text-tertiary no-underline js-collapse-diff tooltipped tooltipped-se"
+            aria-label="Collapse expanded lines"
+            hidden
+          >
+            <svg aria-label="Collapse added diff lines" aria-hidden="false" class="octicon octicon-fold" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path d="M10.896 2H8.75V.75a.75.75 0 00-1.5 0V2H5.104a.25.25 0 00-.177.427l2.896 2.896a.25.25 0 00.354 0l2.896-2.896A.25.25 0 0010.896 2zM8.75 15.25a.75.75 0 01-1.5 0V14H5.104a.25.25 0 01-.177-.427l2.896-2.896a.25.25 0 01.354 0l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25zm-6.5-6.5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </button>
+        </div>
+
+
+        <span class="diffstat tooltipped tooltipped-e" aria-label="3 changes: 2 additions &amp; 1 deletion">3 <span class="diffstat-block-added"></span><span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span></span>
+
+      
+<a title="package.json" class="Link--primary" href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519">package.json</a>
+
+<clipboard-copy
+  value="package.json"
+  data-copy-feedback="Copied!"
+  aria-label="Copy"
+  class="js-clipboard-copy zeroclipboard-link color-text-secondary Link--onHover"
+  >
+  <svg class="octicon octicon-clippy d-inline-block mx-1 js-clipboard-clippy-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+  <svg class="octicon octicon-check js-clipboard-check-icon mx-1 d-inline-block d-none color-text-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+</clipboard-copy>
+
+
+      
+    </div>
+
+    <div class="file-actions pt-0 mb-md-0 mb-2 ml-md-2 flex-shrink-0 flex-md-justify-end">
+      <div class="d-flex flex-justify-end">
+
+
+
+
+
+
+
+
+
+
+        <details class="js-file-header-dropdown dropdown details-overlay details-reset pr-2 pl-2">
+          <summary class="height-full">
+            <div class="height-full d-flex flex-items-center Link--secondary">
+              <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            </div>
+          </summary>
+          <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover color-text-primary position-absolute f5" style="width:185px; z-index:99; right: -4px;">
+                          <label role="menuitemradio" class="dropdown-item btn-link text-normal d-block pl-5" tabindex="0" aria-checked="true">
+              <span class="position-absolute ml-n4"><svg class="octicon octicon-check" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
+              <input type="checkbox" checked class="d-none js-toggle-file-notes">
+              Show comments
+            </label>
+
+                        <div role="none" class="dropdown-divider"></div>
+
+                          <a href="https://github.com/janl/mustache.js/blob/d4a50420c5fc7da546ec8653a0def48a81d77dd5/package.json"
+   class="pl-5 dropdown-item btn-link"
+   rel="nofollow"
+   role="menuitem"
+   data-ga-click="View file, click, location:files_changed_dropdown"
+   >
+   View file
+</a>
+
+
+                                <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to make changes.">
+      Edit file
+    </button>
+
+
+                              <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to delete this file.">
+    Delete file
+  </button>
+
+
+                        <div role="none" class="dropdown-divider"></div>
+
+              
+
+              
+          </details-menu>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="js-file-content Details-content--hidden"
+    data-hydro-view="{&quot;event_type&quot;:&quot;pull_request.select_diff_range&quot;,&quot;payload&quot;:{&quot;actor_id&quot;:null,&quot;pull_request_id&quot;:null,&quot;repository_id&quot;:null,&quot;diff_type&quot;:&quot;UNIFIED&quot;,&quot;whitespace_ignored&quot;:false,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-view-hmac="214148208fdc43c0dee2ef23da8a06a536f5a65252986ca5e553f355d7b39afa">
+        <div class="data highlight js-blob-wrapper " style="overflow-x: auto">
+          <table class="diff-table js-diff-table tab-size  " data-tab-size="8" data-diff-anchor="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519" data-paste-markdown-skip>
+
+                
+      <tr class="js-expandable-line" data-position="0">
+    <td class="blob-num blob-num-expandable" colspan="2">
+          <a href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+              class="js-expand directional-expander single-expander" title="Expand Up" aria-label="Expand Up"
+              data-url="/janl/mustache.js/blob_excerpt/71312e0fd0369e5f66a90dc2be80cd011bf2d7f5?diff=unified&amp;direction=up&amp;in_wiki_context=&amp;last_left=&amp;last_right=&amp;left=31&amp;left_hunk_size=7&amp;mode=100644&amp;path=package.json&amp;right=31&amp;right_hunk_size=7"
+              data-left-range="1-30" data-right-range="1-30">
+            <svg class="octicon octicon-fold-up" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M7.823 1.677L4.927 4.573A.25.25 0 005.104 5H7.25v3.236a.75.75 0 101.5 0V5h2.146a.25.25 0 00.177-.427L8.177 1.677a.25.25 0 00-.354 0zM13.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zm-3.75.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM7.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM4 11.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM1.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path></svg>
+          </a>
+    </td>
+    <td class="blob-code blob-code-inner blob-code-hunk">@@ -31,7 +31,7 @@</td>
+  </tr>
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L31" data-line-number="31"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R31" data-line-number="31"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>build<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>cp mustache.js mustache.mjs &amp;&amp; rollup mustache.mjs --file mustache.js --format umd --name Mustache &amp;&amp; uglifyjs mustache.js &gt; mustache.min.js<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L32" data-line-number="32"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R32" data-line-number="32"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>test<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>npm run test-lint &amp;&amp; npm run test-unit<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L33" data-line-number="33"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R33" data-line-number="33"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>test-lint<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>eslint mustache.js bin/mustache test/**/*.js<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L34" data-line-number="34"
+        class="blob-num blob-num-deletion js-linkable-line-number"></td>
+
+    <td class="blob-num blob-num-deletion empty-cell"></td>
+
+  <td class="blob-code blob-code-deletion">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="-">    <span class="pl-s"><span class="pl-pds">"</span>test-unit<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>mocha --reporter spec test/*-test.js<span class="pl-pds">"</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R34" data-line-number="34"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    <span class="pl-s"><span class="pl-pds">"</span>test-unit<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>mocha --reporter spec <span class="x x-first x-last">--require esm </span>test/*-test.js<span class="pl-pds">"</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L35" data-line-number="35"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R35" data-line-number="35"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>test-render<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>mocha  --reporter spec test/render-test<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L36" data-line-number="36"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R36" data-line-number="36"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>pre-test-browser<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>node test/create-browser-suite.js<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="b217a03af218a81d65e919a6ce2c7e890ca9bbc579115dc19e4cf3475fe2c38c">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L37" data-line-number="37"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R37" data-line-number="37"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>test-browser<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>npm run pre-test-browser &amp;&amp; zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+      <tr class="js-expandable-line" data-position="9">
+    <td class="blob-num blob-num-expandable" colspan="2">
+        <a href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+              class="js-expand directional-expander single-expander" title="Expand All" aria-label="Expand All"
+              data-url="/janl/mustache.js/blob_excerpt/71312e0fd0369e5f66a90dc2be80cd011bf2d7f5?diff=unified&amp;in_wiki_context=&amp;last_left=37&amp;last_right=37&amp;left=41&amp;left_hunk_size=6&amp;mode=100644&amp;path=package.json&amp;right=41&amp;right_hunk_size=7"
+              data-left-range="38-38" data-right-range="38-38">
+          <svg class="octicon octicon-unfold" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8.177.677l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25a.75.75 0 01-1.5 0V4H5.104a.25.25 0 01-.177-.427L7.823.677a.25.25 0 01.354 0zM7.25 10.75a.75.75 0 011.5 0V12h2.146a.25.25 0 01.177.427l-2.896 2.896a.25.25 0 01-.354 0l-2.896-2.896A.25.25 0 015.104 12H7.25v-1.25zm-5-2a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+        </a>
+    </td>
+    <td class="blob-code blob-code-inner blob-code-hunk">@@ -41,6 +41,7 @@</td>
+  </tr>
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L41" data-line-number="41"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R41" data-line-number="41"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">  <span class="pl-s"><span class="pl-pds">&quot;</span>devDependencies<span class="pl-pds">&quot;</span></span>: {</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L42" data-line-number="42"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R42" data-line-number="42"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>chai<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^3.4.0<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L43" data-line-number="43"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R43" data-line-number="43"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>eslint<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^6.5.1<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R44" data-line-number="44"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">    <span class="pl-s"><span class="pl-pds">&quot;</span>esm<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^3.2.25<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L44" data-line-number="44"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R45" data-line-number="45"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>jshint<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^2.9.5<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L45" data-line-number="45"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R46" data-line-number="46"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>mocha<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^3.0.2<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+    <tr data-hunk="9669679c5dd0cdd66db1bbb46971f6148b7690f2e5931f75ec9300570d804ab1">
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L46" data-line-number="46"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R47" data-line-number="47"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class="pl-s"><span class="pl-pds">&quot;</span>puppeteer<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>^2.0.0<span class="pl-pds">&quot;</span></span>,</span></td>
+</tr>
+
+
+
+  <tr class="js-expandable-line" data-position="">
+    <td class="blob-num blob-num-expandable" colspan="2">
+          <a href="#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+                class="js-expand directional-expander single-expander" title="Expand Down" aria-label="Expand Down"
+                data-url="/janl/mustache.js/blob_excerpt/71312e0fd0369e5f66a90dc2be80cd011bf2d7f5?diff=unified&amp;direction=down&amp;in_wiki_context=&amp;last_left=46&amp;last_right=47&amp;left=60&amp;left_hunk_size=&amp;mode=100644&amp;path=package.json&amp;right=60&amp;right_hunk_size="
+                data-left-range="47-59" data-right-range="48-59">
+            <svg class="octicon octicon-fold-down" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8.177 14.323l2.896-2.896a.25.25 0 00-.177-.427H8.75V7.764a.75.75 0 10-1.5 0V11H5.104a.25.25 0 00-.177.427l2.896 2.896a.25.25 0 00.354 0zM2.25 5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 4.25a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5a.75.75 0 01.75.75zM8.25 5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 4.25a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5a.75.75 0 01.75.75zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </a>
+    </td>
+    <td class="blob-code blob-code-inner blob-code-hunk"></td>
+  </tr>
+
+
+          </table>
+        </div>
+
+  </div>
+</div>
+
+    
+<div id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2"
+     data-details-container-group="file"
+     class="file js-file js-details-container js-targetable-element Details
+              Details--on open
+             
+             
+             
+             
+             
+              show-inline-notes
+             
+           "
+          data-file-type=".js"
+          data-file-deleted="false"
+      >
+  <div class="file-header d-flex flex-md-row flex-column flex-md-items-center file-header--expandable js-file-header "
+    data-path="https://github.com/janl/mustache.js/commit/test/cli-test.js"
+    data-short-path="ec7e384"
+    data-anchor="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2"
+    data-file-type=".js"
+    data-file-deleted="false"
+    >
+    <div class="file-info flex-auto min-width-0 mb-md-0 mb-2">
+      <button type="button" class="btn-octicon js-details-target" aria-label="Toggle diff contents" aria-expanded="true" style="width: 22px;">
+  <svg class="octicon octicon-chevron-down Details-content--hidden" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12.78 6.22a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06 0L3.22 7.28a.75.75 0 011.06-1.06L8 9.94l3.72-3.72a.75.75 0 011.06 0z"></path></svg>
+  <svg class="octicon octicon-chevron-right Details-content--shown" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"></path></svg>
+</button>
+
+
+        <div class="js-expand-full-wrapper d-inline">
+          <button
+            type="button"
+            class="btn-link color-text-tertiary no-underline js-expand-full directional-expander tooltipped tooltipped-se"
+            aria-label="Expand all"
+            data-url="/janl/mustache.js/blob_expand/6f7d2f872a7ff1c1a60c335b0f35010ed5cfb293?diff=unified&amp;direction=full&amp;mode=100644&amp;path=test%2Fcli-test.js"
+          >
+            <svg aria-label="Expand all" aria-hidden="false" class="octicon octicon-unfold" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path d="M8.177.677l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25a.75.75 0 01-1.5 0V4H5.104a.25.25 0 01-.177-.427L7.823.677a.25.25 0 01.354 0zM7.25 10.75a.75.75 0 011.5 0V12h2.146a.25.25 0 01.177.427l-2.896 2.896a.25.25 0 01-.354 0l-2.896-2.896A.25.25 0 015.104 12H7.25v-1.25zm-5-2a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </button>
+          <button
+            type="button"
+            class="btn-link color-text-tertiary no-underline js-collapse-diff tooltipped tooltipped-se"
+            aria-label="Collapse expanded lines"
+            hidden
+          >
+            <svg aria-label="Collapse added diff lines" aria-hidden="false" class="octicon octicon-fold" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path d="M10.896 2H8.75V.75a.75.75 0 00-1.5 0V2H5.104a.25.25 0 00-.177.427l2.896 2.896a.25.25 0 00.354 0l2.896-2.896A.25.25 0 0010.896 2zM8.75 15.25a.75.75 0 01-1.5 0V14H5.104a.25.25 0 01-.177-.427l2.896-2.896a.25.25 0 01.354 0l2.896 2.896a.25.25 0 01-.177.427H8.75v1.25zm-6.5-6.5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 016 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 8a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5A.75.75 0 0112 8zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </button>
+        </div>
+
+
+        <span class="diffstat tooltipped tooltipped-e" aria-label="2 changes: 1 addition &amp; 1 deletion">2 <span class="diffstat-block-added"></span><span class="diffstat-block-deleted"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span><span class="diffstat-block-neutral"></span></span>
+
+      
+<a title="test/cli-test.js" class="Link--primary" href="#diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2">test/cli-test.js</a>
+
+<clipboard-copy
+  value="https://github.com/janl/mustache.js/commit/test/cli-test.js"
+  data-copy-feedback="Copied!"
+  aria-label="Copy"
+  class="js-clipboard-copy zeroclipboard-link color-text-secondary Link--onHover"
+  >
+  <svg class="octicon octicon-clippy d-inline-block mx-1 js-clipboard-clippy-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 1a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-3a.75.75 0 00-.75-.75h-4.5zm.75 3V2.5h3V4h-3zm-2.874-.467a.75.75 0 00-.752-1.298A1.75 1.75 0 002 3.75v9.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-9.5a1.75 1.75 0 00-.874-1.515.75.75 0 10-.752 1.298.25.25 0 01.126.217v9.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-9.5a.25.25 0 01.126-.217z"></path></svg>
+  <svg class="octicon octicon-check js-clipboard-check-icon mx-1 d-inline-block d-none color-text-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>
+</clipboard-copy>
+
+
+      
+    </div>
+
+    <div class="file-actions pt-0 mb-md-0 mb-2 ml-md-2 flex-shrink-0 flex-md-justify-end">
+      <div class="d-flex flex-justify-end">
+
+
+
+
+
+
+
+
+
+
+        <details class="js-file-header-dropdown dropdown details-overlay details-reset pr-2 pl-2">
+          <summary class="height-full">
+            <div class="height-full d-flex flex-items-center Link--secondary">
+              <svg aria-label="Show options" class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg>
+            </div>
+          </summary>
+          <details-menu class="dropdown-menu dropdown-menu-sw show-more-popover color-text-primary position-absolute f5" style="width:185px; z-index:99; right: -4px;">
+                          <label role="menuitemradio" class="dropdown-item btn-link text-normal d-block pl-5" tabindex="0" aria-checked="true">
+              <span class="position-absolute ml-n4"><svg class="octicon octicon-check" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></span>
+              <input type="checkbox" checked class="d-none js-toggle-file-notes">
+              Show comments
+            </label>
+
+                        <div role="none" class="dropdown-divider"></div>
+
+                          <a href="https://github.com/janl/mustache.js/blob/d4a50420c5fc7da546ec8653a0def48a81d77dd5/test/cli-test.js"
+   class="pl-5 dropdown-item btn-link"
+   rel="nofollow"
+   role="menuitem"
+   data-ga-click="View file, click, location:files_changed_dropdown"
+   >
+   View file
+</a>
+
+
+                                <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to make changes.">
+      Edit file
+    </button>
+
+
+                              <button type="button" disabled role="menuitem" class="pl-5 dropdown-item btn-link" aria-label="You must be signed in and have push access to delete this file.">
+    Delete file
+  </button>
+
+
+                        <div role="none" class="dropdown-divider"></div>
+
+              
+
+              
+          </details-menu>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="js-file-content Details-content--hidden"
+    data-hydro-view="{&quot;event_type&quot;:&quot;pull_request.select_diff_range&quot;,&quot;payload&quot;:{&quot;actor_id&quot;:null,&quot;pull_request_id&quot;:null,&quot;repository_id&quot;:null,&quot;diff_type&quot;:&quot;UNIFIED&quot;,&quot;whitespace_ignored&quot;:false,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-view-hmac="214148208fdc43c0dee2ef23da8a06a536f5a65252986ca5e553f355d7b39afa">
+        <div class="data highlight js-blob-wrapper " style="overflow-x: auto">
+          <table class="diff-table js-diff-table tab-size  " data-tab-size="8" data-diff-anchor="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2" data-paste-markdown-skip>
+
+                
+      <tr class="js-expandable-line" data-position="0">
+    <td class="blob-num blob-num-expandable" colspan="2">
+          <a href="#diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2"
+              class="js-expand directional-expander single-expander" title="Expand Up" aria-label="Expand Up"
+              data-url="/janl/mustache.js/blob_excerpt/6f7d2f872a7ff1c1a60c335b0f35010ed5cfb293?diff=unified&amp;direction=up&amp;in_wiki_context=&amp;last_left=&amp;last_right=&amp;left=9&amp;left_hunk_size=10&amp;mode=100644&amp;path=test%2Fcli-test.js&amp;right=9&amp;right_hunk_size=10"
+              data-left-range="1-8" data-right-range="1-8">
+            <svg class="octicon octicon-fold-up" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M7.823 1.677L4.927 4.573A.25.25 0 005.104 5H7.25v3.236a.75.75 0 101.5 0V5h2.146a.25.25 0 00.177-.427L8.177 1.677a.25.25 0 00-.354 0zM13.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zm-3.75.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM7.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM4 11.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM1.75 11a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path></svg>
+          </a>
+    </td>
+    <td class="blob-code blob-code-inner blob-code-hunk">@@ -9,10 +9,10 @@ var cliPartialsTxt = path.resolve(_files, &#39;cli_with_partials.txt&#39;);</td>
+  </tr>
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L9" data-line-number="9"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R9" data-line-number="9"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" "><span class=pl-k>var</span> <span class=pl-s1>moduleVersion</span> <span class=pl-c1>=</span> <span class=pl-en>require</span><span class=pl-kos>(</span><span class=pl-s>&#39;../package&#39;</span><span class=pl-kos>)</span><span class=pl-kos>.</span><span class=pl-c1>version</span><span class=pl-kos>;</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L10" data-line-number="10"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R10" data-line-number="10"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" "><br></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L11" data-line-number="11"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R11" data-line-number="11"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" "><span class=pl-k>function</span> <span class=pl-en>changeForOS</span> <span class=pl-kos>(</span><span class=pl-s1>command</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td class="blob-num blob-num-addition empty-cell"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R12" data-line-number="12"
+        class="blob-num blob-num-addition js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-addition">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="+">  <span class=pl-s1>command</span> <span class=pl-c1>=</span> <span class=pl-s1>command</span><span class=pl-kos>.</span><span class=pl-en>replace</span><span class=pl-kos>(</span><span class=pl-s>&#39;bin/mustache&#39;</span><span class=pl-kos>,</span> <span class=pl-s>&#39;node --require esm bin/mustache&#39;</span><span class=pl-kos>)</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L12" data-line-number="12"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R13" data-line-number="13"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" "><br></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L13" data-line-number="13"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R14" data-line-number="14"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">  <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>process</span><span class=pl-kos>.</span><span class=pl-c1>platform</span> <span class=pl-c1>===</span> <span class=pl-s>&#39;win32&#39;</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L14" data-line-number="14"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R15" data-line-number="15"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">    <span class=pl-k>return</span> <span class=pl-s1>command</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L15" data-line-number="15"
+        class="blob-num blob-num-deletion js-linkable-line-number"></td>
+
+    <td class="blob-num blob-num-deletion empty-cell"></td>
+
+  <td class="blob-code blob-code-deletion">
+    <span class='blob-code-inner blob-code-marker' data-code-marker="-">      <span class=pl-kos>.</span><span class=pl-en>replace</span><span class=pl-kos>(</span><span class=pl-pds><span class=pl-c1>/</span>bin<span class=pl-cce>\/</span>mustache<span class=pl-c1>/</span>g</span><span class=pl-kos>,</span> <span class=pl-s>&#39;node bin\\mustache&#39;</span><span class=pl-kos>)</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L16" data-line-number="16"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R16" data-line-number="16"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">      <span class=pl-kos>.</span><span class=pl-en>replace</span><span class=pl-kos>(</span><span class=pl-pds><span class=pl-c1>/</span><span class=pl-cce>\b</span>cat<span class=pl-cce>\b</span><span class=pl-c1>/</span>g</span><span class=pl-kos>,</span> <span class=pl-s>&#39;type&#39;</span><span class=pl-kos>)</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L17" data-line-number="17"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R17" data-line-number="17"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">      <span class=pl-kos>.</span><span class=pl-en>replace</span><span class=pl-kos>(</span><span class=pl-pds><span class=pl-c1>/</span><span class=pl-cce>\/</span><span class=pl-c1>/</span>g</span><span class=pl-kos>,</span> <span class=pl-s>&#39;\\&#39;</span><span class=pl-kos>)</span><span class=pl-kos>;</span></span></td>
+</tr>
+
+
+
+    <tr data-hunk="8cbd92c81fb4e9e0d3ac8d99fa3fa9893fc2e4a948077462a8a62cd1bba4d1ef">
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2L18" data-line-number="18"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+    <td id="diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2R18" data-line-number="18"
+        class="blob-num blob-num-context js-linkable-line-number"></td>
+
+  <td class="blob-code blob-code-context">
+    <span class='blob-code-inner blob-code-marker' data-code-marker=" ">  <span class=pl-kos>}</span></span></td>
+</tr>
+
+
+
+  <tr class="js-expandable-line" data-position="">
+    <td class="blob-num blob-num-expandable" colspan="2">
+          <a href="#diff-ec7e384c47a6f86e643c1356a38bdd777914207c41636347efdac4c958ad7cc2"
+                class="js-expand directional-expander single-expander" title="Expand Down" aria-label="Expand Down"
+                data-url="/janl/mustache.js/blob_excerpt/6f7d2f872a7ff1c1a60c335b0f35010ed5cfb293?diff=unified&amp;direction=down&amp;in_wiki_context=&amp;last_left=18&amp;last_right=18&amp;left=163&amp;left_hunk_size=&amp;mode=100644&amp;path=test%2Fcli-test.js&amp;right=163&amp;right_hunk_size="
+                data-left-range="19-162" data-right-range="19-162">
+            <svg class="octicon octicon-fold-down" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8.177 14.323l2.896-2.896a.25.25 0 00-.177-.427H8.75V7.764a.75.75 0 10-1.5 0V11H5.104a.25.25 0 00-.177.427l2.896 2.896a.25.25 0 00.354 0zM2.25 5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM6 4.25a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5a.75.75 0 01.75.75zM8.25 5a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5zM12 4.25a.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5h.5a.75.75 0 01.75.75zm2.25.75a.75.75 0 000-1.5h-.5a.75.75 0 000 1.5h.5z"></path></svg>
+          </a>
+    </td>
+    <td class="blob-code blob-code-inner blob-code-hunk"></td>
+  </tr>
+
+
+          </table>
+        </div>
+
+  </div>
+</div>
+
+  </div>
+
+
+</div>
+
+<button type="button" class="js-toggle-all-file-notes" data-hotkey="i" style="display:none">Toggle all file notes</button>
+
+<button type="button" class="js-toggle-all-file-annotations" data-hotkey="a" style="display:none">Toggle all file annotations</button>
+
+<svg aria-hidden="true" width="320px" height="84px" viewBox="0 0 340 84" version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  class="diff-placeholder-svg position-absolute bottom-0">
+  <defs>
+    <clippath id="diff-placeholder">
+      <rect x="0" y="0" width="67.0175439" height="11.9298746" rx="2"></rect>
+      <rect x="18.9473684" y="47.7194983" width="100.701754" height="11.9298746" rx="2"></rect>
+      <rect x="0" y="71.930126" width="37.8947368" height="11.9298746" rx="2"></rect>
+      <rect x="127.017544" y="48.0703769" width="53.3333333" height="11.9298746" rx="2"></rect>
+      <rect x="187.719298" y="48.0703769" width="72.9824561" height="11.9298746" rx="2"></rect>
+      <rect x="76.8421053" y="0" width="140.350877" height="11.9298746" rx="2"></rect>
+      <rect x="17.8947368" y="23.8597491" width="140.350877" height="11.9298746" rx="2"></rect>
+      <rect x="166.315789" y="23.8597491" width="173.684211" height="11.9298746" rx="2"></rect>
+    </clippath>
+
+    <linearGradient id="animated-diff-gradient" x1="0" x2="0" y1="0" y2="1" spreadMethod="reflect">
+      <stop offset="0" stop-color="#eee"></stop>
+      <stop offset="0.2" stop-color="#eee"></stop>
+      <stop offset="0.5" stop-color="#ddd"></stop>
+      <stop offset="0.8" stop-color="#eee"></stop>
+      <stop offset="1" stop-color="#eee"></stop>
+      <animateTransform attributeName="y1" values="0%; 100%; 0" dur="1s" repeatCount="3"></animateTransform>
+      <animateTransform attributeName="y2" values="100%; 200%; 0" dur="1s" repeatCount="3"></animateTransform>
+    </linearGradient>
+  </defs>
+</svg>
+
+
+
+  <div id="all_commit_comments" class="js-quote-selection-container" data-quote-markdown=".js-comment-body">
+
+    <div class="mb-1 mb-md-3">
+      
+<div id="partial-visible-comments-header" class="d-flex flex-items-center flex-column-reverse flex-md-row">
+  <h4 class="flex-auto text-md-left text-center">
+    0 comments
+    on commit <code class="commit-sha">d4a5042</code>
+  </h4>
+
+  <div class="flex-shrink-0 mb-2 mb-md-0">
+    
+  </div>
+</div>
+
+    </div>
+
+    <div id="comments" class="comment-holder ml-0 pl-0 ml-md-6 pl-md-3">
+      
+
+
+  <!-- Rendered timeline since 2021-03-05 12:30:49 -->
+  <div id="partial-timeline-marker"
+        class="js-timeline-marker js-socket-channel js-updatable-content"
+        data-channel="eyJjIjoicmVwbzozMjY2ODg6Y29tbWl0OmQ0YTUwNDIwYzVmYzdkYTU0NmVjODY1M2EwZGVmNDhhODFkNzdkZDUiLCJ0IjoxNjE5MjA3OTM1fQ==--023ce1fcb3dc5c0cf6d727c2c36b18ecbdc31d472dcfab3f8a9cd9e3b054e0a9"
+        data-url="/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5/show_partial?partial=commit%2Ftimeline_marker&amp;since=1614976249"
+        data-last-modified="Fri, 05 Mar 2021 20:30:49 GMT">
+
+  </div>
+
+    </div>
+
+    
+
+      Please
+  <a rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;commit comment&quot;,&quot;repository_id&quot;:326688,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="1591172e3adb8535c1884d4f815753e055105478b306fef1ffdf35852297041e" href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fjanl%2Fmustache.js%2Fcommit%2Fd4a50420c5fc7da546ec8653a0def48a81d77dd5">sign in</a> to comment.
+
+  </div>
+
+
+
+  </div>
+</div>
+
+    </main>
+  </div>
+
+  </div>
+
+          
+<div class="footer container-xl width-full p-responsive" role="contentinfo">
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 color-text-secondary border-top color-border-secondary ">
+    <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      <li class="mr-3 mr-lg-0">&copy; 2021 GitHub, Inc.</li>
+        <li class="mr-3 mr-lg-0"><a href="https://docs.github.com/en/github/site-policy/github-terms-of-service" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://docs.github.com/en/github/site-policy/github-privacy-statement" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://www.githubstatus.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:Docs" href="https://docs.github.com/">Docs</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mx-lg-4" href="https://github.com/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+    <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+        <li class="mr-3 mr-lg-0"><a href="https://support.github.com/" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://docs.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://services.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.blog/" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 color-text-tertiary"></span>
+  </div>
+
+  
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error" hidden>
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+  <div class="js-stale-session-flash flash flash-warn flash-banner" hidden
+    >
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg>
+    <span class="js-stale-session-flash-signed-in" hidden>You signed in with another tab or window. <a href="#">Reload</a> to refresh your session.</span>
+    <span class="js-stale-session-flash-signed-out" hidden>You signed out in another tab or window. <a href="#">Reload</a> to refresh your session.</span>
+  </div>
+    <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default color-text-primary hx_rsm" open>
+    <summary role="button" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast hx_rsm-dialog hx_rsm-modal">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+    <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box color-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+
+
+
+  </body>
+
+<!-- Mirrored from github.com/janl/mustache.js/commit/d4a50420c5fc7da546ec8653a0def48a81d77dd5 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 21:27:25 GMT -->
+</html>
+

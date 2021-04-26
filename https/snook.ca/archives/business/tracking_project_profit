@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Tracking Project Profitabilty - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/tracking_project_profit">
+	<meta property="og:url" content="https://snook.ca/archives/business/tracking_project_profit">
+	<meta property="og:title" content="Tracking Project Profitabilty">
+	<meta property="og:description" name="description" content="With today being the last day to file taxes here in Canada, I had the enjoyment of going over all my financial information for last year. It's been enlightening to say the least and has reinforced the...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Tracking Project Profitabilty</h1>
+		<p>With today being the last day to file taxes here in Canada, I had the enjoyment of going over all my financial information for last year. It's been enlightening to say the least and has reinforced the fact that I really need to get this under control.</p>
+<p>First and foremost my biggest mistake is not keeping track of things. For each project, this is what I should be tracking:</p>
+<ul>
+  <li><strong>Time</strong>. All hours on a project should be tracked. Even if it's a fixed-price for a project, I need to be tracking my time. </li>
+  <li><strong>Sub-contracting</strong>.  How much are I'm paying people to do work for me.
+    <ul>
+      <li>Related to sub-contracting, track how much time I'm spending to manage sub-contractors.</li>
+    </ul>
+  </li>
+  <li><strong>Expenses</strong>.  My expenses tend to be pretty minimal but sometimes I buy fonts,  photography, or involve travel. This this be tracked against the project. </li>
+</ul>
+<p>The other thing I should be doing is regular reports &mdash; preferably on a monthly basis. As it is, I've gone over a year without really understanding how profitable I might be. Sure, my bills are getting paid and I have a general sense of where things are at but I don't have any concrete proof. </p>
+<p>As it turns out, I spent a lot more on sub-contracting last year than I thought I did. But were the projects that I did that on profitable? Were they more or less profitable than other projects that I worked on? I honestly can't say because I wasn't keeping track. </p>
+<p>So, while I've made it through my first year of freelance relatively unscathed, I'm heavily reminded that I need this information if I'm going to successfully run and grow this company. </p>
+<p>And if you're curious, I'm actually using a quickly-built application for time-tracking now where I can log time for myself and subcontractors on all projects. I built it late last year but hadn't really been using it religiously. That's got to change. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published April 30, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/800</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">16 Comments &middot; <a href="/archives/business/tracking_project_profit.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c48072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48072">1</a></div>
+			<span class="authorname">Chris Garrett</span> said on April 30, 2007		</div>
+		<div class="quote"><p>I;ve had to be pretty rigorous about tracking my outgoings etc as in the UK, the tax returns are, shall we say, taxing. If you don't have a receipt, you can't claim a purchase against tax, if you have a payment coming in that doesn't match an invoice you can't include it, it's all very confusing.</p>
+<p>With regards to time tracking, may I recommend the basecamp time tracking functionality, works very well for myself.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48073">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48073">2</a></div>
+			<span class="authorname"><a href="http://briandelicata.com">Brian Delicata</a></span> said on April 30, 2007		</div>
+		<div class="quote"><p>Like you I filed my taxes last Friday after a few phone calls and meetings with my accountant. </p>
+<p>I still have not found a piece of software which can track expenses and purchases incurred whilst being self-employed that is easy to use. For Invoicing/Time Tracking and Reporting I am using Billings from <a href="//www.marketcircle.com/">MarketCircle</a>.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48077">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48077">3</a></div>
+			<span class="authorname">Mike</span> said on April 30, 2007		</div>
+		<div class="quote"><p>I originally created an internal app for this as well, then I re-did it when I had more time. I wanted software to track everything from leads, clients, projects, estimates, invoices, payments, expenses, etc. I still don't track things to the finest detail I would prefer to, but I do enough to give myself some decent reporting. </p>
+<p>I agree with your ideas - you do need to do each one. I do a monthly business report where I outline my estimated income for the month versus actual, total expenses, total profit, goals and estimates for the next month, etc.</p>
+<p>It really does help.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48079">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48079">4</a></div>
+			<span class="authorname"><a href="http://www.germworks.net">Jermayn Parker</a></span> said on April 30, 2007		</div>
+		<div class="quote"><p>Ha seems like everyone is doing it at the moment. In Australia we have to do a BAS every three months and I am using a program that I am still learning and the learning curve is huge...</p>
+<p>I pity with you mate and even though I would be on a smaller scale to you, I know how hard it is :(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48080">5</a></div>
+			<span class="authorname"><a href="http://www.mysiteonline.org/">Brendon Kozlowski</a></span> said on April 30, 2007		</div>
+		<div class="quote"><p>I recently (about a month ago) came across a different way of time-tracking.  Rather than force yourself to continuously manage your own time and mark it down as-it-occurs, you can do it once, or a few times during the day at interspersed break periods (because according to good health, we know we shouldn't be at the computer all day long!).</p>
+<p>Either way, there's both a retail version of this application and an older free version, but I really like the idea behind this tool...and you could still use your own applications, but have a better way to track things you might have otherwise missed (or forgotten about).</p>
+<p>http://timesnapper.com/
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48081">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48081">6</a></div>
+			<span class="authorname"><a href="http://www.shapeshed.com">George</a></span> said on April 30, 2007		</div>
+		<div class="quote"><p>You are so right. I recently also decided to be more disciplined about tracking my time. I'm using Basecamp's time tracker but it isn't perfect for my requirements.</p>
+<p>No plans to release your app? I suspect there are a lot of other freelancers around like you who need it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48141">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48141">7</a></div>
+			<span class="authorname"><a href="http://www.irishstu.com/">Stewart Curry</a></span> said on May 01, 2007		</div>
+		<div class="quote"><p>George has it right - do what everyone else does and build an app for yourself that is so good you end up releasing it and making piles of money!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48143">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48143">8</a></div>
+			<span class="authorname">James Oppenheim</span> said on May 01, 2007		</div>
+		<div class="quote"><p>I think that is every freelancers dream - do clients work during the day and then build a world conquering web app at night. Much like all the other super hero's.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48144">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48144">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 01, 2007		</div>
+		<div class="quote"><p>@George/Stewart: no plans to release my app. It's pretty rough with much of it still using the CakePHP scaffolding (an automated way to generate screens). I wouldn't mind building a number of small business tools but it'll have to be added to the queue of other applications I'm trying to get out the door. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48148">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48148">10</a></div>
+			<span class="authorname"><a href="http://bog.tijs.org">Tijs</a></span> said on May 01, 2007		</div>
+		<div class="quote"><p>I track my hours in Google calendar and then pull them out using google's API with a homebrew application. That way i can use google's perfect interface for data entry. </p>
+<p>I rather like that solution and it was quite easy to implement with Cake.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48150">11</a></div>
+			<span class="authorname">Mike</span> said on May 01, 2007		</div>
+		<div class="quote"><p>I use OfficeTime to track my time.<br />
+http://www.officetime.net/<br />
+I don't agree with Brendon Kozlowski (comment 5) - I prefer to track my time continuously, otherwise I always seem to put it off for days, which means that I can't remember a lot of what I spent my time on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48151">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48151">12</a></div>
+			<span class="authorname"><a href="http://www.epiphantastic.com">Thomas Messier</a></span> said on May 01, 2007		</div>
+		<div class="quote"><p>I've been using SideJobTrack.com to track my projects. Free, and definitely not perfect, but it's worked OK. I'll have to check out some of the other ones mentioned here.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48182">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48182">13</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com">Jason Beaird</a></span> said on May 03, 2007		</div>
+		<div class="quote"><p>This is precisely why I'm not currently working freelance.  I can handle estimating and time-tracking, but I'd much rather put in my 8 hours a day and go home.  Perhaps someday I'll grow up and start doing the freelance thing again - at least part time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48236">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48236">14</a></div>
+			<span class="authorname">Webice</span> said on May 06, 2007		</div>
+		<div class="quote"><p>You should try <a href="//www.dotproject.net/">Dot project</a>,<br />
+hope this helps.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48424">15</a></div>
+			<span class="authorname">Brian G</span> said on May 13, 2007		</div>
+		<div class="quote"><p>I've been using the time tracker from <a href="//www.14dayz.com">14dayz.com</a> lately to figure out how much time I'm spending on my so-called "side job", turns out on a busy week I put as much time (35-40 hours) into it doing little things like updating products or analyzing my analytics, as I do at my real full-time job.  Which means I make about .01/hr on the side business.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48697">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48697">16</a></div>
+			<span class="authorname">Gerhard Sletten</span> said on May 29, 2007		</div>
+		<div class="quote"><p>Love your new design!!</p>
+<p>I wrote this free timetracker last year. Its named Worktimer and can be downloaded from <a href="//www.gersh.no/worktimer">www.gersh.no/worktimer</a> Its a local application for mac.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<p>Checks if the given element has the specified class.</p>
+<ul>
+<li>Use <code>Element.classList</code> and <code>DOMTokenList.contains()</code> to check if the element has the specified class.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> hasClass <span class="op">=</span> (el<span class="op">,</span> className) <span class="kw">=&gt;</span> <span class="va">el</span>.<span class="va">classList</span>.<span class="at">contains</span>(className)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">hasClass</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;p.special&#39;</span>)<span class="op">,</span> <span class="st">&#39;special&#39;</span>)<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

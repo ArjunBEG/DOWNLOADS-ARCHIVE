@@ -1,0 +1,9 @@
+<p>Checks if the given argument is a number.</p>
+<ul>
+<li>Use <code>typeof</code> to check if a value is classified as a number primitive.</li>
+<li>To safeguard against <code>NaN</code>, check if <code>val === val</code> (as <code>NaN</code> has a <code>typeof</code> equal to <code>number</code> and is the only value not equal to itself).</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isNumber <span class="op">=</span> val <span class="kw">=&gt;</span> <span class="kw">typeof</span> val <span class="op">===</span> <span class="st">&#39;number&#39;</span> <span class="op">&amp;&amp;</span> val <span class="op">===</span> val<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isNumber</span>(<span class="dv">1</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isNumber</span>(<span class="st">&#39;1&#39;</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">isNumber</span>(<span class="kw">NaN</span>)<span class="op">;</span> <span class="co">// false</span></a></code></pre></div>

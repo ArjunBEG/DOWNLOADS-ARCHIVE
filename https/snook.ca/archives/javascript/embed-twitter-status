@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Embedding Twitter Status - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/embed-twitter-status">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/embed-twitter-status">
+	<meta property="og:title" content="Embedding Twitter Status">
+	<meta property="og:description" name="description" content="In building this iteration of the blog, I decided to follow that trendiest of trends and embed my latest Twitter status on my sidebar. Despite having been on Twitter for awhile and having my site link...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Embedding Twitter Status</h1>
+		<p>In building this iteration of the blog, I decided to follow that trendiest of trends and embed my latest Twitter status on my sidebar. Despite having been on Twitter for awhile and having my site linked from my Twitter account, I didn't really have anything pushing people from my site back to Twitter. </p>
+<p>Problem solved: add status to sidebar. But what's the best way to keep it up to date? I could pull in my Twitter status via PHP and display it on every request. Polling that often isn't very practical. I could cache that data. That makes sense. This is how I do the delicious.com sidebar links. About once an hour, it'll pull in the 5 most recent links and display them. </p>
+<p>However, I can sometimes get into a spree of updates and I don't necessarily want the sidebar to get out of sync too quickly. It's also not critical information. Due to the transient nature of this less important information, I wanted to keep the burden on my servers to a minimum. As a result, I decided to look at embedding a Twitter badge on my site.</p>
+<h2>Twitter Badges</h2>
+<p>Twitter offers up a few different ways to <a href="http://twitter.com/badges">embed a badge</a> on your site that automatically pulls in your latest status updates. If you choose Other, you have the choice between Flash or HTML-based widgets. </p>
+<p>I took a look at the HTML-based version and noticed that it calls in two scripts. One has a function that creates new nodes in an HTML unordered list. The other makes a call to the API but using a callback approach:</p>
+<pre><code>&lt;script src=&quot;http[...].json?callback=twitterCallback&amp;amp;count=5&quot;&gt;&lt;/script&gt;</code>
+</pre>
+<p>Within the JSON API call, a callback function is specified along with a count. All I had to do then was define my own callback function and change the count to 1 (since I only want the very latest entry).</p>
+<p><em>The callback approach returns a JSON format and passes that information through to the function name I specified. </em></p>
+<h2>The HTML</h2>
+<p>First, let's take a look at what my default HTML looks like:</p>
+<pre><code>&lt;div id=&quot;twitter&quot; class=&quot;container&quot;&gt;
+	&lt;a href=&quot;http://twitter.com/snookca&quot;&gt;&lt;img src=&quot;/img/twitter.png&quot; alt=&quot;Follow me on Twitter&quot;&gt;&lt;/a&gt;
+	&lt;p&gt;&lt;a id=&quot;twitter-post&quot; 
+		href=&quot;http://twitter.com/snookca&quot;&gt;I say witty things on Twitter.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<p>When users don't have JavaScript enabled (or if the script fails to run for whatever reason), the default code is perfectly usable. It still links people to my twitter account with a little tagline to hopefully draw people to check it out.</p>
+<p>I've added an ID, twitter-post, to the link as I'll use that to retrieve the element in my callback function. </p>
+<p><em>Always consider what should happen when users don't have JavaScript enabled.</em></p>
+<h2>The JavaScript</h2>
+<p>Here's the callback function that Twitter will call:</p>
+<pre><code>function twitterCallback(o) {<br />	o = o[0]; // o is always an array, so just get the first (and only entry)<br />	var e = document.getElementById('twitter-post');<br />	e.innerHTML = o.text;<br />	e.href = 'http://twitter.com/snookca/status/' + o.id;<br />}</code></pre>
+<p>When Twitter runs the callback, it'll return an array of statuses. With only one status to retrieve, the script goes ahead and assigns that to a simple variable. Then I grab my twitter-post link and change the contents from my witty default to my current status. I also change the URL to point to that specific tweet, instead of simply linking to my Twitter home page.</p>
+<p>And that's it! Four lines of code with not a single JavaScript framework to be found!</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published February 18, 2009 &middot; Updated February 18, 2009</div>
+	<div class="cat">Categorized as <a href="/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/930</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">38 Comments &middot; <a href="/archives/javascript/embed-twitter-status.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c62869">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62869">1</a></div>
+			<span class="authorname">Mike T.</span> said on February 18, 2009		</div>
+		<div class="quote"><p>Very nice. I especially like how your version degrades without JavaScript--I don't think I've seen that before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62870">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62870">2</a></div>
+			<span class="authorname"><a href="http://cheeaun.com/">Lim Chee Aun</a></span> said on February 18, 2009		</div>
+		<div class="quote"><p>I think the callback function should have some fallback checking in case Twitter (API) is down? :P
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c62871">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62871">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 18, 2009		</div>
+		<div class="quote"><p>@Lim Chee Aun: The callback function only gets called if the script from Twitter loads. So, if Twitter is down, callback doesn't run. Problem solved. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62872">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62872">4</a></div>
+			<span class="authorname">saurabh shah</span> said on February 18, 2009		</div>
+		<div class="quote"><p>nice post ... short and simple :) ... thanx for sharing ..
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62873">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62873">5</a></div>
+			<span class="authorname">Jason Lengstorf</span> said on February 18, 2009		</div>
+		<div class="quote"><p>I had written a custom solution as well, but this one is far and away easier than mine.</p>
+<p>Kind of makes mine look like a DailyWTF, actually...</p>
+<p>Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62884">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62884">6</a></div>
+			<span class="authorname">Paul Decowski</span> said on February 19, 2009		</div>
+		<div class="quote"><p>Iâ€™m curious about your decision to link a tweetâ€™s text to the status on Twitter. This way if you post a link (or @) it wonâ€™t be clickable directly from your website.</p>
+<p>Wouldnâ€™t it be a smarter choice to include the â€œposted X agoâ€ and permalink that, leaving the ability to click on any links in your tweet?</p>
+<p>Of course youâ€™d need to parse the @s and links because Twitter returns plain text (thatâ€™s what I do on my website, if you want regexesâ€”give me a shout).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c62888">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62888">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 19, 2009		</div>
+		<div class="quote"><p>I linked it through to the status because of two reasons. 1) The twitter badge isn't meant to disemminate information (that's what I have the blog and delicious links for). Which leads me to number 2) The twitter badge is meant to let people know that I Twitter, so I'm trying to direct people to my Twitter page.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62891">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62891">8</a></div>
+			<span class="authorname">Ben Carlson</span> said on February 19, 2009		</div>
+		<div class="quote"><p>Would it be a good idea to only display specific tweets with a self-defined hashtag? Maybe #w for website. I'm certainly not the perfect Twitter user, but I know that some of my tweets aren't valuable: a reply to someone's comment, a thank you to someone helping me out, etc. With a hash tag I could make sure that what's on my web site is relevant.</p>
+<p>Just a thought.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62894">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62894">9</a></div>
+			<span class="authorname">Michael Hoskins</span> said on February 19, 2009		</div>
+		<div class="quote"><p>Thanks for this post. I was under the impression that Twitter could only be accessed through a specific API that I didn't want to learn. I was able to get a basic Twitter sidebar going in about 10 minutes this way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62897">10</a></div>
+			<span class="authorname">John Cartago</span> said on February 19, 2009		</div>
+		<div class="quote"><p>I've seen different ways to embed twitter updates, but this way seems to load so much faster than ones I've previously used. Thanks for the share!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62898">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62898">11</a></div>
+			<span class="authorname">Chris</span> said on February 19, 2009		</div>
+		<div class="quote"><p>A few months ago I wrote my own, solely-image-based Twitter badge, and decided to throw a frontend on it for public use.</p>
+<p>You can find it at http://twitstamp.com</p>
+<p>It updates every 15 minutes right now, because realtime updates were killing the server.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62901">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62901">12</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris Wallace</a></span> said on February 19, 2009		</div>
+		<div class="quote"><p>I like the simplicity of your twitter badge. I am using a WordPress plugin that my homeslice <a href="//www.komodomedia.com">Rogie</a> gave me that makes use of Twitter Search. It basically pulls my own tweets and @replies into the stream so it turns it into a conversation. It caches the tweets for 15 minutes.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62930">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62930">13</a></div>
+			<span class="authorname"><a href="http://www.thewatchmakerproject.com/">Matthew Pennell</a></span> said on February 20, 2009		</div>
+		<div class="quote"><p>I went the slurp and cache route with my Twitter status when I redesigned, but I like this approach too, especially the fallback (mine is that if Twitter is down, I still have the last successful tweet cached as static HTML).</p>
+<p>One thing I did add was some basic language parsing - removing "is" or "has" from the start (if present), capitalising the first word, and converting URLs and @replies into live links.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62936">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62936">14</a></div>
+			<span class="authorname">Byron Rode</span> said on February 22, 2009		</div>
+		<div class="quote"><p>I am busy designing my new blog and saw this in NewsFire.</p>
+<p>It is a very interesting approach, but wanted a bit more functionality, so I had a look through their function they call to style the output and took it apart a bit and used what I could from their function in my own, and mine now is pretty much similiar to that of most apps.</p>
+<p>all @links work, as well as showing the relative time, with a link to the actual status on Twitter.com as well as the app used to make the last tweet.</p>
+<p>Code included below. Lets hope it shows correctly.</p>
+<pre><code>
+function twitterCallback(o) {
+	obj = o[0];
+	var output = document.getElementById('twitter-text');
+	output.text = obj.text.replace(/((https?|s?ftp|ssh)://[^"s&lt;&gt;]*[^.,;'"&gt;:s&lt;&gt;)]!])/g,function(F){return'<a href="'+F+'">'+F+"</a>"}).replace(/B@([_a-z0-9]+)/ig,function(F){return F.charAt(0)+'<a href="//www.twitter.com/'+F.substring(1)+'">'+F.substring(1)+"</a>"});
+	output.src  = obj.source;
+	output.href = 'http://twitter.com/byronrode/status/' + obj.id;
+	output.time = '<a href="' + output.href + '">' + get_relative_time(obj.created_at) + '</a>';
+
+	function get_relative_time(obj){
+		var b=obj.split(" ");
+		obj=b[1]+" "+b[2]+", "+b[5]+" "+b[3];
+		var a=Date.parse(obj);
+		var d=(arguments.length&gt;1)?arguments[1]:new Date();
+		var e=parseInt((d.getTime()-a)/1000);
+		e=e+(d.getTimezoneOffset()*60);
+		if(e&lt;60){return"less than a minute ago"}else{if(e&lt;120){return"about a minute ago"}else{if(e&lt;(60*60)){return(parseInt(e/60)).toString()+" minutes ago"}else{if(e&lt;(120*60)){return"about an hour ago"}else{if(e&lt;(24*60*60)){return"about "+(parseInt(e/3600)).toString()+" hours ago"}else{if(e&lt;(48*60*60)){return"1 day ago"}else{return(parseInt(e/86400)).toString()+" days ago"}}}}}}
+	};
+
+	output.innerHTML = output.text + '&lt;span class=&quot;twitter-info&quot;&gt;' + output.time + ' via ' + output.src + '&lt;/span&gt;' ;
+
+}
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c62937">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62937">15</a></div>
+			<span class="authorname"><a href="http://www.byronrode.co.za">Byron Rode</a></span> said on February 22, 2009		</div>
+		<div class="quote"><p>The code showed nicely, but due to the availability of HTML within the comments some of code was converted to an actual link. Full code can be found here.</p>
+<p>http://pastebin.com/f3075854
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62940">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62940">16</a></div>
+			<span class="authorname">Jason Green</span> said on February 24, 2009		</div>
+		<div class="quote"><p>Nice tutorial! Cheers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62943">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62943">17</a></div>
+			<span class="authorname">Nick Rinylo</span> said on February 25, 2009		</div>
+		<div class="quote"><p>I have installed the HTML and java and it doesn't seem to recall my latest post. Can i just put the java in a general script file or does it need to be embedded into the html?</p>
+<p>I think i may be doing it slightly wrong.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62944">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62944">18</a></div>
+			<span class="authorname">Remy Sharp</span> said on February 25, 2009		</div>
+		<div class="quote"><p>For those asking about linkifying the @replies - I wrote a <a href="//code.google.com/p/twitterjs/">small Twitter library</a> that gives you a bunch of options, but also includes some pretty solid linkify logic - which you're more than welcome to steal :-)</p>
+<p>Just run the o.text through the following function:</p>
+<pre><code>function linkify(s) {
+  var entities = {
+    '&quot;' : '&amp;quot;',
+    '&amp;' : '&amp;amp;',
+    '&lt;' : '&amp;lt;',
+    '&gt;' : '&amp;gt'
+  };
+
+  return s.replace(/[A-Za-z]+://[A-Za-z0-9-_]+.[A-Za-z0-9-_:%&amp;?/.=]+/g, function(m) {
+    return m.link(m);
+  }).replace(/(^|[^w])(@[dw-]+)/g, function(d, m1, m2) {
+    return m1 + '@&lt;a href=&quot;http://twitter.com/' + m2.substr(1) + '&quot;&gt;' + m2.substr(1) + '&lt;/a&gt;';
+  }).replace(/&quot;&amp;&lt;&gt;/, function (m) {
+    return entities[m];
+  });
+}</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c62964">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62964">19</a></div>
+			<span class="authorname">zeen</span> said on March 02, 2009		</div>
+		<div class="quote"><p>If this site is in CakePHP then check out the model I created on my site which will grab your Twitter feeds. It needs a bit of fine tuning though.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62969">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62969">20</a></div>
+			<span class="authorname">J.Naveen</span> said on March 03, 2009		</div>
+		<div class="quote"><p>Hi, this is really impressed but I have a doubt you said twitter will call the call back function that is written by us and placed in our page. actually i am trying to write a code that is I want to provide a widget to my site when the user looking at my articles if he is logged in gmail account in the another tab or in the another window then I have to show the message dialogue box when ever he gets the messages from others so I to did the same thing </p>
+<p>script src='http://mail.google.com/mail/?callback=testing'<br />
+but my call back function is not getting call so how to achieve this cross domain call problem
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c62970">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62970">21</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 03, 2009		</div>
+		<div class="quote"><p>@J.Naveen: The callback is part of the Twitter API. It literally creates the code to call that function you define as the callback. But it's not something that all sites offer. Google Mail in all likelihood does not offer that capability and it will not work, no matter what you do.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62976">22</a></div>
+			<span class="authorname">J.Naveen</span> said on March 04, 2009		</div>
+		<div class="quote"><p>thx....
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62982">23</a></div>
+			<span class="authorname">Phim Online</span> said on March 07, 2009		</div>
+		<div class="quote"><p>I wonder if this Twitter application can bring benefit to my website. But however, I would like to try it out since in seems interesting and beneficial to my website.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62994">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62994">24</a></div>
+			<span class="authorname">Trouwen</span> said on March 09, 2009		</div>
+		<div class="quote"><p>Sweet, I never noticed the badges provided. I'll probably implement one on my site this week!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c62997">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c62997">25</a></div>
+			<span class="authorname">Katelyn Cole</span> said on March 11, 2009		</div>
+		<div class="quote"><p>So much information, so little mind to try and put it into, mine!!!!  Thanks!!!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63178">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63178">26</a></div>
+			<span class="authorname">Sofft</span> said on March 28, 2009		</div>
+		<div class="quote"><p>Thanks for the code, I was searching all over for it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63223">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63223">27</a></div>
+			<span class="authorname">Pallian</span> said on April 08, 2009		</div>
+		<div class="quote"><p>Give http://www.tweetizen.com a try - we're a vancouver based startup and have hopefully made twitter grouping and embedding effortless.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63236">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63236">28</a></div>
+			<span class="authorname">Holly</span> said on April 13, 2009		</div>
+		<div class="quote"><p>Like 8  Ben Carlson  (February 19, 2009), I'm looking to have my javascript output a more defined json result set, defined by a hashtag and a username. Any thoughts on how to structure this URL?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63307">29</a></div>
+			<span class="authorname">web design norwich</span> said on April 24, 2009		</div>
+		<div class="quote"><p>Thanks for sharing this useful feature
+</p>
+</div>
+	</div>
+		<div class="comment" id="c63537">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c63537">30</a></div>
+			<span class="authorname">Naveed Dastgir Chheena</span> said on May 12, 2009		</div>
+		<div class="quote"><p>hi guess do any one help me!<br />
+ I want to update the status from my clients website. This is working ok. but i want to change the tag "form web" to "from chheena" on clicking "chheena" it will redirect to my site.<br />
+   How can i change this tag.<br />
+Thanks for helping be before.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c65878">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65878">31</a></div>
+			<span class="authorname">Kevin</span> said on February 13, 2011		</div>
+		<div class="quote"><p>Is there any way to set this up so that each List Item automatically has a different class (ie. tweet1, tweet2, tweet3)? This would be useful for me because I want each tweet to be a different color, so that the older ones blend in with the background and the newer ones contrast more. The effect I'm going for is that the tweets are more prominent as they get newer, or more faded as they get older. If anyone has advice, feel free to email me at kevindosi at g mail dot com.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c65880">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c65880">32</a></div>
+			<span class="authorname">Jonathan Snook</span> said on February 13, 2011		</div>
+		<div class="quote"><p>@kevin, in my case, I had just wanted the most recent one. If you were to loop through each of the statuses, it would be a matter of doing something like <code>el.className = "tweet" + i;</code> where <i>i</i> is the variable inside a <i>for</i> loop.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66934">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66934">33</a></div>
+			<span class="authorname">Justin</span> said on March 29, 2011		</div>
+		<div class="quote"><p>Jonathan, thanks for the how-to, very well laid out.</p>
+<p>A question though:  You said "I could pull in my Twitter status via PHP and display it on every request. Polling that often isn't very practical."</p>
+<p>Why not?  I actually did this on a site, and it seemed to work great.  Is this something I should be avoiding?  Would this be that much more server intensive than querying a server each time you load a page?  </p>
+<p>I'm experienced enough to eventually get a page to do what I want it to, and new enough that it still is occasionally a spectacularly inefficient way to do it.  Working on that. . . </p>
+<p>Thanks,<br />
+Justin
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66942">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66942">34</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 29, 2011		</div>
+		<div class="quote"><p>@Justin: You're depending on the speed and availability of twitter on every page request. If Twitter goes down, a stalled request to their API could slow your site to a crawl. In my case, I pull in Twitter, Delicious, and Flickr feeds. These requests are cached so as not to impact every page view. You may not notice the performance issues on a small site but ramp up your traffic and you'll start to see bottlenecks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c66982">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66982">35</a></div>
+			<span class="authorname">Justin</span> said on March 31, 2011		</div>
+		<div class="quote"><p>@Jonathan:  Ah, thank you.  That clears up a lot.  </p>
+<p>Although, I am curious:  Is it only if Twitter goes down that you'd have problems?  Couldn't you just do a PHP query at the beginning, some if() statement that checks if the queries are coming back correctly?</p>
+<p>This is all just academic for me at this point as you have already provided a very nice solution to this issue.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c66989">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c66989">36</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 31, 2011		</div>
+		<div class="quote"><p>@Justin: If you're relying on a 3rd party API of any service on every request, then you still have to deal with the problem of it going down. If the servers are slow, when do you time things out? Your page should be loading in one or two seconds at most. The data used to build the page should be cached and/or locally accessible as much as possible.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67051">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67051">37</a></div>
+			<span class="authorname">Justin</span> said on April 01, 2011		</div>
+		<div class="quote"><p>Thank you!  I shall add this to my practices whenever it's applicable.  It wasn't something I thought of, though after you've explained the issues it seems painfully obvious.  </p>
+<p>Also, thank you for your fast responses; I see that this topic is several years old.  I appreciate you still taking the time to revisit it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c67650">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c67650">38</a></div>
+			<span class="authorname">Andy</span> said on April 27, 2011		</div>
+		<div class="quote"><p>How exactly is all of this set-up? Does the function twitterCallback javascript code go into a script tag in the HTML doc? Also, do I include the json?callback script in the HTML doc too? Any direction would be great! Thanks!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

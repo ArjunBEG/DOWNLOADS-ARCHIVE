@@ -1,0 +1,9 @@
+<p>Checks if the given number is a power of <code>2</code>.</p>
+<ul>
+<li>Use the bitwise binary AND operator (<code>&amp;</code>) to determine if <code>n</code> is a power of <code>2</code>.</li>
+<li>Additionally, check that <code>n</code> is not falsy.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isPowerOfTwo <span class="op">=</span> n <span class="kw">=&gt;</span> <span class="op">!!</span>n <span class="op">&amp;&amp;</span> (n <span class="op">&amp;</span> (n <span class="op">-</span> <span class="dv">1</span>)) <span class="op">==</span> <span class="dv">0</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isPowerOfTwo</span>(<span class="dv">0</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isPowerOfTwo</span>(<span class="dv">1</span>)<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">isPowerOfTwo</span>(<span class="dv">8</span>)<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

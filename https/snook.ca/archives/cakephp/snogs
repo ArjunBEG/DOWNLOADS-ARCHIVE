@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Snogs - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/cakephp/snogs">
+	<meta property="og:url" content="https://snook.ca/archives/cakephp/snogs">
+	<meta property="og:title" content="Snogs">
+	<meta property="og:description" name="description" content="If there's ever a quintessential application to build when you first dive into a framework, it's the blog. That's what I did with Snook.ca when I first got into CakePHP. 
+Then for a recent client pro...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Snogs</h1>
+		<p>If there's ever a quintessential application to build when you first dive into a framework, it's the blog. That's what I did with Snook.ca when I first got into CakePHP. </p>
+<p>Then for a recent client project, also built using CakePHP, I was asked to integrate a blog. I took this opportunity to take a chunk of the code I used to build my own site and break it out into its own blog plugin: <a href="http://cakeforge.org/projects/snogs/">Snogs</a>.</p>
+<p>Snogs is Snook's Blogs and is a simple multi-blog engine for CakePHP. It's hosted over at CakeForge where you can download the application, access the Subversion repository or supply feedback. </p>
+<p>I'm releasing this as open source. If you're interested in joining the project and enhancing Snogs then by all means let me know. Also of note, I've included the <a href="https://snook.ca/archives/other/effective_blog_comment_spam_blocker/">spam component I talked about previously</a>.</p>
+<p>While my own site doesn't run off of it, it will. I'm intending to rebuild much of Snook.ca using Snogs to see how well everything integrates and it will no doubt inspire me to add some features I find useful. </p>
+<p>(And let me know if you're getting tired of all these Sn- prefixed projects. I think it's fun but there's always too much of a good thing.)</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published June 09, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/cakephp/">CakePHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/895</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">50 Comments &middot; <a href="/archives/cakephp/snogs.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58784">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58784">1</a></div>
+			<span class="authorname"><a href="http://deanjrobinson.com">Dean</a></span> said on June 09, 2008		</div>
+		<div class="quote"><p>Sounds interesting, I've been interested in trying out CakePHP for a while, but haven't managed to find a suitable project (or the time), if I ever get around to using Cake, I'll be sure to try out Snog. I assume it takes care of some of the back-end admin stuff behind a 'blog' as well?</p>
+<p>And for the record I quite like the Sn- prefixed names, no different to (but much more creative than) Apple sticking 'i' infront of everything, or Automattic adding -press to everything.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58785">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58785">2</a></div>
+			<span class="authorname">Adriaan</span> said on June 09, 2008		</div>
+		<div class="quote"><p>I always liked the Sn names, it's all about building a name for yourself isn't it, and I like it.</p>
+<p>I have used the Zend framework in the past, and am going to enjoy going through your code, thanks for sharing it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58786">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58786">3</a></div>
+			<span class="authorname">Andrew</span> said on June 09, 2008		</div>
+		<div class="quote"><p>Just in time, I'm currently building my site/blog with Cake. Maybe I can find some interesting code in Snog.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58787">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58787">4</a></div>
+			<span class="authorname">Nils R</span> said on June 10, 2008		</div>
+		<div class="quote"><p>I work with cake since a 3/4 year. And since i didnt have the time to build up my own blog maybe i have the time to contribute to yours ;) </p>
+<p>btw: i like snog.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58788">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58788">5</a></div>
+			<span class="authorname"><a href="http://www.steveoliveira.com">Steve Oliveira</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>Awesome! Definitely going to try it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58789">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58789">6</a></div>
+			<span class="authorname">Voyagerfan5761</span> said on June 10, 2008		</div>
+		<div class="quote"><p>I like the Sn- prefix. It's much more interesting (and more grammatically correct ;-) than iBlogs, don't you think (taking Dean's Apple comment)?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58790">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58790">7</a></div>
+			<span class="authorname">Lucian Lature</span> said on June 10, 2008		</div>
+		<div class="quote"><p>I'm going to try this out as soon as possibile, I'm very interested of this project.<br />
+Thanks for release!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58791">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58791">8</a></div>
+			<span class="authorname">Sumesh</span> said on June 10, 2008		</div>
+		<div class="quote"><p>I love 'Sn'. Perhaps the most attractive of them is Snitter, which feels and sounds like Twitter :)</p>
+<p>But I guess too many will be bad, so maybe you should start naming them Jonalog/Jonitter or something (just kidding).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58792">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58792">9</a></div>
+			<span class="authorname">Stewart Curry</span> said on June 10, 2008		</div>
+		<div class="quote"><p>You know that snogs and snogging means 'making out' in Ireland and the UK?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58795">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58795">10</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>Just downloaded it to give it a whirl. </p>
+<p>First thing I noticed: You've used a mixture of php short tags (&lt;? ?&gt;) and long tags (&lt;?php ?&gt;). I'm presuming the long tags are from baked code.</p>
+<p>This is going to break on a fair few installs (mine included) :-(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58797">11</a></div>
+			<span class="authorname">Tarique Sani</span> said on June 10, 2008		</div>
+		<div class="quote"><p>#1 The zip file has some .svn files - no big deal<br />
+#2 The default class for Author is set to be User would be better if it was Author - things would work more out of the box<br />
+#3 Some kind of namespacing of tables is needed - comments, categories are very commonly used models - robs the plugin of some plugable-ness.<br />
+#4 Gave an SQL error on line 64 of posts_controller with RC1 - the syntax has changed.<br />
+#5 +1 to what Richard said </p>
+<p>That said - there are a lot of code ideas which I am going to pick up from the plugin - thanks a lot for sharing
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58798">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58798">12</a></div>
+			<span class="authorname">Steve Killen</span> said on June 10, 2008		</div>
+		<div class="quote"><p>I love the 'sn' prefixes, great marketing tool and will never get old I think. Wish I could do that with my name but that would probably involve putting 'Kill' in front of everything. Guess it doesn't always help having a distinctive name. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58799">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58799">13</a></div>
+			<span class="authorname">Pete B</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Sorry, that name is hilarious if you come from the UK - <a href="//www.dearcupid.org/question/how-to-snog.html">http://www.dearcupid.org/question/how-to-snog.html</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58801">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58801">14</a></div>
+			<span class="authorname">snowdog</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Great idea - I have to try it and learn something new to use in my own CakePHP blog/cms project (GreenTea also hosted on CakeForge). </p>
+<p>I already used there two of your great ideas - elemental and spam blocker, so expect a lot more from snog...
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58802">15</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 10, 2008		</div>
+		<div class="quote"><p>@Richard/Tarique: Thanks for the feedback. The short tags are a habit of mine and I knew that'd be one of the first things people would point out. I also haven't used "var $name" which is necessary for PHP4 support (or at least it was). Namespacing the table and the Model names are equal issues, imo. I wish PHP had package support like Java to help prevent namespacing issues.</p>
+<p>@Tarique: lots of helpful advice. awesome!</p>
+<p>I'm always happy to hear that people are getting ideas out of how the code is put together. To be honest, I always feel like I'm not doing it the "CakePHP way". Of course, in the end, as long as it works. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58803">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58803">16</a></div>
+			<span class="authorname">CSdread</span> said on June 10, 2008		</div>
+		<div class="quote"><p>you also need to do some schema work. The SQL file is good but if you generated a cakephp scheme and some unit testing then this would be rockin! Great job Jonathan.</p>
+</div>
+	</div>
+		<div class="comment" id="c58804">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58804">17</a></div>
+			<span class="authorname">J. Bradford Dillon</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Sir, I won't be happy until all of my daily applications are replaced by their Snooky counterparts.</p>
+<p>Seriously though, I look forward to giving Snogs a try. You got me into CakePHP in the beginning, and I've enjoyed using it. Can't wait to see this project grow.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58805">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58805">18</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 10, 2008		</div>
+		<div class="quote"><p>@CSdread: indeed. I didn't get into unit testing until after I put the blog stuff together but even then, it's a habit I still need to get into.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58806">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58806">19</a></div>
+			<span class="authorname"><a href="http://richardathome.wordpress.com">Richard@Home</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>Reading back, my comments sounded more negative than I intended. You've done a great thing and I don't want to detract from that! :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58807">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58807">20</a></div>
+			<span class="authorname">Nik Chankov</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Building a blog is very easy /ok, for people familiar with the framework syntax and functions/, but unfortunately it cannot compete with big platforms such as Wordpress. So I think using as main blog system is not appropriate.</p>
+<p>Anyway, good to know there is such plug-in for Cake. Who knows if I build a system and somebody ask me for blog plug-in I would know where to find it ;)</p>
+<p>Cheers
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58808">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58808">21</a></div>
+			<span class="authorname">Ryan Oldham</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Is this plugin released under the MIT License like cakephp?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58809">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58809">22</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 10, 2008		</div>
+		<div class="quote"><p>@Ryan: I figured the page would show the license I chose but it doesn't seem to be. In any case, yes, it's the same license as CakePHP.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58810">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58810">23</a></div>
+			<span class="authorname"><a href="http://www.nateklaiber.com">Nate Klaiber</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>Snook, aside from what others have mentioned above (namespacing would definitely be nice), was there a a reason that a post can only be attached to one category? Your post table has a category_id, what if a user wanted to attach a post to more than one category?</p>
+<p>I like the work you put into the spam prevention, those extra steps make it very nice.</p>
+<p>Other than that...i think it's awesome that you released this as open source for others to use. And, obviously, the sn prefix fits perfectly, it's part of your brand, so it must stay, always.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58811">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58811">24</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 10, 2008		</div>
+		<div class="quote"><p>@nate: I debated whether or not to do a HABTM relationship, along with possibly adding separate support for tags. I decided to do just a simple hasMany with the intention of adding tags down the road. It came down mostly to my own needs first and I don't use multiple tags (despite the fact that my own blog actually uses a HABTM relationship).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58815">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58815">25</a></div>
+			<span class="authorname"><a href="http://www.pablasso.com">pablasso</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>I like the 'Sn' branding, it doesn't gets old :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58816">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58816">26</a></div>
+			<span class="authorname">Dardo Sordi</span> said on June 10, 2008		</div>
+		<div class="quote"><p>Hi Jonathan,</p>
+<p>I've started to play with it and I like the idea, just wanted to contribute and I'm implementing Tarique's suggestions:</p>
+<p>#2, #3, #4 and #5 are done.</p>
+<p>I'm working on switching the SQL to schemas.</p>
+<p>Also did some improvements:<br />
+- autogenerate slugs if none provided<br />
+- support for upercase letters in the slug (routes)</p>
+<p>I can send you the patches (I'm working it with git) if you are interested.</p>
+<p>- Regards.</p>
+</div>
+	</div>
+		<div class="comment" id="c58819">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58819">27</a></div>
+			<span class="authorname"><a href="http://sanisoft.com/blog/author/tariquesani/">Tarique Sani</a></span> said on June 10, 2008		</div>
+		<div class="quote"><p>@Dardo Sordi - thanks you saved me some work today - I was going to fix those things but thought let me whine a bit first ;) </p>
+<p>Some more improvements on my list are<br />
+#1 RSS feed for comments (all comments  and one single post)<br />
+#2 Admin route protection if Auth component is being used
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58825">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58825">28</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 13, 2008		</div>
+		<div class="quote"><p>@Dardo: thanks a bunch for putting that together. If you could send me the patches, that'd be fantastic!</p>
+<p>@Tarique: RSS feeds for comments on an individual post are already available (maybe I need to recheck that). Admin routing protection is a good idea.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58828">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58828">29</a></div>
+			<span class="authorname">klevo</span> said on June 13, 2008		</div>
+		<div class="quote"><p>I've build my own blog engine or CMS on Cake too. It's open source and available at wf.klevo.sk. Check it out if interested.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58858">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58858">30</a></div>
+			<span class="authorname">peter</span> said on June 23, 2008		</div>
+		<div class="quote"><p>Can you explain about status and junk_score in comments field?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58859">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58859">31</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 23, 2008		</div>
+		<div class="quote"><p>peter: the status indicates whether the comment is approved (2), in moderation (1), or junked (0). The junk_score is the result of running the spam component on the comment, which gives you a score. It's a way of tracking how well certain comments perform and allows you to tweak the metrics as need be.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58860">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58860">32</a></div>
+			<span class="authorname">peter</span> said on June 23, 2008		</div>
+		<div class="quote"><p>Thanks snook, its help me more understand about snogs so if I want to show approved comments related to one item of post I have to define where clause Comment.status=2 is that right?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58861">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58861">33</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 23, 2008		</div>
+		<div class="quote"><p>peter: Yes, that's correct.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58862">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58862">34</a></div>
+			<span class="authorname">peter</span> said on June 23, 2008		</div>
+		<div class="quote"><p>Thankyou verymuch, I'm going to learn CakePHP with your code;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58876">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58876">35</a></div>
+			<span class="authorname">Steve Brice</span> said on June 24, 2008		</div>
+		<div class="quote"><p>I have been using elemental and spam blocker, I am going to research more about snogs sound very promising.  Thanks for the info !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58887">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58887">36</a></div>
+			<span class="authorname">reader</span> said on June 26, 2008		</div>
+		<div class="quote"><p>nice point, thanks for the idea :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58897">37</a></div>
+			<span class="authorname">vuego</span> said on June 27, 2008		</div>
+		<div class="quote"><p>Hej Jonathan. Thanks for cool plugin. I've used it in my site where I needed exactly something like that. It short time (has it been only 20 days?) it grew, I implemented a few features, some are in progress. If you want to use any of them in snogs you can find it <a href="//code.google.com/p/lilblogs/ ">here</a>.<br />
+Full credits to you. Thanks again.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58906">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58906">38</a></div>
+			<span class="authorname">Nasko</span> said on June 29, 2008		</div>
+		<div class="quote"><p>@Jonathan: thanks for sharing your work with us! </p>
+<p>Guys, how are you accessing the SVN? I've tried the URL, provided at CakeForge (https://svn.cakeforge.org/svn/snogs) passing my CakeForge usernane but I keep getting this error:</p>
+<blockquote><p>svn: PROPFIND request failed on '/svn/snogs'<br />
+svn: PROPFIND of '/svn/snogs': Server certificate verification failed: certificate has expired, certificate issued for a different hostname (https://svn.cakeforge.org)<br />
+error (1)
+</p></blockquote>
+</div>
+	</div>
+		<div class="comment" id="c58976">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58976">39</a></div>
+			<span class="authorname">Aaron</span> said on July 07, 2008		</div>
+		<div class="quote"><p>Is there a demo of this somewhere? Would like to see it in action. (Or is this the demo :))</p>
+<p>cheers, </p>
+<p>Aaron
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59008">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59008">40</a></div>
+			<span class="authorname">Baz L</span> said on July 14, 2008		</div>
+		<div class="quote"><p>Haven't given it a thorough look over yet, but I'm getting tons of errors with RC2, just FYI.</p>
+<p>I'll look into it more, when I get home.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59043">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59043">41</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 23, 2008		</div>
+		<div class="quote"><p>@Aaron: some of the code is directly from here but a bunch of it was new. However, my plan is to switch over to it when I redo the backend to my site.</p>
+<p>@Baz: I have some patches to integrate but I'll look into things, especially as things get closer to a full release of CakePHP 1.2
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59112">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59112">42</a></div>
+			<span class="authorname">Brett Wilton</span> said on August 04, 2008		</div>
+		<div class="quote"><p>Thanks for allowing others to see your blog coding solution. Found your spam solution great, had implemented a kcaptcha solution but wanted to avoid the extra spam code data entry by the user, mainly as I find it a pain personally on other sites.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59172">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59172">43</a></div>
+			<span class="authorname">Robert</span> said on August 18, 2008		</div>
+		<div class="quote"><p>Thanks for great code, I'm also looking for Elemental helper.</p>
+<p>I have few questions. I want to replace categories with some tagging system. Do You recommend something or should I write something anew?</p>
+<p>Do You plan to add some elements like "last blog posts" or "last commnets for all blogs"?</p>
+<p>Thanks again for Your work, its great for learning cake.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59196">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59196">44</a></div>
+			<span class="authorname">Nasko</span> said on August 20, 2008		</div>
+		<div class="quote"><p>Ok, I've managed to checkout finally. Apparently it was the GUI SVN client I'm using (eSvn) having issues handling the SSL auth.</p>
+<p>@Jonathan: Is what's in the repository (rev. 2) the latest  codebase? Any chance that some of the improvements mentioned by commenters in this thread might make their way through to the repo? I'm planning on migrating a wordpress blog to a CakePHP driven one and was hoping to use your code. But  I guess I should wait for the CakePHP 1.2 final release before all patches are integrated. Thanks indeed!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59325">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59325">45</a></div>
+			<span class="authorname">Clow</span> said on September 05, 2008		</div>
+		<div class="quote"><p>Did you know that 'snog' is slang for 'To kiss lengthily, passionately or lustfully' here in the uk?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c59329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59329">46</a></div>
+			<span class="authorname">Jonathan Snook</span> said on September 05, 2008		</div>
+		<div class="quote"><p>Clow: that I did. Which is half the reason I went with it. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60092">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60092">47</a></div>
+			<span class="authorname">kiran aghor</span> said on November 10, 2008		</div>
+		<div class="quote"><p>To use FCK I placed 'Fck' component in posts controller. But it gives error - 'Error: The helper file app\views\helpers\fck.php can not be found or does not exist.' Wht to do?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60239">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60239">48</a></div>
+			<span class="authorname">Janet Keller</span> said on November 16, 2008		</div>
+		<div class="quote"><p>Jonathan, I don't post on your blog but have been reading it for a while, this code looks to be very promising. When do you find the time for these projects I need some of your organization skills !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60513">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60513">49</a></div>
+			<span class="authorname">Justin</span> said on December 07, 2008		</div>
+		<div class="quote"><p>What, would you say, is the benefit of building your own blog as opposed to using something like Wordpress? I would like to build my own blog in Ruby on Rails, but I don't know if it's worth the effort. I just learned RoR over the summer and love it. I have already used it on a project for one client. It was an easy switch from CakePHP (which I learned 2 years ago from your suggestion), but I feel it's much cleaner and easier to program in.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60514">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60514">50</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 07, 2008		</div>
+		<div class="quote"><p>It all depends on what your needs are. The basic requirements of a blog are posts and comments. Maybe categories and/or tags. You get a system with only what you need. If you want any special fields, you can add them. Managing an application like that is simple. </p>
+<p>But then you think about what something like WordPress can do... multiple authors, trackbacks and pingbacks, templating, plugins, etc. If you're trying to replicate all that, then maybe you should just use WordPress. You have to decide what that balance is. For me, going custom made the most sense (and that was after years of using Movable Type).
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

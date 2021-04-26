@@ -1,0 +1,7 @@
+<p>Formats a number using the local number format order.</p>
+<ul>
+<li>Use <code>Number.prototype.toLocaleString()</code> to convert a number to using the local number format separators.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> formatNumber <span class="op">=</span> num <span class="kw">=&gt;</span> <span class="va">num</span>.<span class="at">toLocaleString</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">formatNumber</span>(<span class="dv">123456</span>)<span class="op">;</span> <span class="co">// &#39;123,456&#39; in `en-US`</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">formatNumber</span>(<span class="dv">15675436903</span>)<span class="op">;</span> <span class="co">// &#39;15.675.436.903&#39; in `de-DE`</span></a></code></pre></div>

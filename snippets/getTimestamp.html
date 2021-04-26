@@ -1,0 +1,8 @@
+<p>Gets the Unix timestamp from a <code>Date</code> object.</p>
+<ul>
+<li>Use <code>Date.prototype.getTime()</code> to get the timestamp in milliseconds and divide by <code>1000</code> to get the timestamp in seconds.</li>
+<li>Use <code>Math.floor()</code> to appropriately round the resulting timestamp to an integer.</li>
+<li>Omit the argument, <code>date</code>, to use the current date.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> getTimestamp <span class="op">=</span> (date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()) <span class="kw">=&gt;</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">date</span>.<span class="at">getTime</span>() / <span class="dv">1000</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">getTimestamp</span>()<span class="op">;</span> <span class="co">// 1602162242</span></a></code></pre></div>

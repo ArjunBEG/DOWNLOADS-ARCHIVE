@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Navicat for the Mac - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/review/navicat-mac">
+	<meta property="og:url" content="https://snook.ca/archives/review/navicat-mac">
+	<meta property="og:title" content="Navicat for the Mac">
+	<meta property="og:description" name="description" content="I like desktop GUI interfaces for database administration. When I developed for MS SQL Server, I used to use the query tool that came bundled. Then I switched to working mostly with MySQL and have bou...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Navicat for the Mac</h1>
+		<p>I like desktop GUI interfaces for database administration. When I developed for MS SQL Server, I used to use the query tool that came bundled. Then I switched to working mostly with MySQL and have bounced around various apps including the query browser and migration tools provided by MySQL. Eventually I had settled on SQLYog as it had provided one key feature: the ability to edit a query result. It's been a very handy feature and much of the maintenance for Snook.ca happens via my GUI app.</p>
+<p>After my switch to the Mac, I discovered that <a href="http://www.webyog.com/en/">SQLYog</a> wasn't able to come along for the ride. I quickly went on the search for something to fill the void. The first app that came to mind, and that others recommended, was <a href="http://www.mjmedia.com.au/sequel-pro.html">Sequel Pro</a>. Unfortunately, it didn't quite fit the bill. It lacked the editable query result. </p>
+<p>Next up was <a href="http://navicat.com/">Navicat</a>. Navicat does support editable query results and, as a result, I've switched to using it full-time. It's easy to use and has all the features I'd expect. You can do user management, edit views and stored procedures, save custom queries, and the table browser supports pagination, filtering and multi-column sorting.</p>
+<p>My only major complaint about the edit mode is the default entry mode which doesn't allow for MySQL functions. You can quickly turn on raw mode by hitting Command-Enter but it feels awkward. I'd rather an option for it to default to raw mode or allow Command-Enter to execute the change in raw mode. In the grand scheme of things, this is a minor niggle and only because it's differen than the workflow that I've become accustomed to.</p>
+<p>For those that have to bounce from platform to platform, Navicat is available on Windows, Mac and Linux and has versions that support MySQL, PostgreSQL and  Oracle.</p>
+<p>The Mac version lags behind the Windows version when it comes to supported features but I'm told that version 8 will be out next year supporting features its counterpart has such as the Form View and code completion. </p>
+<p>For now, I'm happy with Navicat and will likely continue to use it as my default MySQL admin tool.	</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published November 24, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/review/">Review</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/917</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">22 Comments &middot; <a href="/archives/review/navicat-mac.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c60346">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60346">1</a></div>
+			<span class="authorname">Sean O</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Navicat rocks. Been using it for years. Hopefully it's as <i>fast</i> on the Mac as it is on Windows.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60347">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60347">2</a></div>
+			<span class="authorname">Dave Spurr</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Like you I spent a while trying to find a decent alternative to SQLYog when switching to Mac and I couldn't (including Navicat) but thankfully SQLYog works perfectly under Cross Over Office and they actively test in wine to make sure new releases work ok under it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60348">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60348">3</a></div>
+			<span class="authorname">Andy</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Unless I'm completely misunderstanding you on this topic, the query browser provided by MySQL does support editing the result set. You have "Edit" and "Apply Changes" buttons right under the result set.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60349">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60349">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Andy, sorry for not being clear. When I first tried the MySQL Query Browser and the Administration tool I didn't like them. Mind you, this was almost three years ago now. Which is how I came to SQLYog. In switching to the Mac, the lack of editing features is what I didn't like about Sequel Pro. I didn't think to retry the MySQL tools on the Mac.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60352">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60352">5</a></div>
+			<span class="authorname">Adam Griffiths</span> said on November 24, 2008		</div>
+		<div class="quote"><p>I've been looking for something like this for OS X for some time now. I dislike having to use PHPMyAdmin all the time as it's not that nice to look at and gets boring after a while.</p>
+<p>I downloaded this program and now I'm in love!! It's a great program and actually works with my setup unlike some others out there (I can't for the life of me think of the names).</p>
+<p>Thanks Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60353">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60353">6</a></div>
+			<span class="authorname">Jamie</span> said on November 24, 2008		</div>
+		<div class="quote"><p>I've been using Navicat for the past six months after switching from YourSQL.  It's by far the best GUI tool for MySQL database interaction that I've used on the Mac, and I've tried quite a few.  Very fast, full of functionality and it's so useful for me to have all my connections in one place.  Currently my favourite, and (after my text editor) top used Mac app.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60354">7</a></div>
+			<span class="authorname"><a href="http://mcarthurgfx.com">Sean</a></span> said on November 24, 2008		</div>
+		<div class="quote"><p>Have you considered just installing Windows onto your Mac as well? Mac lets you easily reboot into Windows, letting you use any Windows-exclusive programs you still need.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60355">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60355">8</a></div>
+			<span class="authorname">Tomas Markauskas</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Sean, reboot into Windows to edit a row? :)</p>
+<p>I've been using SQLyog very happily and now I've switched to OS X. Running Windows on a virtual machine works, but it would be great not to have to run a VM. To be able to edit results is also great, but one of my reasons to use SQLyog was its ability to copy and synchronize databases on remote machines. Looks like Navicat can do this too, so I'll probably give it a try.</p>
+<p>Sequel Pro was new to me, but it seems to lack many features. I'll keep an eye on it.</p>
+<p>Thanks!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60356">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60356">9</a></div>
+			<span class="authorname">Dasn</span> said on November 24, 2008		</div>
+		<div class="quote"><p>I have to admit that I still prefer the GUI tools that are downloadable on the mysql site.  I've just moved over to using a Mac and just personally prefer the interface and separation of types of operation (you need Query Browser &amp; Administrator).  Navicat ain't a bad piece of kit though ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60357">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60357">10</a></div>
+			<span class="authorname">Brian Layman</span> said on November 24, 2008		</div>
+		<div class="quote"><p>Thank you for this article. Please continue to take us along on this journey into Macdom... I'll be reading every article on the subject. I have a sneaking suspicion that I will be making the same journey by the end of the new year.  </p>
+<p>This laptop won't make it too much longer. There's only so much that duct tape can do...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60358">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60358">11</a></div>
+			<span class="authorname">Kit Grose</span> said on November 24, 2008		</div>
+		<div class="quote"><p>I've had a couple of different experiences with SQL clients for Macs.</p>
+<p>I'm too cheap to pay for Navicat given how rarely I do direct queries in MySQL (mostly use SQL Server), so I tend to use the *awful* MySQL Query Browser and periodically CocoaMySQL (though it's a crasher).</p>
+<p>As an aside to anyone developing for SQL Server on a Mac, so far the only acceptable options I've found are Java applications (as acceptable as a Java app can be); Aqua Data Studio is my pick so far, though you can find free alternatives pretty readily that require the SQL Server JDBC. The advantage of those solutions is that by simply installing other connectors, you can access all your DBs from one app regardless of the DBMS.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60361">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60361">12</a></div>
+			<span class="authorname">Tom</span> said on November 25, 2008		</div>
+		<div class="quote"><p>I certainly hope that you have better luck with it than I did.  I haven't found a Mac SQL GUI yet that doesn't hard-freeze when a connection is lost and when retrieving large data sets.  Lacking progress is annoying and the dropped connection freeze has to be force-quit.  Consequently, I spend most of my time in simple psql.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60362">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60362">13</a></div>
+			<span class="authorname">Umut</span> said on November 25, 2008		</div>
+		<div class="quote"><p>I'm also a fan of Navicat.</p>
+<p>Specially 2 features are ver handy for me:<br />
+- Http Tunnel: for reaching to local-only dbs<br />
+- Schedule: For scheduled backups, queries..</p>
+<p>1 thing I would ask is default pagination option before viewing the datagrid (like selecting sort by name desc) in a visual interface, when clicked on a table.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60365">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60365">14</a></div>
+			<span class="authorname">Phil Palmieri</span> said on November 25, 2008		</div>
+		<div class="quote"><p>Hey,</p>
+<p>We have been using navicat for mac since v5.  Tried going the OS route, but navicat has been worth every penny. - The data/structure synchronization is worth its weight in gold when you are pulling down test data for development.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60367">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60367">15</a></div>
+			<span class="authorname">ODIN</span> said on November 25, 2008		</div>
+		<div class="quote"><p>I cant say ive heard of Navicat before, always been a phpMyAdmin guy myself, sounds like it could be worth investigating. My only reservation about Navicat and other such applications is there ability to deal with clusters. I know the company I work for had a lot of issue with using these kind of front ends. Im defiantly going to have a play with it tho, thanks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60371">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60371">16</a></div>
+			<span class="authorname">Dan</span> said on November 25, 2008		</div>
+		<div class="quote"><p>I hate Navicat. It has extremely poor connection error handling. If you use tunneling that times out it will crash continuously. I stick with phpMyAdmin.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60372">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60372">17</a></div>
+			<span class="authorname">Rui Cruz</span> said on November 25, 2008		</div>
+		<div class="quote"><p>I agree with Phil, the data/structure synchronization is worth its weight in gold.<br />
+Too bad the free version doesn't have that tool.</p>
+<p>I have have to give the thumbs up to Navicat, to be honest I have been doing so for a at least a year or two.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60387">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60387">18</a></div>
+			<span class="authorname"><a href="http://www.jakefolio.com">Jake</a></span> said on November 26, 2008		</div>
+		<div class="quote"><p>Hey Jonathan.....I've been using Navicat for 3 years....love it, but the mac version is seriously far behind the windows version.  Plus the I feel the mac version of the query builder isn't near as good.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60415">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60415">19</a></div>
+			<span class="authorname">kOoLiNuS</span> said on November 29, 2008		</div>
+		<div class="quote"><p>anyone has the chance to try <a href="//www.squirrelsql.org/">SQirreL SQL</a> ? seems a quite 'serious' and active opensource tool ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60423">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60423">20</a></div>
+			<span class="authorname">Paul Green</span> said on November 30, 2008		</div>
+		<div class="quote"><p>I still think that nothing beats the good old command line interface. Or ... maybe I am just living in the past.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60424">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60424">21</a></div>
+			<span class="authorname">Darren</span> said on November 30, 2008		</div>
+		<div class="quote"><p>I use CocoaMySQL all the time and it's been awesome and un-like, Kit Grose, I've never had problems with it crashing. I also really like using a shell app like Terminal and I try to do that as much as I can because it forces me to understand queries and mysql more and more.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60520">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60520">22</a></div>
+			<span class="authorname">Smudge IT</span> said on December 08, 2008		</div>
+		<div class="quote"><p>My favorite part about navicat is the database synchronization tool. You can compare structures or data. Even has built in SSH tunneling. We all use navicat everyday on the Mac.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

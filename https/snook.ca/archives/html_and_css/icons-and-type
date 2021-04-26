@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Icons and Type - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/icons-and-type">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/icons-and-type">
+	<meta property="og:title" content="Icons and Type">
+	<meta property="og:description" name="description" content="As of late, I’ve been thinking about icons and type.
+
+Here’s the example HTML I’m working with here:
+
+&lt;div&gt;&lt;i class="icon"&gt;&lt;/i&gt;cases&lt;/div&gt;
+
+Now, that div could be a...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Icons and Type</h1>
+		<p>As of late, I’ve been thinking about icons and type.</p>
+
+<p>Here’s the example HTML I’m working with here:</p>
+
+<pre><code>&lt;div&gt;&lt;i class="icon"&gt;&lt;/i&gt;cases&lt;/div&gt;</code></pre>
+
+<p>Now, that <code>div</code> could be a <code>button</code>, it could be anything. That <code>i</code> could be an image, it could be an svg. Essentially, it’s something that is icon-like, set to <code>display: inline-block</code>. My goal is to center it next to the text beside it.</p>
+
+<p>Let’s take a look at this first example:</p>
+
+<figure>
+<img src="https://snook.ca/files/ex-unit-1.png" alt="Icon next to lowercase text">
+<figcaption>Icon next to lowercase text</figcaption>
+</figure>
+
+<p>Here’s the CSS I’m using to position the icon next to the text:</p>
+
+<pre><code>.icon { 
+  width: 1ex;
+  height: 1ex;
+  display: inline-block; 
+  background-color: salmon;
+  vertical-align: middle;
+}</code></pre>
+
+<p>The key part here is <code>vertical-align: middle</code>. Instead of resting the icon on the baseline, as it would be default, I’m centering the image with the text. </p>
+
+<p>The reason for this becomes evident when I go with a larger image:</p>
+
+<figure>
+<img src="https://snook.ca/files/ex-unit-2.png" alt="Larger icon next to lowercase text">
+<figcaption>Larger icon next to lowercase text</figcaption>
+</figure>
+
+<p>Awesome. </p>
+
+<h2>So, what’s the problem?</h2>
+
+<p>Of course, rarely is copy conveniently all lowercase. Usually it’s title case and full of ascenders, sometimes it’s all caps. </p>
+
+<p><img src="https://snook.ca/files/ex-unit-3.png" alt="Icon next to title case text" align="center"></p>
+<p><img src="https://snook.ca/files/ex-unit-4.png" alt="Icon next to uppercase text" align="center"></p>
+
+<p>Not so awesome.</p>
+
+<p>In this case, aligning the icon to the middle isn’t quite what I want. None of the usual <code>vertical-align</code> values do the trick, though. (Except in cases where we get lucky and the image height just happens to be at the right size to use text-bottom, baseline, or text-top.)</p>
+
+<p>Thankfully, I can adjust the alignment manually. </p>
+
+<pre><code>.icon { 
+  vertical-align: -.25ex; 
+}</code></pre>
+
+<figure>
+<img src="https://snook.ca/files/ex-unit-5.png" alt="Icon aligned properly next to title text">
+<figcaption>Icon aligned properly next to title text</figcaption>
+</figure>
+
+<h2>Ex Unit</h2>
+
+<p>In researching this, I came across the ex unit. I may have already known about it but usually when I want to size relative to type, I’ll use the em or rem unit. The ex unit can be useful because it’s based on the x-height—the height of the letter X.</p>
+
+<p>I decided to use the ex unit for sizing the icon. I like that the icon size is relative to the type. I can change the font size or change the font family and the icon will match the x-height. (Which, with the first example of lowercase type works really well.)</p>
+
+<p>Sadly, most icons at smaller resolutions will look blurry if not aligned to their designed pixel dimensions. Using ex units for icon sizing probably isn’t all that practical. (For example, Arial versus Helvetica will render the icon at different sizes.)</p>
+
+<p>But I digress. </p>
+
+<h2>Back to Px</h2>
+
+<p>Using pixel units for the icon, none of vertical-align options work “out of the box”. I’ll go go back to <code>vertical-align: middle</code> to, at least, align to the middle of the type, regardless of font size.</p>
+
+<pre><code>.icon { 
+  width: 16px;
+  height: 16px;
+  display: inline-block; 
+  background-color: salmon;
+  vertical-align: middle;
+}</code></pre>
+
+<p>I need one more piece. The icon is currently aligned to the middle of the text including ascenders and descenders (or aligned to the middle of the x-height, I didn’t actually confirm which but close enough). </p>
+
+<p>To align to the middle of the x-height plus the height of the ascenders, I need to move the icon up.</p>
+
+<h3>Using Translate</h3>
+
+<p>With one extra line of code*, I used em units to tweak the alignment. Increasing or decreasing the font size will keep the icon centered due to the em-based translate. </p>
+
+<pre><code>.icon { 
+  width: 16px;
+  height: 16px;
+  display: inline-block; 
+  background-color: salmon;
+  vertical-align: middle;
+  transform: translateY(-.1em);
+}</code></pre>
+
+<p>Sweet, everything aligns!</p>
+
+<p>* One line? I still have browser prefixes to deal with for now, so not quite one line…</p>
+
+<h3>Using Top</h3>
+
+<p>If we don’t want to deal with browser prefixes, we can also use <code>position:relative</code> and <code>top</code> to adjust accordingly. </p>
+
+<pre><code>.icon { 
+  width: 16px;
+  height: 16px;
+  display: inline-block; 
+  background-color: salmon;
+  vertical-align: middle;
+  position:relative;
+  top:-.1em;
+}</code></pre>
+
+<h2>Recap</h2>
+
+<p>Using ex units to size and position the icon offers lots of flexibility but will likely result in blurry icons at smaller sizes. (SVGs or hi-res images on higher res displays may make this more of a moot point in the future.)</p>
+
+<p>Using px units to size the icon and then using em units to adjust the position of the icon results in a more predictable situation (at least, at default browser settings for font size).</p>
+
+	
+</div>
+<div class="meta">
+	<div class="dt">Published April 26, 2015 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1049</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">22 Comments &middot; <a href="/archives/html_and_css/icons-and-type.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c70677">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70677">1</a></div>
+			<span class="authorname">verpixelt</span> said on April 27, 2015		</div>
+		<div class="quote"><p>Thanks for this, Jonathan. I totally like the idea about aligning the icon based on the x-height of the given font. One question though. What do you mean with"... more of a moot point in the future."? Do you just refer to your project? I just don't get the "in the future" part ;) Why not using it now?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70678">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70678">2</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 27, 2015		</div>
+		<div class="quote"><p>@Verpixelt: Because not everybody has high density displays right now, therefore leading to blurring. If, in the future, everybody has 2x or 3x displays, then icons can be rendered to look nice regardless.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70681">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70681">3</a></div>
+			<span class="authorname">Sergei Vasiliev</span> said on April 30, 2015		</div>
+		<div class="quote"><p>I usually use margin-top: -.2em to achieve this effect. This can lead to problems?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70682">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70682">4</a></div>
+			<span class="authorname">Sahil Bajaj</span> said on May 01, 2015		</div>
+		<div class="quote"><p>Since the icon has its display set to inline-block, we can also use `margin-top: -0.1em` to achieve the same effect, right?</p>
+<p>Incidentally, does using transform have any impact on performance?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70683">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70683">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 01, 2015		</div>
+		<div class="quote"><p><code>margin-top</code> can work, too. Transform can create a new positioning context which *may* be problematic.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70689">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70689">6</a></div>
+			<span class="authorname">Mercs</span> said on May 02, 2015		</div>
+		<div class="quote"><p>Why not use display: flex; and align-items: center; ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70687">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70687">7</a></div>
+			<span class="authorname">Cory Fitzpatrick</span> said on May 02, 2015		</div>
+		<div class="quote"><p>Why not just use display:table; with display table-cell; and vertical-align:middle; ?</p>
+<p>Here is a code pen example of what I am talking about.<br />
+<a href="//codepen.io/anon/pen/Wvvaed"> http://codepen.io/anon/pen/Wvvaed</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70690">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70690">8</a></div>
+			<span class="authorname">Håkan Save Hansson</span> said on May 02, 2015		</div>
+		<div class="quote"><p>I usally use <code>line-height:0</code> or sometimes <code>1px</code>. It makes it easier to control the vertically centering, I think.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70691">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70691">9</a></div>
+			<span class="authorname">Patryk</span> said on May 02, 2015		</div>
+		<div class="quote"><p>I use always following solution when I know icon size.</p>
+<p>Pros:<br />
+1. Less DOM elements<br />
+2. You can modify line-height, font-family, font-size but icon is always perfectly aligned.</p>
+<p><code>div{<br />
+position: relative;<br />
+padding-left: 20px;<br />
+}</p>
+<p>div:after{<br />
+content: "";<br />
+position:absolute;<br />
+left: 2px; /*2px gaps between div left edge and icon, icon and text*/<br />
+top: 50%;<br />
+width: 16px;<br />
+height: 16px;<br />
+margin-top: -8px;<br />
+}</code>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70692">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70692">10</a></div>
+			<span class="authorname">Kyrodes</span> said on May 02, 2015		</div>
+		<div class="quote"><p>&gt; The ex unit can be useful because it’s based on the x-height—the height of the letter X.</p>
+<p>Just to be more exact. ex unit is the height of the lowercase "x".
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70693">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70693">11</a></div>
+			<span class="authorname">Bart Veneman</span> said on May 02, 2015		</div>
+		<div class="quote"><p>I usually use <code>verical-align: -1.em</code>: possible because of <code>display: inline-block</code>. It's a little more cross browser than transforms and, as far as I know, doesn't create a new context.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70696">12</a></div>
+			<span class="authorname">Lu Nelson</span> said on May 03, 2015		</div>
+		<div class="quote"><p>I believe the offset could also be generalized as</p>
+<pre>
+$height: 1em; // any height, any unit
+.icon {
+    display: inline-block;
+    height: $height;
+    vertical-align: calc((1em - 1ex)/4 - ($height - 1ex)/2);
+}
+</pre>
+</div>
+	</div>
+		<div class="comment" id="c70697">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70697">13</a></div>
+			<span class="authorname">Lu Nelson</span> said on May 03, 2015		</div>
+		<div class="quote"><p>whoops, bad formatting. this:</p>
+<pre><code>// Sass
+$height: 1em; // any height, any unit
+.icon {
+    display: inline-block;
+    height: $height;
+    vertical-align: calc((1em - 1ex)/4 - ($height - 1ex)/2);
+}
+</code></pre>
+</div>
+	</div>
+		<div class="comment" id="c70698">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70698">14</a></div>
+			<span class="authorname">Bob Rockefeller</span> said on May 03, 2015		</div>
+		<div class="quote"><p>When using:</p>
+<pre><code>
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-color: salmon;
+  vertical-align: middle;
+  transform: translateY(-.1em);
+}
+</code></pre>
+<p>How does the -0.1em hold up over a range of possible text sizes?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70700">15</a></div>
+			<span class="authorname">Stef</span> said on May 04, 2015		</div>
+		<div class="quote"><p>I usually give height and line-height the same value to achieve the same result.</p>
+<p>div {height: 16px;line-height: 16px;}
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70701">16</a></div>
+			<span class="authorname">Stephen</span> said on May 04, 2015		</div>
+		<div class="quote"><p>Percentages can also be used.<br />
+vertical-align: 50%
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70702">17</a></div>
+			<span class="authorname">Ferdy</span> said on May 04, 2015		</div>
+		<div class="quote"><p>+1 for using line-height, always fixes it for me.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70703">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70703">18</a></div>
+			<span class="authorname">David Gilbertson</span> said on May 04, 2015		</div>
+		<div class="quote"><p>Huh, I did not know that vertical-align took a percentage (of line-height) or a length (both relative to the parent baseline).</p>
+<p>Nice.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70704">19</a></div>
+			<span class="authorname">Morgan Feeney</span> said on May 05, 2015		</div>
+		<div class="quote"><p>The problem surrounds your choice of markup. Unless you are deliberately using the bare minimum; creating what seems (to me) to be an edge/use case. Personally I would either use a pseudo element and wrap a span around the text. Then set both to inline-block and apply vertical align[whatever] to both the span and the pseudo element. Why not do that instead? Or does this have to work only the specific situation you have demonstrated?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70705">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70705">20</a></div>
+			<span class="authorname">Teelah</span> said on May 05, 2015		</div>
+		<div class="quote"><p>Life saver, works for me with fontello.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70706">21</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 06, 2015		</div>
+		<div class="quote"><p>@Morgan Feeney: That works if the text next to the icon doesn't need to wrap. While minor, it also means creating an extra class along with the extra HTML. Byte for byte, I don't think you end up ahead.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70711">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70711">22</a></div>
+			<span class="authorname">tucq</span> said on May 10, 2015		</div>
+		<div class="quote"><p>I often use tricks like top, bottom or line-height to fix this stuff. Now I see the heaven. Thanks alot J
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

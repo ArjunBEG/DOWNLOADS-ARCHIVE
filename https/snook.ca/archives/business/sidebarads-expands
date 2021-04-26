@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>SidebarAds Expands - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/business/sidebarads-expands">
+	<meta property="og:url" content="https://snook.ca/archives/business/sidebarads-expands">
+	<meta property="og:title" content="SidebarAds Expands">
+	<meta property="og:description" name="description" content="It has been over six months since launching SidebarAds and there have been recent changes. The past six months have been somewhat of a rollercoaster ride when it comes to the success of SidebarAds. No...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>SidebarAds Expands</h1>
+		<p>It has been over six months since launching SidebarAds and there have been recent changes. The past six months have been somewhat of a rollercoaster ride when it comes to the success of SidebarAds. Now seems as good a time as any to provide a status report. </p>
+<p><em>For those unfamiliar with my ongoing saga in online advertising, be sure to read the <a href="https://snook.ca/archives/business/sidebarads/">announcement post from June</a>, along with my previous discussion on <a href="https://snook.ca/archives/business/running_own_advertising/">self-managed advertising</a>.</em></p>
+<h2>Automation</h2>
+<p>We were off to a great start  getting a couple advertisers early on. Since then, though, it's been hit or miss. While we've managed to get new advertisers on board, it hasn't been consistent and I often failed to do any follow-up to ensure that advertisers would continue their campaigns. The recurring theme from before is certainly the lack of automation.</p>
+<p>While the custom ad system that we have in place provided a new level of automation over what I had before (read, nothing), there was still plenty of areas where I had to manage that myself, such as approving ads, handling payouts, and so on. I'm actually in the midst of making a number of admin changes in order to make it easier to manage the campaigns and ensure that advertisers don't get forgotten.</p>
+<h2>Hired</h2>
+<p>On top of that, we've officially hired an ad manager: <a href="http://xhipi.com/">Matthew Oliphant</a>. He'll be managing things in his spare time, helping advertisers with their campaigns and getting new advertisers on board. </p>
+<p>Relinquishing control is something that I need to learn to do in a few aspects of my life and I'm really happy to have Matthew helping out. </p>
+<h2>Growing</h2>
+<p>SidebarAds has also expanded in other ways. When we originally launched, <a href="http://www.456bereastreet.com/">Roger Johansson</a> and <a href="http://paulstamatiou.com/">Paul Stamatiou</a> were part of the gang. Shortly after launch, Nathan Smith's <a href="http://sonspring.com/">Sonspring</a> and Rogie King's <a href="http://www.komodomedia.com/">Komodomedia</a> came on board. </p>
+<p>We've had a lot of requests from people looking to join the network, putting SidebarAds on their site, and that was something that I honestly didn't foresee. We've had to take it slow and steady when it comes to adding more sites to the network to ensure that we had enough money to pay everybody (in other words, that we had enough advertisers).</p>
+<p>Within the last couple weeks, we've added two more sites to the network: <a href="http://elliotjaystocks.com/blog/">Elliot Jay Stocks</a> and Andy Clarke's <a href="http://forabeautifulweb.com/blog/">For a Beautiful Web</a>. We're really happy to have them as part of the network.</p>
+<p>While we're not looking to add any more sites as of right now, if you're interested in joining the network, definitely get in touch. We've got a list of sites that we'd eventually like to add.</p>
+<h2>Licensing the Engine</h2>
+<p>One of the other surprising parts of this whole enterprise has been the inquires from a few people interested in licensing the engine that we use to power the network. Other people want to create their own boutique ad network using the same system that we have. While we don't have the number of features that other ad tools have, we are now looking at what we need to do to get the adminstration tools in place to power such a system. </p>
+<h2>Moving Forward</h2> 
+<p>There have been some definite surprises over the past six months and once again, it'll be interesting to see where things stand six months from now.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published December 01, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/business/">Business</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/919</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">9 Comments &middot; <a href="/archives/business/sidebarads-expands.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c60427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60427">1</a></div>
+			<span class="authorname"><a href="http://www.chris-wallace.com">Chris W.</a></span> said on December 01, 2008		</div>
+		<div class="quote"><p>One thing you may want to look at is measuring how much value you are providing your advertisers. Nowadays, fixed ad prices (such as buysellads.com) are seeing a huge leap in advertisers due to the cost of CPC and CPM ads rising. As advertisers shift their budgets around, you'll tend to see people jumping back and forth as prices fluctuate. Fixed ad unit prices will undoubtedly rise and CPC/CPM ad units will decrease.</p>
+<p>As long as you are providing much more value (and can prove it), you can rest assured advertisers will not jump ship for seemingly no reason.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60428">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60428">2</a></div>
+			<span class="authorname">Wesley Walser</span> said on December 01, 2008		</div>
+		<div class="quote"><p>In your rss feed Komodomedia links to sonspring and 'For a Beautiful Web' links to Elliot's site.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60429">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60429">3</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 01, 2008		</div>
+		<div class="quote"><p>@Chris W: indeed. proving the value has been the toughest part. What we're hoping to do is really create more after-sales support including getting advertisers' feedback to ensure that we're providing good value. As it is, we've already dropped prices to be more competitive. We have a couple other tricks up our sleeves that we're looking to implement before the new year.</p>
+<p>@Wesley: indeed. They've been fixed. It'll just take a bit for the cache to get updated. Thanks for pointing it out.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60430">4</a></div>
+			<span class="authorname">Dan Sauve</span> said on December 01, 2008		</div>
+		<div class="quote"><p>+1 for licensing the system. I'd be interested in that!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60434">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60434">5</a></div>
+			<span class="authorname">Dan</span> said on December 02, 2008		</div>
+		<div class="quote"><p>Hi Jonathan, I've been thinking about options for advertising for a spare-time project I'm planning.<br />
+I'd be interested to know why you chose a custom ad management platform, as opposed to something like OpenX?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c60435">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60435">6</a></div>
+			<span class="authorname">Jonathan Snook</span> said on December 02, 2008		</div>
+		<div class="quote"><p>@Dan: I wanted a custom platform because of the ability to simplify the process and have the system as straightforward to use and manage for advertisers and administrators alike. We don't have multiple ad types, we don't charge based on impressions or clickthroughs. It's a simple, monthly, flat-fee system. As a result, we wanted something that served that goal. The original system (which is still running SidebarAds) was put together over a couple days. It's only now, as we expand, that there's more of a demand to expand those features, but again in ways that serve the goal of simplicity.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60620">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60620">7</a></div>
+			<span class="authorname">Janie Parrish</span> said on December 14, 2008		</div>
+		<div class="quote"><p>Should be a hit with all the blogs once word spreads amongst the blogosphere! I know I am always interested in learning of another way to make money!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60741">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60741">8</a></div>
+			<span class="authorname"><a href="http://www.htmleando.com">Maikel</a></span> said on December 23, 2008		</div>
+		<div class="quote"><p>
+Have you thought about making the system open source?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61020">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61020">9</a></div>
+			<span class="authorname">Patrick Algrim</span> said on January 14, 2009		</div>
+		<div class="quote"><p>Hey Jonathan, I think SidebarAds is really awesome. The ad serving development that must have been done simply blows my mind. While it might seem simple, sometimes the simplest things are the best tools. The best tools are the things I respect.</p>
+<p>Great job, all around, I'm happy that SidebarAd's is blowing up! :)
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

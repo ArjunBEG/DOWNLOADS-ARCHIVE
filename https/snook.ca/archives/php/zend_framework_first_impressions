@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Zend Framework: First Impressions - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/php/zend_framework_first_impressions">
+	<meta property="og:url" content="https://snook.ca/archives/php/zend_framework_first_impressions">
+	<meta property="og:title" content="Zend Framework: First Impressions">
+	<meta property="og:description" name="description" content="
+Last week, the first production release of the Zend Framework was released. I've taken some time to read through the documentation to understand what each of the components do. And you know what? I ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Zend Framework: First Impressions</h1>
+		<p><img width="500" height="94" src="/files/image/zend-leadin.png" alt="Introducing the Zend Framework" /></p>
+<p>Last week, the first production release of the Zend Framework was released. I've taken some time to read through the documentation to understand what each of the components do. And you know what? I think I like it.</p>
+<h2>What is it?</h2>
+<blockquote>
+<p>A powerful high-quality open-source framework focused on developing modern Web Applications and Web Services</p>
+</blockquote>
+<p>That's how Zend describes the framework. What's interesting is that it isn't an out-of-the-box MVC framework. It's really just a collection of classes that can help you build your web application. The site is clean and there is plenty of <a href="http://framework.zend.com/manual/en/">documentation</a>. The manual runs through each of the classes describing what they can do and how to do it.</p>
+<p>Zend has a heavy focus on web services with ready-made components for Akismet, Amazon, Audioscrobbler (for Last.fm), Del.icio.us, Flickr, Google and more. Most of these build on other components such as the HTTP, REST, JSON and XMLRPC classes.</p>
+<p>They also have all the makings of an MVC (Model-View-Controller) framework with the Controller class. Tie in the DB, Filter (for filtering  data), Cache, Auth (for handling authorization) and ACL (Access Control Lists) classes and you've got the ingredients for a decent framework.</p>
+<p>In many ways, I feel like Zend sits on one end of the automation spectrum with CakePHP on the other end and CodeIgniter (CI) sitting in the middle.</p>
+<p><img width="500" height="59" src="/files/image/zend-automation.png" alt="Automation scale: CakePHP on the more side, Zend on the other end with CodeIgniter in the middle" /></p>
+<h2>CakePHP and Zend sitting in a tree</h2>
+<p>As most of you probably know, I currently use <a href="http://cakephp.org/">CakePHP</a> to power this site and I'm definitely <a href="https://snook.ca/archives/cakephp/">a fan of the framework</a>. But one area where I felt that CakePHP didn't cover was a lot of the additional components that come with CI or Zend. I've always felt that this was extremely minor as it allowed the developer to pull in whatever components that they want to use. For example, I <a href="http://www.sitepoint.com/article/photo-gallery-cakephp-flickr">used a Flickr class to create a simple gallery in CakePHP</a>. I use a compoenent called <a href="http://sourceforge.net/projects/kses">kses</a> for providing HTML filtering for my comments. CakePHP's flexibility makes it a really great system to work within.</p>
+<p>But where does one find high-quality classes focused on developing modern web applications and web services? Enter Zend Framework! And the integration with CakePHP couldn't be easier. Just drop the Zend Framework into the vendors directory. (Keep in mind that while CakePHP can work with PHP4 or 5, Zend Framework is PHP5-only.)</p>
+<p>You'll need to modify the include path to point to the root of the vendors folder. What I did was simply add a new line to my <kbd>app/config/core.php</kbd>.</p>
+<pre><code>ini_set('include_path',ini_get('include_path') . PATH_SEPARATOR . '/path/to/vendors'); </code></pre>
+<p>Anytime you want to use a particular class, just use the vendor function to load in the class. After that, you're free to instantiate the class.</p>
+<pre><code>vendor('Zend/Pdf');<br />$pdf = new Zend_Pdf(); </code></pre>
+<p>And just like that, we're creating a new PDF document.</p>
+<h2>Implementing the Del.icio.us class</h2>
+<p>To really give it a spin, I decided to try out the Del.icio.us component as I plan to roll out some minor changes here on Snook.ca. I figured this would give me a better sense of how well it was designed.</p>
+<p>The first thing I was looking to do was replace the quick links in the sidebar to a del.icio.us powered component. This was very straightforward as it's one of the <a href="http://framework.zend.com/manual/en/zend.service.delicious.html">first examples on the documentation page</a>.</p>
+<pre><code>vendor('Zend/Service/Delicious');<br />$delicious = new Zend_Service_Delicious('username', 'password');<br />$deliciousposts = $delicious-&gt;getRecentPosts('forsite', 5);<br />$this-&gt;set('deliciousposts', $deliciousposts);</code></pre>
+<p>Then, all I have to do is iterate over the results in my view. In this case, I created a list item and link for each entry using the title and notes for the text.</p>
+<pre><code>foreach ($deliciousposts as $post) {<br />   echo '&lt;li&gt;'.$html-&gt;link($post-&gt;getTitle().' - ' .$post-&gt;getNotes(), $post-&gt;getUrl()).'&lt;/li&gt;';<br />} </code></pre>
+<p>The next thing I wanted to do was include a count on the page as to how many times a particular page was bookmarked. Unfortunately, this wasn't so easy. The Del.icio.us API describes has a way to <a href="http://del.icio.us/help/json/url">get information on a post via the URL</a> but, for some reason, this seemed to be left out of the ZF Del.icio.us class. Well, that sucked. Why apparently implement the all of the API but one method?</p>
+<p>In any case, a little digging through the ZF code and it appeared that getting this going could still be straightforward. After some trial and error, it turned out to only be a couple lines of code:</p>
+<pre><code>$delicious = new Zend_Service_Delicious();<br />$parms = array('hash'=&gt; md5('<a title="Linkification: http://example.com/archives/my/article_url/" href="http://example.com/archives/my/article_url/" class="linkification-ext">http://example.com/archives/my/article_url/</a>'));<br />$delicious_post_total = $delicious-&gt;makeRequest('feeds/json/url/data', $parms, 'json'); </code></pre>
+<p>That's it! You'll notice that because this is a public method that I don't have to specify a username or password when instantiating the Del.icio.us class.</p>
+<h2>Verdict</h2>
+<p>I was a little disappointed in the lack of the one method I needed in the Del.icio.us class and trying to reconcile the Del.icious  API against the ZF API was a minor frustrration. All-in-all, I was still very pleased with how easy it was to implement and I have plans to use a few other of the classes as well.</p>
+<p>I'll still be sticking with CakePHP for building MVC-based applications. The automation it offers me is just too powerful to give up. However, I see Zend Framework as being a great companion to it.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published July 10, 2007 &middot; Updated July 10, 2007</div>
+	<div class="cat">Categorized as <a href="/archives/php/">PHP</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/834</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">28 Comments &middot; <a href="/archives/php/zend_framework_first_impressions.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c50950">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50950">1</a></div>
+			<span class="authorname"><a href="http://nateklaiber.com">Nate Klaiber</a></span> said on July 10, 2007		</div>
+		<div class="quote"><p>Nice overview. I like the way you incorporate it with the CakePHP framework. I recently spent some time in the ZF documentation as well and really liked what I saw. As you stated, it isn't a full blown framework (which is what I think confuses people), but is a great library to build a foundation. I love the coding style of the ZF - very clean and able to be extended.</p>
+<p>Look forward to some more tips on integrating with Cake :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50958">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50958">2</a></div>
+			<span class="authorname">Peter</span> said on July 10, 2007		</div>
+		<div class="quote"><p>Smart idea, dropping the Zend Framework into Cake. I am also a Cake user and I was interested in trying Zend, but I definitely wouldn't have thought of using them both together anytime soon. That really is the power of cake in action.</p>
+<p>I was actually considering creating components for CakePHP to integrate with a bunch of webservices that I had planned to use with a site I'm developing, this is going to save me a lot of time.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50964">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50964">3</a></div>
+			<span class="authorname">Matthew Weier O'Phinney</span> said on July 10, 2007		</div>
+		<div class="quote"><p>Jonathan -- I've posted a feature request for you on the ZF tracker for the del.icio.us bookmark total:</p>
+<p>http://framework.zend.com/issues/browse/ZF-1699
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c50965">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50965">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 10, 2007		</div>
+		<div class="quote"><p>@Matthew: many thanks for adding the feature request. More importantly &mdash; and something I didn't really explain well in the article &mdash; is that the call that I make actually returns a bunch of info on the URL including common tags, etc. It's only within the view that I actually pull out just the count from that data. Therefore, to have it added to the API, it should actually be <code>getUrl($url)</code>, from which it could have the getTitle, getNotes, and other methods including getCount.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c50967">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50967">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 10, 2007		</div>
+		<div class="quote"><p>I should add that the ZF issue tracker is a piece of beauty. I love how they show a simple bar chart comparing the number of open requests per component. Love it.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50970">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50970">6</a></div>
+			<span class="authorname">Kevin</span> said on July 10, 2007		</div>
+		<div class="quote"><p>It's also worth noting that ZF integrates well with Symfony - http://www.symfony-project.com/weblog/post/135.html, although I'd wait a bug to be fixed with the sfZendPlugin before it'll be using the 1.0 version (it currently uses 0.9.2).
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50973">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50973">7</a></div>
+			<span class="authorname">Masklinn</span> said on July 10, 2007		</div>
+		<div class="quote"><blockquote><p>I should add that the ZF issue tracker is a piece of beauty. I love how they show a simple bar chart comparing the number of open requests per component. Love it.</p>
+</blockquote>
+<p>It's <a href="//www.atlassian.com/software/jira/">Atlassian Software's JIRA bug tracker</a>.</p>
+<p>It's not free, it's a bit on the expensive side in fact (the cheapest license -- standard for Academics -- starts at $600) but it's the single best bugtracker I've ever seen, in looks, in functionalities and in interface quality.</p>
+</div>
+	</div>
+		<div class="comment" id="c51002">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51002">8</a></div>
+			<span class="authorname"><a href="http://pixelated.com.au">Ian</a></span> said on July 10, 2007		</div>
+		<div class="quote"><p>Thanks Jonathan for the quick review.</p>
+<p>I had tried ZF about 3 weeks ago (just before final release) and found the components to be great but the documentation to be old - full of depreciated code and missing a lot of functionality. I hope this has changed.</p>
+<p>It's interesting that you have used it with CakePHP. You've inspired me to try the same. </p>
+<p>That said, ZF is a full framework with support for a MVC architecture. Of course it doesn't have the automation of CakePHP and in this age of <em>'time is money'</em> this in my book is a significant limitation.</p>
+<blockquote><p><strong>Masklinn wrote:</strong> It's Atlassian Software's JIRA bug tracker...It's not free</p></blockquote>
+<p>Actually, it <em>is</em> free for non-profit organisations and open source software projects.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51004">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51004">9</a></div>
+			<span class="authorname"><a href="http://www.godsporch.net">Yannick</a></span> said on July 10, 2007		</div>
+		<div class="quote"><p>Nice little overview of ZF and comparison with CakePHP. I've played around with it a bit and it is a nice and comprehensive framework. I would consider using it depending on the project I'm undertaking, however for the most part I'm still a big fan of CodeIgniter and find it easier to use. With that said though, just as ZF can play nice with CakePHP and Symfony, it can also be integrated with CodeIgniter as the following article shows:</p>
+<p><a href="//www.4webby.com/freakauth/tutorials/using-zend-framework-components-in-code-igniter">http://www.4webby.com/freakauth/tutorials/using-zend-framework-components-in-code-igniter</a></p>
+<p>Just thought I'd point that out, in case anyone was wondering.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51010">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51010">10</a></div>
+			<span class="authorname">Tarique Sani</span> said on July 10, 2007		</div>
+		<div class="quote"><p>The post and comments amply indicate that ZF will be great as the glue which you can use to paste together stuff in most of the existing MVC framework and this I feel is as cool a marketing trick as it is a technology trick.</p>
+<p>I am looking forward to a Bake like script for ZF and most likely it will come from one of its users rather than the core team
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51011">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51011">11</a></div>
+			<span class="authorname">brainfault</span> said on July 10, 2007		</div>
+		<div class="quote"><p>The main problem of ZF, IMHO is the fact that there is no easy way to handle complex views, this problem raise more than once in the mailinglist, there's some solutions that emerged mainly the <a href="//blog.astrumfutura.com/archives/281-Complex-Web-Pages-with-the-Zend-Framework.html">padraic brady's</a> one, a solution is planned "Zend_View_Layout" and it's high on the  priority list, despite that ZF is a great framework with a lot of of interesting components which I use daily through the symfony zf plugin.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51013">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51013">12</a></div>
+			<span class="authorname">Sharandeep Brar</span> said on July 10, 2007		</div>
+		<div class="quote"><p>Good Articles. I also use cakephp for most of my work but was slightly confused after zend framework release. But as shown by your article that zend framework components can be used easily inside cakephp, i think i would be able to keep using cake and also have some ZF components goodness.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51206">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51206">13</a></div>
+			<span class="authorname"><a href="http://www.zed23.com/">Ryan Brooks</a></span> said on July 12, 2007		</div>
+		<div class="quote"><p>Jonathan,</p>
+<p>Since I remember asking you your opinion about ZF quite some ago when you were all gung ho about CakePHP, I was disappointed to hear your reaction to ZF. I've been using the framework since 0.2 and it has come a <strong>long</strong> way since then. I wouldn't consider ZF to be a MVC framework; moreover I think it's a bundled library to encourage rapid application development, with components such as MVC. As brainfault said the biggest problem with it is that it can't handle complex views, albeit it has come a LONG way since it started.</p>
+<p>I look forward to seeing a more detailed post (hopefully) as to why you'll stick to CakePHP versus ZF for MVC applications; maybe someone such as myself can offer a rebuttal. ;)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c51208">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51208">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 12, 2007		</div>
+		<div class="quote"><p>@Ryan Brooks: not sure why you're disappointed. I did say I liked it and that I had plans to continue using it.</p>
+<p>CakePHP really shines because of the automation. I can unzip the framework, configure the database, create the tables and then run a script to generate everything. In 5 minutes I could have an application. Zend isn't "out-of-the-box" in that sense. I have no doubt that someone will create a sub-project that does offer that out-of-the-box step but for now, CakePHP meets my needs and when it doesn't, I've now got Zend among others to rely on.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51235">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51235">15</a></div>
+			<span class="authorname">Ji31</span> said on July 12, 2007		</div>
+		<div class="quote"><p>Hi,<br />
+I like your blog a lot and I read it constantly. I would like to ask you, what editor do you use for writing of CakePHP and why?</p>
+<p>Thanks for answer
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c51271">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51271">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on July 12, 2007		</div>
+		<div class="quote"><p>@Ji31: Right now, I mostly use <a href="//www.ultraedit.com/">UltraEdit</a>. It's just a super-fast text editor which code highlighting and some other handy features. I'm actually going to try and switch editors to something a little more feature-full.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c51467">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c51467">17</a></div>
+			<span class="authorname">Emil</span> said on July 14, 2007		</div>
+		<div class="quote"><p>Ji31: I would recommend Zend Studio, it has code completion.. both for php's built in classes/functions and for your own. It's a time saver, especially if you like name your classes with good names which sometimes can be hard to spell :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52345">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52345">18</a></div>
+			<span class="authorname">Al Newkirk</span> said on July 25, 2007		</div>
+		<div class="quote"><p>I am not new to PHP but I am new to Zend, CodeIgnitor, and CakePHP. I am an Asp, PHP and Perl programmer and I have been using CodeCharge Studio for years using thier framework. What do you think. http://www.codechargestudio.com
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52423">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52423">19</a></div>
+			<span class="authorname">ionCube</span> said on July 27, 2007		</div>
+		<div class="quote"><p>An interesting summary. When we were looking at frameworks recently we looked at the Zend framework, and whilst it looked promising at first glance, about as quickly as we realised that it wasn't really there yet, we realised that Cake was much more in line with what we expected to see. Having now used Cake for a while we're very pro Cake, although we realised that Cake isn't without some fundamental flaws too although these can be dealt with.  ZF does have some useful components, and leveraging those within Cake is a great idea and highlights one of the cool things about Cake, which is that it's easy to extend.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52453">20</a></div>
+			<span class="authorname">gd</span> said on July 27, 2007		</div>
+		<div class="quote"><p>I just start learning CakePHP. Nice article.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c52847">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c52847">21</a></div>
+			<span class="authorname">Matthias Willerich</span> said on August 01, 2007		</div>
+		<div class="quote"><p>I like the concept of adding Zend classes to CakePHP. As you're the one who got me started actually using Cake instead of just looking at it, I might follow this advice rather sooner than later.</p>
+</div>
+	</div>
+		<div class="comment" id="c55070">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55070">22</a></div>
+			<span class="authorname">IlMagnifico</span> said on August 30, 2007		</div>
+		<div class="quote"><p>No doubt, Cake is really a great FW and ZF is a powerful (and very clean, though a liitle beta) collection of classes, why not use them both together?<br />
+I played around with Cake for months now and also recently checked ZF.<br />
+The most important point that gives me headache using Cake for my next projects is: why in the world Cake is PHP4-compatible and doesn't use the power of PHP5 (like ZF).<br />
+PHP4 is about 6 years old, there is really no need for using it anymore. Or do you still use another six-year old applications or programming languages?<br />
+Stop propagating PHP4, please. That's the main reason why PHP is still full of bad-named and inconsistent functions and naming.</p>
+<p>For me it's a clear No-Go issue for using Cake in serious projects.<br />
+Sadly.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55078">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55078">23</a></div>
+			<span class="authorname">Nick Ohrn</span> said on August 31, 2007		</div>
+		<div class="quote"><p>Thanks for the great review of this framework and it's integration into CakePHP.  I'm looking right now at starting to use some frameworks in my work to speed up dev time, and this looks like a great solution.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55107">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55107">24</a></div>
+			<span class="authorname">DCramer</span> said on September 04, 2007		</div>
+		<div class="quote"><p>I've taken a look at the framework and my conclusion is that It doesnâ€™t offer much more than a concise set of classes as you mentioned. they are indeed helpful however the only time it saves is looking up classes on phpclasses or searching Google.</p>
+<p>This however does bring in a greater deal of quality through the Zend Framework's classes as they are tried and tested and work well together. But I'm not sure of calling it a framework as much as a library or extension set. I feel a frame work should be more what the name implies. a system to mold your application over. Something that include layout structures as well as classes working together to deliver a application designed by the developer.... but that just me :)</p>
+<p>I do however like the classes and they are amongst some of the best I've seen and surely will use them in some of my own applications.</p>
+</div>
+	</div>
+		<div class="comment" id="c56797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c56797">25</a></div>
+			<span class="authorname">jb</span> said on November 19, 2007		</div>
+		<div class="quote"><p>I had never used a php framework before and decided to give the Zend framework a shot - it is wonderful. Creating and consuming webservices became ... fun. I'm still learning my way around it, but I've enjoyed Zend thus far.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59794">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59794">26</a></div>
+			<span class="authorname">bazet</span> said on October 15, 2008		</div>
+		<div class="quote"><p>Nice arguments on Cake ZF. Actually, I plan to integrate ZF within my CakePHp to use thier Youtube API. I develop a simple forum using cakephp in 1 week ( http://forum.protonmania.com )...still got bugs and I need to optimize the query by using containable behavior..cake just rocks.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61224">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61224">27</a></div>
+			<span class="authorname">Oliver Treend</span> said on January 18, 2009		</div>
+		<div class="quote"><p>Ooh! In addition to <a href="#c51235">Ji31's question</a> and your response, does UltraEdit highlight PHP code in your .ctp view files?</p>
+<p>I use EditPlus, and it doesn't highlight the PHP code because it's not got the PHP extension. That really bugs me! :-(
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61226">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61226">28</a></div>
+			<span class="authorname">Oliver Treend</span> said on January 18, 2009		</div>
+		<div class="quote"><p>No worries! I just looked in the EditPlus settings and found out how to turn on syntax highlighting for .ctp files!</p>
+<p>In case anybody else would like to do the same:</p>
+<ol>
+<li>Go to Tools &gt; Preferences.</li>
+<li>Click on Files &gt; Settings &amp; syntax</li>
+<li>Choose 'PHP' under 'File types'</li>
+<li>Add ";ctp" to the end of the 'File extensions' box.</li>
+<li>Click Apply/OK and watch your .ctp files burst into colour! :-D</li>
+</ol>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

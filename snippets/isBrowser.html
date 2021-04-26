@@ -1,0 +1,9 @@
+<p>Determines if the current runtime environment is a browser so that front-end modules can run on the server (Node) without throwing errors.</p>
+<ul>
+<li>Use <code>Array.prototype.includes()</code> on the <code>typeof</code> values of both <code>window</code> and <code>document</code> (globals usually only available in a browser environment unless they were explicitly defined), which will return <code>true</code> if one of them is <code>undefined</code>.</li>
+<li><code>typeof</code> allows globals to be checked for existence without throwing a <code>ReferenceError</code>.</li>
+<li>If both of them are not <code>undefined</code>, then the current environment is assumed to be a browser.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isBrowser <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">!</span>[<span class="kw">typeof</span> window<span class="op">,</span> <span class="kw">typeof</span> document].<span class="at">includes</span>(<span class="st">&#39;undefined&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isBrowser</span>()<span class="op">;</span> <span class="co">// true (browser)</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">isBrowser</span>()<span class="op">;</span> <span class="co">// false (Node)</span></a></code></pre></div>

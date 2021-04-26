@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>V8: Supercharger - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/design/v8_supercharger">
+	<meta property="og:url" content="https://snook.ca/archives/design/v8_supercharger">
+	<meta property="og:title" content="V8: Supercharger">
+	<meta property="og:description" name="description" content="Version 8 is launched. Oh crap. 
+Well, I've decided to have some fun and call this &quot;Supercharger&quot;. It's been months in the making.  Seriously. It's gone through iteration after iteration bu...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>V8: Supercharger</h1>
+		<p>Version 8 is launched. Oh crap. </p>
+<p>Well, I've decided to have some fun and call this &quot;Supercharger&quot;. It's been months in the making.  Seriously. It's gone through iteration after iteration but I finally think it was good enough to launch. It's been tweaked and prodded all the way to the finish line. And this isn't even done yet (as is probably obvious in a few places). This isn't even a late <a href="http://cssreboot.com/">Reboot</a>, an event that I believe is now past its prime. </p>
+<h2>Death of Fixed Comments</h2>
+<p>Okay, I didn't <a href="https://snook.ca/archives/other/death_of_comments/">get rid of comments</a> but I did get rid of fixed comments. It's been a staple of this blog for years but I've finally retired it. Sort of. They'll be making a small return when I get them implemented but they'll be much different than before. You'll have to turn them on manually, for one. They'll also be fixed at the bottom as a full-width panel. </p>
+<p>Trying to use fixed comments was fun but it's actually a pain to design around. You basically give up a column of design real estate for them. That's something that I didn't want to do any more.</p>
+<h2>Columns</h2>
+<p>The last design was essentially a single column design. Any other information was at the bottom. Oh sure, it's all &quot;content-centric&quot; but I felt like cool stuff was getting lost down there. It's lonely at the bottom! </p>
+<p>As you can see, it's now three columns. And no footer. Except a rather large rendition of my logo. Just in case you forgot where you were by the bottom of the page. Like the overdose of green wasn't enough. </p>
+<p>The three columns gives me more real estate &quot;above the fold&quot; to highlight various things. There's still a few things to make their way into the sidebars. Nothing major but </p>
+<h2>Self Promotion</h2>
+<p>Mind you, calling it &quot;self promotion&quot; sounds icky but I did want to highlight some of the personal projects that I've been working on. They now have a place in the sidebar. I should have a <a href="http://www.sitepoint.com/books/cssdesign1/">link to the book</a> there soon, too. </p>
+<h2>More to talk about</h2>
+<p>I hit a bit of a lull within the past couple weeks, not posting much as I focused on client work. That won't change much in the next couple weeks either but should hopefully pick up after that as I wrap up various projects.</p>
+<p>Anyways, I somewhat rushed  this out. I still have some tweaks to make and I'll have a follow-up post that I want to do talking about the design of the site. I had a lot of fun putting this one together and I think you might be interested to see how the design  progressed and the thought that went into many elements that you see within the design. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published May 06, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/design/">Design</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/803</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">92 Comments &middot; <a href="/archives/design/v8_supercharger.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c48240">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48240">1</a></div>
+			<span class="authorname"><a href="http://warnis.com">Fredrik WÃ¤rnsberg</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Great job on the redesign btw, I love it!</p>
+<p>All the headlines in your articles are floating (have equal margin on the top and bottom, which makes them float in-between paragraphs rather than belonging to one). Might want to fix that the the sake of legibility.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48241">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48241">2</a></div>
+			<span class="authorname">Vlad</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Wow, this is a huge change in design. Looks good, looking forward to seem new, interesting posts.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48242">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48242">3</a></div>
+			<span class="authorname">Josh Blount</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Very nice, congratulations on launching!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48243">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48243">4</a></div>
+			<span class="authorname">Gary Barber</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Good change, the information at the bottom was getting lost and lonely :)  Sometimes article content centric is good, but then we have to question what's the point of the other linked resources if we hide them away.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48244">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48244">5</a></div>
+			<span class="authorname">Ben Henschel</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Hey,</p>
+<p>I love it...looks really great!</p>
+<p>Congrats on your redesign!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48245">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48245">6</a></div>
+			<span class="authorname"><a href="http://seansperte.com">Sean S</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Probably my favorite Snook.ca design thus far. Very nice job.</p>
+<p>Glad to see you kept (at least for the time being) the comments around.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48246">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48246">7</a></div>
+			<span class="authorname">William Wilkinson</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Very nice. I love the comment stlyes and the footer.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48247">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48247">8</a></div>
+			<span class="authorname"><a href="http://5thirtyone.com">Derek Punsalan</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Great job and definitely one of my favorite versions of Snook.ca.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48248">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48248">9</a></div>
+			<span class="authorname">Andre</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Love the header, dislike the footer. But I'll live. ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48250">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48250">10</a></div>
+			<span class="authorname">jakedahn</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Wow, this is really sweet. Great work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48251">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48251">11</a></div>
+			<span class="authorname"><a href="http://www.germworks.net">Jermayn Parker</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Good to see comments stay,<br />
+I liked the add comment box that moved with your scroll and would have been nice to see stay...</p>
+<p>A comment notify would have been nice as well :)
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48253">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48253">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 06, 2007		</div>
+		<div class="quote"><p>@Fredrik: I actually liked the extra padding but noticed it looked awkward on the home page so I've decided to make it consistent on both pages. :)</p>
+<p>@Andre: goes to show that you can't please everybody. ;)</p>
+<p>@Jermayn: well, you'll be happy to see the fixed comments make a partial return later this week. I think you'll like how it works.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48254">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48254">13</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Oh, and to everybody else, thank you for the kind words!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48255">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48255">14</a></div>
+			<span class="authorname"><a href="http://centripetalnotion.com">Justin Ruckman</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Oooo the footer is shiny.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48256">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48256">15</a></div>
+			<span class="authorname">Mike</span> said on May 06, 2007		</div>
+		<div class="quote"><p>I enjoy this design more than all of your older ones - this really makes me wish I had the same design talents. I'd like to think that I have an equal amount of talent in programming - that's my bread and butter. I've been reading this blog for a long time as I enjoy your thoughts on xhtml/css as well as a the job, but I would love to hear more about your design process.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48257">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48257">16</a></div>
+			<span class="authorname"><a href="http://jeffcroft.com">Jeff Croft</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Lookin' great, Jon! Definitely my favorite iteration so far. I really like the shades of green you've picked this time around. REally good stuff, my friend!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48258">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48258">17</a></div>
+			<span class="authorname"><a href="http://subvert.ca/">Geof Harries</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>I really dig the left-side of your comments and how it wraps underneath the main reading area. Very smooth and stylish.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48259">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48259">18</a></div>
+			<span class="authorname"><a href="http://www.standardzilla.com">Scott G</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Congrats on the new design Jonathan! It's looking fresh :-) You make me painfully aware that I need to 'officially' finish the design on my blog!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48260">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48260">19</a></div>
+			<span class="authorname">Gil Creque</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Wow, this new design is amazing.  Once again you've pushed the limits.  My favorite part has to be the roll between the commentor's name and comment.  I did notice one bug.  When you are looking at all the comments and individual has made, the commentor's name overlaps with the about snook/projects section on the left side.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48261">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48261">20</a></div>
+			<span class="authorname">Spencer</span> said on May 06, 2007		</div>
+		<div class="quote"><p>I like how you've put the Active Topics up at the top-right hand corner of the page... very nice, and easy to access.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48262">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48262">21</a></div>
+			<span class="authorname">Akhil</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Very nice looking design. I have been following your blog for sometime now but haven't commented yet. Not sure is it just me, after reading 3-4 comments look to the right side, I see fading white lines corresponding to the green lines(comment border). I like the preview type appearing in the bottom of the comment section too.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48263">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48263">22</a></div>
+			<span class="authorname"><a href="http://stephenminded.com/">Steve Lounsbury</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Snook, the design looks great!  Its definitely the best redesign since I've been reading.  Great job and keep up the inspiring work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48264">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48264">23</a></div>
+			<span class="authorname"><a href="http://webrevolutionary.com/">Matt</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Hey Snook. Looking great!<br />
+I think the typography still needs a little work, looks a little cramped to me (more line-height?)<br />
+Beautiful work nevertheless, congratulations.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48265">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48265">24</a></div>
+			<span class="authorname">Lucian Lature</span> said on May 06, 2007		</div>
+		<div class="quote"><p>I think that the new version is fresh and more optimistic than the previous one, I like the color pallete and also the "Live Preview". Do you intend to publish the php code your blog is running on?...
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48266">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48266">25</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 06, 2007		</div>
+		<div class="quote"><p>@Mike: I'll be trying to get a post up within the week that talks more about the design process. I'm going to try and talk more about design in the coming weeks.</p>
+<p>@Gil: thanks for the heads up on the All Comments page. Not sure yet how I'm going to fix it but I'll come up with something. :)</p>
+<p>@Matt: I've actually left the typography alone for a reason: I want to see how usable the site is before I go messing with line heights too much. If I find the readability a little difficult, I'll play around with it some. I did the same thing with the previous version, too.</p>
+<p>@Lucian: no plans to release the blog code. Mostly because much of it is really unpolished and very specific to my site. I doubt it'd be of much use to anybody over and above the many blog tutorials that come with most frameworks these days.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48267">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48267">26</a></div>
+			<span class="authorname"><a href="http://www.polysign.lu">Georges Jentgen</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>Just love it! It's great and I really like the Logo at the bottom. Looks fantastic :)<br />
+I won't go into details, as others already did before, and I am late for work... so...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48268">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48268">27</a></div>
+			<span class="authorname">Binny V A</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Hey Jonathan, this is great! This is my favorite among all your designs :-)<br />
+Bravo!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48269">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48269">28</a></div>
+			<span class="authorname"><a href="http://www.xhtmlslicer.com">Prashant</a></span> said on May 06, 2007		</div>
+		<div class="quote"><p>This new design is looking really amazing, great job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48270">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48270">29</a></div>
+			<span class="authorname">Nicole Wopperer</span> said on May 06, 2007		</div>
+		<div class="quote"><p>Very cool, Jon. The footer is so unique. I've never seen another one like it!</p>
+<p>Oh, and I've always really liked how you bold out your own commentsâ€”especially the execution in this version. Makes for easy reading! Super.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48271">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48271">30</a></div>
+			<span class="authorname"><a href="http://kimblim.dk">kimblim</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Looks good, although I liked the old one better - did you change the HTML or is it all CSS? The reason I'm asking is that if it's all CSS, you could provide the old styles as alternative stylesheets - just to show off a little bit ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48272">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48272">31</a></div>
+			<span class="authorname">Nate Cavanaugh</span> said on May 07, 2007		</div>
+		<div class="quote"><p>For the most part, I really like the new design, however, I do have one criticism, and it's bad enough to make me think my monitor is wonky or something.</p>
+<p>But what is up with the blue/grey banner at the top? Besides the fact that the color is in quite a bit of disarray with the rest of the site, it's artifacted pretty badly, and the type is pretty pixelated (or artifacted).<br />
+The footer portion with the logo is quite nice, though it has a bit too many sharp pixels hugging the circle, for my taste.</p>
+<p>Overall, I this is a great improvement over the last one, and I especially enjoy the new columns. Much easier to navigate and grok the site's content and flow.</p>
+<p>Overall, good job :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48275">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48275">32</a></div>
+			<span class="authorname">Sam Rayner</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Great redesign Jonathan! Very fresh. I love the two-tiered headings.</p>
+<p>One small bug I found: once the comment numbers go into double figures they tend to overlap the author's name a little, especially with the wider figures like 30 and 00 in the comment preview.</p>
+<p>Apart from that it's all beautiful.</p>
+<p>Oh, and I noticed yesterday that the listing for your book on all Amazon sites has you down as Jonathan Snook<strong>s</strong>. Just incase you want to give them a heads up.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48277">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48277">33</a></div>
+			<span class="authorname"><a href="http://riddle.jogger.pl">Riddle</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Very nice job, but I'm overwhelmed by typographic diversityâ€¦ :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48278">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48278">34</a></div>
+			<span class="authorname">Andrew Ingram</span> said on May 07, 2007		</div>
+		<div class="quote"><p>The new design looks really nice, you've got a few markup issues to fix and the blue header is badly compressed but  other than that it's really impressive. Everything has it's own place and looks like part of the design rather than being afterthoughts.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48280">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48280">35</a></div>
+			<span class="authorname"><a href="http://nateklaiber.com">Nate Klaiber</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Snook - looks awesome. Hands down your best iteration. Each and every piece is placed well and the design is beautiful.</p>
+<p>Congrats on the launch!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48281">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48281">36</a></div>
+			<span class="authorname">Philip Karpiak</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Simply beautiful, Jonathan. While the fixed comments are gone (for now), the redesign still holds that good ol' Snook branding.</p>
+<p>Great job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48283">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48283">37</a></div>
+			<span class="authorname">Graham</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Really excellent design!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48285">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48285">38</a></div>
+			<span class="authorname">loopion</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Really nice ! This theme is awesome ! Good work !
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48286">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48286">39</a></div>
+			<span class="authorname">Julian Schrader</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Very niceâ€”I like it!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48287">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48287">40</a></div>
+			<span class="authorname">Jason Calleiro</span> said on May 07, 2007		</div>
+		<div class="quote"><p>It looks fantastic! I love the fact that you redesign so often. its nice to come to a site and see something fresh and new. In your case it has happens a lot more than usual.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48288">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48288">41</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 07, 2007		</div>
+		<div class="quote"><p>@kimblim: enough of the HTML changed - mostly with the header and sidebars - that just doing a style sheet swap won't work. I've been able to pull off that stunt a couple times but it just wasn't practical this time around.</p>
+<p>@Nate Cavanaugh/Andrew Ingram: I've re-exported the header image. Hopefully it's a little cleaner now.</p>
+<p>@Sam Rayner: interesting. There shouldn't be any overlap until it hits 3 characters but it seems like it might not be a bad idea to find another place to put them. Thanks for the heads up. I did notice the spelling mistake on the book page but it hasn't bugged me enough to send them an email about it. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48289">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48289">42</a></div>
+			<span class="authorname"><a href="http://halowdesign.com">Jody Daub</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Great re-design! I love how the divisions between each of the comments makes the center column pop out to the front. The darker green flanking the outside columns was a good choice. And the strong logo at the bottom is killer.</p>
+<p>Just one thing, though - if the browser is anything less than 980px wide the horizontal scrollbar is needed to access the right column (including the main navigation). Normally I would chalk this up as a usability issue only, but considering your audience I doubt it's that much of a problem. </p>
+<p>But in Firefox, Opera and SeaMonkey (at least) the portion of the right column that is off the right edge of the viewport is not visible when using the horizontal scrollbar. In IE7 you can get the main navigation, but the remainder of the right column is still cut off. Let me know if you would like the screen shots I've taken.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48290">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48290">43</a></div>
+			<span class="authorname">Jeremy</span> said on May 07, 2007		</div>
+		<div class="quote"><p>You know, I have to be honest- I'm not sad to see the fixed comments go.  As a proof-of-concept, I thought it was kinda neat and even aesthetically pleasing. But as a UI element, I found it a little jarring when you begin to scroll down to read further down an article, and then WOAH!! your eyes zoom back up to the top and your thought pattern or read-flow is taken on a detour or sidebar, if you will. (Damn! You can think of a better use of that pun jeremy!)  Anyways, well done!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48291">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48291">44</a></div>
+			<span class="authorname">tom</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Good on ya! You are a web-god in a sea of mere mortals...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48292">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48292">45</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Looks great, Jonathan. Keep up the good work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48293">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48293">46</a></div>
+			<span class="authorname">Will</span> said on May 07, 2007		</div>
+		<div class="quote"><p>The new design looks amazing. Awesome work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48294">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48294">47</a></div>
+			<span class="authorname">JosÃ© Carlos</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Looks really great! Congratulations!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48295">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48295">48</a></div>
+			<span class="authorname"><a href="http://www.jasongraphix.com">Jason Beaird</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Awesome job Jonathan.  Reminds me that I need to get off my keister and make time to redesign my own site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48296">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48296">49</a></div>
+			<span class="authorname">Sherwin Techico</span> said on May 07, 2007		</div>
+		<div class="quote"><p>Dopeness. Congrats!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48297">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48297">50</a></div>
+			<span class="authorname"><a href="http://epik.philbon.com/epik">Evan</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Ill be honest, its not my favorite rollout of your site, it seems like there is too much going on.  That being said it still looks a hell of a lot better than a lot of sites out there.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48299">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48299">51</a></div>
+			<span class="authorname"><a href="http://www.optiem.com">David Mead</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>Just catching up on my bloglines and wanted to add my 2 cents of congratulations.  Excellent redesign.  Love the color change for the headings, though I personally miss the fixed comments :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48300">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48300">52</a></div>
+			<span class="authorname">Connor Wilson</span> said on May 07, 2007		</div>
+		<div class="quote"><p>I was getting suspicious that you would be redesigning soon, and this definitely lives up to my expectations. Makes me want to get into CakePHP and off of WordPress!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48301">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48301">53</a></div>
+			<span class="authorname">Johan</span> said on May 07, 2007		</div>
+		<div class="quote"><p>It looks like a collage of previous iterations, you need to refine the details. E.g. shadows curves, header, navigation. Integrate ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48306">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48306">54</a></div>
+			<span class="authorname">Travis</span> said on May 07, 2007		</div>
+		<div class="quote"><p>looks great Jonathon, well done! I'm always amazed when you apologize for being quiet on the posting front when your blog is one of the more frequently updated in my daily reading. Keep up the good work!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48307">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48307">55</a></div>
+			<span class="authorname"><a href="http://omnibuscreative.com">Ben Hirsch</a></span> said on May 07, 2007		</div>
+		<div class="quote"><p>yeah. this is the best design yet. love it.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48308">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48308">56</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 07, 2007		</div>
+		<div class="quote"><p>@Evan: you know, I'm surprised more people haven't been saying the same thing. I was predicting that more people would say it looked cluttered. It was a chance I was willing to take, though. :)</p>
+<p>@Johan: I consider all of the stuff I design a collage of elements. And certainly I'll continue to pull elements out of previous designs. That's absolutely on purpose. But I'm interested in hearing more about refining the details. You mention areas of the page but don't explain what you think needs refining. Could you expand on that?</p>
+<p>@All: thanks again for the kind words. This is being received much better than I thought it would. :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48310">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48310">57</a></div>
+			<span class="authorname">MrQwest</span> said on May 08, 2007		</div>
+		<div class="quote"><p>Oooh, i really like this design.  I love the <em>layered</em> effect that is portrayed between the columns, and there's little details here and there which are just awesome!  </p>
+<p>Congrats on the redesign!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48311">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48311">58</a></div>
+			<span class="authorname"><a href="http://kilianvalkhof.com">Kilian Valkhof</a></span> said on May 08, 2007		</div>
+		<div class="quote"><p>Jon, very nice! I agree with Evan though. at first view it seemed sort-of cluttered. But i had no problem reading your article, so I guess it's not really an issue ;)</p>
+<p>I really like both the header and the footer, but i think the orange feed icon and the coloured version of your projects stand out too much compared to all the green. perhaps make them green/semi transparant and light them up when you hover over them?</p>
+<p>The typography looks great (like your last version) but i think it could use a little more line-height :)</p>
+<p>All in all, awesome website :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48314">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48314">59</a></div>
+			<span class="authorname"><a href="http://www.skc.gr">Jason Kataropoulos</a></span> said on May 08, 2007		</div>
+		<div class="quote"><p>Jonathan it looks great.</p>
+<p>I wonder why you keep that old template on the other pages of your site (home, about, contact etc.)</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48317">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48317">60</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 08, 2007		</div>
+		<div class="quote"><p>@Kilian: I've upped the line height and things definitely feel more comfortable. As for clutter and the sidebar, I used contrast and the shadow to emphasize the main column. This will hopefully create enough balance that I can keep the elements as-is in the sidebar. I do want them to be noticeable without being distracting. Time will tell if that's the case.</p>
+<p>@Jason Kataropoulos: I wonder that, too. :) It was originally intended to keep the business and the blog separate but I haven't had time to add a serious portfolio and as a result, it's languished somewhat. I may bring the pages into the new design but I think I'd still want to create something unique for the landing page.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c48319">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48319">61</a></div>
+			<span class="authorname">Jonathan Snook</span> said on May 08, 2007		</div>
+		<div class="quote"><p>@Jason: okay, I've just gone ahead and integrated those pages in. I still have to come up with something for the home page but at least the rest of the pages are now under the new template.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48320">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48320">62</a></div>
+			<span class="authorname"><a href="http://www.stevetucker.co.uk">Steve Tucker</a></span> said on May 08, 2007		</div>
+		<div class="quote"><p>Great new design, Jonathan - refreshingly original :)<br />
+Particularly like how clean the footer is with the branding - most people would fill that space with the usual links and copyright notices.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48321">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48321">63</a></div>
+			<span class="authorname">Jeff Sargent</span> said on May 08, 2007		</div>
+		<div class="quote"><p>Wow - of the prominant redesigns I've seen lately, this is easily the one I like the most.  Very well done.  I respect your choice to nuke the fixed comments for the sake of your overall design - it can be hard to nuke a staple of your site.  </p>
+<p>Kudos.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48322">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48322">64</a></div>
+			<span class="authorname">Scott Johnson</span> said on May 08, 2007		</div>
+		<div class="quote"><p>I'm digging the new design.  It's pretty.  ;-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48325">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48325">65</a></div>
+			<span class="authorname">Daniel Tubb</span> said on May 08, 2007		</div>
+		<div class="quote"><p>Great work, the best version yet. You certainly like your green :-)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48328">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48328">66</a></div>
+			<span class="authorname">Johan</span> said on May 08, 2007		</div>
+		<div class="quote"><p>You mention areas of the page but don't explain what you think needs refining. Could you expand on that?</p>
+<p>It seems the bended lines (e.g. the seperator lines in the comment area and commentor area form a unity through the swoosh-like bended line) are pulled from your Snook lettermark, this could be merely a coincidence. This could be an idea to expand on.</p>
+<p>the shadows on both sides at the comment blocks area could  be reworked to achieve a different effect, it sort of looks like a shadow treatment we have seen once too many.</p>
+<p>the logo you added both top and bottom could fucntion like a high contrast styleswitcher indicator??</p>
+<p>The logo area has this shadow and looks kinda blocky and out of place with the rest of the site elements. This could be an indcation you could rework the different site elements to be more liike complementary. the header and e.g. the typographic treatment seem to much, it could be interesting to work with the footer idea and sort of workout that for the header?</p>
+<p>What do I know?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48329">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48329">67</a></div>
+			<span class="authorname">Bob Hutchison</span> said on May 08, 2007		</div>
+		<div class="quote"><p>Very nice! The more I look at it the more I like it. I appreciate the attention to detail.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48331">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48331">68</a></div>
+			<span class="authorname"><a href="http://www.bballcity.com">Ash Haque</a></span> said on May 08, 2007		</div>
+		<div class="quote"><p>Wow! One of the best redesigns I've seen in a while. Amazing job man!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48334">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48334">69</a></div>
+			<span class="authorname"><a href="http://mickens.us">Cole Mickens</a></span> said on May 08, 2007		</div>
+		<div class="quote"><p>I was saddened when I realized that I had missed on of my favorite holidays and was happily suprissed when I came here and I realized the change.</p>
+<p>Two things though: First, your background-image (http://snook.ca/img/v8/ft.jpg) with the burst(?) is too cool. I think it would be cool if it were more central or visible though it hasn't ever seemed your style to go overboard with the logo so maybe thats not your style.</p>
+<p>Secondly, and I know its not overly cross browser but you might implement a minimum height value for the "post" content or at least for the sidebars to prevent this: http://img369.imageshack.us/img369/7048/screenshotgo5.png
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48337">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48337">70</a></div>
+			<span class="authorname"><a href="http://www.christianmontoya.net">Montoya</a></span> said on May 09, 2007		</div>
+		<div class="quote"><p>I have to say, this latest design is your best one yet, and I'm glad the fixed comment form is gone. As much as it was cool, it was also kind of annoying when I was reading your blog without any intention of commenting. Also, I think the presence of two sidebars really doesn't hurt the focus on content at all.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48344">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48344">71</a></div>
+			<span class="authorname">Dean</span> said on May 09, 2007		</div>
+		<div class="quote"><p>Wow, I really like this new look. Its a refreshing break from the normal 3 column designs. Love the colours. Great work as always.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48345">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48345">72</a></div>
+			<span class="authorname"><a href="http://mattbrett.com">Matt Brett</a></span> said on May 09, 2007		</div>
+		<div class="quote"><p>Fuck, this looks great!  So great, that you made me drop the f bomb. :P</p>
+<p>There's lots to love, but I especially like the comments.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48346">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48346">73</a></div>
+			<span class="authorname"><a href="http://andylaub.com/">Andy</a></span> said on May 09, 2007		</div>
+		<div class="quote"><p>1. Looks great!<br />
+2. I can't believe you copied me in not having banners ;)<br />
+3. This newest CSS Reboot was not very well organized.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48354">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48354">74</a></div>
+			<span class="authorname">Marko</span> said on May 10, 2007		</div>
+		<div class="quote"><p>Holy mowly!!!<br />
+its teh new Cwazy $hit!!!!!#$%&amp;/<br />
+Great work Jonathan!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48359">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48359">75</a></div>
+			<span class="authorname">Emanuel Blagonic</span> said on May 10, 2007		</div>
+		<div class="quote"><p>Great redesign, I love it. I love the "holly footer" as well :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48370">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48370">76</a></div>
+			<span class="authorname">Trey</span> said on May 11, 2007		</div>
+		<div class="quote"><p>i think it's well done. bravo!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48413">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48413">77</a></div>
+			<span class="authorname">L3ggy</span> said on May 12, 2007		</div>
+		<div class="quote"><p>This is truly superb mate ;-) great job. You make green look nice :P.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48415">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48415">78</a></div>
+			<span class="authorname"><a href="http://www.zenscope.com/blog/">Adam Messinger</a></span> said on May 12, 2007		</div>
+		<div class="quote"><p>Your redesign puts my meager realignment to shame! I'll second all those "best yet" comments -- this is outstanding work. </p>
+<p>I also have to chime in with Jermayn on comment notification. A comment feed or e-mail notices would be great.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48432">79</a></div>
+			<span class="authorname">mycotics</span> said on May 14, 2007		</div>
+		<div class="quote"><p>wow<br />
+Very nice redesign. I never thought a 3 column design could look so GOOD.<br />
+especially love the comments layout design. Grate job!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48453">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48453">80</a></div>
+			<span class="authorname">kuba</span> said on May 15, 2007		</div>
+		<div class="quote"><p>Your design is amazing! This is just great. And it is even better because it is made with Cake (I've just finished my website completely in CakePHP, and I love it - Cake, not my site ;) ). </p>
+<p>Great inspiration.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48466">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48466">81</a></div>
+			<span class="authorname">Ji31</span> said on May 16, 2007		</div>
+		<div class="quote"><p>Oh, wow! One of the best! Great!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48477">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48477">82</a></div>
+			<span class="authorname"><a href="http://www.kiper.se">kiper</a></span> said on May 17, 2007		</div>
+		<div class="quote"><p>Bright light, bright light!</p>
+<p>Great work, as always. Maybe a tad too bright for my taste (or it might be the high contrast of my screen). I wish you long life, happiness and prosperity!</p>
+<p>I haven't read the book yet but it looks yummy! Could it be useful if I've already Transcended CSS? ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48480">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48480">83</a></div>
+			<span class="authorname"><a href="http://www.shiftingcreations.com">Adrian</a></span> said on May 17, 2007		</div>
+		<div class="quote"><p>Always a job well done. Great redesign. Also nice to see the work section and blog carrying the same theme now, something I hope to get around to doing on my own site. Keep up the great stuff.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48512">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48512">84</a></div>
+			<span class="authorname">Jonic</span> said on May 20, 2007		</div>
+		<div class="quote"><p>Great work man... I love it :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48513">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48513">85</a></div>
+			<span class="authorname">Steven Bao</span> said on May 20, 2007		</div>
+		<div class="quote"><p>Absolutely amazing redesign.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48518">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48518">86</a></div>
+			<span class="authorname">Dave Bowker</span> said on May 20, 2007		</div>
+		<div class="quote"><p>I haven't checked this site in a while but wow is this design real good. Love it! Great job.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48543">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48543">87</a></div>
+			<span class="authorname">Jacob</span> said on May 21, 2007		</div>
+		<div class="quote"><p>I landed into the "Getting Your Divs to Behave Like Tables" article while struggling with a design I am working on. I was just stunned by your site's design - I can appreciate how much work and skill went into it (and especially the blog &amp; comment layout). Very inspiring.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48554">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48554">88</a></div>
+			<span class="authorname">just.xTc</span> said on May 22, 2007		</div>
+		<div class="quote"><p>Very hot design, excellent job. </p>
+<p>However...<br />
+1. Too bright: I feel like some areas seem oversaturated with color, a bit hard to read.<br />
+2. Your comments: Whenever you make a comment, the background turns green and the text turns white - it's tough to read, I have to highlight the text.</p>
+<p>But I love the footer and most elements. Great job overall, but you should do something about the legibility.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c48880">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c48880">89</a></div>
+			<span class="authorname">Gordon</span> said on June 04, 2007		</div>
+		<div class="quote"><p>Noticed that your "All comments" link for each commenter does not paginate. Pulling up Mr. Snook's comments takes awhile.. Sure you knew this but were just putting it off for one of those mythical moments of "free time" when you would "get around to it" :-). Love the site!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49900">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49900">90</a></div>
+			<span class="authorname">mycotics</span> said on June 24, 2007		</div>
+		<div class="quote"><p>http://www.nolgraphic.com/blog/<br />
+Take a look at these guys. looks like your blog inspired them
+</p>
+</div>
+	</div>
+		<div class="comment" id="c60125">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60125">91</a></div>
+			<span class="authorname">Molly Justice</span> said on November 12, 2008		</div>
+		<div class="quote"><p>ee72mnxsqhbb1ae2</p>
+</div>
+	</div>
+		<div class="comment" id="c60418">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c60418">92</a></div>
+			<span class="authorname">SEO</span> said on November 29, 2008		</div>
+		<div class="quote"><p>Excellent blog. I really like this fresh and design!
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

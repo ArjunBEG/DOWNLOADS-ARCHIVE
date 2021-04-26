@@ -1,0 +1,9 @@
+<p>Moves the specified amount of elements to the end of the array.</p>
+<ul>
+<li>Use <code>Array.prototype.slice()</code> twice to get the elements after the specified index and the elements before that.</li>
+<li>Use the spread operator (<code>...</code>) to combine the two into one array.</li>
+<li>If <code>offset</code> is negative, the elements will be moved from end to start.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> offset <span class="op">=</span> (arr<span class="op">,</span> offset) <span class="kw">=&gt;</span> [...<span class="va">arr</span>.<span class="at">slice</span>(offset)<span class="op">,</span> ...<span class="va">arr</span>.<span class="at">slice</span>(<span class="dv">0</span><span class="op">,</span> offset)]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">offset</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// [3, 4, 5, 1, 2]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">offset</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dv">-2</span>)<span class="op">;</span> <span class="co">// [4, 5, 1, 2, 3]</span></a></code></pre></div>

@@ -1,0 +1,13 @@
+<p>Initializes an array containing the numbers in the specified range where <code>start</code> and <code>end</code> are inclusive and the ratio between two terms is <code>step</code>. Returns an error if <code>step</code> equals <code>1</code>.</p>
+<ul>
+<li>Use <code>Array.from()</code>, <code>Math.log()</code> and <code>Math.floor()</code> to create an array of the desired length, <code>Array.prototype.map()</code> to fill with the desired values in a range.</li>
+<li>Omit the second argument, <code>start</code>, to use a default value of <code>1</code>.</li>
+<li>Omit the third argument, <code>step</code>, to use a default value of <code>2</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> geometricProgression <span class="op">=</span> (end<span class="op">,</span> start <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> step <span class="op">=</span> <span class="dv">2</span>) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">length</span><span class="op">:</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">log</span>(end / start) / <span class="va">Math</span>.<span class="at">log</span>(step)) <span class="op">+</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span>).<span class="at">map</span>((_<span class="op">,</span> i) <span class="kw">=&gt;</span> start <span class="op">*</span> step <span class="op">**</span> i)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">geometricProgression</span>(<span class="dv">256</span>)<span class="op">;</span> <span class="co">// [1, 2, 4, 8, 16, 32, 64, 128, 256]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">geometricProgression</span>(<span class="dv">256</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// [3, 6, 12, 24, 48, 96, 192]</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">geometricProgression</span>(<span class="dv">256</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span> <span class="co">// [1, 4, 16, 64, 256]</span></a></code></pre></div>

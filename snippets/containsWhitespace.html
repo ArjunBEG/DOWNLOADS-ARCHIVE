@@ -1,0 +1,7 @@
+<p>Checks if the given string contains any whitespace characters.</p>
+<ul>
+<li>Use <code>RegExp.prototype.test()</code> with an appropriate regular expression to check if the given string contains any whitespace characters.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> containsWhitespace <span class="op">=</span> str <span class="kw">=&gt;</span> <span class="ss">/</span><span class="sc">\s</span><span class="ss">/</span>.<span class="at">test</span>(str)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">containsWhitespace</span>(<span class="st">&#39;lorem&#39;</span>)<span class="op">;</span> <span class="co">// false</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">containsWhitespace</span>(<span class="st">&#39;lorem ipsum&#39;</span>)<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

@@ -1,0 +1,9 @@
+<p>Returns an array consisting of the quotient and remainder of the given numbers.</p>
+<ul>
+<li>Use <code>Math.floor()</code> to get the quotient of the division <code>x / y</code>.</li>
+<li>Use the modulo operator (<code>%</code>) to get the remainder of the division <code>x / y</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> divmod <span class="op">=</span> (x<span class="op">,</span> y) <span class="kw">=&gt;</span> [<span class="va">Math</span>.<span class="at">floor</span>(x / y)<span class="op">,</span> x <span class="op">%</span> y]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">divmod</span>(<span class="dv">8</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// [2, 2]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">divmod</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span> <span class="co">// [0, 3]</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">divmod</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span> <span class="co">// [1, 0]</span></a></code></pre></div>

@@ -1,0 +1,6 @@
+<p>Returns every <code>nth</code> element in an array.</p>
+<ul>
+<li>Use <code>Array.prototype.filter()</code> to create a new array that contains every <code>nth</code> element of a given array.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> everyNth <span class="op">=</span> (arr<span class="op">,</span> nth) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">filter</span>((e<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">%</span> nth <span class="op">===</span> nth <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">everyNth</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span>]<span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// [ 2, 4, 6 ]</span></a></code></pre></div>

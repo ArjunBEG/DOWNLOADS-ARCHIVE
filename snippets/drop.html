@@ -1,0 +1,9 @@
+<p>Creates a new array with <code>n</code> elements removed from the left.</p>
+<ul>
+<li>Use <code>Array.prototype.slice()</code> to remove the specified number of elements from the left.</li>
+<li>Omit the last argument, <code>n</code>, to use a default value of <code>1</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> drop <span class="op">=</span> (arr<span class="op">,</span> n <span class="op">=</span> <span class="dv">1</span>) <span class="kw">=&gt;</span> <span class="va">arr</span>.<span class="at">slice</span>(n)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">drop</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span> <span class="co">// [2, 3]</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">drop</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// [3]</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">drop</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> <span class="dv">42</span>)<span class="op">;</span> <span class="co">// []</span></a></code></pre></div>

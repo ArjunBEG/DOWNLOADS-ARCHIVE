@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Not Supported - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/not-supported">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/not-supported">
+	<meta property="og:title" content="Not Supported">
+	<meta property="og:description" name="description" content="Leave it to PPK to come out with a bold statement like, &quot;CSS vendor prefixes considered harmful&quot;. Moreso,
+
+  It&rsquo;s time to abolish all vendor prefixes. They&rsquo;ve become solutions ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Not Supported</h1>
+		<p>Leave it to PPK to come out with a bold statement like, &quot;<a href="http://www.quirksmode.org/blog/archives/2010/03/css_vendor_pref.html">CSS vendor prefixes considered harmful</a>&quot;. Moreso,</p>
+<blockquote>
+  <p>It&rsquo;s time to abolish all vendor prefixes. They&rsquo;ve become solutions for which there is no problem, and they are actively harming web standards.</p>
+</blockquote>
+<p>The problem is that they <em>are</em> necessary. Look at Safari's implementation of <code>border-radius</code> compared to the rest. I still can't remember if it's <code>border-radius-topleft</code> or <code>border-top-left-radius</code>. If they had gone without the vendor prefix, they'd be in quite the pickle. Or worse yet, web developers would be.</p>
+<p>The vendor prefix does two things: </p>
+<ol>
+  <li>It allows browser developers to test new functionality without fear of a changing spec.</li>
+  <li>It warns web developers that things are in flux.</li>
+</ol>
+<p>In essence, a browser does not <em> support</em> a CSS feature <strong>until</strong> it drops the vendor prefix. In essence, for <code>border-radius</code>, the only browsers to support it are Opera 10.50 and the upcoming Internet Explorer 9. Any other browser is just dipping their foot into the stream to test the waters.</p>
+<p>As web developers, we make the choice to implement a design with or without vendor prefixes and their existence does not mean that we have to use them. If you consider them harmful, as PPK does, then don't use them. Rest assured that eventually all browsers will eventually come around and your CSS will remain pristine.</p>
+<p>But we're an impatient bunch, we want to use the latest and greatest features that the browsers send our way. The price for our impatience is a few extra lines of CSS. </p>
+<h2>Dealing with Backwards Compatibility</h2>
+<p>Sadly, as CSS gets more complex, even vendor prefixes can't save us from dealing with backwards compatibility. I've lamented previously on the <a href="https://snook.ca/archives/html_and_css/multiple-bg-css-gradients">multiple background specification</a> and how a background declaration ends up being declared multiple times&mdash;and vendor prefixes aren't to blame.</p>
+<p>This is a difficult problem to solve for browser developers and I don't have any answers. The other day on Twitter I commented on how I'd love a <code>size: 20px 50px;</code> shortcut for specifying width and height. I said it knowing that it's too late for this. Every browser still needs a width and height declaration to be specified and we'd be left specifying width, height <em>and</em> size. <strong>That</strong> isn't saving me any time or effort.</p><p>As browser developers continue to add new features to the CSS specification, we will continually and increasingly have to deal with the fallout of transition. That fallout means vendor prefixes and repetitive declarations. </p>
+<p>I predict we'll see more CSS preprocessors like <a href="http://sass-lang.com/">SASS</a> that take a clean file and parses it for specific scenarios, saving us from these headache of vendor prefixes and background compatibility issues.</p>
+<p>Either way, it's a small price to pay. </p>	
+</div>
+<div class="meta">
+	<div class="dt">Published March 22, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/973</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">30 Comments &middot; <a href="/archives/html_and_css/not-supported.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64681">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64681">1</a></div>
+			<span class="authorname"><a href="http://paulirish.com">Paul Irish</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>Hear hear!<br />
+It's either we go with vendor-prefixes or use css hacks to identify and smooth out browser differences. </p>
+<p>And yah, with tools like SASS and <a href="//css3please.com">css3please.com</a> it's less annoying every day.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64682">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64682">2</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>Totally agree. I had this discussion with Kev Adamson recently. vendor prefixes are required until a final spec is out. Any seeming similarity between vendor syntax is merely happy coincidence.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64683">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64683">3</a></div>
+			<span class="authorname">Mike Taylor</span> said on March 22, 2010		</div>
+		<div class="quote"><p>I totally agree that some form of prefix is necessary--just not totally sure what that should be. However, the notion that "a browser does not support a CSS feature until it drops the vendor prefix" is probably best left browser vendor marketing efforts. As you've already said, if we can use something as web developers and it mostly works--most of us will, prefix or not.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64684">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64684">4</a></div>
+			<span class="authorname">Kwick</span> said on March 22, 2010		</div>
+		<div class="quote"><p>Just read both articles and agree that as web developers we are capable of making our own decisions. I agree you should not litter your CSS with an abundance of Browser Prefixes but definitely dabble with what you see fit. </p>
+<p>Thanks, I enjoyed this article my fellow web developers argue my use of Browser prefixes and I will definitely be passing this on : )
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64685">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64685">5</a></div>
+			<span class="authorname">Nathan Kunicki</span> said on March 22, 2010		</div>
+		<div class="quote"><p>While I agree with the principle, I still have an inherent dislike towards them.  There's always the risk that the browser developer decides to go with a different implementation than the current "standard", and as such border-radius might end up looking different on Opera than on Safari.  What if the browser developer doesn't drop the prefix, because of a slight variation?  Or just pure lazyness?  We end up in a situation no different than IE's coloured scrollbars or DirectX filters.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64686">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64686">6</a></div>
+			<span class="authorname"><a href="http://jasongraphix.com">Jason Beaird</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>I'm with PPK on this one. While webkit's confusing implementation of individual border-radii provides a seemingly good defense for vendor prefixes, I would argue that they should update their implementation rather than hiding behind "experimental" prefixes. For many CSS3 declarations the implementation is consistent across multiple clients. At that point, the prefix has outlived it's purpose and has simply become a nuisance.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64687">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64687">7</a></div>
+			<span class="authorname"><a href="http://www.zachleat.com/">Zach Leatherman</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>Jason,<br />
+When Webkit released its border-radius support, their interpretation was essentially cemented in place.  They couldn't change the behavior of their proprietary CSS property if they wanted to, because existing code is currently using it.</p>
+<p>Of course, when they move to support the "border-radius" property without the standard prefix, then they will want to "update their implementation" while still maintaining the old way for -webkit-border-radius.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64688">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64688">8</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>I'm amazed that people are arguing for the abolition of prefixes.</p>
+<p>The point of the prefix is because there is not yet a finalised specification for achieving the required result. Heck, there might not even be a finalised concept of the required result. You can not rationally argue for writing one rule that breaks or renders differently on different browsers. Far more importantly, it's simply not practical to argue for browsers to NOT have prefixes for incomplete CSS effects.</p>
+<p>If mozilla support a new property called, for example, css-magic, it might have a syntax of:</p>
+<p>css-magic: on;</p>
+<p>likewise webkit might think it's a nice idea, think of a caveat and introduce a new syntax:</p>
+<p>css-magic: on top;</p>
+<p>well, how can you possibly write a page that will work in both Mozilla AND webkit if there's no prefix? Any rule you write will be an invalid syntax for the "other" browser.</p>
+<p>and then after much argument and testing the final version of the spec as put into CSS3 by the W3C might be:</p>
+<p>css-magic: top on;</p>
+<p>And you're now at a place where what used to work on older browsers won't work on new browsers, site's start to look broken, and you've got clients on the phone saying how their site looks worse than it did on an older browser!</p>
+<p>People, please don't let the fortunate happenstance of current implemntations similarity across platforms make you think that "its that easy" to get to that point. The reason they're so similar NOW is because of the work that went in EARLIER, with the prefixes. Without them no concensus can be made, you can't trial different approaches to see their practical limitations and impacts, and you break the web.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64689">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64689">9</a></div>
+			<span class="authorname"><a href="http://mattwilcox.net">Matt Wilcox</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>Additionally, vendors can support the prefix version in addition to the finalised version, so that render differences can be controlled by the author.</p>
+<p>We need predictability and stability from CSS, not continually breaking or unpredictable behaviour. Prefixes enable control, and predictability. If you want to play with bleeding edge stuff (and all of this IS bleeding edge until the W3C stamp it as official, reguardless of how solid or consistent the prefix implementations are cross-platform), pay the price by writing responsible code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64690">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64690">10</a></div>
+			<span class="authorname"><a href="http://chriscoyier.net">Chris Coyier</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p><a href="//css-tricks.com/rabble-rabble-rabble/">Rabble rabble rabble!</a> Where is the standardization!</p>
+<p>But really... I think the interesting debate will be down the road, once the specs are done. Maybe Firefox 4 will support "border-radius" in the official spec format. Then how long do we keep using the -moz version? Maybe a year or two is my guess.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c64691">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64691">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 22, 2010		</div>
+		<div class="quote"><p>@Jason: that's basically the point I'm trying to make. Specs change. Another example: CSS gradients. Safari implemented them first but the spec has changed and Firefox has gone a different direction. Now that a spec has been solidified (Borders and backgrounds is now a candidate recommendation), it is the responsibility of browsers to match the spec and drop the vendor prefix. This is the way the process is designed to work.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64692">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64692">12</a></div>
+			<span class="authorname">emil</span> said on March 22, 2010		</div>
+		<div class="quote"><p>Considering the speed of developing and finalizing web standards, the browser prefixes make perfect sense. Since when is progressive enhancement a bad thing. </p>
+<p>Google Chrome 4 also supports border-radius, without a prefix. I bet that by the time IE9 is released, all major browsers will drop the prefix, the move forward with the border-radius property.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64693">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64693">13</a></div>
+			<span class="authorname"><a href="http://jasongraphix.com">Jason Beaird</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>I understand that many of these things are still in flux, but when we've reached the point where everything is consistent across 4 lines of CSS but the prefix, something is definitely wrong. I have no problem with prefixes for experimental implementation for testing, but vendors should not wait - even for a candidate recommendation - before dropping the prefix. My reasoning for the rush to drop them is that the longer these prefixes exist, the longer we'll have to include them in our CSS. I'd rather see an evolving, inconsistent implementation than to keep these duplicated declarations in our CSS for years to come.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64694">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64694">14</a></div>
+			<span class="authorname">Sam Sherwood</span> said on March 22, 2010		</div>
+		<div class="quote"><p>I agree with Jason.  Most of the prefixes you see in use today have nearly the exact same configuration.  Browser specific prefixes are just like browser-specific 'insert anything'.  Why not implement every experimental tag with a browser prefix?</p>
+<p>Prefixes simply don't encourage conformity.  That being said, I don't mind if browsers use them; as with all things, leave the choice up to the developer.  Personally, I'll stick to manageable, standardized code.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64695">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64695">15</a></div>
+			<span class="authorname"><a href="http://nimbu.in">Divya</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>I agree with PPK in considering vendor prefixes harmful. But, what I consider more harmful is how web designers are encouraged to use it on production websites. Granted they are necessary, but web designers need to make an informed choice, instead of using them just because they are part of "CSS3". <a href="//nimbupani.com/when-to-use-vendor-specific-extensions.html ">I wrote about it here</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64696">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64696">16</a></div>
+			<span class="authorname">kevadamson</span> said on March 22, 2010		</div>
+		<div class="quote"><p>I wrote this back in December:<br />
+http://kevadamson.com/talking-of-design/article/single-css-testing-prefix</p>
+<p>Then Matt Wilcox slapped me up with some knowledge I'd overlooked. Basically, as he mentions above, if a browser decides to add new syntax to a rule it could break it entirely in another browser.</p>
+<p>A secondary stage of testing would be nice though, like -beta- or something. Just to cut down on repetition. But I don't understand the process and logistics enough to know if these could happen ...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64697">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64697">17</a></div>
+			<span class="authorname"><a href="http://shallowthoughts.org">Bridget Stewart</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>Just a thought... </p>
+<p>How about organizing vendor prefixed declarations into their own stylesheet, like we do with IE fixes. The expected CSS3 implementations go into the main stylesheet. Then, you know where all your vendor prefixed things are and remove them as necessary. You might even get to ignore them for a time if the final implementation for the declaration is the same as the prefixed version. No one would know the difference, really. Remembering that browsers don't render what they don't understand, everything should be cool, shouldn't it?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64698">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64698">18</a></div>
+			<span class="authorname">Daniel</span> said on March 22, 2010		</div>
+		<div class="quote"><p>Well, one could argue that you could mirror the W3C guidelines here. Like: if there are 2 identical implementations of a css rule, you might as well drop the prefix. But it still feels better to me, if one central organization (like the W3C) will have the last word on what will become the standard.</p>
+<p>@Bridget: the thing is that we can't use conditional comments for all the other browsers AFAIK.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64699">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64699">19</a></div>
+			<span class="authorname">Paul</span> said on March 22, 2010		</div>
+		<div class="quote"><p>As PKK stated:<br />
+<i>"Originally, the point of vendor prefixes was to allow browser makers to start supporting experimental CSS declarations."</i></p>
+<p>So i don't really get the problem. In the case of safari and there early implementation of -webkit-border-radius they keep the implementation as -webkit...... and make an new border-radius as accepted by W3C.</p>
+<p>It's up to the developer if he wants to put in the effort to support all the different vendor implementations.</p>
+<p>Let's not take away the responsibility from the developer just because he want his site/application to look fancy. Using non W3C supported/accepted features comes with consequences. Mainly extra development time, biggger and complexer files.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64700">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64700">20</a></div>
+			<span class="authorname"><a href="http://shallowthoughts.org">Bridget Stewart</a></span> said on March 22, 2010		</div>
+		<div class="quote"><p>@Daniel</p>
+<p>You don't need conditional comments just to put all the prefixed rules in their own stylesheet. Assuming the browser doesn't yet recognize border-radius without the prefix, it will ignore it in the main stylesheet, where it was placed unprefixed.</p>
+<p>Instead, it will apply the prefixed version of the declaration that it understands (the one for the browser that it is).</p>
+<p>Then as browsers implement the CSS3 official property, the one standardized declaration will do the work...depending on your stylesheet hierarchy, or once you remove the prefixed declaration. Knowing that all prefixed declarations are contained in a secondary stylesheet should make hunting them down to squash them easier to do if/when it becomes necessary.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64701">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64701">21</a></div>
+			<span class="authorname">Lars Gunther</span> said on March 22, 2010		</div>
+		<div class="quote"><p>I echo your stance at <a href="//itpastorn.blogspot.com/2010/03/ppk-is-wrong-vendor-prefixes-are.html">on my blog</a> and add a bit more detail to the argument.</p>
+<p>I might also add that according to Douglas Crockford <a href="//www.yuiblog.com/blog/2007/05/16/video-crockford-quality/">writing code is generally not what is taking time</a> in development. Those extra lines are not the end of the world, just an annoyance.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64702">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64702">22</a></div>
+			<span class="authorname">Jasper</span> said on March 22, 2010		</div>
+		<div class="quote"><p>A thought: what about both with-prefix and sans? Then designers could use whichever they want, or both, for more flexibility. The with-prefix rule would override the sans.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64703">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64703">23</a></div>
+			<span class="authorname"><a href="http://www.davidrojas.net">David Rojas</a></span> said on March 23, 2010		</div>
+		<div class="quote"><p>I just noticed that border-radius works in Chrome (besides -webkit-border-radius). Weird.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64704">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64704">24</a></div>
+			<span class="authorname"><a href="http://www.denatasarim.com">Dena</a></span> said on March 23, 2010		</div>
+		<div class="quote"><p>Nicely put Jonathan. Although i fear that, backwards compatibility is our worst enemy when it comes to CSS. While we still suffer the wounds that IE6 caused, i'm afraid it will be at least 5-6 years before CSS3 is fully usable in any web site. Shame... I would love to use border-radius :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64705">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64705">25</a></div>
+			<span class="authorname"><a href="http://mark-story.com">Mark Story</a></span> said on March 23, 2010		</div>
+		<div class="quote"><p>I think vendor prefixes are here to stay and shouldn't leave any time soon.  The room for experimentation and failure before things get standardized is an important part of software development, especially open source software of which some browsers are.  Denying or trying to remove that approach is likely to muddy the waters even further.  </p>
+<p>While the differences between -webkit-gradient and -moz-linear-gradient can be confusing and annoying, things would be even worse without vendor extensions.  The best part like you said is you don't have to use them. If you feel wary about non-standard properties, don't use them.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64706">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64706">26</a></div>
+			<span class="authorname">RussellUresti</span> said on March 23, 2010		</div>
+		<div class="quote"><p>Agreed. The vendor prefix isn't doing anything to hurt web standards. People want new CSS properties to play with before the spec has been finalized, so browsers that can add them in using a vendor prefix, knowing the spec might change.</p>
+<p>It would actually be more harmful to web standards to do away with the vendor prefixes. There are only 2 options at that point:</p>
+<p>1) Do not give developers the ability to use or play with CSS properties that are still in spec development.</p>
+<p>2) Implement them as their real property name (i.e. 'border-radius' as opposed to '-webkit-border-radius') and then constantly change how that property behaves every time the spec is updated.</p>
+<p>Both of those options are silly and detrimental to web standards. Keep the prefixes. Just be aware that once the spec if finalized and approved to stop using the prefix and start using the actual property.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64709">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64709">27</a></div>
+			<span class="authorname">essay</span> said on March 24, 2010		</div>
+		<div class="quote"><p>great site really informative i learned a lot great stuff keep it up
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64712">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64712">28</a></div>
+			<span class="authorname">evision</span> said on March 26, 2010		</div>
+		<div class="quote"><p>www.onlineuniversalwork.com</p>
+</div>
+	</div>
+		<div class="comment" id="c64725">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64725">29</a></div>
+			<span class="authorname">Shiva</span> said on March 26, 2010		</div>
+		<div class="quote"><p>I think its most important when using vendor-prefixes, to make sure you put in the standard requirement as well.  This will cover you in some cases when the vendor-prefixes are no longer necessary</p>
+<p>An example is:<br />
+-webkit-box-shadow:10px 15px 20px #000;<br />
+-moz-box-shadow: 10px 15px 20px #000;<br />
+box-shadow:10px 15px 20px #000;
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64742">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64742">30</a></div>
+			<span class="authorname"><a href="http://icosidodecahedron.com">Michael Kozakewich</a></span> said on March 26, 2010		</div>
+		<div class="quote"><p>I've been tinkering with a PHP framework to do some of that.<br />
+I originally designed it so one may use functions such as borderRadius() once, to set each individual vendor prefix, but now I'm thinking some sort of pre-pre-processor might be necessary. Maybe include a php file in your HTML, use a PHP function to link to the stylesheet, and then PHP goes through and adds vendor extensions where necessary.</p>
+<p>It seems the use cases are reaching a head. One thing that seems important to me right now is stuff like using -moz-inline-stack for inline-block things in Firefox 2, and all those tiny little quirks in browsers that are still out there.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<p>Chunks an array into smaller arrays of a specified size.</p>
+<ul>
+<li>Use <code>Array.from()</code> to create a new array, that fits the number of chunks that will be produced.</li>
+<li>Use <code>Array.prototype.slice()</code> to map each element of the new array to a chunk the length of <code>size</code>.</li>
+<li>If the original array can’t be split evenly, the final chunk will contain the remaining elements.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> chunk <span class="op">=</span> (arr<span class="op">,</span> size) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">Array</span>.<span class="at">from</span>(<span class="op">{</span> <span class="dt">length</span><span class="op">:</span> <span class="va">Math</span>.<span class="at">ceil</span>(<span class="va">arr</span>.<span class="at">length</span> / size) <span class="op">},</span> (v<span class="op">,</span> i) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="va">arr</span>.<span class="at">slice</span>(i <span class="op">*</span> size<span class="op">,</span> i <span class="op">*</span> size <span class="op">+</span> size)</a>
+<a class="sourceLine" id="cb1-4" title="4">  )<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">chunk</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// [[1, 2], [3, 4], [5]]</span></a></code></pre></div>

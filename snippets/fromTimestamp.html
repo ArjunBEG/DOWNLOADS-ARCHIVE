@@ -1,0 +1,7 @@
+<p>Creates a <code>Date</code> object from a Unix timestamp.</p>
+<ul>
+<li>Convert the timestamp to milliseconds by multiplying with <code>1000</code>.</li>
+<li>Use <code>new Date()</code> to create a new <code>Date</code> object.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> fromTimestamp <span class="op">=</span> timestamp <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="at">Date</span>(timestamp <span class="op">*</span> <span class="dv">1000</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">fromTimestamp</span>(<span class="dv">1602162242</span>)<span class="op">;</span> <span class="co">// 2020-10-08T13:04:02.000Z</span></a></code></pre></div>

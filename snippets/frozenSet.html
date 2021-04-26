@@ -1,0 +1,14 @@
+<p>Creates a frozen <code>Set</code> object.</p>
+<ul>
+<li>Use the <code>new Set()</code> constructor to create a new <code>Set</code> object from <code>iterable</code>.</li>
+<li>Set the <code>add</code>, <code>delete</code> and <code>clear</code> methods of the newly created object to <code>undefined</code>, so that they cannot be used, practically freezing the object.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> frozenSet <span class="op">=</span> iterable <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="at">Set</span>(iterable)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="va">s</span>.<span class="at">add</span> <span class="op">=</span> <span class="kw">undefined</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="va">s</span>.<span class="at">delete</span> <span class="op">=</span> <span class="kw">undefined</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="va">s</span>.<span class="at">clear</span> <span class="op">=</span> <span class="kw">undefined</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="cf">return</span> s<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">frozenSet</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>])<span class="op">;</span> </a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// Set { 1, 2, 3, add: undefined, delete: undefined, clear: undefined }</span></a></code></pre></div>

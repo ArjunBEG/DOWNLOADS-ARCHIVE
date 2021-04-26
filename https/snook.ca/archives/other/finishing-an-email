@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Finishing an Email - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/finishing-an-email">
+	<meta property="og:url" content="https://snook.ca/archives/other/finishing-an-email">
+	<meta property="og:title" content="Finishing an Email">
+	<meta property="og:description" name="description" content="I've commented on this before but I have a protocol that I usually use when emailing someone. I like to finish my emails in a way that acknowledges that you have reached the end of the message.
+My fi...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Finishing an Email</h1>
+		<p>I've <a href="https://snook.ca/archives/other/how_do_you_sign">commented on this before</a> but I have a protocol that I usually use when emailing someone. I like to finish my emails in a way that acknowledges that you have reached the end of the message.</p>
+<p>My first email tends to be on the more formal side.</p>
+<blockquote>
+  <p>[Cheers | Best regards | All the best | Best of luck to you],</p>
+  <p>Jonathan</p>
+</blockquote>
+<p>Once the formality is out of the way, I keep it short. The verbosity is unnecessary since you should already know my name and the goodbye greeting sounds odd in the middle of an ongoing conversation. </p>
+<p>In which case, I like to use my initial prefaced by a hyphen.</p>
+<blockquote>
+  <p>-j</p>
+</blockquote>
+<p>And yet, I've played with other options...</p>
+<blockquote>
+  <p>.js</p>
+</blockquote>
+<p>Consider that I do a fair amount of JavaScript development and my initials are JS, I thought there was a subtle humour in ending my emails with the file extension. </p>
+<p>However, recently, I've started something new.</p>
+<blockquote>
+  <p>=j</p>
+</blockquote>
+<p>The hyphen seemed negative. Whereas the equal sign creates a smirk-like emoticon&mdash;a sense of levity to go with my brevity. And really, aren't we all just equals?</p>
+<p>Okay, maybe I think too much.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published April 01, 2010 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/976</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">32 Comments &middot; <a href="/archives/other/finishing-an-email.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c64792">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64792">1</a></div>
+			<span class="authorname">Adam</span> said on April 01, 2010		</div>
+		<div class="quote"><p>Much like you I start out formal but generally end up using a code comment-like notation.</p>
+<p>// -- AMD</p>
+<p>This is after about 10 different variations...so I guess we both think too much.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64793">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64793">2</a></div>
+			<span class="authorname">Mohammad</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I usually end my first email with regards, and if I am emailing my boss or someone higher up, I'll always end with a formal closing. For all others after the first email I usually end with either ma or -ma.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64794">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64794">3</a></div>
+			<span class="authorname"><a href="http://twitter.com/jlbruno">Jeff L</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>The ".js" is kinda awesome.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64795">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64795">4</a></div>
+			<span class="authorname">HenrikBjorn</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I just have a auto added Signature added to all mails.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64796">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64796">5</a></div>
+			<span class="authorname">Yves</span> said on April 01, 2010		</div>
+		<div class="quote"><p>When I'm dealing with a client I always end in a formal way. In case the client needs my phone number or any other contact information they'll always find it in the last mail I've sent them. With other people I usually just write</p>
+<p>best!<br />
+y
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64797">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64797">6</a></div>
+			<span class="authorname">Jay Greasley</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I usually sign off as /j but now I may have to change to .j or /jg :)</p>
+<p>/j
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64798">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64798">7</a></div>
+			<span class="authorname"><a href="http://web-rat.com/blog/">Todd Rafferty</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>I avoid '-' instead, I use ~Todd. The ~ character in my mind for whatever reasons makes it seem like a shorthand for "signed."</p>
+<p>Ah, the mind games we play with ourselves.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64799">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64799">8</a></div>
+			<span class="authorname">Levi Figueira</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I tend to use "~Levi F" or "~Levi" on my informal email/forum posts. I do totally agree with you on giving the reader a sense of closure at the end of the email. In the case of forum posts, it helps when searching for your own posts when the "Search by Username" b0rks or something. That and searching with Google.</p>
+<p>I'd try a shorter "~lf" now that you mention it, but I'm afraid the lowercase "L" is a bit ambiguous. :( </p>
+<p>Maybe "~L" or "~LF"â€¦ We'll see! ;)</p>
+<p>Cheers,<br />
+~L
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64800">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64800">9</a></div>
+			<span class="authorname">Mark Nichols</span> said on April 01, 2010		</div>
+		<div class="quote"><p>Since my name starts with an "M" I have at times in the past used forward and back slashes to stylize the letter, e.g., /\/\ark, just /\/\. Actually this works with my last name as well, so I can be /\/\ark /\/ichols.</p>
+<p>But .js is sleek and elegant compared to using four characters just for one letter. I may have to try a .mn to see how that feels.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64801">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64801">10</a></div>
+			<span class="authorname">Josh Kendall</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I have a default signature that just says "Thanks" followed by my name, job title, and contact info. It almost always gets used; unless I don't want or have time to deal with the person right now, then they get "Sent from my iPhone".
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64802">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64802">11</a></div>
+			<span class="authorname">Luke Morton</span> said on April 01, 2010		</div>
+		<div class="quote"><p>Weirdo!!! lol
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64804">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64804">12</a></div>
+			<span class="authorname"><a href="http://jacobrask.net">Jacob Rask</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>I usually have 10 lines of information about my job position, my postal address, various URL's and 3 phone numbers. Then I have 20 lines of additional confidentiality information and disclaimers, regardless if I'm just wishing someone a nice weekend.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64805">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64805">13</a></div>
+			<span class="authorname">Taylor Gorman</span> said on April 01, 2010		</div>
+		<div class="quote"><p>.js is brilliant! I sign with my first name followed by a period. As though it's the last sentence in the email.</p>
+<p>Like so,<br />
+Taylor.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64806">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64806">14</a></div>
+			<span class="authorname">Dena</span> said on April 01, 2010		</div>
+		<div class="quote"><p>Try Dollar sign Jonathan :D<br />
+P.S.: You can never think too much when it's about formality ;)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64807">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64807">15</a></div>
+			<span class="authorname">$too</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I've always used $too or just $...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64808">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64808">16</a></div>
+			<span class="authorname">Brian Ryckbost</span> said on April 01, 2010		</div>
+		<div class="quote"><p>the .js is fantastic. I typically use an m-dash followed by my first name.</p>
+<p>â€“Brian
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64809">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64809">17</a></div>
+			<span class="authorname">Andrew Yates</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I always use the formal method of finishing an email. Maybe I will try out a shortened version.</p>
+<p>~ A
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64810">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64810">18</a></div>
+			<span class="authorname"><a href="http://jfciii.com/blog/">John F Croston III</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>I usually end my e-mail with.</p>
+<p>jfc iii
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64811">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64811">19</a></div>
+			<span class="authorname">tmartineau</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I would stick with the .js Not only is it awesome, but it is also humorous in a smart kinda way. I like the "smirk" as well but I would stick with the .js it's just so much more.</p>
+<p>My opinion though...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64812">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64812">20</a></div>
+			<span class="authorname">Jeffrey Sambells</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I think I may have to borrow your idea since I'm pretty much in the same situation :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64813">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64813">21</a></div>
+			<span class="authorname">Pete Scott</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I've tried to end my emails with my initials, but those are (quite unfortunately) "PS", which tends to make people look for MORE information instead of seeing that as an email ending.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64814">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64814">22</a></div>
+			<span class="authorname"><a href="http://ben-carlson.com/">Ben Carlson</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>For me it's a simple</p>
+<p>b.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64815">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64815">23</a></div>
+			<span class="authorname"><a href="http://mcarthurgfx.com">Sean McArthur</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>When emailing someone I've emailed a lot before, I just don't bother signing. We don't sign IM's, or text messages. I'm pretty sure this person will know it was from me, what with the From header being my e-mail address.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64816">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64816">24</a></div>
+			<span class="authorname">bryan liles</span> said on April 01, 2010		</div>
+		<div class="quote"><p>I just write really short emails, so you don't even have t scroll to see the end.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64817">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64817">25</a></div>
+			<span class="authorname"><a href="http://sputnik.pl">Michal Tatarynowicz</a></span> said on April 01, 2010		</div>
+		<div class="quote"><p>You don't think too much :) But you do seem bored.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64826">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64826">26</a></div>
+			<span class="authorname">bob eccles</span> said on April 02, 2010		</div>
+		<div class="quote"><p>If -j is too negative, why not go all the way to positive, with +j?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64836">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64836">27</a></div>
+			<span class="authorname">John Hancock</span> said on April 03, 2010		</div>
+		<div class="quote"><p>I usually use after the first, formal conversation(s). </p>
+<p>J</p>
+<p>but now you've made me rethink all that.</p>
+<p>~jh.</p>
+<p>may have to be the new moniker, but it's a little relaxed for australia...</p>
+<p>...and there's the possibility of coming across as a pretentious idiot.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64841">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64841">28</a></div>
+			<span class="authorname">y4</span> said on April 05, 2010		</div>
+		<div class="quote"><p>i'd suggest ".js" to you.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64842">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64842">29</a></div>
+			<span class="authorname"><a href="http://kolophon.net">Jacob Harvey</a></span> said on April 05, 2010		</div>
+		<div class="quote"><p>My buddy uses a tilde and first initial. The one thing I always use is the interpunct. Thus my informal sign off is; </p>
+<p>Â· jake
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64851">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64851">30</a></div>
+			<span class="authorname">Miles</span> said on April 06, 2010		</div>
+		<div class="quote"><p>I used to use the tilde (~) but I created a similar toung-in-cheek signature a few months back:</p>
+<pre><code>
+&lt;/miles&gt;
+</code></pre>
+<p>With a longer version that contains my contact info as "attributes". :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c64892">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64892">31</a></div>
+			<span class="authorname">Nishad TR</span> said on April 12, 2010		</div>
+		<div class="quote"><p>I usually ends my mails like </p>
+<p>--<br />
+Nishad</p>
+</div>
+	</div>
+		<div class="comment" id="c64897">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c64897">32</a></div>
+			<span class="authorname">Jimmy Gunawan</span> said on April 15, 2010		</div>
+		<div class="quote"><p>I've been doing this -J. Occassionally I do this [-_o]b
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

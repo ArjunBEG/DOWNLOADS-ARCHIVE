@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Project Management via Email - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/other/pm_email">
+	<meta property="og:url" content="https://snook.ca/archives/other/pm_email">
+	<meta property="og:title" content="Project Management via Email">
+	<meta property="og:description" name="description" content="Hearing the news that Basecamp now supports the ability to reply to messages and comments via email reminded me of an idea for a project I had once. 
+This was a few years ago now but, at the place I ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Project Management via Email</h1>
+		<p>Hearing the news that Basecamp now supports the ability to reply to messages and comments via email reminded me of an idea for a project I had once. </p>
+<p>This was a few years ago now but, at the place I used to work, I tried to think of how most of the office worked with clients and with each other. A project would be set in the web-based project management app, people would get assigned to the project and then some initial emails would go out letting us know that we could track our time against this project. </p>
+<p>But then what happens after that? The client sends an email to the project manager who then emails the designer so they have the files to put the design together. Then the designer is done and emails the developer. The developer looks for content in the project folder on the server but stuff is missing or outdated. &quot;Oh, yeah, I received this email from the client; here's the latest files.&quot; </p>
+<p>Inevitably, the emails bouncing around from client to PM to employees would cause confusion and mayhem. That's never fun.</p>
+<p>Looking over this process, I realized that email was the primary way that information was being shared. How could we take advantage of that instead of trying to force people to a workflow that was obviously broken.</p>
+<p>This is what I came up with: an email address for the project. All correspondence went through this email address. Not to individual members or to a project manager but to the project email address. This meant that every correspondence regarding a project was stored and archived in a central location.</p>
+<p>Having a central repository for everything is especially handy when somebody jumps on a project mid-way. They can read up on everything that has happened so far. Things would be less likely to get missed when a project goes long.</p>
+<p>What happens when a project email is received? First of all, anybody assigned to the project would receive a copy of that email. But the part I thought was key was that file attachments would be stripped from the email and placed in a project folder on the server. No longer would you have to track down where those missing files are, you'd know exactly where to find them. Within the email, a link would be provided to the files that were stripped.</p>
+<p>I envisioned this as more than just a project email address. There would be a web-based tool as well to set up new projects, manage existing ones, look at all the content received, review all email (threaded by subject line), plus search capabilities. </p>
+<h2>Other potential features</h2>
+<p>I can think of some other really nice things to have:</p>
+<ul>
+  <li>The application could send out reminders and calendar requests. </li>
+  <li>A search engine allowing the project repository to be search based on keywords, dates, or other relevant information.</li>
+  <li>Reports. People are visual and it'd be great to see a project based on how many emails were received when, including which had attachments. If you had an idea of when an email was received, you could find it quicker if presented visually.</li>
+  <li>Trigger actions based on specific email types. Off the top of my head, I'm not sure exactly </li>
+</ul>
+<h2>No solution is perfect</h2>
+<p>Ultimately, no solution is perfect and I can predict a couple ways a system like this might fail.</p>
+<p>The biggest reason would be that project participants simply failed to use the project email address, choosing to email individual people directly. </p>
+<p>Similarly, there's no way to specifically direct email to subgroups such as internal emails. Stuff like this is still important to capture but it's easy to break out of the routine, especially when you have multiple groups coming together on a project. I could see getting around this using email aliases like &quot;projectemail+internal@example.com&quot;. That way, these emails could still get captured and even viewed separately within the web admin.</p>
+<h2>Build it</h2>
+<p>So, why am I telling you all this? Somebody asked me what I do with all my ideas and while I'd like to eventually build the ideas myself, I just don't have time to build everything I think of. Therefore, I put this out into the world in hopes that it'll inspire somebody &mdash; directly or indirectly. As it stands, this is probably not a very original idea and I've been told that <a href="http://jumpnote.com/">JumpNote</a> is basically what I've described, although I haven't tried it myself. Does such a thing already exist? If so, let me know, I'd be interested in trying it out.</p>	
+</div>
+<div class="meta">
+	<div class="dt">Published April 21, 2008 </div>
+	<div class="cat">Categorized as <a href="/archives/other/">Other</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/890</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">13 Comments &middot; <a href="/archives/other/pm_email.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c58129">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58129">1</a></div>
+			<span class="authorname">Steffen Tiedemann Christensen</span> said on April 21, 2008		</div>
+		<div class="quote"><p>This is a wonderful idea -- and certainly something that would be very useful. However, as of now you've only solved the problem of catching and organizing communication threads between all people involved in the project. It's a pretty catch-all approach to the problem and it probably wouldn't scale well with many projects and many people -- some of whom would only be on the mailing list to inactively follow progress. (My guess is that people would start sending private email and the organizing aspect would break down if you had more than, say, five people on a project.)</p>
+<p>Also, the email distribution is pretty much what you've got with Basecamp's new feature (I guess. Haven't tested, tried it, or read about it. Hmm). One would have to find ways of handling todos, calendars, and possibly time tracking in a quick way through email as well. </p>
+<p>Look at me. Here I am tearing down a potentially wonderful idea. One solution, obviously, would be to use advanced keywords with the mail to handle those different object types, but that'd make everything geeky. (In any case, I'm sorry that this comment end on a higher note ;-))</p>
+</div>
+	</div>
+		<div class="comment" id="c58131">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58131">2</a></div>
+			<span class="authorname">Tim Tripcony</span> said on April 21, 2008		</div>
+		<div class="quote"><p>I developed something similar to this a number of years ago in a Lotus Domino environment; since the email and application architectures are directly integrated, it was relatively straightforward. Within the project management application, each team member could associate one or more folders in their email account with a given project. A background task would periodically scan each team member's account looking for new messages filed within the associated folders and copy the content as "response" documents to the project. In Domino, a sent message from one individual to another will have the same message ID in both mailboxes, so that allowed us to avoid duplication. The primary limitation was that this could only scan mail within a single enterprise environment, so it wouldn't work as well for inter-organizational projects. However, Domino applications can also be assigned one or more email addresses, so the process could be adapted to determine which project to "attach" the content to based on which email address was used to send a message to the application.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58134">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58134">3</a></div>
+			<span class="authorname">Jamie Hill</span> said on April 21, 2008		</div>
+		<div class="quote"><p>This is exactly the problems <a href="//www.propelr.com">Propel'r</a> is aiming to solve, unfortunately it's release has been delayed due to client commitments.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58137">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58137">4</a></div>
+			<span class="authorname"><a href="http://www.polysign.lu">Georges Jentgen</a></span> said on April 21, 2008		</div>
+		<div class="quote"><p>I don't know if it can solve all this problems, but I am sure you could archieve something similar using Microsoft Sharepoint Services on a Windows bases server, as it has some pm functionality built in. And SharePoint can receive eMails and archieve them into projects.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58145">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58145">5</a></div>
+			<span class="authorname">Steve</span> said on April 22, 2008		</div>
+		<div class="quote"><p>I don't have any solution (or the time to build one) but I sure do like the idea!  I'll be tracking this post for the best solutions found, that's for sure.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58150">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58150">6</a></div>
+			<span class="authorname"><a href="http://montgomerystudios.com">Michael Montgomery</a></span> said on April 22, 2008		</div>
+		<div class="quote"><p>Sounds like a great idea, and I need to check out the new Basecamp e-mail feature.<br />
+(I'm sorry; did he say Sharepoint?)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58154">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58154">7</a></div>
+			<span class="authorname"><a href="http://webhive.com.ua">Eugene Sutula</a></span> said on April 23, 2008		</div>
+		<div class="quote"><p>Amazing idea!<br />
+Actually we suffer from email chaos too: when project is set in project management system people (mostly clients) continue to send direct emails...</p>
+<p>Jonathan, what if people involved in project will send a carbon copy to project email address? In this case everybody will be able to communicate directly by email, but system will keep a track of all communications. Even more, it will be possible to store internal communication apart from rest correspondence by checking number of recipients of each letter.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c58159">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58159">8</a></div>
+			<span class="authorname">Jonathan Snook</span> said on April 23, 2008		</div>
+		<div class="quote"><p>@Eugene: being able to CC: the project email does sound like a good idea. I did feel it was important that the project email be considered the primary email, otherwise, people are more likely to forget about it. I know I constantly forget to hit Reply All and miss all the people originally CC'd. On a related note, maybe a BCC to the project email can archive the email but not distribute it, and a CC may distribute to everybody but who was in the original email. Just some thoughts... :)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58163">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58163">9</a></div>
+			<span class="authorname">Henning</span> said on April 24, 2008		</div>
+		<div class="quote"><p>Check out <a href="//www.commoncraft.com/client-video-using-google-apps-salesforce-com">Salesforce + Google Apps</a></p>
+<p>Sound like what you're proposing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58165">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58165">10</a></div>
+			<span class="authorname">Torsten</span> said on April 24, 2008		</div>
+		<div class="quote"><p>Well I think this is a very useful idea especially in teams in which lots of people have to work together for a single client. In such cases it's necessary to transfer all the relevant informations to each person of that team to get an optimal output. Regarding this I think your idea would be very useful.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c58171">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58171">11</a></div>
+			<span class="authorname">Johan</span> said on April 25, 2008		</div>
+		<div class="quote"><p>Problem is that some tasks are not on email but are tasks coming from clients that visit us, telephone conversations, fax and written prints. We loose info that way a lot.</p>
+</div>
+	</div>
+		<div class="comment" id="c58332">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c58332">12</a></div>
+			<span class="authorname">Stephen Walker</span> said on May 04, 2008		</div>
+		<div class="quote"><p>There's a startup in the Seattle area that's in stealth mode right now, but from what I've heard, it's a platform much like basecamp, except with extended features like you mentioned -- especially the ability to send files into it via email.</p>
+<p><a href="//www.onehub.com/">http://onehub.com/</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c59869">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c59869">13</a></div>
+			<span class="authorname">PM Hut</span> said on October 20, 2008		</div>
+		<div class="quote"><p>An interesting idea would be to intelligently classify and categorize emails in the system. Let's assume, for example, that the designer sent some PSDs, and then did some updates, and sent another version of the PSDs. The application should intelligently know that these PSDs should be grouped together (versioning) with little or no work from the designer (the designer doesn't have to do anything to tell the application that this is just another version of the previous PSD).</p>
+<p>This is but a small example. I think what such applications lack at the moment is intelligence, and you can easily apply intelligence to every single aspect of any application.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

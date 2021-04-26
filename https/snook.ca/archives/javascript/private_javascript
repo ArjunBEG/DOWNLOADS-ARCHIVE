@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Private JavaScript - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/javascript/private_javascript">
+	<meta property="og:url" content="https://snook.ca/archives/javascript/private_javascript">
+	<meta property="og:title" content="Private JavaScript">
+	<meta property="og:description" name="description" content="With JavaScript, you can create private methods and properties using what Yahoo describes as the module pattern. Here's the basic construct, including a private method:
+MyObject = function(){
+
+  va...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Private JavaScript</h1>
+		<p>With JavaScript, you can create private methods and properties using what Yahoo describes as <a href="http://yuiblog.com/blog/2007/06/12/module-pattern/">the module pattern</a>. Here's the basic construct, including a private method:</p>
+<pre><code>MyObject = function(){
+
+  var privateMethod = function(){ /* do stuff */ };
+  
+  var obj = {
+    publicProperty:5,
+    publicMethod:function(){ /* do stuff */ };
+  };
+  
+  return obj;
+}(); // run it right away</code></pre>
+<p>If you're not familiar with this pattern, it's really quite cool. It takes advantage of closures, allowing the public methods to access the private methods. I've been using this approach in my recent work and it feels nice and works well. </p>
+<h2>Advantages to Private Methods </h2>
+<p>Private methods seem like a great idea because nobody can mess with them unless they have access to the JavaScript source and feel like rewriting things. It's also handy in that you've really established what your public API should be and there's no two ways about it. No underscores, no documentation. Just use the public methods because that's all you've got.</p>
+<p>Having private methods also means that you're not polluting some other namespace with stuff that's never meant to be used by anything but your own code. </p>
+<h2>Disadvantages to Private Methods</h2>
+<p>Since they're private, it can make debugging marginally harder. This probably speaks more to my coding style but it's not unheard of for me to have Firebug open and just running a method from my object to see what happens instead of refreshing the page or what have you. But if the methods you want to examine or execute are private, then you have to jump back to the JavaScript source and try again. If you're trying to test this stuff on a server and need to FTP the info up, it just got even harder.</p>
+<p>The other major disadvantage is that you've now made it harder for people to extend your code. JavaScript is really cool in that you can extend objects and prototypes at any time without ever having to touch the original code. But if I need to do anything that a private method does, then I need to rewrite that functionality in my own code or modify the original code.</p>
+<h2>Recommendation</h2>
+<p>Moving forward, I'll more than likely avoid private methods. I'm never one to go as far as saying, &quot;X considered harmful&quot; but with JavaScript and private methods, I don't think they're necessary. </p>
+<p>What I'd recommend then is to create a utility or private object that, while, still public, makes it clear that these functions are really meant to be used within the namespace. There are two ways to which I'd approach this. </p>
+<h3>Utility Namespace</h3>
+<p>This one is pretty straightforward: just create a utility module on your namespace:</p>
+<pre><code>MyObject.util = {
+  privateMethod: function(){ /* do stuff */ };
+};
+
+MyObject = function(){
+  // shortcutting namespaces is still good
+  var util = MyObject.util; 
+  
+  var obj = {
+    publicProperty:5,
+    publicMethod:function(){ util.privateMethod(); };
+  }
+  
+  return obj;
+}(); // run it right away</code></pre> 
+<p>You'll notice I've made a shortcut to the utility object using a private property. This is perfectly fine as it makes your code easier to work with while still leaving the utility methods public.</p>
+<h3>Sub-module Pattern</h3>
+<p>I call this the sub-module pattern in that I declare everything within the container to take advantage of closures as a way of shortcutting my references.</p>
+<pre><code>MyObject = function(){
+  var util = {
+    privateMethod: function(){ /* do stuff */ };
+  }
+  
+  var obj = {
+    publicProperty:5,
+    publicMethod:function(){ util.privateMethod(); };
+  }
+  
+  // do my object attachment
+  obj.util = util;
+  return obj;
+}(); // run it right away</code></pre>
+<p>Which of these two approaches you take will depend on code dependencies. If your utilities need to be used on multiple projects but everything else within the object doesn't, then declaring things separately makes sense (ala YUI). Otherwise, you can take advantage of the sub-module pattern to keep things clear.</p>
+<h3>Example Application </h3>
+<p>I used the sub-module pattern on a recent project. It was a calendar application much like Google Calendar with a small month view along with day, week and month views. Each calendar view became its own object within the calendar namespace that was defined. The great thing about this was that each of the calendars could basically talk to each other while still having access to some core common values like what the currently selected day, month and year was. </p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published June 16, 2007 </div>
+	<div class="cat">Categorized as <a href="/archives/javascript/">JavaScript</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/821</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">19 Comments &middot; <a href="/archives/javascript/private_javascript.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c49421">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49421">1</a></div>
+			<span class="authorname">alvin woon</span> said on June 16, 2007		</div>
+		<div class="quote"><p>hail object literals in JS. :) Beside using it in namespace containers, I find it also very handy for emulating static objects and other contructs. </p>
+<p>It is definitely one of the good stuff in JS and i like how you use it. Good work!</p>
+</div>
+	</div>
+		<div class="comment" id="c49432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49432">2</a></div>
+			<span class="authorname">Peter Bex</span> said on June 17, 2007		</div>
+		<div class="quote"><p>Private variables are useful in one other situation:  When you're extending existing functions to do something additional.  Example:</p>
+<pre><code>
+function somefunc() { ... };
+
+(function() {
+  var old = somefunc;
+  somefunc = function() {
+    alert('before somefunc');
+    old.apply(this, arguments);
+    alert('after somefunc');
+})();
+</code></pre>
+<p>This prevents global namespace pollution with all kinds of 'old' function aliases.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49496">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49496">3</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on June 18, 2007		</div>
+		<div class="quote"><p>I use private variables/methods pretty often to hide functionality that the user doesn't need to touch. However, for libraries that might be extended and need to access private variables, I provide an "expose" method that sets references to all private variables and methods in the current context. This might defeat the purpose of having private variables at all, but at the very least, it forces the person to have some idea what their doing before they can access them.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49500">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49500">4</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 18, 2007		</div>
+		<div class="quote"><p>@Andy: but who is the user and would they want to touch them anyway? It's interesting that you have a method in which to expose private variables if the user wants to. It does create a barrier that forces the user to think about the decision before they need to. I'm just not sure you even need to go private to begin with.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49509">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49509">5</a></div>
+			<span class="authorname"><a href="http://www.posure.com/">Andy Kant</a></span> said on June 18, 2007		</div>
+		<div class="quote"><p>@Jonathan</p>
+<p>Well, I've only used that in one particular case so far...</p>
+<p>I wrote an ActiveRecord-inspired extensible database system in JavaScript. It has a layering mechanism where any method  (whether public or private) can have preprocessors and postprocessors attached to it in order to add additional functionality in which case the attached functionality would need access to all internal data.</p>
+<p>Specifically what I'm using it for is that the base database library is fairly slim, only containing enough logic to be functional. On top of this, I have a separate validation module that will attach itself to every appropriate method in the library that adds data validation primarily but could also be used to add something like constraint management. The validation module needs to add validation steps to internal/private methods as well as potentially look at the primary/foreign keys stored within the raw data so I needed the ability to expose it when necessary. Another example is that I have an unfinished SQL query module for it that needs to be able to access the raw data in order to return its result set.</p>
+<p>I don't want to expose raw data such as the primary/foreign key indexes or data tables unless they're needed because if someone doesn't know what they're doing they can corrupt the entire database.</p>
+<p>Anyways...you're right, I don't *need* to go private, its just an added measure to maintain data integrity. Data integrity alone can be enough to make it worthwhile, although its probably overkill in most cases.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49545">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49545">6</a></div>
+			<span class="authorname"><a href="http://ajaxon.com/michael/">Michael Jackson</a></span> said on June 19, 2007		</div>
+		<div class="quote"><p>One place where the Yahoo! guys use this technique is in the YAHOO.util.Anim class. There is a private variable called <code>isAnimated</code>. It's a variable that you just don't want users messing with. It only serves to inform the <code>AnimMgr</code> object. It has an accessor method but that's it.</p>
+<p>If the variable were public, and the user decided to set it to <code>false</code> while an animation was running, the animation would remain in the <code>AnimMgr</code> queue, forcing the <code>AnimMgr</code> to loop over it on every frame of the animation, but actually doing nothing. Then, when you wanted to start the animation going again, you would have to set the boolean to <code>true</code> and then manually restart the <code>AnimMgr</code>. So it's messy, and it's a two step process later on to restart the thing.</p>
+<p>In my opinion, this is the perfect case for a private variable. It's just not a good idea to touch the thing!
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49547">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49547">7</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 19, 2007		</div>
+		<div class="quote"><p>@Michael Jackson: In the post, I tried to be specific in saying that private methods should be avoided. Private properties are less of an issue as properties hold state and not logic. Although, even then, if you have multiple pieces relying on that variable, then extending that class becomes more difficult as any new methods won't have access to those private variables. </p>
+<p>There has to be an assumption that if someone is extending your code, that they hold the power, not you. Trying to hide the code in private methods or variables just means that it's harder for people to extend and ultimately may mean modifying your code directly to get the job done.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49562">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49562">8</a></div>
+			<span class="authorname"><a href="http://ajaxon.com/michael/">Michael Jackson</a></span> said on June 19, 2007		</div>
+		<div class="quote"><p>@Jonathan: Excellent point. On a second read, I realize that my comment was a bit off topic, and I tend to agree with your points.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49588">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49588">9</a></div>
+			<span class="authorname">Jack Turner</span> said on June 20, 2007		</div>
+		<div class="quote"><p>Your code example can be made even clearer by returning the object containing the public properties and functions rather than storing it in the "obj" variable:<br />
+<code>
+<pre>MyObject = function(){
+
+  var privateMethod = function(){ /* do stuff */ };
+
+  return {
+    publicProperty:5,
+    publicMethod:function(){ /* do stuff */ };
+  };
+}(); // run it right away
+</pre>
+<p></code><br />
+Any downsides to this?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49606">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49606">10</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 20, 2007		</div>
+		<div class="quote"><p>@Jack Turner: I like attaching it to the object as it's clear at the bottom of the function what I'm doing. If I have more than a couple functions then I have to scroll up to see where the object literal starts. And it more closely matched the second example, which again makes it clear to me what it is I'm attaching before returning the object. But this is purely preference.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c49743">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49743">11</a></div>
+			<span class="authorname">Rubiwachs</span> said on June 22, 2007		</div>
+		<div class="quote"><p>Jonathan, could you elaborate more about your calendar example in 'code'?<br />
+How do you mean: </p>
+<blockquote><p>"The great thing about this was that each of the calendars could basically talk to each other while still having access to some core common values like what the currently selected day, month and year was."</p></blockquote>
+<p>I'd like to see how you approached this.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c49771">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c49771">12</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 22, 2007		</div>
+		<div class="quote"><p>@Rubiwachs: Unfortunately, it was for a client project, so I'm not allowed to publish what I did. The structure is much like that last example though where private objects are attached to a central object that gets returned. Internal calls use the internal API and external calls can use the external API.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c50050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50050">13</a></div>
+			<span class="authorname">Rubiwachs</span> said on June 26, 2007		</div>
+		<div class="quote"><p>I was not looking for the code itself :), I am only interested in the structure of the code =&gt; 3 objects in the same namespace, accessing common values.<br />
+Would you do it like this:</p>
+<pre><code>
+if (typeof(MyNamespace) == 'undefined') var MyNamespace = {};
+
+MyNamespace.MyObject1 = function() {
+  var util = {
+    _getValue: function() { return MyNamespace.value; },
+    _setValue: function(value) { MyNamespace.value = value; }
+  }
+
+  var obj = {
+    init: function() {},
+    getValue: function() { return util._getValue(); },
+    setValue: function(value) { util._setValue(value); }
+  }
+
+  obj.util = util;
+  return obj;
+}();
+
+MyNamespace.MyObject2 = function() {
+  var util = {
+    _getValue: function() { return MyNamespace.value; },
+    _setValue: function(value) { MyNamespace.value = value; }
+  }
+
+  var obj = {
+    init: function() {},
+    getValue: function() { return util._getValue(); },
+    setValue: function(value) { util._setValue(value); }
+  }
+
+  obj.util = util;
+  return obj;
+}();
+
+// set currentValue via MyObject1
+MyNamespace.MyObject1.setValue('test1');
+
+// retrieve currentValue via different objects
+alert(MyNamespace.MyObject1.getValue());
+alert(MyNamespace.MyObject2.getValue());
+</code></pre>
+<p>Both alert's will return 'test1'.<br />
+Any thoughts?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c50114">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c50114">14</a></div>
+			<span class="authorname">Jonathan Snook</span> said on June 26, 2007		</div>
+		<div class="quote"><p>In the case of the calendar project, it was set up like this:</p>
+<pre><code>calendar = function(){
+  var cal = { d:1, m:1, y:2006 }
+  var monthView = {
+     getEvents:function(){
+         var url = '/getevents?d= ' + cal.d
+                    + '&amp;m=' + cal.m
+                    + '&amp;y=' + cal.y;
+         Ajax.call(url);
+     }
+  }
+  cal.month = monthView;
+  return cal;
+}();</code></pre>
+<p>This is more of a pseudo-code but you can see that the monthView object is still available externally via the calendar.month object and internally via the monthView object. Likewise, the monthView object can access the cal object and any of its properties. I had an object for both the day and weekly views as well, attached to the <code>cal</code> object in the same way.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55050">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55050">15</a></div>
+			<span class="authorname">DarrylHebbes</span> said on August 29, 2007		</div>
+		<div class="quote"><p>How would one go about setting the 'publicProperty' in the sub-module pattern from another method in the object.</p>
+<p>for example:</p>
+<pre>
+MyObject = function(){
+  var util = {
+    privateMethod: function(){ 
+
+       obj.publicProperty = 10;  // &lt;- Is this possible?
+    };
+  }
+
+  var obj = {
+    publicProperty:5,
+    publicMethod:function(){ util.privateMethod(); };
+  }
+
+  // do my object attachment
+  obj.util = util;
+  return obj;
+}(); // run it right away
+</pre>
+</div>
+	</div>
+		<div class="comment snook" id="c55051">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55051">16</a></div>
+			<span class="authorname">Jonathan Snook</span> said on August 29, 2007		</div>
+		<div class="quote"><p>@DarrylHebbes: you hit it on the nose. You can access methods of other objects within that scope. It makes a handy shortcut and is exactly how I usually approach things.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c55053">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c55053">17</a></div>
+			<span class="authorname">DarrylHebbes</span> said on August 29, 2007		</div>
+		<div class="quote"><p>Thanks very much, been reading your posts since 2002...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61064">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61064">18</a></div>
+			<span class="authorname">rubudgirl</span> said on January 16, 2009		</div>
+		<div class="quote"><p>ÐºÐ°ÐºÐ¸Ðµ Ð¿Ñ€Ð°Ð·Ð´Ð½Ð¸ÐºÐ¸ Ð²Ð°Ð¼ Ð½Ñ€Ð°Ð²ÑÑ‚ÑÑ?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c61146">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c61146">19</a></div>
+			<span class="authorname">holremasha</span> said on January 17, 2009		</div>
+		<div class="quote"><p>Ð ÐºÐ°Ðº Ð·Ð¾Ð²ÑƒÑ‚ Ð²Ð°ÑˆÐ¸Ñ… Ð·Ð²ÐµÑ€ÑŽÑˆÐµÐº?<br />
+Ð£ Ð¼ÐµÐ½Ñ ÐºÐ¾Ñ‚ Ð‘Ð°Ñ€Ñ (Ð±Ð°Ð»Ð±ÐµÑ ÐµÑ‰Ðµ Ñ‚Ð¾Ñ‚)<br />
+ÐšÐ¾ÑˆÐºÐ° ÐœÑƒÑÑ‘Ð½Ð°
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

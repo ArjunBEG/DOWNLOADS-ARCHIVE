@@ -1,0 +1,7 @@
+<p>Checks if the given date is a weekday.</p>
+<ul>
+<li>Use <code>Date.prototype.getDay()</code> to check weekday by using a modulo operator (<code>%</code>).</li>
+<li>Omit the argument, <code>d</code>, to use the current date as default.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isWeekday <span class="op">=</span> (d <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()) <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">getDay</span>() <span class="op">%</span> <span class="dv">6</span> <span class="op">!==</span> <span class="dv">0</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isWeekday</span>()<span class="op">;</span> <span class="co">// true (if current date is 2019-07-19)</span></a></code></pre></div>

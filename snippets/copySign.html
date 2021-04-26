@@ -1,0 +1,10 @@
+<p>Returns the absolute value of the first number, but the sign of the second.</p>
+<ul>
+<li>Use <code>Math.sign()</code> to check if the two numbers have the same sign.</li>
+<li>Return <code>x</code> if they do, <code>-x</code> otherwise.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> copySign <span class="op">=</span> (x<span class="op">,</span> y) <span class="kw">=&gt;</span> <span class="va">Math</span>.<span class="at">sign</span>(x) <span class="op">===</span> <span class="va">Math</span>.<span class="at">sign</span>(y) <span class="op">?</span> x : <span class="op">-</span>x<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">copySign</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// 2</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">copySign</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">-3</span>)<span class="op">;</span> <span class="co">// -2</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">copySign</span>(<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// 2</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">copySign</span>(<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">-3</span>)<span class="op">;</span> <span class="co">// -2</span></a></code></pre></div>

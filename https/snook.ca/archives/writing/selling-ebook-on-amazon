@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Selling my e-book on Amazon  - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/writing/selling-ebook-on-amazon">
+	<meta property="og:url" content="https://snook.ca/archives/writing/selling-ebook-on-amazon">
+	<meta property="og:title" content="Selling my e-book on Amazon ">
+	<meta property="og:description" name="description" content="
+After reading Thomas Fuchs&rsquo; post, 5 rules to sell thousands of copies of your ebook, and the ensuing Twitter discussion, I decided to share my thoughts on selling my book, SMACSS, on Amazon. ...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Selling my e-book on Amazon </h1>
+		
+<p>After reading Thomas Fuchs&rsquo; post, <a href="http://mir.aculo.us/2012/10/20/5-rules-to-sell-thousands-of-copies-of-your-ebook/">5 rules to sell thousands of copies of your ebook</a>, and the ensuing Twitter discussion, I decided to share my thoughts on selling my book, <a href="http://smacss.com">SMACSS</a>, on <a href="http://www.amazon.com/Scalable-Modular-Architecture-CSS-ebook/dp/B006EQBPMG">Amazon</a>. </p>
+
+<p>Had you asked me before I wrote this post whether I would sell on Amazon again, I&rsquo;d have flat out said no. Having researched and compiled numbers for this post, now I&rsquo;m not so sure. Let&rsquo;s dive in to see why.</p>
+
+<h2>Selling on Amazon</h2>
+
+<p>Selling on Amazon is relatively easy. Create a mobi file and upload it. Add a cover photo and a description, set a price, and you&rsquo;re pretty much set to go. </p>
+
+<p>It’s that setting of the price that initial ruffled my feathers. See, Amazon is trying to drive down e-book prices by creating an incentive to price the book under $10. Normally, you only get 35% of every book sale but if it&rsquo;s under $10 then you can get 70% of every sale. Sort of.</p>
+
+<p>First, if it’s under $10 then you also have to pay a delivery fee. The larger your book is, the larger your fee is. The other catch is that you only get 70% if the book is sold to someone within certain countries. For books sold to people outside of that list, you still only get 35%.</p>
+
+<p>From the launch of the book in November 2011 up to and including September 2012, I&rsquo;ve sold 338 books. For those 11 months, 30% of those were sold at the 35% royalty rate. The average royalty per book has been 61.8%.</p>
+
+<img src="/files/amazon-1.png" alt="Comparing 35% to 70% royalties" />
+
+<p>In my case, pricing the book at $9 on Amazon made sense. I sell the book for $15 on my own site but that includes PDF, ePub, and mobi formats <em>and</em> includes screencasts. On Amazon, you just get the mobi version. I felt this was fair. </p>
+
+<p>However, let&rsquo;s assume that I just had the e-book with no other frills. At $9 getting 61.8% from every sale means $5.56 in royalties. I&rsquo;d have to sell the book for $16 to make just as much at the reduced price point. </p>
+
+<p>Clearly, it&rsquo;s better for consumers if I sell for the cheaper price, since I make the same either way.</p>
+
+<h2>Versus self-sold</h2>
+
+<p><a href="http://www.amazon.com/Scalable-Modular-Architecture-CSS-ebook/dp/B006EQBPMG">One commenter on Twitter</a> figured Amazon would be worth it based on sheer volume of sales. However, that&rsquo;s not the case. Through self-marketing alone, sales through my own site have far exceeding anything that I&rsquo;ve sold on Amazon. I&rsquo;ve sold almost 6 books on my own site for every book sold on Amazon. Every book sold on my own site makes about 96% of the sale price (and sells for a higher price!). </p>
+
+<img src="/files/amazon-2.png" alt="Showing self-sold versus Amazon" />
+
+<p>Based on this alone, it really doesn&rsquo;t make sense to push people to Amazon.</p>
+
+<h2>Pushing to Amazon</h2>
+
+<p>When I first launched the book, I actively encouraged people to buy the book from Amazon. When you went to the purchase page, one of the pricing options was to buy it from Amazon and explained the benefits of doing so. (Namely, price.) </p>
+
+<p>When I released the print version of the book back in May, I changed the way my site presented pricing and dropped any mention of Amazon from my site. Sales dropped off considerably. Looking at June sales on Amazon.com, they were at the lowest they had ever been. </p>
+
+<p>Clearly, this demonstrated that pushing people to Amazon was just not worth it. </p>
+
+<h2>No more Amazon?</h2>
+
+<p>It was at this point that I said to myself (and others) that I would never bother selling through Amazon again. Why bother?</p>
+
+<p>But then I started compiling numbers for this very blog post and I started to see some trends that caught my attention.</p>
+
+<h3>1.	Sales on Amazon are climbing</h3>
+
+<p>While overall sales are still down, the trend has been climbing since June. Why is this? It&rsquo;s hard to say for sure but I&rsquo;m going to chalk it up to one reason: <em>Reviews</em>.  I used to only have one review. It was only 3 stars. Not a glowing review by any means. But in September, I got two more reviews that were definitely more positive. I believe these positive reviews have helped increase sales.</p>
+
+<h3>2.	Sales have closely mirrored my own site</h3>
+
+<p>Sure, sales dropped considerably in June on Amazon but having finally compiled numbers from my own site, I realized that sales dropped there, too. Maybe my site wasn&rsquo;t contributing as heavily to Amazon sales as I originally thought.</p>
+
+<img src="/files/amazon-3.png" alt="Comparison between self-sold and Amazon" />
+
+<p>In fact, month over month, sales have increased more on Amazon than they have on my own site over the last three months.</p>
+
+<h2>In Review</h2>
+
+<p>My takeaway from all of this is that Amazon may still be a worthwhile addition to sales that may not be taking sales away from my own site (as I originally suspected). However, doing well (or better) on Amazon means having positive reviews to help push sales. This makes sense. (Maybe you&rsquo;d like to review it!)</p>
+
+<p>In the end, I&rsquo;ve made $1882 from Amazon.com since the launch of the book. I&rsquo;m not about to say no to that! And I&rsquo;ll continue to sell the book on Amazon for the foreseeable future. More importantly, I&rsquo;m more likely to recommend Amazon as a viable option for e-book sales as a supplement to regular sales.</p>
+	
+</div>
+<div class="meta">
+	<div class="dt">Published October 21, 2012 </div>
+	<div class="cat">Categorized as <a href="/archives/writing/">Writing</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1026</span></div>
+</div>
+
+<div id="comments">
+	<div class="meta">
+		<h2>Conversation</h2>
+		<div class="commentcount">29 Comments &middot; <a href="/archives/writing/selling-ebook-on-amazon.rss">RSS feed</a></div>
+		<div class="commentfeed"></div>
+	</div>
+	
+		<div class="comment" id="c69419">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69419">1</a></div>
+			<span class="authorname">Grant Palin</span> said on October 21, 2012		</div>
+		<div class="quote"><p>Interesting look at the data. Shows me that book sales need to be tracked for an extended time, e.g. a year or more, to have meaningful results. And until you've tried it least once, you're not going to know what will happen. Kudos to you!</p>
+<p>I like to buy direct from the publishers when I can, mainly because I can get the book in multiple formats - I use Kobo, not Kindle, so ePub for me, plus PDF for my PC - as well as bonus material in some cases. It's more directly supporting the publishers, and in the case of self-published books, the authors.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69420">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69420">2</a></div>
+			<span class="authorname">Yosh</span> said on October 22, 2012		</div>
+		<div class="quote"><p>What kind of "delivery fee" is there for an e-book? The data-delivery cost? Sounds strange...
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69422">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69422">3</a></div>
+			<span class="authorname">Andrew Hyde</span> said on October 22, 2012		</div>
+		<div class="quote"><p> It is still worthwhile but they really need to simplify their cut.  35%-70% with delivery fee (for a digital good) is just too odd for what the authors need.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69425">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69425">4</a></div>
+			<span class="authorname">paul</span> said on October 22, 2012		</div>
+		<div class="quote"><p>I've found similar in my own self-published ebook sales. The marketing I've done has all been directed at selling straight from my own website (www.eatawesome.ca) since I make more money there, but I still get about 10% of sales from amazon (and I do absolutely nothing to promote that).
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69427">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69427">5</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 22, 2012		</div>
+		<div class="quote"><p>@Yosh: the delivery fee is supposed to help cover the cost of delivering the book over 3G. (At least, this is my understanding.)
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69429">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69429">6</a></div>
+			<span class="authorname">Wesley Burden</span> said on October 22, 2012		</div>
+		<div class="quote"><p>Great article and very cool of you to be upfront about your sales figures. It's such valuable info for other people that are thinking about doing similar publication methods.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69430">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69430">7</a></div>
+			<span class="authorname">Justin Putney</span> said on October 22, 2012		</div>
+		<div class="quote"><p>Interesting stuff! Thanks for sharing your experience!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69431">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69431">8</a></div>
+			<span class="authorname">Matt Huggins</span> said on October 22, 2012		</div>
+		<div class="quote"><p>Unless I overlooked it, I don't see when you released / started selling the book on Amazon.  I just see that you "made $1882 from Amazon.com since the launch of the book".  What date range are we looking at here?
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69432">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69432">9</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 22, 2012		</div>
+		<div class="quote"><p>@Matt Huggins: I released the ebook on Amazon at the same time as I released the ebook on my own site: November 2011. It's only the print book that I released on my site in May and it was at that time that I dropped the link to Amazon from my site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69455">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69455">10</a></div>
+			<span class="authorname">Olaf Mueller</span> said on October 25, 2012		</div>
+		<div class="quote"><p>Very interesting and thanks for sharing the experience. What puzzles me though â€“ and I may have misunderstood you there â€“ you say that sales on Amazon dropped in June since you had removed the link there from your site: Quote<br />
+Clearly, this demonstrated that pushing people to Amazon was just not worth it.<br />
+To me it sounds just the opposite way. Dropping that link was the cause for that slump in sales...</p>
+</div>
+	</div>
+		<div class="comment snook" id="c69458">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69458">11</a></div>
+			<span class="authorname">Jonathan Snook</span> said on October 25, 2012		</div>
+		<div class="quote"><p>@Olaf: what I meant was that it didn't make sense to drive people to Amazon if I'd make more money selling to them on my own site.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69459">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69459">12</a></div>
+			<span class="authorname">shawncampbell</span> said on October 25, 2012		</div>
+		<div class="quote"><p>If you're lucky, Jonathan, the positive reviews on Amazon combined with the 2012 holiday season (especially after Dec. 25) could generate more sales than you've seen yetâ€“potentially orders of magnitude greater. The Amazon model scales very well and performs best if the book crosses any sort of threshold or tipping point. (e.g., climbing categorical lists of best sellers or highest rated) I experienced this after publishing an ebook in the fall of 2010, positive reviews trickled in over 15 months, sales spiked during late December 2011. For what it's worthâ€“
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69460">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69460">13</a></div>
+			<span class="authorname">Dainis Graveris </span> said on October 25, 2012		</div>
+		<div class="quote"><p>Jonathan I really enjoyed your article, and I got to the same conclusion, when I tried amazon.  Felt like only mistake was that first launch was done in amazon, I bet you also would have done even better by selling it directly to the start and then adding Amazon. It's also smart to use amazon free download offer, to bump up sales number and probably reviews too. </p>
+<p>One other thing I noticed how you must really check which categories you pick before submitting book. Choose too competitive niche and you will not get on top of lis, choose too small niche, it won't matter you are in the first place! Thanks for the takeaways, if you want to check also my experiences with ebook sales on Amazon in design niche, <a href="//www.1stwebdesigner.com/design/1wd-ebook-launch-case-study/">you can read case study</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69531">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69531">14</a></div>
+			<span class="authorname">Mike</span> said on November 01, 2012		</div>
+		<div class="quote"><p>I appreciate you sharing this information. Most people would normally keep financial details such as this private. Leaving us to speculate if ventures like this really make money and how much. By sharing I think you are encouraging others and allowing them to set reasonable expectations. Cheers Snook.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69563">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69563">15</a></div>
+			<span class="authorname">John Michael Sheehan</span> said on November 05, 2012		</div>
+		<div class="quote"><p>Thanks for sharing, it truly is a really informative publish and very helpful for some kind of businesses like mine. I like when I'm looking the world wide web and i come across a site with valuable points like this. Thanks lots for the research, We've noted a number of them here so I can use them in a future. Kudos for you and keep up the good blogging perform.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69675">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69675">16</a></div>
+			<span class="authorname">ronl lee</span> said on November 28, 2012		</div>
+		<div class="quote"><p>I enjoyed reading this and REALLY APPLAUD THE GRAPHS AND STATS! We wrote a reaction piece as well as linking back. I'll pick up a copy of the ebook at Amazon and give it a read. Check out our reaction piece at <a href="//ebookhowto.org/selling-ebooks-on-amazon-versus-on-your-own-site-reaction-to-a-statistical-breakdown/">www.EbookHowTo.org</a>
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69734">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69734">17</a></div>
+			<span class="authorname">eUKhost</span> said on December 13, 2012		</div>
+		<div class="quote"><p>Thank you so much for the update.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69749">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69749">18</a></div>
+			<span class="authorname">Elijah Lynn</span> said on December 15, 2012		</div>
+		<div class="quote"><p>Would be nice if it were available on Google Play (aka Google Books) too!</p>
+<p>Just sayin'
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69752">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69752">19</a></div>
+			<span class="authorname">Elijah Lynn</span> said on December 15, 2012		</div>
+		<div class="quote"><p>Btw, I just bought the print and ebook combo. Reading now!
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69855">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69855">20</a></div>
+			<span class="authorname">gideon</span> said on December 31, 2012		</div>
+		<div class="quote"><p>good thing to know! trying to boost my sales, and this gave me alot of insightful info! thanks! gideon</p>
+<p>https://www.smashwords.com/books/view/269260
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69899">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69899">21</a></div>
+			<span class="authorname">Tom</span> said on January 06, 2013		</div>
+		<div class="quote"><p>I don't like the fact that Amazon's ebooks are DRM'd and so I try to avoid buying from them as much as possible. I recently purchased an ebook from O'Reilly and it was a way better experience. O'Reilly offers multiple formats, and you can get the book delivered to your dropbox. I'm not sure how O'Reilly works, and if you can sell your books through them, but they run a pretty great business from a users customers perspective.</p>
+<p>With that being said I bought your book yesterday from your website and it was also a great experience. </p>
+<p>So in the end I think avoiding Amazon is the right way to go.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69961">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69961">22</a></div>
+			<span class="authorname">Andrew</span> said on January 19, 2013		</div>
+		<div class="quote"><p>Very useful article - am just at the point creating a website to sell an ebook direct <a href="//www.oldwickspress.com/">Business Analysis for Management</a>.<br />
+Would be very interested to learn from your experience which methods have proved the most effective in drawing people to your website in the first place:  'Adwords' and similar or your own extensive input from blogging, conferences and general networking?</p>
+<p>We're a very small company (2 people ) on a steep learning curve, so any input would be appreciated.</p>
+<p>Thanks for the great article.</p>
+<p>Would be interested to know what has been </p>
+</div>
+	</div>
+		<div class="comment snook" id="c69965">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69965">23</a></div>
+			<span class="authorname">Jonathan Snook</span> said on January 19, 2013		</div>
+		<div class="quote"><p>@Andrew: when it comes to marketing the book, book reviews from those in the industry worked well but the sales from those trail off within a week. If you can get other people writing tweets or on their blogs then you'll likely see results. I have enough followers on Twitter that I can usually spur sales with occasional discounts and whatnot. I also do conference talks and workshops.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c69988">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c69988">24</a></div>
+			<span class="authorname">Maurice Mcleod</span> said on January 24, 2013		</div>
+		<div class="quote"><p>Hi Jonathan, thanks for sharing. Really interesting stuff. I run the publishing arm of a medium sized charity and we're just dipping out toe into ebooks. We sell a reasonably large number of printed publications via our own store but had thought we needed to use Amazon for ebook sales. One thing in particular that is annoying is that I don't seem to be able to get sales data from Amazon (not how many books they've sold but rather who they've sold them too). I'm probably just being dumb because I can't imagine that publishers would be happy to let Amazon keep all of their data (especially when sales are often gnerated by our own marketing). Has anyone else had this problem?
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70038">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70038">25</a></div>
+			<span class="authorname">Simon Hartley</span> said on January 28, 2013		</div>
+		<div class="quote"><p>Great article. Thanks for being so open, honest and transparent!!... it is very refreshing.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70072">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70072">26</a></div>
+			<span class="authorname">raul</span> said on February 07, 2013		</div>
+		<div class="quote"><p>Hi</p>
+<p>one question!</p>
+<p>do you still mention amazon on your site? did your sales in your web site droped because of that?</p>
+<p>regards.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70080">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70080">27</a></div>
+			<span class="authorname">Robin Majumdar</span> said on February 11, 2013		</div>
+		<div class="quote"><p>Thanks for sharing your Amazon experience as a publisher. More thanks for doing it in such detail and visual / real world results. </p>
+<p>Guess that Amazon is a double edged sword and needs to be carefully implemented as a sales vehicle for SME / micropublishers.
+</p>
+</div>
+	</div>
+		<div class="comment" id="c70208">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70208">28</a></div>
+			<span class="authorname">JP</span> said on March 25, 2013		</div>
+		<div class="quote"><p>Have you tried any other online e-book selling platforms? If so, how did they go? If not, I'd be interested to know why you haven't tried the likes of google play, barnes &amp; noble etc.
+</p>
+</div>
+	</div>
+		<div class="comment snook" id="c70209">
+		<div class="meta">
+			<div class="commentnumber"><a href="#c70209">29</a></div>
+			<span class="authorname">Jonathan Snook</span> said on March 25, 2013		</div>
+		<div class="quote"><p>I hadn't. I started with Amazon to see what to expect. None of the other platforms have favourable royalty rates so there was little incentive to experiment further.
+</p>
+</div>
+	</div>
+		
+
+
+		<div id="commentsclosed">Sorry, comments are closed for this post. If you have any further questions or
+	comments, feel free to <a href="/contact/">send them to me directly</a>.</div>
+	</div>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>

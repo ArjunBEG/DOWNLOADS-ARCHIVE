@@ -1,0 +1,6 @@
+<p>Escapes a string to use in a regular expression.</p>
+<ul>
+<li>Use <code>String.prototype.replace()</code> to escape special characters.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> escapeRegExp <span class="op">=</span> str <span class="kw">=&gt;</span> <span class="va">str</span>.<span class="at">replace</span>(<span class="ss">/</span><span class="sc">[.*+?^${}()|[\]\\]</span><span class="ss">/g</span><span class="op">,</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">$&amp;&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">escapeRegExp</span>(<span class="st">&#39;(test)&#39;</span>)<span class="op">;</span> <span class="co">// \\(test\\)</span></a></code></pre></div>

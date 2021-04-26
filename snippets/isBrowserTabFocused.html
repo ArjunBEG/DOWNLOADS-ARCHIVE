@@ -1,0 +1,6 @@
+<p>Checks if the browser tab of the page is focused.</p>
+<ul>
+<li>Use the <code>Document.hidden</code> property, introduced by the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API">Page Visibility API</a> to check if the browser tab of the page is visible or hidden.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> isBrowserTabFocused <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">!</span><span class="va">document</span>.<span class="at">hidden</span><span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">isBrowserTabFocused</span>()<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>

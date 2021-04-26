@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Calendar with CSS Grid - Snook.ca</title>
+	<meta name="viewport" content="width=device-width" />
+		<link rev="canonical" type="text/html" href="https://snook.ca/archives/html_and_css/calendar-css-grid">
+	<meta property="og:url" content="https://snook.ca/archives/html_and_css/calendar-css-grid">
+	<meta property="og:title" content="Calendar with CSS Grid">
+	<meta property="og:description" name="description" content="
+Laying out events on a calendar can be somewhat tricky. Many years ago, I had a client project where I needed to do a calendar similar to Google Calendar. I ended up using bitwise operators to figur...">
+	<meta property="og:type" content="article">
+				<meta property="og:image" content="https://snk.ms/logo.gif">
+		<meta name="twitter:card" content="summary">
+				<meta name="theme-color" content="#680">
+	<link rel="alternate" type="application/rss+xml" title="XML" href="https://snook.ca/jonathan/index.rdf"> 
+<!--	<link rel="stylesheet" href="/css/snook-v10.css"> -->
+<style>
+/* A font by Jos Buivenga (exljbris) -> http://www.exljbris.nl */
+
+@font-face { font-family: 'MuseoCustom'; src: url('/css/MuseoSans_500-webfont.woff2') format('woff2'), url('/css/MuseoSans_500-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; src: local('Playfair Display Black'), local('PlayfairDisplay-Black'), url('/css/playfair.woff2') format('woff2'), url(https://fonts.gstatic.com/s/playfairdisplay/v10/UC3ZEjagJi85gF9qFaBgIFG5nCscAKpKP81nraB-v6E.woff) format('woff'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+html{background:#EEEEE6 url(/img/bg.png)}body{margin:0;padding:0;border:12px solid #680;font-family:'PT Serif',Georgia,Times,'Times New Roman',serif;background:url(/img/swash.svg) no-repeat 50% 0;background-size:1600px 200px;color:#333;line-height:1.7;min-height:calc(100vh - 24px)}img{border:0}figcaption{font-style:italic;font-size:90%;}p{margin-bottom:1.5em}hr{width:20%;}a{color:#680;transition:all .2s}a:hover{text-decoration:none}a:active,a:focus{background-color:rgba(51,51,51,.1)}blockquote{font-style:italic;font-size:95%;background:url(/img/comment.svg) no-repeat 2px 5px;margin:0;padding-left:20px}pre{margin-left:-20px;background:url(/img/code-bookmark.svg) no-repeat 0 0}pre code{display:block;margin-left:20px;padding:10px;font-size:90%;background-color:rgba(255,255,255,.5);overflow:auto}table{border:1px solid #666;border-width:1px 0;border-collapse:collapse;background-color:rgba(255,255,255,.5);margin-bottom:30px;font-size:90%}th{border:1px solid #666;border-width:1px 0;background-color:rgba(51,51,51,.1)}td{border:1px solid #CCC;border-width:1px 0;padding:2px 10px}.update{background-color:rgba(33,129,66,0.1);padding:5px 10px 1px;border-radius:5px}#header{font-family:'MuseoCustom','Century Gothic',Arial,Helvetica,sans-serif;font-size:13px;max-width:780px;margin:auto;line-height:12px;background:url(/img/snook-bookmark.svg) no-repeat;padding:0 20px}#header h1,#header h2{font-size:13px;font-weight:400;margin:0}#header h1{color:#680;padding-top:18px;text-transform:uppercase}#header h2 a{text-decoration:none;color:#333;display:block}#header h2 a:hover{color:#680}#header .nav{text-transform:uppercase;word-spacing:4px;padding-top:20px}#header .nav a{text-decoration:none;color:#333;padding-top:3px}#header .nav a:hover{color:#680}.blurb{line-height:1.3}#content{max-width:820px;margin:4em auto;background:url(/img/star.svg) no-repeat 3px 58px}#main{padding:40px 0 0;background:url(/img/line-v.png) no-repeat 100% 90%}#main .dt,#main .cat,#main .shorturl{font-family:Garamond,Georgia,Times,'Times New Roman',serif;text-transform:uppercase;font-size:13px;font-weight:700;color:#666;background:url(/img/line.png) no-repeat -200px 70%}#main h2{font-weight:900;font-size:28px;margin:7px 0 0;font-family:'Playfair Display',Garamond,serif;line-height:1.1;background:url(/img/line.png) no-repeat 100px 26px}#main h2 a{text-decoration:none;color:#444}#main h2 a:hover{color:#680}.article-image-small{margin-top:20px;text-align:center;background-color:#000;padding:6px;font-size:0;display:inline-block;}.article-image{text-align:center;background-color:rgba(0,0,0,.07);padding:14px 12px;font-size:0px;width:calc(100vw - 24px);position:relative;left:50%;right:50%;margin:20px -50vw 4rem -50vw;}#main .article.inside h1{font-weight:900;font-size:2em;margin:0 0 2em;font-family:'Playfair Display',Garamond,serif;line-height:40px;background:url(/img/line.png) no-repeat 100px 90%}#main .article.inside h2{font-family:'Playfair Display',Georgia,Times,'Times New Roman',serif;font-weight:900;font-size:1.5em;text-transform:none;background:none}@media only screen and (min-width: 480px){#main .article.inside{font-size:120%}}#main .article{margin-bottom:40px;padding:0 20px;background:url(/img/star.svg) no-repeat 2px 13px}#main .article:first-child{background:none}#main .article img{max-width:100%;max-height:80vh;}#main .article .abstract{font-size:110%;}#main .fullarticle{text-align:right;background:url(/img/line.png) no-repeat 190% 70%}#main .fullarticle a{text-transform:uppercase;text-decoration:none;color:#680;font-size:14px;padding:4px}#main .fullarticle a:hover{background-color:rgba(51,51,51,.1)}#main .meta{background:url(/img/star.svg) no-repeat 3px .3em;font-family:Garamond,Georgia,Times,'T\Aimes New Roman',serif;padding-left:20px;margin-top:40px}#main .shorturl .url{text-transform:none;color:#555}#comments .meta{background:url(/img/comment-bookmark.svg) no-repeat 0 3px}#comments .comment{background:url(/img/comment.svg) no-repeat 3px .6em}#comments .comment .meta .authorname{text-transform:uppercase}#comments .comment .meta .commentnumber a{float:right;color:rgba(51,51,51,.25);font-size:24px;text-decoration:none}#comments .comment .quote{padding-left:20px;font-size:95%;word-break:break-word}#comments .commentcount{text-transform:uppercase}#comments .comment .meta{background:url(/img/line.png) no-repeat 40px 1.1em}#comments .snook{background:url(/img/comment-snook.png) no-repeat 0 3px}#comments .snook .meta .commentnumber a{color:rgba(102,136,0,.5)}#comments .snook .meta .commentnumber a:hover{color:rgba(102,136,0,1)}h3#postcomments{text-transform:uppercase;font-weight:400;font-size:14px;background:url(/img/line.png) no-repeat 40px 14px;margin:0 20px}#comments_form{background:url(/img/line-v.png) no-repeat 10px 0;padding-left:20px}#comments_form .inputgroup{background:url(/img/line.png) no-repeat 100% 100%;margin-bottom:5px}#postmeta{margin-bottom:10px}#postdata{background:url(/img/line-v.png) no-repeat 100% 50%}#postdata textarea{width:100%;border:none;font-size:inherit;font-family:inherit;padding:10px;box-sizing:border-box}#postmeta label{width:80px;display:block;float:left;text-transform:uppercase;font-size:10px}#postmeta input{border:none;max-width:407px}#comments_form .formnote{font-size:80%}#commentsclosed{padding:10px;margin:20px 0;background:rgba(51,51,51,.1)}#livepreview{display:none}#main .article ul.projects{list-style:none;margin:0;padding:0;overflow:hidden}ul.projects li{margin:0 10px 20px 0;padding:0;float:left;width:240px;line-height:15px;list-style:none}ul.projects li img{float:left;margin-right:5px;border:5px solid #CCC}ul.projects li a:hover img{border-color:#BBCF7F}ul.projects li span{display:block;font-size:12px}#footer{clear:both;font-size:90%;margin-bottom:-12px;}#footer .shell{max-width:770px;margin:auto;}#footer #copyright p{font-family:MuseoCustom,Helvetica,sans-serif}#footer #copyright .shell{padding:0 25px 200px;background:url(/img/PolySnook.svgo.svg) no-repeat 50% 120%;background-size:400px 250px}iframe{max-width:100%;}
+</style>
+	<link rel="stylesheet" href="/css/snook-v10-print.css" media="print">	
+</head>
+<body>
+	<div id="header">
+		<h1>Snook.ca</h1>
+		<h2><a href="/">LIFE &amp; TIMES of a WEB DEVELOPER</a></h2>
+		<div class="nav"><a href="/about/">About</a> &middot;  <a href="/contact/">Contact</a> &middot; <a href="/archives/">Archives</a></div>
+
+	</div>
+	<div id="content">
+	<div id="main">
+		<div class="article inside">
+	
+	<h1>Calendar with CSS Grid</h1>
+		
+<p>Laying out events on a calendar can be somewhat tricky. Many years ago, I had a client project where I needed to do a calendar similar to Google Calendar. I ended up using <a href="https://snook.ca/archives/javascript/creative-use-bitwise-operators">bitwise operators</a> to figure out if there was room to put an event on a particular line. If there’s no room, it placed the event on the next available line. </p>
+
+<p>There’s a lot of looping involved just to place an event on the calendar.</p>
+
+<p>With CSS Grids, I wondered if I could take advantage of its auto-placement to accomplish the same thing. </p>
+
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/GD1IKgrWTgU?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></p>
+
+<h2>The HTML</h2>
+
+<p>Of course, the first thing to worry about is the HTML. How should I mark up my events? </p>
+
+<p>Here’s what I ended up going with:</p>
+
+<pre><code>&lt;div class=&quot;week&quot;&gt;
+  &lt;div class=&quot;day&quot;&gt;
+    &lt;h3 class=&quot;day-label&quot;&gt;1&lt;/h3&gt;
+    &lt;div class=&quot;event event-start event-end&quot; 
+         data-span=&quot;2&quot;&gt;Class&lt;/div&gt;
+    &lt;div class=&quot;event event-end&quot;&gt;Interview&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Each week has its own container and each day has its own container. Within each day, we have a heading and then a list of events. </p>
+
+<p>Why not use an actual list? A definite possibility. I tend to only go with a list if I think I’m going to normally have more than a couple items. I don’t want to overload people with too much information. (But this is conjecture. I should probably ask a bunch of people who use screen-readers.)</p>
+
+<h2>The CSS</h2>
+
+<p>I make each week a grid with each day taking an equal amount of space. </p>
+
+<pre><code>.week {
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 2px 10px;
+}
+</code></pre>
+
+<p>Each week is its own grid because I need all the events to naturally flow into new rows. If the entire month was one big grid, it’d be difficult to flow events within a single week. </p>
+
+<p>With Grid, we have a parent element that declares the grid and the child elements that are part of the grid. In this case, that would be the <code>.day</code>. We don’t want that part of the grid. We want its contents to be part of the grid. Therefore, I set the day to <code>display:contents</code>.</p>
+
+<p>Unfortunately, <code>display:contents</code> only works in Chrome (with experimental features turned on) and Firefox. Womp womp. If we wanted to broaden support, we’d have to remove our day wrappers. (This would work fine since they don’t really do anything anyways.)</p>
+
+<h3>Getting Days on the First Row</h3>
+
+<p>The day numbers should all be on the first row, so we specify that with <code>grid-row-start</code>.</p>
+
+<pre><code>.day-label { 
+    grid-row-start: 1;
+}
+</code></pre>
+
+<p>Now, because we specified <code>grid-auto-flow: dense;</code> on our grid, all of the events will just find a spot where it can fit. Without that, each event is placed after the one before it, regardless of whether there’s room somewhere earlier in the grid. </p>
+
+<p>And not a lick of JavaScript to do this!</p>
+
+<h3>Spanning Days</h3>
+
+<p>The next piece to this is having an event span over multiple days. I opted to use a parameter to do this. Thus, anytime an event needs to span more than a day, a <code>data-span</code> attribute is added to the element. The CSS then uses the <code>span #</code> syntax to span over a number of grid cells.</p>
+
+<pre><code>[data-span=&quot;1&quot;] { grid-column-end: span 1; }
+</code></pre>
+
+<p>Keep in mind that if an event spans beyond the bounds of your 7 column grid, it’ll create new columns to fit in. (This’ll likely create some display side effects that you don’t want.)</p>
+
+<p><a href="https://twitter.com/thefinley/status/937726008152739841">James Finley</a> went further and used CSS Custom Properties in <a href="https://codepen.io/thefinley/pen/pdYdZN">his version</a>.</p>
+
+<pre><code>.event {
+  --span: 1;
+  background-color: #CCC;
+  grid-column-end: span var(--span);
+}
+</code></pre>
+
+<p>Doing this, there’s less code in the CSS. In the HTML, you now need to specify an inline style instead of the data attribute.</p>
+
+<pre><code>&lt;div class=&quot;event&quot; style=&quot;--span:2;&quot;&gt;
+</code></pre>
+
+<h3>Start Day</h3>
+
+<p>Now that we have the events spanning the correct number of days, we also need the events to display as starting on the right day. The grid auto-placement will try to just find the first available box but what we really want is the first available box that starts on the right day of the week. </p>
+
+<p>For this, I chose to use <code>nth-child</code> since the day wrapper will let the selector still work. </p>
+
+<pre><code>// “1” is the left-most edge, so the first day of the week
+.day:nth-child(1) &gt; .event { grid-column-start: 1; }
+</code></pre>
+
+<p>Without the day wrapper, you’d need to find another way to tell the events what day of the week to start on. Either by adding a class to each event or by making some assumptions in our HTML.</p>
+
+<p>For example, if we know that day labels are always <code>h3</code> headings and the events for that day come after it, then we can use <code>nth-of-type</code> to do the same thing. </p>
+
+<pre><code>h3:nth-of-type(1) ~ .event { grid-column-start: 1; }
+h3:nth-of-type(2) ~ .event { grid-column-start: 2; }
+...
+</code></pre>
+
+<p>Essentially we’re saying that any events that come after the first heading start on day 1. Any events that come after the second heading start on day 2. Due to the weight of the specificity, these styles need to be declared in order of the days of the week. </p>
+
+<h2>Other Calendar Considerations</h2>
+
+<p>The other thing that I cared about was styling events to indicate that they spanned over multiple weeks. Each week has their own events. That means that an event that starts on Friday of one week and goes to Monday of the following week would be two events. One 2 day event that displays on Friday to Saturday and another 2 day event that displays on Sunday to Monday. </p>
+
+<p>(If your calendar starts on a Monday instead of a Sunday then, of course, you’d have a 3 day event and a 1 day event. Same problem!)</p>
+
+<p>I add an <code>event-end</code> class to indicate the event ends in the current week. That rounds off the right-side corners of the event. I add an <code>event-start</code> class to indicate that the event starts in the current week. That rounds off the left-side corners of the event.</p>
+
+<h2>Check it out</h2>
+
+<p>Now that I’ve blathered on, go check it out!</p>
+
+<ul>
+<li><a href="https://codepen.io/snookca/pen/WXPBEL">On CodePen</a></li>
+<li><a href="https://www.youtube.com/watch?v=GD1IKgrWTgU&amp;feature=youtu.be">On YouTube</a></li>
+</ul>	
+</div>
+<div class="meta">
+	<div class="dt">Published December 08, 2017 </div>
+	<div class="cat">Categorized as <a href="/archives/html_and_css/">HTML and CSS</a></div>
+	<div class="shorturl">Short URL: <span class="url">https://snook.ca/s/1107</span></div>
+</div>
+
+	</div>
+	</div>
+	<div id="footer">
+		<div id="copyright"><div class="shell">
+<p class="blurb"> Hi. My name is Jonathan Snook and this is my site. I write about what interests me, which is usually web design, development, and technology. I'm also in the middle of a <a href="https://fifty.snook.ca/">food adventure</a> and I like <a href="https://nook.snook.ca/">whisky</a>.
+    <span>I wrote <a href="http://smacss.com/">SMACSS</a>.  I <a href="http://twitter.com/snookca">tweet</a>. Want to <a href="/about/">learn more</a>? </span>
+</p>
+			<p>&copy; Jonathan Snook</p>
+		</div></div>
+	</div>
+</body>
+</html>
