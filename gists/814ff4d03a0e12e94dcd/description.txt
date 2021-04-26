@@ -1,0 +1,1 @@
+Quick way to take screenshots of webpages at different sizes. Not very efficient, but can make it fast later.

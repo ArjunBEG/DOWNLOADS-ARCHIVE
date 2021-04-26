@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "your-ember-app-name",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": ".*", "dest": "/index.html" }
+  ]
+}

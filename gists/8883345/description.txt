@@ -1,0 +1,1 @@
+Sample MessageFormat JSON for testing messageformat.js output

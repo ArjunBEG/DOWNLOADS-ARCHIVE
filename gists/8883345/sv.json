@@ -1,0 +1,24 @@
+{
+"weekday_n": "{N, plural, =0{Söndag} =1{Måndag} =2{Tisdag} =3{Onsdag} =4{Torsdag} =5{Fredag} =6{Lördag} other{???}}",
+"month_n": "{N, plural, =0{januari} =1{februari} =2{mars} =3{april} =4{maj} =5{juni} =6{juli} =7{augusti} =8{september} =9{oktober} =10{november} =11{december} other{???}}",
+"time_diff":"{T} {T_UNIT, plural, =0{sekunder} =1{minuter} =2{timmar} =3{dagar} =4{veckor} =5{månader} =6{år} other{???}} {T_PAST, select, true{sedan} other{från nu}}",
+
+"just now":"just nu",
+"Expand all items":"Expandera alla punkter",
+"Collapse all items":"Minimera alla punkter",
+"Photo":"Bild",
+
+"no_id":"ID saknas! Ge konopas_set.id en unik identifierare.",
+"old_browser":"Tyvärr hanterar din webbläsare inte några av de JavaScript-funktioner som KonOpas behöver. Du behöver använda en annan webbläsare.",
+"private_mode":"Det verkar som du använder webbläsaren i privat läge, vilket stänger av den lokala lagringen (localStorage). Detta gör att KonOpas inte fungerar optimalt.",
+"next_ended":"Det finns inga fler planerade programpunkter.",
+"next_start":"Nästa programpunkt börjar om {H, plural, =0{} one{en timme och} other{# timmar och}} {M, plural, one{en minut} other{# minuter}} efter den angivna tiden.",
+"star_export":"<p>Dina aktuella stjärnmarkeringar är lagrade i <a href=\"{THIS}\" target=\"_blank\">adressen till denna sida</a>, som du kan öppna på en annan plats och dela med dig av.<p>Dela enklare med en <a href=\"{SHORT}\">kortare länk</a> eller en <a href=\"{QR}\">QR-kod</a>.",
+"star_import":"<p>Dina tidigare stjärnmarkerade punkter har ett markerat innanmäte, medan de som importerats via <a href=\"{THIS}\">denna länk</a> har en markerad kant.<p>Din tidigare markering {PREV, plural, =0{var tom} one{innehöll en punkt} other{hade # punkter}}, och den importerade markeringen har {NEW, plural, =0{inga nya punkter} one{en ny punkt} other{# nya punkter}} {SAME, plural, =0{} one{och en som redan var markerad} other{och # som redan var markerade}}. {BAD, plural, =0{} one{En av de importerade punkterna hade ett ogiltiga ID.} other{# av de importerade punkterna hade ogiltiga IDs.}}",
+"star_set":"Ändra mina markeringar till de importerade markeringarna</a>",
+"star_add":"Lägg till {N, plural, one{ny punkt} other{# nya punkter}} till min markering</a>",
+"star_export_link":"<a href=\"{URL}\">Exportera markering</a> ({N, plural, one{en punkt} other{# punkter}})",
+"star_hint":"<p>”Stjärnmarkera” en programpunkt genom att klocka på den grå fyrkanten bredvid den. Dina markeringar lagras och visas i denna vy. Du har inte markerat några programpunkter än, så listan är för närvarande tom.",
+"filter_sum_id":"Visar {N, plural, one{en punkt: <a href=\"{URL}\">{TITLE}</a>} other{# punkter med id <a href=\"{URL}\">{ID}</a>}}",
+"filter_sum":"Visar {ALL, select, true{<b>alla</b>} other{}} {N, plural, one{en {TAG} punkt} other{# {TAG} punkter}} {GOT_DAY, select, true{på <b>{DAY}</b>} other{}} {GOT_AREA, select, true{i <b>{AREA}</b>} other{}} {GOT_Q, select, true{stämmer med sökningen <b>{Q}</b>} other{}}"
+}

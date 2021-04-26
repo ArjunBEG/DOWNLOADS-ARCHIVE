@@ -1,0 +1,1 @@
+An attempt to document common WordPress comment class="…" names.

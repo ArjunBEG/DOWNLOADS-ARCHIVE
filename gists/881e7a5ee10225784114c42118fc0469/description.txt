@@ -1,0 +1,1 @@
+Jest config for testing with Gatsby & SVG files.

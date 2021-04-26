@@ -1,0 +1,1 @@
+Sending a notification message to Telegram using its HTTP API via cURL
