@@ -1,0 +1,1 @@
+A simple snowpack plugin for generating a .d.ts file for paths inside an asset folder

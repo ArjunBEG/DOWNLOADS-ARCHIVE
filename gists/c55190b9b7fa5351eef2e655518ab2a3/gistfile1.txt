@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+
+struct Prop
+{
+    public string name;
+    public int next;
+}
+
+class Test
+{
+    Prop[] props;
+    Dictionary<string, int> dict;
+    public IEnumerable<string> Enumerate()
+    {
+        foreach (int i in dict.Values)
+        {
+            // CS8176: Iterators cannot have by-reference locals
+            ref var p = ref props[i];
+            int next = p.next;
+            yield return p.name;
+            while (next >= 0)
+            {
+                p = ref props[next];
+                next = p.next;
+                yield return p.name;
+            }
+        }
+    }
+}
