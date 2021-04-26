@@ -1,0 +1,32 @@
+makeFunctionWithMiddleware = (originalFunction) ->
+  _allFunctions = [originalFunction]
+  middleWearableFunction = ->
+    _allFunctions[0].apply null, arguments
+  middleWearableFunction.use = ([criteria]..., middleware) ->
+    nextFunction = _allFunctions[0]
+    decoratedMiddleWare = (args...) ->
+      if criteria and not criteria.apply(null, args)
+        nextFunction.apply null, args
+      else
+        middleware.apply null, args.concat nextFunction
+    _allFunctions.unshift decoratedMiddleWare
+  middleWearableFunction
+
+fakeHttpFunction = (request, response) ->
+  console.log 'got request', request.path
+
+fakeHttpFunction = makeFunctionWithMiddleware fakeHttpFunction
+
+fakeHttpFunction.use(
+  (request) ->
+    request.path.indexOf('/profile') > -1
+  (request, response, next) ->
+    if request.header is 'authorized'
+      next request, response
+    else
+      console.log 'unauthorized'
+)
+
+fakeHttpFunction {path: '/'}, {}
+fakeHttpFunction {path: '/profile'}, {}
+fakeHttpFunction {path: '/profile', header: 'authorized'}, {}

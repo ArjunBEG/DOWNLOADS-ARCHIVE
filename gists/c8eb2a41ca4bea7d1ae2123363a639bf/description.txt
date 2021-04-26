@@ -1,0 +1,1 @@
+Minimal code to create a benchmarks with terminal styling to show real-time progress while benchmarks are running.

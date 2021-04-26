@@ -1,0 +1,1 @@
+Redux Indexed List Reducer Generator

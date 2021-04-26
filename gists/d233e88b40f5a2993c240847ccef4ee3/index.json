@@ -1,0 +1,62 @@
+[
+    {
+        "name": "web-framework",
+        "description": "Transforms a given application state into an HTML or DOM representation. Additionally, it is also often concerned with request routing, data fetching and persistence, change propagation, input validation, user session management and build optimizations."
+    },
+    {
+        "name": "testing-framework",
+        "description": "Provides a CLI and an API to run software tests and report results."
+    },
+    {
+        "name": "other-framework",
+        "description": "Provides conventions, an API and often a CLI to accomplish a coherent set of tasks."
+    },
+    {
+        "name": "component-library",
+        "description": "Provides a collection of ready-to-use JavaScript implementations for user interface components."
+    },
+    {
+        "name": "dom-library",
+        "description": "Simplifies and unifies DOM access across different browsers."
+    },
+    {
+        "name": "templating-library",
+        "description": "Transforms a template language and concrete values into an HTML string or a DOM node."
+    },
+    {
+        "name": "css-library",
+        "description": "Provides a collection of ready-to-use CSS implementations for document layout and user interface components."
+    },
+    {
+        "name": "data-library",
+        "description": "Provides a set of conventions and an API to create and edit generic data collections. It is also often concerned with propagating changes through the application."
+    },
+    {
+        "name": "routing-library",
+        "description": "Simplifies and unifies control flow for URL requests based on URL templates."
+    },
+    {
+        "name": "other-library",
+        "description": "Any other module that serves a specific purpose."
+    },
+    {
+        "name": "build-tool",
+        "description": "Transforms and optimizes application code for development and production use."
+    },
+    {
+        "name": "linter",
+        "description": "Uses static analysis to find code issues."
+    },
+    {
+        "name": "package-manager",
+        "description": "Installs and builds modules from a module registry."
+    },
+    {
+        "name": "boilerplate",
+        "description": "Provides ready-to-use project setups and code snippets."
+    },
+    {
+        "name": "other",
+        "description": "Any other project that does not fit into these categories."
+    }
+]

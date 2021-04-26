@@ -1,0 +1,1 @@
+Simple, cross-platform way to open the browser upon starting an app.

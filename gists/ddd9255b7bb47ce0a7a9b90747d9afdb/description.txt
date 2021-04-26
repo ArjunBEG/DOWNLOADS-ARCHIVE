@@ -1,0 +1,1 @@
+UnionToInterface - fixed UnionToIntersection for ts 3.9

@@ -1,0 +1,1 @@
+Drop-in replacement for React Router <Link> that works with React Redux optimizations (https://github.com/reactjs/react-router/issues/470)

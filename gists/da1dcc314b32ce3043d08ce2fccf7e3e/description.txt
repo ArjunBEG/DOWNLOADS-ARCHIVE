@@ -1,0 +1,1 @@
+Old vs new Svelte store

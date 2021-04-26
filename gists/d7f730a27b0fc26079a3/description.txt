@@ -1,0 +1,1 @@
+BEM class name generator curring – b_.with

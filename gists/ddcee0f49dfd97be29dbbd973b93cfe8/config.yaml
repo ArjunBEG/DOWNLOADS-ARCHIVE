@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+
+    App\TwigExtension:
+        public: false
+        tags: [twig.extension]
+
+    App\Command\DocUpdateCommand:
+        tags: [console.command]
+
+    App\Command\ContributorsUpdateCommand:
+        tags: [console.command]
+
+    App\Doc:
+        tags:
+            - { name: twig.runtime, id: "App\\TwigExtension" }
+
+    App\Controllers: ~

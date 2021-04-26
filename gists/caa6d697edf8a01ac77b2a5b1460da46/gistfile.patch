@@ -1,0 +1,108 @@
+stash@{0}: WIP on eresolve-conflict-meta-peer-optional-vs-meta-peer: 0172e29 Detect conflicts among nested peerOptional deps
+
+diff --git a/lib/arborist/build-ideal-tree.js b/lib/arborist/build-ideal-tree.js
+index 6e09a5e..874f639 100644
+--- a/lib/arborist/build-ideal-tree.js
++++ b/lib/arborist/build-ideal-tree.js
+@@ -632,7 +632,7 @@ This is a one-time fix-up, please be patient...
+     this.addTracker('idealTree:inflate')
+     const queue = []
+     for (const node of inventory.values()) {
+-      if (node.isRoot)
++      if (node.isProjectRoot)
+         continue
+ 
+       queue.push(async () => {
+@@ -878,7 +878,7 @@ This is a one-time fix-up, please be patient...
+         // instead of nesting forever, when the loop occurs, create
+         // a symbolic link to the earlier instance
+         for (let p = edge.from.resolveParent; p; p = p.resolveParent) {
+-          if (p.matches(node) && !p.isRoot)
++          if (p.matches(node) && !p.isTop)
+             return new Link({ parent: realParent, target: p })
+         }
+         // keep track of the thing that caused this node to be included.
+@@ -913,7 +913,7 @@ This is a one-time fix-up, please be patient...
+ 
+     // also skip over any nodes in the tree that failed to load, since those
+     // will crash the install later on anyway.
+-    const bd = node.isRoot ? null : node.package.bundleDependencies
++    const bd = node.isProjectRoot ? null : node.package.bundleDependencies
+     const bundled = new Set(bd || [])
+ 
+     return [...node.edgesOut.values()]
+@@ -950,7 +950,7 @@ This is a one-time fix-up, please be patient...
+           return true
+ 
+         // If the user has explicitly asked to install this package, it's a problem.
+-        if (node.isRoot && this[_explicitRequests].has(edge.name))
++        if (node.isProjectRoot && this[_explicitRequests].has(edge.name))
+           return true
+ 
+         // No problems!
+@@ -1043,8 +1043,8 @@ This is a one-time fix-up, please be patient...
+         continue
+ 
+       const parentEdge = node.parent.edgesOut.get(edge.name)
+-      const {isRoot, isWorkspace} = node.parent.sourceReference
+-      const isMine = isRoot || isWorkspace
++      const {isProjectRoot, isWorkspace} = node.parent.sourceReference
++      const isMine = isProjectRoot || isWorkspace
+       if (!edge.to) {
+         if (!parentEdge) {
+           // easy, just put the thing there
+@@ -1129,7 +1129,7 @@ This is a one-time fix-up, please be patient...
+     // top nodes should still get peer deps from their fsParent if possible,
+     // and only install locally if there's no other option, eg for a link
+     // outside of the project root, or for a conflicted dep.
+-    const start = edge.peer && !node.isRoot ? node.resolveParent || node
++    const start = edge.peer && !node.isProjectRoot ? node.resolveParent || node
+       : node
+ 
+     let target
+@@ -1379,8 +1379,8 @@ This is a one-time fix-up, please be patient...
+     // depends on a, and it has a conflict, it's our problem.  So, the root
+     // (or whatever is bringing in a) becomes the "effective source" for
+     // the purposes of this calculation.
+-    const { isRoot, isWorkspace } = isSource ? target : source || {}
+-    const isMine = isRoot || isWorkspace
++    const { isProjectRoot, isWorkspace } = isSource ? target : source || {}
++    const isMine = isProjectRoot || isWorkspace
+ 
+     // Useful testing thingie right here.
+     // peerEntryEdge should *always* be a non-peer dependency, or a peer
+diff --git a/lib/node.js b/lib/node.js
+index 83f9608..01147b9 100644
+--- a/lib/node.js
++++ b/lib/node.js
+@@ -464,6 +464,10 @@ class Node {
+     return this === this.root
+   }
+ 
++  get isProjectRoot () {
++    return this === this.root || this === this.root.target
++  }
++
+   set root (root) {
+     // setting to null means this is the new root
+     // should only ever be one step
+diff --git a/test/node.js b/test/node.js
+index 2391c21..522b354 100644
+--- a/test/node.js
++++ b/test/node.js
+@@ -2135,3 +2135,15 @@ t.test('printable Node', t => {
+   })
+   t.end()
+ })
++
++t.test('isProjectRoot shows if the node is the root link target', async t => {
++  const link = new Link({
++    path: '/link',
++    realpath: '/actual',
++  })
++  const n = new Node({ path: '/actual', root: link })
++  t.equal(n.isProjectRoot, true)
++  t.equal(link.isProjectRoot, true)
++  t.equal(link.isRoot, true)
++  t.equal(n.isRoot, false)
++})

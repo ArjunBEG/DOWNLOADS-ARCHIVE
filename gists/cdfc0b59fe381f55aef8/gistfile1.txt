@@ -1,0 +1,11 @@
+Let's start simple.
+
+Add your name, contact info (twitter) and a line or two describing where you're holding and what you're looking to get out of a pairing in the comments below.
+
+If you make a connection, come back and remove your comment.
+
+Over the course of a week (max) pledge each other one hour of code review.
+
+Throw some code in a gist or a repo, invite your partner and see what happens.
+
+Your equal is your superior in many ways, and you theirs.  Learn from each other.  

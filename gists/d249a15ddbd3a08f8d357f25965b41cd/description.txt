@@ -1,0 +1,1 @@
+Useful javascript util functions

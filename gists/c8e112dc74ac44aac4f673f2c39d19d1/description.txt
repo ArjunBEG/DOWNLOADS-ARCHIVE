@@ -1,0 +1,1 @@
+JSX version of LikeButton

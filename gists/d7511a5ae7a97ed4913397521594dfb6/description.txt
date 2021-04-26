@@ -1,0 +1,1 @@
+Github stars history of Ember. Compiled with https://github.com/jhnns/popular-javascript-projects

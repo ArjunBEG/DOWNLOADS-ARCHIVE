@@ -1,0 +1,180 @@
+/* Gray */
+
+@value gray-0: #f8f9fa;
+@value gray-1: #f1f3f5;
+@value gray-2: #e9ecef;
+@value gray-3: #dee2e6;
+@value gray-4: #ced4da;
+@value gray-5: #adb5bd;
+@value gray-6: #868e96;
+@value gray-7: #495057;
+@value gray-8: #343a40;
+@value gray-9: #212529;
+
+
+/* Red */
+
+@value red-0: #fff5f5;
+@value red-1: #ffe3e3;
+@value red-2: #ffc9c9;
+@value red-3: #ffa8a8;
+@value red-4: #ff8787;
+@value red-5: #ff6b6b;
+@value red-6: #fa5252;
+@value red-7: #f03e3e;
+@value red-8: #e03131;
+@value red-9: #c92a2a;
+
+
+/* Pink */
+
+@value pink-0: #fff0f6;
+@value pink-1: #ffdeeb;
+@value pink-2: #fcc2d7;
+@value pink-3: #faa2c1;
+@value pink-4: #f783ac;
+@value pink-5: #f06595;
+@value pink-6: #e64980;
+@value pink-7: #d6336c;
+@value pink-8: #c2255c;
+@value pink-9: #a61e4d;
+
+
+/* Grape */
+
+@value grape-0: #f8f0fc;
+@value grape-1: #f3d9fa;
+@value grape-2: #eebefa;
+@value grape-3: #e599f7;
+@value grape-4: #da77f2;
+@value grape-5: #cc5de8;
+@value grape-6: #be4bdb;
+@value grape-7: #ae3ec9;
+@value grape-8: #9c36b5;
+@value grape-9: #862e9c;
+
+
+/* Violet */
+
+@value violet-0: #f3f0ff;
+@value violet-1: #e5dbff;
+@value violet-2: #d0bfff;
+@value violet-3: #b197fc;
+@value violet-4: #9775fa;
+@value violet-5: #845ef7;
+@value violet-6: #7950f2;
+@value violet-7: #7048e8;
+@value violet-8: #6741d9;
+@value violet-9: #5f3dc4;
+
+
+/* Indigo */
+
+@value indigo-0: #edf2ff;
+@value indigo-1: #dbe4ff;
+@value indigo-2: #bac8ff;
+@value indigo-3: #91a7ff;
+@value indigo-4: #748ffc;
+@value indigo-5: #5c7cfa;
+@value indigo-6: #4c6ef5;
+@value indigo-7: #4263eb;
+@value indigo-8: #3b5bdb;
+@value indigo-9: #364fc7;
+
+
+/* Blue */
+
+@value blue-0: #e8f7ff;
+@value blue-1: #ccedff;
+@value blue-2: #a3daff;
+@value blue-3: #72c3fc;
+@value blue-4: #4dadf7;
+@value blue-5: #329af0;
+@value blue-6: #228ae6;
+@value blue-7: #1c7cd6;
+@value blue-8: #1b6ec2;
+@value blue-9: #1862ab;
+
+
+/* Cyan */
+
+@value cyan-0: #e3fafc;
+@value cyan-1: #c5f6fa;
+@value cyan-2: #99e9f2;
+@value cyan-3: #66d9e8;
+@value cyan-4: #3bc9db;
+@value cyan-5: #22b8cf;
+@value cyan-6: #15aabf;
+@value cyan-7: #1098ad;
+@value cyan-8: #0c8599;
+@value cyan-9: #0b7285;
+
+
+/* Teal */
+
+@value teal-0: #e6fcf5;
+@value teal-1: #c3fae8;
+@value teal-2: #96f2d7;
+@value teal-3: #63e6be;
+@value teal-4: #38d9a9;
+@value teal-5: #20c997;
+@value teal-6: #12b886;
+@value teal-7: #0ca678;
+@value teal-8: #099268;
+@value teal-9: #087f5b;
+
+
+/* Green */
+
+@value green-0: #ebfbee;
+@value green-1: #d3f9d8;
+@value green-2: #b2f2bb;
+@value green-3: #8ce99a;
+@value green-4: #69db7c;
+@value green-5: #51cf66;
+@value green-6: #40c057;
+@value green-7: #37b24d;
+@value green-8: #2f9e44;
+@value green-9: #2b8a3e;
+
+
+/* Lime */
+
+@value lime-0: #f4fce3;
+@value lime-1: #e9fac8;
+@value lime-2: #d8f5a2;
+@value lime-3: #c0eb75;
+@value lime-4: #a9e34b;
+@value lime-5: #94d82d;
+@value lime-6: #82c91e;
+@value lime-7: #74b816;
+@value lime-8: #66a80f;
+@value lime-9: #5c940d;
+
+
+/* Yellow */
+
+@value yellow-0: #fff9db;
+@value yellow-1: #fff3bf;
+@value yellow-2: #ffec99;
+@value yellow-3: #ffe066;
+@value yellow-4: #ffd43b;
+@value yellow-5: #fcc419;
+@value yellow-6: #fab005;
+@value yellow-7: #f59f00;
+@value yellow-8: #f08c00;
+@value yellow-9: #e67700;
+
+
+/* Orange */
+
+@value orange-0: #fff4e6;
+@value orange-1: #ffe8cc;
+@value orange-2: #ffd8a8;
+@value orange-3: #ffc078;
+@value orange-4: #ffa94d;
+@value orange-5: #ff922b;
+@value orange-6: #fd7e14;
+@value orange-7: #f76707;
+@value orange-8: #e8590c;
+@value orange-9: #d9480f;

@@ -1,0 +1,1 @@
+Load your SSH key from USB stick. Forked from http://tammersaleh.com/posts/building-an-encrypted-usb-drive-for-your-ssh-keys-in-os-x/
