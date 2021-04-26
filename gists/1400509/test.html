@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<title>Foo</title>
+<div>Expected value: <b>1,1,1,0,1,1,1</b></div>
+<div>Actual value: <b id="ret"></b></div>
+<script>
+
+  var tm = function(a,b,c,d,e){while(d<c)with(a[d][b[e|=0]||"B"])b[e]=w,e+=m,d=n;return b};
+
+  var program = {"q0": {"1": {"w": "B", "m": 1, "n": "q1"}},
+ "q1": {"1": {"w": "1", "m": 1, "n": "q1"},
+        "0": {"w": "0", "m": 1, "n": "q2"},
+        "B": {"w": "0", "m": 1, "n": "q2"}},
+ "q2": {"1": {"w": "1", "m": 1, "n": "q2"},
+        "B": {"w": "1", "m": -1, "n": "q3"}},
+ "q3": {"1": {"w": "1", "m": -1, "n": "q3"},
+        "0": {"w": "0", "m": -1, "n": "q3"},
+        "B": {"w": "1", "m": 1, "n": "q4"}},
+ "q4": {"1": {"w": "B", "m": 1, "n": "q1"},
+        "0": {"w": "0", "m": 1, "n": "q5"}}};
+
+  var tape = [1,1,1];
+  
+  document.getElementById("ret").innerHTML = tm(program, tape, "q5", "q0", 0);
+</script>

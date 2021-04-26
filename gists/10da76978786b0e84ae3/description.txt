@@ -1,0 +1,1 @@
+GNU make rules to release a new version of an npm project with a Github repo, resulting in an off-tree tagged release containing generated files. Includes checks to make sure releases are only made from a clean working tree that matches the current Github HEAD of the project. License: ISC.

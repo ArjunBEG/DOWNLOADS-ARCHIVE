@@ -1,0 +1,111 @@
+commit c4e3b7f8f68ee9dc5b3e3d8e1ffef34303d9a23f
+Author: isaacs <i@izs.me>
+Date:   Thu Dec 17 12:09:26 2020 -0800
+
+    x
+
+diff --git a/asdf/lib/a.js b/asdf/lib/a.js
+new file mode 100644
+index 0000000..73f9e1f
+--- /dev/null
++++ b/asdf/lib/a.js
+@@ -0,0 +1 @@
++module.exports = require('./b.js')
+diff --git a/asdf/lib/b.js b/asdf/lib/b.js
+new file mode 100644
+index 0000000..62e1ad1
+--- /dev/null
++++ b/asdf/lib/b.js
+@@ -0,0 +1,4 @@
++// const treport = require('treport')
++const util = require('util')
++const treport = require('treport')
++module.exports = require('./c.js')
+diff --git a/asdf/lib/c.js b/asdf/lib/c.js
+new file mode 100644
+index 0000000..ca4a587
+--- /dev/null
++++ b/asdf/lib/c.js
+@@ -0,0 +1 @@
++module.exports = () => 'REAL'
+diff --git a/asdf/main.js b/asdf/main.js
+new file mode 100644
+index 0000000..5cbdaea
+--- /dev/null
++++ b/asdf/main.js
+@@ -0,0 +1,6 @@
++const t = require('../')
++const a = t.mock('./lib/a.js', {
++  './lib/c.js': () => 'MOCKED',
++})
++
++t.equal(a(), 'MOCKED', 'should get mocked module')
+diff --git a/lib/mock.js b/lib/mock.js
+index 972f3e6..68cd294 100644
+--- a/lib/mock.js
++++ b/lib/mock.js
+@@ -1,9 +1,13 @@
+ const Module = require('module')
++const { isAbsolute, dirname, relative } = require('path')
++
++const { hasOwnProperty } = Object.prototype
++const has = (obj, key) => hasOwnProperty.call(obj, key)
+ 
+ class Mock {
+-  constructor(parentFilename, filename, mocks = {}) {
++  constructor(parentFilename, filename, mocks = {}, parent = null) {
+     this.filename = filename
+-    this.mocks = new Map()
++    this.mocks = Object.create(null)
+ 
+     if (!parentFilename || typeof parentFilename !== 'string') {
+       throw new TypeError('A parentFilename is required to resolve Mocks paths')
+@@ -19,21 +23,33 @@ are the same used in ${filename} require calls`)
+     }
+ 
+     const self = this
+-    const callerTestRef = Module._cache[parentFilename]
++    const callerTestRef = parent || Module._cache[parentFilename]
+     const filePath = Module._resolveFilename(filename, callerTestRef)
+ 
+     // populate mocks Map from resolved filenames
+     for (const key of Object.keys(mocks)) {
+       const mockFilePath = Module._resolveFilename(key, callerTestRef)
+-      this.mocks.set(mockFilePath, mocks[key])
++      this.mocks[mockFilePath] = mocks[key]
++    }
++
++    const {_load} = Module
++    Module._load = (request, parent, isMain) => {
++      const filename = Module._resolveFilename(request, parent, isMain)
++      const isOurs = isAbsolute(filename) &&
++        !/[\\/]node_modules[\\/]/.test(filename) &&
++        (parent instanceof MockedModule)
++      // this creates a stack overflow and slowness, by overwriting _load a lot
++      // should not do Mock.get() should instead return new Mock(...).exports
++      return isOurs ? Mock.get(parent.filename, request, self.mocks, parent)
++        : _load(request, parent, isMain)
+     }
+ 
+     class MockedModule extends Module {
+       require (id) {
+         const requiredFilePath = Module._resolveFilename(id, this)
+ 
+-        if (self.mocks.has(requiredFilePath))
+-          return self.mocks.get(requiredFilePath)
++        if (has(self.mocks, requiredFilePath))
++          return self.mocks[requiredFilePath]
+ 
+         return super.require(id)
+       }
+@@ -43,8 +59,8 @@ are the same used in ${filename} require calls`)
+     this.module.load(filePath)
+   }
+ 
+-  static get(parentFilename, filename, mocks) {
+-    const mock = new Mock(parentFilename, filename, mocks)
++  static get(parentFilename, filename, mocks, parent) {
++    const mock = new Mock(parentFilename, filename, mocks, parent)
+     return mock.module.exports
+   }
+ }

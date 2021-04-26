@@ -1,0 +1,12 @@
+Thanks for your submission! The [ryanb/cancan][] repository has been inactive since Sep 06, 2013.
+Since only Ryan himself has commit permissions, the CanCan project is on a standstill.
+
+CanCan has many open issues, including missing support for Rails 4. To keep CanCan alive, an active fork exists at **[cancancommunity/cancancan][]**. The new gem is [cancancan][]. More info is available at #994.
+
+It would be really appreciated if you resubmit your pull request or issue to [CanCanCan][cancancommunity/cancancan].
+
+We hope to see you on the other side!
+
+[ryanb/cancan]: https://github.com/ryanb/cancan
+[cancancommunity/cancancan]: https://github.com/cancancommunity/cancancan
+[cancancan]: https://rubygems.org/gems/cancancan

@@ -1,0 +1,78 @@
+### Keybase proof
+
+I hereby claim:
+
+  * I am ashtom on github.
+  * I am ashtom (https://keybase.io/ashtom) on keybase.
+  * I have a public key whose fingerprint is E34B 112A 5FA7 D46A 7455  9E11 6E71 8750 737E 08F6
+
+To claim this, I am signing this object:
+
+```json
+{
+    "body": {
+        "key": {
+            "fingerprint": "e34b112a5fa7d46a74559e116e718750737e08f6",
+            "host": "keybase.io",
+            "key_id": "6E718750737E08F6",
+            "uid": "aa33f8dd1fcc556c8268f1b35fe63900",
+            "username": "ashtom"
+        },
+        "service": {
+            "name": "github",
+            "username": "ashtom"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1397210708,
+    "expire_in": 157680000,
+    "prev": "8f1659622c282d872b555ef4512669856f6cb67dc2189c5fc2d6e363f6ff3e5d",
+    "seqno": 3,
+    "tag": "signature"
+}
+```
+
+with the PGP key whose fingerprint is
+[E34B 112A 5FA7 D46A 7455  9E11 6E71 8750 737E 08F6](https://keybase.io/ashtom)
+(captured above as `body.key.fingerprint`), yielding the PGP signature:
+
+```
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.19 (Darwin)
+Comment: GPGTools - http://gpgtools.org
+
+owF1kT9oFEEUxjdGJR4aTIpUajGNCofuzNz82QVBi9OUgtrmmD9v7oaQ3cvu3mmI
+SWs6xSJtsLBOGUEQsVGwUVAkpLDRNGKbSsGZEO2c5jHf+30f7/GenJlMWjPF8qPb
+9frUwcT71/s6uXPr1d1VpEu7gvJVtAiHxfmiD9Ww8kWDcgS0ozEmijklbIcr0WEs
+A4w5CCwFSwUVkErHURsNyjo6QoxWNVzxZdDCp+dtUHn3H99N5c3Ijw4bSlHqpLXY
+GcMYN5Jw6bCmzAGnWZpGsIaqUEsQ6XrQlEtorY2CNvYG4sRHvb5vBiP9P75ZGUbh
+PujekbWnfWHDssExhqr2ZYFyHEjT+OjFNBMEpyKVbQQPhr6Cno8EE1ym4bXRsIJx
+iAzjcpZxQgyRxEpBNGMMXIdhwnkmGXfcaC6sIVhmhjlDLAfKqePOUWAWxWWWixLl
+NIyp+iGy9v1CNaMK0NrGwvFkppWcPHEsXitpnTr794ZTu8mv6Yfz13fmu2+frx9s
+VJsvZvOv9y6R789eLuy0x/vbu3vJ73M3Pk1s73252kx+/jj74/y0uvb44umfF759
+ePd0cWvu8ps/
+=wjls
+-----END PGP MESSAGE-----
+
+```
+
+And finally, I am proving ownership of the github account by posting this as a gist.
+
+### My publicly-auditable identity:
+
+https://keybase.io/ashtom
+
+### From the command line:
+
+Consider the [keybase command line program](https://keybase.io/__/command_line/keybase).
+
+```bash
+# look me up
+keybase id ashtom
+
+# encrypt a message to me
+keybase encrypt ashtom -m 'a secret message...'
+
+# ...and more...
+```

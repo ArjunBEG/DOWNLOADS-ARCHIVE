@@ -1,0 +1,13 @@
+## File Structure
+
+|
++-- build - will contain the result
+|
++-- source
+|  |
+|  +-- components - bower components (remember to configure this in .bower_rc)
+|  +-- css - scss source files
+|  +-- js - js source files - will be added in alphabetical order
+|
++-- gulpfile.js
++-- package.json

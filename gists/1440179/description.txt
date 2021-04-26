@@ -1,0 +1,1 @@
+Standard Redis Conf with Authentication

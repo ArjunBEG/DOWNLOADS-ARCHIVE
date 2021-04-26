@@ -1,0 +1,1 @@
+Show a growl notification every minute if battery is below threshold

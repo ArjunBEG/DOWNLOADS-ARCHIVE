@@ -1,0 +1,29 @@
+DOM API
+
+https://github.com/microsoft/TSJS-lib-generator/pull/802
+
+Fixes: 
+ - Can they show code which uses this API as shown?
+ - Does the code appear to be low impact?
+   - For a high impact change, is the value worth it - this should probably only for nullability or number to number | string 
+ - Can we add a script to run a bot with latest lib DTS over on the TypeScript side - ask wes for feasibility for user tests
+
+Adding:
+  - Should show in browser-compat-data
+  - Multiple implementations (e.g. two of Chrome, Safari, Firefox)
+  - Does it show as https://www.w3.org/TR/
+  - If it's a huge change, we should consider if it'll be used by many - because it slows people's compiles
+  - Consider a global string union which has common values like "left" | "right" - it could get type aliased to something globally
+
+  
+  
+  Ready? 
+   - Is it in IDL? (You might have to manually look up in WHATWG) - needs an explaination if there isn't an IDL
+
+Removing: 
+
+ - When was the feature deprecated? 
+ - 2 year deprecation  for vendor prefixes
+ - Can we find any up-to-date info on the property/field
+ - Does it show up in https://github.com/mdn/browser-compat-data
+ - Still in old versions
