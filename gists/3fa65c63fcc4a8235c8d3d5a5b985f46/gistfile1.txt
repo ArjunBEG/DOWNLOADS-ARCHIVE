@@ -1,0 +1,30 @@
+using System;
+using Newtonsoft.Json;
+
+public class Item
+{
+    public string Name { get; set; }
+    
+    public DateTime Date { get; set; }
+}
+
+class Test
+{
+    static void Main()
+    {
+        JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+        {
+            DateFormatString = "dd'/'MM'/'yyyy' 'HH':'mm"
+        };
+        
+        string json = @"
+        {
+            'Name': 'Test',
+            'Date': '13/02/2019 05:13'
+        }".Replace('\'', '"');
+        
+        var item = JsonConvert.DeserializeObject<Item>(json);
+        Console.WriteLine(item.Name);
+        Console.WriteLine(item.Date);
+    }
+}

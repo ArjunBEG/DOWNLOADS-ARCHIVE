@@ -1,0 +1,51 @@
+var Request = require('express/request').Request,
+    deflate = require('./support/deflate').deflate,
+statusBodies = require('http').STATUS_CODES,
+gzipTest = /gzip/,
+
+_long = function(n) {
+  return String.fromCharCode(n & 0xFF)
+       + String.fromCharCode(n >> 8 & 0xFF)
+       + String.fromCharCode(n >> 16 & 0xFF)
+       + String.fromCharCode(n >> 24 & 0xFF);
+};
+
+exports.Gzip = Plugin.extend({
+
+  extend: {
+    init: function(){
+      var node_compress, oldRespond = Request.prototype.respond
+      try {
+        node_compress = require('compress')
+      } catch(e){
+        node_compress = null
+      }
+      
+      Request.include({
+        
+        respond: function(code, body, encoding, callback) {
+          var self = this, gzip, level = set('gzip compression level') || 4
+          if (set('gzip output') && gzipTest.test(this.header('accept-encoding')) && body && typeof body == 'string'){
+            this.header('Content-Encoding', 'gzip')
+            encoding = 'binary'
+            if (node_compress){
+              gzip = new node_compress.Gzip
+              gzip.init(level)
+              body = gzip.deflate(body, 'binary') + gzip.end()
+            } else {
+              // per RFC 1952 http://tools.ietf.org/html/rfc1952
+              // var size = body.length, crc = crc32(body);
+              body = '\u001f\u008b\u0008\u0000' + _long(+new Date) + '\u0000\u0003' // |ID1|ID2|CM|FLG|MTIME|XFL|OS|
+                    + deflate(body, level) // compressed blocks
+                    // + _long(crc) + _long(size); // |CRC32|ISIZE|
+            }
+          }
+          oldRespond.apply(this, [code, body, encoding, callback])
+        }
+        
+      });
+      
+    }
+  }
+  
+});
