@@ -1,0 +1,1 @@
+illustrating the hook/stale-closure problem

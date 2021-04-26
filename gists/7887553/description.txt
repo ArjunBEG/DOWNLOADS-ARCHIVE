@@ -1,0 +1,4 @@
+Displays pull requests labels on Github.
+
+Change 'YOU_API_TOKEN' to a Github token or remove the query parameter altogether (but you will run out of calls very fast).
+

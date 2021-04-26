@@ -1,0 +1,1 @@
+Simple example to scrape some posts and put into a CSV file using Node & Cheerio

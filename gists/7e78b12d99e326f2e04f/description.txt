@@ -1,0 +1,1 @@
+babelc options removed in babel 6

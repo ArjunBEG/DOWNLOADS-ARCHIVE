@@ -1,0 +1,1 @@
+Check "Do Not Track" Client Hint

@@ -1,0 +1,5 @@
+{
+  "plugins": ["./async-arrow"],
+  "whitelist": ["es7.asyncFunctions"],
+  "stage": 0
+}

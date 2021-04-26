@@ -1,0 +1,1 @@
+Simple way to open a file or directory in a text editor or file manager, whichever is resolved first.

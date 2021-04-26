@@ -1,0 +1,30 @@
+const t = require('tap')
+const fs = require('fs')
+
+t.test('read a file that not exists', t => {
+  fs.readFile('this does not exist', er => {
+    throw er
+  })
+})
+
+/*
+TAP version 13
+# Subtest: read a file that not exists
+    not ok 1 - ENOENT: no such file or directory, open 'this does not exist'
+      ---
+      errno: -2
+      code: ENOENT
+      syscall: open
+      path: this does not exist
+      tapCaught: uncaughtException
+      test: read a file that not exists
+      ...
+    
+    1..1
+    # failed 1 test
+not ok 1 - read a file that not exists # time=15.637ms
+
+1..1
+# failed 1 test
+# time=19.673ms
+*/

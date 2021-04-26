@@ -1,0 +1,1 @@
+Git Post-Checkout Hook: Composer Install

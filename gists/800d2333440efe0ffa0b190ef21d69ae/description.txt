@@ -1,0 +1,1 @@
+merging defaults/settings objects with destructuring

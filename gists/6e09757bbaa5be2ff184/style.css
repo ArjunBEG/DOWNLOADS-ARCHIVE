@@ -1,0 +1,29 @@
+.container {
+  width: 300px;
+	height: 200px;
+	border: 2px solid;
+	margin: 20px auto;
+}
+
+.horizontal div {
+	text-align: center;
+	margin: 0 auto;
+	border: 2px solid red;
+}
+
+.vertical-horizontal {
+	position: relative;
+}
+
+.vertical-horizontal div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	height: 10%;
+	border: 2px solid red;
+}

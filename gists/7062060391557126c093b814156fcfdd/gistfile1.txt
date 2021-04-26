@@ -1,0 +1,28 @@
+abstract class Shape { /* code */ }
+class Circle extends Shape { /* code */ }
+class Rectangle extends Shape { /* code */ }
+class Square extends Rectangle { /* code */ }
+
+public class Shapes {
+
+    static void shapeInfo(Shape shape) {
+        if(shape instanceof Circle) {
+            System.out.println("Circle");
+        } else if(shape instanceof Square) {
+            System.out.println("Square");
+        } else if(shape instanceof Rectangle) {
+            System.out.println("Rectangle");
+        } else {
+            // some code
+        }
+    }
+
+    public static void main(String... args) {
+        Circle circle1 = new Circle();
+        Rectangle rectangle1 = new Rectangle();
+        Square square1 = new Square();
+        shapeInfo(circle1);
+        shapeInfo(rectangle1);
+        shapeInfo(square1);
+    }
+}

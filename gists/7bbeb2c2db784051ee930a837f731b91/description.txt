@@ -1,0 +1,1 @@
+Huawei Matebook x Pro PCI-Express 2 lane bandwidth limitations with eGPU

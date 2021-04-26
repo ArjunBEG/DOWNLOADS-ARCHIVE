@@ -1,0 +1,1 @@
+RFC to add types to the npm registry

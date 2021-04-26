@@ -1,0 +1,1 @@
+Cancellable wait -- an ES6 promise example

@@ -1,0 +1,166 @@
+diff --git a/lib/format.js b/lib/format.js
+index 79cad68..9c7b9eb 100644
+--- a/lib/format.js
++++ b/lib/format.js
+@@ -125,8 +125,12 @@ class Format {
+       case 'symbol':
+         return this.object.toString()
+ 
++      case 'bigint':
++        return this.object.toString() + 'n'
++
+       case 'string':
+         return this.string()
++
+       case 'boolean':
+       case 'number':
+         return JSON.stringify(this.object)
+diff --git a/lib/match.js b/lib/match.js
+index 8695e7e..ce8fca9 100644
+--- a/lib/match.js
++++ b/lib/match.js
+@@ -27,6 +27,7 @@ class Match extends Has {
+       : pattern === String ? typeof obj === 'string'
+       : pattern === Symbol ? typeof obj === 'symbol'
+       : pattern === Boolean ? typeof obj === 'boolean'
++      : pattern === global.BigInt ? typeof obj === 'bigint'
+       : pattern === Map ? this.isMap()
+       : pattern === Set ? this.isSet()
+       : pattern === Object ? obj && typeof obj === 'object'
+diff --git a/tap-snapshots/test-match.js-TAP.test.js b/tap-snapshots/test-match.js-TAP.test.js
+index ba8798e..130de07 100644
+--- a/tap-snapshots/test-match.js-TAP.test.js
++++ b/tap-snapshots/test-match.js-TAP.test.js
+@@ -512,6 +512,48 @@ exports[`test/match.js TAP should handle arguments > must match snapshot 3`] = `
+ 
+ `
+ 
++exports[`test/match.js TAP should handle bigints > must match snapshot 1`] = `
++--- expected
+++++ actual
++@@ -1,1 +1,1 @@
++-null
+++1n
++
++`
++
++exports[`test/match.js TAP should handle bigints > must match snapshot 2`] = `
++--- expected
+++++ actual
++@@ -1,1 +1,1 @@
++-undefined
+++1n
++
++`
++
++exports[`test/match.js TAP should handle bigints > must match snapshot 3`] = `
++--- expected
+++++ actual
++
++`
++
++exports[`test/match.js TAP should handle bigints > must match snapshot 4`] = `
++--- expected
+++++ actual
++
++`
++
++exports[`test/match.js TAP should handle bigints > must match snapshot 5`] = `
++--- expected
+++++ actual
++
++`
++
++exports[`test/match.js TAP should handle bigints > must match snapshot 6`] = `
++--- expected
+++++ actual
++
++`
++
+ exports[`test/match.js TAP should handle dates > must match snapshot 1`] = `
+ --- expected
+ +++ actual
+diff --git a/tap-snapshots/test-same.js-TAP.test.js b/tap-snapshots/test-same.js-TAP.test.js
+index c5d0c38..c9bce35 100644
+--- a/tap-snapshots/test-same.js-TAP.test.js
++++ b/tap-snapshots/test-same.js-TAP.test.js
+@@ -920,6 +920,27 @@ exports[`test/same.js TAP should handle arguments > must match snapshot 3`] = `
+ 
+ `
+ 
++exports[`test/same.js TAP should handle bigint > must match snapshot 1`] = `
++--- expected
+++++ actual
++
++`
++
++exports[`test/same.js TAP should handle bigint > must match snapshot 2`] = `
++--- expected
+++++ actual
++
++`
++
++exports[`test/same.js TAP should handle bigint > must match snapshot 3`] = `
++--- expected
+++++ actual
++@@ -1,1 +1,1 @@
++-2n
+++1n
++
++`
++
+ exports[`test/same.js TAP should handle dates > must match snapshot 1`] = `
+ --- expected
+ +++ actual
+diff --git a/test/format.js b/test/format.js
+index f52acb6..8369523 100644
+--- a/test/format.js
++++ b/test/format.js
+@@ -220,3 +220,8 @@ t.test('hidden props and getters', t => {
+   }).print(), 'all enumerable properties shown')
+   t.end()
+ })
++
++t.test('format BigInt', { skip: !global.BigInt ? 'no BigInt here' : false }, t => {
++  t.equal(new Format(BigInt('5')).print(), '5n')
++  t.end()
++})
+diff --git a/test/match.js b/test/match.js
+index ec2c8e7..02c8477 100644
+--- a/test/match.js
++++ b/test/match.js
+@@ -51,6 +51,16 @@ t.test('should handle dates', t => {
+   t.end()
+ })
+ 
++t.test('should handle bigints', t => {
++  t.notOk(match(t, BigInt('1'), null))
++  t.notOk(match(t, BigInt('1'), undefined))
++  t.ok(match(t, BigInt('1'), BigInt('1')))
++  t.ok(match(t, BigInt('1'), BigInt))
++  t.ok(match(t,{ x: BigInt('1') }, { x: BigInt('1') }))
++  t.ok(match(t,{ x: BigInt('1') }, { x: BigInt }))
++  t.end()
++})
++
+ t.test('should handle RegExps', t => {
+   t.notOk(match(t,/[b]/, /[a]/))
+   t.notOk(match(t,/[a]/i, /[a]/g))
+diff --git a/test/same.js b/test/same.js
+index 1be94fa..3102856 100644
+--- a/test/same.js
++++ b/test/same.js
+@@ -189,6 +189,13 @@ t.test('should handle arguments', function (t) {
+   t.end()
+ })
+ 
++t.test('should handle bigint', function (t) {
++  t.ok(same(t, BigInt('0'), BigInt('0')))
++  t.ok(same(t, BigInt('1'), BigInt('1')))
++  t.notOk(same(t, BigInt('1'), BigInt('2')))
++  t.end()
++})
++
+ t.test('same arrays match', function (t) {
+   t.ok(same(t,[1, 2, 3], [1, 2, 3]))
+   t.end()

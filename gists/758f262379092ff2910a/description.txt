@@ -1,0 +1,1 @@
+Trick for downloading AOE2 HD game data on Linux/Mac. Download file to ~/.steam/steam/SteamApps or ~/Library/Application Support/Steam/steamapps. Then restart Steam

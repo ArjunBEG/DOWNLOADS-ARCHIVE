@@ -1,0 +1,78 @@
+From d75113f7ce366c594250e915368cd73aabe197ec Mon Sep 17 00:00:00 2001
+From: isaacs <i@izs.me>
+Date: Fri, 26 Feb 2021 12:13:17 -0800
+Subject: [PATCH] x
+
+---
+ test/bin/windows-shims.js | 59 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+ create mode 100644 test/bin/windows-shims.js
+
+diff --git a/test/bin/windows-shims.js b/test/bin/windows-shims.js
+new file mode 100644
+index 000000000..7069449ae
+--- /dev/null
++++ b/test/bin/windows-shims.js
+@@ -0,0 +1,59 @@
++const t = require('tap')
++
++if (process.platform !== 'win32') {
++  t.plan(0, 'test only relevant on windows')
++  process.exit(0)
++}
++
++const has = path => {
++  try {
++    return statSync(path).isFile()
++  } catch (er) {
++    return false
++  }
++}
++
++const spawn = require('@npmcli/promise-spawn')
++const { resolve } = require('path')
++const { ProgramFiles, SystemRoot } = process.env
++const { linkSync } = require('fs')
++const gitBash = resolve(ProgramFiles, 'Git', 'bash.exe')
++const gitUsrBinBash = resolve(ProgramFiles, 'Git', 'usr', 'bin', 'bash.exe')
++const wslBash = resolve(SystemRoot, 'System32', 'bash.exe')
++const cygwinBash = resolve(SystemRoot, '/', 'cygwin64', 'bin', 'bash.exe')
++
++const bashes = Object.entries({
++  'wsl bash': wslBash,
++  'git bash': gitBash,
++  'git internal bash': gitUsrBinBash,
++  'cygwin bash': cygwinBash,
++})
++
++t.plan(bashes.length)
++
++const npmShim = resolve(__dirname, '../../bin/npm')
++const npxShim = resolve(__dirname, '../../bin/npx')
++
++const path = t.testdir({
++  // hardlinks just because they're faster than copying
++  'node.exe': t.fixture('link', process.execPath),
++  'npm': t.fixture('link', npmShim),
++  'npx': t.fixture('link', npxShim),
++  node_modules: {
++    npm: t.fixture('symlink', resolve(__dirname, '../..')),
++  },
++})
++
++for (const [name, bash] of bashes) {
++  if (!has(bash)) {
++    t.skip(`${name} not installed`, { bin: bash })
++    continue
++  }
++
++  t.test(name, async t => {
++    // only cygwin *requires* the -l, but the others are ok with it
++    const args = ['-l', 'npm']
++    const result = await spawn(bash, args, { cwd: path })
++    console.error(result)
++  })
++}
+-- 
+2.28.0
+

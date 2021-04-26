@@ -1,0 +1,23 @@
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(True and "pass")'
+10000000 loops, best of 3: 0.0512 usec per loop
+
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(True and "pass")'
+10000000 loops, best of 3: 0.049 usec per loop
+
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(True and "pass")'
+10000000 loops, best of 3: 0.0501 usec per loop
+
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(1 and "pass")'
+10000000 loops, best of 3: 0.0444 usec per loop
+
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(1 and "pass")'
+10000000 loops, best of 3: 0.042 usec per loop
+
+dcramer:buildbox in ~/Development/buildbox on git:master
+$ python -m timeit '(1 and "pass")'
+10000000 loops, best of 3: 0.0438 usec per loop

@@ -1,0 +1,129 @@
+--- /Users/hzhu/dev/babylon/lib/index.js (Selection)
++++ (clipboard)
+@@ -124,7 +124,7 @@
+   return options;
+ }
+ 
+-function _classCallCheck$2(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+ 
+ // ## Token types
+ 
+@@ -147,7 +147,7 @@
+ var TokenType = function TokenType(label) {
+   var conf = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 
+-  _classCallCheck$2(this, TokenType);
++  _classCallCheck(this, TokenType);
+ 
+   this.label = label;
+   this.keyword = conf.keyword;
+@@ -292,14 +292,14 @@
+ 
+ var nonASCIIwhitespace = /[\u1680\u180e\u2000-\u200a\u202f\u205f\u3000\ufeff]/;
+ 
+-function _classCallCheck$3(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ // The algorithm used to determine whether a regexp can appear at a
+ // given point in the program is loosely based on sweet.js' approach.
+ // See https://github.com/mozilla/sweet.js/wiki/design
+ 
+ var TokContext = function TokContext(token, isExpr, preserveSpace, override) {
+-  _classCallCheck$3(this, TokContext);
++  _classCallCheck(this, TokContext);
+ 
+   this.token = token;
+   this.isExpr = !!isExpr;
+@@ -385,20 +385,20 @@
+   this.state.exprAllowed = false;
+ };
+ 
+-function _classCallCheck$4(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ // These are used when `options.locations` is on, for the
+ // `startLoc` and `endLoc` properties.
+ 
+ var Position = function Position(line, col) {
+-  _classCallCheck$4(this, Position);
++  _classCallCheck(this, Position);
+ 
+   this.line = line;
+   this.column = col;
+ };
+ 
+ var SourceLocation = function SourceLocation(start, end) {
+-  _classCallCheck$4(this, SourceLocation);
++  _classCallCheck(this, SourceLocation);
+ 
+   this.start = start;
+   this.end = end;
+@@ -423,11 +423,11 @@
+   }
+ }
+ 
+-function _classCallCheck$5(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ var State = function () {
+   function State() {
+-    _classCallCheck$5(this, State);
++    _classCallCheck(this, State);
+   }
+ 
+   State.prototype.init = function init(options, input) {
+@@ -558,7 +558,7 @@
+   return State;
+ }();
+ 
+-function _classCallCheck$1(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ /* eslint indent: 0 */
+ 
+@@ -567,7 +567,7 @@
+ // used for the onToken callback and the external tokenizer.
+ 
+ var Token = function Token(state) {
+-  _classCallCheck$1(this, Token);
++  _classCallCheck(this, Token);
+ 
+   this.type = state.type;
+   this.value = state.value;
+@@ -589,7 +589,7 @@
+ 
+ var Tokenizer = function () {
+   function Tokenizer(options, input) {
+-    _classCallCheck$1(this, Tokenizer);
++    _classCallCheck(this, Tokenizer);
+ 
+     this.state = new State();
+     this.state.init(options, input);
+@@ -1426,7 +1426,7 @@
+   return Tokenizer;
+ }();
+ 
+-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+ 
+@@ -4140,7 +4140,7 @@
+   return this.finishNode(node, "YieldExpression");
+ };
+ 
+-function _classCallCheck$6(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
++
+ 
+ // Start an AST node, attaching a start offset.
+ 
+@@ -4149,7 +4149,7 @@
+ 
+ var Node = function () {
+   function Node(pos, loc, filename) {
+-    _classCallCheck$6(this, Node);
++    _classCallCheck(this, Node);
+ 
+     this.type = "";
+     this.start = pos;

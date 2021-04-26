@@ -1,0 +1,27 @@
+Results are in ms.
+
+Internal Benchmarks (simple)
+-------------------
+
+LEXER    0.130ms
+PARSER   0.126ms
+COMPILER 0.070ms
+
+Evaluation Benchmarks (simple)
+---------------------
+
+EVAL 0.039ms (from string expression)
+EVAL 0.056ms (from serialized expression)
+
+Internal Benchmarks (complex)
+-------------------
+
+LEXER    0.309ms
+PARSER   0.290ms
+COMPILER 0.137ms
+
+Evaluation Benchmarks (complex)
+---------------------
+
+EVAL 0.634ms (from string expression)
+EVAL 0.070ms (from serialized expression)

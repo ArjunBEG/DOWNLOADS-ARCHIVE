@@ -1,0 +1,23 @@
+diff --git a/lib/arborist/load-actual.js b/lib/arborist/load-actual.js
+index abf39e5..ae58ae4 100644
+--- a/lib/arborist/load-actual.js
++++ b/lib/arborist/load-actual.js
+@@ -162,6 +162,18 @@ module.exports = cls => class ActualLoader extends cls {
+     this[_transplant](root)
+ 
+     await this[_loadWorkspaces](this[_actualTree])
++    if (this[_global]) {
++      // need to depend on the children, or else all of them
++      // will end up being flagged as extraneous, since the
++      // global root isn't a "real" project
++      const tree = this[_actualTree]
++      const actualRoot = tree.isLink ? tree.target : tree
++      const { dependencies = {} } = actualRoot.package
++      for (const name of actualRoot.children.keys()) {
++        dependencies[name] = dependencies[name] || '*'
++      }
++      actualRoot.package = { ...actualRoot.package, dependencies }
++    }
+     // only reset root flags if we're not re-rooting, otherwise leave as-is
+     calcDepFlags(this[_actualTree], !root)
+     return this[_actualTree]

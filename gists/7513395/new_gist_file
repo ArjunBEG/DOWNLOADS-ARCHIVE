@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+# Allows us to read user input below, assigns stdin to keyboard
+exec < /dev/tty
+
+while true; do
+    read -p "Run Composer install? [Y/n]: " yn
+    case $yn in
+        [Yy]* ) composer install;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

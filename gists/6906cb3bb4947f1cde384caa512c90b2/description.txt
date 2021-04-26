@@ -1,0 +1,1 @@
+WordPress updates inject new/different markup and CSS. This attempts to "fix" it.

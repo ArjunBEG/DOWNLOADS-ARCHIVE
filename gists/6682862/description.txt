@@ -1,0 +1,1 @@
+TIL use 'while 1' instead of 'while True'

@@ -1,0 +1,1 @@
+Generate all permutations of an array. Alternative to the many variants of heap's algorithm I keep finding on the interweb. Every single algorithm I found produced incorrect results. This one is correct. 

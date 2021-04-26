@@ -1,0 +1,16 @@
+# supervisor
+
+[sentry]
+numprocs=10
+command=uwsgi --addr=0.0.0.0:90%(process_num)02d
+
+# when you restart it does them in batches, instead of one at a time
+$ sudo supervisorctl restart sentry
+
+- stops all 10 procs
+- starts all 10 procs
+
+# I want it to do
+
+- stop one proc, start one proc
+- rinse and repeat
